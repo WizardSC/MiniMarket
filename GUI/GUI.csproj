@@ -64,6 +64,9 @@
     <Compile Include="KhachHangGUI.Designer.cs">
       <DependentUpon>KhachHangGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyCustom\RJButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GiaoDienGUI.resx">
@@ -80,6 +83,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -103,6 +107,18 @@
       <Project>{9703605c-78bf-44a5-9353-50d9d2c35ab1}</Project>
       <Name>DTO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\image\icons8-close-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\image\icons8-horizontal-line-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\image\icons8-minimize-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\image\icons8-minimize-32 %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
