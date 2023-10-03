@@ -120,5 +120,11 @@
   <ItemGroup>
     <None Include="resources\image\icons8-minimize-32 %281%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\image\icons8-toggle-full-screen-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\image\placeholder-image.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
