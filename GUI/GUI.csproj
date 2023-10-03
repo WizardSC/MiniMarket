@@ -52,6 +52,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GiaoDienGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoDienGUI.Designer.cs">
+      <DependentUpon>GiaoDienGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="KhachHangGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GiaoDienGUI.resx">
+      <DependentUpon>GiaoDienGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KhachHangGUI.resx">
+      <DependentUpon>KhachHangGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -83,9 +95,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BUS\BUS.csproj">
+    <ProjectReference Include="..\BUS\BLL.csproj">
       <Project>{a9f7f05e-5dc3-45b6-95d3-f979780e9ad5}</Project>
-      <Name>BUS</Name>
+      <Name>BLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{9703605c-78bf-44a5-9353-50d9d2c35ab1}</Project>
