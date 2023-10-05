@@ -10,8 +10,11 @@ using System.Windows.Forms;
 
 namespace GUI
 {
+
     public partial class KhachHangGUI : Form
     {
+        private bool isFormFilter = false;
+
         public KhachHangGUI()
         {
             InitializeComponent();
@@ -20,7 +23,20 @@ namespace GUI
 
         private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
-            
+
+        }
+
+        private void rjButton7_Click(object sender, EventArgs e)
+        {
+            isFormFilter = !isFormFilter;
+            if (isFormFilter)
+            {
+                flpFilter.Visible = true;
+            } else
+            {
+                flpFilter.Visible = false;
+            }
+
         }
     }
 }

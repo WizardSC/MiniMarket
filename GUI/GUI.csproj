@@ -64,6 +64,9 @@
     <Compile Include="KhachHangGUI.Designer.cs">
       <DependentUpon>KhachHangGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyCustom\BiggerCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="MyCustom\GradientPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -152,6 +155,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\calendarWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\image\icons8-logout-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\image\icons8-search-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\image\icons8-filter-32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GiaoDienGUI));
             this.pnSidebar = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.pnSubQuanLy = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
             this.panel18 = new System.Windows.Forms.Panel();
@@ -41,6 +42,7 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.pnHangHoa = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.pnMenu = new System.Windows.Forms.Panel();
             this.pnImage = new System.Windows.Forms.Panel();
             this.pnHeader = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -53,15 +55,14 @@
             this.pnNhanVienContainer = new CustomControls.RJControls.RJButton();
             this.pnQuanLyContainer = new CustomControls.RJControls.RJButton();
             this.rjButton1 = new CustomControls.RJControls.RJButton();
+            this.rjButton2 = new CustomControls.RJControls.RJButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnMinimize = new CustomControls.RJControls.RJButton();
             this.btnMaximize = new CustomControls.RJControls.RJButton();
             this.btnClose = new CustomControls.RJControls.RJButton();
-            this.pnMenu = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.rjButton2 = new CustomControls.RJControls.RJButton();
-            this.rjButton3 = new CustomControls.RJControls.RJButton();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.pnSidebar.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.pnSubQuanLy.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel18.SuspendLayout();
@@ -69,12 +70,11 @@
             this.panel10.SuspendLayout();
             this.pnQuanLy.SuspendLayout();
             this.pnHangHoa.SuspendLayout();
+            this.pnMenu.SuspendLayout();
             this.pnImage.SuspendLayout();
             this.pnHeader.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.pnMenu.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnSidebar
@@ -90,6 +90,18 @@
             this.pnSidebar.Name = "pnSidebar";
             this.pnSidebar.Size = new System.Drawing.Size(190, 763);
             this.pnSidebar.TabIndex = 1;
+            // 
+            // panel5
+            // 
+            this.panel5.AutoScroll = true;
+            this.panel5.Controls.Add(this.pnSubQuanLy);
+            this.panel5.Controls.Add(this.pnQuanLy);
+            this.panel5.Controls.Add(this.pnHangHoa);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(0, 164);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(188, 506);
+            this.panel5.TabIndex = 5;
             // 
             // pnSubQuanLy
             // 
@@ -205,6 +217,18 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(8, 40);
             this.panel4.TabIndex = 0;
+            // 
+            // pnMenu
+            // 
+            this.pnMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.pnMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnMenu.Controls.Add(this.panel6);
+            this.pnMenu.Controls.Add(this.rjButton2);
+            this.pnMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnMenu.Location = new System.Drawing.Point(0, 670);
+            this.pnMenu.Name = "pnMenu";
+            this.pnMenu.Size = new System.Drawing.Size(188, 91);
+            this.pnMenu.TabIndex = 4;
             // 
             // pnImage
             // 
@@ -414,6 +438,30 @@
             this.rjButton1.TextColor = System.Drawing.Color.Black;
             this.rjButton1.UseVisualStyleBackColor = false;
             // 
+            // rjButton2
+            // 
+            this.rjButton2.BackColor = System.Drawing.Color.Transparent;
+            this.rjButton2.BackgroundColor = System.Drawing.Color.Transparent;
+            this.rjButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton2.BorderRadius = 0;
+            this.rjButton2.BorderSize = 0;
+            this.rjButton2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.rjButton2.FlatAppearance.BorderSize = 0;
+            this.rjButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton2.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton2.ForeColor = System.Drawing.Color.Black;
+            this.rjButton2.Image = global::GUI.Properties.Resources.icons8_logout_32;
+            this.rjButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rjButton2.Location = new System.Drawing.Point(0, 46);
+            this.rjButton2.Name = "rjButton2";
+            this.rjButton2.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.rjButton2.Size = new System.Drawing.Size(186, 43);
+            this.rjButton2.TabIndex = 4;
+            this.rjButton2.Text = "Đăng xuất";
+            this.rjButton2.TextColor = System.Drawing.Color.Black;
+            this.rjButton2.UseVisualStyleBackColor = false;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -491,77 +539,13 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // pnMenu
+            // panel6
             // 
-            this.pnMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.pnMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnMenu.Controls.Add(this.rjButton3);
-            this.pnMenu.Controls.Add(this.rjButton2);
-            this.pnMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnMenu.Location = new System.Drawing.Point(0, 670);
-            this.pnMenu.Name = "pnMenu";
-            this.pnMenu.Size = new System.Drawing.Size(188, 91);
-            this.pnMenu.TabIndex = 4;
-            // 
-            // panel5
-            // 
-            this.panel5.AutoScroll = true;
-            this.panel5.Controls.Add(this.pnSubQuanLy);
-            this.panel5.Controls.Add(this.pnQuanLy);
-            this.panel5.Controls.Add(this.pnHangHoa);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(0, 164);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(188, 506);
-            this.panel5.TabIndex = 5;
-            // 
-            // rjButton2
-            // 
-            this.rjButton2.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton2.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton2.BorderRadius = 0;
-            this.rjButton2.BorderSize = 0;
-            this.rjButton2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.rjButton2.FlatAppearance.BorderSize = 0;
-            this.rjButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton2.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton2.ForeColor = System.Drawing.Color.Black;
-            this.rjButton2.Image = ((System.Drawing.Image)(resources.GetObject("rjButton2.Image")));
-            this.rjButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton2.Location = new System.Drawing.Point(0, 46);
-            this.rjButton2.Name = "rjButton2";
-            this.rjButton2.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rjButton2.Size = new System.Drawing.Size(186, 43);
-            this.rjButton2.TabIndex = 4;
-            this.rjButton2.Text = "Sản phẩm";
-            this.rjButton2.TextColor = System.Drawing.Color.Black;
-            this.rjButton2.UseVisualStyleBackColor = false;
-            // 
-            // rjButton3
-            // 
-            this.rjButton3.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton3.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton3.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton3.BorderRadius = 0;
-            this.rjButton3.BorderSize = 0;
-            this.rjButton3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.rjButton3.FlatAppearance.BorderSize = 0;
-            this.rjButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton3.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton3.ForeColor = System.Drawing.Color.Black;
-            this.rjButton3.Image = ((System.Drawing.Image)(resources.GetObject("rjButton3.Image")));
-            this.rjButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton3.Location = new System.Drawing.Point(0, 3);
-            this.rjButton3.Name = "rjButton3";
-            this.rjButton3.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rjButton3.Size = new System.Drawing.Size(186, 43);
-            this.rjButton3.TabIndex = 5;
-            this.rjButton3.Text = "Sản phẩm";
-            this.rjButton3.TextColor = System.Drawing.Color.Black;
-            this.rjButton3.UseVisualStyleBackColor = false;
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(186, 41);
+            this.panel6.TabIndex = 5;
             // 
             // GiaoDienGUI
             // 
@@ -577,6 +561,7 @@
             this.Text = "GiaoDienGUI";
             this.Load += new System.EventHandler(this.GiaoDienGUI_Load);
             this.pnSidebar.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.pnSubQuanLy.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
@@ -584,12 +569,11 @@
             this.panel10.ResumeLayout(false);
             this.pnQuanLy.ResumeLayout(false);
             this.pnHangHoa.ResumeLayout(false);
+            this.pnMenu.ResumeLayout(false);
             this.pnImage.ResumeLayout(false);
             this.pnHeader.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.pnMenu.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -625,7 +609,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel pnMenu;
         private System.Windows.Forms.Panel panel5;
-        private CustomControls.RJControls.RJButton rjButton3;
         private CustomControls.RJControls.RJButton rjButton2;
+        private System.Windows.Forms.Panel panel6;
     }
 }

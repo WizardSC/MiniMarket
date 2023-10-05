@@ -136,5 +136,10 @@ namespace GUI
 
             openChildForm(new KhachHangGUI());
         }
+
+        private void rjButton3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
