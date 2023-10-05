@@ -64,8 +64,14 @@
     <Compile Include="KhachHangGUI.Designer.cs">
       <DependentUpon>KhachHangGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyCustom\GradientPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="MyCustom\RJButton.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyCustom\RJComboBox.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="MyCustom\RJDatePicker.cs">
       <SubType>Component</SubType>
