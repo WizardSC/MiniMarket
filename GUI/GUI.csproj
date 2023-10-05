@@ -67,6 +67,18 @@
     <Compile Include="MyCustom\RJButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="MyCustom\RJDatePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyCustom\RJRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyCustom\RJTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyCustom\RJTextBox.Designer.cs">
+      <DependentUpon>RJTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GiaoDienGUI.resx">
@@ -125,6 +137,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\image\placeholder-image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\Image1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\calendarDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\calendarWhite.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
