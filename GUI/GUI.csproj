@@ -96,6 +96,9 @@
     <EmbeddedResource Include="KhachHangGUI.resx">
       <DependentUpon>KhachHangGUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyCustom\RJTextBox.resx">
+      <DependentUpon>RJTextBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

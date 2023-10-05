@@ -9,7 +9,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.ComponentModel;
 
-namespace CustomControls.RJControls
+namespace GUI.MyCustom
 {
     public class RJButton : Button
     {

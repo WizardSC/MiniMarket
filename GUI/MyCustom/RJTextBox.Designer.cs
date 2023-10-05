@@ -1,4 +1,4 @@
-﻿namespace CustomControls.RJControls
+﻿namespace GUI.MyCustom
 {
     partial class RJTextBox
     {
