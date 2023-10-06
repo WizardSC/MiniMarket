@@ -123,7 +123,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BUS\BLL.csproj">
+    <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{a9f7f05e-5dc3-45b6-95d3-f979780e9ad5}</Project>
       <Name>BLL</Name>
     </ProjectReference>

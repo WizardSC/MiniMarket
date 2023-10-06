@@ -18,6 +18,7 @@ namespace DAL
                 Connect();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from khachhang";
                 cmd.Connection = conn;
                 SqlDataAdapter adt = new SqlDataAdapter(cmd);
                 adt.Fill(dt);

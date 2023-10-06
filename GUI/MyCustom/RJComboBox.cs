@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.ComponentModel;
 using System.Drawing.Design;
+using System.Runtime.InteropServices;
 
 namespace GUI.MyCustom
 {
@@ -365,7 +366,7 @@ namespace GUI.MyCustom
             base.OnResize(e);
             AdjustComboBoxDimensions();
         }
-
+        
 
     }
 }

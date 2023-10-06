@@ -1,4 +1,4 @@
-﻿using BUS;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
 using BLL;
+using GUI.MyCustom;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 namespace GUI
 {
 
@@ -18,18 +21,33 @@ namespace GUI
         private KhachHangBLL khBLL;
         private bool isFormFilter = false;
 
+
         public KhachHangGUI()
         {
             InitializeComponent();
+            khBLL = new KhachHangBLL();
+            
         }
-
-
-        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        private void KhachHangGUI_Load(object sender, EventArgs e)
         {
+            dgvKhachHang.DataSource = khBLL.getListKhachHang();
 
+            cbxTimKiem.Refresh();
+            loadDataToCBX(cbxTimKiem);
         }
+        //Xóa bỏ tự chọn dòng đầu tiên của DataGridView khi load form
 
-       
+        #region các hàm bổ trợ
+        private void loadDataToCBX(RJComboBox cbx)
+        {
+            cbx.Items.Add("Mã KH");
+            cbx.Items.Add("Họ");
+            cbx.Items.Add("Tên");
+            cbx.Items.Add("Địa chỉ");
+        }
+        #endregion
+
+
         private void btnFilter_Click(object sender, EventArgs e)
         {
             isFormFilter = !isFormFilter;
@@ -46,6 +64,12 @@ namespace GUI
                 flpFilter.Visible = false;
                 flpFilter.SendToBack();
             }
+        }
+
+        private void dgvKhachHang_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvKhachHang.ClearSelection();
+            dgvKhachHang.CurrentCell = null;
         }
     }
 }

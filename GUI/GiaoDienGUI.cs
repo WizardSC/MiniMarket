@@ -78,7 +78,7 @@ namespace GUI
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            System.Windows.Forms.Application.Exit();
         }
 
 
@@ -123,6 +123,8 @@ namespace GUI
                 isMaximized = true;
 
                 this.WindowState = FormWindowState.Maximized;
+
+                pnForm.Dock = DockStyle.Fill;
             }
         }
 
