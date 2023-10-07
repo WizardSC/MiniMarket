@@ -1,2 +1,3 @@
 # MiniMarket
 test
+on thai
