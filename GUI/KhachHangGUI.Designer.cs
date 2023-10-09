@@ -28,39 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.cbxTimKiem = new GUI.MyCustom.RJComboBox();
-            this.rjTextBox7 = new GUI.MyCustom.RJTextBox();
-            this.rjButton6 = new GUI.MyCustom.RJButton();
-            this.btnFilter = new GUI.MyCustom.RJButton();
-            this.dgvKhachHang = new System.Windows.Forms.DataGridView();
             this.flpFilter = new System.Windows.Forms.FlowLayoutPanel();
-            this.biggerCheckBox1 = new GUI.MyCustom.BiggerCheckBox();
+            this.chkGioiTinh = new GUI.MyCustom.BiggerCheckBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.biggerCheckBox2 = new GUI.MyCustom.BiggerCheckBox();
+            this.chkNam = new GUI.MyCustom.BiggerCheckBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.biggerCheckBox3 = new GUI.MyCustom.BiggerCheckBox();
+            this.chkNu = new GUI.MyCustom.BiggerCheckBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.biggerCheckBox4 = new GUI.MyCustom.BiggerCheckBox();
+            this.chkTuoi = new GUI.MyCustom.BiggerCheckBox();
             this.label23 = new System.Windows.Forms.Label();
             this.rjTextBox8 = new GUI.MyCustom.RJTextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.rjTextBox12 = new GUI.MyCustom.RJTextBox();
-            this.biggerCheckBox5 = new GUI.MyCustom.BiggerCheckBox();
+            this.chkDiemTL = new GUI.MyCustom.BiggerCheckBox();
             this.label25 = new System.Windows.Forms.Label();
             this.rjTextBox13 = new GUI.MyCustom.RJTextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.rjTextBox14 = new GUI.MyCustom.RJTextBox();
-            this.biggerCheckBox6 = new GUI.MyCustom.BiggerCheckBox();
+            this.chkTrangThai = new GUI.MyCustom.BiggerCheckBox();
             this.label27 = new System.Windows.Forms.Label();
             this.biggerCheckBox7 = new GUI.MyCustom.BiggerCheckBox();
             this.label28 = new System.Windows.Forms.Label();
             this.biggerCheckBox8 = new GUI.MyCustom.BiggerCheckBox();
             this.label29 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.cbxTimKiem = new GUI.MyCustom.RJComboBox();
+            this.txtTimKiem = new GUI.MyCustom.RJTextBox();
+            this.btnTimKiem = new GUI.MyCustom.RJButton();
+            this.btnFilter = new GUI.MyCustom.RJButton();
+            this.dgvKhachHang = new System.Windows.Forms.DataGridView();
+            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ho = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IMG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiemTichLuy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
@@ -101,21 +111,11 @@
             this.rjButton3 = new GUI.MyCustom.RJButton();
             this.rjButton4 = new GUI.MyCustom.RJButton();
             this.rjButton5 = new GUI.MyCustom.RJButton();
-            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ho = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IMG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiemTichLuy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.flpFilter.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).BeginInit();
-            this.flpFilter.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -140,188 +140,35 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.flpFilter);
             this.panel3.Controls.Add(this.flowLayoutPanel4);
             this.panel3.Controls.Add(this.dgvKhachHang);
-            this.panel3.Controls.Add(this.flpFilter);
             this.panel3.Location = new System.Drawing.Point(316, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(989, 754);
             this.panel3.TabIndex = 4;
             // 
-            // flowLayoutPanel4
-            // 
-            this.flowLayoutPanel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel4.Controls.Add(this.cbxTimKiem);
-            this.flowLayoutPanel4.Controls.Add(this.rjTextBox7);
-            this.flowLayoutPanel4.Controls.Add(this.rjButton6);
-            this.flowLayoutPanel4.Controls.Add(this.btnFilter);
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(5, 6);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(978, 50);
-            this.flowLayoutPanel4.TabIndex = 2;
-            // 
-            // cbxTimKiem
-            // 
-            this.cbxTimKiem.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cbxTimKiem.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.cbxTimKiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.cbxTimKiem.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.cbxTimKiem.BorderSize = 2;
-            this.cbxTimKiem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.cbxTimKiem.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxTimKiem.ForeColor = System.Drawing.Color.Black;
-            this.cbxTimKiem.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.cbxTimKiem.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.cbxTimKiem.ListTextColor = System.Drawing.Color.Black;
-            this.cbxTimKiem.Location = new System.Drawing.Point(10, 10);
-            this.cbxTimKiem.Margin = new System.Windows.Forms.Padding(10, 10, 3, 3);
-            this.cbxTimKiem.MinimumSize = new System.Drawing.Size(0, 30);
-            this.cbxTimKiem.Name = "cbxTimKiem";
-            this.cbxTimKiem.Padding = new System.Windows.Forms.Padding(2);
-            this.cbxTimKiem.Size = new System.Drawing.Size(120, 30);
-            this.cbxTimKiem.TabIndex = 0;
-            this.cbxTimKiem.Texts = "Mã KH";
-            // 
-            // rjTextBox7
-            // 
-            this.rjTextBox7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.rjTextBox7.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.rjTextBox7.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.rjTextBox7.BorderRadius = 0;
-            this.rjTextBox7.BorderSize = 2;
-            this.rjTextBox7.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox7.ForeColor = System.Drawing.Color.DimGray;
-            this.rjTextBox7.Location = new System.Drawing.Point(137, 8);
-            this.rjTextBox7.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
-            this.rjTextBox7.Multiline = false;
-            this.rjTextBox7.Name = "rjTextBox7";
-            this.rjTextBox7.Padding = new System.Windows.Forms.Padding(7);
-            this.rjTextBox7.PasswordChar = false;
-            this.rjTextBox7.PlaceholderColor = System.Drawing.Color.DimGray;
-            this.rjTextBox7.PlaceholderText = "Nhập thông tin tìm kiếm";
-            this.rjTextBox7.Size = new System.Drawing.Size(730, 32);
-            this.rjTextBox7.TabIndex = 1;
-            this.rjTextBox7.Texts = "";
-            this.rjTextBox7.UnderlinedStyle = true;
-            // 
-            // rjButton6
-            // 
-            this.rjButton6.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton6.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton6.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton6.BorderRadius = 0;
-            this.rjButton6.BorderSize = 0;
-            this.rjButton6.FlatAppearance.BorderSize = 0;
-            this.rjButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton6.ForeColor = System.Drawing.Color.White;
-            this.rjButton6.Image = global::GUI.Properties.Resources.icons8_search_32;
-            this.rjButton6.Location = new System.Drawing.Point(874, 8);
-            this.rjButton6.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
-            this.rjButton6.Name = "rjButton6";
-            this.rjButton6.Size = new System.Drawing.Size(29, 32);
-            this.rjButton6.TabIndex = 2;
-            this.rjButton6.TextColor = System.Drawing.Color.White;
-            this.rjButton6.UseVisualStyleBackColor = false;
-            // 
-            // btnFilter
-            // 
-            this.btnFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnFilter.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnFilter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.btnFilter.BorderRadius = 0;
-            this.btnFilter.BorderSize = 2;
-            this.btnFilter.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnFilter.FlatAppearance.BorderSize = 0;
-            this.btnFilter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnFilter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFilter.ForeColor = System.Drawing.Color.White;
-            this.btnFilter.Image = global::GUI.Properties.Resources.icons8_filter_32;
-            this.btnFilter.Location = new System.Drawing.Point(921, 3);
-            this.btnFilter.Margin = new System.Windows.Forms.Padding(15, 3, 10, 3);
-            this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(44, 38);
-            this.btnFilter.TabIndex = 4;
-            this.btnFilter.TextColor = System.Drawing.Color.White;
-            this.btnFilter.UseVisualStyleBackColor = false;
-            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
-            // 
-            // dgvKhachHang
-            // 
-            this.dgvKhachHang.AllowUserToAddRows = false;
-            this.dgvKhachHang.AllowUserToDeleteRows = false;
-            this.dgvKhachHang.AllowUserToResizeColumns = false;
-            this.dgvKhachHang.AllowUserToResizeRows = false;
-            this.dgvKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dgvKhachHang.BackgroundColor = System.Drawing.Color.White;
-            this.dgvKhachHang.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvKhachHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvKhachHang.ColumnHeadersHeight = 28;
-            this.dgvKhachHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaKH,
-            this.Ho,
-            this.Ten,
-            this.NgaySinh,
-            this.GioiTinh,
-            this.SoDT,
-            this.DiaChi,
-            this.TrangThai,
-            this.IMG,
-            this.DiemTichLuy});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvKhachHang.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvKhachHang.EnableHeadersVisualStyles = false;
-            this.dgvKhachHang.GridColor = System.Drawing.Color.Black;
-            this.dgvKhachHang.Location = new System.Drawing.Point(5, 62);
-            this.dgvKhachHang.MultiSelect = false;
-            this.dgvKhachHang.Name = "dgvKhachHang";
-            this.dgvKhachHang.ReadOnly = true;
-            this.dgvKhachHang.RowHeadersVisible = false;
-            this.dgvKhachHang.RowHeadersWidth = 51;
-            this.dgvKhachHang.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvKhachHang.RowTemplate.Height = 30;
-            this.dgvKhachHang.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKhachHang.Size = new System.Drawing.Size(978, 686);
-            this.dgvKhachHang.TabIndex = 1;
-            this.dgvKhachHang.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvKhachHang_DataBindingComplete);
-            // 
             // flpFilter
             // 
             this.flpFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
             this.flpFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flpFilter.Controls.Add(this.biggerCheckBox1);
+            this.flpFilter.Controls.Add(this.chkGioiTinh);
             this.flpFilter.Controls.Add(this.label12);
-            this.flpFilter.Controls.Add(this.biggerCheckBox2);
+            this.flpFilter.Controls.Add(this.chkNam);
             this.flpFilter.Controls.Add(this.label21);
-            this.flpFilter.Controls.Add(this.biggerCheckBox3);
+            this.flpFilter.Controls.Add(this.chkNu);
             this.flpFilter.Controls.Add(this.label22);
-            this.flpFilter.Controls.Add(this.biggerCheckBox4);
+            this.flpFilter.Controls.Add(this.chkTuoi);
             this.flpFilter.Controls.Add(this.label23);
             this.flpFilter.Controls.Add(this.rjTextBox8);
             this.flpFilter.Controls.Add(this.label24);
             this.flpFilter.Controls.Add(this.rjTextBox12);
-            this.flpFilter.Controls.Add(this.biggerCheckBox5);
+            this.flpFilter.Controls.Add(this.chkDiemTL);
             this.flpFilter.Controls.Add(this.label25);
             this.flpFilter.Controls.Add(this.rjTextBox13);
             this.flpFilter.Controls.Add(this.label26);
             this.flpFilter.Controls.Add(this.rjTextBox14);
-            this.flpFilter.Controls.Add(this.biggerCheckBox6);
+            this.flpFilter.Controls.Add(this.chkTrangThai);
             this.flpFilter.Controls.Add(this.label27);
             this.flpFilter.Controls.Add(this.biggerCheckBox7);
             this.flpFilter.Controls.Add(this.label28);
@@ -332,30 +179,31 @@
             this.flpFilter.Size = new System.Drawing.Size(289, 184);
             this.flpFilter.TabIndex = 3;
             // 
-            // biggerCheckBox1
+            // chkGioiTinh
             // 
-            this.biggerCheckBox1.Appearance = System.Windows.Forms.Appearance.Button;
-            this.biggerCheckBox1.BoxBackColor = System.Drawing.Color.Transparent;
-            this.biggerCheckBox1.BoxColor = System.Drawing.Color.Black;
-            this.biggerCheckBox1.BoxLocationX = 5;
-            this.biggerCheckBox1.BoxLocationY = 8;
-            this.biggerCheckBox1.BoxSize = 14;
-            this.biggerCheckBox1.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.biggerCheckBox1.FlatAppearance.BorderSize = 0;
-            this.biggerCheckBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.biggerCheckBox1.Location = new System.Drawing.Point(3, 3);
-            this.biggerCheckBox1.Name = "biggerCheckBox1";
-            this.biggerCheckBox1.Padding = new System.Windows.Forms.Padding(10);
-            this.biggerCheckBox1.Size = new System.Drawing.Size(24, 29);
-            this.biggerCheckBox1.TabIndex = 3;
-            this.biggerCheckBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.biggerCheckBox1.TextLocationX = 16;
-            this.biggerCheckBox1.TextLocationY = 1;
-            this.biggerCheckBox1.TickColor = System.Drawing.Color.Black;
-            this.biggerCheckBox1.TickLeftPosition = 5F;
-            this.biggerCheckBox1.TickSize = 11F;
-            this.biggerCheckBox1.TickTopPosition = 8F;
-            this.biggerCheckBox1.UseVisualStyleBackColor = true;
+            this.chkGioiTinh.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkGioiTinh.BoxBackColor = System.Drawing.Color.Transparent;
+            this.chkGioiTinh.BoxColor = System.Drawing.Color.Black;
+            this.chkGioiTinh.BoxLocationX = 5;
+            this.chkGioiTinh.BoxLocationY = 8;
+            this.chkGioiTinh.BoxSize = 14;
+            this.chkGioiTinh.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkGioiTinh.FlatAppearance.BorderSize = 0;
+            this.chkGioiTinh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkGioiTinh.Location = new System.Drawing.Point(3, 3);
+            this.chkGioiTinh.Name = "chkGioiTinh";
+            this.chkGioiTinh.Padding = new System.Windows.Forms.Padding(10);
+            this.chkGioiTinh.Size = new System.Drawing.Size(24, 29);
+            this.chkGioiTinh.TabIndex = 3;
+            this.chkGioiTinh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkGioiTinh.TextLocationX = 16;
+            this.chkGioiTinh.TextLocationY = 1;
+            this.chkGioiTinh.TickColor = System.Drawing.Color.Black;
+            this.chkGioiTinh.TickLeftPosition = 5F;
+            this.chkGioiTinh.TickSize = 11F;
+            this.chkGioiTinh.TickTopPosition = 8F;
+            this.chkGioiTinh.UseVisualStyleBackColor = true;
+            this.chkGioiTinh.CheckedChanged += new System.EventHandler(this.chkGioiTinh_CheckedChanged);
             // 
             // label12
             // 
@@ -369,31 +217,32 @@
             this.label12.Text = "Giới tính:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // biggerCheckBox2
+            // chkNam
             // 
-            this.biggerCheckBox2.Appearance = System.Windows.Forms.Appearance.Button;
-            this.biggerCheckBox2.BoxBackColor = System.Drawing.Color.Transparent;
-            this.biggerCheckBox2.BoxColor = System.Drawing.Color.Black;
-            this.biggerCheckBox2.BoxLocationX = 5;
-            this.biggerCheckBox2.BoxLocationY = 8;
-            this.biggerCheckBox2.BoxSize = 14;
-            this.biggerCheckBox2.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.biggerCheckBox2.FlatAppearance.BorderSize = 0;
-            this.biggerCheckBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.biggerCheckBox2.Location = new System.Drawing.Point(128, 3);
-            this.biggerCheckBox2.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-            this.biggerCheckBox2.Name = "biggerCheckBox2";
-            this.biggerCheckBox2.Padding = new System.Windows.Forms.Padding(10);
-            this.biggerCheckBox2.Size = new System.Drawing.Size(24, 29);
-            this.biggerCheckBox2.TabIndex = 4;
-            this.biggerCheckBox2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.biggerCheckBox2.TextLocationX = 16;
-            this.biggerCheckBox2.TextLocationY = 1;
-            this.biggerCheckBox2.TickColor = System.Drawing.Color.Black;
-            this.biggerCheckBox2.TickLeftPosition = 5F;
-            this.biggerCheckBox2.TickSize = 11F;
-            this.biggerCheckBox2.TickTopPosition = 8F;
-            this.biggerCheckBox2.UseVisualStyleBackColor = true;
+            this.chkNam.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkNam.BoxBackColor = System.Drawing.Color.Transparent;
+            this.chkNam.BoxColor = System.Drawing.Color.Black;
+            this.chkNam.BoxLocationX = 5;
+            this.chkNam.BoxLocationY = 8;
+            this.chkNam.BoxSize = 14;
+            this.chkNam.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkNam.FlatAppearance.BorderSize = 0;
+            this.chkNam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkNam.Location = new System.Drawing.Point(128, 3);
+            this.chkNam.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.chkNam.Name = "chkNam";
+            this.chkNam.Padding = new System.Windows.Forms.Padding(10);
+            this.chkNam.Size = new System.Drawing.Size(24, 29);
+            this.chkNam.TabIndex = 4;
+            this.chkNam.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkNam.TextLocationX = 16;
+            this.chkNam.TextLocationY = 1;
+            this.chkNam.TickColor = System.Drawing.Color.Black;
+            this.chkNam.TickLeftPosition = 5F;
+            this.chkNam.TickSize = 11F;
+            this.chkNam.TickTopPosition = 8F;
+            this.chkNam.UseVisualStyleBackColor = true;
+            this.chkNam.CheckedChanged += new System.EventHandler(this.chkNam_CheckedChanged);
             // 
             // label21
             // 
@@ -407,31 +256,32 @@
             this.label21.Text = "Nam";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // biggerCheckBox3
+            // chkNu
             // 
-            this.biggerCheckBox3.Appearance = System.Windows.Forms.Appearance.Button;
-            this.biggerCheckBox3.BoxBackColor = System.Drawing.Color.Transparent;
-            this.biggerCheckBox3.BoxColor = System.Drawing.Color.Black;
-            this.biggerCheckBox3.BoxLocationX = 5;
-            this.biggerCheckBox3.BoxLocationY = 8;
-            this.biggerCheckBox3.BoxSize = 14;
-            this.biggerCheckBox3.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.biggerCheckBox3.FlatAppearance.BorderSize = 0;
-            this.biggerCheckBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.biggerCheckBox3.Location = new System.Drawing.Point(212, 3);
-            this.biggerCheckBox3.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-            this.biggerCheckBox3.Name = "biggerCheckBox3";
-            this.biggerCheckBox3.Padding = new System.Windows.Forms.Padding(10);
-            this.biggerCheckBox3.Size = new System.Drawing.Size(24, 29);
-            this.biggerCheckBox3.TabIndex = 5;
-            this.biggerCheckBox3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.biggerCheckBox3.TextLocationX = 16;
-            this.biggerCheckBox3.TextLocationY = 1;
-            this.biggerCheckBox3.TickColor = System.Drawing.Color.Black;
-            this.biggerCheckBox3.TickLeftPosition = 5F;
-            this.biggerCheckBox3.TickSize = 11F;
-            this.biggerCheckBox3.TickTopPosition = 8F;
-            this.biggerCheckBox3.UseVisualStyleBackColor = true;
+            this.chkNu.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkNu.BoxBackColor = System.Drawing.Color.Transparent;
+            this.chkNu.BoxColor = System.Drawing.Color.Black;
+            this.chkNu.BoxLocationX = 5;
+            this.chkNu.BoxLocationY = 8;
+            this.chkNu.BoxSize = 14;
+            this.chkNu.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkNu.FlatAppearance.BorderSize = 0;
+            this.chkNu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkNu.Location = new System.Drawing.Point(212, 3);
+            this.chkNu.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.chkNu.Name = "chkNu";
+            this.chkNu.Padding = new System.Windows.Forms.Padding(10);
+            this.chkNu.Size = new System.Drawing.Size(24, 29);
+            this.chkNu.TabIndex = 5;
+            this.chkNu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkNu.TextLocationX = 16;
+            this.chkNu.TextLocationY = 1;
+            this.chkNu.TickColor = System.Drawing.Color.Black;
+            this.chkNu.TickLeftPosition = 5F;
+            this.chkNu.TickSize = 11F;
+            this.chkNu.TickTopPosition = 8F;
+            this.chkNu.UseVisualStyleBackColor = true;
+            this.chkNu.CheckedChanged += new System.EventHandler(this.chkNu_CheckedChanged);
             // 
             // label22
             // 
@@ -445,30 +295,31 @@
             this.label22.Text = "Nữ";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // biggerCheckBox4
+            // chkTuoi
             // 
-            this.biggerCheckBox4.Appearance = System.Windows.Forms.Appearance.Button;
-            this.biggerCheckBox4.BoxBackColor = System.Drawing.Color.Transparent;
-            this.biggerCheckBox4.BoxColor = System.Drawing.Color.Black;
-            this.biggerCheckBox4.BoxLocationX = 5;
-            this.biggerCheckBox4.BoxLocationY = 8;
-            this.biggerCheckBox4.BoxSize = 14;
-            this.biggerCheckBox4.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.biggerCheckBox4.FlatAppearance.BorderSize = 0;
-            this.biggerCheckBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.biggerCheckBox4.Location = new System.Drawing.Point(3, 39);
-            this.biggerCheckBox4.Name = "biggerCheckBox4";
-            this.biggerCheckBox4.Padding = new System.Windows.Forms.Padding(10);
-            this.biggerCheckBox4.Size = new System.Drawing.Size(24, 29);
-            this.biggerCheckBox4.TabIndex = 9;
-            this.biggerCheckBox4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.biggerCheckBox4.TextLocationX = 16;
-            this.biggerCheckBox4.TextLocationY = 1;
-            this.biggerCheckBox4.TickColor = System.Drawing.Color.Black;
-            this.biggerCheckBox4.TickLeftPosition = 5F;
-            this.biggerCheckBox4.TickSize = 11F;
-            this.biggerCheckBox4.TickTopPosition = 8F;
-            this.biggerCheckBox4.UseVisualStyleBackColor = true;
+            this.chkTuoi.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkTuoi.BoxBackColor = System.Drawing.Color.Transparent;
+            this.chkTuoi.BoxColor = System.Drawing.Color.Black;
+            this.chkTuoi.BoxLocationX = 5;
+            this.chkTuoi.BoxLocationY = 8;
+            this.chkTuoi.BoxSize = 14;
+            this.chkTuoi.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkTuoi.FlatAppearance.BorderSize = 0;
+            this.chkTuoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkTuoi.Location = new System.Drawing.Point(3, 39);
+            this.chkTuoi.Name = "chkTuoi";
+            this.chkTuoi.Padding = new System.Windows.Forms.Padding(10);
+            this.chkTuoi.Size = new System.Drawing.Size(24, 29);
+            this.chkTuoi.TabIndex = 9;
+            this.chkTuoi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkTuoi.TextLocationX = 16;
+            this.chkTuoi.TextLocationY = 1;
+            this.chkTuoi.TickColor = System.Drawing.Color.Black;
+            this.chkTuoi.TickLeftPosition = 5F;
+            this.chkTuoi.TickSize = 11F;
+            this.chkTuoi.TickTopPosition = 8F;
+            this.chkTuoi.UseVisualStyleBackColor = true;
+            this.chkTuoi.CheckedChanged += new System.EventHandler(this.chkTuoi_CheckedChanged);
             // 
             // label23
             // 
@@ -540,30 +391,31 @@
             this.rjTextBox12.Texts = "";
             this.rjTextBox12.UnderlinedStyle = false;
             // 
-            // biggerCheckBox5
+            // chkDiemTL
             // 
-            this.biggerCheckBox5.Appearance = System.Windows.Forms.Appearance.Button;
-            this.biggerCheckBox5.BoxBackColor = System.Drawing.Color.Transparent;
-            this.biggerCheckBox5.BoxColor = System.Drawing.Color.Black;
-            this.biggerCheckBox5.BoxLocationX = 5;
-            this.biggerCheckBox5.BoxLocationY = 8;
-            this.biggerCheckBox5.BoxSize = 14;
-            this.biggerCheckBox5.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.biggerCheckBox5.FlatAppearance.BorderSize = 0;
-            this.biggerCheckBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.biggerCheckBox5.Location = new System.Drawing.Point(3, 75);
-            this.biggerCheckBox5.Name = "biggerCheckBox5";
-            this.biggerCheckBox5.Padding = new System.Windows.Forms.Padding(10);
-            this.biggerCheckBox5.Size = new System.Drawing.Size(24, 29);
-            this.biggerCheckBox5.TabIndex = 14;
-            this.biggerCheckBox5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.biggerCheckBox5.TextLocationX = 16;
-            this.biggerCheckBox5.TextLocationY = 1;
-            this.biggerCheckBox5.TickColor = System.Drawing.Color.Black;
-            this.biggerCheckBox5.TickLeftPosition = 5F;
-            this.biggerCheckBox5.TickSize = 11F;
-            this.biggerCheckBox5.TickTopPosition = 8F;
-            this.biggerCheckBox5.UseVisualStyleBackColor = true;
+            this.chkDiemTL.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkDiemTL.BoxBackColor = System.Drawing.Color.Transparent;
+            this.chkDiemTL.BoxColor = System.Drawing.Color.Black;
+            this.chkDiemTL.BoxLocationX = 5;
+            this.chkDiemTL.BoxLocationY = 8;
+            this.chkDiemTL.BoxSize = 14;
+            this.chkDiemTL.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkDiemTL.FlatAppearance.BorderSize = 0;
+            this.chkDiemTL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkDiemTL.Location = new System.Drawing.Point(3, 75);
+            this.chkDiemTL.Name = "chkDiemTL";
+            this.chkDiemTL.Padding = new System.Windows.Forms.Padding(10);
+            this.chkDiemTL.Size = new System.Drawing.Size(24, 29);
+            this.chkDiemTL.TabIndex = 14;
+            this.chkDiemTL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkDiemTL.TextLocationX = 16;
+            this.chkDiemTL.TextLocationY = 1;
+            this.chkDiemTL.TickColor = System.Drawing.Color.Black;
+            this.chkDiemTL.TickLeftPosition = 5F;
+            this.chkDiemTL.TickSize = 11F;
+            this.chkDiemTL.TickTopPosition = 8F;
+            this.chkDiemTL.UseVisualStyleBackColor = true;
+            this.chkDiemTL.CheckedChanged += new System.EventHandler(this.chkDiemTL_CheckedChanged);
             // 
             // label25
             // 
@@ -635,30 +487,31 @@
             this.rjTextBox14.Texts = "";
             this.rjTextBox14.UnderlinedStyle = false;
             // 
-            // biggerCheckBox6
+            // chkTrangThai
             // 
-            this.biggerCheckBox6.Appearance = System.Windows.Forms.Appearance.Button;
-            this.biggerCheckBox6.BoxBackColor = System.Drawing.Color.Transparent;
-            this.biggerCheckBox6.BoxColor = System.Drawing.Color.Black;
-            this.biggerCheckBox6.BoxLocationX = 5;
-            this.biggerCheckBox6.BoxLocationY = 8;
-            this.biggerCheckBox6.BoxSize = 14;
-            this.biggerCheckBox6.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.biggerCheckBox6.FlatAppearance.BorderSize = 0;
-            this.biggerCheckBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.biggerCheckBox6.Location = new System.Drawing.Point(3, 111);
-            this.biggerCheckBox6.Name = "biggerCheckBox6";
-            this.biggerCheckBox6.Padding = new System.Windows.Forms.Padding(10);
-            this.biggerCheckBox6.Size = new System.Drawing.Size(24, 29);
-            this.biggerCheckBox6.TabIndex = 19;
-            this.biggerCheckBox6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.biggerCheckBox6.TextLocationX = 16;
-            this.biggerCheckBox6.TextLocationY = 1;
-            this.biggerCheckBox6.TickColor = System.Drawing.Color.Black;
-            this.biggerCheckBox6.TickLeftPosition = 5F;
-            this.biggerCheckBox6.TickSize = 11F;
-            this.biggerCheckBox6.TickTopPosition = 8F;
-            this.biggerCheckBox6.UseVisualStyleBackColor = true;
+            this.chkTrangThai.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkTrangThai.BoxBackColor = System.Drawing.Color.Transparent;
+            this.chkTrangThai.BoxColor = System.Drawing.Color.Black;
+            this.chkTrangThai.BoxLocationX = 5;
+            this.chkTrangThai.BoxLocationY = 8;
+            this.chkTrangThai.BoxSize = 14;
+            this.chkTrangThai.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkTrangThai.FlatAppearance.BorderSize = 0;
+            this.chkTrangThai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkTrangThai.Location = new System.Drawing.Point(3, 111);
+            this.chkTrangThai.Name = "chkTrangThai";
+            this.chkTrangThai.Padding = new System.Windows.Forms.Padding(10);
+            this.chkTrangThai.Size = new System.Drawing.Size(24, 29);
+            this.chkTrangThai.TabIndex = 19;
+            this.chkTrangThai.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkTrangThai.TextLocationX = 16;
+            this.chkTrangThai.TextLocationY = 1;
+            this.chkTrangThai.TickColor = System.Drawing.Color.Black;
+            this.chkTrangThai.TickLeftPosition = 5F;
+            this.chkTrangThai.TickSize = 11F;
+            this.chkTrangThai.TickTopPosition = 8F;
+            this.chkTrangThai.UseVisualStyleBackColor = true;
+            this.chkTrangThai.CheckedChanged += new System.EventHandler(this.chkTrangThai_CheckedChanged);
             // 
             // label27
             // 
@@ -747,6 +600,261 @@
             this.label29.TabIndex = 23;
             this.label29.Text = "Không hoạt động";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel4.Controls.Add(this.cbxTimKiem);
+            this.flowLayoutPanel4.Controls.Add(this.txtTimKiem);
+            this.flowLayoutPanel4.Controls.Add(this.btnTimKiem);
+            this.flowLayoutPanel4.Controls.Add(this.btnFilter);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(5, 6);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(978, 50);
+            this.flowLayoutPanel4.TabIndex = 2;
+            // 
+            // cbxTimKiem
+            // 
+            this.cbxTimKiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.cbxTimKiem.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.cbxTimKiem.BorderSize = 2;
+            this.cbxTimKiem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cbxTimKiem.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxTimKiem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.cbxTimKiem.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.cbxTimKiem.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.cbxTimKiem.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.cbxTimKiem.Location = new System.Drawing.Point(4, 8);
+            this.cbxTimKiem.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
+            this.cbxTimKiem.MinimumSize = new System.Drawing.Size(100, 30);
+            this.cbxTimKiem.Name = "cbxTimKiem";
+            this.cbxTimKiem.Padding = new System.Windows.Forms.Padding(2);
+            this.cbxTimKiem.Size = new System.Drawing.Size(108, 30);
+            this.cbxTimKiem.TabIndex = 4;
+            this.cbxTimKiem.Texts = "Mã KH";
+            this.cbxTimKiem.OnSelectedIndexChanged += new System.EventHandler(this.cbxTimKiem_OnSelectedIndexChanged);
+            // 
+            // txtTimKiem
+            // 
+            this.txtTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTimKiem.BackColor = System.Drawing.SystemColors.Window;
+            this.txtTimKiem.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.txtTimKiem.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.txtTimKiem.BorderRadius = 0;
+            this.txtTimKiem.BorderSize = 2;
+            this.txtTimKiem.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTimKiem.ForeColor = System.Drawing.Color.DimGray;
+            this.txtTimKiem.Location = new System.Drawing.Point(120, 8);
+            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
+            this.txtTimKiem.Multiline = false;
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Padding = new System.Windows.Forms.Padding(7);
+            this.txtTimKiem.PasswordChar = false;
+            this.txtTimKiem.PlaceholderColor = System.Drawing.Color.DimGray;
+            this.txtTimKiem.PlaceholderText = "Nhập thông tin tìm kiếm";
+            this.txtTimKiem.Size = new System.Drawing.Size(730, 32);
+            this.txtTimKiem.TabIndex = 1;
+            this.txtTimKiem.Texts = "";
+            this.txtTimKiem.UnderlinedStyle = true;
+            this.txtTimKiem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTimKiem_KeyPress);
+            // 
+            // btnTimKiem
+            // 
+            this.btnTimKiem.BackColor = System.Drawing.Color.Transparent;
+            this.btnTimKiem.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnTimKiem.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnTimKiem.BorderRadius = 0;
+            this.btnTimKiem.BorderSize = 0;
+            this.btnTimKiem.FlatAppearance.BorderSize = 0;
+            this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTimKiem.ForeColor = System.Drawing.Color.White;
+            this.btnTimKiem.Image = global::GUI.Properties.Resources.icons8_search_32;
+            this.btnTimKiem.Location = new System.Drawing.Point(857, 8);
+            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(29, 32);
+            this.btnTimKiem.TabIndex = 2;
+            this.btnTimKiem.TextColor = System.Drawing.Color.White;
+            this.btnTimKiem.UseVisualStyleBackColor = false;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+            // 
+            // btnFilter
+            // 
+            this.btnFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnFilter.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnFilter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.btnFilter.BorderRadius = 0;
+            this.btnFilter.BorderSize = 2;
+            this.btnFilter.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnFilter.FlatAppearance.BorderSize = 0;
+            this.btnFilter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnFilter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFilter.ForeColor = System.Drawing.Color.White;
+            this.btnFilter.Image = global::GUI.Properties.Resources.icons8_filter_32;
+            this.btnFilter.Location = new System.Drawing.Point(904, 8);
+            this.btnFilter.Margin = new System.Windows.Forms.Padding(15, 8, 10, 0);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(44, 36);
+            this.btnFilter.TabIndex = 4;
+            this.btnFilter.TextColor = System.Drawing.Color.White;
+            this.btnFilter.UseVisualStyleBackColor = false;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
+            // 
+            // dgvKhachHang
+            // 
+            this.dgvKhachHang.AllowUserToAddRows = false;
+            this.dgvKhachHang.AllowUserToDeleteRows = false;
+            this.dgvKhachHang.AllowUserToResizeColumns = false;
+            this.dgvKhachHang.AllowUserToResizeRows = false;
+            this.dgvKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvKhachHang.BackgroundColor = System.Drawing.Color.White;
+            this.dgvKhachHang.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvKhachHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvKhachHang.ColumnHeadersHeight = 28;
+            this.dgvKhachHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaKH,
+            this.Ho,
+            this.Ten,
+            this.NgaySinh,
+            this.GioiTinh,
+            this.SoDT,
+            this.DiaChi,
+            this.TrangThai,
+            this.IMG,
+            this.DiemTichLuy});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvKhachHang.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvKhachHang.EnableHeadersVisualStyles = false;
+            this.dgvKhachHang.GridColor = System.Drawing.Color.Black;
+            this.dgvKhachHang.Location = new System.Drawing.Point(5, 62);
+            this.dgvKhachHang.MultiSelect = false;
+            this.dgvKhachHang.Name = "dgvKhachHang";
+            this.dgvKhachHang.ReadOnly = true;
+            this.dgvKhachHang.RowHeadersVisible = false;
+            this.dgvKhachHang.RowHeadersWidth = 51;
+            this.dgvKhachHang.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvKhachHang.RowTemplate.Height = 30;
+            this.dgvKhachHang.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvKhachHang.Size = new System.Drawing.Size(978, 686);
+            this.dgvKhachHang.TabIndex = 1;
+            this.dgvKhachHang.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvKhachHang_DataBindingComplete);
+            // 
+            // MaKH
+            // 
+            this.MaKH.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.MaKH.DataPropertyName = "MaKH";
+            this.MaKH.Frozen = true;
+            this.MaKH.HeaderText = "Mã KH";
+            this.MaKH.MinimumWidth = 6;
+            this.MaKH.Name = "MaKH";
+            this.MaKH.ReadOnly = true;
+            this.MaKH.Width = 73;
+            // 
+            // Ho
+            // 
+            this.Ho.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Ho.DataPropertyName = "Ho";
+            this.Ho.HeaderText = "Họ";
+            this.Ho.MinimumWidth = 6;
+            this.Ho.Name = "Ho";
+            this.Ho.ReadOnly = true;
+            this.Ho.Width = 120;
+            // 
+            // Ten
+            // 
+            this.Ten.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Ten.DataPropertyName = "Ten";
+            this.Ten.HeaderText = "Tên";
+            this.Ten.MinimumWidth = 6;
+            this.Ten.Name = "Ten";
+            this.Ten.ReadOnly = true;
+            this.Ten.Width = 120;
+            // 
+            // NgaySinh
+            // 
+            this.NgaySinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.NgaySinh.DataPropertyName = "NgaySinh";
+            this.NgaySinh.HeaderText = "Ngày sinh";
+            this.NgaySinh.MinimumWidth = 6;
+            this.NgaySinh.Name = "NgaySinh";
+            this.NgaySinh.ReadOnly = true;
+            this.NgaySinh.Width = 93;
+            // 
+            // GioiTinh
+            // 
+            this.GioiTinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.GioiTinh.DataPropertyName = "GioiTinh";
+            this.GioiTinh.HeaderText = "Giới tính";
+            this.GioiTinh.MinimumWidth = 6;
+            this.GioiTinh.Name = "GioiTinh";
+            this.GioiTinh.ReadOnly = true;
+            this.GioiTinh.Width = 86;
+            // 
+            // SoDT
+            // 
+            this.SoDT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.SoDT.DataPropertyName = "SoDT";
+            this.SoDT.HeaderText = "Số DT";
+            this.SoDT.MinimumWidth = 6;
+            this.SoDT.Name = "SoDT";
+            this.SoDT.ReadOnly = true;
+            this.SoDT.Width = 69;
+            // 
+            // DiaChi
+            // 
+            this.DiaChi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DiaChi.DataPropertyName = "DiaChi";
+            this.DiaChi.HeaderText = "Địa chỉ";
+            this.DiaChi.MinimumWidth = 6;
+            this.DiaChi.Name = "DiaChi";
+            this.DiaChi.ReadOnly = true;
+            // 
+            // TrangThai
+            // 
+            this.TrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TrangThai.DataPropertyName = "TrangThai";
+            this.TrangThai.HeaderText = "Trạng thái";
+            this.TrangThai.MinimumWidth = 6;
+            this.TrangThai.Name = "TrangThai";
+            this.TrangThai.ReadOnly = true;
+            this.TrangThai.Width = 95;
+            // 
+            // IMG
+            // 
+            this.IMG.DataPropertyName = "IMG";
+            this.IMG.HeaderText = "Hình ảnh";
+            this.IMG.MinimumWidth = 6;
+            this.IMG.Name = "IMG";
+            this.IMG.ReadOnly = true;
+            this.IMG.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IMG.Visible = false;
+            this.IMG.Width = 89;
+            // 
+            // DiemTichLuy
+            // 
+            this.DiemTichLuy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.DiemTichLuy.DataPropertyName = "DiemTichLuy";
+            this.DiemTichLuy.HeaderText = "Điểm tích lũy";
+            this.DiemTichLuy.MinimumWidth = 6;
+            this.DiemTichLuy.Name = "DiemTichLuy";
+            this.DiemTichLuy.ReadOnly = true;
+            this.DiemTichLuy.Width = 115;
             // 
             // flowLayoutPanel1
             // 
@@ -1374,107 +1482,6 @@
             this.rjButton5.TextColor = System.Drawing.Color.White;
             this.rjButton5.UseVisualStyleBackColor = false;
             // 
-            // MaKH
-            // 
-            this.MaKH.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.MaKH.DataPropertyName = "MaKH";
-            this.MaKH.Frozen = true;
-            this.MaKH.HeaderText = "Mã KH";
-            this.MaKH.MinimumWidth = 6;
-            this.MaKH.Name = "MaKH";
-            this.MaKH.ReadOnly = true;
-            this.MaKH.Width = 73;
-            // 
-            // Ho
-            // 
-            this.Ho.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Ho.DataPropertyName = "Ho";
-            this.Ho.HeaderText = "Họ";
-            this.Ho.MinimumWidth = 6;
-            this.Ho.Name = "Ho";
-            this.Ho.ReadOnly = true;
-            this.Ho.Width = 120;
-            // 
-            // Ten
-            // 
-            this.Ten.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Ten.DataPropertyName = "Ten";
-            this.Ten.HeaderText = "Tên";
-            this.Ten.MinimumWidth = 6;
-            this.Ten.Name = "Ten";
-            this.Ten.ReadOnly = true;
-            this.Ten.Width = 120;
-            // 
-            // NgaySinh
-            // 
-            this.NgaySinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.NgaySinh.DataPropertyName = "NgaySinh";
-            this.NgaySinh.HeaderText = "Ngày sinh";
-            this.NgaySinh.MinimumWidth = 6;
-            this.NgaySinh.Name = "NgaySinh";
-            this.NgaySinh.ReadOnly = true;
-            this.NgaySinh.Width = 93;
-            // 
-            // GioiTinh
-            // 
-            this.GioiTinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.GioiTinh.DataPropertyName = "GioiTinh";
-            this.GioiTinh.HeaderText = "Giới tính";
-            this.GioiTinh.MinimumWidth = 6;
-            this.GioiTinh.Name = "GioiTinh";
-            this.GioiTinh.ReadOnly = true;
-            this.GioiTinh.Width = 86;
-            // 
-            // SoDT
-            // 
-            this.SoDT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.SoDT.DataPropertyName = "SoDT";
-            this.SoDT.HeaderText = "Số DT";
-            this.SoDT.MinimumWidth = 6;
-            this.SoDT.Name = "SoDT";
-            this.SoDT.ReadOnly = true;
-            this.SoDT.Width = 69;
-            // 
-            // DiaChi
-            // 
-            this.DiaChi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DiaChi.DataPropertyName = "DiaChi";
-            this.DiaChi.HeaderText = "Địa chỉ";
-            this.DiaChi.MinimumWidth = 6;
-            this.DiaChi.Name = "DiaChi";
-            this.DiaChi.ReadOnly = true;
-            // 
-            // TrangThai
-            // 
-            this.TrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.TrangThai.DataPropertyName = "TrangThai";
-            this.TrangThai.HeaderText = "Trạng thái";
-            this.TrangThai.MinimumWidth = 6;
-            this.TrangThai.Name = "TrangThai";
-            this.TrangThai.ReadOnly = true;
-            this.TrangThai.Width = 95;
-            // 
-            // IMG
-            // 
-            this.IMG.DataPropertyName = "IMG";
-            this.IMG.HeaderText = "Hình ảnh";
-            this.IMG.MinimumWidth = 6;
-            this.IMG.Name = "IMG";
-            this.IMG.ReadOnly = true;
-            this.IMG.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.IMG.Visible = false;
-            this.IMG.Width = 88;
-            // 
-            // DiemTichLuy
-            // 
-            this.DiemTichLuy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.DiemTichLuy.DataPropertyName = "DiemTichLuy";
-            this.DiemTichLuy.HeaderText = "Điểm tích lũy";
-            this.DiemTichLuy.MinimumWidth = 6;
-            this.DiemTichLuy.Name = "DiemTichLuy";
-            this.DiemTichLuy.ReadOnly = true;
-            this.DiemTichLuy.Width = 115;
-            // 
             // KhachHangGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1489,9 +1496,9 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.flpFilter.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).EndInit();
-            this.flpFilter.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1546,31 +1553,30 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.DataGridView dgvKhachHang;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
-        private MyCustom.RJComboBox cbxTimKiem;
-        private MyCustom.RJTextBox rjTextBox7;
+        private MyCustom.RJTextBox txtTimKiem;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
-        private MyCustom.RJButton rjButton6;
+        private MyCustom.RJButton btnTimKiem;
         private MyCustom.RJButton btnFilter;
         private System.Windows.Forms.FlowLayoutPanel flpFilter;
         private System.Windows.Forms.Label label12;
-        private MyCustom.BiggerCheckBox biggerCheckBox1;
-        private MyCustom.BiggerCheckBox biggerCheckBox2;
+        private MyCustom.BiggerCheckBox chkGioiTinh;
+        private MyCustom.BiggerCheckBox chkNam;
         private System.Windows.Forms.Label label21;
-        private MyCustom.BiggerCheckBox biggerCheckBox3;
+        private MyCustom.BiggerCheckBox chkNu;
         private System.Windows.Forms.Label label22;
-        private MyCustom.BiggerCheckBox biggerCheckBox4;
+        private MyCustom.BiggerCheckBox chkTuoi;
         private System.Windows.Forms.Label label23;
         private MyCustom.RJTextBox rjTextBox8;
         private System.Windows.Forms.Label label24;
         private MyCustom.RJTextBox rjTextBox12;
-        private MyCustom.BiggerCheckBox biggerCheckBox5;
+        private MyCustom.BiggerCheckBox chkDiemTL;
         private System.Windows.Forms.Label label25;
         private MyCustom.RJTextBox rjTextBox13;
         private System.Windows.Forms.Label label26;
         private MyCustom.RJTextBox rjTextBox14;
-        private MyCustom.BiggerCheckBox biggerCheckBox6;
+        private MyCustom.BiggerCheckBox chkTrangThai;
         private System.Windows.Forms.Label label27;
         private MyCustom.BiggerCheckBox biggerCheckBox7;
         private System.Windows.Forms.Label label28;
@@ -1589,5 +1595,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
         private System.Windows.Forms.DataGridViewTextBoxColumn IMG;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiemTichLuy;
+        private MyCustom.RJComboBox cbxTimKiem;
     }
 }
