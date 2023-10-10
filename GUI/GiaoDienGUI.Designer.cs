@@ -34,20 +34,19 @@
             this.pnSubQuanLy = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
             this.pnSanPhamContainer = new GUI.MyCustom.RJButton();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.rjButton4 = new GUI.MyCustom.RJButton();
+            this.pnLeftBorderSanPham = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.pnKhachHangContainer = new GUI.MyCustom.RJButton();
-            this.panel15 = new System.Windows.Forms.Panel();
+            this.pnLeftBorderKhachHang = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.pnNhanVienContainer = new GUI.MyCustom.RJButton();
-            this.panel12 = new System.Windows.Forms.Panel();
+            this.pnLeftBorderNhanVien = new System.Windows.Forms.Panel();
             this.pnQuanLy = new System.Windows.Forms.Panel();
             this.pnQuanLyContainer = new GUI.MyCustom.RJButton();
-            this.panel8 = new System.Windows.Forms.Panel();
+            this.pnLeftBorderQuanLy = new System.Windows.Forms.Panel();
             this.pnHangHoa = new System.Windows.Forms.Panel();
             this.rjButton1 = new GUI.MyCustom.RJButton();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.pnLeftBorderHangHoa = new System.Windows.Forms.Panel();
             this.pnMenu = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.rjButton2 = new GUI.MyCustom.RJButton();
@@ -65,7 +64,6 @@
             this.panel5.SuspendLayout();
             this.pnSubQuanLy.SuspendLayout();
             this.panel16.SuspendLayout();
-            this.panel18.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel10.SuspendLayout();
             this.pnQuanLy.SuspendLayout();
@@ -118,7 +116,7 @@
             // panel16
             // 
             this.panel16.Controls.Add(this.pnSanPhamContainer);
-            this.panel16.Controls.Add(this.panel18);
+            this.panel16.Controls.Add(this.pnLeftBorderSanPham);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel16.Location = new System.Drawing.Point(0, 100);
             this.panel16.Name = "panel16";
@@ -150,43 +148,19 @@
             this.pnSanPhamContainer.TextColor = System.Drawing.Color.Black;
             this.pnSanPhamContainer.UseVisualStyleBackColor = false;
             // 
-            // panel18
+            // pnLeftBorderSanPham
             // 
-            this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            this.panel18.Controls.Add(this.rjButton4);
-            this.panel18.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel18.Location = new System.Drawing.Point(0, 0);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(8, 40);
-            this.panel18.TabIndex = 0;
-            // 
-            // rjButton4
-            // 
-            this.rjButton4.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton4.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton4.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton4.BorderRadius = 0;
-            this.rjButton4.BorderSize = 0;
-            this.rjButton4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rjButton4.FlatAppearance.BorderSize = 0;
-            this.rjButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton4.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton4.ForeColor = System.Drawing.Color.Black;
-            this.rjButton4.Image = ((System.Drawing.Image)(resources.GetObject("rjButton4.Image")));
-            this.rjButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton4.Location = new System.Drawing.Point(0, 0);
-            this.rjButton4.Name = "rjButton4";
-            this.rjButton4.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rjButton4.Size = new System.Drawing.Size(8, 40);
-            this.rjButton4.TabIndex = 2;
-            this.rjButton4.Text = "Quản lý";
-            this.rjButton4.TextColor = System.Drawing.Color.Black;
-            this.rjButton4.UseVisualStyleBackColor = false;
+            this.pnLeftBorderSanPham.BackColor = System.Drawing.Color.Transparent;
+            this.pnLeftBorderSanPham.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnLeftBorderSanPham.Location = new System.Drawing.Point(0, 0);
+            this.pnLeftBorderSanPham.Name = "pnLeftBorderSanPham";
+            this.pnLeftBorderSanPham.Size = new System.Drawing.Size(8, 40);
+            this.pnLeftBorderSanPham.TabIndex = 0;
             // 
             // panel13
             // 
             this.panel13.Controls.Add(this.pnKhachHangContainer);
-            this.panel13.Controls.Add(this.panel15);
+            this.panel13.Controls.Add(this.pnLeftBorderKhachHang);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel13.Location = new System.Drawing.Point(0, 50);
             this.panel13.Name = "panel13";
@@ -219,19 +193,19 @@
             this.pnKhachHangContainer.UseVisualStyleBackColor = false;
             this.pnKhachHangContainer.Click += new System.EventHandler(this.pnKhachHangContainer_Click);
             // 
-            // panel15
+            // pnLeftBorderKhachHang
             // 
-            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            this.panel15.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel15.Location = new System.Drawing.Point(0, 0);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(8, 40);
-            this.panel15.TabIndex = 0;
+            this.pnLeftBorderKhachHang.BackColor = System.Drawing.Color.Transparent;
+            this.pnLeftBorderKhachHang.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnLeftBorderKhachHang.Location = new System.Drawing.Point(0, 0);
+            this.pnLeftBorderKhachHang.Name = "pnLeftBorderKhachHang";
+            this.pnLeftBorderKhachHang.Size = new System.Drawing.Size(8, 40);
+            this.pnLeftBorderKhachHang.TabIndex = 0;
             // 
             // panel10
             // 
             this.panel10.Controls.Add(this.pnNhanVienContainer);
-            this.panel10.Controls.Add(this.panel12);
+            this.panel10.Controls.Add(this.pnLeftBorderNhanVien);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Name = "panel10";
@@ -264,19 +238,19 @@
             this.pnNhanVienContainer.UseVisualStyleBackColor = false;
             this.pnNhanVienContainer.Click += new System.EventHandler(this.pnNhanVienContainer_Click);
             // 
-            // panel12
+            // pnLeftBorderNhanVien
             // 
-            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel12.Location = new System.Drawing.Point(0, 0);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(8, 40);
-            this.panel12.TabIndex = 0;
+            this.pnLeftBorderNhanVien.BackColor = System.Drawing.Color.Transparent;
+            this.pnLeftBorderNhanVien.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnLeftBorderNhanVien.Location = new System.Drawing.Point(0, 0);
+            this.pnLeftBorderNhanVien.Name = "pnLeftBorderNhanVien";
+            this.pnLeftBorderNhanVien.Size = new System.Drawing.Size(8, 40);
+            this.pnLeftBorderNhanVien.TabIndex = 0;
             // 
             // pnQuanLy
             // 
             this.pnQuanLy.Controls.Add(this.pnQuanLyContainer);
-            this.pnQuanLy.Controls.Add(this.panel8);
+            this.pnQuanLy.Controls.Add(this.pnLeftBorderQuanLy);
             this.pnQuanLy.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnQuanLy.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnQuanLy.Location = new System.Drawing.Point(0, 50);
@@ -311,19 +285,19 @@
             this.pnQuanLyContainer.UseVisualStyleBackColor = false;
             this.pnQuanLyContainer.Click += new System.EventHandler(this.pnQuanLyContainer_Click);
             // 
-            // panel8
+            // pnLeftBorderQuanLy
             // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel8.Location = new System.Drawing.Point(0, 0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(8, 40);
-            this.panel8.TabIndex = 0;
+            this.pnLeftBorderQuanLy.BackColor = System.Drawing.Color.Transparent;
+            this.pnLeftBorderQuanLy.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnLeftBorderQuanLy.Location = new System.Drawing.Point(0, 0);
+            this.pnLeftBorderQuanLy.Name = "pnLeftBorderQuanLy";
+            this.pnLeftBorderQuanLy.Size = new System.Drawing.Size(8, 40);
+            this.pnLeftBorderQuanLy.TabIndex = 0;
             // 
             // pnHangHoa
             // 
             this.pnHangHoa.Controls.Add(this.rjButton1);
-            this.pnHangHoa.Controls.Add(this.panel4);
+            this.pnHangHoa.Controls.Add(this.pnLeftBorderHangHoa);
             this.pnHangHoa.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnHangHoa.Location = new System.Drawing.Point(0, 0);
             this.pnHangHoa.Name = "pnHangHoa";
@@ -355,14 +329,14 @@
             this.rjButton1.TextColor = System.Drawing.Color.Black;
             this.rjButton1.UseVisualStyleBackColor = false;
             // 
-            // panel4
+            // pnLeftBorderHangHoa
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(8, 40);
-            this.panel4.TabIndex = 0;
+            this.pnLeftBorderHangHoa.BackColor = System.Drawing.Color.Transparent;
+            this.pnLeftBorderHangHoa.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnLeftBorderHangHoa.Location = new System.Drawing.Point(0, 0);
+            this.pnLeftBorderHangHoa.Name = "pnLeftBorderHangHoa";
+            this.pnLeftBorderHangHoa.Size = new System.Drawing.Size(8, 40);
+            this.pnLeftBorderHangHoa.TabIndex = 0;
             // 
             // pnMenu
             // 
@@ -456,7 +430,7 @@
             this.btnMinimize.ForeColor = System.Drawing.Color.White;
             this.btnMinimize.Image = global::GUI.Properties.Resources.icons8_minimize_32__1_;
             this.btnMinimize.Location = new System.Drawing.Point(1357, 0);
-            this.btnMinimize.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(2);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(43, 35);
             this.btnMinimize.TabIndex = 2;
@@ -486,7 +460,7 @@
             this.btnMaximize.ForeColor = System.Drawing.Color.White;
             this.btnMaximize.Image = global::GUI.Properties.Resources.icons8_toggle_full_screen_32;
             this.btnMaximize.Location = new System.Drawing.Point(1406, 0);
-            this.btnMaximize.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaximize.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(43, 35);
             this.btnMaximize.TabIndex = 5;
@@ -516,7 +490,7 @@
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Image = global::GUI.Properties.Resources.icons8_close_32;
             this.btnClose.Location = new System.Drawing.Point(1455, 0);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(43, 35);
             this.btnClose.TabIndex = 1;
@@ -555,7 +529,7 @@
             this.ClientSize = new System.Drawing.Size(1500, 800);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GiaoDienGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GiaoDienGUI";
@@ -564,7 +538,6 @@
             this.panel5.ResumeLayout(false);
             this.pnSubQuanLy.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
-            this.panel18.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.pnQuanLy.ResumeLayout(false);
@@ -589,19 +562,18 @@
         private System.Windows.Forms.Panel pnImage;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pnHangHoa;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel pnLeftBorderHangHoa;
         private System.Windows.Forms.Panel pnQuanLy;
-        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel pnLeftBorderQuanLy;
         private System.Windows.Forms.Panel pnSubQuanLy;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Panel pnLeftBorderKhachHang;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Panel pnLeftBorderNhanVien;
         private GUI.MyCustom.RJButton pnQuanLyContainer;
         private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Panel pnLeftBorderSanPham;
         private GUI.MyCustom.RJButton pnSanPhamContainer;
-        private GUI.MyCustom.RJButton rjButton4;
         private GUI.MyCustom.RJButton pnKhachHangContainer;
         private GUI.MyCustom.RJButton pnNhanVienContainer;
         private GUI.MyCustom.RJButton rjButton1;

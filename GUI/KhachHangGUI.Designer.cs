@@ -41,19 +41,19 @@
             this.label22 = new System.Windows.Forms.Label();
             this.chkTuoi = new GUI.MyCustom.BiggerCheckBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.rjTextBox8 = new GUI.MyCustom.RJTextBox();
+            this.txtTuoiStart = new GUI.MyCustom.RJTextBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.rjTextBox12 = new GUI.MyCustom.RJTextBox();
+            this.txtTuoiEnd = new GUI.MyCustom.RJTextBox();
             this.chkDiemTL = new GUI.MyCustom.BiggerCheckBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.rjTextBox13 = new GUI.MyCustom.RJTextBox();
+            this.txtDiemTLStart = new GUI.MyCustom.RJTextBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.rjTextBox14 = new GUI.MyCustom.RJTextBox();
+            this.txtDiemTLEnd = new GUI.MyCustom.RJTextBox();
             this.chkTrangThai = new GUI.MyCustom.BiggerCheckBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.biggerCheckBox7 = new GUI.MyCustom.BiggerCheckBox();
+            this.chkHoatDong = new GUI.MyCustom.BiggerCheckBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.biggerCheckBox8 = new GUI.MyCustom.BiggerCheckBox();
+            this.chkKoHD = new GUI.MyCustom.BiggerCheckBox();
             this.label29 = new System.Windows.Forms.Label();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.cbxTimKiem = new GUI.MyCustom.RJComboBox();
@@ -107,10 +107,10 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.rjButton2 = new GUI.MyCustom.RJButton();
-            this.rjButton3 = new GUI.MyCustom.RJButton();
-            this.rjButton4 = new GUI.MyCustom.RJButton();
-            this.rjButton5 = new GUI.MyCustom.RJButton();
+            this.btnThem = new GUI.MyCustom.RJButton();
+            this.btnSua = new GUI.MyCustom.RJButton();
+            this.btnXoa = new GUI.MyCustom.RJButton();
+            this.btnReset = new GUI.MyCustom.RJButton();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.flpFilter.SuspendLayout();
@@ -140,9 +140,9 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.flpFilter);
             this.panel3.Controls.Add(this.flowLayoutPanel4);
             this.panel3.Controls.Add(this.dgvKhachHang);
+            this.panel3.Controls.Add(this.flpFilter);
             this.panel3.Location = new System.Drawing.Point(316, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(989, 754);
@@ -160,24 +160,25 @@
             this.flpFilter.Controls.Add(this.label22);
             this.flpFilter.Controls.Add(this.chkTuoi);
             this.flpFilter.Controls.Add(this.label23);
-            this.flpFilter.Controls.Add(this.rjTextBox8);
+            this.flpFilter.Controls.Add(this.txtTuoiStart);
             this.flpFilter.Controls.Add(this.label24);
-            this.flpFilter.Controls.Add(this.rjTextBox12);
+            this.flpFilter.Controls.Add(this.txtTuoiEnd);
             this.flpFilter.Controls.Add(this.chkDiemTL);
             this.flpFilter.Controls.Add(this.label25);
-            this.flpFilter.Controls.Add(this.rjTextBox13);
+            this.flpFilter.Controls.Add(this.txtDiemTLStart);
             this.flpFilter.Controls.Add(this.label26);
-            this.flpFilter.Controls.Add(this.rjTextBox14);
+            this.flpFilter.Controls.Add(this.txtDiemTLEnd);
             this.flpFilter.Controls.Add(this.chkTrangThai);
             this.flpFilter.Controls.Add(this.label27);
-            this.flpFilter.Controls.Add(this.biggerCheckBox7);
+            this.flpFilter.Controls.Add(this.chkHoatDong);
             this.flpFilter.Controls.Add(this.label28);
-            this.flpFilter.Controls.Add(this.biggerCheckBox8);
+            this.flpFilter.Controls.Add(this.chkKoHD);
             this.flpFilter.Controls.Add(this.label29);
             this.flpFilter.Location = new System.Drawing.Point(676, 55);
             this.flpFilter.Name = "flpFilter";
             this.flpFilter.Size = new System.Drawing.Size(289, 184);
             this.flpFilter.TabIndex = 3;
+            this.flpFilter.Visible = false;
             // 
             // chkGioiTinh
             // 
@@ -333,28 +334,30 @@
             this.label23.Text = "Tuổi:";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // rjTextBox8
+            // txtTuoiStart
             // 
-            this.rjTextBox8.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.rjTextBox8.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.rjTextBox8.BorderRadius = 0;
-            this.rjTextBox8.BorderSize = 2;
-            this.rjTextBox8.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox8.ForeColor = System.Drawing.Color.Black;
-            this.rjTextBox8.Location = new System.Drawing.Point(119, 40);
-            this.rjTextBox8.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox8.MinimumSize = new System.Drawing.Size(0, 28);
-            this.rjTextBox8.Multiline = false;
-            this.rjTextBox8.Name = "rjTextBox8";
-            this.rjTextBox8.Padding = new System.Windows.Forms.Padding(8, 4, 2, 2);
-            this.rjTextBox8.PasswordChar = false;
-            this.rjTextBox8.PlaceholderColor = System.Drawing.Color.DimGray;
-            this.rjTextBox8.PlaceholderText = "Từ";
-            this.rjTextBox8.Size = new System.Drawing.Size(59, 28);
-            this.rjTextBox8.TabIndex = 10;
-            this.rjTextBox8.Texts = "";
-            this.rjTextBox8.UnderlinedStyle = false;
+            this.txtTuoiStart.BackColor = System.Drawing.SystemColors.Window;
+            this.txtTuoiStart.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.txtTuoiStart.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.txtTuoiStart.BorderRadius = 0;
+            this.txtTuoiStart.BorderSize = 2;
+            this.txtTuoiStart.Enabled = false;
+            this.txtTuoiStart.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTuoiStart.ForeColor = System.Drawing.Color.Black;
+            this.txtTuoiStart.Location = new System.Drawing.Point(119, 40);
+            this.txtTuoiStart.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTuoiStart.MinimumSize = new System.Drawing.Size(0, 28);
+            this.txtTuoiStart.Multiline = false;
+            this.txtTuoiStart.Name = "txtTuoiStart";
+            this.txtTuoiStart.Padding = new System.Windows.Forms.Padding(8, 4, 2, 2);
+            this.txtTuoiStart.PasswordChar = false;
+            this.txtTuoiStart.PlaceholderColor = System.Drawing.Color.DimGray;
+            this.txtTuoiStart.PlaceholderText = "Từ";
+            this.txtTuoiStart.Size = new System.Drawing.Size(59, 28);
+            this.txtTuoiStart.TabIndex = 10;
+            this.txtTuoiStart.Texts = "";
+            this.txtTuoiStart.UnderlinedStyle = false;
+            this.txtTuoiStart._TextChanged += new System.EventHandler(this.txtTuoiStart__TextChanged);
             // 
             // label24
             // 
@@ -368,28 +371,30 @@
             this.label24.Text = "-";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // rjTextBox12
+            // txtTuoiEnd
             // 
-            this.rjTextBox12.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox12.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.rjTextBox12.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.rjTextBox12.BorderRadius = 0;
-            this.rjTextBox12.BorderSize = 2;
-            this.rjTextBox12.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox12.ForeColor = System.Drawing.Color.Black;
-            this.rjTextBox12.Location = new System.Drawing.Point(206, 40);
-            this.rjTextBox12.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox12.MinimumSize = new System.Drawing.Size(0, 28);
-            this.rjTextBox12.Multiline = false;
-            this.rjTextBox12.Name = "rjTextBox12";
-            this.rjTextBox12.Padding = new System.Windows.Forms.Padding(8, 4, 2, 2);
-            this.rjTextBox12.PasswordChar = false;
-            this.rjTextBox12.PlaceholderColor = System.Drawing.Color.DimGray;
-            this.rjTextBox12.PlaceholderText = "Đến";
-            this.rjTextBox12.Size = new System.Drawing.Size(59, 28);
-            this.rjTextBox12.TabIndex = 11;
-            this.rjTextBox12.Texts = "";
-            this.rjTextBox12.UnderlinedStyle = false;
+            this.txtTuoiEnd.BackColor = System.Drawing.SystemColors.Window;
+            this.txtTuoiEnd.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.txtTuoiEnd.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.txtTuoiEnd.BorderRadius = 0;
+            this.txtTuoiEnd.BorderSize = 2;
+            this.txtTuoiEnd.Enabled = false;
+            this.txtTuoiEnd.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTuoiEnd.ForeColor = System.Drawing.Color.Black;
+            this.txtTuoiEnd.Location = new System.Drawing.Point(206, 40);
+            this.txtTuoiEnd.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTuoiEnd.MinimumSize = new System.Drawing.Size(0, 28);
+            this.txtTuoiEnd.Multiline = false;
+            this.txtTuoiEnd.Name = "txtTuoiEnd";
+            this.txtTuoiEnd.Padding = new System.Windows.Forms.Padding(8, 4, 2, 2);
+            this.txtTuoiEnd.PasswordChar = false;
+            this.txtTuoiEnd.PlaceholderColor = System.Drawing.Color.DimGray;
+            this.txtTuoiEnd.PlaceholderText = "Đến";
+            this.txtTuoiEnd.Size = new System.Drawing.Size(59, 28);
+            this.txtTuoiEnd.TabIndex = 11;
+            this.txtTuoiEnd.Texts = "";
+            this.txtTuoiEnd.UnderlinedStyle = false;
+            this.txtTuoiEnd._TextChanged += new System.EventHandler(this.txtTuoiEnd__TextChanged);
             // 
             // chkDiemTL
             // 
@@ -429,28 +434,30 @@
             this.label25.Text = "Điểm TL:";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // rjTextBox13
+            // txtDiemTLStart
             // 
-            this.rjTextBox13.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox13.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.rjTextBox13.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.rjTextBox13.BorderRadius = 0;
-            this.rjTextBox13.BorderSize = 2;
-            this.rjTextBox13.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox13.ForeColor = System.Drawing.Color.Black;
-            this.rjTextBox13.Location = new System.Drawing.Point(119, 76);
-            this.rjTextBox13.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox13.MinimumSize = new System.Drawing.Size(0, 28);
-            this.rjTextBox13.Multiline = false;
-            this.rjTextBox13.Name = "rjTextBox13";
-            this.rjTextBox13.Padding = new System.Windows.Forms.Padding(8, 4, 2, 2);
-            this.rjTextBox13.PasswordChar = false;
-            this.rjTextBox13.PlaceholderColor = System.Drawing.Color.DimGray;
-            this.rjTextBox13.PlaceholderText = "Từ";
-            this.rjTextBox13.Size = new System.Drawing.Size(59, 28);
-            this.rjTextBox13.TabIndex = 15;
-            this.rjTextBox13.Texts = "";
-            this.rjTextBox13.UnderlinedStyle = false;
+            this.txtDiemTLStart.BackColor = System.Drawing.SystemColors.Window;
+            this.txtDiemTLStart.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.txtDiemTLStart.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.txtDiemTLStart.BorderRadius = 0;
+            this.txtDiemTLStart.BorderSize = 2;
+            this.txtDiemTLStart.Enabled = false;
+            this.txtDiemTLStart.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiemTLStart.ForeColor = System.Drawing.Color.Black;
+            this.txtDiemTLStart.Location = new System.Drawing.Point(119, 76);
+            this.txtDiemTLStart.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDiemTLStart.MinimumSize = new System.Drawing.Size(0, 28);
+            this.txtDiemTLStart.Multiline = false;
+            this.txtDiemTLStart.Name = "txtDiemTLStart";
+            this.txtDiemTLStart.Padding = new System.Windows.Forms.Padding(8, 4, 2, 2);
+            this.txtDiemTLStart.PasswordChar = false;
+            this.txtDiemTLStart.PlaceholderColor = System.Drawing.Color.DimGray;
+            this.txtDiemTLStart.PlaceholderText = "Từ";
+            this.txtDiemTLStart.Size = new System.Drawing.Size(59, 28);
+            this.txtDiemTLStart.TabIndex = 15;
+            this.txtDiemTLStart.Texts = "";
+            this.txtDiemTLStart.UnderlinedStyle = false;
+            this.txtDiemTLStart._TextChanged += new System.EventHandler(this.txtDiemTLStart__TextChanged);
             // 
             // label26
             // 
@@ -464,28 +471,30 @@
             this.label26.Text = "-";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // rjTextBox14
+            // txtDiemTLEnd
             // 
-            this.rjTextBox14.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox14.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.rjTextBox14.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.rjTextBox14.BorderRadius = 0;
-            this.rjTextBox14.BorderSize = 2;
-            this.rjTextBox14.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox14.ForeColor = System.Drawing.Color.Black;
-            this.rjTextBox14.Location = new System.Drawing.Point(206, 76);
-            this.rjTextBox14.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox14.MinimumSize = new System.Drawing.Size(0, 28);
-            this.rjTextBox14.Multiline = false;
-            this.rjTextBox14.Name = "rjTextBox14";
-            this.rjTextBox14.Padding = new System.Windows.Forms.Padding(8, 4, 2, 2);
-            this.rjTextBox14.PasswordChar = false;
-            this.rjTextBox14.PlaceholderColor = System.Drawing.Color.DimGray;
-            this.rjTextBox14.PlaceholderText = "Đến";
-            this.rjTextBox14.Size = new System.Drawing.Size(59, 28);
-            this.rjTextBox14.TabIndex = 16;
-            this.rjTextBox14.Texts = "";
-            this.rjTextBox14.UnderlinedStyle = false;
+            this.txtDiemTLEnd.BackColor = System.Drawing.SystemColors.Window;
+            this.txtDiemTLEnd.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.txtDiemTLEnd.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.txtDiemTLEnd.BorderRadius = 0;
+            this.txtDiemTLEnd.BorderSize = 2;
+            this.txtDiemTLEnd.Enabled = false;
+            this.txtDiemTLEnd.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiemTLEnd.ForeColor = System.Drawing.Color.Black;
+            this.txtDiemTLEnd.Location = new System.Drawing.Point(206, 76);
+            this.txtDiemTLEnd.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDiemTLEnd.MinimumSize = new System.Drawing.Size(0, 28);
+            this.txtDiemTLEnd.Multiline = false;
+            this.txtDiemTLEnd.Name = "txtDiemTLEnd";
+            this.txtDiemTLEnd.Padding = new System.Windows.Forms.Padding(8, 4, 2, 2);
+            this.txtDiemTLEnd.PasswordChar = false;
+            this.txtDiemTLEnd.PlaceholderColor = System.Drawing.Color.DimGray;
+            this.txtDiemTLEnd.PlaceholderText = "Đến";
+            this.txtDiemTLEnd.Size = new System.Drawing.Size(59, 28);
+            this.txtDiemTLEnd.TabIndex = 16;
+            this.txtDiemTLEnd.Texts = "";
+            this.txtDiemTLEnd.UnderlinedStyle = false;
+            this.txtDiemTLEnd._TextChanged += new System.EventHandler(this.txtDiemTLEnd__TextChanged);
             // 
             // chkTrangThai
             // 
@@ -525,31 +534,33 @@
             this.label27.Text = "T.Thái:";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // biggerCheckBox7
+            // chkHoatDong
             // 
-            this.biggerCheckBox7.Appearance = System.Windows.Forms.Appearance.Button;
-            this.biggerCheckBox7.BoxBackColor = System.Drawing.Color.Transparent;
-            this.biggerCheckBox7.BoxColor = System.Drawing.Color.Black;
-            this.biggerCheckBox7.BoxLocationX = 5;
-            this.biggerCheckBox7.BoxLocationY = 8;
-            this.biggerCheckBox7.BoxSize = 14;
-            this.biggerCheckBox7.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.biggerCheckBox7.FlatAppearance.BorderSize = 0;
-            this.biggerCheckBox7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.biggerCheckBox7.Location = new System.Drawing.Point(118, 111);
-            this.biggerCheckBox7.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-            this.biggerCheckBox7.Name = "biggerCheckBox7";
-            this.biggerCheckBox7.Padding = new System.Windows.Forms.Padding(10);
-            this.biggerCheckBox7.Size = new System.Drawing.Size(24, 29);
-            this.biggerCheckBox7.TabIndex = 20;
-            this.biggerCheckBox7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.biggerCheckBox7.TextLocationX = 16;
-            this.biggerCheckBox7.TextLocationY = 1;
-            this.biggerCheckBox7.TickColor = System.Drawing.Color.Black;
-            this.biggerCheckBox7.TickLeftPosition = 5F;
-            this.biggerCheckBox7.TickSize = 11F;
-            this.biggerCheckBox7.TickTopPosition = 8F;
-            this.biggerCheckBox7.UseVisualStyleBackColor = true;
+            this.chkHoatDong.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkHoatDong.BoxBackColor = System.Drawing.Color.Transparent;
+            this.chkHoatDong.BoxColor = System.Drawing.Color.Black;
+            this.chkHoatDong.BoxLocationX = 5;
+            this.chkHoatDong.BoxLocationY = 8;
+            this.chkHoatDong.BoxSize = 14;
+            this.chkHoatDong.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkHoatDong.Enabled = false;
+            this.chkHoatDong.FlatAppearance.BorderSize = 0;
+            this.chkHoatDong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkHoatDong.Location = new System.Drawing.Point(118, 111);
+            this.chkHoatDong.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.chkHoatDong.Name = "chkHoatDong";
+            this.chkHoatDong.Padding = new System.Windows.Forms.Padding(10);
+            this.chkHoatDong.Size = new System.Drawing.Size(24, 29);
+            this.chkHoatDong.TabIndex = 20;
+            this.chkHoatDong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkHoatDong.TextLocationX = 16;
+            this.chkHoatDong.TextLocationY = 1;
+            this.chkHoatDong.TickColor = System.Drawing.Color.Black;
+            this.chkHoatDong.TickLeftPosition = 5F;
+            this.chkHoatDong.TickSize = 11F;
+            this.chkHoatDong.TickTopPosition = 8F;
+            this.chkHoatDong.UseVisualStyleBackColor = true;
+            this.chkHoatDong.CheckedChanged += new System.EventHandler(this.chkHoatDong_CheckedChanged);
             // 
             // label28
             // 
@@ -563,31 +574,33 @@
             this.label28.Text = "Hoạt động";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // biggerCheckBox8
+            // chkKoHD
             // 
-            this.biggerCheckBox8.Appearance = System.Windows.Forms.Appearance.Button;
-            this.biggerCheckBox8.BoxBackColor = System.Drawing.Color.Transparent;
-            this.biggerCheckBox8.BoxColor = System.Drawing.Color.Black;
-            this.biggerCheckBox8.BoxLocationX = 5;
-            this.biggerCheckBox8.BoxLocationY = 8;
-            this.biggerCheckBox8.BoxSize = 14;
-            this.biggerCheckBox8.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.biggerCheckBox8.FlatAppearance.BorderSize = 0;
-            this.biggerCheckBox8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.biggerCheckBox8.Location = new System.Drawing.Point(100, 147);
-            this.biggerCheckBox8.Margin = new System.Windows.Forms.Padding(100, 3, 0, 3);
-            this.biggerCheckBox8.Name = "biggerCheckBox8";
-            this.biggerCheckBox8.Padding = new System.Windows.Forms.Padding(10);
-            this.biggerCheckBox8.Size = new System.Drawing.Size(24, 29);
-            this.biggerCheckBox8.TabIndex = 21;
-            this.biggerCheckBox8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.biggerCheckBox8.TextLocationX = 16;
-            this.biggerCheckBox8.TextLocationY = 1;
-            this.biggerCheckBox8.TickColor = System.Drawing.Color.Black;
-            this.biggerCheckBox8.TickLeftPosition = 5F;
-            this.biggerCheckBox8.TickSize = 11F;
-            this.biggerCheckBox8.TickTopPosition = 8F;
-            this.biggerCheckBox8.UseVisualStyleBackColor = true;
+            this.chkKoHD.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkKoHD.BoxBackColor = System.Drawing.Color.Transparent;
+            this.chkKoHD.BoxColor = System.Drawing.Color.Black;
+            this.chkKoHD.BoxLocationX = 5;
+            this.chkKoHD.BoxLocationY = 8;
+            this.chkKoHD.BoxSize = 14;
+            this.chkKoHD.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkKoHD.Enabled = false;
+            this.chkKoHD.FlatAppearance.BorderSize = 0;
+            this.chkKoHD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkKoHD.Location = new System.Drawing.Point(100, 147);
+            this.chkKoHD.Margin = new System.Windows.Forms.Padding(100, 3, 0, 3);
+            this.chkKoHD.Name = "chkKoHD";
+            this.chkKoHD.Padding = new System.Windows.Forms.Padding(10);
+            this.chkKoHD.Size = new System.Drawing.Size(24, 29);
+            this.chkKoHD.TabIndex = 21;
+            this.chkKoHD.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkKoHD.TextLocationX = 16;
+            this.chkKoHD.TextLocationY = 1;
+            this.chkKoHD.TickColor = System.Drawing.Color.Black;
+            this.chkKoHD.TickLeftPosition = 5F;
+            this.chkKoHD.TickSize = 11F;
+            this.chkKoHD.TickTopPosition = 8F;
+            this.chkKoHD.UseVisualStyleBackColor = true;
+            this.chkKoHD.CheckedChanged += new System.EventHandler(this.chkKoHD_CheckedChanged);
             // 
             // label29
             // 
@@ -1396,91 +1409,91 @@
             // 
             // flowLayoutPanel3
             // 
-            this.flowLayoutPanel3.Controls.Add(this.rjButton2);
-            this.flowLayoutPanel3.Controls.Add(this.rjButton3);
-            this.flowLayoutPanel3.Controls.Add(this.rjButton4);
-            this.flowLayoutPanel3.Controls.Add(this.rjButton5);
+            this.flowLayoutPanel3.Controls.Add(this.btnThem);
+            this.flowLayoutPanel3.Controls.Add(this.btnSua);
+            this.flowLayoutPanel3.Controls.Add(this.btnXoa);
+            this.flowLayoutPanel3.Controls.Add(this.btnReset);
             this.flowLayoutPanel3.Location = new System.Drawing.Point(8, 692);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(290, 45);
             this.flowLayoutPanel3.TabIndex = 1;
             // 
-            // rjButton2
+            // btnThem
             // 
-            this.rjButton2.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton2.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.rjButton2.BorderRadius = 20;
-            this.rjButton2.BorderSize = 2;
-            this.rjButton2.FlatAppearance.BorderSize = 0;
-            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton2.ForeColor = System.Drawing.Color.White;
-            this.rjButton2.Location = new System.Drawing.Point(13, 3);
-            this.rjButton2.Margin = new System.Windows.Forms.Padding(13, 3, 10, 3);
-            this.rjButton2.Name = "rjButton2";
-            this.rjButton2.Size = new System.Drawing.Size(44, 40);
-            this.rjButton2.TabIndex = 0;
-            this.rjButton2.Text = "rjButton2";
-            this.rjButton2.TextColor = System.Drawing.Color.White;
-            this.rjButton2.UseVisualStyleBackColor = false;
+            this.btnThem.BackColor = System.Drawing.Color.Transparent;
+            this.btnThem.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnThem.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.btnThem.BorderRadius = 20;
+            this.btnThem.BorderSize = 2;
+            this.btnThem.FlatAppearance.BorderSize = 0;
+            this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThem.ForeColor = System.Drawing.Color.White;
+            this.btnThem.Location = new System.Drawing.Point(23, 3);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(23, 3, 10, 3);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(44, 40);
+            this.btnThem.TabIndex = 0;
+            this.btnThem.Text = "rjButton2";
+            this.btnThem.TextColor = System.Drawing.Color.White;
+            this.btnThem.UseVisualStyleBackColor = false;
             // 
-            // rjButton3
+            // btnSua
             // 
-            this.rjButton3.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton3.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.rjButton3.BorderRadius = 20;
-            this.rjButton3.BorderSize = 2;
-            this.rjButton3.FlatAppearance.BorderSize = 0;
-            this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton3.ForeColor = System.Drawing.Color.White;
-            this.rjButton3.Location = new System.Drawing.Point(77, 3);
-            this.rjButton3.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
-            this.rjButton3.Name = "rjButton3";
-            this.rjButton3.Size = new System.Drawing.Size(44, 40);
-            this.rjButton3.TabIndex = 1;
-            this.rjButton3.Text = "rjButton3";
-            this.rjButton3.TextColor = System.Drawing.Color.White;
-            this.rjButton3.UseVisualStyleBackColor = false;
+            this.btnSua.BackColor = System.Drawing.Color.Transparent;
+            this.btnSua.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnSua.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.btnSua.BorderRadius = 20;
+            this.btnSua.BorderSize = 2;
+            this.btnSua.FlatAppearance.BorderSize = 0;
+            this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSua.ForeColor = System.Drawing.Color.White;
+            this.btnSua.Location = new System.Drawing.Point(87, 3);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(44, 40);
+            this.btnSua.TabIndex = 1;
+            this.btnSua.Text = "rjButton3";
+            this.btnSua.TextColor = System.Drawing.Color.White;
+            this.btnSua.UseVisualStyleBackColor = false;
             // 
-            // rjButton4
+            // btnXoa
             // 
-            this.rjButton4.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton4.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.rjButton4.BorderRadius = 20;
-            this.rjButton4.BorderSize = 2;
-            this.rjButton4.FlatAppearance.BorderSize = 0;
-            this.rjButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton4.ForeColor = System.Drawing.Color.White;
-            this.rjButton4.Location = new System.Drawing.Point(141, 3);
-            this.rjButton4.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
-            this.rjButton4.Name = "rjButton4";
-            this.rjButton4.Size = new System.Drawing.Size(44, 40);
-            this.rjButton4.TabIndex = 2;
-            this.rjButton4.Text = "rjButton4";
-            this.rjButton4.TextColor = System.Drawing.Color.White;
-            this.rjButton4.UseVisualStyleBackColor = false;
+            this.btnXoa.BackColor = System.Drawing.Color.Transparent;
+            this.btnXoa.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnXoa.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.btnXoa.BorderRadius = 20;
+            this.btnXoa.BorderSize = 2;
+            this.btnXoa.FlatAppearance.BorderSize = 0;
+            this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXoa.ForeColor = System.Drawing.Color.White;
+            this.btnXoa.Location = new System.Drawing.Point(151, 3);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(44, 40);
+            this.btnXoa.TabIndex = 2;
+            this.btnXoa.Text = "rjButton4";
+            this.btnXoa.TextColor = System.Drawing.Color.White;
+            this.btnXoa.UseVisualStyleBackColor = false;
             // 
-            // rjButton5
+            // btnReset
             // 
-            this.rjButton5.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton5.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.rjButton5.BorderRadius = 20;
-            this.rjButton5.BorderSize = 2;
-            this.rjButton5.FlatAppearance.BorderSize = 0;
-            this.rjButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton5.ForeColor = System.Drawing.Color.White;
-            this.rjButton5.Location = new System.Drawing.Point(205, 3);
-            this.rjButton5.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
-            this.rjButton5.Name = "rjButton5";
-            this.rjButton5.Size = new System.Drawing.Size(44, 40);
-            this.rjButton5.TabIndex = 3;
-            this.rjButton5.Text = "rjButton5";
-            this.rjButton5.TextColor = System.Drawing.Color.White;
-            this.rjButton5.UseVisualStyleBackColor = false;
+            this.btnReset.BackColor = System.Drawing.Color.Transparent;
+            this.btnReset.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnReset.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.btnReset.BorderRadius = 20;
+            this.btnReset.BorderSize = 2;
+            this.btnReset.FlatAppearance.BorderSize = 0;
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.ForeColor = System.Drawing.Color.White;
+            this.btnReset.Location = new System.Drawing.Point(215, 3);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(44, 40);
+            this.btnReset.TabIndex = 3;
+            this.btnReset.Text = "rjButton5";
+            this.btnReset.TextColor = System.Drawing.Color.White;
+            this.btnReset.UseVisualStyleBackColor = false;
             // 
             // KhachHangGUI
             // 
@@ -1534,10 +1547,10 @@
         private System.Windows.Forms.Label label9;
         private MyCustom.RJTextBox rjTextBox11;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private MyCustom.RJButton rjButton2;
-        private MyCustom.RJButton rjButton3;
-        private MyCustom.RJButton rjButton4;
-        private MyCustom.RJButton rjButton5;
+        private MyCustom.RJButton btnThem;
+        private MyCustom.RJButton btnSua;
+        private MyCustom.RJButton btnXoa;
+        private MyCustom.RJButton btnReset;
         private MyCustom.RJRadioButton rjRadioButton1;
         private MyCustom.RJRadioButton rjRadioButton2;
         private MyCustom.RJDatePicker rjDatePicker1;
@@ -1568,19 +1581,19 @@
         private System.Windows.Forms.Label label22;
         private MyCustom.BiggerCheckBox chkTuoi;
         private System.Windows.Forms.Label label23;
-        private MyCustom.RJTextBox rjTextBox8;
+        private MyCustom.RJTextBox txtTuoiStart;
         private System.Windows.Forms.Label label24;
-        private MyCustom.RJTextBox rjTextBox12;
+        private MyCustom.RJTextBox txtTuoiEnd;
         private MyCustom.BiggerCheckBox chkDiemTL;
         private System.Windows.Forms.Label label25;
-        private MyCustom.RJTextBox rjTextBox13;
+        private MyCustom.RJTextBox txtDiemTLStart;
         private System.Windows.Forms.Label label26;
-        private MyCustom.RJTextBox rjTextBox14;
+        private MyCustom.RJTextBox txtDiemTLEnd;
         private MyCustom.BiggerCheckBox chkTrangThai;
         private System.Windows.Forms.Label label27;
-        private MyCustom.BiggerCheckBox biggerCheckBox7;
+        private MyCustom.BiggerCheckBox chkHoatDong;
         private System.Windows.Forms.Label label28;
-        private MyCustom.BiggerCheckBox biggerCheckBox8;
+        private MyCustom.BiggerCheckBox chkKoHD;
         private System.Windows.Forms.Label label29;
         private MyCustom.RJButton rjButton8;
         private System.Windows.Forms.Panel panel3;

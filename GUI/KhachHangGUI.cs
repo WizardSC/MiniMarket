@@ -27,14 +27,21 @@ namespace GUI
         private string currentSearch;
         private string textSearchCondition = ""; // Biến để lưu trữ điều kiện từ textbox tìm kiếm
         private string genderCondition = ""; // Biến để lưu trữ điều kiện từ checkbox "Giới Tính"
-
-        private string filterExpression = "";
+        private string statusCondition = "";
+        private string activeCondition = "";
+        private int tuoiStart = 0;
+        private int tuoiEnd = 0;
+        private int diemTLStart = 0;
+        private int diemTLEnd = 0;
         private bool isGioiTinh = false;
         private bool isTuoi = false;
         private bool isDiemTL = false;
         private bool isTrangThai = false;
         private bool isNam = false;
         private bool isNu = false;
+
+        private bool isHoatDong = false;
+        private bool isKoHD = false;
         public KhachHangGUI()
         {
             InitializeComponent();
@@ -49,6 +56,7 @@ namespace GUI
             loadDataToCBX(cbxTimKiem);
             chkNam.Enabled = isGioiTinh;
             chkNu.Enabled = isGioiTinh;
+            Console.WriteLine(DateTime.Now.Year);
         }
         //Xóa bỏ tự chọn dòng đầu tiên của DataGridView khi load form
 
@@ -98,29 +106,30 @@ namespace GUI
             cbxItemsMacDinh = cbxTimKiem.SelectedItem.ToString();
 
         }
-        private void btnTimKiem_Click(object sender, EventArgs e)
+        private string GetTextSearchCondition(string searchText)
         {
-            string textTimKiem = txtTimKiem.Texts;
-
             switch (cbxItemsMacDinh)
             {
                 case "Mã KH":
-                    textSearchCondition = returnDieuKien($"MaKH like '%{textTimKiem}%'");
-                    break;
+                    return returnDieuKien($"MaKH like '%{searchText}%'");
                 case "Họ":
-                    textSearchCondition = returnDieuKien($"Ho like '%{textTimKiem}%'");
-                    break;
+                    return returnDieuKien($"Ho like '%{searchText}%'");
                 case "Tên":
-                    textSearchCondition = returnDieuKien($"Ten like '%{textTimKiem}%'");
-                    break;
+                    return returnDieuKien($"Ten like '%{searchText}%'");
                 case "Địa chỉ":
-                    textSearchCondition = returnDieuKien($"DiaChi like '%{textTimKiem}%'");
-                    break;
+                    return returnDieuKien($"DiaChi like '%{searchText}%'");
+                default:
+                    return "";
             }
-
-            // Kết hợp điều kiện từ textbox tìm kiếm và điều kiện từ checkbox "Giới Tính"
+        }
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            string textTimKiem = txtTimKiem.Texts;
+            textSearchCondition = GetTextSearchCondition(textTimKiem);
             string combinedCondition = CombineConditions(textSearchCondition, genderCondition);
-
+            combinedCondition = ApplyOrRemoveTuoiCondition(combinedCondition, isTuoi);
+            combinedCondition = CombineConditions(combinedCondition, statusCondition);
+            combinedCondition = ApplyOrRemoveDiemTLCondition(combinedCondition, isDiemTL);
             applySearchs(combinedCondition);
         }
 
@@ -133,7 +142,7 @@ namespace GUI
                 e.Handled = true;
             }
         }
-        
+
         private void applySearchs(string text)
         {
             currentSearch = text;
@@ -147,18 +156,6 @@ namespace GUI
         {
             return !value;
         }
-        private string appenDieuKien(string dieuKien)
-        {
-            if(!string.IsNullOrEmpty(dieuKien))
-            {
-                return $"AND {dieuKien}";
-            } else
-            {
-                return "";
-            }
-            
-        }
-
 
 
         private void chkGioiTinh_CheckedChanged(object sender, EventArgs e)
@@ -172,15 +169,16 @@ namespace GUI
             // Nếu chkGioiTinh được kiểm tra, thực hiện hành động của chkNam và chkNu
             if (isGioiTinh)
             {
+
                 if (isNam)
                 {
-                    
+
                     chkNam_CheckedChanged(sender, e);
                 }
 
                 if (isNu)
                 {
-                    
+
                     chkNu_CheckedChanged(sender, e);
                 }
             }
@@ -208,12 +206,6 @@ namespace GUI
             btnTimKiem.PerformClick();
         }
 
-
-        // Hàm để xóa điều kiện giới tính khỏi filterExpression
-        private string RemoveGenderCondition(string filter)
-        {
-            return filter.Replace("GioiTinh = 'Nam'", "").Replace("GioiTinh = 'Nữ'", "").Replace(" OR ", " ").Trim();
-        }
         // Hàm để kết hợp các điều kiện
         private string CombineConditions(string condition1, string condition2)
         {
@@ -252,27 +244,253 @@ namespace GUI
             genderCondition = string.Join(" OR ", genderConditions);
         }
 
-
-
-
-
         private void chkTuoi_CheckedChanged(object sender, EventArgs e)
         {
             isTuoi = toggleDieuKien(isTuoi);
+            txtTuoiStart.Enabled = isTuoi;
+            txtTuoiEnd.Enabled = isTuoi;
+
+            if (!isTuoi)
+            {
+                tuoiStart = 0;
+                tuoiEnd = 0;
+
+            }
+            if (isTuoi)
+            {
+                if (int.TryParse(txtTuoiStart.Texts, out int tuoiStartResult))
+                {
+                    // Chuyển đổi thành công, giá trị tuoiStartResult là số nguyên từ chuỗi
+                    tuoiStart = tuoiStartResult;
+                }
+                if (int.TryParse(txtTuoiEnd.Texts, out int tuoiEndResult))
+                {
+                    // Chuyển đổi thành công, giá trị tuoiStartResult là số nguyên từ chuỗi
+                    tuoiEnd = tuoiEndResult;
+
+                }
+
+
+            }
+            btnTimKiem_Click(sender, e);
+
+
+
+        }
+        private void txtTuoiStart__TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtTuoiStart.Texts))
+            {
+                tuoiStart = 0;
+            }
+            if (int.TryParse(txtTuoiStart.Texts, out int tuoiStartResult))
+            {
+                // Chuyển đổi thành công, giá trị tuoiStartResult là số nguyên từ chuỗi
+                tuoiStart = tuoiStartResult;
+                btnTimKiem_Click(sender, e);
+            }
+            else
+            {
+                // Chuỗi không hợp lệ, bạn có thể xử lý lỗi hoặc thông báo cho người dùng
+                return;
+            }
+
+
         }
 
-        private void chkDiemTL_CheckedChanged(object sender, EventArgs e)
+        private void txtTuoiEnd__TextChanged(object sender, EventArgs e)
         {
-            isDiemTL = toggleDieuKien(isDiemTL);
+            if (string.IsNullOrEmpty(txtTuoiEnd.Texts))
+            {
+                tuoiEnd = 0;
+            }
+            if (int.TryParse(txtTuoiEnd.Texts, out int tuoiEndResult))
+            {
+                // Chuyển đổi thành công, giá trị tuoiStartResult là số nguyên từ chuỗi
+                tuoiEnd = tuoiEndResult;
+                btnTimKiem_Click(sender, e);
+            }
+            else
+            {
+                // Chuỗi không hợp lệ, bạn có thể xử lý lỗi hoặc thông báo cho người dùng
+                return;
+            }
+
         }
+        private string ApplyOrRemoveTuoiCondition(string condition, bool isTuoi)
+        {
+            if (isTuoi)
+            {
+                if (tuoiStart > 0 && tuoiEnd > 0 && tuoiStart <= tuoiEnd)
+                {
+                    DateTime currentDate = DateTime.Now;
+                    int currentYear = currentDate.Year;
+
+                    int yearOfBirthStart = currentYear - tuoiStart;
+                    int yearOfBirthEnd = currentYear - tuoiEnd;
+
+                    return CombineConditions(condition, $"NgaySinh >= '{yearOfBirthEnd}-01-01' AND NgaySinh <= '{yearOfBirthStart}-12-31'");
+                }
+            }
+            else
+            {
+                // Nếu không có checkbox Tuoi được chọn, xóa điều kiện lọc theo ngày sinh
+                condition = condition.Replace("NgaySinh >= 'yyyy-01-01' AND NgaySinh <= 'yyyy-12-31' AND ", "");
+            }
+
+            return condition;
+        }
+
 
         private void chkTrangThai_CheckedChanged(object sender, EventArgs e)
         {
             isTrangThai = toggleDieuKien(isTrangThai);
+            chkHoatDong.Enabled = isTrangThai;
+            chkKoHD.Enabled = isTrangThai;
+            if (isTrangThai)
+            {
+
+                if (isHoatDong)
+                {
+
+                    chkHoatDong_CheckedChanged(sender, e);
+                }
+
+                if (isKoHD)
+                {
+                    chkKoHD_CheckedChanged(sender, e);
+                }
+            }
+            else
+            {
+                // Nếu chkGioiTinh không được kiểm tra, tắt chkNam và chkNu và xóa check
+                chkHoatDong.Checked = false;
+                chkKoHD.Checked = false;
+                chkHoatDong.Enabled = isGioiTinh;
+                chkKoHD.Enabled = isGioiTinh;
+            }
+        }
+        private void UpdateStatusCondition()
+        {
+            List<string> statusConditions = new List<string>();
+
+            if (isHoatDong)
+            {
+                statusConditions.Add("TrangThai = 1");
+            }
+
+            if (isKoHD)
+            {
+                statusConditions.Add("TrangThai = 0");
+            }
+
+            statusCondition = string.Join(" OR ", statusConditions);
+        }
+        private void chkHoatDong_CheckedChanged(object sender, EventArgs e)
+        {
+            isHoatDong = toggleDieuKien(isHoatDong);
+            UpdateStatusCondition();
+            btnTimKiem.PerformClick();
+        }
+
+        private void chkKoHD_CheckedChanged(object sender, EventArgs e)
+        {
+            isKoHD = toggleDieuKien(isKoHD);
+            UpdateStatusCondition();
+            btnTimKiem.PerformClick();
+        }
+        private void chkDiemTL_CheckedChanged(object sender, EventArgs e)
+        {
+            isDiemTL = toggleDieuKien(isDiemTL);
+            Console.WriteLine(isDiemTL);
+            txtDiemTLEnd.Enabled = isDiemTL;
+            txtDiemTLStart.Enabled = isDiemTL;
+            if (!isDiemTL)
+            {
+                diemTLEnd = 0;
+                diemTLStart = 0;
+            }
+            if (isDiemTL)
+            {
+                if (int.TryParse(txtDiemTLStart.Texts, out int result))
+                {
+                    diemTLStart = result;
+                }
+                if (int.TryParse(txtDiemTLEnd.Texts, out int result1))
+                {
+                    diemTLEnd = result1;
+                }
+            }
+            btnTimKiem_Click(sender, e);
+        }
+        private void txtDiemTLStart__TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtDiemTLStart.Texts))
+            {
+                diemTLStart = 0;
+            }
+            if (int.TryParse(txtDiemTLStart.Texts, out int result))
+            {
+                diemTLStart = result;
+                btnTimKiem_Click(sender, e);
+
+            }
+            else
+            {
+                return;
+            }
+           
 
         }
 
-        
+        private void txtDiemTLEnd__TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtDiemTLEnd.Texts))
+            {
+                diemTLEnd = 0;
+            }
+            if (int.TryParse(txtDiemTLEnd.Texts, out int result))
+            {
+                diemTLEnd = result;
+                btnTimKiem_Click(sender, e);
+
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private string ApplyOrRemoveDiemTLCondition(string condition, bool isDiemTL)
+        {
+            // Tạo một biến mới để lưu trữ điều kiện `DiemTL`
+            string diemTLCondition = $"DiemTichLuy >= {diemTLStart} AND DiemTichLuy <= {diemTLEnd}";
+
+            if (isDiemTL)
+            {
+                if (diemTLStart > 0 && diemTLEnd > 0 && diemTLStart <= diemTLEnd)
+                {
+                    // Thêm điều kiện `DiemTL` vào chuỗi điều kiện nếu có
+                    if (!string.IsNullOrEmpty(condition))
+                    {
+                        condition = CombineConditions(condition, diemTLCondition);
+                    }
+                    else
+                    {
+                        condition = diemTLCondition;
+                    }
+                }
+            }
+            else
+            {
+                // Nếu không có checkbox DiemTL được chọn, xóa điều kiện `DiemTL` khỏi chuỗi điều kiện
+                condition = condition.Replace(diemTLCondition, "");
+            }
+
+            return condition;
+        }
+
+
     }
 }
 
