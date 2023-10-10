@@ -490,7 +490,12 @@ namespace GUI
             return condition;
         }
 
-
+        private void dgvKhachHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i = dgvKhachHang.CurrentRow.Index;
+            txtMaKH.Texts = dgvKhachHang.Rows[i].Cells[0].Value.ToString();
+            txtHo.Texts = dgvKhachHang.Rows[i].Cells[1].Value.ToString();
+        }
     }
 }
 
