@@ -110,22 +110,12 @@ namespace GUI
             // Thêm dữ liệu mẫu vào danh sách
 
             loadSP();
-            
-
-            // In thông tin sản phẩm từ danh sách
-            foreach (var product in productList)
-            {
-                Console.WriteLine($"Mã sản phẩm: {product.ProductId}");
-                Console.WriteLine($"Tên sản phẩm: {product.ProductName}");
-                Console.WriteLine($"Đơn giá: {product.Price:C2}");
-                Console.WriteLine();
-            }
-
             // Gọi hàm tính toán số trang
             CalculateTotalPages(productList);
 
             // Hiển thị trang hiện tại
             UpdateCurrentPage();
+
         }
 
         // Các hàm khác ở đây
@@ -149,14 +139,27 @@ namespace GUI
                 item.lblTenSP.Text = productList[i].ProductName;
                 item.lblDonGia.Text = productList[i].Price.ToString();
                 item.Margin = new Padding(4); // 4 pixels cho mỗi hướng
+                item.ItemClicked += Item_ItemClicked; // Gán sự kiện ở đây, đảm bảo chỉ gán một lần
 
                 this.flpDanhSachSanPham.Controls.Add(item);
             }
 
             // Cập nhật thông tin phân trang
-            lblPagination.Text = $"Page {CurrentPage} of {TotalPages}";
+            lblPagination.Text = $"{CurrentPage}/{TotalPages}";
         }
+        private void Item_ItemClicked(object sender, EventArgs e)
+        {
+            // Đây là nơi bạn có thể xử lý khi item được click
+            // Dựa vào item để lấy thông tin sản phẩm và hiển thị nó lên màn hình
+            MyCustom.MyProductItem clickedItem = (MyCustom.MyProductItem)sender;
+            string maSP = clickedItem.lblMaSP.Text;
+            string tenSP = clickedItem.lblTenSP.Text;
+            string donGia = clickedItem.lblDonGia.Text;
 
+            // Xử lý thông tin sản phẩm ở đây (ví dụ: hiển thị thông tin sản phẩm trong một MessageBox)
+            string thongTinSanPham = $"Mã SP: {maSP}\nTên SP: {tenSP}\nĐơn giá: {donGia}";
+            MessageBox.Show(thongTinSanPham, "Thông tin sản phẩm");
+        }
         // Các sự kiện nút "Previous" và "Next" ở đây
 
         private void btnPrevious_Click(object sender, EventArgs e)

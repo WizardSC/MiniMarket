@@ -1,4 +1,6 @@
-﻿namespace GUI.MyCustom
+﻿using System;
+
+namespace GUI.MyCustom
 {
     partial class MyProductItem
     {
@@ -6,7 +8,7 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
+      
         /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
@@ -28,33 +30,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnItem = new System.Windows.Forms.Panel();
             this.lblMaSP = new System.Windows.Forms.Label();
             this.lblDonGia = new System.Windows.Forms.Label();
             this.lblTenSP = new System.Windows.Forms.Label();
             this.pbxIMG = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
+            this.pnItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxIMG)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnItem
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.lblMaSP);
-            this.panel1.Controls.Add(this.lblDonGia);
-            this.panel1.Controls.Add(this.lblTenSP);
-            this.panel1.Controls.Add(this.pbxIMG);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(149, 162);
-            this.panel1.TabIndex = 0;
+            this.pnItem.BackColor = System.Drawing.Color.White;
+            this.pnItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnItem.Controls.Add(this.lblMaSP);
+            this.pnItem.Controls.Add(this.lblDonGia);
+            this.pnItem.Controls.Add(this.lblTenSP);
+            this.pnItem.Controls.Add(this.pbxIMG);
+            this.pnItem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnItem.Location = new System.Drawing.Point(0, 0);
+            this.pnItem.Name = "pnItem";
+            this.pnItem.Size = new System.Drawing.Size(153, 173);
+            this.pnItem.TabIndex = 0;
+            this.pnItem.Click += new System.EventHandler(this.pnItem_Click);
             // 
             // lblMaSP
             // 
             this.lblMaSP.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaSP.Location = new System.Drawing.Point(2, 0);
+            this.lblMaSP.Location = new System.Drawing.Point(2, 2);
             this.lblMaSP.Name = "lblMaSP";
             this.lblMaSP.Size = new System.Drawing.Size(57, 23);
             this.lblMaSP.TabIndex = 8;
@@ -63,7 +66,7 @@
             // lblDonGia
             // 
             this.lblDonGia.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDonGia.Location = new System.Drawing.Point(65, 0);
+            this.lblDonGia.Location = new System.Drawing.Point(65, 2);
             this.lblDonGia.Name = "lblDonGia";
             this.lblDonGia.Size = new System.Drawing.Size(84, 23);
             this.lblDonGia.TabIndex = 9;
@@ -74,32 +77,33 @@
             // 
             this.lblTenSP.AutoEllipsis = true;
             this.lblTenSP.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenSP.Location = new System.Drawing.Point(2, 23);
+            this.lblTenSP.Location = new System.Drawing.Point(2, 27);
             this.lblTenSP.Name = "lblTenSP";
             this.lblTenSP.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.lblTenSP.Size = new System.Drawing.Size(147, 23);
+            this.lblTenSP.Size = new System.Drawing.Size(147, 36);
             this.lblTenSP.TabIndex = 10;
-            this.lblTenSP.Text = "Bánh quy Cosy Marie";
+            this.lblTenSP.Text = "Bánh quy Cosy MarieBánh quy Cosy Marie";
             this.lblTenSP.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pbxIMG
             // 
             this.pbxIMG.Image = global::GUI.Properties.Resources.placeholder_image;
-            this.pbxIMG.Location = new System.Drawing.Point(17, 49);
+            this.pbxIMG.Location = new System.Drawing.Point(18, 70);
             this.pbxIMG.Name = "pbxIMG";
             this.pbxIMG.Size = new System.Drawing.Size(115, 93);
             this.pbxIMG.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxIMG.TabIndex = 11;
             this.pbxIMG.TabStop = false;
+            this.pbxIMG.Click += new System.EventHandler(this.pbxIMG_Click);
             // 
             // MyProductItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnItem);
             this.Name = "MyProductItem";
-            this.Size = new System.Drawing.Size(149, 162);
-            this.panel1.ResumeLayout(false);
+            this.Size = new System.Drawing.Size(153, 173);
+            this.pnItem.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxIMG)).EndInit();
             this.ResumeLayout(false);
 
@@ -107,7 +111,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnItem;
         public System.Windows.Forms.Label lblMaSP;
         public System.Windows.Forms.Label lblDonGia;
         public System.Windows.Forms.Label lblTenSP;
