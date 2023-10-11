@@ -50,9 +50,8 @@ namespace GUI.MyCustom
             this.pnItem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnItem.Location = new System.Drawing.Point(0, 0);
             this.pnItem.Name = "pnItem";
-            this.pnItem.Size = new System.Drawing.Size(153, 173);
+            this.pnItem.Size = new System.Drawing.Size(153, 179);
             this.pnItem.TabIndex = 0;
-            this.pnItem.Click += new System.EventHandler(this.pnItem_Click);
             // 
             // lblMaSP
             // 
@@ -88,13 +87,12 @@ namespace GUI.MyCustom
             // pbxIMG
             // 
             this.pbxIMG.Image = global::GUI.Properties.Resources.placeholder_image;
-            this.pbxIMG.Location = new System.Drawing.Point(18, 70);
+            this.pbxIMG.Location = new System.Drawing.Point(5, 70);
             this.pbxIMG.Name = "pbxIMG";
-            this.pbxIMG.Size = new System.Drawing.Size(115, 93);
+            this.pbxIMG.Size = new System.Drawing.Size(143, 102);
             this.pbxIMG.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxIMG.TabIndex = 11;
             this.pbxIMG.TabStop = false;
-            this.pbxIMG.Click += new System.EventHandler(this.pbxIMG_Click);
             // 
             // MyProductItem
             // 
@@ -102,7 +100,7 @@ namespace GUI.MyCustom
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnItem);
             this.Name = "MyProductItem";
-            this.Size = new System.Drawing.Size(153, 173);
+            this.Size = new System.Drawing.Size(153, 179);
             this.pnItem.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxIMG)).EndInit();
             this.ResumeLayout(false);

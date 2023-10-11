@@ -74,6 +74,9 @@
     <Compile Include="MyCustom\BiggerCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="MyCustom\CustomNumericUpDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="MyCustom\GradientPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -189,6 +192,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\image\icons8-upload-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\image\icons8-invoice-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\image\icons8-purchase-order-32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -113,6 +113,26 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_invoice_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-invoice-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_invoice_321 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-invoice-321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_logout_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-logout-32", resourceCulture);
@@ -136,6 +156,16 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap icons8_minimize_32__1_ {
             get {
                 object obj = ResourceManager.GetObject("icons8-minimize-32 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_purchase_order_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-purchase-order-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

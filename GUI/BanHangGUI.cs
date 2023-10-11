@@ -21,9 +21,9 @@ namespace GUI
         {
             productList.Add(new Product
             {
-                ProductId = "P001",
-                ProductName = "Sản phẩm 1",
-                Price = 19.99
+                ProductId = "SP001",
+                ProductName = "Bánh quy Cosy Marie",
+                Price = 20000
             });
             productList.Add(new Product
             {
@@ -179,6 +179,8 @@ namespace GUI
                 UpdateCurrentPage();
             }
         }
+
+        
     }
     public class Product
     {
