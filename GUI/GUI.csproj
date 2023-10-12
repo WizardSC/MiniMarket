@@ -80,6 +80,12 @@
     <Compile Include="MyCustom\GradientPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="MyCustom\MyProductInCart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyCustom\MyProductInCart.Designer.cs">
+      <DependentUpon>MyProductInCart.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyCustom\MyProductItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -114,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KhachHangGUI.resx">
       <DependentUpon>KhachHangGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyCustom\MyProductInCart.resx">
+      <DependentUpon>MyProductInCart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyCustom\MyProductItem.resx">
       <DependentUpon>MyProductItem.cs</DependentUpon>

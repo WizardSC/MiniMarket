@@ -46,22 +46,39 @@
             this.flpThongTinSP = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtMaKH = new GUI.MyCustom.RJTextBox();
+            this.txtMaSP = new GUI.MyCustom.RJTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.rjTextBox1 = new GUI.MyCustom.RJTextBox();
+            this.txtTenSP = new GUI.MyCustom.RJTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.rjTextBox2 = new GUI.MyCustom.RJTextBox();
+            this.txtTonKho = new GUI.MyCustom.RJTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.rjTextBox3 = new GUI.MyCustom.RJTextBox();
+            this.txtDonGia = new GUI.MyCustom.RJTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.customNumericUpDown1 = new GUI.MyCustom.CustomNumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.rjButton1 = new GUI.MyCustom.RJButton();
-            this.label7 = new System.Windows.Forms.Label();
+            this.gradientPanel1 = new GUI.MyCustom.GradientPanel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.gradientPanel2 = new GUI.MyCustom.GradientPanel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
@@ -72,6 +89,8 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel5.SuspendLayout();
+            this.gradientPanel1.SuspendLayout();
+            this.gradientPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -87,9 +106,14 @@
             // 
             // flowLayoutPanel3
             // 
+            this.flowLayoutPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel3.Controls.Add(this.gradientPanel1);
+            this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel6);
+            this.flowLayoutPanel3.Controls.Add(this.gradientPanel2);
+            this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(823, 0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(485, 763);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(485, 758);
             this.flowLayoutPanel3.TabIndex = 5;
             // 
             // flowLayoutPanel1
@@ -296,13 +320,13 @@
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.label1);
-            this.flowLayoutPanel2.Controls.Add(this.txtMaKH);
+            this.flowLayoutPanel2.Controls.Add(this.txtMaSP);
             this.flowLayoutPanel2.Controls.Add(this.label2);
-            this.flowLayoutPanel2.Controls.Add(this.rjTextBox1);
+            this.flowLayoutPanel2.Controls.Add(this.txtTenSP);
             this.flowLayoutPanel2.Controls.Add(this.label3);
-            this.flowLayoutPanel2.Controls.Add(this.rjTextBox2);
+            this.flowLayoutPanel2.Controls.Add(this.txtTonKho);
             this.flowLayoutPanel2.Controls.Add(this.label4);
-            this.flowLayoutPanel2.Controls.Add(this.rjTextBox3);
+            this.flowLayoutPanel2.Controls.Add(this.txtDonGia);
             this.flowLayoutPanel2.Controls.Add(this.label5);
             this.flowLayoutPanel2.Controls.Add(this.label6);
             this.flowLayoutPanel2.Controls.Add(this.customNumericUpDown1);
@@ -322,29 +346,29 @@
             this.label1.Text = "Mã SP";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // txtMaKH
+            // txtMaSP
             // 
-            this.txtMaKH.BackColor = System.Drawing.SystemColors.Window;
-            this.txtMaKH.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.txtMaKH.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.txtMaKH.BorderRadius = 0;
-            this.txtMaKH.BorderSize = 2;
-            this.txtMaKH.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaKH.ForeColor = System.Drawing.Color.Black;
-            this.txtMaKH.Location = new System.Drawing.Point(161, 20);
-            this.txtMaKH.Margin = new System.Windows.Forms.Padding(4, 20, 4, 10);
-            this.txtMaKH.MaximumSize = new System.Drawing.Size(500, 28);
-            this.txtMaKH.MinimumSize = new System.Drawing.Size(150, 28);
-            this.txtMaKH.Multiline = false;
-            this.txtMaKH.Name = "txtMaKH";
-            this.txtMaKH.Padding = new System.Windows.Forms.Padding(2, 4, 2, 2);
-            this.txtMaKH.PasswordChar = false;
-            this.txtMaKH.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtMaKH.PlaceholderText = "";
-            this.txtMaKH.Size = new System.Drawing.Size(317, 28);
-            this.txtMaKH.TabIndex = 2;
-            this.txtMaKH.Texts = "";
-            this.txtMaKH.UnderlinedStyle = false;
+            this.txtMaSP.BackColor = System.Drawing.SystemColors.Window;
+            this.txtMaSP.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.txtMaSP.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.txtMaSP.BorderRadius = 0;
+            this.txtMaSP.BorderSize = 2;
+            this.txtMaSP.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaSP.ForeColor = System.Drawing.Color.Black;
+            this.txtMaSP.Location = new System.Drawing.Point(161, 20);
+            this.txtMaSP.Margin = new System.Windows.Forms.Padding(4, 20, 4, 10);
+            this.txtMaSP.MaximumSize = new System.Drawing.Size(500, 28);
+            this.txtMaSP.MinimumSize = new System.Drawing.Size(150, 28);
+            this.txtMaSP.Multiline = false;
+            this.txtMaSP.Name = "txtMaSP";
+            this.txtMaSP.Padding = new System.Windows.Forms.Padding(2, 4, 2, 2);
+            this.txtMaSP.PasswordChar = false;
+            this.txtMaSP.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtMaSP.PlaceholderText = "";
+            this.txtMaSP.Size = new System.Drawing.Size(317, 28);
+            this.txtMaSP.TabIndex = 2;
+            this.txtMaSP.Texts = "";
+            this.txtMaSP.UnderlinedStyle = false;
             // 
             // label2
             // 
@@ -357,29 +381,29 @@
             this.label2.Text = "Tên SP";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // rjTextBox1
+            // txtTenSP
             // 
-            this.rjTextBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.rjTextBox1.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.rjTextBox1.BorderRadius = 0;
-            this.rjTextBox1.BorderSize = 2;
-            this.rjTextBox1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox1.ForeColor = System.Drawing.Color.Black;
-            this.rjTextBox1.Location = new System.Drawing.Point(161, 62);
-            this.rjTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 10);
-            this.rjTextBox1.MaximumSize = new System.Drawing.Size(500, 28);
-            this.rjTextBox1.MinimumSize = new System.Drawing.Size(150, 28);
-            this.rjTextBox1.Multiline = false;
-            this.rjTextBox1.Name = "rjTextBox1";
-            this.rjTextBox1.Padding = new System.Windows.Forms.Padding(2, 4, 2, 2);
-            this.rjTextBox1.PasswordChar = false;
-            this.rjTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox1.PlaceholderText = "";
-            this.rjTextBox1.Size = new System.Drawing.Size(317, 28);
-            this.rjTextBox1.TabIndex = 8;
-            this.rjTextBox1.Texts = "";
-            this.rjTextBox1.UnderlinedStyle = false;
+            this.txtTenSP.BackColor = System.Drawing.SystemColors.Window;
+            this.txtTenSP.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.txtTenSP.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.txtTenSP.BorderRadius = 0;
+            this.txtTenSP.BorderSize = 2;
+            this.txtTenSP.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenSP.ForeColor = System.Drawing.Color.Black;
+            this.txtTenSP.Location = new System.Drawing.Point(161, 62);
+            this.txtTenSP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 10);
+            this.txtTenSP.MaximumSize = new System.Drawing.Size(500, 28);
+            this.txtTenSP.MinimumSize = new System.Drawing.Size(150, 28);
+            this.txtTenSP.Multiline = false;
+            this.txtTenSP.Name = "txtTenSP";
+            this.txtTenSP.Padding = new System.Windows.Forms.Padding(2, 4, 2, 2);
+            this.txtTenSP.PasswordChar = false;
+            this.txtTenSP.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtTenSP.PlaceholderText = "";
+            this.txtTenSP.Size = new System.Drawing.Size(317, 28);
+            this.txtTenSP.TabIndex = 8;
+            this.txtTenSP.Texts = "";
+            this.txtTenSP.UnderlinedStyle = false;
             // 
             // label3
             // 
@@ -392,29 +416,29 @@
             this.label3.Text = "Tồn kho";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // rjTextBox2
+            // txtTonKho
             // 
-            this.rjTextBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.rjTextBox2.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.rjTextBox2.BorderRadius = 0;
-            this.rjTextBox2.BorderSize = 2;
-            this.rjTextBox2.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox2.ForeColor = System.Drawing.Color.Black;
-            this.rjTextBox2.Location = new System.Drawing.Point(161, 104);
-            this.rjTextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 10);
-            this.rjTextBox2.MaximumSize = new System.Drawing.Size(500, 28);
-            this.rjTextBox2.MinimumSize = new System.Drawing.Size(150, 28);
-            this.rjTextBox2.Multiline = false;
-            this.rjTextBox2.Name = "rjTextBox2";
-            this.rjTextBox2.Padding = new System.Windows.Forms.Padding(2, 4, 2, 2);
-            this.rjTextBox2.PasswordChar = false;
-            this.rjTextBox2.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox2.PlaceholderText = "";
-            this.rjTextBox2.Size = new System.Drawing.Size(317, 28);
-            this.rjTextBox2.TabIndex = 9;
-            this.rjTextBox2.Texts = "";
-            this.rjTextBox2.UnderlinedStyle = false;
+            this.txtTonKho.BackColor = System.Drawing.SystemColors.Window;
+            this.txtTonKho.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.txtTonKho.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.txtTonKho.BorderRadius = 0;
+            this.txtTonKho.BorderSize = 2;
+            this.txtTonKho.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTonKho.ForeColor = System.Drawing.Color.Black;
+            this.txtTonKho.Location = new System.Drawing.Point(161, 104);
+            this.txtTonKho.Margin = new System.Windows.Forms.Padding(4, 4, 4, 10);
+            this.txtTonKho.MaximumSize = new System.Drawing.Size(500, 28);
+            this.txtTonKho.MinimumSize = new System.Drawing.Size(150, 28);
+            this.txtTonKho.Multiline = false;
+            this.txtTonKho.Name = "txtTonKho";
+            this.txtTonKho.Padding = new System.Windows.Forms.Padding(2, 4, 2, 2);
+            this.txtTonKho.PasswordChar = false;
+            this.txtTonKho.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtTonKho.PlaceholderText = "";
+            this.txtTonKho.Size = new System.Drawing.Size(317, 28);
+            this.txtTonKho.TabIndex = 9;
+            this.txtTonKho.Texts = "";
+            this.txtTonKho.UnderlinedStyle = false;
             // 
             // label4
             // 
@@ -427,29 +451,29 @@
             this.label4.Text = "Đơn giá";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // rjTextBox3
+            // txtDonGia
             // 
-            this.rjTextBox3.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.rjTextBox3.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.rjTextBox3.BorderRadius = 0;
-            this.rjTextBox3.BorderSize = 2;
-            this.rjTextBox3.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox3.ForeColor = System.Drawing.Color.Black;
-            this.rjTextBox3.Location = new System.Drawing.Point(161, 146);
-            this.rjTextBox3.Margin = new System.Windows.Forms.Padding(4, 4, 60, 10);
-            this.rjTextBox3.MaximumSize = new System.Drawing.Size(500, 28);
-            this.rjTextBox3.MinimumSize = new System.Drawing.Size(150, 28);
-            this.rjTextBox3.Multiline = false;
-            this.rjTextBox3.Name = "rjTextBox3";
-            this.rjTextBox3.Padding = new System.Windows.Forms.Padding(2, 4, 2, 2);
-            this.rjTextBox3.PasswordChar = false;
-            this.rjTextBox3.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox3.PlaceholderText = "";
-            this.rjTextBox3.Size = new System.Drawing.Size(317, 28);
-            this.rjTextBox3.TabIndex = 10;
-            this.rjTextBox3.Texts = "";
-            this.rjTextBox3.UnderlinedStyle = false;
+            this.txtDonGia.BackColor = System.Drawing.SystemColors.Window;
+            this.txtDonGia.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.txtDonGia.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.txtDonGia.BorderRadius = 0;
+            this.txtDonGia.BorderSize = 2;
+            this.txtDonGia.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDonGia.ForeColor = System.Drawing.Color.Black;
+            this.txtDonGia.Location = new System.Drawing.Point(161, 146);
+            this.txtDonGia.Margin = new System.Windows.Forms.Padding(4, 4, 60, 10);
+            this.txtDonGia.MaximumSize = new System.Drawing.Size(500, 28);
+            this.txtDonGia.MinimumSize = new System.Drawing.Size(150, 28);
+            this.txtDonGia.Multiline = false;
+            this.txtDonGia.Name = "txtDonGia";
+            this.txtDonGia.Padding = new System.Windows.Forms.Padding(2, 4, 2, 2);
+            this.txtDonGia.PasswordChar = false;
+            this.txtDonGia.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtDonGia.PlaceholderText = "";
+            this.txtDonGia.Size = new System.Drawing.Size(317, 28);
+            this.txtDonGia.TabIndex = 10;
+            this.txtDonGia.Texts = "";
+            this.txtDonGia.UnderlinedStyle = false;
             // 
             // label5
             // 
@@ -484,6 +508,17 @@
             this.customNumericUpDown1.Name = "customNumericUpDown1";
             this.customNumericUpDown1.Size = new System.Drawing.Size(318, 27);
             this.customNumericUpDown1.TabIndex = 14;
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.Black;
+            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label7.Location = new System.Drawing.Point(575, 5);
+            this.label7.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(2, 245);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "label7";
             // 
             // panel3
             // 
@@ -537,16 +572,203 @@
             this.rjButton1.TextColor = System.Drawing.Color.Black;
             this.rjButton1.UseVisualStyleBackColor = false;
             // 
-            // label7
+            // gradientPanel1
             // 
-            this.label7.BackColor = System.Drawing.Color.Black;
-            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label7.Location = new System.Drawing.Point(575, 5);
-            this.label7.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(2, 245);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "label7";
+            this.gradientPanel1.BottomColor = System.Drawing.Color.Empty;
+            this.gradientPanel1.Controls.Add(this.label20);
+            this.gradientPanel1.Controls.Add(this.label19);
+            this.gradientPanel1.Controls.Add(this.label18);
+            this.gradientPanel1.Controls.Add(this.label12);
+            this.gradientPanel1.Controls.Add(this.label11);
+            this.gradientPanel1.Controls.Add(this.label10);
+            this.gradientPanel1.Controls.Add(this.label9);
+            this.gradientPanel1.Controls.Add(this.label8);
+            this.gradientPanel1.Location = new System.Drawing.Point(3, 3);
+            this.gradientPanel1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.gradientPanel1.Name = "gradientPanel1";
+            this.gradientPanel1.Size = new System.Drawing.Size(478, 164);
+            this.gradientPanel1.TabIndex = 3;
+            this.gradientPanel1.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
+            // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(11, 45);
+            this.label9.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(108, 32);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Ngày lập: ";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(11, 8);
+            this.label8.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(254, 32);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "ĐƠN HÀNG MỚI  #HD001";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(11, 82);
+            this.label10.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(108, 32);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Nhân viên: ";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(11, 119);
+            this.label11.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(108, 32);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Khách hàng: ";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(128, 45);
+            this.label12.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(161, 32);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "12/10/2023";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // gradientPanel2
+            // 
+            this.gradientPanel2.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
+            this.gradientPanel2.Controls.Add(this.label13);
+            this.gradientPanel2.Controls.Add(this.label14);
+            this.gradientPanel2.Controls.Add(this.label15);
+            this.gradientPanel2.Controls.Add(this.label16);
+            this.gradientPanel2.Controls.Add(this.label17);
+            this.gradientPanel2.Location = new System.Drawing.Point(3, 590);
+            this.gradientPanel2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.gradientPanel2.Name = "gradientPanel2";
+            this.gradientPanel2.Size = new System.Drawing.Size(478, 157);
+            this.gradientPanel2.TabIndex = 7;
+            this.gradientPanel2.TopColor = System.Drawing.Color.Empty;
+            // 
+            // label13
+            // 
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(137, 45);
+            this.label13.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(108, 32);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "Ngày lập: ";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label14
+            // 
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(11, 119);
+            this.label14.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(108, 32);
+            this.label14.TabIndex = 5;
+            this.label14.Text = "Khách hàng: ";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label15
+            // 
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(11, 82);
+            this.label15.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(108, 32);
+            this.label15.TabIndex = 4;
+            this.label15.Text = "Nhân viên: ";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label16
+            // 
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(11, 45);
+            this.label16.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(108, 32);
+            this.label16.TabIndex = 3;
+            this.label16.Text = "Ngày lập: ";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label17
+            // 
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(11, 8);
+            this.label17.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(254, 32);
+            this.label17.TabIndex = 2;
+            this.label17.Text = "ĐƠN HÀNG MỚI  #HD001";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // flowLayoutPanel6
+            // 
+            this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 167);
+            this.flowLayoutPanel6.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(478, 417);
+            this.flowLayoutPanel6.TabIndex = 8;
+            // 
+            // label18
+            // 
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(128, 82);
+            this.label18.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(161, 32);
+            this.label18.TabIndex = 7;
+            this.label18.Text = "Lee Changsub";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label19
+            // 
+            this.label19.BackColor = System.Drawing.Color.Transparent;
+            this.label19.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(128, 119);
+            this.label19.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(161, 32);
+            this.label19.TabIndex = 8;
+            this.label19.Text = "Huỳnh Phúc Toàn";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label20
+            // 
+            this.label20.BackColor = System.Drawing.Color.Transparent;
+            this.label20.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(293, 118);
+            this.label20.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label20.Name = "label20";
+            this.label20.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.label20.Size = new System.Drawing.Size(27, 32);
+            this.label20.TabIndex = 9;
+            this.label20.Text = "...";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // BanHangGUI
             // 
@@ -560,6 +782,7 @@
             this.Text = "BanHangGUI";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel5.ResumeLayout(false);
@@ -570,6 +793,8 @@
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel5.ResumeLayout(false);
+            this.gradientPanel1.ResumeLayout(false);
+            this.gradientPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -596,17 +821,33 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private MyCustom.RJTextBox txtMaKH;
+        private MyCustom.RJTextBox txtMaSP;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private MyCustom.RJTextBox rjTextBox1;
-        private MyCustom.RJTextBox rjTextBox2;
-        private MyCustom.RJTextBox rjTextBox3;
+        private MyCustom.RJTextBox txtTenSP;
+        private MyCustom.RJTextBox txtTonKho;
+        private MyCustom.RJTextBox txtDonGia;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private MyCustom.CustomNumericUpDown customNumericUpDown1;
         private System.Windows.Forms.Label label7;
+        private MyCustom.GradientPanel gradientPanel1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
+        private MyCustom.GradientPanel gradientPanel2;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
     }
 }

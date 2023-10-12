@@ -99,6 +99,7 @@ namespace GUI.MyCustom
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnItem);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "MyProductItem";
             this.Size = new System.Drawing.Size(153, 179);
             this.pnItem.ResumeLayout(false);

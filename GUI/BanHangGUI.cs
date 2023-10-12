@@ -156,9 +156,10 @@ namespace GUI
             string tenSP = clickedItem.lblTenSP.Text;
             string donGia = clickedItem.lblDonGia.Text;
 
-            // Xử lý thông tin sản phẩm ở đây (ví dụ: hiển thị thông tin sản phẩm trong một MessageBox)
-            string thongTinSanPham = $"Mã SP: {maSP}\nTên SP: {tenSP}\nĐơn giá: {donGia}";
-            MessageBox.Show(thongTinSanPham, "Thông tin sản phẩm");
+            txtMaSP.Texts = maSP;
+            txtTenSP.Texts = tenSP;
+            txtDonGia.Texts = donGia;
+
         }
         // Các sự kiện nút "Previous" và "Next" ở đây
 
@@ -179,8 +180,6 @@ namespace GUI
                 UpdateCurrentPage();
             }
         }
-
-        
     }
     public class Product
     {
