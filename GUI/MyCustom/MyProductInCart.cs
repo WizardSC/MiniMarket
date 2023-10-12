@@ -12,11 +12,30 @@ namespace GUI.MyCustom
 {
     public partial class MyProductInCart : UserControl
     {
+        public string maSP;
+        public int donGia;
+        public int soLuong;
         public MyProductInCart()
         {
-            InitializeComponent();
-            lblTongTien.Text = lblDonGia.Text;
+           
         }
+
+        public MyProductInCart(string maSP, int donGia, int soLuong)
+        {
+            InitializeComponent();
+            this.maSP = maSP;
+            this.donGia = donGia;
+            this.soLuong = soLuong;
+            tinhTongTien();
+
+        }
+        public void tinhTongTien()
+        {
+
+            lblTongTien.Text = (soLuong*donGia).ToString() + "đ";
+
+        }
+
 
         private void btnTang_Click(object sender, EventArgs e)
         {
@@ -26,6 +45,7 @@ namespace GUI.MyCustom
             
             int donGia = 0;
             int tongTien = 0;
+            this.soLuong = soLuong;
             if (lblDonGia.Text.EndsWith("đ"))
             {
                 donGia = int.Parse(lblDonGia.Text.Substring(0, lblDonGia.Text.Length - 1));
@@ -45,6 +65,7 @@ namespace GUI.MyCustom
             }
             soLuong -= 1;
             txtSoLuong.Texts = soLuong.ToString();
+            this.soLuong = soLuong;
 
             int donGia = 0;
             int tongTien = 0;

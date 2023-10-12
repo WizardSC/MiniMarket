@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    
+
     public partial class BanHangGUI : Form
     {
         private int ProductsPerPage = 10;  // Số sản phẩm trên mỗi trang
@@ -115,7 +115,7 @@ namespace GUI
 
             // Hiển thị trang hiện tại
             UpdateCurrentPage();
-            addProductToCart();
+            //addProductToCart();
         }
 
         // Các hàm khác ở đây
@@ -127,7 +127,7 @@ namespace GUI
         private void addProductToCart()
         {
             this.flpGioHang.Controls.Clear();
-            for(int i = 0;i < 5;i++)
+            for (int i = 0; i < 5; i++)
             {
                 MyCustom.MyProductInCart item = new MyCustom.MyProductInCart();
                 this.flpGioHang.Controls.Add(item);
@@ -143,6 +143,7 @@ namespace GUI
             for (int i = startIndex; i < endIndex; i++)
             {
                 MyCustom.MyProductItem item = new MyCustom.MyProductItem();
+
                 item.lblMaSP.Text = productList[i].ProductId;
                 item.lblTenSP.Text = productList[i].ProductName;
                 item.lblDonGia.Text = productList[i].Price.ToString();
@@ -186,6 +187,49 @@ namespace GUI
             {
                 CurrentPage++;
                 UpdateCurrentPage();
+            }
+        }
+
+        private void btnThemVaoGio_Click(object sender, EventArgs e)
+        {
+            string maSP = txtMaSP.Texts;
+            string tenSP = txtTenSP.Texts;
+            int soLuongTonKho = int.Parse(txtTonKho.Texts);
+            int donGia = int.Parse(txtDonGia.Texts);
+            int soLuongMua = Convert.ToInt32(Math.Round(nudSoLuongMua.Value, 0));
+
+            // Tìm sản phẩm trong flpGioHang bằng Mã SP
+            MyCustom.MyProductInCart existingItem = null;
+            foreach (Control control in flpGioHang.Controls)
+            {
+                if (control is MyCustom.MyProductInCart)
+                {
+                    MyCustom.MyProductInCart item = (MyCustom.MyProductInCart)control;
+                    if (item.lblMaSP.Text == maSP)
+                    {
+                        existingItem = item;
+                        break;
+                    }
+                }
+            }
+
+            if (existingItem != null)
+            {
+                // Nếu sản phẩm đã tồn tại trong flpGioHang, cộng dồn số lượng và tổng tiền
+                existingItem.soLuong += soLuongMua;
+                existingItem.txtSoLuong.Texts = existingItem.soLuong.ToString();
+                existingItem.tinhTongTien(); // Cập nhật tổng tiền
+            }
+            else
+            {
+                // Nếu sản phẩm chưa tồn tại, thêm sản phẩm mới
+                MyCustom.MyProductInCart item = new MyCustom.MyProductInCart(maSP, donGia, soLuongMua); // Đảm bảo đơn giá ở đây là donGia
+                item.lblMaSP.Text = maSP;
+                item.lblTenSP.Text = tenSP;
+                item.txtSoLuong.Texts = soLuongMua.ToString();
+                item.lblDonGia.Text = donGia.ToString() + "đ";
+
+                flpGioHang.Controls.Add(item);
             }
         }
     }

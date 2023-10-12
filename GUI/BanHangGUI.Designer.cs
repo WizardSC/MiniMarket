@@ -71,12 +71,12 @@
             this.txtDonGia = new GUI.MyCustom.RJTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.customNumericUpDown1 = new GUI.MyCustom.CustomNumericUpDown();
+            this.nudSoLuongMua = new GUI.MyCustom.CustomNumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.rjButton1 = new GUI.MyCustom.RJButton();
+            this.btnThemVaoGio = new GUI.MyCustom.RJButton();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.gradientPanel1.SuspendLayout();
@@ -87,7 +87,7 @@
             this.pnPagination.SuspendLayout();
             this.flpThongTinSP.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customNumericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSoLuongMua)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel5.SuspendLayout();
@@ -101,7 +101,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1308, 763);
+            this.panel1.Size = new System.Drawing.Size(1167, 718);
             this.panel1.TabIndex = 0;
             // 
             // flowLayoutPanel3
@@ -354,7 +354,7 @@
             this.cbxTimKiem.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
             this.cbxTimKiem.MinimumSize = new System.Drawing.Size(100, 30);
             this.cbxTimKiem.Name = "cbxTimKiem";
-            this.cbxTimKiem.Padding = new System.Windows.Forms.Padding(2);
+            this.cbxTimKiem.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbxTimKiem.Size = new System.Drawing.Size(108, 30);
             this.cbxTimKiem.TabIndex = 4;
             this.cbxTimKiem.Texts = "Mã KH";
@@ -374,7 +374,7 @@
             this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
             this.txtTimKiem.Multiline = false;
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Padding = new System.Windows.Forms.Padding(7);
+            this.txtTimKiem.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.txtTimKiem.PasswordChar = false;
             this.txtTimKiem.PlaceholderColor = System.Drawing.Color.DimGray;
             this.txtTimKiem.PlaceholderText = "Nhập thông tin tìm kiếm";
@@ -528,7 +528,7 @@
             this.flowLayoutPanel2.Controls.Add(this.txtDonGia);
             this.flowLayoutPanel2.Controls.Add(this.label5);
             this.flowLayoutPanel2.Controls.Add(this.label6);
-            this.flowLayoutPanel2.Controls.Add(this.customNumericUpDown1);
+            this.flowLayoutPanel2.Controls.Add(this.nudSoLuongMua);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(566, 250);
@@ -695,18 +695,18 @@
             this.label6.Text = "Nhập số lượng:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // customNumericUpDown1
+            // nudSoLuongMua
             // 
-            this.customNumericUpDown1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.customNumericUpDown1.BorderSize = 2;
-            this.customNumericUpDown1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.customNumericUpDown1.CustomHeight = 28;
-            this.customNumericUpDown1.CustomPadding = new System.Windows.Forms.Padding(4);
-            this.customNumericUpDown1.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customNumericUpDown1.Location = new System.Drawing.Point(160, 202);
-            this.customNumericUpDown1.Name = "customNumericUpDown1";
-            this.customNumericUpDown1.Size = new System.Drawing.Size(318, 27);
-            this.customNumericUpDown1.TabIndex = 14;
+            this.nudSoLuongMua.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.nudSoLuongMua.BorderSize = 2;
+            this.nudSoLuongMua.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nudSoLuongMua.CustomHeight = 28;
+            this.nudSoLuongMua.CustomPadding = new System.Windows.Forms.Padding(4);
+            this.nudSoLuongMua.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudSoLuongMua.Location = new System.Drawing.Point(160, 202);
+            this.nudSoLuongMua.Name = "nudSoLuongMua";
+            this.nudSoLuongMua.Size = new System.Drawing.Size(318, 27);
+            this.nudSoLuongMua.TabIndex = 14;
             // 
             // label7
             // 
@@ -740,42 +740,43 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.rjButton1);
+            this.panel5.Controls.Add(this.btnThemVaoGio);
             this.panel5.Location = new System.Drawing.Point(583, 198);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(225, 55);
             this.panel5.TabIndex = 8;
             // 
-            // rjButton1
+            // btnThemVaoGio
             // 
-            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            this.rjButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            this.rjButton1.BorderColor = System.Drawing.Color.Black;
-            this.rjButton1.BorderRadius = 10;
-            this.rjButton1.BorderSize = 2;
-            this.rjButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.rjButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton1.ForeColor = System.Drawing.Color.Black;
-            this.rjButton1.Image = ((System.Drawing.Image)(resources.GetObject("rjButton1.Image")));
-            this.rjButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton1.Location = new System.Drawing.Point(32, 7);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(150, 41);
-            this.rjButton1.TabIndex = 0;
-            this.rjButton1.Text = "         THÊM VÀO GIỎ";
-            this.rjButton1.TextColor = System.Drawing.Color.Black;
-            this.rjButton1.UseVisualStyleBackColor = false;
+            this.btnThemVaoGio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
+            this.btnThemVaoGio.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
+            this.btnThemVaoGio.BorderColor = System.Drawing.Color.Black;
+            this.btnThemVaoGio.BorderRadius = 10;
+            this.btnThemVaoGio.BorderSize = 2;
+            this.btnThemVaoGio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnThemVaoGio.FlatAppearance.BorderSize = 0;
+            this.btnThemVaoGio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.btnThemVaoGio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnThemVaoGio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThemVaoGio.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemVaoGio.ForeColor = System.Drawing.Color.Black;
+            this.btnThemVaoGio.Image = ((System.Drawing.Image)(resources.GetObject("btnThemVaoGio.Image")));
+            this.btnThemVaoGio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThemVaoGio.Location = new System.Drawing.Point(32, 7);
+            this.btnThemVaoGio.Name = "btnThemVaoGio";
+            this.btnThemVaoGio.Size = new System.Drawing.Size(150, 41);
+            this.btnThemVaoGio.TabIndex = 0;
+            this.btnThemVaoGio.Text = "         THÊM VÀO GIỎ";
+            this.btnThemVaoGio.TextColor = System.Drawing.Color.Black;
+            this.btnThemVaoGio.UseVisualStyleBackColor = false;
+            this.btnThemVaoGio.Click += new System.EventHandler(this.btnThemVaoGio_Click);
             // 
             // BanHangGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1308, 763);
+            this.ClientSize = new System.Drawing.Size(1167, 718);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BanHangGUI";
@@ -792,7 +793,7 @@
             this.pnPagination.ResumeLayout(false);
             this.flpThongTinSP.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.customNumericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSoLuongMua)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel5.ResumeLayout(false);
@@ -818,7 +819,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel5;
-        private MyCustom.RJButton rjButton1;
+        private MyCustom.RJButton btnThemVaoGio;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
@@ -832,7 +833,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private MyCustom.CustomNumericUpDown customNumericUpDown1;
+        private MyCustom.CustomNumericUpDown nudSoLuongMua;
         private System.Windows.Forms.Label label7;
         private MyCustom.GradientPanel gradientPanel1;
         private System.Windows.Forms.Label label9;
