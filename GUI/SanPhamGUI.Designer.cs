@@ -65,9 +65,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbImage = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.rjButton8 = new GUI.MyCustom.RJButton();
+            this.btnUploadAnh = new GUI.MyCustom.RJButton();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMaKH = new GUI.MyCustom.RJTextBox();
@@ -122,7 +122,7 @@
             this.flpFilter.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -301,6 +301,7 @@
             this.dgvSanPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSanPham.Size = new System.Drawing.Size(974, 683);
             this.dgvSanPham.TabIndex = 1;
+            this.dgvSanPham.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvSanPham_DataBindingComplete);
             // 
             // flpFilter
             // 
@@ -791,7 +792,7 @@
             // flowLayoutPanel5
             // 
             this.flowLayoutPanel5.Controls.Add(this.panel4);
-            this.flowLayoutPanel5.Controls.Add(this.pictureBox1);
+            this.flowLayoutPanel5.Controls.Add(this.pbImage);
             this.flowLayoutPanel5.Controls.Add(this.panel2);
             this.flowLayoutPanel5.Location = new System.Drawing.Point(8, 43);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
@@ -805,46 +806,47 @@
             this.panel4.Size = new System.Drawing.Size(15, 143);
             this.panel4.TabIndex = 2;
             // 
-            // pictureBox1
+            // pbImage
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = global::GUI.Properties.Resources.placeholder_image;
-            this.pictureBox1.InitialImage = global::GUI.Properties.Resources.placeholder_image;
-            this.pictureBox1.Location = new System.Drawing.Point(21, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(214, 149);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pbImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbImage.Image = global::GUI.Properties.Resources.placeholder_image;
+            this.pbImage.InitialImage = global::GUI.Properties.Resources.placeholder_image;
+            this.pbImage.Location = new System.Drawing.Point(21, 0);
+            this.pbImage.Margin = new System.Windows.Forms.Padding(0);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(214, 149);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbImage.TabIndex = 0;
+            this.pbImage.TabStop = false;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.rjButton8);
+            this.panel2.Controls.Add(this.btnUploadAnh);
             this.panel2.Location = new System.Drawing.Point(235, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(55, 149);
             this.panel2.TabIndex = 1;
             // 
-            // rjButton8
+            // btnUploadAnh
             // 
-            this.rjButton8.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton8.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton8.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton8.BorderRadius = 0;
-            this.rjButton8.BorderSize = 0;
-            this.rjButton8.FlatAppearance.BorderSize = 0;
-            this.rjButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton8.ForeColor = System.Drawing.Color.White;
-            this.rjButton8.Image = global::GUI.Properties.Resources.icons8_upload_32;
-            this.rjButton8.Location = new System.Drawing.Point(13, 58);
-            this.rjButton8.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
-            this.rjButton8.Name = "rjButton8";
-            this.rjButton8.Size = new System.Drawing.Size(29, 32);
-            this.rjButton8.TabIndex = 3;
-            this.rjButton8.TextColor = System.Drawing.Color.White;
-            this.rjButton8.UseVisualStyleBackColor = false;
+            this.btnUploadAnh.BackColor = System.Drawing.Color.Transparent;
+            this.btnUploadAnh.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnUploadAnh.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnUploadAnh.BorderRadius = 0;
+            this.btnUploadAnh.BorderSize = 0;
+            this.btnUploadAnh.FlatAppearance.BorderSize = 0;
+            this.btnUploadAnh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUploadAnh.ForeColor = System.Drawing.Color.White;
+            this.btnUploadAnh.Image = global::GUI.Properties.Resources.icons8_upload_32;
+            this.btnUploadAnh.Location = new System.Drawing.Point(13, 58);
+            this.btnUploadAnh.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.btnUploadAnh.Name = "btnUploadAnh";
+            this.btnUploadAnh.Size = new System.Drawing.Size(29, 32);
+            this.btnUploadAnh.TabIndex = 3;
+            this.btnUploadAnh.TextColor = System.Drawing.Color.White;
+            this.btnUploadAnh.UseVisualStyleBackColor = false;
+            this.btnUploadAnh.Click += new System.EventHandler(this.btnUploadAnh_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -1596,7 +1598,7 @@
             this.flpFilter.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.panel2.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
@@ -1642,9 +1644,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbImage;
         private System.Windows.Forms.Panel panel2;
-        private MyCustom.RJButton rjButton8;
+        private MyCustom.RJButton btnUploadAnh;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label label2;
         private MyCustom.RJTextBox txtMaKH;
