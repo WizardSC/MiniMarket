@@ -31,6 +31,22 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BanHangGUI));
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.gradientPanel1 = new GUI.MyCustom.GradientPanel();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.flpGioHang = new System.Windows.Forms.FlowLayoutPanel();
+            this.gradientPanel2 = new GUI.MyCustom.GradientPanel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.cbxTimKiem = new GUI.MyCustom.RJComboBox();
@@ -61,24 +77,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.rjButton1 = new GUI.MyCustom.RJButton();
-            this.gradientPanel1 = new GUI.MyCustom.GradientPanel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.gradientPanel2 = new GUI.MyCustom.GradientPanel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
+            this.gradientPanel1.SuspendLayout();
+            this.gradientPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
@@ -89,8 +91,6 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel5.SuspendLayout();
-            this.gradientPanel1.SuspendLayout();
-            this.gradientPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -108,13 +108,212 @@
             // 
             this.flowLayoutPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel3.Controls.Add(this.gradientPanel1);
-            this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel6);
+            this.flowLayoutPanel3.Controls.Add(this.flpGioHang);
             this.flowLayoutPanel3.Controls.Add(this.gradientPanel2);
             this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(823, 0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(485, 758);
             this.flowLayoutPanel3.TabIndex = 5;
+            // 
+            // gradientPanel1
+            // 
+            this.gradientPanel1.BottomColor = System.Drawing.Color.Empty;
+            this.gradientPanel1.Controls.Add(this.label20);
+            this.gradientPanel1.Controls.Add(this.label19);
+            this.gradientPanel1.Controls.Add(this.label18);
+            this.gradientPanel1.Controls.Add(this.label12);
+            this.gradientPanel1.Controls.Add(this.label11);
+            this.gradientPanel1.Controls.Add(this.label10);
+            this.gradientPanel1.Controls.Add(this.label9);
+            this.gradientPanel1.Controls.Add(this.label8);
+            this.gradientPanel1.Location = new System.Drawing.Point(3, 3);
+            this.gradientPanel1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.gradientPanel1.Name = "gradientPanel1";
+            this.gradientPanel1.Size = new System.Drawing.Size(478, 164);
+            this.gradientPanel1.TabIndex = 3;
+            this.gradientPanel1.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
+            // 
+            // label20
+            // 
+            this.label20.BackColor = System.Drawing.Color.Transparent;
+            this.label20.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(293, 118);
+            this.label20.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label20.Name = "label20";
+            this.label20.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.label20.Size = new System.Drawing.Size(27, 32);
+            this.label20.TabIndex = 9;
+            this.label20.Text = "...";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label19
+            // 
+            this.label19.BackColor = System.Drawing.Color.Transparent;
+            this.label19.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(128, 119);
+            this.label19.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(161, 32);
+            this.label19.TabIndex = 8;
+            this.label19.Text = "Huỳnh Phúc Toàn";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label18
+            // 
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(128, 82);
+            this.label18.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(161, 32);
+            this.label18.TabIndex = 7;
+            this.label18.Text = "Lee Changsub";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(128, 45);
+            this.label12.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(161, 32);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "12/10/2023";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(11, 119);
+            this.label11.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(108, 32);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Khách hàng: ";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(11, 82);
+            this.label10.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(108, 32);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Nhân viên: ";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(11, 45);
+            this.label9.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(108, 32);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Ngày lập: ";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(11, 8);
+            this.label8.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(254, 32);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "ĐƠN HÀNG MỚI  #HD001";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // flpGioHang
+            // 
+            this.flpGioHang.AutoScroll = true;
+            this.flpGioHang.Location = new System.Drawing.Point(0, 167);
+            this.flpGioHang.Margin = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.flpGioHang.Name = "flpGioHang";
+            this.flpGioHang.Size = new System.Drawing.Size(478, 417);
+            this.flpGioHang.TabIndex = 8;
+            // 
+            // gradientPanel2
+            // 
+            this.gradientPanel2.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
+            this.gradientPanel2.Controls.Add(this.label13);
+            this.gradientPanel2.Controls.Add(this.label14);
+            this.gradientPanel2.Controls.Add(this.label15);
+            this.gradientPanel2.Controls.Add(this.label16);
+            this.gradientPanel2.Controls.Add(this.label17);
+            this.gradientPanel2.Location = new System.Drawing.Point(3, 590);
+            this.gradientPanel2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.gradientPanel2.Name = "gradientPanel2";
+            this.gradientPanel2.Size = new System.Drawing.Size(478, 157);
+            this.gradientPanel2.TabIndex = 7;
+            this.gradientPanel2.TopColor = System.Drawing.Color.Empty;
+            // 
+            // label13
+            // 
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(137, 45);
+            this.label13.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(108, 32);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "Ngày lập: ";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label14
+            // 
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(11, 119);
+            this.label14.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(108, 32);
+            this.label14.TabIndex = 5;
+            this.label14.Text = "Khách hàng: ";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label15
+            // 
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(11, 82);
+            this.label15.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(108, 32);
+            this.label15.TabIndex = 4;
+            this.label15.Text = "Nhân viên: ";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label16
+            // 
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(11, 45);
+            this.label16.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(108, 32);
+            this.label16.TabIndex = 3;
+            this.label16.Text = "Ngày lập: ";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label17
+            // 
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(11, 8);
+            this.label17.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(254, 32);
+            this.label17.TabIndex = 2;
+            this.label17.Text = "ĐƠN HÀNG MỚI  #HD001";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // flowLayoutPanel1
             // 
@@ -572,204 +771,6 @@
             this.rjButton1.TextColor = System.Drawing.Color.Black;
             this.rjButton1.UseVisualStyleBackColor = false;
             // 
-            // gradientPanel1
-            // 
-            this.gradientPanel1.BottomColor = System.Drawing.Color.Empty;
-            this.gradientPanel1.Controls.Add(this.label20);
-            this.gradientPanel1.Controls.Add(this.label19);
-            this.gradientPanel1.Controls.Add(this.label18);
-            this.gradientPanel1.Controls.Add(this.label12);
-            this.gradientPanel1.Controls.Add(this.label11);
-            this.gradientPanel1.Controls.Add(this.label10);
-            this.gradientPanel1.Controls.Add(this.label9);
-            this.gradientPanel1.Controls.Add(this.label8);
-            this.gradientPanel1.Location = new System.Drawing.Point(3, 3);
-            this.gradientPanel1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.gradientPanel1.Name = "gradientPanel1";
-            this.gradientPanel1.Size = new System.Drawing.Size(478, 164);
-            this.gradientPanel1.TabIndex = 3;
-            this.gradientPanel1.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
-            // 
-            // label9
-            // 
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(11, 45);
-            this.label9.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(108, 32);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "Ngày lập: ";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label8
-            // 
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(11, 8);
-            this.label8.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(254, 32);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "ĐƠN HÀNG MỚI  #HD001";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label10
-            // 
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(11, 82);
-            this.label10.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(108, 32);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "Nhân viên: ";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label11
-            // 
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(11, 119);
-            this.label11.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(108, 32);
-            this.label11.TabIndex = 5;
-            this.label11.Text = "Khách hàng: ";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label12
-            // 
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(128, 45);
-            this.label12.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(161, 32);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "12/10/2023";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // gradientPanel2
-            // 
-            this.gradientPanel2.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
-            this.gradientPanel2.Controls.Add(this.label13);
-            this.gradientPanel2.Controls.Add(this.label14);
-            this.gradientPanel2.Controls.Add(this.label15);
-            this.gradientPanel2.Controls.Add(this.label16);
-            this.gradientPanel2.Controls.Add(this.label17);
-            this.gradientPanel2.Location = new System.Drawing.Point(3, 590);
-            this.gradientPanel2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.gradientPanel2.Name = "gradientPanel2";
-            this.gradientPanel2.Size = new System.Drawing.Size(478, 157);
-            this.gradientPanel2.TabIndex = 7;
-            this.gradientPanel2.TopColor = System.Drawing.Color.Empty;
-            // 
-            // label13
-            // 
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(137, 45);
-            this.label13.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(108, 32);
-            this.label13.TabIndex = 6;
-            this.label13.Text = "Ngày lập: ";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label14
-            // 
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(11, 119);
-            this.label14.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(108, 32);
-            this.label14.TabIndex = 5;
-            this.label14.Text = "Khách hàng: ";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label15
-            // 
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(11, 82);
-            this.label15.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(108, 32);
-            this.label15.TabIndex = 4;
-            this.label15.Text = "Nhân viên: ";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label16
-            // 
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(11, 45);
-            this.label16.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(108, 32);
-            this.label16.TabIndex = 3;
-            this.label16.Text = "Ngày lập: ";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label17
-            // 
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(11, 8);
-            this.label17.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(254, 32);
-            this.label17.TabIndex = 2;
-            this.label17.Text = "ĐƠN HÀNG MỚI  #HD001";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // flowLayoutPanel6
-            // 
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 167);
-            this.flowLayoutPanel6.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(478, 417);
-            this.flowLayoutPanel6.TabIndex = 8;
-            // 
-            // label18
-            // 
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(128, 82);
-            this.label18.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(161, 32);
-            this.label18.TabIndex = 7;
-            this.label18.Text = "Lee Changsub";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label19
-            // 
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(128, 119);
-            this.label19.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(161, 32);
-            this.label19.TabIndex = 8;
-            this.label19.Text = "Huỳnh Phúc Toàn";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label20
-            // 
-            this.label20.BackColor = System.Drawing.Color.Transparent;
-            this.label20.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(293, 118);
-            this.label20.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
-            this.label20.Name = "label20";
-            this.label20.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.label20.Size = new System.Drawing.Size(27, 32);
-            this.label20.TabIndex = 9;
-            this.label20.Text = "...";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // BanHangGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -783,6 +784,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
+            this.gradientPanel1.ResumeLayout(false);
+            this.gradientPanel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel5.ResumeLayout(false);
@@ -793,8 +796,6 @@
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel5.ResumeLayout(false);
-            this.gradientPanel1.ResumeLayout(false);
-            this.gradientPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -839,7 +840,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
+        private System.Windows.Forms.FlowLayoutPanel flpGioHang;
         private MyCustom.GradientPanel gradientPanel2;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;

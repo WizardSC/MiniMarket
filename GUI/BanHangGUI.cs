@@ -115,7 +115,7 @@ namespace GUI
 
             // Hiển thị trang hiện tại
             UpdateCurrentPage();
-
+            addProductToCart();
         }
 
         // Các hàm khác ở đây
@@ -124,7 +124,15 @@ namespace GUI
         {
             TotalPages = (int)Math.Ceiling((double)productList.Count / ProductsPerPage);
         }
-
+        private void addProductToCart()
+        {
+            this.flpGioHang.Controls.Clear();
+            for(int i = 0;i < 5;i++)
+            {
+                MyCustom.MyProductInCart item = new MyCustom.MyProductInCart();
+                this.flpGioHang.Controls.Add(item);
+            }
+        }
         private void UpdateCurrentPage()
         {
             int startIndex = (CurrentPage - 1) * ProductsPerPage;
