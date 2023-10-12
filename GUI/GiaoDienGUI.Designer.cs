@@ -54,7 +54,6 @@
             this.pnMenu = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pnImage = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnHeader = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -70,6 +69,7 @@
             this.pnBanHangContainer = new GUI.MyCustom.RJButton();
             this.pnHangHoaContainer = new GUI.MyCustom.RJButton();
             this.rjButton2 = new GUI.MyCustom.RJButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnMinimize = new GUI.MyCustom.RJButton();
             this.btnMaximize = new GUI.MyCustom.RJButton();
             this.btnClose = new GUI.MyCustom.RJButton();
@@ -88,9 +88,9 @@
             this.pnHangHoa.SuspendLayout();
             this.pnMenu.SuspendLayout();
             this.pnImage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnHeader.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnSidebar
@@ -355,17 +355,6 @@
             this.pnImage.Size = new System.Drawing.Size(188, 164);
             this.pnImage.TabIndex = 0;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(188, 164);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // pnHeader
             // 
             this.pnHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
@@ -432,7 +421,7 @@
             this.pnSanPhamContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pnSanPhamContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnSanPhamContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnSanPhamContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnSanPhamContainer.Image")));
+            this.pnSanPhamContainer.Image = global::GUI.Properties.Resources.icons8_product_32;
             this.pnSanPhamContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.pnSanPhamContainer.Location = new System.Drawing.Point(8, 0);
             this.pnSanPhamContainer.Name = "pnSanPhamContainer";
@@ -443,6 +432,7 @@
             this.pnSanPhamContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.pnSanPhamContainer.TextColor = System.Drawing.Color.Black;
             this.pnSanPhamContainer.UseVisualStyleBackColor = false;
+            this.pnSanPhamContainer.Click += new System.EventHandler(this.pnSanPhamContainer_Click);
             // 
             // pnKhachHangContainer
             // 
@@ -457,7 +447,7 @@
             this.pnKhachHangContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pnKhachHangContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnKhachHangContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnKhachHangContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnKhachHangContainer.Image")));
+            this.pnKhachHangContainer.Image = global::GUI.Properties.Resources.icons8_customer_32;
             this.pnKhachHangContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.pnKhachHangContainer.Location = new System.Drawing.Point(8, 0);
             this.pnKhachHangContainer.Name = "pnKhachHangContainer";
@@ -483,7 +473,7 @@
             this.pnNhanVienContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pnNhanVienContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnNhanVienContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnNhanVienContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnNhanVienContainer.Image")));
+            this.pnNhanVienContainer.Image = global::GUI.Properties.Resources.icons8_employee_32;
             this.pnNhanVienContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.pnNhanVienContainer.Location = new System.Drawing.Point(8, 0);
             this.pnNhanVienContainer.Name = "pnNhanVienContainer";
@@ -672,6 +662,17 @@
             this.rjButton2.TextColor = System.Drawing.Color.Black;
             this.rjButton2.UseVisualStyleBackColor = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(188, 164);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // btnMinimize
             // 
             this.btnMinimize.BackColor = System.Drawing.Color.Transparent;
@@ -766,9 +767,9 @@
             this.pnHangHoa.ResumeLayout(false);
             this.pnMenu.ResumeLayout(false);
             this.pnImage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnHeader.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
