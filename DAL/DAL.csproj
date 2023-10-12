@@ -45,6 +45,7 @@
     <Compile Include="KhachHangDAL.cs" />
     <Compile Include="MSSQLConnect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SanPhamDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">

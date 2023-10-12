@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,16 @@ namespace GUI
 {
     public partial class SanPhamGUI : Form
     {
+        private SanPhamBLL spBLL;
         public SanPhamGUI()
         {
+            spBLL = new SanPhamBLL();
             InitializeComponent();
+        }
+
+        private void SanPhamGUI_Load(object sender, EventArgs e)
+        {
+            dgvSanPham.DataSource = spBLL.getListSanPham();
         }
     }
 }
