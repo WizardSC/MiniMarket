@@ -21,5 +21,10 @@ namespace BLL
         {
             return spDAL.getListSanPham();
         }
+
+        public bool insertSanPham(SanPhamDTO sp)
+        {
+            return spDAL.insertSanPham(sp);
+        }
     }
 }

@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BLL;
+using DTO;
 namespace GUI
 {
 
@@ -17,6 +18,9 @@ namespace GUI
         private int TotalPages;  // Tổng số trang
         private int CurrentPage = 1;  // Trang hiện tại
         List<Product> productList = new List<Product>();
+        private SanPhamBLL spBLL;
+        private DataTable dt;
+
         public void loadSP()
         {
             productList.Add(new Product
@@ -107,15 +111,20 @@ namespace GUI
         public BanHangGUI()
         {
             InitializeComponent();
-            // Thêm dữ liệu mẫu vào danh sách
+            spBLL = new SanPhamBLL();
+            dt = spBLL.getListSanPham();
 
-            loadSP();
+            // Thêm dữ liệu mẫu vào danh sách
+            //loadSP();
             // Gọi hàm tính toán số trang
             CalculateTotalPages(productList);
 
             // Hiển thị trang hiện tại
-            UpdateCurrentPage();
+            UpdateCurrentPage(dt);
             //addProductToCart();
+
+
+
         }
 
         // Các hàm khác ở đây
@@ -133,10 +142,10 @@ namespace GUI
                 this.flpGioHang.Controls.Add(item);
             }
         }
-        private void UpdateCurrentPage()
+        private void UpdateCurrentPage(DataTable dt)
         {
             int startIndex = (CurrentPage - 1) * ProductsPerPage;
-            int endIndex = Math.Min(startIndex + ProductsPerPage, productList.Count);
+            int endIndex = Math.Min(startIndex + ProductsPerPage, dt.Rows.Count);
 
             this.flpDanhSachSanPham.Controls.Clear();
 
@@ -144,9 +153,9 @@ namespace GUI
             {
                 MyCustom.MyProductItem item = new MyCustom.MyProductItem();
 
-                item.lblMaSP.Text = productList[i].ProductId;
-                item.lblTenSP.Text = productList[i].ProductName;
-                item.lblDonGia.Text = productList[i].Price.ToString();
+                item.lblMaSP.Text = dt.Rows[i]["MaSP"].ToString();
+                item.lblTenSP.Text = dt.Rows[i]["TenSP"].ToString();
+                item.lblDonGia.Text = dt.Rows[i]["DonGiaNhap"].ToString() + "đ";
                 item.Margin = new Padding(4); // 4 pixels cho mỗi hướng
                 item.ItemClicked += Item_ItemClicked; // Gán sự kiện ở đây, đảm bảo chỉ gán một lần
 
@@ -163,7 +172,7 @@ namespace GUI
             MyCustom.MyProductItem clickedItem = (MyCustom.MyProductItem)sender;
             string maSP = clickedItem.lblMaSP.Text;
             string tenSP = clickedItem.lblTenSP.Text;
-            string donGia = clickedItem.lblDonGia.Text;
+            string donGia = clickedItem.lblDonGia.Text.Substring(0,clickedItem.lblDonGia.Text.Length - 1);
 
             txtMaSP.Texts = maSP;
             txtTenSP.Texts = tenSP;
@@ -177,7 +186,7 @@ namespace GUI
             if (CurrentPage > 1)
             {
                 CurrentPage--;
-                UpdateCurrentPage();
+                UpdateCurrentPage(dt);
             }
         }
 
@@ -186,7 +195,7 @@ namespace GUI
             if (CurrentPage < TotalPages)
             {
                 CurrentPage++;
-                UpdateCurrentPage();
+                UpdateCurrentPage(dt);
             }
         }
 
