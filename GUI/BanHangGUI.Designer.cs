@@ -1,4 +1,6 @@
-﻿namespace GUI
+﻿
+namespace GUI
+
 {
     partial class BanHangGUI
     {

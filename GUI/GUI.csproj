@@ -53,6 +53,12 @@
     <Compile Include="BanHangGUI.Designer.cs">
       <DependentUpon>BanHangGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChiTietKhuyenMaiGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChiTietKhuyenMaiGUI.Designer.cs">
+      <DependentUpon>ChiTietKhuyenMaiGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,12 @@
     </Compile>
     <Compile Include="KhachHangGUI.Designer.cs">
       <DependentUpon>KhachHangGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KhuyenMaiGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KhuyenMaiGUI.Designer.cs">
+      <DependentUpon>KhuyenMaiGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="MyCustom\BiggerCheckBox.cs">
       <SubType>Component</SubType>
@@ -121,11 +133,17 @@
     <EmbeddedResource Include="BanHangGUI.resx">
       <DependentUpon>BanHangGUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChiTietKhuyenMaiGUI.resx">
+      <DependentUpon>ChiTietKhuyenMaiGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GiaoDienGUI.resx">
       <DependentUpon>GiaoDienGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KhachHangGUI.resx">
       <DependentUpon>KhachHangGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KhuyenMaiGUI.resx">
+      <DependentUpon>KhuyenMaiGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyCustom\MyProductInCart.resx">
       <DependentUpon>MyProductInCart.cs</DependentUpon>
