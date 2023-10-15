@@ -36,6 +36,8 @@ namespace GUI
             addAllPnLeftBorders();
             addAllPnSubPanels();
             addAllBtns();
+
+            
         }
         private void addAllPnLeftBorders()
         {
