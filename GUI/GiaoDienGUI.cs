@@ -352,5 +352,10 @@ namespace GUI
                 openChildForm(new SanPhamGUI());
             }
         }
+
+        private void pnForm_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
