@@ -11,7 +11,7 @@ namespace DAL
     public class MSSQLConnect
     {
         public SqlConnection conn = null;
-        string strconn = @"Data Source=LAPTOP-AEI9M0MI\WIZARDSC;Initial Catalog = MiniMarket; Integrated Security = True";
+        string strconn = @"Data Source=MSI\MSSQLSERVER_1;Initial Catalog = MiniMarket; Integrated Security = True";
 
 
         public void Connect()
