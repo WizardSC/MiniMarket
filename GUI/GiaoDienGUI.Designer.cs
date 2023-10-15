@@ -61,11 +61,11 @@
             this.pnForm = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
+            this.pnLeftBorderDanhMuc = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.rjButton3 = new GUI.MyCustom.RJButton();
-            this.rjButton1 = new GUI.MyCustom.RJButton();
+            this.pnLeftBorderNSX = new System.Windows.Forms.Panel();
+            this.pnNhaSanXuatContainer = new GUI.MyCustom.RJButton();
+            this.pnDanhMucContainer = new GUI.MyCustom.RJButton();
             this.pnSanPhamContainer = new GUI.MyCustom.RJButton();
             this.pnKhachHangContainer = new GUI.MyCustom.RJButton();
             this.pnNhanVienContainer = new GUI.MyCustom.RJButton();
@@ -79,30 +79,6 @@
             this.btnMinimize = new GUI.MyCustom.RJButton();
             this.btnMaximize = new GUI.MyCustom.RJButton();
             this.btnClose = new GUI.MyCustom.RJButton();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.rjButton7 = new GUI.MyCustom.RJButton();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.rjButton8 = new GUI.MyCustom.RJButton();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.panel23 = new System.Windows.Forms.Panel();
-            this.rjButton9 = new GUI.MyCustom.RJButton();
-            this.panel24 = new System.Windows.Forms.Panel();
-            this.panel25 = new System.Windows.Forms.Panel();
-            this.rjButton10 = new GUI.MyCustom.RJButton();
-            this.panel26 = new System.Windows.Forms.Panel();
-            this.panel27 = new System.Windows.Forms.Panel();
-            this.rjButton11 = new GUI.MyCustom.RJButton();
-            this.panel28 = new System.Windows.Forms.Panel();
-            this.panel29 = new System.Windows.Forms.Panel();
-            this.rjButton12 = new GUI.MyCustom.RJButton();
-            this.panel30 = new System.Windows.Forms.Panel();
-            this.panel31 = new System.Windows.Forms.Panel();
-            this.rjButton13 = new GUI.MyCustom.RJButton();
-            this.panel32 = new System.Windows.Forms.Panel();
-            this.panel33 = new System.Windows.Forms.Panel();
-            this.rjButton14 = new GUI.MyCustom.RJButton();
-            this.panel34 = new System.Windows.Forms.Panel();
             this.pnSidebar.SuspendLayout();
             this.pnMainMenu.SuspendLayout();
             this.pnSubQuanLy.SuspendLayout();
@@ -123,14 +99,6 @@
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel17.SuspendLayout();
-            this.panel19.SuspendLayout();
-            this.panel21.SuspendLayout();
-            this.panel23.SuspendLayout();
-            this.panel25.SuspendLayout();
-            this.panel27.SuspendLayout();
-            this.panel29.SuspendLayout();
-            this.panel31.SuspendLayout();
-            this.panel33.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnSidebar
@@ -150,15 +118,6 @@
             // 
             this.pnMainMenu.AutoScroll = true;
             this.pnMainMenu.AutoSize = true;
-            this.pnMainMenu.Controls.Add(this.panel33);
-            this.pnMainMenu.Controls.Add(this.panel31);
-            this.pnMainMenu.Controls.Add(this.panel29);
-            this.pnMainMenu.Controls.Add(this.panel27);
-            this.pnMainMenu.Controls.Add(this.panel25);
-            this.pnMainMenu.Controls.Add(this.panel23);
-            this.pnMainMenu.Controls.Add(this.panel21);
-            this.pnMainMenu.Controls.Add(this.panel19);
-            this.pnMainMenu.Controls.Add(this.panel17);
             this.pnMainMenu.Controls.Add(this.pnSubQuanLy);
             this.pnMainMenu.Controls.Add(this.pnQuanLy);
             this.pnMainMenu.Controls.Add(this.pnSubHangHoa);
@@ -172,6 +131,7 @@
             // pnSubQuanLy
             // 
             this.pnSubQuanLy.AutoSize = true;
+            this.pnSubQuanLy.Controls.Add(this.panel17);
             this.pnSubQuanLy.Controls.Add(this.panel5);
             this.pnSubQuanLy.Controls.Add(this.panel16);
             this.pnSubQuanLy.Controls.Add(this.panel13);
@@ -179,7 +139,7 @@
             this.pnSubQuanLy.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnSubQuanLy.Location = new System.Drawing.Point(0, 301);
             this.pnSubQuanLy.Name = "pnSubQuanLy";
-            this.pnSubQuanLy.Size = new System.Drawing.Size(171, 200);
+            this.pnSubQuanLy.Size = new System.Drawing.Size(171, 250);
             this.pnSubQuanLy.TabIndex = 3;
             this.pnSubQuanLy.Visible = false;
             // 
@@ -473,8 +433,8 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.rjButton1);
-            this.panel5.Controls.Add(this.panel8);
+            this.panel5.Controls.Add(this.pnDanhMucContainer);
+            this.panel5.Controls.Add(this.pnLeftBorderDanhMuc);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 150);
             this.panel5.Name = "panel5";
@@ -482,85 +442,86 @@
             this.panel5.Size = new System.Drawing.Size(171, 50);
             this.panel5.TabIndex = 6;
             // 
-            // panel8
+            // pnLeftBorderDanhMuc
             // 
-            this.panel8.BackColor = System.Drawing.Color.Transparent;
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel8.Location = new System.Drawing.Point(0, 0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(8, 40);
-            this.panel8.TabIndex = 0;
+            this.pnLeftBorderDanhMuc.BackColor = System.Drawing.Color.Transparent;
+            this.pnLeftBorderDanhMuc.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnLeftBorderDanhMuc.Location = new System.Drawing.Point(0, 0);
+            this.pnLeftBorderDanhMuc.Name = "pnLeftBorderDanhMuc";
+            this.pnLeftBorderDanhMuc.Size = new System.Drawing.Size(8, 40);
+            this.pnLeftBorderDanhMuc.TabIndex = 0;
             // 
             // panel17
             // 
-            this.panel17.Controls.Add(this.rjButton3);
-            this.panel17.Controls.Add(this.panel18);
-            this.panel17.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel17.Controls.Add(this.pnNhaSanXuatContainer);
+            this.panel17.Controls.Add(this.pnLeftBorderNSX);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel17.Location = new System.Drawing.Point(0, 501);
+            this.panel17.Location = new System.Drawing.Point(0, 200);
             this.panel17.Name = "panel17";
             this.panel17.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.panel17.Size = new System.Drawing.Size(171, 50);
-            this.panel17.TabIndex = 5;
+            this.panel17.TabIndex = 7;
             // 
-            // panel18
+            // pnLeftBorderNSX
             // 
-            this.panel18.BackColor = System.Drawing.Color.Transparent;
-            this.panel18.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel18.Location = new System.Drawing.Point(0, 0);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(8, 40);
-            this.panel18.TabIndex = 0;
+            this.pnLeftBorderNSX.BackColor = System.Drawing.Color.Transparent;
+            this.pnLeftBorderNSX.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnLeftBorderNSX.Location = new System.Drawing.Point(0, 0);
+            this.pnLeftBorderNSX.Name = "pnLeftBorderNSX";
+            this.pnLeftBorderNSX.Size = new System.Drawing.Size(8, 40);
+            this.pnLeftBorderNSX.TabIndex = 0;
             // 
-            // rjButton3
+            // pnNhaSanXuatContainer
             // 
-            this.rjButton3.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton3.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton3.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton3.BorderRadius = 0;
-            this.rjButton3.BorderSize = 0;
-            this.rjButton3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rjButton3.FlatAppearance.BorderSize = 0;
-            this.rjButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton3.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton3.ForeColor = System.Drawing.Color.Black;
-            this.rjButton3.Image = ((System.Drawing.Image)(resources.GetObject("rjButton3.Image")));
-            this.rjButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton3.Location = new System.Drawing.Point(8, 0);
-            this.rjButton3.Name = "rjButton3";
-            this.rjButton3.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rjButton3.Size = new System.Drawing.Size(163, 40);
-            this.rjButton3.TabIndex = 1;
-            this.rjButton3.Text = "         Quản lý";
-            this.rjButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton3.TextColor = System.Drawing.Color.Black;
-            this.rjButton3.UseVisualStyleBackColor = false;
+            this.pnNhaSanXuatContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnNhaSanXuatContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnNhaSanXuatContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnNhaSanXuatContainer.BorderRadius = 0;
+            this.pnNhaSanXuatContainer.BorderSize = 0;
+            this.pnNhaSanXuatContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnNhaSanXuatContainer.FlatAppearance.BorderSize = 0;
+            this.pnNhaSanXuatContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnNhaSanXuatContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnNhaSanXuatContainer.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnNhaSanXuatContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnNhaSanXuatContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnNhaSanXuatContainer.Image")));
+            this.pnNhaSanXuatContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnNhaSanXuatContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnNhaSanXuatContainer.Name = "pnNhaSanXuatContainer";
+            this.pnNhaSanXuatContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnNhaSanXuatContainer.Size = new System.Drawing.Size(163, 40);
+            this.pnNhaSanXuatContainer.TabIndex = 3;
+            this.pnNhaSanXuatContainer.Text = "         Nhà sản xuất";
+            this.pnNhaSanXuatContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnNhaSanXuatContainer.TextColor = System.Drawing.Color.Black;
+            this.pnNhaSanXuatContainer.UseVisualStyleBackColor = false;
+            this.pnNhaSanXuatContainer.Click += new System.EventHandler(this.pnNhaSanXuat_Click);
             // 
-            // rjButton1
+            // pnDanhMucContainer
             // 
-            this.rjButton1.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton1.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton1.BorderRadius = 0;
-            this.rjButton1.BorderSize = 0;
-            this.rjButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton1.ForeColor = System.Drawing.Color.Black;
-            this.rjButton1.Image = global::GUI.Properties.Resources.icons8_product_32;
-            this.rjButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton1.Location = new System.Drawing.Point(8, 0);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rjButton1.Size = new System.Drawing.Size(163, 40);
-            this.rjButton1.TabIndex = 3;
-            this.rjButton1.Text = "         Sản phẩm";
-            this.rjButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton1.TextColor = System.Drawing.Color.Black;
-            this.rjButton1.UseVisualStyleBackColor = false;
+            this.pnDanhMucContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnDanhMucContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnDanhMucContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnDanhMucContainer.BorderRadius = 0;
+            this.pnDanhMucContainer.BorderSize = 0;
+            this.pnDanhMucContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnDanhMucContainer.FlatAppearance.BorderSize = 0;
+            this.pnDanhMucContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnDanhMucContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnDanhMucContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnDanhMucContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnDanhMucContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnDanhMucContainer.Image")));
+            this.pnDanhMucContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnDanhMucContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnDanhMucContainer.Name = "pnDanhMucContainer";
+            this.pnDanhMucContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnDanhMucContainer.Size = new System.Drawing.Size(163, 40);
+            this.pnDanhMucContainer.TabIndex = 3;
+            this.pnDanhMucContainer.Text = "         Danh mục";
+            this.pnDanhMucContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnDanhMucContainer.TextColor = System.Drawing.Color.Black;
+            this.pnDanhMucContainer.UseVisualStyleBackColor = false;
+            this.pnDanhMucContainer.Click += new System.EventHandler(this.pnDanhMuc_Click);
             // 
             // pnSanPhamContainer
             // 
@@ -575,7 +536,7 @@
             this.pnSanPhamContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pnSanPhamContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnSanPhamContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnSanPhamContainer.Image = global::GUI.Properties.Resources.icons8_product_32;
+            this.pnSanPhamContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnSanPhamContainer.Image")));
             this.pnSanPhamContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.pnSanPhamContainer.Location = new System.Drawing.Point(8, 0);
             this.pnSanPhamContainer.Name = "pnSanPhamContainer";
@@ -882,374 +843,6 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // panel19
-            // 
-            this.panel19.Controls.Add(this.rjButton7);
-            this.panel19.Controls.Add(this.panel20);
-            this.panel19.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel19.Location = new System.Drawing.Point(0, 551);
-            this.panel19.Name = "panel19";
-            this.panel19.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel19.Size = new System.Drawing.Size(171, 50);
-            this.panel19.TabIndex = 6;
-            // 
-            // rjButton7
-            // 
-            this.rjButton7.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton7.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton7.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton7.BorderRadius = 0;
-            this.rjButton7.BorderSize = 0;
-            this.rjButton7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rjButton7.FlatAppearance.BorderSize = 0;
-            this.rjButton7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.rjButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton7.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton7.ForeColor = System.Drawing.Color.Black;
-            this.rjButton7.Image = ((System.Drawing.Image)(resources.GetObject("rjButton7.Image")));
-            this.rjButton7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton7.Location = new System.Drawing.Point(8, 0);
-            this.rjButton7.Name = "rjButton7";
-            this.rjButton7.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rjButton7.Size = new System.Drawing.Size(163, 40);
-            this.rjButton7.TabIndex = 1;
-            this.rjButton7.Text = "         Quản lý";
-            this.rjButton7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton7.TextColor = System.Drawing.Color.Black;
-            this.rjButton7.UseVisualStyleBackColor = false;
-            // 
-            // panel20
-            // 
-            this.panel20.BackColor = System.Drawing.Color.Transparent;
-            this.panel20.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel20.Location = new System.Drawing.Point(0, 0);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(8, 40);
-            this.panel20.TabIndex = 0;
-            // 
-            // panel21
-            // 
-            this.panel21.Controls.Add(this.rjButton8);
-            this.panel21.Controls.Add(this.panel22);
-            this.panel21.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel21.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel21.Location = new System.Drawing.Point(0, 601);
-            this.panel21.Name = "panel21";
-            this.panel21.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel21.Size = new System.Drawing.Size(171, 50);
-            this.panel21.TabIndex = 7;
-            // 
-            // rjButton8
-            // 
-            this.rjButton8.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton8.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton8.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton8.BorderRadius = 0;
-            this.rjButton8.BorderSize = 0;
-            this.rjButton8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rjButton8.FlatAppearance.BorderSize = 0;
-            this.rjButton8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.rjButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton8.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton8.ForeColor = System.Drawing.Color.Black;
-            this.rjButton8.Image = ((System.Drawing.Image)(resources.GetObject("rjButton8.Image")));
-            this.rjButton8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton8.Location = new System.Drawing.Point(8, 0);
-            this.rjButton8.Name = "rjButton8";
-            this.rjButton8.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rjButton8.Size = new System.Drawing.Size(163, 40);
-            this.rjButton8.TabIndex = 1;
-            this.rjButton8.Text = "         Quản lý";
-            this.rjButton8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton8.TextColor = System.Drawing.Color.Black;
-            this.rjButton8.UseVisualStyleBackColor = false;
-            // 
-            // panel22
-            // 
-            this.panel22.BackColor = System.Drawing.Color.Transparent;
-            this.panel22.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel22.Location = new System.Drawing.Point(0, 0);
-            this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(8, 40);
-            this.panel22.TabIndex = 0;
-            // 
-            // panel23
-            // 
-            this.panel23.Controls.Add(this.rjButton9);
-            this.panel23.Controls.Add(this.panel24);
-            this.panel23.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel23.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel23.Location = new System.Drawing.Point(0, 651);
-            this.panel23.Name = "panel23";
-            this.panel23.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel23.Size = new System.Drawing.Size(171, 50);
-            this.panel23.TabIndex = 8;
-            // 
-            // rjButton9
-            // 
-            this.rjButton9.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton9.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton9.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton9.BorderRadius = 0;
-            this.rjButton9.BorderSize = 0;
-            this.rjButton9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rjButton9.FlatAppearance.BorderSize = 0;
-            this.rjButton9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.rjButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton9.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton9.ForeColor = System.Drawing.Color.Black;
-            this.rjButton9.Image = ((System.Drawing.Image)(resources.GetObject("rjButton9.Image")));
-            this.rjButton9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton9.Location = new System.Drawing.Point(8, 0);
-            this.rjButton9.Name = "rjButton9";
-            this.rjButton9.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rjButton9.Size = new System.Drawing.Size(163, 40);
-            this.rjButton9.TabIndex = 1;
-            this.rjButton9.Text = "         Quản lý";
-            this.rjButton9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton9.TextColor = System.Drawing.Color.Black;
-            this.rjButton9.UseVisualStyleBackColor = false;
-            // 
-            // panel24
-            // 
-            this.panel24.BackColor = System.Drawing.Color.Transparent;
-            this.panel24.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel24.Location = new System.Drawing.Point(0, 0);
-            this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(8, 40);
-            this.panel24.TabIndex = 0;
-            // 
-            // panel25
-            // 
-            this.panel25.Controls.Add(this.rjButton10);
-            this.panel25.Controls.Add(this.panel26);
-            this.panel25.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel25.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel25.Location = new System.Drawing.Point(0, 701);
-            this.panel25.Name = "panel25";
-            this.panel25.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel25.Size = new System.Drawing.Size(171, 50);
-            this.panel25.TabIndex = 9;
-            // 
-            // rjButton10
-            // 
-            this.rjButton10.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton10.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton10.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton10.BorderRadius = 0;
-            this.rjButton10.BorderSize = 0;
-            this.rjButton10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rjButton10.FlatAppearance.BorderSize = 0;
-            this.rjButton10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.rjButton10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton10.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton10.ForeColor = System.Drawing.Color.Black;
-            this.rjButton10.Image = ((System.Drawing.Image)(resources.GetObject("rjButton10.Image")));
-            this.rjButton10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton10.Location = new System.Drawing.Point(8, 0);
-            this.rjButton10.Name = "rjButton10";
-            this.rjButton10.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rjButton10.Size = new System.Drawing.Size(163, 40);
-            this.rjButton10.TabIndex = 1;
-            this.rjButton10.Text = "         Quản lý";
-            this.rjButton10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton10.TextColor = System.Drawing.Color.Black;
-            this.rjButton10.UseVisualStyleBackColor = false;
-            // 
-            // panel26
-            // 
-            this.panel26.BackColor = System.Drawing.Color.Transparent;
-            this.panel26.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel26.Location = new System.Drawing.Point(0, 0);
-            this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(8, 40);
-            this.panel26.TabIndex = 0;
-            // 
-            // panel27
-            // 
-            this.panel27.Controls.Add(this.rjButton11);
-            this.panel27.Controls.Add(this.panel28);
-            this.panel27.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel27.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel27.Location = new System.Drawing.Point(0, 751);
-            this.panel27.Name = "panel27";
-            this.panel27.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel27.Size = new System.Drawing.Size(171, 50);
-            this.panel27.TabIndex = 10;
-            // 
-            // rjButton11
-            // 
-            this.rjButton11.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton11.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton11.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton11.BorderRadius = 0;
-            this.rjButton11.BorderSize = 0;
-            this.rjButton11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rjButton11.FlatAppearance.BorderSize = 0;
-            this.rjButton11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.rjButton11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton11.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton11.ForeColor = System.Drawing.Color.Black;
-            this.rjButton11.Image = ((System.Drawing.Image)(resources.GetObject("rjButton11.Image")));
-            this.rjButton11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton11.Location = new System.Drawing.Point(8, 0);
-            this.rjButton11.Name = "rjButton11";
-            this.rjButton11.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rjButton11.Size = new System.Drawing.Size(163, 40);
-            this.rjButton11.TabIndex = 1;
-            this.rjButton11.Text = "         Quản lý";
-            this.rjButton11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton11.TextColor = System.Drawing.Color.Black;
-            this.rjButton11.UseVisualStyleBackColor = false;
-            // 
-            // panel28
-            // 
-            this.panel28.BackColor = System.Drawing.Color.Transparent;
-            this.panel28.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel28.Location = new System.Drawing.Point(0, 0);
-            this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(8, 40);
-            this.panel28.TabIndex = 0;
-            // 
-            // panel29
-            // 
-            this.panel29.Controls.Add(this.rjButton12);
-            this.panel29.Controls.Add(this.panel30);
-            this.panel29.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel29.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel29.Location = new System.Drawing.Point(0, 801);
-            this.panel29.Name = "panel29";
-            this.panel29.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel29.Size = new System.Drawing.Size(171, 50);
-            this.panel29.TabIndex = 11;
-            // 
-            // rjButton12
-            // 
-            this.rjButton12.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton12.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton12.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton12.BorderRadius = 0;
-            this.rjButton12.BorderSize = 0;
-            this.rjButton12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rjButton12.FlatAppearance.BorderSize = 0;
-            this.rjButton12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.rjButton12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton12.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton12.ForeColor = System.Drawing.Color.Black;
-            this.rjButton12.Image = ((System.Drawing.Image)(resources.GetObject("rjButton12.Image")));
-            this.rjButton12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton12.Location = new System.Drawing.Point(8, 0);
-            this.rjButton12.Name = "rjButton12";
-            this.rjButton12.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rjButton12.Size = new System.Drawing.Size(163, 40);
-            this.rjButton12.TabIndex = 1;
-            this.rjButton12.Text = "         Quản lý";
-            this.rjButton12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton12.TextColor = System.Drawing.Color.Black;
-            this.rjButton12.UseVisualStyleBackColor = false;
-            // 
-            // panel30
-            // 
-            this.panel30.BackColor = System.Drawing.Color.Transparent;
-            this.panel30.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel30.Location = new System.Drawing.Point(0, 0);
-            this.panel30.Name = "panel30";
-            this.panel30.Size = new System.Drawing.Size(8, 40);
-            this.panel30.TabIndex = 0;
-            // 
-            // panel31
-            // 
-            this.panel31.Controls.Add(this.rjButton13);
-            this.panel31.Controls.Add(this.panel32);
-            this.panel31.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel31.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel31.Location = new System.Drawing.Point(0, 851);
-            this.panel31.Name = "panel31";
-            this.panel31.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel31.Size = new System.Drawing.Size(171, 50);
-            this.panel31.TabIndex = 12;
-            // 
-            // rjButton13
-            // 
-            this.rjButton13.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton13.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton13.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton13.BorderRadius = 0;
-            this.rjButton13.BorderSize = 0;
-            this.rjButton13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rjButton13.FlatAppearance.BorderSize = 0;
-            this.rjButton13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.rjButton13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton13.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton13.ForeColor = System.Drawing.Color.Black;
-            this.rjButton13.Image = ((System.Drawing.Image)(resources.GetObject("rjButton13.Image")));
-            this.rjButton13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton13.Location = new System.Drawing.Point(8, 0);
-            this.rjButton13.Name = "rjButton13";
-            this.rjButton13.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rjButton13.Size = new System.Drawing.Size(163, 40);
-            this.rjButton13.TabIndex = 1;
-            this.rjButton13.Text = "         Quản lý";
-            this.rjButton13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton13.TextColor = System.Drawing.Color.Black;
-            this.rjButton13.UseVisualStyleBackColor = false;
-            // 
-            // panel32
-            // 
-            this.panel32.BackColor = System.Drawing.Color.Transparent;
-            this.panel32.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel32.Location = new System.Drawing.Point(0, 0);
-            this.panel32.Name = "panel32";
-            this.panel32.Size = new System.Drawing.Size(8, 40);
-            this.panel32.TabIndex = 0;
-            // 
-            // panel33
-            // 
-            this.panel33.Controls.Add(this.rjButton14);
-            this.panel33.Controls.Add(this.panel34);
-            this.panel33.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel33.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel33.Location = new System.Drawing.Point(0, 901);
-            this.panel33.Name = "panel33";
-            this.panel33.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel33.Size = new System.Drawing.Size(171, 50);
-            this.panel33.TabIndex = 13;
-            // 
-            // rjButton14
-            // 
-            this.rjButton14.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton14.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton14.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton14.BorderRadius = 0;
-            this.rjButton14.BorderSize = 0;
-            this.rjButton14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rjButton14.FlatAppearance.BorderSize = 0;
-            this.rjButton14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.rjButton14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton14.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton14.ForeColor = System.Drawing.Color.Black;
-            this.rjButton14.Image = ((System.Drawing.Image)(resources.GetObject("rjButton14.Image")));
-            this.rjButton14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton14.Location = new System.Drawing.Point(8, 0);
-            this.rjButton14.Name = "rjButton14";
-            this.rjButton14.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rjButton14.Size = new System.Drawing.Size(163, 40);
-            this.rjButton14.TabIndex = 1;
-            this.rjButton14.Text = "         Quản lý";
-            this.rjButton14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton14.TextColor = System.Drawing.Color.Black;
-            this.rjButton14.UseVisualStyleBackColor = false;
-            // 
-            // panel34
-            // 
-            this.panel34.BackColor = System.Drawing.Color.Transparent;
-            this.panel34.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel34.Location = new System.Drawing.Point(0, 0);
-            this.panel34.Name = "panel34";
-            this.panel34.Size = new System.Drawing.Size(8, 40);
-            this.panel34.TabIndex = 0;
-            // 
             // GiaoDienGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1285,14 +878,6 @@
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
-            this.panel19.ResumeLayout(false);
-            this.panel21.ResumeLayout(false);
-            this.panel23.ResumeLayout(false);
-            this.panel25.ResumeLayout(false);
-            this.panel27.ResumeLayout(false);
-            this.panel29.ResumeLayout(false);
-            this.panel31.ResumeLayout(false);
-            this.panel33.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1343,34 +928,10 @@
         private MyCustom.RJButton rjButton5;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Panel panel5;
-        private MyCustom.RJButton rjButton1;
-        private System.Windows.Forms.Panel panel8;
+        private MyCustom.RJButton pnDanhMucContainer;
+        private System.Windows.Forms.Panel pnLeftBorderDanhMuc;
         private System.Windows.Forms.Panel panel17;
-        private MyCustom.RJButton rjButton3;
-        private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.Panel panel33;
-        private MyCustom.RJButton rjButton14;
-        private System.Windows.Forms.Panel panel34;
-        private System.Windows.Forms.Panel panel31;
-        private MyCustom.RJButton rjButton13;
-        private System.Windows.Forms.Panel panel32;
-        private System.Windows.Forms.Panel panel29;
-        private MyCustom.RJButton rjButton12;
-        private System.Windows.Forms.Panel panel30;
-        private System.Windows.Forms.Panel panel27;
-        private MyCustom.RJButton rjButton11;
-        private System.Windows.Forms.Panel panel28;
-        private System.Windows.Forms.Panel panel25;
-        private MyCustom.RJButton rjButton10;
-        private System.Windows.Forms.Panel panel26;
-        private System.Windows.Forms.Panel panel23;
-        private MyCustom.RJButton rjButton9;
-        private System.Windows.Forms.Panel panel24;
-        private System.Windows.Forms.Panel panel21;
-        private MyCustom.RJButton rjButton8;
-        private System.Windows.Forms.Panel panel22;
-        private System.Windows.Forms.Panel panel19;
-        private MyCustom.RJButton rjButton7;
-        private System.Windows.Forms.Panel panel20;
+        private MyCustom.RJButton pnNhaSanXuatContainer;
+        private System.Windows.Forms.Panel pnLeftBorderNSX;
     }
 }
