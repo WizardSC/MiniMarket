@@ -32,11 +32,17 @@ namespace GUI
             allPanels.Add(pnSanPhamContainer);
             allPanels.Add(pnQuanLyContainer);
             allPanels.Add(pnHangHoaContainer);
+<<<<<<< Updated upstream
             allPanels.Add(pnNhaCCContainer);
 
             addAllPnLeftBorders();
             addAllPnSubPanels();
             addAllBtns();
+=======
+            allPanels.Add(pnNhaSanXuatContainer);
+            allPanels.Add(pnDanhMucContainer);
+            allPanels.Add(pnNhaCCContainer);
+>>>>>>> Stashed changes
         }
         private void addAllPnLeftBorders()
         {
@@ -46,12 +52,18 @@ namespace GUI
             allPnLeftBorders.Add(pnLeftBorderKhachHang);
             allPnLeftBorders.Add(pnLeftBorderSanPham);
             allPnLeftBorders.Add(pnLeftBorderBanHang);
+<<<<<<< Updated upstream
             allPnLeftBorders.Add(pnLeftBorderNhaCC);
 <<<<<<< Updated upstream
 =======
 
 >>>>>>> Stashed changes
 
+=======
+            allPnLeftBorders.Add(pnLeftBorderNSX);
+            allPnLeftBorders.Add(pnLeftBorderDanhMuc);
+            allPnLeftBorders.Add(pnLeftBorderNhaCC);
+>>>>>>> Stashed changes
         }
 
         private void addAllPnSubPanels()
@@ -439,5 +451,106 @@ namespace GUI
         {
 
         }
+<<<<<<< Updated upstream
+=======
+
+        private void pnDanhMuc_Click(object sender, EventArgs e)
+        {
+            if (sender is RJButton)
+            {
+                RJButton clickedButton = (RJButton)sender;
+
+                // Đặt màu của tất cả các RJButton khác thành màu transparent
+                foreach (RJButton button in allPanels)
+                {
+                    if (button != clickedButton)
+                    {
+                        button.BackColor = Color.Transparent; // hoặc màu nền mặc định của bạn
+                    }
+                }
+                foreach (Panel pn in allPnLeftBorders)
+                {
+                    if (pn != pnLeftBorderDanhMuc)
+                    {
+                        pn.BackColor = Color.Transparent;
+                    }
+                }
+                foreach (RJButton button in allBtns)
+                {
+                    button.BackColor = Color.Transparent; // hoặc màu nền mặc định của bạn
+                }
+                // Đặt màu của RJButton được nhấn
+                clickedButton.BackColor = Color.White;
+                pnLeftBorderDanhMuc.BackColor = Color.FromArgb(58, 191, 186);
+                // Mở form con tương ứng (KhachHangGUI)
+                openChildForm(new LoaiGUI());
+            }
+        }
+
+        private void pnNhaSanXuat_Click(object sender, EventArgs e)
+        {
+            if (sender is RJButton)
+            {
+                RJButton clickedButton = (RJButton)sender;
+
+                // Đặt màu của tất cả các RJButton khác thành màu transparent
+                foreach (RJButton button in allPanels)
+                {
+                    if (button != clickedButton)
+                    {
+                        button.BackColor = Color.Transparent; // hoặc màu nền mặc định của bạn
+                    }
+                }
+                foreach (Panel pn in allPnLeftBorders)
+                {
+                    if (pn != pnLeftBorderNSX)
+                    {
+                        pn.BackColor = Color.Transparent;
+                    }
+                }
+                foreach (RJButton button in allBtns)
+                {
+                    button.BackColor = Color.Transparent; // hoặc màu nền mặc định của bạn
+                }
+                // Đặt màu của RJButton được nhấn
+                clickedButton.BackColor = Color.White;
+                pnLeftBorderNSX.BackColor = Color.FromArgb(58, 191, 186);
+                // Mở form con tương ứng (KhachHangGUI)
+                openChildForm(new NhaSanXuatGUI());
+            }
+        }
+        private void pnNhaCC_Click(object sender, EventArgs e)
+        {
+            if (sender is RJButton)
+            {
+                RJButton clickedButton = (RJButton)sender;
+
+                // Đặt màu của tất cả các RJButton khác thành màu transparent
+                foreach (RJButton button in allPanels)
+                {
+                    if (button != clickedButton)
+                    {
+                        button.BackColor = Color.Transparent; // hoặc màu nền mặc định của bạn
+                    }
+                }
+                foreach (Panel pn in allPnLeftBorders)
+                {
+                    if (pn != pnLeftBorderNhaCC)
+                    {
+                        pn.BackColor = Color.Transparent;
+                    }
+                }
+                foreach (RJButton button in allBtns)
+                {
+                    button.BackColor = Color.Transparent; // hoặc màu nền mặc định của bạn
+                }
+                // Đặt màu của RJButton được nhấn
+                clickedButton.BackColor = Color.White;
+                pnLeftBorderNhaCC.BackColor = Color.FromArgb(58, 191, 186);
+                // Mở form con tương ứng (KhachHangGUI)
+                openChildForm(new NhaCCGUI());
+            }
+        }
+>>>>>>> Stashed changes
     }
 }

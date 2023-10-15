@@ -33,8 +33,16 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.pnSubQuanLy = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+<<<<<<< Updated upstream
             this.pnNhaCCContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderNhaCC = new System.Windows.Forms.Panel();
+=======
+            this.pnLeftBorderNhaCC = new System.Windows.Forms.Panel();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.pnLeftBorderNSX = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.pnLeftBorderDanhMuc = new System.Windows.Forms.Panel();
+>>>>>>> Stashed changes
             this.panel16 = new System.Windows.Forms.Panel();
             this.pnSanPhamContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderSanPham = new System.Windows.Forms.Panel();
@@ -81,6 +89,13 @@
             this.pnForm = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pnNhaCCContainer = new GUI.MyCustom.RJButton();
+            this.pnNhaSanXuatContainer = new GUI.MyCustom.RJButton();
+            this.pnDanhMucContainer = new GUI.MyCustom.RJButton();
+>>>>>>> Stashed changes
             this.pnSanPhamContainer = new GUI.MyCustom.RJButton();
             this.pnKhachHangContainer = new GUI.MyCustom.RJButton();
             this.pnNhanVienContainer = new GUI.MyCustom.RJButton();
@@ -110,6 +125,11 @@
             this.panel5.SuspendLayout();
             this.pnSubQuanLy.SuspendLayout();
             this.panel8.SuspendLayout();
+<<<<<<< Updated upstream
+=======
+            this.panel17.SuspendLayout();
+            this.panel5.SuspendLayout();
+>>>>>>> Stashed changes
             this.panel16.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -140,14 +160,19 @@
             this.pnSidebar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnSidebar.Name = "pnSidebar";
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             this.pnSidebar.Size = new System.Drawing.Size(190, 760);
 =======
             this.pnSidebar.Size = new System.Drawing.Size(253, 940);
+>>>>>>> Stashed changes
+=======
+            this.pnSidebar.Size = new System.Drawing.Size(190, 681);
 >>>>>>> Stashed changes
             this.pnSidebar.TabIndex = 1;
             // 
             // panel5
             // 
+<<<<<<< Updated upstream
             this.panel5.AutoScroll = true;
             this.panel5.Controls.Add(this.pnSubQuanLy);
             this.panel5.Controls.Add(this.pnQuanLy);
@@ -167,6 +192,26 @@
             // pnSubQuanLy
             // 
             this.pnSubQuanLy.Controls.Add(this.panel8);
+=======
+            this.pnMainMenu.AutoScroll = true;
+            this.pnMainMenu.AutoSize = true;
+            this.pnMainMenu.Controls.Add(this.pnSubQuanLy);
+            this.pnMainMenu.Controls.Add(this.pnQuanLy);
+            this.pnMainMenu.Controls.Add(this.pnSubHangHoa);
+            this.pnMainMenu.Controls.Add(this.pnHangHoa);
+            this.pnMainMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnMainMenu.Location = new System.Drawing.Point(0, 164);
+            this.pnMainMenu.Name = "pnMainMenu";
+            this.pnMainMenu.Size = new System.Drawing.Size(188, 424);
+            this.pnMainMenu.TabIndex = 5;
+            // 
+            // pnSubQuanLy
+            // 
+            this.pnSubQuanLy.AutoSize = true;
+            this.pnSubQuanLy.Controls.Add(this.panel8);
+            this.pnSubQuanLy.Controls.Add(this.panel17);
+            this.pnSubQuanLy.Controls.Add(this.panel5);
+>>>>>>> Stashed changes
             this.pnSubQuanLy.Controls.Add(this.panel16);
             this.pnSubQuanLy.Controls.Add(this.panel13);
             this.pnSubQuanLy.Controls.Add(this.panel10);
@@ -175,9 +220,13 @@
             this.pnSubQuanLy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnSubQuanLy.Name = "pnSubQuanLy";
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             this.pnSubQuanLy.Size = new System.Drawing.Size(188, 199);
 =======
             this.pnSubQuanLy.Size = new System.Drawing.Size(251, 252);
+>>>>>>> Stashed changes
+=======
+            this.pnSubQuanLy.Size = new System.Drawing.Size(171, 300);
 >>>>>>> Stashed changes
             this.pnSubQuanLy.TabIndex = 3;
             this.pnSubQuanLy.Visible = false;
@@ -187,6 +236,7 @@
             this.panel8.Controls.Add(this.pnNhaCCContainer);
             this.panel8.Controls.Add(this.pnLeftBorderNhaCC);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
             this.panel8.Location = new System.Drawing.Point(0, 150);
             this.panel8.Name = "panel8";
@@ -239,12 +289,20 @@
             this.pnNhaCCContainer.TextColor = System.Drawing.Color.Black;
             this.pnNhaCCContainer.UseVisualStyleBackColor = false;
             this.pnNhaCCContainer.Click += new System.EventHandler(this.pnNhaCCContainer_Click);
+=======
+            this.panel8.Location = new System.Drawing.Point(0, 250);
+            this.panel8.Name = "panel8";
+            this.panel8.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.panel8.Size = new System.Drawing.Size(171, 50);
+            this.panel8.TabIndex = 8;
+>>>>>>> Stashed changes
             // 
             // pnLeftBorderNhaCC
             // 
             this.pnLeftBorderNhaCC.BackColor = System.Drawing.Color.Transparent;
             this.pnLeftBorderNhaCC.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnLeftBorderNhaCC.Location = new System.Drawing.Point(0, 0);
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
             this.pnLeftBorderNhaCC.Name = "pnLeftBorderNhaCC";
             this.pnLeftBorderNhaCC.Size = new System.Drawing.Size(8, 39);
@@ -255,6 +313,52 @@
 >>>>>>> Stashed changes
             this.pnLeftBorderNhaCC.TabIndex = 0;
             // 
+=======
+            this.pnLeftBorderNhaCC.Name = "pnLeftBorderNhaCC";
+            this.pnLeftBorderNhaCC.Size = new System.Drawing.Size(8, 40);
+            this.pnLeftBorderNhaCC.TabIndex = 0;
+            // 
+            // panel17
+            // 
+            this.panel17.Controls.Add(this.pnNhaSanXuatContainer);
+            this.panel17.Controls.Add(this.pnLeftBorderNSX);
+            this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel17.Location = new System.Drawing.Point(0, 200);
+            this.panel17.Name = "panel17";
+            this.panel17.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.panel17.Size = new System.Drawing.Size(171, 50);
+            this.panel17.TabIndex = 7;
+            // 
+            // pnLeftBorderNSX
+            // 
+            this.pnLeftBorderNSX.BackColor = System.Drawing.Color.Transparent;
+            this.pnLeftBorderNSX.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnLeftBorderNSX.Location = new System.Drawing.Point(0, 0);
+            this.pnLeftBorderNSX.Name = "pnLeftBorderNSX";
+            this.pnLeftBorderNSX.Size = new System.Drawing.Size(8, 40);
+            this.pnLeftBorderNSX.TabIndex = 0;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.pnDanhMucContainer);
+            this.panel5.Controls.Add(this.pnLeftBorderDanhMuc);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 150);
+            this.panel5.Name = "panel5";
+            this.panel5.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.panel5.Size = new System.Drawing.Size(171, 50);
+            this.panel5.TabIndex = 6;
+            // 
+            // pnLeftBorderDanhMuc
+            // 
+            this.pnLeftBorderDanhMuc.BackColor = System.Drawing.Color.Transparent;
+            this.pnLeftBorderDanhMuc.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnLeftBorderDanhMuc.Location = new System.Drawing.Point(0, 0);
+            this.pnLeftBorderDanhMuc.Name = "pnLeftBorderDanhMuc";
+            this.pnLeftBorderDanhMuc.Size = new System.Drawing.Size(8, 40);
+            this.pnLeftBorderDanhMuc.TabIndex = 0;
+            // 
+>>>>>>> Stashed changes
             // panel16
             // 
             this.panel16.Controls.Add(this.pnSanPhamContainer);
@@ -564,7 +668,7 @@
             this.pnMenu.Controls.Add(this.panel6);
             this.pnMenu.Controls.Add(this.rjButton2);
             this.pnMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnMenu.Location = new System.Drawing.Point(0, 670);
+            this.pnMenu.Location = new System.Drawing.Point(0, 588);
             this.pnMenu.Name = "pnMenu";
             this.pnMenu.Size = new System.Drawing.Size(188, 91);
             this.pnMenu.TabIndex = 4;
@@ -597,13 +701,13 @@
             this.pnHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnHeader.Location = new System.Drawing.Point(0, 0);
             this.pnHeader.Name = "pnHeader";
-            this.pnHeader.Size = new System.Drawing.Size(1498, 35);
+            this.pnHeader.Size = new System.Drawing.Size(1165, 35);
             this.pnHeader.TabIndex = 3;
             // 
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(1400, 0);
+            this.panel2.Location = new System.Drawing.Point(1067, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(6, 35);
             this.panel2.TabIndex = 4;
@@ -611,7 +715,7 @@
             // panel1
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(1449, 0);
+            this.panel1.Location = new System.Drawing.Point(1116, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(6, 35);
             this.panel1.TabIndex = 3;
@@ -624,7 +728,7 @@
             this.pnForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnForm.Location = new System.Drawing.Point(190, 35);
             this.pnForm.Name = "pnForm";
-            this.pnForm.Size = new System.Drawing.Size(1308, 763);
+            this.pnForm.Size = new System.Drawing.Size(975, 681);
             this.pnForm.TabIndex = 4;
             // 
             // panel3
@@ -636,10 +740,102 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1500, 800);
+            this.panel3.Size = new System.Drawing.Size(1167, 718);
             this.panel3.TabIndex = 0;
             // 
+<<<<<<< Updated upstream
 =======
+>>>>>>> Stashed changes
+=======
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(188, 164);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pnNhaCCContainer
+            // 
+            this.pnNhaCCContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnNhaCCContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnNhaCCContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnNhaCCContainer.BorderRadius = 0;
+            this.pnNhaCCContainer.BorderSize = 0;
+            this.pnNhaCCContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnNhaCCContainer.FlatAppearance.BorderSize = 0;
+            this.pnNhaCCContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnNhaCCContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnNhaCCContainer.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnNhaCCContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnNhaCCContainer.Image = global::GUI.Properties.Resources.supplier;
+            this.pnNhaCCContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnNhaCCContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnNhaCCContainer.Name = "pnNhaCCContainer";
+            this.pnNhaCCContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnNhaCCContainer.Size = new System.Drawing.Size(163, 40);
+            this.pnNhaCCContainer.TabIndex = 3;
+            this.pnNhaCCContainer.Text = "         Nhà cung cấp";
+            this.pnNhaCCContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnNhaCCContainer.TextColor = System.Drawing.Color.Black;
+            this.pnNhaCCContainer.UseVisualStyleBackColor = false;
+            this.pnNhaCCContainer.Click += new System.EventHandler(this.pnNhaCC_Click);
+            // 
+            // pnNhaSanXuatContainer
+            // 
+            this.pnNhaSanXuatContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnNhaSanXuatContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnNhaSanXuatContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnNhaSanXuatContainer.BorderRadius = 0;
+            this.pnNhaSanXuatContainer.BorderSize = 0;
+            this.pnNhaSanXuatContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnNhaSanXuatContainer.FlatAppearance.BorderSize = 0;
+            this.pnNhaSanXuatContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnNhaSanXuatContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnNhaSanXuatContainer.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnNhaSanXuatContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnNhaSanXuatContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnNhaSanXuatContainer.Image")));
+            this.pnNhaSanXuatContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnNhaSanXuatContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnNhaSanXuatContainer.Name = "pnNhaSanXuatContainer";
+            this.pnNhaSanXuatContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnNhaSanXuatContainer.Size = new System.Drawing.Size(163, 40);
+            this.pnNhaSanXuatContainer.TabIndex = 3;
+            this.pnNhaSanXuatContainer.Text = "         Nhà sản xuất";
+            this.pnNhaSanXuatContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnNhaSanXuatContainer.TextColor = System.Drawing.Color.Black;
+            this.pnNhaSanXuatContainer.UseVisualStyleBackColor = false;
+            this.pnNhaSanXuatContainer.Click += new System.EventHandler(this.pnNhaSanXuat_Click);
+            // 
+            // pnDanhMucContainer
+            // 
+            this.pnDanhMucContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnDanhMucContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnDanhMucContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnDanhMucContainer.BorderRadius = 0;
+            this.pnDanhMucContainer.BorderSize = 0;
+            this.pnDanhMucContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnDanhMucContainer.FlatAppearance.BorderSize = 0;
+            this.pnDanhMucContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnDanhMucContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnDanhMucContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnDanhMucContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnDanhMucContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnDanhMucContainer.Image")));
+            this.pnDanhMucContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnDanhMucContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnDanhMucContainer.Name = "pnDanhMucContainer";
+            this.pnDanhMucContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnDanhMucContainer.Size = new System.Drawing.Size(163, 40);
+            this.pnDanhMucContainer.TabIndex = 3;
+            this.pnDanhMucContainer.Text = "         Danh mục";
+            this.pnDanhMucContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnDanhMucContainer.TextColor = System.Drawing.Color.Black;
+            this.pnDanhMucContainer.UseVisualStyleBackColor = false;
+            this.pnDanhMucContainer.Click += new System.EventHandler(this.pnDanhMuc_Click);
+            // 
 >>>>>>> Stashed changes
             // pnSanPhamContainer
             // 
@@ -1283,7 +1479,11 @@
             this.btnMinimize.ForeColor = System.Drawing.Color.White;
             this.btnMinimize.Image = global::GUI.Properties.Resources.icons8_minimize_32__1_;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             this.btnMinimize.Location = new System.Drawing.Point(1358, 0);
+=======
+            this.btnMinimize.Location = new System.Drawing.Point(1024, 0);
+>>>>>>> Stashed changes
             this.btnMinimize.Margin = new System.Windows.Forms.Padding(2);
 =======
             this.btnMinimize.Location = new System.Drawing.Point(1753, 0);
@@ -1325,7 +1525,11 @@
             this.btnMaximize.ForeColor = System.Drawing.Color.White;
             this.btnMaximize.Image = global::GUI.Properties.Resources.icons8_toggle_full_screen_32;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             this.btnMaximize.Location = new System.Drawing.Point(1407, 0);
+=======
+            this.btnMaximize.Location = new System.Drawing.Point(1073, 0);
+>>>>>>> Stashed changes
             this.btnMaximize.Margin = new System.Windows.Forms.Padding(2);
 =======
             this.btnMaximize.Location = new System.Drawing.Point(1818, 0);
@@ -1367,7 +1571,11 @@
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Image = global::GUI.Properties.Resources.icons8_close_32;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             this.btnClose.Location = new System.Drawing.Point(1456, 0);
+=======
+            this.btnClose.Location = new System.Drawing.Point(1122, 0);
+>>>>>>> Stashed changes
             this.btnClose.Margin = new System.Windows.Forms.Padding(2);
 =======
             this.btnClose.Location = new System.Drawing.Point(1883, 0);
@@ -1433,6 +1641,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             this.ClientSize = new System.Drawing.Size(1501, 797);
 =======
             this.ClientSize = new System.Drawing.Size(1942, 985);
@@ -1440,6 +1649,12 @@
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+=======
+            this.ClientSize = new System.Drawing.Size(1167, 718);
+            this.Controls.Add(this.panel3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+>>>>>>> Stashed changes
             this.Name = "GiaoDienGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GiaoDienGUI";
@@ -1448,6 +1663,11 @@
             this.panel5.ResumeLayout(false);
             this.pnSubQuanLy.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
+<<<<<<< Updated upstream
+=======
+            this.panel17.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+>>>>>>> Stashed changes
             this.panel16.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
@@ -1509,6 +1729,7 @@
         private MyCustom.RJButton rjButton5;
         private System.Windows.Forms.Panel panel12;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         private System.Windows.Forms.Panel panel8;
         private MyCustom.RJButton pnNhaCCContainer;
         private System.Windows.Forms.Panel pnLeftBorderNhaCC;
@@ -1516,6 +1737,17 @@
         private MyCustom.RJButton rjButton2;
 =======
         private System.Windows.Forms.Panel pnForm;
+        private System.Windows.Forms.Panel panel8;
+        private MyCustom.RJButton pnNhaCCContainer;
+        private System.Windows.Forms.Panel pnLeftBorderNhaCC;
+>>>>>>> Stashed changes
+=======
+        private System.Windows.Forms.Panel panel5;
+        private MyCustom.RJButton pnDanhMucContainer;
+        private System.Windows.Forms.Panel pnLeftBorderDanhMuc;
+        private System.Windows.Forms.Panel panel17;
+        private MyCustom.RJButton pnNhaSanXuatContainer;
+        private System.Windows.Forms.Panel pnLeftBorderNSX;
         private System.Windows.Forms.Panel panel8;
         private MyCustom.RJButton pnNhaCCContainer;
         private System.Windows.Forms.Panel pnLeftBorderNhaCC;

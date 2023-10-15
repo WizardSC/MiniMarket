@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label13 = new System.Windows.Forms.Label();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             this.label14 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -44,6 +45,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
 =======
+=======
+>>>>>>> Stashed changes
             this.txtHo = new GUI.MyCustom.RJTextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -64,8 +67,12 @@
             this.label9 = new System.Windows.Forms.Label();
             this.cbxTrangThai = new GUI.MyCustom.RJComboBox();
             this.chkTuoi = new GUI.MyCustom.BiggerCheckBox();
+<<<<<<< Updated upstream
             this.label20 = new System.Windows.Forms.Label();
             this.cbxChucVu = new System.Windows.Forms.Label();
+>>>>>>> Stashed changes
+=======
+            this.label10 = new System.Windows.Forms.Label();
 >>>>>>> Stashed changes
             this.label23 = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
@@ -73,6 +80,7 @@
             this.btnSua = new GUI.MyCustom.RJButton();
             this.btnXoa = new GUI.MyCustom.RJButton();
             this.btnReset = new GUI.MyCustom.RJButton();
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -97,6 +105,8 @@
             this.HinhAnhNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
 =======
+=======
+>>>>>>> Stashed changes
             this.txtTuoiStart = new GUI.MyCustom.RJTextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.txtTuoiEnd = new GUI.MyCustom.RJTextBox();
@@ -119,7 +129,10 @@
             this.chkTrangThai = new GUI.MyCustom.BiggerCheckBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
+<<<<<<< Updated upstream
             this.dgvKhachHang = new System.Windows.Forms.DataGridView();
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -128,6 +141,7 @@
             this.txtTimKiem = new GUI.MyCustom.RJTextBox();
             this.btnTimKiem = new GUI.MyCustom.RJButton();
             this.btnFilter = new GUI.MyCustom.RJButton();
+<<<<<<< Updated upstream
             this.flpFilter = new System.Windows.Forms.FlowLayoutPanel();
 <<<<<<< Updated upstream
             this.chkGioiTinh = new GUI.MyCustom.BiggerCheckBox();
@@ -144,6 +158,20 @@
             this.chkKoHD = new GUI.MyCustom.BiggerCheckBox();
 =======
 >>>>>>> Stashed changes
+=======
+            this.dgvKhachHang = new System.Windows.Forms.DataGridView();
+            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ho = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SdtNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiaChiNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrangThaiNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IMG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flpFilter = new System.Windows.Forms.FlowLayoutPanel();
+>>>>>>> Stashed changes
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
@@ -153,6 +181,7 @@
             this.rjButton8 = new GUI.MyCustom.RJButton();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
+<<<<<<< Updated upstream
             this.txtMaNV = new GUI.MyCustom.RJTextBox();
 <<<<<<< Updated upstream
             this.txtHo = new GUI.MyCustom.RJTextBox();
@@ -187,6 +216,15 @@
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
+=======
+            this.txtMaKH = new GUI.MyCustom.RJTextBox();
+            this.cbxChucVu = new GUI.MyCustom.RJComboBox();
+            this.flowLayoutPanel3.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.flowLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).BeginInit();
+>>>>>>> Stashed changes
             this.flpFilter.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
@@ -203,6 +241,7 @@
             this.label13.Name = "label13";
             this.label13.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             this.label13.Size = new System.Drawing.Size(256, 17);
 =======
             this.label13.Size = new System.Drawing.Size(252, 17);
@@ -213,6 +252,14 @@
             // 
 <<<<<<< Updated upstream
 =======
+=======
+            this.label13.Size = new System.Drawing.Size(252, 17);
+            this.label13.TabIndex = 21;
+            this.label13.Text = "* Bạn phải nhập Mã NV";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label13.Click += new System.EventHandler(this.label13_Click);
+            // 
+>>>>>>> Stashed changes
             // txtHo
             // 
             this.txtHo.BackColor = System.Drawing.SystemColors.Window;
@@ -236,6 +283,11 @@
             this.txtHo.TabIndex = 3;
             this.txtHo.Texts = "";
             this.txtHo.UnderlinedStyle = false;
+<<<<<<< Updated upstream
+            // 
+>>>>>>> Stashed changes
+=======
+            this.txtHo._TextChanged += new System.EventHandler(this.txtHo__TextChanged);
             // 
 >>>>>>> Stashed changes
             // label14
@@ -246,6 +298,7 @@
             this.label14.Name = "label14";
             this.label14.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             this.label14.Size = new System.Drawing.Size(232, 17);
             this.label14.TabIndex = 22;
             this.label14.Text = "* Bạn phải nhập Họ";
@@ -255,6 +308,13 @@
             this.label14.Text = "* Bạn phải nhập Mã NV";
 >>>>>>> Stashed changes
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+=======
+            this.label14.Size = new System.Drawing.Size(252, 17);
+            this.label14.TabIndex = 22;
+            this.label14.Text = "* Bạn phải nhập Mã NV";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label14.Click += new System.EventHandler(this.label14_Click);
+>>>>>>> Stashed changes
             // 
             // label4
             // 
@@ -267,9 +327,14 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Tên";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+<<<<<<< Updated upstream
             // 
 <<<<<<< Updated upstream
 =======
+=======
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+>>>>>>> Stashed changes
             // txtTen
             // 
             this.txtTen.BackColor = System.Drawing.SystemColors.Window;
@@ -293,6 +358,11 @@
             this.txtTen.TabIndex = 5;
             this.txtTen.Texts = "";
             this.txtTen.UnderlinedStyle = false;
+<<<<<<< Updated upstream
+            // 
+>>>>>>> Stashed changes
+=======
+            this.txtTen._TextChanged += new System.EventHandler(this.txtTen__TextChanged);
             // 
 >>>>>>> Stashed changes
             // label15
@@ -303,6 +373,7 @@
             this.label15.Name = "label15";
             this.label15.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             this.label15.Size = new System.Drawing.Size(239, 17);
             this.label15.TabIndex = 22;
             this.label15.Text = "* Bạn phải nhập Tên";
@@ -312,6 +383,13 @@
             this.label15.Text = "* Bạn phải nhập Mã NV";
 >>>>>>> Stashed changes
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+=======
+            this.label15.Size = new System.Drawing.Size(252, 17);
+            this.label15.TabIndex = 22;
+            this.label15.Text = "* Bạn phải nhập Mã NV";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label15.Click += new System.EventHandler(this.label15_Click);
+>>>>>>> Stashed changes
             // 
             // label5
             // 
@@ -324,9 +402,14 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "Ngày sinh";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+<<<<<<< Updated upstream
             // 
 <<<<<<< Updated upstream
 =======
+=======
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+>>>>>>> Stashed changes
             // dtpNgaySinh
             // 
             this.dtpNgaySinh.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
@@ -344,6 +427,10 @@
             this.dtpNgaySinh.SkinColor = System.Drawing.Color.White;
             this.dtpNgaySinh.TabIndex = 2;
             this.dtpNgaySinh.TextColor = System.Drawing.Color.Black;
+<<<<<<< Updated upstream
+=======
+            this.dtpNgaySinh.ValueChanged += new System.EventHandler(this.dtpNgaySinh_ValueChanged);
+>>>>>>> Stashed changes
             // 
             // chkGioiTinh
             // 
@@ -369,6 +456,11 @@
             this.chkGioiTinh.TickSize = 11F;
             this.chkGioiTinh.TickTopPosition = 8F;
             this.chkGioiTinh.UseVisualStyleBackColor = true;
+<<<<<<< Updated upstream
+            // 
+>>>>>>> Stashed changes
+=======
+            this.chkGioiTinh.CheckedChanged += new System.EventHandler(this.chkGioiTinh_CheckedChanged);
             // 
 >>>>>>> Stashed changes
             // label3
@@ -382,6 +474,10 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Họ";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+<<<<<<< Updated upstream
+=======
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+>>>>>>> Stashed changes
             // 
             // label12
             // 
@@ -394,9 +490,14 @@
             this.label12.TabIndex = 1;
             this.label12.Text = "Giới tính:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+<<<<<<< Updated upstream
             // 
 <<<<<<< Updated upstream
 =======
+=======
+            this.label12.Click += new System.EventHandler(this.label12_Click);
+            // 
+>>>>>>> Stashed changes
             // chkNam
             // 
             this.chkNam.Appearance = System.Windows.Forms.Appearance.Button;
@@ -422,6 +523,10 @@
             this.chkNam.TickSize = 11F;
             this.chkNam.TickTopPosition = 8F;
             this.chkNam.UseVisualStyleBackColor = true;
+<<<<<<< Updated upstream
+=======
+            this.chkNam.CheckedChanged += new System.EventHandler(this.chkNam_CheckedChanged);
+>>>>>>> Stashed changes
             // 
             // label16
             // 
@@ -434,6 +539,10 @@
             this.label16.TabIndex = 23;
             this.label16.Text = "* Bạn phải nhập Mã NV";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+<<<<<<< Updated upstream
+=======
+            this.label16.Click += new System.EventHandler(this.label16_Click);
+>>>>>>> Stashed changes
             // 
             // chkNu
             // 
@@ -460,6 +569,11 @@
             this.chkNu.TickSize = 11F;
             this.chkNu.TickTopPosition = 8F;
             this.chkNu.UseVisualStyleBackColor = true;
+<<<<<<< Updated upstream
+            // 
+>>>>>>> Stashed changes
+=======
+            this.chkNu.CheckedChanged += new System.EventHandler(this.chkNu_CheckedChanged);
             // 
 >>>>>>> Stashed changes
             // label6
@@ -473,6 +587,10 @@
             this.label6.TabIndex = 8;
             this.label6.Text = "Giới tính";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+<<<<<<< Updated upstream
+=======
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+>>>>>>> Stashed changes
             // 
             // label21
             // 
@@ -485,9 +603,14 @@
             this.label21.TabIndex = 6;
             this.label21.Text = "Nam";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+<<<<<<< Updated upstream
             // 
 <<<<<<< Updated upstream
 =======
+=======
+            this.label21.Click += new System.EventHandler(this.label21_Click);
+            // 
+>>>>>>> Stashed changes
             // rdbNam
             // 
             this.rdbNam.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
@@ -505,6 +628,11 @@
             this.rdbNam.Text = "Nam";
             this.rdbNam.UnCheckedColor = System.Drawing.Color.Gray;
             this.rdbNam.UseVisualStyleBackColor = true;
+<<<<<<< Updated upstream
+            // 
+>>>>>>> Stashed changes
+=======
+            this.rdbNam.CheckedChanged += new System.EventHandler(this.rdbNam_CheckedChanged);
             // 
 >>>>>>> Stashed changes
             // label22
@@ -518,6 +646,10 @@
             this.label22.TabIndex = 7;
             this.label22.Text = "Nữ";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+<<<<<<< Updated upstream
+=======
+            this.label22.Click += new System.EventHandler(this.label22_Click);
+>>>>>>> Stashed changes
             // 
             // label9
             // 
@@ -530,6 +662,7 @@
             this.label9.TabIndex = 14;
             this.label9.Text = "Trạng thái";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+<<<<<<< Updated upstream
             // 
 <<<<<<< Updated upstream
             // label10
@@ -544,6 +677,10 @@
             this.label10.Text = "Chức vụ";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 =======
+=======
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+>>>>>>> Stashed changes
             // cbxTrangThai
             // 
             this.cbxTrangThai.BackColor = System.Drawing.Color.White;
@@ -562,6 +699,10 @@
             this.cbxTrangThai.Size = new System.Drawing.Size(171, 28);
             this.cbxTrangThai.TabIndex = 28;
             this.cbxTrangThai.Texts = "Hoạt động";
+<<<<<<< Updated upstream
+=======
+            this.cbxTrangThai.OnSelectedIndexChanged += new System.EventHandler(this.cbxTrangThai_OnSelectedIndexChanged);
+>>>>>>> Stashed changes
             // 
             // chkTuoi
             // 
@@ -587,6 +728,7 @@
             this.chkTuoi.TickSize = 11F;
             this.chkTuoi.TickTopPosition = 8F;
             this.chkTuoi.UseVisualStyleBackColor = true;
+<<<<<<< Updated upstream
             // 
             // label20
             // 
@@ -612,6 +754,22 @@
             this.cbxChucVu.Text = "Chức vụ";
             this.cbxChucVu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 >>>>>>> Stashed changes
+=======
+            this.chkTuoi.CheckedChanged += new System.EventHandler(this.chkTuoi_CheckedChanged);
+            // 
+            // label10
+            // 
+            this.label10.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label10.Location = new System.Drawing.Point(4, 414);
+            this.label10.Margin = new System.Windows.Forms.Padding(4);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(94, 28);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "Chức vụ";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+>>>>>>> Stashed changes
             // 
             // label23
             // 
@@ -624,6 +782,10 @@
             this.label23.TabIndex = 8;
             this.label23.Text = "Tuổi:";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+<<<<<<< Updated upstream
+=======
+            this.label23.Click += new System.EventHandler(this.label23_Click);
+>>>>>>> Stashed changes
             // 
             // flowLayoutPanel3
             // 
@@ -636,6 +798,10 @@
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(290, 45);
             this.flowLayoutPanel3.TabIndex = 1;
+<<<<<<< Updated upstream
+=======
+            this.flowLayoutPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel3_Paint);
+>>>>>>> Stashed changes
             // 
             // btnThem
             // 
@@ -655,6 +821,10 @@
             this.btnThem.Text = "rjButton2";
             this.btnThem.TextColor = System.Drawing.Color.White;
             this.btnThem.UseVisualStyleBackColor = false;
+<<<<<<< Updated upstream
+=======
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+>>>>>>> Stashed changes
             // 
             // btnSua
             // 
@@ -674,6 +844,10 @@
             this.btnSua.Text = "rjButton3";
             this.btnSua.TextColor = System.Drawing.Color.White;
             this.btnSua.UseVisualStyleBackColor = false;
+<<<<<<< Updated upstream
+=======
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+>>>>>>> Stashed changes
             // 
             // btnXoa
             // 
@@ -693,6 +867,10 @@
             this.btnXoa.Text = "rjButton4";
             this.btnXoa.TextColor = System.Drawing.Color.White;
             this.btnXoa.UseVisualStyleBackColor = false;
+<<<<<<< Updated upstream
+=======
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+>>>>>>> Stashed changes
             // 
             // btnReset
             // 
@@ -712,9 +890,14 @@
             this.btnReset.Text = "rjButton5";
             this.btnReset.TextColor = System.Drawing.Color.White;
             this.btnReset.UseVisualStyleBackColor = false;
+<<<<<<< Updated upstream
             // 
 <<<<<<< Updated upstream
 =======
+=======
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+>>>>>>> Stashed changes
             // txtTuoiStart
             // 
             this.txtTuoiStart.BackColor = System.Drawing.SystemColors.Window;
@@ -738,6 +921,11 @@
             this.txtTuoiStart.TabIndex = 10;
             this.txtTuoiStart.Texts = "";
             this.txtTuoiStart.UnderlinedStyle = false;
+<<<<<<< Updated upstream
+            // 
+>>>>>>> Stashed changes
+=======
+            this.txtTuoiStart._TextChanged += new System.EventHandler(this.txtTuoiStart__TextChanged);
             // 
 >>>>>>> Stashed changes
             // label24
@@ -751,9 +939,14 @@
             this.label24.TabIndex = 12;
             this.label24.Text = "-";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+<<<<<<< Updated upstream
             // 
 <<<<<<< Updated upstream
 =======
+=======
+            this.label24.Click += new System.EventHandler(this.label24_Click);
+            // 
+>>>>>>> Stashed changes
             // txtTuoiEnd
             // 
             this.txtTuoiEnd.BackColor = System.Drawing.SystemColors.Window;
@@ -777,6 +970,10 @@
             this.txtTuoiEnd.TabIndex = 11;
             this.txtTuoiEnd.Texts = "";
             this.txtTuoiEnd.UnderlinedStyle = false;
+<<<<<<< Updated upstream
+=======
+            this.txtTuoiEnd._TextChanged += new System.EventHandler(this.txtTuoiEnd__TextChanged);
+>>>>>>> Stashed changes
             // 
             // chkDiemTL
             // 
@@ -802,6 +999,11 @@
             this.chkDiemTL.TickSize = 11F;
             this.chkDiemTL.TickTopPosition = 8F;
             this.chkDiemTL.UseVisualStyleBackColor = true;
+<<<<<<< Updated upstream
+            // 
+>>>>>>> Stashed changes
+=======
+            this.chkDiemTL.CheckedChanged += new System.EventHandler(this.chkDiemTL_CheckedChanged);
             // 
 >>>>>>> Stashed changes
             // label25
@@ -815,9 +1017,14 @@
             this.label25.TabIndex = 13;
             this.label25.Text = "Điểm TL:";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+<<<<<<< Updated upstream
             // 
 <<<<<<< Updated upstream
 =======
+=======
+            this.label25.Click += new System.EventHandler(this.label25_Click);
+            // 
+>>>>>>> Stashed changes
             // txtDiemTLStart
             // 
             this.txtDiemTLStart.BackColor = System.Drawing.SystemColors.Window;
@@ -841,6 +1048,11 @@
             this.txtDiemTLStart.TabIndex = 15;
             this.txtDiemTLStart.Texts = "";
             this.txtDiemTLStart.UnderlinedStyle = false;
+<<<<<<< Updated upstream
+            // 
+>>>>>>> Stashed changes
+=======
+            this.txtDiemTLStart._TextChanged += new System.EventHandler(this.txtDiemTLStart__TextChanged);
             // 
 >>>>>>> Stashed changes
             // label26
@@ -854,9 +1066,14 @@
             this.label26.TabIndex = 17;
             this.label26.Text = "-";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+<<<<<<< Updated upstream
             // 
 <<<<<<< Updated upstream
 =======
+=======
+            this.label26.Click += new System.EventHandler(this.label26_Click);
+            // 
+>>>>>>> Stashed changes
             // txtDiemTLEnd
             // 
             this.txtDiemTLEnd.BackColor = System.Drawing.SystemColors.Window;
@@ -880,6 +1097,11 @@
             this.txtDiemTLEnd.TabIndex = 16;
             this.txtDiemTLEnd.Texts = "";
             this.txtDiemTLEnd.UnderlinedStyle = false;
+<<<<<<< Updated upstream
+            // 
+>>>>>>> Stashed changes
+=======
+            this.txtDiemTLEnd._TextChanged += new System.EventHandler(this.txtDiemTLEnd__TextChanged);
             // 
 >>>>>>> Stashed changes
             // label27
@@ -893,9 +1115,14 @@
             this.label27.TabIndex = 18;
             this.label27.Text = "T.Thái:";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+<<<<<<< Updated upstream
             // 
 <<<<<<< Updated upstream
 =======
+=======
+            this.label27.Click += new System.EventHandler(this.label27_Click);
+            // 
+>>>>>>> Stashed changes
             // chkHoatDong
             // 
             this.chkHoatDong.Appearance = System.Windows.Forms.Appearance.Button;
@@ -922,6 +1149,11 @@
             this.chkHoatDong.TickSize = 11F;
             this.chkHoatDong.TickTopPosition = 8F;
             this.chkHoatDong.UseVisualStyleBackColor = true;
+<<<<<<< Updated upstream
+            // 
+>>>>>>> Stashed changes
+=======
+            this.chkHoatDong.CheckedChanged += new System.EventHandler(this.chkHoatDong_CheckedChanged);
             // 
 >>>>>>> Stashed changes
             // label28
@@ -935,9 +1167,14 @@
             this.label28.TabIndex = 22;
             this.label28.Text = "Hoạt động";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+<<<<<<< Updated upstream
             // 
 <<<<<<< Updated upstream
 =======
+=======
+            this.label28.Click += new System.EventHandler(this.label28_Click);
+            // 
+>>>>>>> Stashed changes
             // chkKoHD
             // 
             this.chkKoHD.Appearance = System.Windows.Forms.Appearance.Button;
@@ -964,6 +1201,10 @@
             this.chkKoHD.TickSize = 11F;
             this.chkKoHD.TickTopPosition = 8F;
             this.chkKoHD.UseVisualStyleBackColor = true;
+<<<<<<< Updated upstream
+=======
+            this.chkKoHD.CheckedChanged += new System.EventHandler(this.chkKoHD_CheckedChanged);
+>>>>>>> Stashed changes
             // 
             // rdbNu
             // 
@@ -982,6 +1223,11 @@
             this.rdbNu.Text = "Nữ";
             this.rdbNu.UnCheckedColor = System.Drawing.Color.Gray;
             this.rdbNu.UseVisualStyleBackColor = true;
+<<<<<<< Updated upstream
+            // 
+>>>>>>> Stashed changes
+=======
+            this.rdbNu.CheckedChanged += new System.EventHandler(this.rdbNu_CheckedChanged);
             // 
 >>>>>>> Stashed changes
             // label7
@@ -995,9 +1241,14 @@
             this.label7.TabIndex = 10;
             this.label7.Text = "Số ĐT";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+<<<<<<< Updated upstream
             // 
 <<<<<<< Updated upstream
 =======
+=======
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+>>>>>>> Stashed changes
             // txtSoDT
             // 
             this.txtSoDT.BackColor = System.Drawing.SystemColors.Window;
@@ -1021,6 +1272,11 @@
             this.txtSoDT.TabIndex = 11;
             this.txtSoDT.Texts = "";
             this.txtSoDT.UnderlinedStyle = false;
+<<<<<<< Updated upstream
+            // 
+>>>>>>> Stashed changes
+=======
+            this.txtSoDT._TextChanged += new System.EventHandler(this.txtSoDT__TextChanged);
             // 
 >>>>>>> Stashed changes
             // label18
@@ -1033,11 +1289,17 @@
             this.label18.Size = new System.Drawing.Size(252, 17);
             this.label18.TabIndex = 25;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             this.label18.Text = "* Bạn phải nhập Số ĐT";
 =======
             this.label18.Text = "* Bạn phải nhập Mã NV";
 >>>>>>> Stashed changes
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+=======
+            this.label18.Text = "* Bạn phải nhập Mã NV";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label18.Click += new System.EventHandler(this.label18_Click);
+>>>>>>> Stashed changes
             // 
             // label8
             // 
@@ -1050,9 +1312,14 @@
             this.label8.TabIndex = 12;
             this.label8.Text = "Địa chỉ";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+<<<<<<< Updated upstream
             // 
 <<<<<<< Updated upstream
 =======
+=======
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+>>>>>>> Stashed changes
             // txtDiaChi
             // 
             this.txtDiaChi.BackColor = System.Drawing.SystemColors.Window;
@@ -1076,6 +1343,11 @@
             this.txtDiaChi.TabIndex = 13;
             this.txtDiaChi.Texts = "";
             this.txtDiaChi.UnderlinedStyle = false;
+<<<<<<< Updated upstream
+            // 
+>>>>>>> Stashed changes
+=======
+            this.txtDiaChi._TextChanged += new System.EventHandler(this.txtDiaChi__TextChanged);
             // 
 >>>>>>> Stashed changes
             // label19
@@ -1086,16 +1358,23 @@
             this.label19.Name = "label19";
             this.label19.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             this.label19.Size = new System.Drawing.Size(256, 17);
             this.label19.TabIndex = 26;
             this.label19.Text = "* Bạn phải nhập địa chỉ";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
 =======
+=======
+>>>>>>> Stashed changes
             this.label19.Size = new System.Drawing.Size(252, 17);
             this.label19.TabIndex = 26;
             this.label19.Text = "* Bạn phải nhập Mã NV";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+<<<<<<< Updated upstream
+=======
+            this.label19.Click += new System.EventHandler(this.label19_Click);
+>>>>>>> Stashed changes
             // 
             // chkTrangThai
             // 
@@ -1121,6 +1400,11 @@
             this.chkTrangThai.TickSize = 11F;
             this.chkTrangThai.TickTopPosition = 8F;
             this.chkTrangThai.UseVisualStyleBackColor = true;
+<<<<<<< Updated upstream
+            // 
+>>>>>>> Stashed changes
+=======
+            this.chkTrangThai.CheckedChanged += new System.EventHandler(this.chkTrangThai_CheckedChanged);
             // 
 >>>>>>> Stashed changes
             // label17
@@ -1131,6 +1415,7 @@
             this.label17.Name = "label17";
             this.label17.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             this.label17.Size = new System.Drawing.Size(271, 17);
             this.label17.TabIndex = 24;
             this.label17.Text = "* Bạn phải chọn giới tính";
@@ -1140,6 +1425,13 @@
             this.label17.Text = "* Bạn phải nhập Mã NV";
 >>>>>>> Stashed changes
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+=======
+            this.label17.Size = new System.Drawing.Size(252, 17);
+            this.label17.TabIndex = 24;
+            this.label17.Text = "* Bạn phải nhập Mã NV";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label17.Click += new System.EventHandler(this.label17_Click);
+>>>>>>> Stashed changes
             // 
             // label29
             // 
@@ -1152,6 +1444,7 @@
             this.label29.TabIndex = 23;
             this.label29.Text = "Không hoạt động";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+<<<<<<< Updated upstream
             // 
 <<<<<<< Updated upstream
             // dgvNhanVien
@@ -1343,6 +1636,9 @@
             this.dgvKhachHang.Size = new System.Drawing.Size(974, 683);
             this.dgvKhachHang.TabIndex = 1;
 >>>>>>> Stashed changes
+=======
+            this.label29.Click += new System.EventHandler(this.label29_Click);
+>>>>>>> Stashed changes
             // 
             // panel1
             // 
@@ -1355,18 +1651,28 @@
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             this.panel1.Size = new System.Drawing.Size(1305, 772);
 =======
             this.panel1.Size = new System.Drawing.Size(800, 757);
 >>>>>>> Stashed changes
             this.panel1.TabIndex = 1;
+=======
+            this.panel1.Size = new System.Drawing.Size(1312, 788);
+            this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+>>>>>>> Stashed changes
             // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.flowLayoutPanel4);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             this.panel3.Controls.Add(this.dgvNhanVien);
+=======
+            this.panel3.Controls.Add(this.dgvKhachHang);
+>>>>>>> Stashed changes
 =======
             this.panel3.Controls.Add(this.dgvKhachHang);
 >>>>>>> Stashed changes
@@ -1375,6 +1681,10 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(986, 754);
             this.panel3.TabIndex = 4;
+<<<<<<< Updated upstream
+=======
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+>>>>>>> Stashed changes
             // 
             // flowLayoutPanel4
             // 
@@ -1387,6 +1697,10 @@
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(974, 50);
             this.flowLayoutPanel4.TabIndex = 2;
+<<<<<<< Updated upstream
+=======
+            this.flowLayoutPanel4.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel4_Paint);
+>>>>>>> Stashed changes
             // 
             // cbxTimKiem
             // 
@@ -1407,6 +1721,10 @@
             this.cbxTimKiem.Size = new System.Drawing.Size(108, 30);
             this.cbxTimKiem.TabIndex = 4;
             this.cbxTimKiem.Texts = "Mã NV";
+<<<<<<< Updated upstream
+=======
+            this.cbxTimKiem.OnSelectedIndexChanged += new System.EventHandler(this.cbxTimKiem_OnSelectedIndexChanged);
+>>>>>>> Stashed changes
             // 
             // txtTimKiem
             // 
@@ -1431,6 +1749,10 @@
             this.txtTimKiem.TabIndex = 1;
             this.txtTimKiem.Texts = "";
             this.txtTimKiem.UnderlinedStyle = true;
+<<<<<<< Updated upstream
+=======
+            this.txtTimKiem._TextChanged += new System.EventHandler(this.txtTimKiem__TextChanged);
+>>>>>>> Stashed changes
             // 
             // btnTimKiem
             // 
@@ -1450,6 +1772,10 @@
             this.btnTimKiem.TabIndex = 2;
             this.btnTimKiem.TextColor = System.Drawing.Color.White;
             this.btnTimKiem.UseVisualStyleBackColor = false;
+<<<<<<< Updated upstream
+=======
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+>>>>>>> Stashed changes
             // 
             // btnFilter
             // 
@@ -1472,6 +1798,7 @@
             this.btnFilter.TabIndex = 4;
             this.btnFilter.TextColor = System.Drawing.Color.White;
             this.btnFilter.UseVisualStyleBackColor = false;
+<<<<<<< Updated upstream
             // 
             // flpFilter
             // 
@@ -2223,6 +2550,61 @@
             this.rjComboBox1.TabIndex = 29;
             this.rjComboBox1.Texts = "Nhân viên";
             this.rjComboBox1.OnSelectedIndexChanged += new System.EventHandler(this.rjComboBox1_OnSelectedIndexChanged);
+=======
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
+            // 
+            // dgvKhachHang
+            // 
+            this.dgvKhachHang.AllowUserToAddRows = false;
+            this.dgvKhachHang.AllowUserToDeleteRows = false;
+            this.dgvKhachHang.AllowUserToResizeColumns = false;
+            this.dgvKhachHang.AllowUserToResizeRows = false;
+            this.dgvKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvKhachHang.BackgroundColor = System.Drawing.Color.White;
+            this.dgvKhachHang.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvKhachHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvKhachHang.ColumnHeadersHeight = 28;
+            this.dgvKhachHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaNV,
+            this.Ho,
+            this.Ten,
+            this.NgaySinh,
+            this.GioiTinh,
+            this.SdtNV,
+            this.DiaChiNV,
+            this.TrangThaiNV,
+            this.IMG,
+            this.MaChucVu});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvKhachHang.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvKhachHang.EnableHeadersVisualStyles = false;
+            this.dgvKhachHang.GridColor = System.Drawing.Color.Black;
+            this.dgvKhachHang.Location = new System.Drawing.Point(5, 62);
+            this.dgvKhachHang.Name = "dgvKhachHang";
+            this.dgvKhachHang.ReadOnly = true;
+            this.dgvKhachHang.RowHeadersVisible = false;
+            this.dgvKhachHang.RowHeadersWidth = 51;
+            this.dgvKhachHang.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvKhachHang.RowTemplate.Height = 30;
+            this.dgvKhachHang.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvKhachHang.Size = new System.Drawing.Size(974, 683);
+            this.dgvKhachHang.TabIndex = 1;
+            this.dgvKhachHang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhachHang_CellContentClick);
+>>>>>>> Stashed changes
             // 
             // MaNV
             // 
@@ -2304,6 +2686,7 @@
             this.TrangThaiNV.ReadOnly = true;
             this.TrangThaiNV.Width = 95;
             // 
+<<<<<<< Updated upstream
             // HinhAnhNV
             // 
             this.HinhAnhNV.DataPropertyName = "HinhAnhNV";
@@ -2314,6 +2697,18 @@
             this.HinhAnhNV.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.HinhAnhNV.Visible = false;
             this.HinhAnhNV.Width = 88;
+=======
+            // IMG
+            // 
+            this.IMG.DataPropertyName = "IMG";
+            this.IMG.HeaderText = "Hình ảnh";
+            this.IMG.MinimumWidth = 6;
+            this.IMG.Name = "IMG";
+            this.IMG.ReadOnly = true;
+            this.IMG.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IMG.Visible = false;
+            this.IMG.Width = 89;
+>>>>>>> Stashed changes
             // 
             // MaChucVu
             // 
@@ -2324,12 +2719,238 @@
             this.MaChucVu.Name = "MaChucVu";
             this.MaChucVu.ReadOnly = true;
             this.MaChucVu.Width = 83;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+            // 
+            // flpFilter
+            // 
+            this.flpFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.flpFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flpFilter.Controls.Add(this.chkGioiTinh);
+            this.flpFilter.Controls.Add(this.label12);
+            this.flpFilter.Controls.Add(this.chkNam);
+            this.flpFilter.Controls.Add(this.label21);
+            this.flpFilter.Controls.Add(this.chkNu);
+            this.flpFilter.Controls.Add(this.label22);
+            this.flpFilter.Controls.Add(this.chkTuoi);
+            this.flpFilter.Controls.Add(this.label23);
+            this.flpFilter.Controls.Add(this.txtTuoiStart);
+            this.flpFilter.Controls.Add(this.label24);
+            this.flpFilter.Controls.Add(this.txtTuoiEnd);
+            this.flpFilter.Controls.Add(this.chkDiemTL);
+            this.flpFilter.Controls.Add(this.label25);
+            this.flpFilter.Controls.Add(this.txtDiemTLStart);
+            this.flpFilter.Controls.Add(this.label26);
+            this.flpFilter.Controls.Add(this.txtDiemTLEnd);
+            this.flpFilter.Controls.Add(this.chkTrangThai);
+            this.flpFilter.Controls.Add(this.label27);
+            this.flpFilter.Controls.Add(this.chkHoatDong);
+            this.flpFilter.Controls.Add(this.label28);
+            this.flpFilter.Controls.Add(this.chkKoHD);
+            this.flpFilter.Controls.Add(this.label29);
+            this.flpFilter.Location = new System.Drawing.Point(676, 55);
+            this.flpFilter.Name = "flpFilter";
+            this.flpFilter.Size = new System.Drawing.Size(289, 184);
+            this.flpFilter.TabIndex = 3;
+            this.flpFilter.Visible = false;
+            this.flpFilter.Paint += new System.Windows.Forms.PaintEventHandler(this.flpFilter_Paint);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel1.Controls.Add(this.label1);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel5);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel3);
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 0);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(308, 754);
+            this.flowLayoutPanel1.TabIndex = 0;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.label1.Location = new System.Drawing.Point(5, 5);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(296, 35);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "THÔNG TIN NHÂN VIÊN";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // flowLayoutPanel5
+            // 
+            this.flowLayoutPanel5.Controls.Add(this.panel4);
+            this.flowLayoutPanel5.Controls.Add(this.pictureBox1);
+            this.flowLayoutPanel5.Controls.Add(this.panel2);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(8, 43);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(290, 149);
+            this.flowLayoutPanel5.TabIndex = 3;
+            this.flowLayoutPanel5.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel5_Paint);
+            // 
+            // panel4
+            // 
+            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(15, 143);
+            this.panel4.TabIndex = 2;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Image = global::GUI.Properties.Resources.placeholder_image;
+            this.pictureBox1.InitialImage = global::GUI.Properties.Resources.placeholder_image;
+            this.pictureBox1.Location = new System.Drawing.Point(21, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(214, 149);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.rjButton8);
+            this.panel2.Location = new System.Drawing.Point(235, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(55, 149);
+            this.panel2.TabIndex = 1;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // rjButton8
+            // 
+            this.rjButton8.BackColor = System.Drawing.Color.Transparent;
+            this.rjButton8.BackgroundColor = System.Drawing.Color.Transparent;
+            this.rjButton8.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton8.BorderRadius = 0;
+            this.rjButton8.BorderSize = 0;
+            this.rjButton8.FlatAppearance.BorderSize = 0;
+            this.rjButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton8.ForeColor = System.Drawing.Color.White;
+            this.rjButton8.Image = global::GUI.Properties.Resources.icons8_upload_32;
+            this.rjButton8.Location = new System.Drawing.Point(13, 58);
+            this.rjButton8.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.rjButton8.Name = "rjButton8";
+            this.rjButton8.Size = new System.Drawing.Size(29, 32);
+            this.rjButton8.TabIndex = 3;
+            this.rjButton8.TextColor = System.Drawing.Color.White;
+            this.rjButton8.UseVisualStyleBackColor = false;
+            this.rjButton8.Click += new System.EventHandler(this.rjButton8_Click);
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.label2);
+            this.flowLayoutPanel2.Controls.Add(this.txtMaKH);
+            this.flowLayoutPanel2.Controls.Add(this.label13);
+            this.flowLayoutPanel2.Controls.Add(this.label3);
+            this.flowLayoutPanel2.Controls.Add(this.txtHo);
+            this.flowLayoutPanel2.Controls.Add(this.label14);
+            this.flowLayoutPanel2.Controls.Add(this.label4);
+            this.flowLayoutPanel2.Controls.Add(this.txtTen);
+            this.flowLayoutPanel2.Controls.Add(this.label15);
+            this.flowLayoutPanel2.Controls.Add(this.label5);
+            this.flowLayoutPanel2.Controls.Add(this.dtpNgaySinh);
+            this.flowLayoutPanel2.Controls.Add(this.label16);
+            this.flowLayoutPanel2.Controls.Add(this.label6);
+            this.flowLayoutPanel2.Controls.Add(this.rdbNam);
+            this.flowLayoutPanel2.Controls.Add(this.rdbNu);
+            this.flowLayoutPanel2.Controls.Add(this.label17);
+            this.flowLayoutPanel2.Controls.Add(this.label7);
+            this.flowLayoutPanel2.Controls.Add(this.txtSoDT);
+            this.flowLayoutPanel2.Controls.Add(this.label18);
+            this.flowLayoutPanel2.Controls.Add(this.label8);
+            this.flowLayoutPanel2.Controls.Add(this.txtDiaChi);
+            this.flowLayoutPanel2.Controls.Add(this.label19);
+            this.flowLayoutPanel2.Controls.Add(this.label9);
+            this.flowLayoutPanel2.Controls.Add(this.cbxTrangThai);
+            this.flowLayoutPanel2.Controls.Add(this.label10);
+            this.flowLayoutPanel2.Controls.Add(this.cbxChucVu);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(8, 198);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(290, 486);
+            this.flowLayoutPanel2.TabIndex = 2;
+            this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label2.Location = new System.Drawing.Point(4, 4);
+            this.label2.Margin = new System.Windows.Forms.Padding(4);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 28);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Mã NV";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // txtMaKH
+            // 
+            this.txtMaKH.BackColor = System.Drawing.SystemColors.Window;
+            this.txtMaKH.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.txtMaKH.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.txtMaKH.BorderRadius = 0;
+            this.txtMaKH.BorderSize = 2;
+            this.txtMaKH.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaKH.ForeColor = System.Drawing.Color.Black;
+            this.txtMaKH.Location = new System.Drawing.Point(106, 4);
+            this.txtMaKH.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMaKH.MaximumSize = new System.Drawing.Size(171, 28);
+            this.txtMaKH.MinimumSize = new System.Drawing.Size(150, 28);
+            this.txtMaKH.Multiline = false;
+            this.txtMaKH.Name = "txtMaKH";
+            this.txtMaKH.Padding = new System.Windows.Forms.Padding(2, 4, 2, 2);
+            this.txtMaKH.PasswordChar = false;
+            this.txtMaKH.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtMaKH.PlaceholderText = "";
+            this.txtMaKH.Size = new System.Drawing.Size(171, 28);
+            this.txtMaKH.TabIndex = 1;
+            this.txtMaKH.Texts = "";
+            this.txtMaKH.UnderlinedStyle = false;
+            this.txtMaKH._TextChanged += new System.EventHandler(this.txtMaKH__TextChanged);
+            // 
+            // cbxChucVu
+            // 
+            this.cbxChucVu.BackColor = System.Drawing.Color.White;
+            this.cbxChucVu.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.cbxChucVu.BorderSize = 2;
+            this.cbxChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cbxChucVu.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxChucVu.ForeColor = System.Drawing.Color.Black;
+            this.cbxChucVu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.cbxChucVu.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.cbxChucVu.ListTextColor = System.Drawing.Color.DimGray;
+            this.cbxChucVu.Location = new System.Drawing.Point(105, 413);
+            this.cbxChucVu.MinimumSize = new System.Drawing.Size(100, 5);
+            this.cbxChucVu.Name = "cbxChucVu";
+            this.cbxChucVu.Padding = new System.Windows.Forms.Padding(2);
+            this.cbxChucVu.Size = new System.Drawing.Size(168, 28);
+            this.cbxChucVu.TabIndex = 29;
+            this.cbxChucVu.Texts = "Nhân viên";
+            this.cbxChucVu.OnSelectedIndexChanged += new System.EventHandler(this.cbxChucVu_OnSelectedIndexChanged);
 >>>>>>> Stashed changes
             // 
             // NhanVienGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
             this.ClientSize = new System.Drawing.Size(1305, 772);
             this.Controls.Add(this.panel1);
@@ -2341,17 +2962,27 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).EndInit();
 =======
             this.ClientSize = new System.Drawing.Size(800, 757);
+=======
+            this.ClientSize = new System.Drawing.Size(1312, 788);
+>>>>>>> Stashed changes
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "NhanVienGUI";
             this.Text = "NhanVienGUI";
             this.flowLayoutPanel3.ResumeLayout(false);
+<<<<<<< Updated upstream
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).EndInit();
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
+<<<<<<< Updated upstream
+=======
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).EndInit();
+>>>>>>> Stashed changes
             this.flpFilter.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel5.ResumeLayout(false);
@@ -2377,6 +3008,10 @@
         private System.Windows.Forms.Label label12;
         private MyCustom.BiggerCheckBox chkNam;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+        private System.Windows.Forms.Label label16;
+>>>>>>> Stashed changes
 =======
         private System.Windows.Forms.Label label16;
 >>>>>>> Stashed changes
@@ -2389,10 +3024,14 @@
         private MyCustom.RJComboBox cbxTrangThai;
         private MyCustom.BiggerCheckBox chkTuoi;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         private System.Windows.Forms.Label label10;
 =======
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label cbxChucVu;
+>>>>>>> Stashed changes
+=======
+        private System.Windows.Forms.Label label10;
 >>>>>>> Stashed changes
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
@@ -2423,9 +3062,12 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label29;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         private System.Windows.Forms.DataGridView dgvNhanVien;
 =======
         private System.Windows.Forms.DataGridView dgvKhachHang;
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
@@ -2434,6 +3076,10 @@
         private MyCustom.RJTextBox txtTimKiem;
         private MyCustom.RJButton btnTimKiem;
         private MyCustom.RJButton btnFilter;
+<<<<<<< Updated upstream
+=======
+        private System.Windows.Forms.DataGridView dgvKhachHang;
+>>>>>>> Stashed changes
         private System.Windows.Forms.FlowLayoutPanel flpFilter;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label1;
@@ -2444,6 +3090,7 @@
         private MyCustom.RJButton rjButton8;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label label2;
+<<<<<<< Updated upstream
         private MyCustom.RJTextBox txtMaNV;
 <<<<<<< Updated upstream
         private System.Windows.Forms.Label label16;
@@ -2456,16 +3103,27 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NamSinh;
 =======
         private MyCustom.RJComboBox rjComboBox1;
+=======
+        private MyCustom.RJTextBox txtMaKH;
+        private MyCustom.RJComboBox cbxChucVu;
+>>>>>>> Stashed changes
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ho;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgaySinh;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         private System.Windows.Forms.DataGridViewTextBoxColumn GioiTinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn SdtNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChiNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrangThaiNV;
+<<<<<<< Updated upstream
         private System.Windows.Forms.DataGridViewTextBoxColumn HinhAnhNV;
+=======
+        private System.Windows.Forms.DataGridViewTextBoxColumn IMG;
+>>>>>>> Stashed changes
         private System.Windows.Forms.DataGridViewTextBoxColumn MaChucVu;
     }
 }
