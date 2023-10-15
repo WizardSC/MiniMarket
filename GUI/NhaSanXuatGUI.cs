@@ -10,19 +10,16 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class NhaCCGUI : Form
+    public partial class NhaSanXuatGUI : Form
     {
-        public NhaCCGUI()
+        public NhaSanXuatGUI()
         {
             InitializeComponent();
         }
-<<<<<<< Updated upstream
-=======
 
-        private void label2_Click(object sender, EventArgs e)
+        private void label5_Click(object sender, EventArgs e)
         {
 
         }
->>>>>>> Stashed changes
     }
 }

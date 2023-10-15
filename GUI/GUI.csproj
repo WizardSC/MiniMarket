@@ -110,42 +110,6 @@
     <Compile Include="MyCustom\RJTextBox.Designer.cs">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </Compile>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    <Compile Include="NhaCungCapGUI.cs">
-=======
-    <Compile Include="NhaCCGUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NhaCCGUI.Designer.cs">
-      <DependentUpon>NhaCCGUI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NhanVienGUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NhanVienGUI.Designer.cs">
-      <DependentUpon>NhanVienGUI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NhaSanXuatGUI.cs">
->>>>>>> Stashed changes
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NhaCungCapGUI.Designer.cs">
-      <DependentUpon>NhaCungCapGUI.cs</DependentUpon>
-=======
-    <Compile Include="NhaCCGUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NhaCCGUI.Designer.cs">
-      <DependentUpon>NhaCCGUI.cs</DependentUpon>
->>>>>>> Stashed changes
-    </Compile>
-    <Compile Include="NhanVienGUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NhanVienGUI.Designer.cs">
-      <DependentUpon>NhanVienGUI.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SanPhamGUI.cs">
@@ -171,28 +135,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyCustom\RJTextBox.resx">
       <DependentUpon>RJTextBox.cs</DependentUpon>
-    </EmbeddedResource>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    <EmbeddedResource Include="NhaCungCapGUI.resx">
-      <DependentUpon>NhaCungCapGUI.cs</DependentUpon>
-=======
-    <EmbeddedResource Include="NhaCCGUI.resx">
-      <DependentUpon>NhaCCGUI.cs</DependentUpon>
->>>>>>> Stashed changes
-    </EmbeddedResource>
-    <EmbeddedResource Include="NhanVienGUI.resx">
-      <DependentUpon>NhanVienGUI.cs</DependentUpon>
-=======
-    <EmbeddedResource Include="NhaCCGUI.resx">
-      <DependentUpon>NhaCCGUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NhanVienGUI.resx">
-      <DependentUpon>NhanVienGUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NhaSanXuatGUI.resx">
-      <DependentUpon>NhaSanXuatGUI.cs</DependentUpon>
->>>>>>> Stashed changes
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -283,44 +225,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\image\icons8-product-32.png" />
-  </ItemGroup>
-  <ItemGroup>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    <None Include="resources\exportFile.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="resources\folder.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="resources\folder1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="resources\importFile.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="resources\export-file.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="resources\supplier.png" />
-=======
-=======
->>>>>>> Stashed changes
-    <None Include="resources\image\icons8-folder-32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="resources\image\icons8-import-32 .png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="resources\image\icons8-export-32.png" />
-  </ItemGroup>
-  <ItemGroup>
-<<<<<<< Updated upstream
-    <None Include="resources\image\icons8-supplier-32.png" />
->>>>>>> Stashed changes
-=======
-    <None Include="resources\image\supplier.png" />
->>>>>>> Stashed changes
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

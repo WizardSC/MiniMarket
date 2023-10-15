@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class NhaCungCapGUI : Form
+    public partial class KhuyenMaiGUI : Form
     {
-        public NhaCungCapGUI()
+        public KhuyenMaiGUI()
         {
             InitializeComponent();
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

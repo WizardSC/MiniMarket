@@ -127,59 +127,32 @@
   <data name="icons8-logout-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\image\icons8-logout-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="exportFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\exportFile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="placeholder-image" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\image\placeholder-image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\folder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-purchase-order-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-purchase-order-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-product-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-product-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-product-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-product-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-filter-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-filter-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-employee-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\image\icons8-employee-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-product-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-product-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-minimize-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\image\icons8-minimize-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-minimize-32 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-minimize-32 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-filter-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\image\icons8-filter-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-customer-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\image\icons8-customer-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="calendarDark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\calendarDark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-invoice-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-invoice-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="folder1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\folder1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-invoice-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-invoice-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-invoice-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-invoice-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-minimize-32 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\image\icons8-minimize-32 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-close-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\image\icons8-close-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-invoice-321" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\image\icons8-invoice-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-export-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-export-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="calendarWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\calendarWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -190,41 +163,13 @@
   <data name="icons8-upload-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\image\icons8-upload-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="importFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\importFile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-purchase-order-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\image\icons8-purchase-order-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  <data name="export-file" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\export-file.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-invoice-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\image\icons8-invoice-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-customer-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-customer-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-minimize-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-minimize-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="supplier" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\supplier.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-=======
-  <data name="icons8-import-32 " type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-import-32 .png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-folder-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-folder-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-supplier-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-supplier-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
->>>>>>> Stashed changes
-=======
-  <data name="icons8-import-32 " type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-import-32 .png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-folder-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-folder-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="supplier" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\supplier.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
->>>>>>> Stashed changes
+  <data name="icons8-product-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\image\icons8-product-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
