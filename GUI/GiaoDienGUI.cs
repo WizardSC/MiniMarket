@@ -47,6 +47,10 @@ namespace GUI
             allPnLeftBorders.Add(pnLeftBorderSanPham);
             allPnLeftBorders.Add(pnLeftBorderBanHang);
             allPnLeftBorders.Add(pnLeftBorderNhaCC);
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
         }
 
@@ -395,8 +399,43 @@ namespace GUI
         {
 
         }
+        private void pnNhaCCContainer_Click(object sender, EventArgs e)
+        {
+            if (sender is RJButton)
+            {
+                RJButton clickedButton = (RJButton)sender;
 
+<<<<<<< Updated upstream
         private void pnLeftBorderSanPham_Paint_1(object sender, PaintEventArgs e)
+=======
+                // Đặt màu của tất cả các RJButton khác thành màu transparent
+                foreach (RJButton button in allPanels)
+                {
+                    if (button != clickedButton)
+                    {
+                        button.BackColor = Color.Transparent; // hoặc màu nền mặc định của bạn
+                    }
+                }
+                foreach (Panel pn in allPnLeftBorders)
+                {
+                    if (pn != pnLeftBorderNhaCC)
+                    {
+                        pn.BackColor = Color.Transparent;
+                    }
+                }
+                foreach (RJButton button in allBtns)
+                {
+                    button.BackColor = Color.Transparent; // hoặc màu nền mặc định của bạn
+                }
+                // Đặt màu của RJButton được nhấn
+                clickedButton.BackColor = Color.White;
+                pnLeftBorderNhaCC.BackColor = Color.FromArgb(58, 191, 186);
+                // Mở form con tương ứng (KhachHangGUI)
+                openChildForm(new NhaCCGUI());
+            }
+        }
+        private void pnForm_Paint(object sender, PaintEventArgs e)
+>>>>>>> Stashed changes
         {
 
         }

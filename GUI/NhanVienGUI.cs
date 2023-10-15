@@ -17,6 +17,7 @@ namespace GUI
             InitializeComponent();
         }
 
+<<<<<<< Updated upstream
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -27,6 +28,8 @@ namespace GUI
 
         }
 
+=======
+>>>>>>> Stashed changes
         private void rjComboBox1_OnSelectedIndexChanged(object sender, EventArgs e)
         {
 

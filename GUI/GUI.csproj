@@ -110,11 +110,19 @@
     <Compile Include="MyCustom\RJTextBox.Designer.cs">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </Compile>
+<<<<<<< Updated upstream
     <Compile Include="NhaCungCapGUI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="NhaCungCapGUI.Designer.cs">
       <DependentUpon>NhaCungCapGUI.cs</DependentUpon>
+=======
+    <Compile Include="NhaCCGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhaCCGUI.Designer.cs">
+      <DependentUpon>NhaCCGUI.cs</DependentUpon>
+>>>>>>> Stashed changes
     </Compile>
     <Compile Include="NhanVienGUI.cs">
       <SubType>Form</SubType>
@@ -148,8 +156,13 @@
     <EmbeddedResource Include="MyCustom\RJTextBox.resx">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< Updated upstream
     <EmbeddedResource Include="NhaCungCapGUI.resx">
       <DependentUpon>NhaCungCapGUI.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="NhaCCGUI.resx">
+      <DependentUpon>NhaCCGUI.cs</DependentUpon>
+>>>>>>> Stashed changes
     </EmbeddedResource>
     <EmbeddedResource Include="NhanVienGUI.resx">
       <DependentUpon>NhanVienGUI.cs</DependentUpon>
@@ -245,6 +258,7 @@
     <None Include="resources\image\icons8-product-32.png" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
     <None Include="resources\exportFile.png" />
   </ItemGroup>
   <ItemGroup>
@@ -261,6 +275,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\supplier.png" />
+=======
+    <None Include="resources\image\icons8-folder-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\image\icons8-import-32 .png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\image\icons8-export-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\image\icons8-supplier-32.png" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

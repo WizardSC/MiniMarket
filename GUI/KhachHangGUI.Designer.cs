@@ -398,7 +398,11 @@
             this.IMG.ReadOnly = true;
             this.IMG.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.IMG.Visible = false;
+<<<<<<< Updated upstream
             this.IMG.Width = 112;
+=======
+            this.IMG.Width = 111;
+>>>>>>> Stashed changes
             // 
             // DiemTichLuy
             // 
