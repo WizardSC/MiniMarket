@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChiTietKhuyenMaiDAL.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="KhachHangDAL.cs" />
+    <Compile Include="KhuyenMaiDAL.cs" />
     <Compile Include="MSSQLConnect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SanPhamDAL.cs" />

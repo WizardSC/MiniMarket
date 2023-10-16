@@ -53,6 +53,12 @@
     <Compile Include="BanHangGUI.Designer.cs">
       <DependentUpon>BanHangGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChiTietKhuyenMaiGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChiTietKhuyenMaiGUI.Designer.cs">
+      <DependentUpon>ChiTietKhuyenMaiGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,12 +82,6 @@
     </Compile>
     <Compile Include="KhuyenMaiGUI.Designer.cs">
       <DependentUpon>KhuyenMaiGUI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LoaiGUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoaiGUI.Designer.cs">
-      <DependentUpon>LoaiGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="MyCustom\BiggerCheckBox.cs">
       <SubType>Component</SubType>
@@ -122,12 +122,6 @@
     <Compile Include="MyCustom\RJTextBox.Designer.cs">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="NhaSanXuatGUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NhaSanXuatGUI.Designer.cs">
-      <DependentUpon>NhaSanXuatGUI.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SanPhamGUI.cs">
@@ -139,14 +133,17 @@
     <EmbeddedResource Include="BanHangGUI.resx">
       <DependentUpon>BanHangGUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChiTietKhuyenMaiGUI.resx">
+      <DependentUpon>ChiTietKhuyenMaiGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GiaoDienGUI.resx">
       <DependentUpon>GiaoDienGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KhachHangGUI.resx">
       <DependentUpon>KhachHangGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoaiGUI.resx">
-      <DependentUpon>LoaiGUI.cs</DependentUpon>
+    <EmbeddedResource Include="KhuyenMaiGUI.resx">
+      <DependentUpon>KhuyenMaiGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyCustom\MyProductInCart.resx">
       <DependentUpon>MyProductInCart.cs</DependentUpon>
@@ -156,9 +153,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyCustom\RJTextBox.resx">
       <DependentUpon>RJTextBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NhaSanXuatGUI.resx">
-      <DependentUpon>NhaSanXuatGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
