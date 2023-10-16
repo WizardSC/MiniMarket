@@ -16,7 +16,8 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new KhuyenMaiGUI());
+            Application.Run(new GiaoDienGUI());
+            Console.WriteLine("Test 16/10/2023");
         }
     }
 }
