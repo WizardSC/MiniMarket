@@ -26,6 +26,18 @@ namespace GUI
         {
             InitializeComponent();
 
+<<<<<<< HEAD
+=======
+            addAllPnContainer();
+            addAllPnLeftBorders();
+            addAllPnSubPanels();
+            addAllBtns();
+            Console.WriteLine(123);
+
+        }
+        private void addAllPnContainer()
+        {
+>>>>>>> 4b58c0621546d142b75c4a89700308ec78fd0b60
             allPanels.Add(pnNhanVienContainer);
             allPanels.Add(pnKhachHangContainer);
             allPanels.Add(pnBanHangContainer);
