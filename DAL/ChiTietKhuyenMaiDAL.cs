@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class KhuyenMaiDAL : MSSQLConnect
+    public class ChiTietKhuyenMaiDAL : MSSQLConnect
     {
-        public DataTable getListKhuyenMai()
+        public DataTable getListChiTietKhuyenMai()
         {
             DataTable dt = new DataTable();
             try
@@ -19,7 +19,8 @@ namespace DAL
                 Connect();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from khuyenmai";
+                cmd.CommandText = "select ChiTietKhuyenMai.MaKM,ChiTietKhuyenMai.MaSP,KhuyenMai.TenKM,SanPham.TenSP,ChiTietKhuyenMai.PhanTramKM,ChiTietKhuyenMai.TrangThai from ChiTietKhuyenMai,KhuyenMai,SanPham where KhuyenMai.MaKM = ChiTietKhuyenMai.MaKM AND SanPham.MaSP = ChiTietKhuyenMai.MaSP";
+;
                 cmd.Connection = conn;
                 SqlDataAdapter adt = new SqlDataAdapter(cmd);
                 adt.Fill(dt);

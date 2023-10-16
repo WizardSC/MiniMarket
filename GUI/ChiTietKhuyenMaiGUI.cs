@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,23 @@ namespace GUI
 {
     public partial class ChiTietKhuyenMaiGUI : Form
     {
+        private ChiTietKhuyenMaiBLL CTKhuyenMaiBLL;
         public ChiTietKhuyenMaiGUI()
         {
             InitializeComponent();
+            CTKhuyenMaiBLL = new ChiTietKhuyenMaiBLL();
+        }
+
+        private void dgvChiTietKM_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void ChiTietKhuyenMaiGUI_Load(object sender, EventArgs e)
+        {
+            dgvChiTietKM.DataSource = CTKhuyenMaiBLL.getListDsCTKm();
+            dataGridView1.DataSource = CTKhuyenMaiBLL.getListDsCTKm();
         }
     }
+    
 }

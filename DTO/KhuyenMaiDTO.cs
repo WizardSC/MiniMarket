@@ -8,8 +8,7 @@ namespace DTO
 {
     public class KhuyenMaiDTO
     {
-        public class KhuyenMai_DTO
-        {
+     
             private string maKm;
             private string tenKm;
             private DateTime ngayBd;
@@ -18,7 +17,7 @@ namespace DTO
             private string dieuKienKm;
             private int trangThai;
 
-            public KhuyenMai_DTO(string maKm, string tenKm, DateTime ngayBd, DateTime ngayKt, int phanTramKm, string dieuKienKm, int trangThai)
+            public KhuyenMaiDTO(string maKm, string tenKm, DateTime ngayBd, DateTime ngayKt, int phanTramKm, string dieuKienKm, int trangThai)
             {
                 this.maKm = maKm;
                 this.tenKm = tenKm;
@@ -34,7 +33,7 @@ namespace DTO
             public DateTime NgayKt { get => ngayKt; set => ngayKt = value; }
             public int PhanTramKm { get => phanTramKm; set => phanTramKm = value; }
             public string DieuKiemKm { get => dieuKienKm; set => dieuKienKm = value; }
-            public string DieuKienKm { get => dieuKienKm; set => dieuKienKm = value; }
+            public int TrangThai{ get => trangThai; set => trangThai = value; }
         }
-    }
-}
+    
+} 
