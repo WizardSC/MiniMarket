@@ -28,7 +28,6 @@ namespace GUI
         private void ChiTietKhuyenMaiGUI_Load(object sender, EventArgs e)
         {
             dgvChiTietKM.DataSource = CTKhuyenMaiBLL.getListDsCTKm();
-            dataGridView1.DataSource = CTKhuyenMaiBLL.getListDsCTKm();
         }
     }
     
