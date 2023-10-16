@@ -30,8 +30,8 @@ namespace GUI
             addAllPnLeftBorders();
             addAllPnSubPanels();
             addAllBtns();
+            Console.WriteLine(123);
 
-            
         }
         private void addAllPnContainer()
         {
