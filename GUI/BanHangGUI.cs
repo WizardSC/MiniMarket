@@ -196,6 +196,7 @@ namespace GUI
             {
                 CurrentPage++;
                 UpdateCurrentPage(dt);
+                Console.WriteLine("a");
             }
         }
 
