@@ -71,6 +71,18 @@
     <Compile Include="KhachHangGUI.Designer.cs">
       <DependentUpon>KhachHangGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="KhuyenMaiGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KhuyenMaiGUI.Designer.cs">
+      <DependentUpon>KhuyenMaiGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoaiGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoaiGUI.Designer.cs">
+      <DependentUpon>LoaiGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyCustom\BiggerCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -110,6 +122,12 @@
     <Compile Include="MyCustom\RJTextBox.Designer.cs">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="NhaSanXuatGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhaSanXuatGUI.Designer.cs">
+      <DependentUpon>NhaSanXuatGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SanPhamGUI.cs">
@@ -127,6 +145,9 @@
     <EmbeddedResource Include="KhachHangGUI.resx">
       <DependentUpon>KhachHangGUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoaiGUI.resx">
+      <DependentUpon>LoaiGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyCustom\MyProductInCart.resx">
       <DependentUpon>MyProductInCart.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyCustom\RJTextBox.resx">
       <DependentUpon>RJTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhaSanXuatGUI.resx">
+      <DependentUpon>NhaSanXuatGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
