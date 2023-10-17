@@ -82,6 +82,9 @@
             this.btnClose = new GUI.MyCustom.RJButton();
             this.pnForm = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.pnNhaCCContainer = new GUI.MyCustom.RJButton();
+            this.pnLeftBorderNhaCC = new System.Windows.Forms.Panel();
             this.pnSidebar.SuspendLayout();
             this.pnMainMenu.SuspendLayout();
             this.pnSubQuanLy.SuspendLayout();
@@ -103,6 +106,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnHeader.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel18.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnSidebar
@@ -135,6 +139,7 @@
             // pnSubQuanLy
             // 
             this.pnSubQuanLy.AutoSize = true;
+            this.pnSubQuanLy.Controls.Add(this.panel18);
             this.pnSubQuanLy.Controls.Add(this.panel8);
             this.pnSubQuanLy.Controls.Add(this.panel17);
             this.pnSubQuanLy.Controls.Add(this.panel5);
@@ -144,7 +149,7 @@
             this.pnSubQuanLy.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnSubQuanLy.Location = new System.Drawing.Point(0, 301);
             this.pnSubQuanLy.Name = "pnSubQuanLy";
-            this.pnSubQuanLy.Size = new System.Drawing.Size(171, 300);
+            this.pnSubQuanLy.Size = new System.Drawing.Size(171, 350);
             this.pnSubQuanLy.TabIndex = 3;
             this.pnSubQuanLy.Visible = false;
             // 
@@ -894,6 +899,52 @@
             this.panel3.Size = new System.Drawing.Size(1500, 800);
             this.panel3.TabIndex = 0;
             // 
+            // panel18
+            // 
+            this.panel18.Controls.Add(this.pnNhaCCContainer);
+            this.panel18.Controls.Add(this.pnLeftBorderNhaCC);
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel18.Location = new System.Drawing.Point(0, 300);
+            this.panel18.Name = "panel18";
+            this.panel18.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.panel18.Size = new System.Drawing.Size(171, 50);
+            this.panel18.TabIndex = 9;
+            // 
+            // pnNhaCCContainer
+            // 
+            this.pnNhaCCContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnNhaCCContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnNhaCCContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnNhaCCContainer.BorderRadius = 0;
+            this.pnNhaCCContainer.BorderSize = 0;
+            this.pnNhaCCContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnNhaCCContainer.FlatAppearance.BorderSize = 0;
+            this.pnNhaCCContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnNhaCCContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnNhaCCContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnNhaCCContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnNhaCCContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnNhaCCContainer.Image")));
+            this.pnNhaCCContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnNhaCCContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnNhaCCContainer.Name = "pnNhaCCContainer";
+            this.pnNhaCCContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnNhaCCContainer.Size = new System.Drawing.Size(163, 40);
+            this.pnNhaCCContainer.TabIndex = 3;
+            this.pnNhaCCContainer.Text = "         Nhà cung cấp";
+            this.pnNhaCCContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnNhaCCContainer.TextColor = System.Drawing.Color.Black;
+            this.pnNhaCCContainer.UseVisualStyleBackColor = false;
+            this.pnNhaCCContainer.Click += new System.EventHandler(this.pnNhaCCContainer_Click);
+            // 
+            // pnLeftBorderNhaCC
+            // 
+            this.pnLeftBorderNhaCC.BackColor = System.Drawing.Color.Transparent;
+            this.pnLeftBorderNhaCC.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnLeftBorderNhaCC.Location = new System.Drawing.Point(0, 0);
+            this.pnLeftBorderNhaCC.Name = "pnLeftBorderNhaCC";
+            this.pnLeftBorderNhaCC.Size = new System.Drawing.Size(8, 40);
+            this.pnLeftBorderNhaCC.TabIndex = 0;
+            // 
             // GiaoDienGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -930,6 +981,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnHeader.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel18.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -988,5 +1040,8 @@
         private System.Windows.Forms.Panel panel8;
         private MyCustom.RJButton pnKhuyenMaiContainer;
         private System.Windows.Forms.Panel pnLeftBorderKhuyenMai;
+        private System.Windows.Forms.Panel panel18;
+        private MyCustom.RJButton pnNhaCCContainer;
+        private System.Windows.Forms.Panel pnLeftBorderNhaCC;
     }
 }
