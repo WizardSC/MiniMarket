@@ -68,6 +68,7 @@
             this.txtPhanTramKM = new GUI.MyCustom.RJTextBox();
             this.txtDkKM = new GUI.MyCustom.RJTextBox();
             this.cbxTrangThai = new GUI.MyCustom.RJComboBox();
+            this.btnFilter = new GUI.MyCustom.RJButton();
             this.MaKM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenKM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,7 +94,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(94, 28);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Mã KH";
+            this.label2.Text = "Mã KM";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label13
@@ -249,9 +250,9 @@
             this.label1.Location = new System.Drawing.Point(5, 5);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(296, 35);
+            this.label1.Size = new System.Drawing.Size(333, 35);
             this.label1.TabIndex = 0;
-            this.label1.Text = "THÔNG TIN KHUYỄN MÃI";
+            this.label1.Text = "THÔNG TIN KHUYẾN MÃI";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgvKhuyenMai
@@ -290,7 +291,7 @@
             this.dgvKhuyenMai.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvKhuyenMai.EnableHeadersVisualStyles = false;
             this.dgvKhuyenMai.GridColor = System.Drawing.Color.Black;
-            this.dgvKhuyenMai.Location = new System.Drawing.Point(3, 62);
+            this.dgvKhuyenMai.Location = new System.Drawing.Point(5, 62);
             this.dgvKhuyenMai.Name = "dgvKhuyenMai";
             this.dgvKhuyenMai.ReadOnly = true;
             this.dgvKhuyenMai.RowHeadersVisible = false;
@@ -299,7 +300,7 @@
             this.dgvKhuyenMai.RowTemplate.Height = 30;
             this.dgvKhuyenMai.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvKhuyenMai.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKhuyenMai.Size = new System.Drawing.Size(842, 680);
+            this.dgvKhuyenMai.Size = new System.Drawing.Size(945, 680);
             this.dgvKhuyenMai.TabIndex = 1;
             this.dgvKhuyenMai.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhuyenMai_CellContentClick);
             // 
@@ -312,7 +313,7 @@
             this.flowLayoutPanel3.Location = new System.Drawing.Point(8, 423);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(298, 45);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(327, 45);
             this.flowLayoutPanel3.TabIndex = 1;
             // 
             // btnThem
@@ -326,8 +327,8 @@
             this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThem.ForeColor = System.Drawing.Color.White;
             this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
-            this.btnThem.Location = new System.Drawing.Point(23, 3);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(23, 3, 10, 3);
+            this.btnThem.Location = new System.Drawing.Point(33, 3);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(33, 3, 15, 3);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(44, 40);
             this.btnThem.TabIndex = 0;
@@ -344,12 +345,12 @@
             this.btnSua.FlatAppearance.BorderSize = 0;
             this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(87, 3);
-            this.btnSua.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.btnSua.Image = global::GUI.Properties.Resources.icons8_update_24;
+            this.btnSua.Location = new System.Drawing.Point(102, 3);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(10, 3, 15, 3);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(44, 40);
             this.btnSua.TabIndex = 1;
-            this.btnSua.Text = "rjButton3";
             this.btnSua.TextColor = System.Drawing.Color.White;
             this.btnSua.UseVisualStyleBackColor = false;
             // 
@@ -364,8 +365,8 @@
             this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoa.ForeColor = System.Drawing.Color.White;
             this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
-            this.btnXoa.Location = new System.Drawing.Point(151, 3);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.btnXoa.Location = new System.Drawing.Point(171, 3);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(10, 3, 15, 3);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(44, 40);
             this.btnXoa.TabIndex = 2;
@@ -383,7 +384,7 @@
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReset.ForeColor = System.Drawing.Color.White;
             this.btnReset.Image = ((System.Drawing.Image)(resources.GetObject("btnReset.Image")));
-            this.btnReset.Location = new System.Drawing.Point(215, 3);
+            this.btnReset.Location = new System.Drawing.Point(240, 3);
             this.btnReset.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(44, 40);
@@ -403,7 +404,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1177, 598);
+            this.panel1.Size = new System.Drawing.Size(1308, 763);
             this.panel1.TabIndex = 2;
             // 
             // btnXem
@@ -434,9 +435,9 @@
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.flowLayoutPanel4);
             this.panel3.Controls.Add(this.dgvKhuyenMai);
-            this.panel3.Location = new System.Drawing.Point(322, 3);
+            this.panel3.Location = new System.Drawing.Point(345, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(853, 754);
+            this.panel3.Size = new System.Drawing.Size(960, 754);
             this.panel3.TabIndex = 4;
             // 
             // flowLayoutPanel4
@@ -445,9 +446,10 @@
             this.flowLayoutPanel4.Controls.Add(this.cbxTimKiem);
             this.flowLayoutPanel4.Controls.Add(this.txtTimKiem);
             this.flowLayoutPanel4.Controls.Add(this.btnTimKiem);
+            this.flowLayoutPanel4.Controls.Add(this.btnFilter);
             this.flowLayoutPanel4.Location = new System.Drawing.Point(5, 6);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(840, 50);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(945, 50);
             this.flowLayoutPanel4.TabIndex = 2;
             // 
             // cbxTimKiem
@@ -491,7 +493,7 @@
             this.txtTimKiem.PasswordChar = false;
             this.txtTimKiem.PlaceholderColor = System.Drawing.Color.DimGray;
             this.txtTimKiem.PlaceholderText = "Nhập thông tin tìm kiếm";
-            this.txtTimKiem.Size = new System.Drawing.Size(673, 32);
+            this.txtTimKiem.Size = new System.Drawing.Size(696, 32);
             this.txtTimKiem.TabIndex = 1;
             this.txtTimKiem.Texts = "";
             this.txtTimKiem.UnderlinedStyle = true;
@@ -507,7 +509,7 @@
             this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimKiem.ForeColor = System.Drawing.Color.White;
             this.btnTimKiem.Image = global::GUI.Properties.Resources.icons8_search_32;
-            this.btnTimKiem.Location = new System.Drawing.Point(800, 8);
+            this.btnTimKiem.Location = new System.Drawing.Point(823, 8);
             this.btnTimKiem.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(29, 32);
@@ -529,7 +531,7 @@
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(316, 475);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(345, 475);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // flowLayoutPanel2
@@ -556,7 +558,7 @@
             this.flowLayoutPanel2.Controls.Add(this.cbxTrangThai);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(8, 43);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(298, 372);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(327, 372);
             this.flowLayoutPanel2.TabIndex = 2;
             // 
             // txtMaKM
@@ -570,7 +572,7 @@
             this.txtMaKM.ForeColor = System.Drawing.Color.Black;
             this.txtMaKM.Location = new System.Drawing.Point(106, 4);
             this.txtMaKM.Margin = new System.Windows.Forms.Padding(4);
-            this.txtMaKM.MaximumSize = new System.Drawing.Size(171, 28);
+            this.txtMaKM.MaximumSize = new System.Drawing.Size(250, 28);
             this.txtMaKM.MinimumSize = new System.Drawing.Size(150, 28);
             this.txtMaKM.Multiline = false;
             this.txtMaKM.Name = "txtMaKM";
@@ -578,7 +580,7 @@
             this.txtMaKM.PasswordChar = false;
             this.txtMaKM.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtMaKM.PlaceholderText = "";
-            this.txtMaKM.Size = new System.Drawing.Size(171, 28);
+            this.txtMaKM.Size = new System.Drawing.Size(196, 28);
             this.txtMaKM.TabIndex = 2;
             this.txtMaKM.Texts = "";
             this.txtMaKM.UnderlinedStyle = false;
@@ -594,7 +596,7 @@
             this.txtTenKm.ForeColor = System.Drawing.Color.Black;
             this.txtTenKm.Location = new System.Drawing.Point(106, 59);
             this.txtTenKm.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTenKm.MaximumSize = new System.Drawing.Size(171, 28);
+            this.txtTenKm.MaximumSize = new System.Drawing.Size(250, 28);
             this.txtTenKm.MinimumSize = new System.Drawing.Size(150, 28);
             this.txtTenKm.Multiline = false;
             this.txtTenKm.Name = "txtTenKm";
@@ -602,7 +604,7 @@
             this.txtTenKm.PasswordChar = false;
             this.txtTenKm.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtTenKm.PlaceholderText = "";
-            this.txtTenKm.Size = new System.Drawing.Size(171, 28);
+            this.txtTenKm.Size = new System.Drawing.Size(196, 28);
             this.txtTenKm.TabIndex = 23;
             this.txtTenKm.Texts = "";
             this.txtTenKm.UnderlinedStyle = false;
@@ -617,10 +619,10 @@
             this.dtpNgayBD.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpNgayBD.Location = new System.Drawing.Point(106, 114);
             this.dtpNgayBD.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpNgayBD.MaximumSize = new System.Drawing.Size(171, 28);
+            this.dtpNgayBD.MaximumSize = new System.Drawing.Size(250, 28);
             this.dtpNgayBD.MinimumSize = new System.Drawing.Size(4, 28);
             this.dtpNgayBD.Name = "dtpNgayBD";
-            this.dtpNgayBD.Size = new System.Drawing.Size(171, 28);
+            this.dtpNgayBD.Size = new System.Drawing.Size(196, 28);
             this.dtpNgayBD.SkinColor = System.Drawing.Color.White;
             this.dtpNgayBD.TabIndex = 26;
             this.dtpNgayBD.TextColor = System.Drawing.Color.Black;
@@ -635,10 +637,10 @@
             this.dtpNgayKT.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpNgayKT.Location = new System.Drawing.Point(106, 169);
             this.dtpNgayKT.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpNgayKT.MaximumSize = new System.Drawing.Size(171, 28);
+            this.dtpNgayKT.MaximumSize = new System.Drawing.Size(250, 28);
             this.dtpNgayKT.MinimumSize = new System.Drawing.Size(4, 28);
             this.dtpNgayKT.Name = "dtpNgayKT";
-            this.dtpNgayKT.Size = new System.Drawing.Size(171, 28);
+            this.dtpNgayKT.Size = new System.Drawing.Size(196, 28);
             this.dtpNgayKT.SkinColor = System.Drawing.Color.White;
             this.dtpNgayKT.TabIndex = 29;
             this.dtpNgayKT.TextColor = System.Drawing.Color.Black;
@@ -654,7 +656,7 @@
             this.txtPhanTramKM.ForeColor = System.Drawing.Color.Black;
             this.txtPhanTramKM.Location = new System.Drawing.Point(106, 224);
             this.txtPhanTramKM.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPhanTramKM.MaximumSize = new System.Drawing.Size(171, 28);
+            this.txtPhanTramKM.MaximumSize = new System.Drawing.Size(250, 28);
             this.txtPhanTramKM.MinimumSize = new System.Drawing.Size(150, 28);
             this.txtPhanTramKM.Multiline = false;
             this.txtPhanTramKM.Name = "txtPhanTramKM";
@@ -662,7 +664,7 @@
             this.txtPhanTramKM.PasswordChar = false;
             this.txtPhanTramKM.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtPhanTramKM.PlaceholderText = "";
-            this.txtPhanTramKM.Size = new System.Drawing.Size(171, 28);
+            this.txtPhanTramKM.Size = new System.Drawing.Size(196, 28);
             this.txtPhanTramKM.TabIndex = 32;
             this.txtPhanTramKM.Texts = "";
             this.txtPhanTramKM.UnderlinedStyle = false;
@@ -678,7 +680,7 @@
             this.txtDkKM.ForeColor = System.Drawing.Color.Black;
             this.txtDkKM.Location = new System.Drawing.Point(106, 279);
             this.txtDkKM.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDkKM.MaximumSize = new System.Drawing.Size(171, 28);
+            this.txtDkKM.MaximumSize = new System.Drawing.Size(250, 28);
             this.txtDkKM.MinimumSize = new System.Drawing.Size(150, 28);
             this.txtDkKM.Multiline = false;
             this.txtDkKM.Name = "txtDkKM";
@@ -686,7 +688,7 @@
             this.txtDkKM.PasswordChar = false;
             this.txtDkKM.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtDkKM.PlaceholderText = "";
-            this.txtDkKM.Size = new System.Drawing.Size(171, 28);
+            this.txtDkKM.Size = new System.Drawing.Size(196, 28);
             this.txtDkKM.TabIndex = 35;
             this.txtDkKM.Texts = "";
             this.txtDkKM.UnderlinedStyle = false;
@@ -706,10 +708,32 @@
             this.cbxTrangThai.MinimumSize = new System.Drawing.Size(100, 5);
             this.cbxTrangThai.Name = "cbxTrangThai";
             this.cbxTrangThai.Padding = new System.Windows.Forms.Padding(2);
-            this.cbxTrangThai.Size = new System.Drawing.Size(171, 28);
+            this.cbxTrangThai.Size = new System.Drawing.Size(197, 28);
             this.cbxTrangThai.TabIndex = 38;
             this.cbxTrangThai.Texts = "";
             this.cbxTrangThai.OnSelectedIndexChanged += new System.EventHandler(this.cbxTrangThai_OnSelectedIndexChanged);
+            // 
+            // btnFilter
+            // 
+            this.btnFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnFilter.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnFilter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.btnFilter.BorderRadius = 0;
+            this.btnFilter.BorderSize = 2;
+            this.btnFilter.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnFilter.FlatAppearance.BorderSize = 0;
+            this.btnFilter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnFilter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFilter.ForeColor = System.Drawing.Color.White;
+            this.btnFilter.Image = global::GUI.Properties.Resources.icons8_filter_32;
+            this.btnFilter.Location = new System.Drawing.Point(870, 8);
+            this.btnFilter.Margin = new System.Windows.Forms.Padding(15, 8, 10, 0);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(44, 36);
+            this.btnFilter.TabIndex = 5;
+            this.btnFilter.TextColor = System.Drawing.Color.White;
+            this.btnFilter.UseVisualStyleBackColor = false;
             // 
             // MaKM
             // 
@@ -724,13 +748,12 @@
             // 
             // TenKM
             // 
-            this.TenKM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TenKM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.TenKM.DataPropertyName = "TenKM";
             this.TenKM.HeaderText = "Tên KM";
             this.TenKM.MinimumWidth = 6;
             this.TenKM.Name = "TenKM";
             this.TenKM.ReadOnly = true;
-            this.TenKM.Width = 150;
             // 
             // NgayBatDau
             // 
@@ -786,8 +809,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1177, 598);
+            this.ClientSize = new System.Drawing.Size(1308, 763);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "KhuyenMaiGUI";
             this.Text = "KhuyenMaiGUI";
             this.Load += new System.EventHandler(this.KhuyenMaiGUI_Load);
@@ -842,6 +866,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Button btnXem;
         private System.Windows.Forms.Label label15;
+        private MyCustom.RJButton btnFilter;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKM;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenKM;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayBatDau;

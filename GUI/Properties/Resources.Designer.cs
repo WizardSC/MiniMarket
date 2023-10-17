@@ -223,6 +223,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_update_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-update-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_upload_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-upload-32", resourceCulture);

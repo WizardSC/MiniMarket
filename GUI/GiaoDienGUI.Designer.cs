@@ -32,6 +32,9 @@
             this.pnSidebar = new System.Windows.Forms.Panel();
             this.pnMainMenu = new System.Windows.Forms.Panel();
             this.pnSubQuanLy = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.pnKhuyenMaiContainer = new GUI.MyCustom.RJButton();
+            this.pnLeftBorderKhuyenMai = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
             this.pnNhaSanXuatContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderNSX = new System.Windows.Forms.Panel();
@@ -79,12 +82,10 @@
             this.btnClose = new GUI.MyCustom.RJButton();
             this.pnForm = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.rjButton1 = new GUI.MyCustom.RJButton();
-            this.panel18 = new System.Windows.Forms.Panel();
             this.pnSidebar.SuspendLayout();
             this.pnMainMenu.SuspendLayout();
             this.pnSubQuanLy.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel16.SuspendLayout();
@@ -102,7 +103,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnHeader.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnSidebar
@@ -147,6 +147,52 @@
             this.pnSubQuanLy.Size = new System.Drawing.Size(171, 300);
             this.pnSubQuanLy.TabIndex = 3;
             this.pnSubQuanLy.Visible = false;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.pnKhuyenMaiContainer);
+            this.panel8.Controls.Add(this.pnLeftBorderKhuyenMai);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(0, 250);
+            this.panel8.Name = "panel8";
+            this.panel8.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.panel8.Size = new System.Drawing.Size(171, 50);
+            this.panel8.TabIndex = 8;
+            // 
+            // pnKhuyenMaiContainer
+            // 
+            this.pnKhuyenMaiContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnKhuyenMaiContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnKhuyenMaiContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnKhuyenMaiContainer.BorderRadius = 0;
+            this.pnKhuyenMaiContainer.BorderSize = 0;
+            this.pnKhuyenMaiContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnKhuyenMaiContainer.FlatAppearance.BorderSize = 0;
+            this.pnKhuyenMaiContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnKhuyenMaiContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnKhuyenMaiContainer.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnKhuyenMaiContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnKhuyenMaiContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnKhuyenMaiContainer.Image")));
+            this.pnKhuyenMaiContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnKhuyenMaiContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnKhuyenMaiContainer.Name = "pnKhuyenMaiContainer";
+            this.pnKhuyenMaiContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnKhuyenMaiContainer.Size = new System.Drawing.Size(163, 40);
+            this.pnKhuyenMaiContainer.TabIndex = 3;
+            this.pnKhuyenMaiContainer.Text = "         Khuyến mãi";
+            this.pnKhuyenMaiContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnKhuyenMaiContainer.TextColor = System.Drawing.Color.Black;
+            this.pnKhuyenMaiContainer.UseVisualStyleBackColor = false;
+            this.pnKhuyenMaiContainer.Click += new System.EventHandler(this.pnKhuyenMaiContainer_Click);
+            // 
+            // pnLeftBorderKhuyenMai
+            // 
+            this.pnLeftBorderKhuyenMai.BackColor = System.Drawing.Color.Transparent;
+            this.pnLeftBorderKhuyenMai.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnLeftBorderKhuyenMai.Location = new System.Drawing.Point(0, 0);
+            this.pnLeftBorderKhuyenMai.Name = "pnLeftBorderKhuyenMai";
+            this.pnLeftBorderKhuyenMai.Size = new System.Drawing.Size(8, 40);
+            this.pnLeftBorderKhuyenMai.TabIndex = 0;
             // 
             // panel17
             // 
@@ -848,51 +894,6 @@
             this.panel3.Size = new System.Drawing.Size(1500, 800);
             this.panel3.TabIndex = 0;
             // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.rjButton1);
-            this.panel8.Controls.Add(this.panel18);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(0, 250);
-            this.panel8.Name = "panel8";
-            this.panel8.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel8.Size = new System.Drawing.Size(171, 50);
-            this.panel8.TabIndex = 8;
-            // 
-            // rjButton1
-            // 
-            this.rjButton1.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton1.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton1.BorderRadius = 0;
-            this.rjButton1.BorderSize = 0;
-            this.rjButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton1.ForeColor = System.Drawing.Color.Black;
-            this.rjButton1.Image = ((System.Drawing.Image)(resources.GetObject("rjButton1.Image")));
-            this.rjButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton1.Location = new System.Drawing.Point(8, 0);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rjButton1.Size = new System.Drawing.Size(163, 40);
-            this.rjButton1.TabIndex = 3;
-            this.rjButton1.Text = "         Khuyến mãi";
-            this.rjButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton1.TextColor = System.Drawing.Color.Black;
-            this.rjButton1.UseVisualStyleBackColor = false;
-            // 
-            // panel18
-            // 
-            this.panel18.BackColor = System.Drawing.Color.Transparent;
-            this.panel18.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel18.Location = new System.Drawing.Point(0, 0);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(8, 40);
-            this.panel18.TabIndex = 0;
-            // 
             // GiaoDienGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -911,6 +912,7 @@
             this.pnMainMenu.ResumeLayout(false);
             this.pnMainMenu.PerformLayout();
             this.pnSubQuanLy.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
@@ -928,7 +930,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnHeader.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -985,7 +986,7 @@
         private MyCustom.RJButton pnNhaSanXuatContainer;
         private System.Windows.Forms.Panel pnLeftBorderNSX;
         private System.Windows.Forms.Panel panel8;
-        private MyCustom.RJButton rjButton1;
-        private System.Windows.Forms.Panel panel18;
+        private MyCustom.RJButton pnKhuyenMaiContainer;
+        private System.Windows.Forms.Panel pnLeftBorderKhuyenMai;
     }
 }
