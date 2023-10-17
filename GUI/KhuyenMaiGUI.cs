@@ -16,12 +16,37 @@ namespace GUI
     {
         private KhuyenMaiBLL kmBLL;
         private ChiTietKhuyenMaiGUI CTKhuyenMai;
-        
+        private DataTable dt;
+
         public KhuyenMaiGUI()
         {
             InitializeComponent();
             kmBLL = new KhuyenMaiBLL();
             CTKhuyenMai = new ChiTietKhuyenMaiGUI();
+            dt = kmBLL.getListDsKm();
+            loadMaKM();
+        }
+
+        private void loadMaKM()
+        {
+            string lastMaKM = null;
+            foreach (DataRow row in dt.Rows)
+            {
+                lastMaKM = row["MaKM"].ToString();
+            }
+            if (lastMaKM == "")
+            {
+                txtMaKM.Texts = "KM001";
+            }
+            int tempNum = int.Parse(lastMaKM.Substring(2));
+            if ((tempNum + 1) >= 10)
+            {
+                txtMaKM.Texts = "KM0" + (tempNum + 1).ToString();
+            }
+            else if (tempNum >= 1 && tempNum < 9)
+            {
+                txtMaKM.Texts = "KM00" + (tempNum + 1).ToString();
+            }
         }
 
         private void dgvKhuyenMai_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -34,15 +59,33 @@ namespace GUI
             txtTenKm.Texts = dgvKhuyenMai.Rows[i].Cells[1].Value.ToString();
             dtpNgayBD.Value = NgayBd;
             dtpNgayKT.Value = NgayKt;
-            txtDkKM.Texts = dgvKhuyenMai.Rows[i].Cells[4].Value.ToString();
-            txtPhanTramKM.Texts = dgvKhuyenMai.Rows[i].Cells[5].Value.ToString();
+            txtPhanTramKM.Texts = dgvKhuyenMai.Rows[i].Cells[4].Value.ToString();
+            txtDkKM.Texts = dgvKhuyenMai.Rows[i].Cells[5].Value.ToString();
             int TrangThai = int.Parse(dgvKhuyenMai.Rows[i].Cells[6].Value.ToString());
+            if(TrangThai == 1)
+            {
+                cbxTrangThai.SelectedIndex = 0;
+            }
+            else
+            {
+                cbxTrangThai.SelectedIndex = 1;
+            }
+
+            if(txtDkKM.Texts == "")
+            {
+                btnThongTinKM.Visible = true;
+            }
+            else
+            {
+                btnThongTinKM.Visible = false;
+            }
   
         }
 
         private void KhuyenMaiGUI_Load(object sender, EventArgs e)
         {
             dgvKhuyenMai.DataSource = kmBLL.getListDsKm();
+            cbxTrangThai.SelectedIndex = 0;
         }
 
         private void btnXem_Click(object sender, EventArgs e)
@@ -53,6 +96,19 @@ namespace GUI
         private void cbxTrangThai_OnSelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            loadMaKM();
+            txtTenKm.Texts = "";
+            txtDkKM.Texts = "";
+            DateTime currentDate = DateTime.Now;
+            dtpNgayBD.Value = currentDate;
+            dtpNgayKT.Value = currentDate;
+            txtPhanTramKM.Texts = "";
+            cbxTrangThai.SelectedIndex = 0;
+            btnThongTinKM.Visible = false;
         }
     }
 }
