@@ -32,56 +32,61 @@
             this.pnSidebar = new System.Windows.Forms.Panel();
             this.pnMainMenu = new System.Windows.Forms.Panel();
             this.pnSubQuanLy = new System.Windows.Forms.Panel();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.pnNhaSanXuatContainer = new GUI.MyCustom.RJButton();
+            this.pnLeftBorderNSX = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.pnDanhMucContainer = new GUI.MyCustom.RJButton();
+            this.pnLeftBorderDanhMuc = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
+            this.pnSanPhamContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderSanPham = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.pnKhachHangContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderKhachHang = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.pnNhanVienContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderNhanVien = new System.Windows.Forms.Panel();
             this.pnQuanLy = new System.Windows.Forms.Panel();
+            this.pnQuanLyContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderQuanLy = new System.Windows.Forms.Panel();
             this.pnSubHangHoa = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.rjButton6 = new GUI.MyCustom.RJButton();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.rjButton5 = new GUI.MyCustom.RJButton();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.rjButton4 = new GUI.MyCustom.RJButton();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.pnBanHangContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderBanHang = new System.Windows.Forms.Panel();
             this.pnHangHoa = new System.Windows.Forms.Panel();
+            this.pnHangHoaContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderHangHoa = new System.Windows.Forms.Panel();
             this.pnMenu = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.rjButton2 = new GUI.MyCustom.RJButton();
             this.pnImage = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnHeader = new System.Windows.Forms.Panel();
+            this.btnMinimize = new GUI.MyCustom.RJButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnMaximize = new GUI.MyCustom.RJButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnClose = new GUI.MyCustom.RJButton();
             this.pnForm = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.pnLeftBorderDanhMuc = new System.Windows.Forms.Panel();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.pnLeftBorderNSX = new System.Windows.Forms.Panel();
-            this.pnNhaSanXuatContainer = new GUI.MyCustom.RJButton();
-            this.pnDanhMucContainer = new GUI.MyCustom.RJButton();
-            this.pnSanPhamContainer = new GUI.MyCustom.RJButton();
-            this.pnKhachHangContainer = new GUI.MyCustom.RJButton();
-            this.pnNhanVienContainer = new GUI.MyCustom.RJButton();
-            this.pnQuanLyContainer = new GUI.MyCustom.RJButton();
-            this.rjButton6 = new GUI.MyCustom.RJButton();
-            this.rjButton5 = new GUI.MyCustom.RJButton();
-            this.rjButton4 = new GUI.MyCustom.RJButton();
-            this.pnBanHangContainer = new GUI.MyCustom.RJButton();
-            this.pnHangHoaContainer = new GUI.MyCustom.RJButton();
-            this.rjButton2 = new GUI.MyCustom.RJButton();
-            this.btnMinimize = new GUI.MyCustom.RJButton();
-            this.btnMaximize = new GUI.MyCustom.RJButton();
-            this.btnClose = new GUI.MyCustom.RJButton();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.rjButton1 = new GUI.MyCustom.RJButton();
+            this.panel18 = new System.Windows.Forms.Panel();
             this.pnSidebar.SuspendLayout();
             this.pnMainMenu.SuspendLayout();
             this.pnSubQuanLy.SuspendLayout();
+            this.panel17.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -97,8 +102,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnHeader.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel17.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnSidebar
@@ -131,6 +135,7 @@
             // pnSubQuanLy
             // 
             this.pnSubQuanLy.AutoSize = true;
+            this.pnSubQuanLy.Controls.Add(this.panel8);
             this.pnSubQuanLy.Controls.Add(this.panel17);
             this.pnSubQuanLy.Controls.Add(this.panel5);
             this.pnSubQuanLy.Controls.Add(this.panel16);
@@ -139,9 +144,101 @@
             this.pnSubQuanLy.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnSubQuanLy.Location = new System.Drawing.Point(0, 301);
             this.pnSubQuanLy.Name = "pnSubQuanLy";
-            this.pnSubQuanLy.Size = new System.Drawing.Size(171, 250);
+            this.pnSubQuanLy.Size = new System.Drawing.Size(171, 300);
             this.pnSubQuanLy.TabIndex = 3;
             this.pnSubQuanLy.Visible = false;
+            // 
+            // panel17
+            // 
+            this.panel17.Controls.Add(this.pnNhaSanXuatContainer);
+            this.panel17.Controls.Add(this.pnLeftBorderNSX);
+            this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel17.Location = new System.Drawing.Point(0, 200);
+            this.panel17.Name = "panel17";
+            this.panel17.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.panel17.Size = new System.Drawing.Size(171, 50);
+            this.panel17.TabIndex = 7;
+            // 
+            // pnNhaSanXuatContainer
+            // 
+            this.pnNhaSanXuatContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnNhaSanXuatContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnNhaSanXuatContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnNhaSanXuatContainer.BorderRadius = 0;
+            this.pnNhaSanXuatContainer.BorderSize = 0;
+            this.pnNhaSanXuatContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnNhaSanXuatContainer.FlatAppearance.BorderSize = 0;
+            this.pnNhaSanXuatContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnNhaSanXuatContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnNhaSanXuatContainer.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnNhaSanXuatContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnNhaSanXuatContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnNhaSanXuatContainer.Image")));
+            this.pnNhaSanXuatContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnNhaSanXuatContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnNhaSanXuatContainer.Name = "pnNhaSanXuatContainer";
+            this.pnNhaSanXuatContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnNhaSanXuatContainer.Size = new System.Drawing.Size(163, 40);
+            this.pnNhaSanXuatContainer.TabIndex = 3;
+            this.pnNhaSanXuatContainer.Text = "         Nhà sản xuất";
+            this.pnNhaSanXuatContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnNhaSanXuatContainer.TextColor = System.Drawing.Color.Black;
+            this.pnNhaSanXuatContainer.UseVisualStyleBackColor = false;
+            this.pnNhaSanXuatContainer.Click += new System.EventHandler(this.pnNhaSanXuat_Click);
+            // 
+            // pnLeftBorderNSX
+            // 
+            this.pnLeftBorderNSX.BackColor = System.Drawing.Color.Transparent;
+            this.pnLeftBorderNSX.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnLeftBorderNSX.Location = new System.Drawing.Point(0, 0);
+            this.pnLeftBorderNSX.Name = "pnLeftBorderNSX";
+            this.pnLeftBorderNSX.Size = new System.Drawing.Size(8, 40);
+            this.pnLeftBorderNSX.TabIndex = 0;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.pnDanhMucContainer);
+            this.panel5.Controls.Add(this.pnLeftBorderDanhMuc);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 150);
+            this.panel5.Name = "panel5";
+            this.panel5.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.panel5.Size = new System.Drawing.Size(171, 50);
+            this.panel5.TabIndex = 6;
+            // 
+            // pnDanhMucContainer
+            // 
+            this.pnDanhMucContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnDanhMucContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnDanhMucContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnDanhMucContainer.BorderRadius = 0;
+            this.pnDanhMucContainer.BorderSize = 0;
+            this.pnDanhMucContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnDanhMucContainer.FlatAppearance.BorderSize = 0;
+            this.pnDanhMucContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnDanhMucContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnDanhMucContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnDanhMucContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnDanhMucContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnDanhMucContainer.Image")));
+            this.pnDanhMucContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnDanhMucContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnDanhMucContainer.Name = "pnDanhMucContainer";
+            this.pnDanhMucContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnDanhMucContainer.Size = new System.Drawing.Size(163, 40);
+            this.pnDanhMucContainer.TabIndex = 3;
+            this.pnDanhMucContainer.Text = "         Danh mục";
+            this.pnDanhMucContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnDanhMucContainer.TextColor = System.Drawing.Color.Black;
+            this.pnDanhMucContainer.UseVisualStyleBackColor = false;
+            this.pnDanhMucContainer.Click += new System.EventHandler(this.pnDanhMuc_Click);
+            // 
+            // pnLeftBorderDanhMuc
+            // 
+            this.pnLeftBorderDanhMuc.BackColor = System.Drawing.Color.Transparent;
+            this.pnLeftBorderDanhMuc.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnLeftBorderDanhMuc.Location = new System.Drawing.Point(0, 0);
+            this.pnLeftBorderDanhMuc.Name = "pnLeftBorderDanhMuc";
+            this.pnLeftBorderDanhMuc.Size = new System.Drawing.Size(8, 40);
+            this.pnLeftBorderDanhMuc.TabIndex = 0;
             // 
             // panel16
             // 
@@ -153,6 +250,32 @@
             this.panel16.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.panel16.Size = new System.Drawing.Size(171, 50);
             this.panel16.TabIndex = 5;
+            // 
+            // pnSanPhamContainer
+            // 
+            this.pnSanPhamContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnSanPhamContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnSanPhamContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnSanPhamContainer.BorderRadius = 0;
+            this.pnSanPhamContainer.BorderSize = 0;
+            this.pnSanPhamContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnSanPhamContainer.FlatAppearance.BorderSize = 0;
+            this.pnSanPhamContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnSanPhamContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnSanPhamContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnSanPhamContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnSanPhamContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnSanPhamContainer.Image")));
+            this.pnSanPhamContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnSanPhamContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnSanPhamContainer.Name = "pnSanPhamContainer";
+            this.pnSanPhamContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnSanPhamContainer.Size = new System.Drawing.Size(163, 40);
+            this.pnSanPhamContainer.TabIndex = 3;
+            this.pnSanPhamContainer.Text = "         Sản phẩm";
+            this.pnSanPhamContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnSanPhamContainer.TextColor = System.Drawing.Color.Black;
+            this.pnSanPhamContainer.UseVisualStyleBackColor = false;
+            this.pnSanPhamContainer.Click += new System.EventHandler(this.pnSanPhamContainer_Click);
             // 
             // pnLeftBorderSanPham
             // 
@@ -174,6 +297,32 @@
             this.panel13.Size = new System.Drawing.Size(171, 50);
             this.panel13.TabIndex = 4;
             // 
+            // pnKhachHangContainer
+            // 
+            this.pnKhachHangContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnKhachHangContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnKhachHangContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnKhachHangContainer.BorderRadius = 0;
+            this.pnKhachHangContainer.BorderSize = 0;
+            this.pnKhachHangContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnKhachHangContainer.FlatAppearance.BorderSize = 0;
+            this.pnKhachHangContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnKhachHangContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnKhachHangContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnKhachHangContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnKhachHangContainer.Image = global::GUI.Properties.Resources.icons8_customer_32;
+            this.pnKhachHangContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnKhachHangContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnKhachHangContainer.Name = "pnKhachHangContainer";
+            this.pnKhachHangContainer.Padding = new System.Windows.Forms.Padding(3, 0, 10, 0);
+            this.pnKhachHangContainer.Size = new System.Drawing.Size(163, 40);
+            this.pnKhachHangContainer.TabIndex = 2;
+            this.pnKhachHangContainer.Text = "         Khách hàng";
+            this.pnKhachHangContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnKhachHangContainer.TextColor = System.Drawing.Color.Black;
+            this.pnKhachHangContainer.UseVisualStyleBackColor = false;
+            this.pnKhachHangContainer.Click += new System.EventHandler(this.pnKhachHangContainer_Click);
+            // 
             // pnLeftBorderKhachHang
             // 
             this.pnLeftBorderKhachHang.BackColor = System.Drawing.Color.Transparent;
@@ -193,6 +342,32 @@
             this.panel10.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.panel10.Size = new System.Drawing.Size(171, 50);
             this.panel10.TabIndex = 3;
+            // 
+            // pnNhanVienContainer
+            // 
+            this.pnNhanVienContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnNhanVienContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnNhanVienContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnNhanVienContainer.BorderRadius = 0;
+            this.pnNhanVienContainer.BorderSize = 0;
+            this.pnNhanVienContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnNhanVienContainer.FlatAppearance.BorderSize = 0;
+            this.pnNhanVienContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnNhanVienContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnNhanVienContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnNhanVienContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnNhanVienContainer.Image = global::GUI.Properties.Resources.icons8_employee_32;
+            this.pnNhanVienContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnNhanVienContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnNhanVienContainer.Name = "pnNhanVienContainer";
+            this.pnNhanVienContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnNhanVienContainer.Size = new System.Drawing.Size(163, 40);
+            this.pnNhanVienContainer.TabIndex = 2;
+            this.pnNhanVienContainer.Text = "         Nhân viên";
+            this.pnNhanVienContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnNhanVienContainer.TextColor = System.Drawing.Color.Black;
+            this.pnNhanVienContainer.UseVisualStyleBackColor = false;
+            this.pnNhanVienContainer.Click += new System.EventHandler(this.pnNhanVienContainer_Click);
             // 
             // pnLeftBorderNhanVien
             // 
@@ -214,6 +389,32 @@
             this.pnQuanLy.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.pnQuanLy.Size = new System.Drawing.Size(171, 50);
             this.pnQuanLy.TabIndex = 2;
+            // 
+            // pnQuanLyContainer
+            // 
+            this.pnQuanLyContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnQuanLyContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnQuanLyContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnQuanLyContainer.BorderRadius = 0;
+            this.pnQuanLyContainer.BorderSize = 0;
+            this.pnQuanLyContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnQuanLyContainer.FlatAppearance.BorderSize = 0;
+            this.pnQuanLyContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnQuanLyContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnQuanLyContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnQuanLyContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnQuanLyContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnQuanLyContainer.Image")));
+            this.pnQuanLyContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnQuanLyContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnQuanLyContainer.Name = "pnQuanLyContainer";
+            this.pnQuanLyContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnQuanLyContainer.Size = new System.Drawing.Size(163, 40);
+            this.pnQuanLyContainer.TabIndex = 1;
+            this.pnQuanLyContainer.Text = "         Quản lý";
+            this.pnQuanLyContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnQuanLyContainer.TextColor = System.Drawing.Color.Black;
+            this.pnQuanLyContainer.UseVisualStyleBackColor = false;
+            this.pnQuanLyContainer.Click += new System.EventHandler(this.pnQuanLyContainer_Click);
             // 
             // pnLeftBorderQuanLy
             // 
@@ -248,6 +449,31 @@
             this.panel14.Size = new System.Drawing.Size(171, 50);
             this.panel14.TabIndex = 9;
             // 
+            // rjButton6
+            // 
+            this.rjButton6.BackColor = System.Drawing.Color.Transparent;
+            this.rjButton6.BackgroundColor = System.Drawing.Color.Transparent;
+            this.rjButton6.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton6.BorderRadius = 0;
+            this.rjButton6.BorderSize = 0;
+            this.rjButton6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rjButton6.FlatAppearance.BorderSize = 0;
+            this.rjButton6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.rjButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton6.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton6.ForeColor = System.Drawing.Color.Black;
+            this.rjButton6.Image = global::GUI.Properties.Resources.icons8_purchase_order_32;
+            this.rjButton6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rjButton6.Location = new System.Drawing.Point(8, 0);
+            this.rjButton6.Name = "rjButton6";
+            this.rjButton6.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.rjButton6.Size = new System.Drawing.Size(163, 40);
+            this.rjButton6.TabIndex = 3;
+            this.rjButton6.Text = "         Phiếu nhập";
+            this.rjButton6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rjButton6.TextColor = System.Drawing.Color.Black;
+            this.rjButton6.UseVisualStyleBackColor = false;
+            // 
             // panel15
             // 
             this.panel15.BackColor = System.Drawing.Color.Transparent;
@@ -267,6 +493,30 @@
             this.panel4.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.panel4.Size = new System.Drawing.Size(171, 50);
             this.panel4.TabIndex = 8;
+            // 
+            // rjButton5
+            // 
+            this.rjButton5.BackColor = System.Drawing.Color.Transparent;
+            this.rjButton5.BackgroundColor = System.Drawing.Color.Transparent;
+            this.rjButton5.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton5.BorderRadius = 0;
+            this.rjButton5.BorderSize = 0;
+            this.rjButton5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rjButton5.FlatAppearance.BorderSize = 0;
+            this.rjButton5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.rjButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton5.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton5.ForeColor = System.Drawing.Color.Black;
+            this.rjButton5.Image = ((System.Drawing.Image)(resources.GetObject("rjButton5.Image")));
+            this.rjButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rjButton5.Location = new System.Drawing.Point(8, 0);
+            this.rjButton5.Name = "rjButton5";
+            this.rjButton5.Size = new System.Drawing.Size(163, 40);
+            this.rjButton5.TabIndex = 3;
+            this.rjButton5.Text = "         Nhập hàng";
+            this.rjButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rjButton5.TextColor = System.Drawing.Color.Black;
+            this.rjButton5.UseVisualStyleBackColor = false;
             // 
             // panel12
             // 
@@ -288,6 +538,31 @@
             this.panel9.Size = new System.Drawing.Size(171, 50);
             this.panel9.TabIndex = 7;
             // 
+            // rjButton4
+            // 
+            this.rjButton4.BackColor = System.Drawing.Color.Transparent;
+            this.rjButton4.BackgroundColor = System.Drawing.Color.Transparent;
+            this.rjButton4.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton4.BorderRadius = 0;
+            this.rjButton4.BorderSize = 0;
+            this.rjButton4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rjButton4.FlatAppearance.BorderSize = 0;
+            this.rjButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.rjButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton4.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton4.ForeColor = System.Drawing.Color.Black;
+            this.rjButton4.Image = global::GUI.Properties.Resources.icons8_invoice_32;
+            this.rjButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rjButton4.Location = new System.Drawing.Point(8, 0);
+            this.rjButton4.Name = "rjButton4";
+            this.rjButton4.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.rjButton4.Size = new System.Drawing.Size(163, 40);
+            this.rjButton4.TabIndex = 3;
+            this.rjButton4.Text = "         Hóa đơn";
+            this.rjButton4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rjButton4.TextColor = System.Drawing.Color.Black;
+            this.rjButton4.UseVisualStyleBackColor = false;
+            // 
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.Transparent;
@@ -308,6 +583,32 @@
             this.panel7.Size = new System.Drawing.Size(171, 50);
             this.panel7.TabIndex = 6;
             // 
+            // pnBanHangContainer
+            // 
+            this.pnBanHangContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnBanHangContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnBanHangContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnBanHangContainer.BorderRadius = 0;
+            this.pnBanHangContainer.BorderSize = 0;
+            this.pnBanHangContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnBanHangContainer.FlatAppearance.BorderSize = 0;
+            this.pnBanHangContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnBanHangContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnBanHangContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnBanHangContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnBanHangContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnBanHangContainer.Image")));
+            this.pnBanHangContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnBanHangContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnBanHangContainer.Name = "pnBanHangContainer";
+            this.pnBanHangContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnBanHangContainer.Size = new System.Drawing.Size(163, 40);
+            this.pnBanHangContainer.TabIndex = 3;
+            this.pnBanHangContainer.Text = "         Bán hàng";
+            this.pnBanHangContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnBanHangContainer.TextColor = System.Drawing.Color.Black;
+            this.pnBanHangContainer.UseVisualStyleBackColor = false;
+            this.pnBanHangContainer.Click += new System.EventHandler(this.pnBanHangContainer_Click);
+            // 
             // pnLeftBorderBanHang
             // 
             this.pnLeftBorderBanHang.BackColor = System.Drawing.Color.Transparent;
@@ -327,6 +628,32 @@
             this.pnHangHoa.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.pnHangHoa.Size = new System.Drawing.Size(171, 50);
             this.pnHangHoa.TabIndex = 1;
+            // 
+            // pnHangHoaContainer
+            // 
+            this.pnHangHoaContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnHangHoaContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnHangHoaContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnHangHoaContainer.BorderRadius = 0;
+            this.pnHangHoaContainer.BorderSize = 0;
+            this.pnHangHoaContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnHangHoaContainer.FlatAppearance.BorderSize = 0;
+            this.pnHangHoaContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnHangHoaContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnHangHoaContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnHangHoaContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnHangHoaContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnHangHoaContainer.Image")));
+            this.pnHangHoaContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnHangHoaContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnHangHoaContainer.Name = "pnHangHoaContainer";
+            this.pnHangHoaContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnHangHoaContainer.Size = new System.Drawing.Size(163, 40);
+            this.pnHangHoaContainer.TabIndex = 2;
+            this.pnHangHoaContainer.Text = "         Hàng hóa";
+            this.pnHangHoaContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnHangHoaContainer.TextColor = System.Drawing.Color.Black;
+            this.pnHangHoaContainer.UseVisualStyleBackColor = false;
+            this.pnHangHoaContainer.Click += new System.EventHandler(this.pnHangHoaContainer_Click);
             // 
             // pnLeftBorderHangHoa
             // 
@@ -356,6 +683,30 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(186, 41);
             this.panel6.TabIndex = 5;
+            // 
+            // rjButton2
+            // 
+            this.rjButton2.BackColor = System.Drawing.Color.Transparent;
+            this.rjButton2.BackgroundColor = System.Drawing.Color.Transparent;
+            this.rjButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton2.BorderRadius = 0;
+            this.rjButton2.BorderSize = 0;
+            this.rjButton2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.rjButton2.FlatAppearance.BorderSize = 0;
+            this.rjButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton2.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton2.ForeColor = System.Drawing.Color.Black;
+            this.rjButton2.Image = global::GUI.Properties.Resources.icons8_logout_32;
+            this.rjButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rjButton2.Location = new System.Drawing.Point(0, 46);
+            this.rjButton2.Name = "rjButton2";
+            this.rjButton2.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.rjButton2.Size = new System.Drawing.Size(186, 43);
+            this.rjButton2.TabIndex = 4;
+            this.rjButton2.Text = "Đăng xuất";
+            this.rjButton2.TextColor = System.Drawing.Color.Black;
+            this.rjButton2.UseVisualStyleBackColor = false;
             // 
             // pnImage
             // 
@@ -391,6 +742,28 @@
             this.pnHeader.Size = new System.Drawing.Size(1498, 35);
             this.pnHeader.TabIndex = 3;
             // 
+            // btnMinimize
+            // 
+            this.btnMinimize.BackColor = System.Drawing.Color.Transparent;
+            this.btnMinimize.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnMinimize.BorderColor = System.Drawing.Color.Transparent;
+            this.btnMinimize.BorderRadius = 0;
+            this.btnMinimize.BorderSize = 0;
+            this.btnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnMinimize.FlatAppearance.BorderSize = 0;
+            this.btnMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimize.ForeColor = System.Drawing.Color.White;
+            this.btnMinimize.Image = global::GUI.Properties.Resources.icons8_minimize_32__1_;
+            this.btnMinimize.Location = new System.Drawing.Point(1357, 0);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(43, 35);
+            this.btnMinimize.TabIndex = 2;
+            this.btnMinimize.TextColor = System.Drawing.Color.White;
+            this.btnMinimize.UseVisualStyleBackColor = false;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            // 
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
@@ -399,6 +772,28 @@
             this.panel2.Size = new System.Drawing.Size(6, 35);
             this.panel2.TabIndex = 4;
             // 
+            // btnMaximize
+            // 
+            this.btnMaximize.BackColor = System.Drawing.Color.Transparent;
+            this.btnMaximize.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnMaximize.BorderColor = System.Drawing.Color.Transparent;
+            this.btnMaximize.BorderRadius = 0;
+            this.btnMaximize.BorderSize = 0;
+            this.btnMaximize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnMaximize.FlatAppearance.BorderSize = 0;
+            this.btnMaximize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaximize.ForeColor = System.Drawing.Color.White;
+            this.btnMaximize.Image = global::GUI.Properties.Resources.icons8_toggle_full_screen_32;
+            this.btnMaximize.Location = new System.Drawing.Point(1406, 0);
+            this.btnMaximize.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMaximize.Name = "btnMaximize";
+            this.btnMaximize.Size = new System.Drawing.Size(43, 35);
+            this.btnMaximize.TabIndex = 5;
+            this.btnMaximize.TextColor = System.Drawing.Color.White;
+            this.btnMaximize.UseVisualStyleBackColor = false;
+            this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
+            // 
             // panel1
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
@@ -406,6 +801,28 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(6, 35);
             this.panel1.TabIndex = 3;
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnClose.BorderColor = System.Drawing.Color.Transparent;
+            this.btnClose.BorderRadius = 0;
+            this.btnClose.BorderSize = 0;
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Image = global::GUI.Properties.Resources.icons8_close_32;
+            this.btnClose.Location = new System.Drawing.Point(1455, 0);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(43, 35);
+            this.btnClose.TabIndex = 1;
+            this.btnClose.TextColor = System.Drawing.Color.White;
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // pnForm
             // 
@@ -431,417 +848,50 @@
             this.panel3.Size = new System.Drawing.Size(1500, 800);
             this.panel3.TabIndex = 0;
             // 
-            // panel5
+            // panel8
             // 
-            this.panel5.Controls.Add(this.pnDanhMucContainer);
-            this.panel5.Controls.Add(this.pnLeftBorderDanhMuc);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 150);
-            this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel5.Size = new System.Drawing.Size(171, 50);
-            this.panel5.TabIndex = 6;
+            this.panel8.Controls.Add(this.rjButton1);
+            this.panel8.Controls.Add(this.panel18);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(0, 250);
+            this.panel8.Name = "panel8";
+            this.panel8.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.panel8.Size = new System.Drawing.Size(171, 50);
+            this.panel8.TabIndex = 8;
             // 
-            // pnLeftBorderDanhMuc
+            // rjButton1
             // 
-            this.pnLeftBorderDanhMuc.BackColor = System.Drawing.Color.Transparent;
-            this.pnLeftBorderDanhMuc.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnLeftBorderDanhMuc.Location = new System.Drawing.Point(0, 0);
-            this.pnLeftBorderDanhMuc.Name = "pnLeftBorderDanhMuc";
-            this.pnLeftBorderDanhMuc.Size = new System.Drawing.Size(8, 40);
-            this.pnLeftBorderDanhMuc.TabIndex = 0;
+            this.rjButton1.BackColor = System.Drawing.Color.Transparent;
+            this.rjButton1.BackgroundColor = System.Drawing.Color.Transparent;
+            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton1.BorderRadius = 0;
+            this.rjButton1.BorderSize = 0;
+            this.rjButton1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rjButton1.FlatAppearance.BorderSize = 0;
+            this.rjButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton1.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton1.ForeColor = System.Drawing.Color.Black;
+            this.rjButton1.Image = ((System.Drawing.Image)(resources.GetObject("rjButton1.Image")));
+            this.rjButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rjButton1.Location = new System.Drawing.Point(8, 0);
+            this.rjButton1.Name = "rjButton1";
+            this.rjButton1.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.rjButton1.Size = new System.Drawing.Size(163, 40);
+            this.rjButton1.TabIndex = 3;
+            this.rjButton1.Text = "         Khuyến mãi";
+            this.rjButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rjButton1.TextColor = System.Drawing.Color.Black;
+            this.rjButton1.UseVisualStyleBackColor = false;
             // 
-            // panel17
+            // panel18
             // 
-            this.panel17.Controls.Add(this.pnNhaSanXuatContainer);
-            this.panel17.Controls.Add(this.pnLeftBorderNSX);
-            this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel17.Location = new System.Drawing.Point(0, 200);
-            this.panel17.Name = "panel17";
-            this.panel17.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel17.Size = new System.Drawing.Size(171, 50);
-            this.panel17.TabIndex = 7;
-            // 
-            // pnLeftBorderNSX
-            // 
-            this.pnLeftBorderNSX.BackColor = System.Drawing.Color.Transparent;
-            this.pnLeftBorderNSX.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnLeftBorderNSX.Location = new System.Drawing.Point(0, 0);
-            this.pnLeftBorderNSX.Name = "pnLeftBorderNSX";
-            this.pnLeftBorderNSX.Size = new System.Drawing.Size(8, 40);
-            this.pnLeftBorderNSX.TabIndex = 0;
-            // 
-            // pnNhaSanXuatContainer
-            // 
-            this.pnNhaSanXuatContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnNhaSanXuatContainer.BackgroundColor = System.Drawing.Color.Transparent;
-            this.pnNhaSanXuatContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.pnNhaSanXuatContainer.BorderRadius = 0;
-            this.pnNhaSanXuatContainer.BorderSize = 0;
-            this.pnNhaSanXuatContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnNhaSanXuatContainer.FlatAppearance.BorderSize = 0;
-            this.pnNhaSanXuatContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.pnNhaSanXuatContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pnNhaSanXuatContainer.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnNhaSanXuatContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnNhaSanXuatContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnNhaSanXuatContainer.Image")));
-            this.pnNhaSanXuatContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnNhaSanXuatContainer.Location = new System.Drawing.Point(8, 0);
-            this.pnNhaSanXuatContainer.Name = "pnNhaSanXuatContainer";
-            this.pnNhaSanXuatContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnNhaSanXuatContainer.Size = new System.Drawing.Size(163, 40);
-            this.pnNhaSanXuatContainer.TabIndex = 3;
-            this.pnNhaSanXuatContainer.Text = "         Nhà sản xuất";
-            this.pnNhaSanXuatContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnNhaSanXuatContainer.TextColor = System.Drawing.Color.Black;
-            this.pnNhaSanXuatContainer.UseVisualStyleBackColor = false;
-            this.pnNhaSanXuatContainer.Click += new System.EventHandler(this.pnNhaSanXuat_Click);
-            // 
-            // pnDanhMucContainer
-            // 
-            this.pnDanhMucContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnDanhMucContainer.BackgroundColor = System.Drawing.Color.Transparent;
-            this.pnDanhMucContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.pnDanhMucContainer.BorderRadius = 0;
-            this.pnDanhMucContainer.BorderSize = 0;
-            this.pnDanhMucContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnDanhMucContainer.FlatAppearance.BorderSize = 0;
-            this.pnDanhMucContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.pnDanhMucContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pnDanhMucContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnDanhMucContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnDanhMucContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnDanhMucContainer.Image")));
-            this.pnDanhMucContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnDanhMucContainer.Location = new System.Drawing.Point(8, 0);
-            this.pnDanhMucContainer.Name = "pnDanhMucContainer";
-            this.pnDanhMucContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnDanhMucContainer.Size = new System.Drawing.Size(163, 40);
-            this.pnDanhMucContainer.TabIndex = 3;
-            this.pnDanhMucContainer.Text = "         Danh mục";
-            this.pnDanhMucContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnDanhMucContainer.TextColor = System.Drawing.Color.Black;
-            this.pnDanhMucContainer.UseVisualStyleBackColor = false;
-            this.pnDanhMucContainer.Click += new System.EventHandler(this.pnDanhMuc_Click);
-            // 
-            // pnSanPhamContainer
-            // 
-            this.pnSanPhamContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnSanPhamContainer.BackgroundColor = System.Drawing.Color.Transparent;
-            this.pnSanPhamContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.pnSanPhamContainer.BorderRadius = 0;
-            this.pnSanPhamContainer.BorderSize = 0;
-            this.pnSanPhamContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnSanPhamContainer.FlatAppearance.BorderSize = 0;
-            this.pnSanPhamContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.pnSanPhamContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pnSanPhamContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnSanPhamContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnSanPhamContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnSanPhamContainer.Image")));
-            this.pnSanPhamContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnSanPhamContainer.Location = new System.Drawing.Point(8, 0);
-            this.pnSanPhamContainer.Name = "pnSanPhamContainer";
-            this.pnSanPhamContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnSanPhamContainer.Size = new System.Drawing.Size(163, 40);
-            this.pnSanPhamContainer.TabIndex = 3;
-            this.pnSanPhamContainer.Text = "         Sản phẩm";
-            this.pnSanPhamContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnSanPhamContainer.TextColor = System.Drawing.Color.Black;
-            this.pnSanPhamContainer.UseVisualStyleBackColor = false;
-            this.pnSanPhamContainer.Click += new System.EventHandler(this.pnSanPhamContainer_Click);
-            // 
-            // pnKhachHangContainer
-            // 
-            this.pnKhachHangContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnKhachHangContainer.BackgroundColor = System.Drawing.Color.Transparent;
-            this.pnKhachHangContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.pnKhachHangContainer.BorderRadius = 0;
-            this.pnKhachHangContainer.BorderSize = 0;
-            this.pnKhachHangContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnKhachHangContainer.FlatAppearance.BorderSize = 0;
-            this.pnKhachHangContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.pnKhachHangContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pnKhachHangContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnKhachHangContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnKhachHangContainer.Image = global::GUI.Properties.Resources.icons8_customer_32;
-            this.pnKhachHangContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnKhachHangContainer.Location = new System.Drawing.Point(8, 0);
-            this.pnKhachHangContainer.Name = "pnKhachHangContainer";
-            this.pnKhachHangContainer.Padding = new System.Windows.Forms.Padding(3, 0, 10, 0);
-            this.pnKhachHangContainer.Size = new System.Drawing.Size(163, 40);
-            this.pnKhachHangContainer.TabIndex = 2;
-            this.pnKhachHangContainer.Text = "         Khách hàng";
-            this.pnKhachHangContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnKhachHangContainer.TextColor = System.Drawing.Color.Black;
-            this.pnKhachHangContainer.UseVisualStyleBackColor = false;
-            this.pnKhachHangContainer.Click += new System.EventHandler(this.pnKhachHangContainer_Click);
-            // 
-            // pnNhanVienContainer
-            // 
-            this.pnNhanVienContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnNhanVienContainer.BackgroundColor = System.Drawing.Color.Transparent;
-            this.pnNhanVienContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.pnNhanVienContainer.BorderRadius = 0;
-            this.pnNhanVienContainer.BorderSize = 0;
-            this.pnNhanVienContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnNhanVienContainer.FlatAppearance.BorderSize = 0;
-            this.pnNhanVienContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.pnNhanVienContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pnNhanVienContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnNhanVienContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnNhanVienContainer.Image = global::GUI.Properties.Resources.icons8_employee_32;
-            this.pnNhanVienContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnNhanVienContainer.Location = new System.Drawing.Point(8, 0);
-            this.pnNhanVienContainer.Name = "pnNhanVienContainer";
-            this.pnNhanVienContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnNhanVienContainer.Size = new System.Drawing.Size(163, 40);
-            this.pnNhanVienContainer.TabIndex = 2;
-            this.pnNhanVienContainer.Text = "         Nhân viên";
-            this.pnNhanVienContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnNhanVienContainer.TextColor = System.Drawing.Color.Black;
-            this.pnNhanVienContainer.UseVisualStyleBackColor = false;
-            this.pnNhanVienContainer.Click += new System.EventHandler(this.pnNhanVienContainer_Click);
-            // 
-            // pnQuanLyContainer
-            // 
-            this.pnQuanLyContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnQuanLyContainer.BackgroundColor = System.Drawing.Color.Transparent;
-            this.pnQuanLyContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.pnQuanLyContainer.BorderRadius = 0;
-            this.pnQuanLyContainer.BorderSize = 0;
-            this.pnQuanLyContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnQuanLyContainer.FlatAppearance.BorderSize = 0;
-            this.pnQuanLyContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.pnQuanLyContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pnQuanLyContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnQuanLyContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnQuanLyContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnQuanLyContainer.Image")));
-            this.pnQuanLyContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnQuanLyContainer.Location = new System.Drawing.Point(8, 0);
-            this.pnQuanLyContainer.Name = "pnQuanLyContainer";
-            this.pnQuanLyContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnQuanLyContainer.Size = new System.Drawing.Size(163, 40);
-            this.pnQuanLyContainer.TabIndex = 1;
-            this.pnQuanLyContainer.Text = "         Quản lý";
-            this.pnQuanLyContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnQuanLyContainer.TextColor = System.Drawing.Color.Black;
-            this.pnQuanLyContainer.UseVisualStyleBackColor = false;
-            this.pnQuanLyContainer.Click += new System.EventHandler(this.pnQuanLyContainer_Click);
-            // 
-            // rjButton6
-            // 
-            this.rjButton6.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton6.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton6.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton6.BorderRadius = 0;
-            this.rjButton6.BorderSize = 0;
-            this.rjButton6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rjButton6.FlatAppearance.BorderSize = 0;
-            this.rjButton6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.rjButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton6.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton6.ForeColor = System.Drawing.Color.Black;
-            this.rjButton6.Image = global::GUI.Properties.Resources.icons8_purchase_order_32;
-            this.rjButton6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton6.Location = new System.Drawing.Point(8, 0);
-            this.rjButton6.Name = "rjButton6";
-            this.rjButton6.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rjButton6.Size = new System.Drawing.Size(163, 40);
-            this.rjButton6.TabIndex = 3;
-            this.rjButton6.Text = "         Phiếu nhập";
-            this.rjButton6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton6.TextColor = System.Drawing.Color.Black;
-            this.rjButton6.UseVisualStyleBackColor = false;
-            // 
-            // rjButton5
-            // 
-            this.rjButton5.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton5.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton5.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton5.BorderRadius = 0;
-            this.rjButton5.BorderSize = 0;
-            this.rjButton5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rjButton5.FlatAppearance.BorderSize = 0;
-            this.rjButton5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.rjButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton5.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton5.ForeColor = System.Drawing.Color.Black;
-            this.rjButton5.Image = ((System.Drawing.Image)(resources.GetObject("rjButton5.Image")));
-            this.rjButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton5.Location = new System.Drawing.Point(8, 0);
-            this.rjButton5.Name = "rjButton5";
-            this.rjButton5.Size = new System.Drawing.Size(163, 40);
-            this.rjButton5.TabIndex = 3;
-            this.rjButton5.Text = "         Nhập hàng";
-            this.rjButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton5.TextColor = System.Drawing.Color.Black;
-            this.rjButton5.UseVisualStyleBackColor = false;
-            // 
-            // rjButton4
-            // 
-            this.rjButton4.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton4.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton4.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton4.BorderRadius = 0;
-            this.rjButton4.BorderSize = 0;
-            this.rjButton4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rjButton4.FlatAppearance.BorderSize = 0;
-            this.rjButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.rjButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton4.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton4.ForeColor = System.Drawing.Color.Black;
-            this.rjButton4.Image = global::GUI.Properties.Resources.icons8_invoice_32;
-            this.rjButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton4.Location = new System.Drawing.Point(8, 0);
-            this.rjButton4.Name = "rjButton4";
-            this.rjButton4.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rjButton4.Size = new System.Drawing.Size(163, 40);
-            this.rjButton4.TabIndex = 3;
-            this.rjButton4.Text = "         Hóa đơn";
-            this.rjButton4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton4.TextColor = System.Drawing.Color.Black;
-            this.rjButton4.UseVisualStyleBackColor = false;
-            // 
-            // pnBanHangContainer
-            // 
-            this.pnBanHangContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnBanHangContainer.BackgroundColor = System.Drawing.Color.Transparent;
-            this.pnBanHangContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.pnBanHangContainer.BorderRadius = 0;
-            this.pnBanHangContainer.BorderSize = 0;
-            this.pnBanHangContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnBanHangContainer.FlatAppearance.BorderSize = 0;
-            this.pnBanHangContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.pnBanHangContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pnBanHangContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnBanHangContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnBanHangContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnBanHangContainer.Image")));
-            this.pnBanHangContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnBanHangContainer.Location = new System.Drawing.Point(8, 0);
-            this.pnBanHangContainer.Name = "pnBanHangContainer";
-            this.pnBanHangContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnBanHangContainer.Size = new System.Drawing.Size(163, 40);
-            this.pnBanHangContainer.TabIndex = 3;
-            this.pnBanHangContainer.Text = "         Bán hàng";
-            this.pnBanHangContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnBanHangContainer.TextColor = System.Drawing.Color.Black;
-            this.pnBanHangContainer.UseVisualStyleBackColor = false;
-            this.pnBanHangContainer.Click += new System.EventHandler(this.pnBanHangContainer_Click);
-            // 
-            // pnHangHoaContainer
-            // 
-            this.pnHangHoaContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnHangHoaContainer.BackgroundColor = System.Drawing.Color.Transparent;
-            this.pnHangHoaContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.pnHangHoaContainer.BorderRadius = 0;
-            this.pnHangHoaContainer.BorderSize = 0;
-            this.pnHangHoaContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnHangHoaContainer.FlatAppearance.BorderSize = 0;
-            this.pnHangHoaContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.pnHangHoaContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pnHangHoaContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnHangHoaContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnHangHoaContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnHangHoaContainer.Image")));
-            this.pnHangHoaContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnHangHoaContainer.Location = new System.Drawing.Point(8, 0);
-            this.pnHangHoaContainer.Name = "pnHangHoaContainer";
-            this.pnHangHoaContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnHangHoaContainer.Size = new System.Drawing.Size(163, 40);
-            this.pnHangHoaContainer.TabIndex = 2;
-            this.pnHangHoaContainer.Text = "         Hàng hóa";
-            this.pnHangHoaContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnHangHoaContainer.TextColor = System.Drawing.Color.Black;
-            this.pnHangHoaContainer.UseVisualStyleBackColor = false;
-            this.pnHangHoaContainer.Click += new System.EventHandler(this.pnHangHoaContainer_Click);
-            // 
-            // rjButton2
-            // 
-            this.rjButton2.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton2.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton2.BorderRadius = 0;
-            this.rjButton2.BorderSize = 0;
-            this.rjButton2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.rjButton2.FlatAppearance.BorderSize = 0;
-            this.rjButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton2.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton2.ForeColor = System.Drawing.Color.Black;
-            this.rjButton2.Image = global::GUI.Properties.Resources.icons8_logout_32;
-            this.rjButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton2.Location = new System.Drawing.Point(0, 46);
-            this.rjButton2.Name = "rjButton2";
-            this.rjButton2.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rjButton2.Size = new System.Drawing.Size(186, 43);
-            this.rjButton2.TabIndex = 4;
-            this.rjButton2.Text = "Đăng xuất";
-            this.rjButton2.TextColor = System.Drawing.Color.Black;
-            this.rjButton2.UseVisualStyleBackColor = false;
-            // 
-            // btnMinimize
-            // 
-            this.btnMinimize.BackColor = System.Drawing.Color.Transparent;
-            this.btnMinimize.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnMinimize.BorderColor = System.Drawing.Color.Transparent;
-            this.btnMinimize.BorderRadius = 0;
-            this.btnMinimize.BorderSize = 0;
-            this.btnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnMinimize.FlatAppearance.BorderSize = 0;
-            this.btnMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimize.ForeColor = System.Drawing.Color.White;
-            this.btnMinimize.Image = global::GUI.Properties.Resources.icons8_minimize_32__1_;
-            this.btnMinimize.Location = new System.Drawing.Point(1357, 0);
-            this.btnMinimize.Margin = new System.Windows.Forms.Padding(2);
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(43, 35);
-            this.btnMinimize.TabIndex = 2;
-            this.btnMinimize.TextColor = System.Drawing.Color.White;
-            this.btnMinimize.UseVisualStyleBackColor = false;
-            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
-            // 
-            // btnMaximize
-            // 
-            this.btnMaximize.BackColor = System.Drawing.Color.Transparent;
-            this.btnMaximize.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnMaximize.BorderColor = System.Drawing.Color.Transparent;
-            this.btnMaximize.BorderRadius = 0;
-            this.btnMaximize.BorderSize = 0;
-            this.btnMaximize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnMaximize.FlatAppearance.BorderSize = 0;
-            this.btnMaximize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaximize.ForeColor = System.Drawing.Color.White;
-            this.btnMaximize.Image = global::GUI.Properties.Resources.icons8_toggle_full_screen_32;
-            this.btnMaximize.Location = new System.Drawing.Point(1406, 0);
-            this.btnMaximize.Margin = new System.Windows.Forms.Padding(2);
-            this.btnMaximize.Name = "btnMaximize";
-            this.btnMaximize.Size = new System.Drawing.Size(43, 35);
-            this.btnMaximize.TabIndex = 5;
-            this.btnMaximize.TextColor = System.Drawing.Color.White;
-            this.btnMaximize.UseVisualStyleBackColor = false;
-            this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.Transparent;
-            this.btnClose.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnClose.BorderColor = System.Drawing.Color.Transparent;
-            this.btnClose.BorderRadius = 0;
-            this.btnClose.BorderSize = 0;
-            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Image = global::GUI.Properties.Resources.icons8_close_32;
-            this.btnClose.Location = new System.Drawing.Point(1455, 0);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(43, 35);
-            this.btnClose.TabIndex = 1;
-            this.btnClose.TextColor = System.Drawing.Color.White;
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.panel18.BackColor = System.Drawing.Color.Transparent;
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel18.Location = new System.Drawing.Point(0, 0);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(8, 40);
+            this.panel18.TabIndex = 0;
             // 
             // GiaoDienGUI
             // 
@@ -861,6 +911,8 @@
             this.pnMainMenu.ResumeLayout(false);
             this.pnMainMenu.PerformLayout();
             this.pnSubQuanLy.ResumeLayout(false);
+            this.panel17.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
@@ -876,8 +928,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnHeader.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel17.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -933,5 +984,8 @@
         private System.Windows.Forms.Panel panel17;
         private MyCustom.RJButton pnNhaSanXuatContainer;
         private System.Windows.Forms.Panel pnLeftBorderNSX;
+        private System.Windows.Forms.Panel panel8;
+        private MyCustom.RJButton rjButton1;
+        private System.Windows.Forms.Panel panel18;
     }
 }
