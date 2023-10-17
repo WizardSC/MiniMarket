@@ -24,6 +24,11 @@ namespace BLL
             {
                 return kmDAL.getListKhuyenMai();
             }
-        
+
+            public DataTable getThongTinSPKM()
+            {
+                return kmDAL.getThongTinKM();
+            }
+
     }
 }

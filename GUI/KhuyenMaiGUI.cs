@@ -16,6 +16,7 @@ namespace GUI
     {
         private KhuyenMaiBLL kmBLL;
         private ChiTietKhuyenMaiGUI CTKhuyenMai;
+        private ThongTinSPKMGUI ThongTinSPKM;
         private DataTable dt;
 
         public KhuyenMaiGUI()
@@ -23,6 +24,7 @@ namespace GUI
             InitializeComponent();
             kmBLL = new KhuyenMaiBLL();
             CTKhuyenMai = new ChiTietKhuyenMaiGUI();
+            ThongTinSPKM = new ThongTinSPKMGUI();
             dt = kmBLL.getListDsKm();
             loadMaKM();
         }
@@ -91,6 +93,7 @@ namespace GUI
         private void btnXem_Click(object sender, EventArgs e)
         {
             CTKhuyenMai.ShowDialog();
+            
         }
 
         private void cbxTrangThai_OnSelectedIndexChanged(object sender, EventArgs e)
@@ -109,6 +112,11 @@ namespace GUI
             txtPhanTramKM.Texts = "";
             cbxTrangThai.SelectedIndex = 0;
             btnThongTinKM.Visible = false;
+        }
+
+        private void btnThongTinKM_Click(object sender, EventArgs e)
+        {
+            ThongTinSPKM.ShowDialog();
         }
     }
 }
