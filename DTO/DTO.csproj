@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChiTietKhuyenMaiDTO.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="KhachHangDTO.cs" />
     <Compile Include="KhuyenMaiDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
