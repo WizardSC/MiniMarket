@@ -117,65 +117,78 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="icons8-toggle-full-screen-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-toggle-full-screen-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnThem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EQAACxEBf2RfkQAAAIBJREFUSEvtlVEKgCAQBf0p6MBFRXSPLtZ16g24XwpCblDUwMAi6WNjxfApOrnK
+        JdbuzPKIjix4s0kLoHbnDyjy/IBWDpLNOXdpAdS5b7CXjUyYpB1QK2cl3B5AW7SXaxurf1EJNlsAtTt/
+        QJH3BzB+FkDtDrPNBeI1uzTnbySEE3Tva3Yb3inbAAAAAElFTkSuQmCC
+</value>
   </data>
-  <data name="icons8-search-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-search-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnSua.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EQAACxEBf2RfkQAAAVdJREFUSEvtlDlKBEEUQCtVAw3U0IN4BAMPYGSoJxA08QZuiZF7rKdwD0RBMDBV
+        0MAFBA3c3uuuAm16oHpmwnnw6F/Vv6q6aws9usUYnuFz9DzWdUx/fM7iD65HjWdQ+uKzMZP4iVf4hoeY
+        OEHrfGeOuY0YxSe8wX1cw2FMjKB1vjPHXOuyWcBvHC9K5TSs4D3e4XKsE3PMnS9KmezhF04UpRBW0anY
+        iBo7oJhj7m5RymQAL/CoKIXwiHac2MKHMgzHaK5tsqkbYLMMCzoeoDpFTofT4iBq7DpImiLbZOOCVRd5
+        CV1gNa4ushsjG7dc2qYH6Jb8uw073qaSDtoleqjSekg6aL4zp/FBS6Rp6NpVcY1TZfgPL7ZTTJedcd1l
+        N423ZViPX7ZYhm1hW/toySt6atvFhX8pw3o87u/ovp9rqG0+cBtbMoQ76J/4q030y+18EHvkEsIv7G52
+        7AEVzdYAAAAASUVORK5CYII=
+</value>
   </data>
-  <data name="icons8-logout-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-logout-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnXoa.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EQAACxEBf2RfkQAAARdJREFUSEvllMHNQUEUhWdjQxNUQAVUQAX+KIAK2FhSARVQAQX46UAF7BTARsI5
+        d0gmN+PdebPkS77kneTeO7w3M+5nmMKHcgZLo4fk+pFYcY6FHCGLmpLSYC172GuyhSzuSkqjB9mzkWSw
+        hCweSvIw0zc6jyDzQpLBBLI43CV6oM5zyDyWZPAHWbyS5NEDdV5D5r4kgw5k8V6SRw/U+QCZ25IMGpDF
+        J0kePVDnM2SuSzKowPtLPpOiBWL1JvoXFS0Q+8cm+p2GA0mYY9/MRO+KcCAJc2zXmeh9HQ4kYY6dGxOe
+        YjbxVJN/qBfY+cfoyTcpc7fk3F2uBdmUcjvm3L6uBm+QjSleYRWWYgAvMDYwlDXcSV+Jc0/7T6b59AnH
+        lwAAAABJRU5ErkJggg==
+</value>
   </data>
-  <data name="placeholder-image" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\placeholder-image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnReset.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EQAACxEBf2RfkQAAAVxJREFUSEvllVsuBkEQRicEDy4rwAKwANeI2IHEGkTEPVYhLMNiCHGLFbhsAS+c
+        02YeDNPTOiaR+JKTf3q6u6q6prr+4l+oF+ZhD45LDmAOnMvWAOzAE7w18ADb0A9qpfxt1ThcgkauYAsm
+        YLDE5024A9ecwga8Qqs0/gjPsAY90CTndO7a6lRRmRYjd8OiLxJkWow8yYE5d5GRp6huPOrAivCDmvNY
+        WrK1AEbgx+tE+6ADK6QTHYEOhsMoXyew+vH4WZWDoTDK0who4zCMavqNFE2BNmwrX2RvcdKrnysNa2M6
+        jGqyNL3B15DTxNxzC/anxjL32hvBehj9TJa3e+1JjbIrXoCtYskXiVqGFziDPl/ENAYe0w1GE0uXc0bu
+        2nsYhSTp5Bw88g3YoybBEharZRfMuWuMPNl4JdNldH54jXyHJ/WUrWmJyYqYBSP279IL6fMMdNIU/5KK
+        4h1goVgUTK+xxQAAAABJRU5ErkJggg==
+</value>
   </data>
-  <data name="icons8-employee-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-employee-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-minimize-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-minimize-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-product-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-product-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-filter-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-filter-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-update-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-update-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-customer-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-customer-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="calendarDark" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\calendarDark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-minimize-32 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-minimize-32 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-close-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-close-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-invoice-321" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-invoice-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="calendarWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\calendarWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-horizontal-line-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-horizontal-line-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-upload-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-upload-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-purchase-order-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-purchase-order-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-invoice-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-invoice-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-add-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\image\icons8-add-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
+  <metadata name="MaNV.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Ho.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Ten.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="NgaySinh.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="GioiTinh.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="SdtNV.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="DiaChiNV.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="TrangThaiNV.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="HinhAnhNV.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="ChucVu.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>
