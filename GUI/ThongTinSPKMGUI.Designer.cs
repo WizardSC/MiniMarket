@@ -88,7 +88,7 @@
             this.dgvThongTinSPKM.RowTemplate.Height = 30;
             this.dgvThongTinSPKM.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvThongTinSPKM.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvThongTinSPKM.Size = new System.Drawing.Size(911, 59);
+            this.dgvThongTinSPKM.Size = new System.Drawing.Size(911, 128);
             this.dgvThongTinSPKM.TabIndex = 2;
             // 
             // MaKM
@@ -172,7 +172,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 66);
+            this.ClientSize = new System.Drawing.Size(915, 130);
             this.Controls.Add(this.dgvThongTinSPKM);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
@@ -180,7 +180,6 @@
             this.Name = "ThongTinSPKMGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thông tin chi tiết sản phẩm khuyến mãi";
-            this.Load += new System.EventHandler(this.ThongTinSPKMGUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvThongTinSPKM)).EndInit();
             this.ResumeLayout(false);
 

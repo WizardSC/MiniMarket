@@ -25,10 +25,13 @@ namespace BLL
                 return kmDAL.getListKhuyenMai();
             }
 
-            public DataTable getThongTinSPKM()
+            public DataTable getThongTinSPKM(string MaKM)
             {
-                return kmDAL.getThongTinKM();
+                return kmDAL.getThongTinKM(MaKM);
             }
-
+        public bool insertKhuyenMai(KhuyenMaiDTO KM_DTO)
+        {
+            return kmDAL.insert_KhuyenMai(KM_DTO);
+        }
     }
 }

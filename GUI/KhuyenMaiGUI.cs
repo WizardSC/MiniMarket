@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DTO;
 using GUI.MyCustom;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GUI
 {
@@ -21,12 +23,14 @@ namespace GUI
 
         public KhuyenMaiGUI()
         {
+            
             InitializeComponent();
+            btnThongTinKM.Visible = false;
             kmBLL = new KhuyenMaiBLL();
             CTKhuyenMai = new ChiTietKhuyenMaiGUI();
-            ThongTinSPKM = new ThongTinSPKMGUI();
             dt = kmBLL.getListDsKm();
             loadMaKM();
+            
         }
 
         private void loadMaKM()
@@ -51,13 +55,13 @@ namespace GUI
             }
         }
 
+       
         private void dgvKhuyenMai_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int i = dgvKhuyenMai.CurrentRow.Index;
+            txtMaKM.Texts = dgvKhuyenMai.Rows[i].Cells[0].Value.ToString();
             DateTime NgayBd = DateTime.Parse(dgvKhuyenMai.Rows[i].Cells[2].Value.ToString());
             DateTime NgayKt = DateTime.Parse(dgvKhuyenMai.Rows[i].Cells[3].Value.ToString());
-
-            txtMaKM.Texts = dgvKhuyenMai.Rows[i].Cells[0].Value.ToString();
             txtTenKm.Texts = dgvKhuyenMai.Rows[i].Cells[1].Value.ToString();
             dtpNgayBD.Value = NgayBd;
             dtpNgayKT.Value = NgayKt;
@@ -83,23 +87,25 @@ namespace GUI
             }
   
         }
-
-        private void KhuyenMaiGUI_Load(object sender, EventArgs e)
+        //load DataTable
+        public void init()
         {
             dgvKhuyenMai.DataSource = kmBLL.getListDsKm();
+
             cbxTrangThai.SelectedIndex = 0;
+        }
+        private void KhuyenMaiGUI_Load(object sender, EventArgs e)
+        {
+            init();
         }
 
         private void btnXem_Click(object sender, EventArgs e)
         {
-            CTKhuyenMai.ShowDialog();
+           CTKhuyenMai.ShowDialog();
             
         }
 
-        private void cbxTrangThai_OnSelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void btnReset_Click(object sender, EventArgs e)
         {
@@ -116,7 +122,34 @@ namespace GUI
 
         private void btnThongTinKM_Click(object sender, EventArgs e)
         {
-            ThongTinSPKM.ShowDialog();
+            string MaKM = txtMaKM.Texts;
+            // Truyền MaKM sang Form ThongTinSPKMGUI và mở Form đó
+            ThongTinSPKMGUI ThongTin = new ThongTinSPKMGUI(this, MaKM);
+            ThongTin.Show();
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            string CheckTrangThai = cbxTrangThai.Texts.ToString();
+            int trangthai;
+            if(CheckTrangThai == "Hoạt động")
+            {
+                trangthai = 1;
+            }
+            else
+            {
+                trangthai = 0;
+            }
+            KhuyenMaiDTO KM_DTO = new KhuyenMaiDTO();
+            KM_DTO.Makm = txtMaKM.Texts;
+            KM_DTO.TenKm = txtTenKm.Texts; ;
+            KM_DTO.NgayBd = dtpNgayBD.Value;
+            KM_DTO.NgayKt = dtpNgayKT.Value;
+            KM_DTO.PhanTramKm= int.Parse(txtPhanTramKM.Texts);
+            KM_DTO.DieuKiemKm = txtDkKM.Texts;
+            KM_DTO.TrangThai = trangthai;
+            kmBLL.insertKhuyenMai(KM_DTO);
+            init();
         }
     }
 }

@@ -14,15 +14,13 @@ namespace GUI
     public partial class ThongTinSPKMGUI : Form
     {
         private KhuyenMaiBLL kmBLL;
-        public ThongTinSPKMGUI()
+        private KhuyenMaiGUI KmGUI;
+        public ThongTinSPKMGUI(KhuyenMaiGUI KmGUI,string MaKM)
         {
             InitializeComponent();
             kmBLL = new KhuyenMaiBLL();
-        }
-        private void ThongTinSPKMGUI_Load(object sender, EventArgs e)
-        {
-            dgvThongTinSPKM.DataSource = kmBLL.getThongTinSPKM();
-
+            this.KmGUI = KmGUI;
+            dgvThongTinSPKM.DataSource = kmBLL.getThongTinSPKM(MaKM);
         }
     }
 }
