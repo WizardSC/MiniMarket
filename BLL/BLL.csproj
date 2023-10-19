@@ -45,6 +45,7 @@
     <Compile Include="KhachHangBLL.cs" />
     <Compile Include="KhuyenMaiBLL.cs" />
     <Compile Include="LoaiBLL.cs" />
+    <Compile Include="NhaCungCapBLL.cs" />
     <Compile Include="NhaSanXuatBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SanPhamBLL.cs" />

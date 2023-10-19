@@ -14,6 +14,10 @@ namespace DTO
         private string soDT;
         private string soFAX;
 
+        public NhaCungCapDTO()
+        {
+        }
+
         public NhaCungCapDTO(string maNCC, string tenNCC, string diaChi, string soDT, string soFAX)
         {
             this.maNCC = maNCC;
