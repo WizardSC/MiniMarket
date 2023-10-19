@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class MiniLoaiGUI
+    partial class MiniNSXGUI
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MiniLoaiGUI));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MiniNSXGUI));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.gradientPanel1 = new GUI.MyCustom.GradientPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnXacNhan = new GUI.MyCustom.RJButton();
@@ -39,23 +40,33 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtTenLoai = new GUI.MyCustom.RJTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtMaLoai = new GUI.MyCustom.RJTextBox();
+            this.txtMaNSX = new GUI.MyCustom.RJTextBox();
             this.dgvSanPham = new System.Windows.Forms.DataGridView();
             this.MaNSX = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnClose = new GUI.MyCustom.RJButton();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.btnMinimize = new GUI.MyCustom.RJButton();
             this.pnHeader = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnMinimize = new GUI.MyCustom.RJButton();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnClose = new GUI.MyCustom.RJButton();
+            this.panel3.SuspendLayout();
             this.gradientPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
             this.pnHeader.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.gradientPanel1);
+            this.panel3.Controls.Add(this.pnHeader);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(665, 450);
+            this.panel3.TabIndex = 5;
             // 
             // gradientPanel1
             // 
@@ -66,7 +77,7 @@
             this.gradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gradientPanel1.Location = new System.Drawing.Point(0, 35);
             this.gradientPanel1.Name = "gradientPanel1";
-            this.gradientPanel1.Size = new System.Drawing.Size(665, 415);
+            this.gradientPanel1.Size = new System.Drawing.Size(663, 413);
             this.gradientPanel1.TabIndex = 0;
             this.gradientPanel1.TopColor = System.Drawing.Color.White;
             // 
@@ -126,7 +137,6 @@
             this.btnHuyBo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHuyBo.TextColor = System.Drawing.Color.Black;
             this.btnHuyBo.UseVisualStyleBackColor = false;
-            this.btnHuyBo.Click += new System.EventHandler(this.btnHuyBo_Click);
             // 
             // panel1
             // 
@@ -134,7 +144,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtTenLoai);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.txtMaLoai);
+            this.panel1.Controls.Add(this.txtMaNSX);
             this.panel1.Location = new System.Drawing.Point(12, 262);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(490, 138);
@@ -188,29 +198,29 @@
             this.label2.Text = "Mã loại";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // txtMaLoai
+            // txtMaNSX
             // 
-            this.txtMaLoai.BackColor = System.Drawing.SystemColors.Window;
-            this.txtMaLoai.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.txtMaLoai.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.txtMaLoai.BorderRadius = 0;
-            this.txtMaLoai.BorderSize = 2;
-            this.txtMaLoai.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaLoai.ForeColor = System.Drawing.Color.Black;
-            this.txtMaLoai.Location = new System.Drawing.Point(114, 17);
-            this.txtMaLoai.Margin = new System.Windows.Forms.Padding(4);
-            this.txtMaLoai.MaximumSize = new System.Drawing.Size(300, 28);
-            this.txtMaLoai.MinimumSize = new System.Drawing.Size(150, 28);
-            this.txtMaLoai.Multiline = false;
-            this.txtMaLoai.Name = "txtMaLoai";
-            this.txtMaLoai.Padding = new System.Windows.Forms.Padding(4, 4, 2, 2);
-            this.txtMaLoai.PasswordChar = false;
-            this.txtMaLoai.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtMaLoai.PlaceholderText = "";
-            this.txtMaLoai.Size = new System.Drawing.Size(300, 28);
-            this.txtMaLoai.TabIndex = 3;
-            this.txtMaLoai.Texts = "";
-            this.txtMaLoai.UnderlinedStyle = false;
+            this.txtMaNSX.BackColor = System.Drawing.SystemColors.Window;
+            this.txtMaNSX.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.txtMaNSX.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.txtMaNSX.BorderRadius = 0;
+            this.txtMaNSX.BorderSize = 2;
+            this.txtMaNSX.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaNSX.ForeColor = System.Drawing.Color.Black;
+            this.txtMaNSX.Location = new System.Drawing.Point(114, 17);
+            this.txtMaNSX.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMaNSX.MaximumSize = new System.Drawing.Size(300, 28);
+            this.txtMaNSX.MinimumSize = new System.Drawing.Size(150, 28);
+            this.txtMaNSX.Multiline = false;
+            this.txtMaNSX.Name = "txtMaNSX";
+            this.txtMaNSX.Padding = new System.Windows.Forms.Padding(4, 4, 2, 2);
+            this.txtMaNSX.PasswordChar = false;
+            this.txtMaNSX.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtMaNSX.PlaceholderText = "";
+            this.txtMaNSX.Size = new System.Drawing.Size(300, 28);
+            this.txtMaNSX.TabIndex = 3;
+            this.txtMaNSX.Texts = "";
+            this.txtMaNSX.UnderlinedStyle = false;
             // 
             // dgvSanPham
             // 
@@ -274,35 +284,29 @@
             this.MaNCC.Name = "MaNCC";
             this.MaNCC.ReadOnly = true;
             // 
-            // btnClose
+            // pnHeader
             // 
-            this.btnClose.BackColor = System.Drawing.Color.Transparent;
-            this.btnClose.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnClose.BorderColor = System.Drawing.Color.Transparent;
-            this.btnClose.BorderRadius = 0;
-            this.btnClose.BorderSize = 0;
-            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Image = global::GUI.Properties.Resources.icons8_close_32;
-            this.btnClose.Location = new System.Drawing.Point(622, 0);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(43, 35);
-            this.btnClose.TabIndex = 1;
-            this.btnClose.TextColor = System.Drawing.Color.White;
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.pnHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
+            this.pnHeader.Controls.Add(this.label3);
+            this.pnHeader.Controls.Add(this.btnMinimize);
+            this.pnHeader.Controls.Add(this.panel4);
+            this.pnHeader.Controls.Add(this.btnClose);
+            this.pnHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnHeader.Name = "pnHeader";
+            this.pnHeader.Size = new System.Drawing.Size(663, 35);
+            this.pnHeader.TabIndex = 4;
             // 
-            // panel4
+            // label3
             // 
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(616, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(6, 35);
-            this.panel4.TabIndex = 3;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label3.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(237, 35);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "CHỌN NHÀ SẢN XUẤT";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnMinimize
             // 
@@ -317,90 +321,83 @@
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.ForeColor = System.Drawing.Color.White;
             this.btnMinimize.Image = global::GUI.Properties.Resources.icons8_minimize_32__1_;
-            this.btnMinimize.Location = new System.Drawing.Point(573, 0);
+            this.btnMinimize.Location = new System.Drawing.Point(571, 0);
             this.btnMinimize.Margin = new System.Windows.Forms.Padding(2);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(43, 35);
             this.btnMinimize.TabIndex = 2;
             this.btnMinimize.TextColor = System.Drawing.Color.White;
             this.btnMinimize.UseVisualStyleBackColor = false;
-            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
-            // pnHeader
+            // panel4
             // 
-            this.pnHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            this.pnHeader.Controls.Add(this.label3);
-            this.pnHeader.Controls.Add(this.btnMinimize);
-            this.pnHeader.Controls.Add(this.panel4);
-            this.pnHeader.Controls.Add(this.btnClose);
-            this.pnHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnHeader.Name = "pnHeader";
-            this.pnHeader.Size = new System.Drawing.Size(665, 35);
-            this.pnHeader.TabIndex = 4;
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel4.Location = new System.Drawing.Point(614, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(6, 35);
+            this.panel4.TabIndex = 3;
             // 
-            // panel3
+            // btnClose
             // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.gradientPanel1);
-            this.panel3.Controls.Add(this.pnHeader);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(667, 452);
-            this.panel3.TabIndex = 4;
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnClose.BorderColor = System.Drawing.Color.Transparent;
+            this.btnClose.BorderRadius = 0;
+            this.btnClose.BorderSize = 0;
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Image = global::GUI.Properties.Resources.icons8_close_32;
+            this.btnClose.Location = new System.Drawing.Point(620, 0);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(43, 35);
+            this.btnClose.TabIndex = 1;
+            this.btnClose.TextColor = System.Drawing.Color.White;
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // label3
-            // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label3.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(237, 35);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "CHỌN LOẠI HÀNG";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // MiniLoaiGUI
+            // MiniNSXGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(667, 452);
+            this.ClientSize = new System.Drawing.Size(665, 450);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "MiniLoaiGUI";
+            this.Name = "MiniNSXGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MiniLoaiGUI";
+            this.Text = "MiniNSXGUI";
+            this.panel3.ResumeLayout(false);
             this.gradientPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).EndInit();
             this.pnHeader.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.Panel panel3;
         private MyCustom.GradientPanel gradientPanel1;
         private System.Windows.Forms.Panel panel2;
+        private MyCustom.RJButton btnXacNhan;
+        private MyCustom.RJButton btnHuyBo;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dgvSanPham;
         private System.Windows.Forms.Label label1;
         private MyCustom.RJTextBox txtTenLoai;
         private System.Windows.Forms.Label label2;
-        private MyCustom.RJTextBox txtMaLoai;
-        private MyCustom.RJButton btnXacNhan;
-        private MyCustom.RJButton btnHuyBo;
-        private MyCustom.RJButton btnClose;
-        private System.Windows.Forms.Panel panel4;
-        private MyCustom.RJButton btnMinimize;
-        private System.Windows.Forms.Panel pnHeader;
-        private System.Windows.Forms.Panel panel3;
+        private MyCustom.RJTextBox txtMaNSX;
+        private System.Windows.Forms.DataGridView dgvSanPham;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNSX;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNCC;
+        private System.Windows.Forms.Panel pnHeader;
+        private MyCustom.RJButton btnMinimize;
+        private System.Windows.Forms.Panel panel4;
+        private MyCustom.RJButton btnClose;
         private System.Windows.Forms.Label label3;
     }
 }
