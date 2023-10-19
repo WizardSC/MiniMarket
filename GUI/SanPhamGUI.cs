@@ -150,6 +150,7 @@ namespace GUI
                 string maNSX = nsxGUI.maNSX;
                 Console.WriteLine(maNSX);
                 txtMaNSX.Texts = maNSX;
+                Console.WriteLine("1");
             };
 
         }
