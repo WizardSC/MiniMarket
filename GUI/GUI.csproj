@@ -95,6 +95,18 @@
     <Compile Include="MiniLoaiGUI.Designer.cs">
       <DependentUpon>MiniLoaiGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="MiniNCCGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MiniNCCGUI.Designer.cs">
+      <DependentUpon>MiniNCCGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MiniNSXGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MiniNSXGUI.Designer.cs">
+      <DependentUpon>MiniNSXGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyCustom\BiggerCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -186,6 +198,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MiniLoaiGUI.resx">
       <DependentUpon>MiniLoaiGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MiniNCCGUI.resx">
+      <DependentUpon>MiniNCCGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MiniNSXGUI.resx">
+      <DependentUpon>MiniNSXGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyCustom\MyProductInCart.resx">
       <DependentUpon>MyProductInCart.cs</DependentUpon>

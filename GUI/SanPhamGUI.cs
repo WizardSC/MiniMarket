@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -102,15 +103,54 @@ namespace GUI
             string maSP = txtMaSP.Texts.ToString();
             string tenSP = txtTenSP.Texts.ToString();
             int soLuongTonKho = int.Parse(txtTonKho.Texts.ToString());
+            int donGiaNhap = int.Parse(txtGiaNhap.Texts.ToString());
+            int donGiaBan = int.Parse(txtGiaBan.Texts.ToString());
+            string donViTinh = "Cái";
+            int trangThai = 1;
+            string maLoai = "L001";
+            string maNSX = "NSX002";
+            string maNCC = "NCC001";
+            byte[] img = this.convertImageToBinaryString(pbImage.Image);
+            SanPhamDTO sp = new SanPhamDTO(maSP,tenSP,soLuongTonKho,donGiaNhap, donGiaBan, donViTinh,trangThai,maLoai, maNSX,maNCC,img);
+            int flag = spBLL.insertSanPham(sp) ? 1 : 0;
+            if (flag == 1)
+            {
+                MessageBox.Show("Thêm thành công",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            } else
+            {
+                MessageBox.Show("Thêm thất bại",
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
 
         }
 
         private void btnMaNCC_Click(object sender, EventArgs e)
         {
+            MiniNCCGUI nccGUI = new MiniNCCGUI();
+            nccGUI.Show();
+            nccGUI.FormClosed += (s, args) =>
+            {
+                string maNCC = nccGUI.maNCC;
+                Console.WriteLine(maNCC);
+                txtMaNCC.Texts = maNCC;
+            };
         }
 
         private void btnMaNSX_Click(object sender, EventArgs e)
         {
+            MiniNSXGUI nsxGUI = new MiniNSXGUI();
+            nsxGUI.Show();
+            nsxGUI.FormClosed += (s, args) =>
+            {
+                string maNSX = nsxGUI.maNSX;
+                Console.WriteLine(maNSX);
+                txtMaNSX.Texts = maNSX;
+            };
 
         }
 
