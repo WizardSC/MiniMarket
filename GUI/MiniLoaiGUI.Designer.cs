@@ -31,6 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MiniLoaiGUI));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.pnHeader = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.gradientPanel1 = new GUI.MyCustom.GradientPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnXacNhan = new GUI.MyCustom.RJButton();
@@ -40,29 +44,71 @@
             this.txtTenLoai = new GUI.MyCustom.RJTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMaLoai = new GUI.MyCustom.RJTextBox();
-            this.dgvSanPham = new System.Windows.Forms.DataGridView();
+            this.dgvLoai = new System.Windows.Forms.DataGridView();
             this.MaNSX = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnClose = new GUI.MyCustom.RJButton();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.btnMinimize = new GUI.MyCustom.RJButton();
-            this.pnHeader = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btnClose = new GUI.MyCustom.RJButton();
+            this.pnHeader.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.gradientPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
-            this.pnHeader.SuspendLayout();
-            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLoai)).BeginInit();
             this.SuspendLayout();
+            // 
+            // panel4
+            // 
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel4.Location = new System.Drawing.Point(616, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(6, 35);
+            this.panel4.TabIndex = 3;
+            // 
+            // pnHeader
+            // 
+            this.pnHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
+            this.pnHeader.Controls.Add(this.label3);
+            this.pnHeader.Controls.Add(this.btnMinimize);
+            this.pnHeader.Controls.Add(this.panel4);
+            this.pnHeader.Controls.Add(this.btnClose);
+            this.pnHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnHeader.Name = "pnHeader";
+            this.pnHeader.Size = new System.Drawing.Size(665, 35);
+            this.pnHeader.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label3.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Image = ((System.Drawing.Image)(resources.GetObject("label3.Image")));
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label3.Size = new System.Drawing.Size(292, 35);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "       CHỌN LOẠI HÀNG";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.gradientPanel1);
+            this.panel3.Controls.Add(this.pnHeader);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(667, 452);
+            this.panel3.TabIndex = 4;
             // 
             // gradientPanel1
             // 
             this.gradientPanel1.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
             this.gradientPanel1.Controls.Add(this.panel2);
             this.gradientPanel1.Controls.Add(this.panel1);
-            this.gradientPanel1.Controls.Add(this.dgvSanPham);
+            this.gradientPanel1.Controls.Add(this.dgvLoai);
             this.gradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gradientPanel1.Location = new System.Drawing.Point(0, 35);
             this.gradientPanel1.Name = "gradientPanel1";
@@ -212,15 +258,15 @@
             this.txtMaLoai.Texts = "";
             this.txtMaLoai.UnderlinedStyle = false;
             // 
-            // dgvSanPham
+            // dgvLoai
             // 
-            this.dgvSanPham.AllowUserToAddRows = false;
-            this.dgvSanPham.AllowUserToDeleteRows = false;
-            this.dgvSanPham.AllowUserToResizeColumns = false;
-            this.dgvSanPham.AllowUserToResizeRows = false;
-            this.dgvSanPham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dgvSanPham.BackgroundColor = System.Drawing.Color.White;
-            this.dgvSanPham.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvLoai.AllowUserToAddRows = false;
+            this.dgvLoai.AllowUserToDeleteRows = false;
+            this.dgvLoai.AllowUserToResizeColumns = false;
+            this.dgvLoai.AllowUserToResizeRows = false;
+            this.dgvLoai.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvLoai.BackgroundColor = System.Drawing.Color.White;
+            this.dgvLoai.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -228,9 +274,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSanPham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvSanPham.ColumnHeadersHeight = 28;
-            this.dgvSanPham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvLoai.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvLoai.ColumnHeadersHeight = 28;
+            this.dgvLoai.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaNSX,
             this.MaNCC});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -240,20 +286,22 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSanPham.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvSanPham.EnableHeadersVisualStyles = false;
-            this.dgvSanPham.GridColor = System.Drawing.Color.Black;
-            this.dgvSanPham.Location = new System.Drawing.Point(12, 12);
-            this.dgvSanPham.Name = "dgvSanPham";
-            this.dgvSanPham.ReadOnly = true;
-            this.dgvSanPham.RowHeadersVisible = false;
-            this.dgvSanPham.RowHeadersWidth = 51;
-            this.dgvSanPham.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvSanPham.RowTemplate.Height = 30;
-            this.dgvSanPham.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvSanPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSanPham.Size = new System.Drawing.Size(642, 243);
-            this.dgvSanPham.TabIndex = 2;
+            this.dgvLoai.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvLoai.EnableHeadersVisualStyles = false;
+            this.dgvLoai.GridColor = System.Drawing.Color.Black;
+            this.dgvLoai.Location = new System.Drawing.Point(12, 12);
+            this.dgvLoai.Name = "dgvLoai";
+            this.dgvLoai.ReadOnly = true;
+            this.dgvLoai.RowHeadersVisible = false;
+            this.dgvLoai.RowHeadersWidth = 51;
+            this.dgvLoai.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvLoai.RowTemplate.Height = 30;
+            this.dgvLoai.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvLoai.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLoai.Size = new System.Drawing.Size(642, 243);
+            this.dgvLoai.TabIndex = 2;
+            this.dgvLoai.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoai_CellClick);
+            this.dgvLoai.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvSanPham_DataBindingComplete);
             // 
             // MaNSX
             // 
@@ -273,36 +321,6 @@
             this.MaNCC.MinimumWidth = 6;
             this.MaNCC.Name = "MaNCC";
             this.MaNCC.ReadOnly = true;
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.Transparent;
-            this.btnClose.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnClose.BorderColor = System.Drawing.Color.Transparent;
-            this.btnClose.BorderRadius = 0;
-            this.btnClose.BorderSize = 0;
-            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Image = global::GUI.Properties.Resources.icons8_close_32;
-            this.btnClose.Location = new System.Drawing.Point(622, 0);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(43, 35);
-            this.btnClose.TabIndex = 1;
-            this.btnClose.TextColor = System.Drawing.Color.White;
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // panel4
-            // 
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(616, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(6, 35);
-            this.panel4.TabIndex = 3;
             // 
             // btnMinimize
             // 
@@ -326,40 +344,27 @@
             this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
-            // pnHeader
+            // btnClose
             // 
-            this.pnHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            this.pnHeader.Controls.Add(this.label3);
-            this.pnHeader.Controls.Add(this.btnMinimize);
-            this.pnHeader.Controls.Add(this.panel4);
-            this.pnHeader.Controls.Add(this.btnClose);
-            this.pnHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnHeader.Name = "pnHeader";
-            this.pnHeader.Size = new System.Drawing.Size(665, 35);
-            this.pnHeader.TabIndex = 4;
-            // 
-            // panel3
-            // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.gradientPanel1);
-            this.panel3.Controls.Add(this.pnHeader);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(667, 452);
-            this.panel3.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label3.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(237, 35);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "CHỌN LOẠI HÀNG";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnClose.BorderColor = System.Drawing.Color.Transparent;
+            this.btnClose.BorderRadius = 0;
+            this.btnClose.BorderSize = 0;
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Image = global::GUI.Properties.Resources.icons8_close_32;
+            this.btnClose.Location = new System.Drawing.Point(622, 0);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(43, 35);
+            this.btnClose.TabIndex = 1;
+            this.btnClose.TextColor = System.Drawing.Color.White;
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // MiniLoaiGUI
             // 
@@ -372,12 +377,13 @@
             this.Name = "MiniLoaiGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MiniLoaiGUI";
+            this.Load += new System.EventHandler(this.MiniLoaiGUI_Load);
+            this.pnHeader.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.gradientPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).EndInit();
-            this.pnHeader.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLoai)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -387,7 +393,7 @@
         private MyCustom.GradientPanel gradientPanel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dgvSanPham;
+        private System.Windows.Forms.DataGridView dgvLoai;
         private System.Windows.Forms.Label label1;
         private MyCustom.RJTextBox txtTenLoai;
         private System.Windows.Forms.Label label2;

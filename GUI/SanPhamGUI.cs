@@ -30,6 +30,8 @@ namespace GUI
         private void SanPhamGUI_Load(object sender, EventArgs e)
         {
             dgvSanPham.DataSource = spBLL.getListSanPham();
+            dgvSanPham.ClearSelection();
+            dgvSanPham.CurrentCell = null;
         }
 
         private void dgvSanPham_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)

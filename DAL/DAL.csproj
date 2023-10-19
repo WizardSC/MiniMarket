@@ -7,8 +7,8 @@
     <ProjectGuid>{22CDAEA8-9974-40C7-BE68-591012BBA7A5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DAO</RootNamespace>
-    <AssemblyName>DAO</AssemblyName>
+    <RootNamespace>DAL</RootNamespace>
+    <AssemblyName>DAL</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -45,7 +45,9 @@
     <Compile Include="ChiTietKhuyenMaiDAL.cs" />
     <Compile Include="KhachHangDAL.cs" />
     <Compile Include="KhuyenMaiDAL.cs" />
+    <Compile Include="LoaiDAL.cs" />
     <Compile Include="MSSQLConnect.cs" />
+    <Compile Include="NhaSanXuatDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SanPhamDAL.cs" />
   </ItemGroup>

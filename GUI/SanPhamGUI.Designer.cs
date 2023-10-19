@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SanPhamGUI));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -260,14 +260,14 @@
             this.dgvSanPham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvSanPham.BackgroundColor = System.Drawing.Color.White;
             this.dgvSanPham.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSanPham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSanPham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSanPham.ColumnHeadersHeight = 28;
             this.dgvSanPham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaKH,
@@ -281,14 +281,14 @@
             this.MaNSX,
             this.MaNCC,
             this.Column1});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSanPham.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSanPham.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvSanPham.EnableHeadersVisualStyles = false;
             this.dgvSanPham.GridColor = System.Drawing.Color.Black;
             this.dgvSanPham.Location = new System.Drawing.Point(5, 62);
@@ -1063,7 +1063,7 @@
             this.txtTenSP.BorderRadius = 0;
             this.txtTenSP.BorderSize = 2;
             this.txtTenSP.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenSP.ForeColor = System.Drawing.Color.DimGray;
+            this.txtTenSP.ForeColor = System.Drawing.Color.Black;
             this.txtTenSP.Location = new System.Drawing.Point(106, 57);
             this.txtTenSP.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenSP.MaximumSize = new System.Drawing.Size(171, 28);
@@ -1111,7 +1111,7 @@
             this.txtTonKho.BorderRadius = 0;
             this.txtTonKho.BorderSize = 2;
             this.txtTonKho.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTonKho.ForeColor = System.Drawing.Color.DimGray;
+            this.txtTonKho.ForeColor = System.Drawing.Color.Black;
             this.txtTonKho.Location = new System.Drawing.Point(106, 110);
             this.txtTonKho.Margin = new System.Windows.Forms.Padding(4);
             this.txtTonKho.MaximumSize = new System.Drawing.Size(171, 28);
@@ -1147,7 +1147,7 @@
             this.txtGiaNhap.BorderRadius = 0;
             this.txtGiaNhap.BorderSize = 2;
             this.txtGiaNhap.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGiaNhap.ForeColor = System.Drawing.Color.DimGray;
+            this.txtGiaNhap.ForeColor = System.Drawing.Color.Black;
             this.txtGiaNhap.Location = new System.Drawing.Point(106, 146);
             this.txtGiaNhap.Margin = new System.Windows.Forms.Padding(4);
             this.txtGiaNhap.MaximumSize = new System.Drawing.Size(171, 28);
@@ -1195,7 +1195,7 @@
             this.txtGiaBan.BorderRadius = 0;
             this.txtGiaBan.BorderSize = 2;
             this.txtGiaBan.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGiaBan.ForeColor = System.Drawing.Color.DimGray;
+            this.txtGiaBan.ForeColor = System.Drawing.Color.Black;
             this.txtGiaBan.Location = new System.Drawing.Point(106, 199);
             this.txtGiaBan.Margin = new System.Windows.Forms.Padding(4);
             this.txtGiaBan.MaximumSize = new System.Drawing.Size(171, 28);
@@ -1305,7 +1305,7 @@
             this.txtMaLoai.BorderRadius = 0;
             this.txtMaLoai.BorderSize = 2;
             this.txtMaLoai.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaLoai.ForeColor = System.Drawing.Color.DimGray;
+            this.txtMaLoai.ForeColor = System.Drawing.Color.Black;
             this.txtMaLoai.Location = new System.Drawing.Point(106, 324);
             this.txtMaLoai.Margin = new System.Windows.Forms.Padding(4, 4, 0, 4);
             this.txtMaLoai.MaximumSize = new System.Drawing.Size(171, 28);
@@ -1375,7 +1375,7 @@
             this.txtMaNSX.BorderRadius = 0;
             this.txtMaNSX.BorderSize = 2;
             this.txtMaNSX.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaNSX.ForeColor = System.Drawing.Color.DimGray;
+            this.txtMaNSX.ForeColor = System.Drawing.Color.Black;
             this.txtMaNSX.Location = new System.Drawing.Point(106, 377);
             this.txtMaNSX.Margin = new System.Windows.Forms.Padding(4, 4, 0, 4);
             this.txtMaNSX.MaximumSize = new System.Drawing.Size(171, 28);
@@ -1445,7 +1445,7 @@
             this.txtMaNCC.BorderRadius = 0;
             this.txtMaNCC.BorderSize = 2;
             this.txtMaNCC.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaNCC.ForeColor = System.Drawing.Color.DimGray;
+            this.txtMaNCC.ForeColor = System.Drawing.Color.Black;
             this.txtMaNCC.Location = new System.Drawing.Point(106, 430);
             this.txtMaNCC.Margin = new System.Windows.Forms.Padding(4, 4, 0, 4);
             this.txtMaNCC.MaximumSize = new System.Drawing.Size(171, 28);
