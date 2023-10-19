@@ -55,6 +55,18 @@ namespace GUI
             }
         }
 
+        public void clearForm()
+        {
+            loadMaKM();
+            txtTenKm.Texts = "";
+            txtDkKM.Texts = "";
+            DateTime currentDate = DateTime.Now;
+            dtpNgayBD.Value = currentDate;
+            dtpNgayKT.Value = currentDate;
+            txtPhanTramKM.Texts = "";
+            cbxTrangThai.SelectedIndex = 0;
+            btnThongTinKM.Visible = false;
+        }
        
         private void dgvKhuyenMai_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -87,7 +99,7 @@ namespace GUI
             }
   
         }
-        //load DataTable
+        //load form DataTable
         public void init()
         {
             dgvKhuyenMai.DataSource = kmBLL.getListDsKm();
@@ -109,37 +121,31 @@ namespace GUI
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            loadMaKM();
-            txtTenKm.Texts = "";
-            txtDkKM.Texts = "";
-            DateTime currentDate = DateTime.Now;
-            dtpNgayBD.Value = currentDate;
-            dtpNgayKT.Value = currentDate;
-            txtPhanTramKM.Texts = "";
-            cbxTrangThai.SelectedIndex = 0;
-            btnThongTinKM.Visible = false;
+            clearForm();
         }
 
         private void btnThongTinKM_Click(object sender, EventArgs e)
         {
             string MaKM = txtMaKM.Texts;
-            // Truyền MaKM sang Form ThongTinSPKMGUI và mở Form đó
-            ThongTinSPKMGUI ThongTin = new ThongTinSPKMGUI(this, MaKM);
-            ThongTin.Show();
+            //// Truyền MaKM sang Form ThongTinSPKMGUI và mở Form đó
+            //ThongTinSPKMGUI ThongTin = new ThongTinSPKMGUI(this, MaKM);
+            //ThongTin.Show();
+            DataTable dataTable = kmBLL.getThongTinSPKM(MaKM);
+            if (dataTable != null && dataTable.Rows.Count > 0)
+            {
+                ThongTinSPKMGUI ThongTin = new ThongTinSPKMGUI(this, MaKM);
+                ThongTin.Show();
+            }
+            else
+            {
+                MessageBox.Show("Khuyến mãi này chưa áp dụng cho sản phẩm nào.");
+            }
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
             string CheckTrangThai = cbxTrangThai.Texts.ToString();
-            int trangthai;
-            if(CheckTrangThai == "Hoạt động")
-            {
-                trangthai = 1;
-            }
-            else
-            {
-                trangthai = 0;
-            }
+            int trangthai = (CheckTrangThai == "Hoạt động") ? 1 : 0;
             KhuyenMaiDTO KM_DTO = new KhuyenMaiDTO();
             KM_DTO.Makm = txtMaKM.Texts;
             KM_DTO.TenKm = txtTenKm.Texts; ;
@@ -149,7 +155,39 @@ namespace GUI
             KM_DTO.DieuKiemKm = txtDkKM.Texts;
             KM_DTO.TrangThai = trangthai;
             kmBLL.insertKhuyenMai(KM_DTO);
+            loadMaKM();
             init();
+            clearForm();
+        }
+
+            private void btnSua_Click(object sender, EventArgs e)
+            {
+            string CheckTrangThai = cbxTrangThai.Texts.ToString();
+            int trangthai = (CheckTrangThai == "Hoạt động") ? 1 : 0;
+            KhuyenMaiDTO KM_DTO = new KhuyenMaiDTO();
+
+            KM_DTO.TenKm = txtTenKm.Texts; ;
+            KM_DTO.NgayBd = dtpNgayBD.Value;
+            KM_DTO.NgayKt = dtpNgayKT.Value;
+            KM_DTO.PhanTramKm = int.Parse(txtPhanTramKM.Texts);
+            KM_DTO.DieuKiemKm = txtDkKM.Texts;
+            KM_DTO.TrangThai = trangthai;
+            KM_DTO.Makm = txtMaKM.Texts;
+            kmBLL.UpdateKhuyenMai(KM_DTO);
+            loadMaKM();
+            init();
+            clearForm();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            
+            KhuyenMaiDTO KM_DTO = new KhuyenMaiDTO();
+            KM_DTO.Makm = txtMaKM.Texts;
+            kmBLL.DeleteKhuyenMai(KM_DTO);
+            loadMaKM();
+            init();
+            clearForm();
         }
     }
 }

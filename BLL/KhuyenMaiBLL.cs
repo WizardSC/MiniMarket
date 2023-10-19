@@ -29,9 +29,17 @@ namespace BLL
             {
                 return kmDAL.getThongTinKM(MaKM);
             }
-        public bool insertKhuyenMai(KhuyenMaiDTO KM_DTO)
-        {
-            return kmDAL.insert_KhuyenMai(KM_DTO);
-        }
+            public bool insertKhuyenMai(KhuyenMaiDTO KM_DTO)
+            {
+                return kmDAL.insert_KhuyenMai(KM_DTO);
+            }
+            public bool UpdateKhuyenMai(KhuyenMaiDTO KM_DTO)
+            {
+                return kmDAL.Update_KhuyenMai(KM_DTO);
+            }
+            public bool DeleteKhuyenMai(KhuyenMaiDTO KM_DTO)
+            {
+                return kmDAL.Delete_KhuyenMai(KM_DTO);
+            }
     }
 }

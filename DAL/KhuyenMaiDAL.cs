@@ -89,13 +89,22 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@PhanTramKM", KM_DTO.PhanTramKm);
                 cmd.Parameters.AddWithValue("@DieuKienKM", KM_DTO.DieuKiemKm);
                 cmd.Parameters.AddWithValue("@TrangThaiKM", KM_DTO.TrangThai);
-                 cmd.ExecuteNonQuery(); // Use ExecuteNonQuery() here
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Thêm khuyến mãi thành công."); // Display a success message
                     return true;
+                }
+                else
+                {
+                    return false;
+                }
 
             }
             catch (Exception e)
             {
-                MessageBox.Show("Thêm thất bại. " + e.Message);
+                MessageBox.Show("Thêm khuyến mãi thất bại. " + e.Message);
                 return false;
             }
             finally
@@ -103,34 +112,77 @@ namespace DAL
                 Disconnect();
             }
         }
-        //public void update_nhanvien_DAL(model_nv model_nv)
-        //{
-        //    ConnectToMySQL conn = new ConnectToMySQL();
-        //    try
-        //    {
-        //        conn.getConnection().Open();
-        //        string query = "UPDATE nhanvien SET tennhanvien = @tennv, diachi = @diachi, idchucvu = @idchucvu WHERE idnhanvien = @idnhanvien";
+        public bool Update_KhuyenMai(KhuyenMaiDTO KM_DTO)
+        {
+            
+            try
+            {
+                MSSQLConnect dbConnect = new MSSQLConnect();
+                dbConnect.Connect();
+                string query = "UPDATE KhuyenMai SET TenKM = @TenKM, NgayBatDau = @NgayBatDau, NgayKetThuc = @NgayKetThuc, PhanTramKM = @PhanTramKM, DieuKienKM = @DieuKienKM, TrangThaiKM = @TrangThaiKM WHERE MaKM = @MaKM";
+                SqlCommand cmd = new SqlCommand(query, dbConnect.conn);
+                cmd.Parameters.AddWithValue("@MaKm", KM_DTO.Makm);
+                cmd.Parameters.AddWithValue("@TenKM", KM_DTO.TenKm);
+                cmd.Parameters.AddWithValue("@NgayBatDau", KM_DTO.NgayBd);
+                cmd.Parameters.AddWithValue("@NgayKetThuc", KM_DTO.NgayKt);
+                cmd.Parameters.AddWithValue("@PhanTramKM", KM_DTO.PhanTramKm);
+                cmd.Parameters.AddWithValue("@DieuKienKM", KM_DTO.DieuKiemKm);
+                cmd.Parameters.AddWithValue("@TrangThaiKM", KM_DTO.TrangThai);
+                // Execute the SQL command
+                int rowsAffected = cmd.ExecuteNonQuery();
 
-        //        MySqlCommand cmd = new MySqlCommand(query, conn.getConnection());
-        //        cmd.Parameters.AddWithValue("@tennv", model_nv.Tennv);
-        //        cmd.Parameters.AddWithValue("@diachi", model_nv.Diachi);
-        //        cmd.Parameters.AddWithValue("@idnhanvien", model_nv.IdNhanvien); // Assuming you have an "id" field in your model_nv class
-        //        cmd.Parameters.AddWithValue("@idchucvu", model_nv.IdChucvu);
-        //        int rowsAffected = cmd.ExecuteNonQuery(); // Use ExecuteNonQuery() here
-        //        if (rowsAffected > 0)
-        //        {
-        //            MessageBox.Show("Cập nhật nhân viên thành công");
-        //        }
-        //        cmd.Dispose();
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        MessageBox.Show("loi" + e);
-        //    }
-        //    finally
-        //    {
-        //        conn.getConnection().Close();
-        //    }
-        //}
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Chỉnh sửa khuyến mãi thành công."); // Display a success message
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Chỉnh sửa khuyến mãi thất bại. " + e.Message);
+                return false;
+            }
+            finally
+            {
+                Disconnect();
+            }
+        }
+        public bool Delete_KhuyenMai(KhuyenMaiDTO KM_DTO)
+        {
+
+            try
+            {
+                MSSQLConnect dbConnect = new MSSQLConnect();
+                dbConnect.Connect();
+                string query = "UPDATE KhuyenMai SET TrangThaiKM =0 WHERE MaKM = @MaKM";
+                SqlCommand cmd = new SqlCommand(query, dbConnect.conn);
+                cmd.Parameters.AddWithValue("@MaKm", KM_DTO.Makm);
+                // Execute the SQL command
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Xóa khuyến mãi thành công."); // Display a success message
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Xóa khuyến mãi thất bại. " + e.Message);
+                return false;
+            }
+            finally
+            {
+                Disconnect();
+            }
+        }
     }
 }
