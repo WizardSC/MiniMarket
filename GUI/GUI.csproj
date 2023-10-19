@@ -89,6 +89,12 @@
     <Compile Include="LoaiGUI.Designer.cs">
       <DependentUpon>LoaiGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="MiniLoaiGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MiniLoaiGUI.Designer.cs">
+      <DependentUpon>MiniLoaiGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyCustom\BiggerCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -171,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoaiGUI.resx">
       <DependentUpon>LoaiGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MiniLoaiGUI.resx">
+      <DependentUpon>MiniLoaiGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyCustom\MyProductInCart.resx">
       <DependentUpon>MyProductInCart.cs</DependentUpon>
