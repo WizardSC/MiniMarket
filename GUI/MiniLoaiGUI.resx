@@ -117,80 +117,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="MaKH.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Ho.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Ten.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="NgaySinh.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="GioiTinh.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="SoDT.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="DiaChi.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="TrangThai.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnXacNhan.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAIZJREFUSEtjGAXDFsgAMSOESX2QB8T/gDgAzKMygBl+DIh5QALUBOlADDOcDyRA
+        TTBqOFZAsuGlQHwfiFXAPPwAObUQ7XI7IP4GxI+BGJ8lZBkOAyBLvgAxLkuoEua4LKFqhKJbQpPU4gLE
+        oDh5C8RUNxwGYJbQxHAYEAFiFghzFAw9wMAAAK3SKt3qhEyxAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btnHuyBo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAItJREFUSEvtlVsKgCAQRV1XD6jFtra20YxxQWKSefnngQsKeY8pVJlYuSjbO3TB
+        a7njl4VyU446s7FSVGs9EnU5sEjM5QCSs85k3OUABZIkXA4kSVo5aCXp5WCncDGHx+kMFbTHIt1JCOnM
+        0yS9Cw1LeuVA84yIZaH52+XZlVrifmVCJRn+w5l8KOUBlHouzQ5r/y0AAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="MaNSX.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="MaNCC.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnThem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAAIBJREFUSEvtlVEKgCAQBf0p6MBFRXSPLtZ16g24XwpCblDUwMAi6WNjxfApOrnK
-        JdbuzPKIjix4s0kLoHbnDyjy/IBWDpLNOXdpAdS5b7CXjUyYpB1QK2cl3B5AW7SXaxurf1EJNlsAtTt/
-        QJH3BzB+FkDtDrPNBeI1uzTnbySEE3Tva3Yb3inbAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btnSua.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAAVdJREFUSEvtlDlKBEEUQCtVAw3U0IN4BAMPYGSoJxA08QZuiZF7rKdwD0RBMDBV
-        0MAFBA3c3uuuAm16oHpmwnnw6F/Vv6q6aws9usUYnuFz9DzWdUx/fM7iD65HjWdQ+uKzMZP4iVf4hoeY
-        OEHrfGeOuY0YxSe8wX1cw2FMjKB1vjPHXOuyWcBvHC9K5TSs4D3e4XKsE3PMnS9KmezhF04UpRBW0anY
-        iBo7oJhj7m5RymQAL/CoKIXwiHac2MKHMgzHaK5tsqkbYLMMCzoeoDpFTofT4iBq7DpImiLbZOOCVRd5
-        CV1gNa4ushsjG7dc2qYH6Jb8uw073qaSDtoleqjSekg6aL4zp/FBS6Rp6NpVcY1TZfgPL7ZTTJedcd1l
-        N423ZViPX7ZYhm1hW/toySt6atvFhX8pw3o87u/ovp9rqG0+cBtbMoQ76J/4q030y+18EHvkEsIv7G52
-        7AEVzdYAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnXoa.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAAQFJREFUSEvtlDEOAUEUhrfGDTTUtDSUKiSuwCGouACHQMIRaNwAjQMIHRKd0PL/
-        b2yzsTNvtpPsl3zJe+t/i52ZDVL+hjw8wONX1ryWiBHcRNzDd0Rei+Y462QIb/ABozeIk1nOcFbFDJ5N
-        qYLZqSl1TODLlCqecGxKHQPI55yVzk4OMtuXTkkPcqgonR1mmO1Kp6QFOVSVzg4zzDalUxIO8YtctCGz
-        FemU+Pzt8HEWpFPCxeUQF9tFuCEy0nnArcft6oIZZr3h4eGBczGHJ1P6sYMrU1pZw60p/VjCO+zARoz8
-        jJkF9KYMr5ALaPMCSzAR3E11+OvX0xrUvE5S4giCD3PRTo/CP8JrAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btnReset.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAAVxJREFUSEvllVsuBkEQRicEDy4rwAKwANeI2IHEGkTEPVYhLMNiCHGLFbhsAS+c
-        02YeDNPTOiaR+JKTf3q6u6q6prr+4l+oF+ZhD45LDmAOnMvWAOzAE7w18ADb0A9qpfxt1ThcgkauYAsm
-        YLDE5024A9ecwga8Qqs0/gjPsAY90CTndO7a6lRRmRYjd8OiLxJkWow8yYE5d5GRp6huPOrAivCDmvNY
-        WrK1AEbgx+tE+6ADK6QTHYEOhsMoXyew+vH4WZWDoTDK0who4zCMavqNFE2BNmwrX2RvcdKrnysNa2M6
-        jGqyNL3B15DTxNxzC/anxjL32hvBehj9TJa3e+1JjbIrXoCtYskXiVqGFziDPl/ENAYe0w1GE0uXc0bu
-        2nsYhSTp5Bw88g3YoybBEharZRfMuWuMPNl4JdNldH54jXyHJ/WUrWmJyYqYBSP279IL6fMMdNIU/5KK
-        4h1goVgUTK+xxQAAAABJRU5ErkJggg==
-</value>
-  </data>
 </root>

@@ -104,5 +104,27 @@ namespace GUI
             int soLuongTonKho = int.Parse(txtTonKho.Texts.ToString());
 
         }
+
+        private void btnMaNCC_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnMaNSX_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMaLoai_Click(object sender, EventArgs e)
+        {
+            MiniLoaiGUI maLoaiGUI = new MiniLoaiGUI();
+            maLoaiGUI.Show();
+
+            maLoaiGUI.FormClosed += (s, args) =>
+            {
+                string maLoai = maLoaiGUI.maLoai;
+                Console.WriteLine(maLoai);
+                txtMaLoai.Texts = maLoai;
+            };
+        }
     }
 }

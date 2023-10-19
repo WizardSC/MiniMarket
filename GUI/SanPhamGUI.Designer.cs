@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SanPhamGUI));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -39,6 +39,17 @@
             this.btnTimKiem = new GUI.MyCustom.RJButton();
             this.btnFilter = new GUI.MyCustom.RJButton();
             this.dgvSanPham = new System.Windows.Forms.DataGridView();
+            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ho = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaNSX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flpFilter = new System.Windows.Forms.FlowLayoutPanel();
             this.chkGioiTinh = new GUI.MyCustom.BiggerCheckBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -90,32 +101,21 @@
             this.cbxTrangThai = new GUI.MyCustom.RJComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtMaLoai = new GUI.MyCustom.RJTextBox();
-            this.rjButton3 = new GUI.MyCustom.RJButton();
+            this.btnMaLoai = new GUI.MyCustom.RJButton();
             this.label15 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtMaNSX = new GUI.MyCustom.RJTextBox();
-            this.rjButton2 = new GUI.MyCustom.RJButton();
+            this.btnMaNSX = new GUI.MyCustom.RJButton();
             this.label18 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtMaNCC = new GUI.MyCustom.RJTextBox();
-            this.rjButton1 = new GUI.MyCustom.RJButton();
+            this.btnMaNCC = new GUI.MyCustom.RJButton();
             this.label19 = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnThem = new GUI.MyCustom.RJButton();
             this.btnSua = new GUI.MyCustom.RJButton();
             this.btnXoa = new GUI.MyCustom.RJButton();
             this.btnReset = new GUI.MyCustom.RJButton();
-            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ho = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaNSX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
@@ -260,14 +260,14 @@
             this.dgvSanPham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvSanPham.BackgroundColor = System.Drawing.Color.White;
             this.dgvSanPham.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSanPham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSanPham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvSanPham.ColumnHeadersHeight = 28;
             this.dgvSanPham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaKH,
@@ -281,14 +281,14 @@
             this.MaNSX,
             this.MaNCC,
             this.Column1});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSanPham.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSanPham.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvSanPham.EnableHeadersVisualStyles = false;
             this.dgvSanPham.GridColor = System.Drawing.Color.Black;
             this.dgvSanPham.Location = new System.Drawing.Point(5, 62);
@@ -303,6 +303,114 @@
             this.dgvSanPham.Size = new System.Drawing.Size(974, 683);
             this.dgvSanPham.TabIndex = 1;
             this.dgvSanPham.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvSanPham_DataBindingComplete);
+            // 
+            // MaKH
+            // 
+            this.MaKH.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.MaKH.DataPropertyName = "MaSP";
+            this.MaKH.Frozen = true;
+            this.MaKH.HeaderText = "Mã SP";
+            this.MaKH.MinimumWidth = 6;
+            this.MaKH.Name = "MaKH";
+            this.MaKH.ReadOnly = true;
+            this.MaKH.Width = 70;
+            // 
+            // Ho
+            // 
+            this.Ho.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ho.DataPropertyName = "TenSP";
+            this.Ho.HeaderText = "Tên SP";
+            this.Ho.MinimumWidth = 6;
+            this.Ho.Name = "Ho";
+            this.Ho.ReadOnly = true;
+            // 
+            // Ten
+            // 
+            this.Ten.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Ten.DataPropertyName = "SoLuong";
+            this.Ten.HeaderText = "Tồn kho";
+            this.Ten.MinimumWidth = 6;
+            this.Ten.Name = "Ten";
+            this.Ten.ReadOnly = true;
+            this.Ten.Width = 120;
+            // 
+            // NgaySinh
+            // 
+            this.NgaySinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.NgaySinh.DataPropertyName = "DonGiaNhap";
+            this.NgaySinh.HeaderText = "Giá nhập";
+            this.NgaySinh.MinimumWidth = 6;
+            this.NgaySinh.Name = "NgaySinh";
+            this.NgaySinh.ReadOnly = true;
+            this.NgaySinh.Width = 86;
+            // 
+            // GioiTinh
+            // 
+            this.GioiTinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.GioiTinh.DataPropertyName = "DonGiaBan";
+            this.GioiTinh.HeaderText = "Giá bán";
+            this.GioiTinh.MinimumWidth = 6;
+            this.GioiTinh.Name = "GioiTinh";
+            this.GioiTinh.ReadOnly = true;
+            this.GioiTinh.Width = 78;
+            // 
+            // SoDT
+            // 
+            this.SoDT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.SoDT.DataPropertyName = "DonViTinh";
+            this.SoDT.HeaderText = "Đơn vị tính";
+            this.SoDT.MinimumWidth = 6;
+            this.SoDT.Name = "SoDT";
+            this.SoDT.ReadOnly = true;
+            this.SoDT.Width = 102;
+            // 
+            // DiaChi
+            // 
+            this.DiaChi.DataPropertyName = "TrangThai";
+            this.DiaChi.HeaderText = "Trạng thái";
+            this.DiaChi.MinimumWidth = 6;
+            this.DiaChi.Name = "DiaChi";
+            this.DiaChi.ReadOnly = true;
+            this.DiaChi.Width = 95;
+            // 
+            // TrangThai
+            // 
+            this.TrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TrangThai.DataPropertyName = "MaLoai";
+            this.TrangThai.HeaderText = "Mã loại";
+            this.TrangThai.MinimumWidth = 6;
+            this.TrangThai.Name = "TrangThai";
+            this.TrangThai.ReadOnly = true;
+            this.TrangThai.Width = 77;
+            // 
+            // MaNSX
+            // 
+            this.MaNSX.DataPropertyName = "MaNSX";
+            this.MaNSX.HeaderText = "Mã NSX";
+            this.MaNSX.MinimumWidth = 6;
+            this.MaNSX.Name = "MaNSX";
+            this.MaNSX.ReadOnly = true;
+            this.MaNSX.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.MaNSX.Width = 80;
+            // 
+            // MaNCC
+            // 
+            this.MaNCC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.MaNCC.DataPropertyName = "MaNCC";
+            this.MaNCC.HeaderText = "Mã NCC";
+            this.MaNCC.MinimumWidth = 6;
+            this.MaNCC.Name = "MaNCC";
+            this.MaNCC.ReadOnly = true;
+            this.MaNCC.Width = 80;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "IMG";
+            this.Column1.HeaderText = "Hình ảnh";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            this.Column1.Width = 89;
             // 
             // flpFilter
             // 
@@ -871,15 +979,15 @@
             this.flowLayoutPanel2.Controls.Add(this.cbxTrangThai);
             this.flowLayoutPanel2.Controls.Add(this.label8);
             this.flowLayoutPanel2.Controls.Add(this.txtMaLoai);
-            this.flowLayoutPanel2.Controls.Add(this.rjButton3);
+            this.flowLayoutPanel2.Controls.Add(this.btnMaLoai);
             this.flowLayoutPanel2.Controls.Add(this.label15);
             this.flowLayoutPanel2.Controls.Add(this.label10);
             this.flowLayoutPanel2.Controls.Add(this.txtMaNSX);
-            this.flowLayoutPanel2.Controls.Add(this.rjButton2);
+            this.flowLayoutPanel2.Controls.Add(this.btnMaNSX);
             this.flowLayoutPanel2.Controls.Add(this.label18);
             this.flowLayoutPanel2.Controls.Add(this.label11);
             this.flowLayoutPanel2.Controls.Add(this.txtMaNCC);
-            this.flowLayoutPanel2.Controls.Add(this.rjButton1);
+            this.flowLayoutPanel2.Controls.Add(this.btnMaNCC);
             this.flowLayoutPanel2.Controls.Add(this.label19);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(8, 198);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
@@ -1208,31 +1316,32 @@
             this.txtMaLoai.PasswordChar = false;
             this.txtMaLoai.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtMaLoai.PlaceholderText = "";
-            this.txtMaLoai.Size = new System.Drawing.Size(109, 28);
+            this.txtMaLoai.Size = new System.Drawing.Size(122, 28);
             this.txtMaLoai.TabIndex = 35;
             this.txtMaLoai.Texts = "";
             this.txtMaLoai.UnderlinedStyle = false;
             // 
-            // rjButton3
+            // btnMaLoai
             // 
-            this.rjButton3.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton3.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.rjButton3.BorderRadius = 0;
-            this.rjButton3.BorderSize = 2;
-            this.rjButton3.CausesValidation = false;
-            this.rjButton3.FlatAppearance.BorderSize = 0;
-            this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton3.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton3.ForeColor = System.Drawing.Color.Black;
-            this.rjButton3.Location = new System.Drawing.Point(220, 324);
-            this.rjButton3.Margin = new System.Windows.Forms.Padding(5, 4, 0, 3);
-            this.rjButton3.Name = "rjButton3";
-            this.rjButton3.Size = new System.Drawing.Size(44, 28);
-            this.rjButton3.TabIndex = 40;
-            this.rjButton3.Text = "...";
-            this.rjButton3.TextColor = System.Drawing.Color.Black;
-            this.rjButton3.UseVisualStyleBackColor = false;
+            this.btnMaLoai.BackColor = System.Drawing.Color.Transparent;
+            this.btnMaLoai.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnMaLoai.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.btnMaLoai.BorderRadius = 0;
+            this.btnMaLoai.BorderSize = 2;
+            this.btnMaLoai.CausesValidation = false;
+            this.btnMaLoai.FlatAppearance.BorderSize = 0;
+            this.btnMaLoai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaLoai.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaLoai.ForeColor = System.Drawing.Color.Black;
+            this.btnMaLoai.Location = new System.Drawing.Point(233, 324);
+            this.btnMaLoai.Margin = new System.Windows.Forms.Padding(5, 4, 0, 3);
+            this.btnMaLoai.Name = "btnMaLoai";
+            this.btnMaLoai.Size = new System.Drawing.Size(44, 28);
+            this.btnMaLoai.TabIndex = 40;
+            this.btnMaLoai.Text = "...";
+            this.btnMaLoai.TextColor = System.Drawing.Color.Black;
+            this.btnMaLoai.UseVisualStyleBackColor = false;
+            this.btnMaLoai.Click += new System.EventHandler(this.btnMaLoai_Click);
             // 
             // label15
             // 
@@ -1268,7 +1377,7 @@
             this.txtMaNSX.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaNSX.ForeColor = System.Drawing.Color.DimGray;
             this.txtMaNSX.Location = new System.Drawing.Point(106, 377);
-            this.txtMaNSX.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMaNSX.Margin = new System.Windows.Forms.Padding(4, 4, 0, 4);
             this.txtMaNSX.MaximumSize = new System.Drawing.Size(171, 28);
             this.txtMaNSX.MinimumSize = new System.Drawing.Size(50, 28);
             this.txtMaNSX.Multiline = false;
@@ -1277,31 +1386,32 @@
             this.txtMaNSX.PasswordChar = false;
             this.txtMaNSX.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtMaNSX.PlaceholderText = "";
-            this.txtMaNSX.Size = new System.Drawing.Size(109, 28);
+            this.txtMaNSX.Size = new System.Drawing.Size(122, 28);
             this.txtMaNSX.TabIndex = 36;
             this.txtMaNSX.Texts = "";
             this.txtMaNSX.UnderlinedStyle = false;
             // 
-            // rjButton2
+            // btnMaNSX
             // 
-            this.rjButton2.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton2.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.rjButton2.BorderRadius = 0;
-            this.rjButton2.BorderSize = 2;
-            this.rjButton2.CausesValidation = false;
-            this.rjButton2.FlatAppearance.BorderSize = 0;
-            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton2.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton2.ForeColor = System.Drawing.Color.Black;
-            this.rjButton2.Location = new System.Drawing.Point(224, 377);
-            this.rjButton2.Margin = new System.Windows.Forms.Padding(5, 4, 0, 3);
-            this.rjButton2.Name = "rjButton2";
-            this.rjButton2.Size = new System.Drawing.Size(44, 28);
-            this.rjButton2.TabIndex = 42;
-            this.rjButton2.Text = "...";
-            this.rjButton2.TextColor = System.Drawing.Color.Black;
-            this.rjButton2.UseVisualStyleBackColor = false;
+            this.btnMaNSX.BackColor = System.Drawing.Color.Transparent;
+            this.btnMaNSX.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnMaNSX.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.btnMaNSX.BorderRadius = 0;
+            this.btnMaNSX.BorderSize = 2;
+            this.btnMaNSX.CausesValidation = false;
+            this.btnMaNSX.FlatAppearance.BorderSize = 0;
+            this.btnMaNSX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaNSX.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaNSX.ForeColor = System.Drawing.Color.Black;
+            this.btnMaNSX.Location = new System.Drawing.Point(233, 377);
+            this.btnMaNSX.Margin = new System.Windows.Forms.Padding(5, 4, 0, 3);
+            this.btnMaNSX.Name = "btnMaNSX";
+            this.btnMaNSX.Size = new System.Drawing.Size(44, 28);
+            this.btnMaNSX.TabIndex = 42;
+            this.btnMaNSX.Text = "...";
+            this.btnMaNSX.TextColor = System.Drawing.Color.Black;
+            this.btnMaNSX.UseVisualStyleBackColor = false;
+            this.btnMaNSX.Click += new System.EventHandler(this.btnMaNSX_Click);
             // 
             // label18
             // 
@@ -1337,7 +1447,7 @@
             this.txtMaNCC.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaNCC.ForeColor = System.Drawing.Color.DimGray;
             this.txtMaNCC.Location = new System.Drawing.Point(106, 430);
-            this.txtMaNCC.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMaNCC.Margin = new System.Windows.Forms.Padding(4, 4, 0, 4);
             this.txtMaNCC.MaximumSize = new System.Drawing.Size(171, 28);
             this.txtMaNCC.MinimumSize = new System.Drawing.Size(50, 28);
             this.txtMaNCC.Multiline = false;
@@ -1346,31 +1456,32 @@
             this.txtMaNCC.PasswordChar = false;
             this.txtMaNCC.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtMaNCC.PlaceholderText = "";
-            this.txtMaNCC.Size = new System.Drawing.Size(109, 28);
+            this.txtMaNCC.Size = new System.Drawing.Size(122, 28);
             this.txtMaNCC.TabIndex = 37;
             this.txtMaNCC.Texts = "";
             this.txtMaNCC.UnderlinedStyle = false;
             // 
-            // rjButton1
+            // btnMaNCC
             // 
-            this.rjButton1.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton1.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.rjButton1.BorderRadius = 0;
-            this.rjButton1.BorderSize = 2;
-            this.rjButton1.CausesValidation = false;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton1.ForeColor = System.Drawing.Color.Black;
-            this.rjButton1.Location = new System.Drawing.Point(224, 430);
-            this.rjButton1.Margin = new System.Windows.Forms.Padding(5, 4, 0, 3);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(44, 28);
-            this.rjButton1.TabIndex = 41;
-            this.rjButton1.Text = "...";
-            this.rjButton1.TextColor = System.Drawing.Color.Black;
-            this.rjButton1.UseVisualStyleBackColor = false;
+            this.btnMaNCC.BackColor = System.Drawing.Color.Transparent;
+            this.btnMaNCC.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnMaNCC.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.btnMaNCC.BorderRadius = 0;
+            this.btnMaNCC.BorderSize = 2;
+            this.btnMaNCC.CausesValidation = false;
+            this.btnMaNCC.FlatAppearance.BorderSize = 0;
+            this.btnMaNCC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaNCC.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaNCC.ForeColor = System.Drawing.Color.Black;
+            this.btnMaNCC.Location = new System.Drawing.Point(233, 430);
+            this.btnMaNCC.Margin = new System.Windows.Forms.Padding(5, 4, 0, 3);
+            this.btnMaNCC.Name = "btnMaNCC";
+            this.btnMaNCC.Size = new System.Drawing.Size(44, 28);
+            this.btnMaNCC.TabIndex = 41;
+            this.btnMaNCC.Text = "...";
+            this.btnMaNCC.TextColor = System.Drawing.Color.Black;
+            this.btnMaNCC.UseVisualStyleBackColor = false;
+            this.btnMaNCC.Click += new System.EventHandler(this.btnMaNCC_Click);
             // 
             // label19
             // 
@@ -1473,114 +1584,6 @@
             this.btnReset.TextColor = System.Drawing.Color.White;
             this.btnReset.UseVisualStyleBackColor = false;
             // 
-            // MaKH
-            // 
-            this.MaKH.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.MaKH.DataPropertyName = "MaSP";
-            this.MaKH.Frozen = true;
-            this.MaKH.HeaderText = "Mã SP";
-            this.MaKH.MinimumWidth = 6;
-            this.MaKH.Name = "MaKH";
-            this.MaKH.ReadOnly = true;
-            this.MaKH.Width = 70;
-            // 
-            // Ho
-            // 
-            this.Ho.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ho.DataPropertyName = "TenSP";
-            this.Ho.HeaderText = "Tên SP";
-            this.Ho.MinimumWidth = 6;
-            this.Ho.Name = "Ho";
-            this.Ho.ReadOnly = true;
-            // 
-            // Ten
-            // 
-            this.Ten.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Ten.DataPropertyName = "SoLuong";
-            this.Ten.HeaderText = "Tồn kho";
-            this.Ten.MinimumWidth = 6;
-            this.Ten.Name = "Ten";
-            this.Ten.ReadOnly = true;
-            this.Ten.Width = 120;
-            // 
-            // NgaySinh
-            // 
-            this.NgaySinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.NgaySinh.DataPropertyName = "DonGiaNhap";
-            this.NgaySinh.HeaderText = "Giá nhập";
-            this.NgaySinh.MinimumWidth = 6;
-            this.NgaySinh.Name = "NgaySinh";
-            this.NgaySinh.ReadOnly = true;
-            this.NgaySinh.Width = 86;
-            // 
-            // GioiTinh
-            // 
-            this.GioiTinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.GioiTinh.DataPropertyName = "DonGiaBan";
-            this.GioiTinh.HeaderText = "Giá bán";
-            this.GioiTinh.MinimumWidth = 6;
-            this.GioiTinh.Name = "GioiTinh";
-            this.GioiTinh.ReadOnly = true;
-            this.GioiTinh.Width = 78;
-            // 
-            // SoDT
-            // 
-            this.SoDT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.SoDT.DataPropertyName = "DonViTinh";
-            this.SoDT.HeaderText = "Đơn vị tính";
-            this.SoDT.MinimumWidth = 6;
-            this.SoDT.Name = "SoDT";
-            this.SoDT.ReadOnly = true;
-            this.SoDT.Width = 102;
-            // 
-            // DiaChi
-            // 
-            this.DiaChi.DataPropertyName = "TrangThai";
-            this.DiaChi.HeaderText = "Trạng thái";
-            this.DiaChi.MinimumWidth = 6;
-            this.DiaChi.Name = "DiaChi";
-            this.DiaChi.ReadOnly = true;
-            this.DiaChi.Width = 95;
-            // 
-            // TrangThai
-            // 
-            this.TrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.TrangThai.DataPropertyName = "MaLoai";
-            this.TrangThai.HeaderText = "Mã loại";
-            this.TrangThai.MinimumWidth = 6;
-            this.TrangThai.Name = "TrangThai";
-            this.TrangThai.ReadOnly = true;
-            this.TrangThai.Width = 77;
-            // 
-            // MaNSX
-            // 
-            this.MaNSX.DataPropertyName = "MaNSX";
-            this.MaNSX.HeaderText = "Mã NSX";
-            this.MaNSX.MinimumWidth = 6;
-            this.MaNSX.Name = "MaNSX";
-            this.MaNSX.ReadOnly = true;
-            this.MaNSX.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.MaNSX.Width = 80;
-            // 
-            // MaNCC
-            // 
-            this.MaNCC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.MaNCC.DataPropertyName = "MaNCC";
-            this.MaNCC.HeaderText = "Mã NCC";
-            this.MaNCC.MinimumWidth = 6;
-            this.MaNCC.Name = "MaNCC";
-            this.MaNCC.ReadOnly = true;
-            this.MaNCC.Width = 80;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "IMG";
-            this.Column1.HeaderText = "Hình ảnh";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            this.Column1.Width = 88;
-            // 
             // SanPhamGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1679,11 +1682,11 @@
         private MyCustom.RJTextBox txtMaNSX;
         private System.Windows.Forms.Label label11;
         private MyCustom.RJTextBox txtMaNCC;
-        private MyCustom.RJButton rjButton3;
+        private MyCustom.RJButton btnMaLoai;
         private System.Windows.Forms.Label label15;
-        private MyCustom.RJButton rjButton2;
+        private MyCustom.RJButton btnMaNSX;
         private System.Windows.Forms.Label label18;
-        private MyCustom.RJButton rjButton1;
+        private MyCustom.RJButton btnMaNCC;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKH;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ho;
