@@ -180,15 +180,30 @@ namespace GUI
             string maNSX = CheckAndSetColor(txtMaNSX, lblErrMaNSX);
             string maNCC = CheckAndSetColor(txtMaNCC, lblErrMaNCC);
             string trangThai = CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
-            //Có thể k cần truyền vào lbl Lỗi
             int soLuongTonKho = ConvertToInt(txtTonKho);
             int donGiaNhap = ConvertToInt(txtGiaNhap, lblErrGiaNhap);
             int donGiaBan = ConvertToInt(txtGiaBan);
 
-            if (maSP != null || tenSP != null || donViTinh != null)
+            //Có thể k cần truyền vào lbl Lỗi
+
+            Console.WriteLine("maSP: " + maSP);
+            Console.WriteLine("tenSP: " + tenSP);
+            Console.WriteLine("donViTinh: " + donViTinh);
+            Console.WriteLine("maLoai: " + maLoai);
+            Console.WriteLine("maNSX: " + maNSX);
+            Console.WriteLine("maNCC: " + maNCC);
+            Console.WriteLine("trangThai: " + trangThai);
+            Console.WriteLine("tonKho: " + soLuongTonKho);
+            Console.WriteLine("dongianhap: " + donGiaNhap);
+            Console.WriteLine("dongiaban: " + donGiaBan);
+            if (!(maSP != "" && tenSP != "" && donViTinh != "" && maLoai != "" && maNSX != "" && maNCC != "" && trangThai != "" && soLuongTonKho != 0 && donGiaNhap != 0 && donGiaBan != 0))
             {
                 return;
             }
+                Console.WriteLine("Không có cái nào null");
+
+            
+
 
             //byte[] img = this.convertImageToBinaryString(pbImage.Image);
             //SanPhamDTO sp = new SanPhamDTO(maSP,tenSP,soLuongTonKho,donGiaNhap, donGiaBan, donViTinh,trangThai,maLoai, maNSX,maNCC,img);
@@ -248,6 +263,9 @@ namespace GUI
             };
         }
 
-        
+        private void txtGiaNhap__TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
