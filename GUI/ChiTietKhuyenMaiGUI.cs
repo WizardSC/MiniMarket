@@ -13,21 +13,47 @@ namespace GUI
 {
     public partial class ChiTietKhuyenMaiGUI : Form
     {
-        private ChiTietKhuyenMaiBLL CTKhuyenMaiBLL;
+         DataTable data = new DataTable();
+        ChiTietKhuyenMaiBLL CTKhuyenMaiBLL = new ChiTietKhuyenMaiBLL();
+        KhuyenMaiBLL KmBLL = new KhuyenMaiBLL();
+        SanPhamBLL SpBLL = new SanPhamBLL();
+
         public ChiTietKhuyenMaiGUI()
         {
             InitializeComponent();
-            CTKhuyenMaiBLL = new ChiTietKhuyenMaiBLL();
+            loadsItemTenKM();
+            loadsItemTenSp();
+            
+           
+            
+        }
+
+        public void loadsItemTenKM()
+        {
+            data = KmBLL.getListDsKm();
+            cbxTenKM.DataSource = data;
+            cbxTenKM.DisplayMember = "TenKM";
+            cbxTenKM.SelectedIndex = -1;
+           
+        }
+        public void loadsItemTenSp()
+        {
+            data = SpBLL.getListSanPham();
+            cbxTenSp.DataSource = data;
+            cbxTenSp.DisplayMember = "TenSP";
+            cbxTenSp.SelectedIndex = -1;
+
+        }
+
+
+        private void ChiTietKhuyenMaiGUI_Load(object sender, EventArgs e)
+        {
+            dgvChiTietKM.DataSource = CTKhuyenMaiBLL.getListDsCTKm();
         }
 
         private void dgvChiTietKM_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-        }
-
-        private void ChiTietKhuyenMaiGUI_Load(object sender, EventArgs e)
-        {
-            dgvChiTietKM.DataSource = CTKhuyenMaiBLL.getListDsCTKm();
         }
     }
     

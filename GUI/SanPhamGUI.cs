@@ -1,4 +1,6 @@
 ﻿using BLL;
+using DTO;
+using GUI.MyCustom;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +9,7 @@ using System.Drawing;
 using System.Drawing.Text;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,11 +27,14 @@ namespace GUI
             dt = spBLL.getListSanPham();
             InitializeComponent();
             loadMaSP();
+            unhideError();
         }
 
         private void SanPhamGUI_Load(object sender, EventArgs e)
         {
             dgvSanPham.DataSource = spBLL.getListSanPham();
+            dgvSanPham.ClearSelection();
+            dgvSanPham.CurrentCell = null;
         }
 
         private void dgvSanPham_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -39,6 +45,17 @@ namespace GUI
         #region các hàm bổ trợ
 
         //Load mã KH mới nhất lên form
+        private void unhideError()
+        {
+            lblErrMaSP.ForeColor = Color.Transparent;
+            lblErrTenSP.ForeColor = Color.Transparent;
+            lblErrGiaNhap.ForeColor = Color.Transparent;
+            lblErrDonViTinh.ForeColor = Color.Transparent;
+            lblErrMaLoai.ForeColor = Color.Transparent;
+            lblErrMaNCC.ForeColor = Color.Transparent;
+            lblErrMaNSX.ForeColor = Color.Transparent;
+            lblErrTrangThai.ForeColor = Color.Transparent;
+        }
         private void loadMaSP()
         {
             string lastMaSP = null;
@@ -96,13 +113,141 @@ namespace GUI
 
             }
         }
+        
+        private void rjButton1_Click(object sender, EventArgs e)
+        {
+            //string donViTinh = cbxDonViTinh.SelectedItem.ToString();
+            string trangThai = cbxTrangThai.SelectedItem.ToString();
+            Console.WriteLine(trangThai);
+        }
+        private string CheckAndSetColor(object control, Label label)
+        {
+            if (control is RJTextBox textBox)
+            {
+                string text = textBox.Texts.Trim();
+                label.ForeColor = string.IsNullOrWhiteSpace(text) ? Color.FromArgb(230, 76, 89) : Color.Transparent;
+                return text;
+            }
+            else if (control is RJComboBox comboBox)
+            {
+                string selectedValue = comboBox.SelectedItem?.ToString();
+                if (string.IsNullOrWhiteSpace(selectedValue))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                }
+                else
+                {
+                    label.ForeColor = Color.Transparent;
+                }
+                return selectedValue;
+            }
+
+            return null; // Nếu kiểu dữ liệu không hợp lệ.
+        }
+
+        private int ConvertToInt(RJTextBox textBox, Label label = null)
+        //Nếu không có lbl Lỗi thì mặc định giá trị là null
+        {
+            string text = textBox.Texts.Trim();
+            int result;
+
+            bool isNumeric = int.TryParse(text, out result);
+
+            if (label != null)
+            {
+                if (string.IsNullOrWhiteSpace(text))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "*Vui lòng nhập Giá nhập hàng";
+                }
+                else
+                {
+                    label.ForeColor = isNumeric ? Color.Transparent : Color.FromArgb(230, 76, 89);
+                    label.Text = isNumeric ? "" : "*Vui lòng nhập 1 số nguyên";
+                }
+            }
+
+            return isNumeric ? result : 0;
+        }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            string maSP = txtMaSP.Texts.ToString();
-            string tenSP = txtTenSP.Texts.ToString();
-            int soLuongTonKho = int.Parse(txtTonKho.Texts.ToString());
+
+            string maSP = CheckAndSetColor(txtMaSP, lblErrMaSP);
+            string tenSP = CheckAndSetColor(txtTenSP, lblErrTenSP);
+            string donViTinh = CheckAndSetColor(cbxDonViTinh, lblErrDonViTinh);
+            string maLoai = CheckAndSetColor(txtMaLoai, lblErrMaLoai);
+            string maNSX = CheckAndSetColor(txtMaNSX, lblErrMaNSX);
+            string maNCC = CheckAndSetColor(txtMaNCC, lblErrMaNCC);
+            string trangThai = CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
+            //Có thể k cần truyền vào lbl Lỗi
+            int soLuongTonKho = ConvertToInt(txtTonKho);
+            int donGiaNhap = ConvertToInt(txtGiaNhap, lblErrGiaNhap);
+            int donGiaBan = ConvertToInt(txtGiaBan);
+
+            if (maSP != null || tenSP != null || donViTinh != null)
+            {
+                return;
+            }
+
+            //byte[] img = this.convertImageToBinaryString(pbImage.Image);
+            //SanPhamDTO sp = new SanPhamDTO(maSP,tenSP,soLuongTonKho,donGiaNhap, donGiaBan, donViTinh,trangThai,maLoai, maNSX,maNCC,img);
+            //int flag = spBLL.insertSanPham(sp) ? 1 : 0;
+            //if (flag == 1)
+            //{
+            //    MessageBox.Show("Thêm thành công",
+            //        "Thông báo",
+            //        MessageBoxButtons.OK,
+            //        MessageBoxIcon.Information);
+            //} else
+            //{
+            //    MessageBox.Show("Thêm thất bại",
+            //        "Lỗi",
+            //        MessageBoxButtons.OK,
+            //        MessageBoxIcon.Error);
+            //}
 
         }
+
+        private void btnMaNCC_Click(object sender, EventArgs e)
+        {
+            MiniNCCGUI nccGUI = new MiniNCCGUI();
+            nccGUI.Show();
+            nccGUI.FormClosed += (s, args) =>
+            {
+                string maNCC = nccGUI.maNCC;
+                Console.WriteLine(maNCC);
+                txtMaNCC.Texts = maNCC;
+            };
+        }
+
+        private void btnMaNSX_Click(object sender, EventArgs e)
+        {
+            MiniNSXGUI nsxGUI = new MiniNSXGUI();
+            nsxGUI.Show();
+            nsxGUI.FormClosed += (s, args) =>
+            {
+                string maNSX = nsxGUI.maNSX;
+                Console.WriteLine(maNSX);
+                txtMaNSX.Texts = maNSX;
+                Console.WriteLine("1");
+            };
+
+        }
+
+        private void btnMaLoai_Click(object sender, EventArgs e)
+        {
+            MiniLoaiGUI maLoaiGUI = new MiniLoaiGUI();
+            maLoaiGUI.Show();
+
+            maLoaiGUI.FormClosed += (s, args) =>
+            {
+                string maLoai = maLoaiGUI.maLoai;
+                Console.WriteLine(maLoai);
+                txtMaLoai.Texts = maLoai;
+            };
+        }
+
+        
     }
 }

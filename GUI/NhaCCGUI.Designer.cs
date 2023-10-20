@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NhaCCGUI));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label29 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMaNCC = new GUI.MyCustom.RJTextBox();
@@ -72,6 +72,11 @@
             this.txtSoFax = new GUI.MyCustom.RJTextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.btnFolder = new GUI.MyCustom.RJButton();
+            this.rjTextBox1 = new GUI.MyCustom.RJTextBox();
+            this.btnImport = new GUI.MyCustom.RJButton();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnExport = new GUI.MyCustom.RJButton();
             this.cbxTimKiem = new GUI.MyCustom.RJComboBox();
             this.txtTimKiem = new GUI.MyCustom.RJTextBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
@@ -79,6 +84,11 @@
             this.btnFilter = new GUI.MyCustom.RJButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvKhachHang = new System.Windows.Forms.DataGridView();
+            this.MaNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SdtNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoFax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
@@ -86,16 +96,6 @@
             this.btnSua = new GUI.MyCustom.RJButton();
             this.btnXoa = new GUI.MyCustom.RJButton();
             this.btnReset = new GUI.MyCustom.RJButton();
-            this.btnFolder = new GUI.MyCustom.RJButton();
-            this.rjTextBox1 = new GUI.MyCustom.RJTextBox();
-            this.btnImport = new GUI.MyCustom.RJButton();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnExport = new GUI.MyCustom.RJButton();
-            this.MaNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SdtNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoFax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flpFilter.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
@@ -738,7 +738,7 @@
             // 
             this.label17.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
-            this.label17.Location = new System.Drawing.Point(3, 146);
+            this.label17.Location = new System.Drawing.Point(3, 142);
             this.label17.Name = "label17";
             this.label17.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.label17.Size = new System.Drawing.Size(252, 17);
@@ -750,7 +750,7 @@
             // 
             this.label7.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label7.Location = new System.Drawing.Point(4, 167);
+            this.label7.Location = new System.Drawing.Point(4, 163);
             this.label7.Margin = new System.Windows.Forms.Padding(4);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(94, 28);
@@ -767,7 +767,7 @@
             this.txtSoDT.BorderSize = 2;
             this.txtSoDT.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSoDT.ForeColor = System.Drawing.Color.DimGray;
-            this.txtSoDT.Location = new System.Drawing.Point(106, 167);
+            this.txtSoDT.Location = new System.Drawing.Point(106, 163);
             this.txtSoDT.Margin = new System.Windows.Forms.Padding(4);
             this.txtSoDT.MaximumSize = new System.Drawing.Size(171, 28);
             this.txtSoDT.MinimumSize = new System.Drawing.Size(150, 28);
@@ -786,7 +786,7 @@
             // 
             this.label18.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
-            this.label18.Location = new System.Drawing.Point(3, 203);
+            this.label18.Location = new System.Drawing.Point(3, 199);
             this.label18.Name = "label18";
             this.label18.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.label18.Size = new System.Drawing.Size(252, 17);
@@ -798,7 +798,7 @@
             // 
             this.label8.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label8.Location = new System.Drawing.Point(4, 224);
+            this.label8.Location = new System.Drawing.Point(4, 220);
             this.label8.Margin = new System.Windows.Forms.Padding(4);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(94, 28);
@@ -815,7 +815,7 @@
             this.txtSoFax.BorderSize = 2;
             this.txtSoFax.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSoFax.ForeColor = System.Drawing.Color.DimGray;
-            this.txtSoFax.Location = new System.Drawing.Point(106, 224);
+            this.txtSoFax.Location = new System.Drawing.Point(106, 220);
             this.txtSoFax.Margin = new System.Windows.Forms.Padding(4);
             this.txtSoFax.MaximumSize = new System.Drawing.Size(171, 28);
             this.txtSoFax.MinimumSize = new System.Drawing.Size(150, 28);
@@ -834,7 +834,7 @@
             // 
             this.label19.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
-            this.label19.Location = new System.Drawing.Point(3, 260);
+            this.label19.Location = new System.Drawing.Point(3, 256);
             this.label19.Name = "label19";
             this.label19.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.label19.Size = new System.Drawing.Size(252, 17);
@@ -846,13 +846,119 @@
             // 
             this.label20.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(3, 277);
+            this.label20.Location = new System.Drawing.Point(3, 273);
             this.label20.Name = "label20";
             this.label20.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.label20.Size = new System.Drawing.Size(256, 91);
             this.label20.TabIndex = 26;
             this.label20.Text = "Import File Excel";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnFolder
+            // 
+            this.btnFolder.AutoSize = true;
+            this.btnFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnFolder.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnFolder.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.btnFolder.BorderRadius = 0;
+            this.btnFolder.BorderSize = 2;
+            this.btnFolder.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnFolder.FlatAppearance.BorderSize = 0;
+            this.btnFolder.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnFolder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFolder.ForeColor = System.Drawing.Color.White;
+            this.btnFolder.Image = ((System.Drawing.Image)(resources.GetObject("btnFolder.Image")));
+            this.btnFolder.Location = new System.Drawing.Point(15, 372);
+            this.btnFolder.Margin = new System.Windows.Forms.Padding(15, 8, 10, 0);
+            this.btnFolder.Name = "btnFolder";
+            this.btnFolder.Size = new System.Drawing.Size(44, 42);
+            this.btnFolder.TabIndex = 27;
+            this.btnFolder.TextColor = System.Drawing.Color.White;
+            this.btnFolder.UseVisualStyleBackColor = false;
+            // 
+            // rjTextBox1
+            // 
+            this.rjTextBox1.AutoSize = true;
+            this.rjTextBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.rjTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.rjTextBox1.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.rjTextBox1.BorderRadius = 0;
+            this.rjTextBox1.BorderSize = 2;
+            this.rjTextBox1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjTextBox1.ForeColor = System.Drawing.Color.DimGray;
+            this.rjTextBox1.Location = new System.Drawing.Point(73, 372);
+            this.rjTextBox1.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
+            this.rjTextBox1.MaximumSize = new System.Drawing.Size(171, 38);
+            this.rjTextBox1.MinimumSize = new System.Drawing.Size(130, 38);
+            this.rjTextBox1.Multiline = false;
+            this.rjTextBox1.Name = "rjTextBox1";
+            this.rjTextBox1.Padding = new System.Windows.Forms.Padding(7);
+            this.rjTextBox1.PasswordChar = false;
+            this.rjTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.rjTextBox1.PlaceholderText = "";
+            this.rjTextBox1.Size = new System.Drawing.Size(130, 38);
+            this.rjTextBox1.TabIndex = 28;
+            this.rjTextBox1.Texts = "";
+            this.rjTextBox1.UnderlinedStyle = false;
+            // 
+            // btnImport
+            // 
+            this.btnImport.AutoSize = true;
+            this.btnImport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnImport.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnImport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.btnImport.BorderRadius = 0;
+            this.btnImport.BorderSize = 2;
+            this.btnImport.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnImport.FlatAppearance.BorderSize = 0;
+            this.btnImport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnImport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImport.ForeColor = System.Drawing.Color.White;
+            this.btnImport.Image = ((System.Drawing.Image)(resources.GetObject("btnImport.Image")));
+            this.btnImport.Location = new System.Drawing.Point(222, 372);
+            this.btnImport.Margin = new System.Windows.Forms.Padding(15, 8, 10, 0);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(44, 42);
+            this.btnImport.TabIndex = 29;
+            this.btnImport.TextColor = System.Drawing.Color.White;
+            this.btnImport.UseVisualStyleBackColor = false;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(3, 414);
+            this.label5.Name = "label5";
+            this.label5.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.label5.Size = new System.Drawing.Size(256, 91);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "Import File Excel";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnExport
+            // 
+            this.btnExport.AutoSize = true;
+            this.btnExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnExport.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnExport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.btnExport.BorderRadius = 0;
+            this.btnExport.BorderSize = 2;
+            this.btnExport.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnExport.FlatAppearance.BorderSize = 0;
+            this.btnExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExport.ForeColor = System.Drawing.Color.White;
+            this.btnExport.Image = ((System.Drawing.Image)(resources.GetObject("btnExport.Image")));
+            this.btnExport.Location = new System.Drawing.Point(120, 513);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(120, 8, 10, 0);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(44, 42);
+            this.btnExport.TabIndex = 31;
+            this.btnExport.TextColor = System.Drawing.Color.White;
+            this.btnExport.UseVisualStyleBackColor = false;
             // 
             // cbxTimKiem
             // 
@@ -971,14 +1077,14 @@
             this.dgvKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvKhachHang.BackgroundColor = System.Drawing.Color.White;
             this.dgvKhachHang.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvKhachHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvKhachHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvKhachHang.ColumnHeadersHeight = 28;
             this.dgvKhachHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaNCC,
@@ -986,14 +1092,14 @@
             this.DiaChi,
             this.SdtNV,
             this.SoFax});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvKhachHang.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvKhachHang.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvKhachHang.EnableHeadersVisualStyles = false;
             this.dgvKhachHang.GridColor = System.Drawing.Color.Black;
             this.dgvKhachHang.Location = new System.Drawing.Point(5, 62);
@@ -1007,6 +1113,56 @@
             this.dgvKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKhachHang.Size = new System.Drawing.Size(974, 763);
             this.dgvKhachHang.TabIndex = 1;
+            // 
+            // MaNCC
+            // 
+            this.MaNCC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.MaNCC.DataPropertyName = "MaNCC";
+            this.MaNCC.Frozen = true;
+            this.MaNCC.HeaderText = "Mã NCC";
+            this.MaNCC.MinimumWidth = 6;
+            this.MaNCC.Name = "MaNCC";
+            this.MaNCC.ReadOnly = true;
+            this.MaNCC.Width = 80;
+            // 
+            // TenNCC
+            // 
+            this.TenNCC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TenNCC.DataPropertyName = "TenNCC";
+            this.TenNCC.HeaderText = "Tên";
+            this.TenNCC.MinimumWidth = 6;
+            this.TenNCC.Name = "TenNCC";
+            this.TenNCC.ReadOnly = true;
+            this.TenNCC.Width = 55;
+            // 
+            // DiaChi
+            // 
+            this.DiaChi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DiaChi.DataPropertyName = "DiaChi";
+            this.DiaChi.HeaderText = "Địa chỉ";
+            this.DiaChi.MinimumWidth = 6;
+            this.DiaChi.Name = "DiaChi";
+            this.DiaChi.ReadOnly = true;
+            // 
+            // SdtNV
+            // 
+            this.SdtNV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.SdtNV.DataPropertyName = "SdtNV";
+            this.SdtNV.HeaderText = "Số DT";
+            this.SdtNV.MinimumWidth = 6;
+            this.SdtNV.Name = "SdtNV";
+            this.SdtNV.ReadOnly = true;
+            this.SdtNV.Width = 69;
+            // 
+            // SoFax
+            // 
+            this.SoFax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.SoFax.DataPropertyName = "SoFax";
+            this.SoFax.HeaderText = "Số Fax";
+            this.SoFax.MinimumWidth = 6;
+            this.SoFax.Name = "SoFax";
+            this.SoFax.ReadOnly = true;
+            this.SoFax.Width = 71;
             // 
             // panel1
             // 
@@ -1125,162 +1281,6 @@
             this.btnReset.TabIndex = 3;
             this.btnReset.TextColor = System.Drawing.Color.White;
             this.btnReset.UseVisualStyleBackColor = false;
-            // 
-            // btnFolder
-            // 
-            this.btnFolder.AutoSize = true;
-            this.btnFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnFolder.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnFolder.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.btnFolder.BorderRadius = 0;
-            this.btnFolder.BorderSize = 2;
-            this.btnFolder.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnFolder.FlatAppearance.BorderSize = 0;
-            this.btnFolder.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnFolder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFolder.ForeColor = System.Drawing.Color.White;
-            this.btnFolder.Image = ((System.Drawing.Image)(resources.GetObject("btnFolder.Image")));
-            this.btnFolder.Location = new System.Drawing.Point(15, 376);
-            this.btnFolder.Margin = new System.Windows.Forms.Padding(15, 8, 10, 0);
-            this.btnFolder.Name = "btnFolder";
-            this.btnFolder.Size = new System.Drawing.Size(44, 42);
-            this.btnFolder.TabIndex = 27;
-            this.btnFolder.TextColor = System.Drawing.Color.White;
-            this.btnFolder.UseVisualStyleBackColor = false;
-            // 
-            // rjTextBox1
-            // 
-            this.rjTextBox1.AutoSize = true;
-            this.rjTextBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.rjTextBox1.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.rjTextBox1.BorderRadius = 0;
-            this.rjTextBox1.BorderSize = 2;
-            this.rjTextBox1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.rjTextBox1.Location = new System.Drawing.Point(73, 376);
-            this.rjTextBox1.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
-            this.rjTextBox1.MaximumSize = new System.Drawing.Size(171, 38);
-            this.rjTextBox1.MinimumSize = new System.Drawing.Size(130, 38);
-            this.rjTextBox1.Multiline = false;
-            this.rjTextBox1.Name = "rjTextBox1";
-            this.rjTextBox1.Padding = new System.Windows.Forms.Padding(7);
-            this.rjTextBox1.PasswordChar = false;
-            this.rjTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox1.PlaceholderText = "";
-            this.rjTextBox1.Size = new System.Drawing.Size(130, 38);
-            this.rjTextBox1.TabIndex = 28;
-            this.rjTextBox1.Texts = "";
-            this.rjTextBox1.UnderlinedStyle = false;
-            // 
-            // btnImport
-            // 
-            this.btnImport.AutoSize = true;
-            this.btnImport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnImport.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnImport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.btnImport.BorderRadius = 0;
-            this.btnImport.BorderSize = 2;
-            this.btnImport.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnImport.FlatAppearance.BorderSize = 0;
-            this.btnImport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnImport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImport.ForeColor = System.Drawing.Color.White;
-            this.btnImport.Image = ((System.Drawing.Image)(resources.GetObject("btnImport.Image")));
-            this.btnImport.Location = new System.Drawing.Point(222, 376);
-            this.btnImport.Margin = new System.Windows.Forms.Padding(15, 8, 10, 0);
-            this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(44, 42);
-            this.btnImport.TabIndex = 29;
-            this.btnImport.TextColor = System.Drawing.Color.White;
-            this.btnImport.UseVisualStyleBackColor = false;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(3, 418);
-            this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.label5.Size = new System.Drawing.Size(256, 91);
-            this.label5.TabIndex = 30;
-            this.label5.Text = "Import File Excel";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // btnExport
-            // 
-            this.btnExport.AutoSize = true;
-            this.btnExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnExport.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnExport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.btnExport.BorderRadius = 0;
-            this.btnExport.BorderSize = 2;
-            this.btnExport.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnExport.FlatAppearance.BorderSize = 0;
-            this.btnExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExport.ForeColor = System.Drawing.Color.White;
-            this.btnExport.Image = ((System.Drawing.Image)(resources.GetObject("btnExport.Image")));
-            this.btnExport.Location = new System.Drawing.Point(120, 517);
-            this.btnExport.Margin = new System.Windows.Forms.Padding(120, 8, 10, 0);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(44, 42);
-            this.btnExport.TabIndex = 31;
-            this.btnExport.TextColor = System.Drawing.Color.White;
-            this.btnExport.UseVisualStyleBackColor = false;
-            // 
-            // MaNCC
-            // 
-            this.MaNCC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.MaNCC.DataPropertyName = "MaNCC";
-            this.MaNCC.Frozen = true;
-            this.MaNCC.HeaderText = "Mã NCC";
-            this.MaNCC.MinimumWidth = 6;
-            this.MaNCC.Name = "MaNCC";
-            this.MaNCC.ReadOnly = true;
-            this.MaNCC.Width = 80;
-            // 
-            // TenNCC
-            // 
-            this.TenNCC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.TenNCC.DataPropertyName = "TenNCC";
-            this.TenNCC.HeaderText = "Tên";
-            this.TenNCC.MinimumWidth = 6;
-            this.TenNCC.Name = "TenNCC";
-            this.TenNCC.ReadOnly = true;
-            this.TenNCC.Width = 55;
-            // 
-            // DiaChi
-            // 
-            this.DiaChi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DiaChi.DataPropertyName = "DiaChi";
-            this.DiaChi.HeaderText = "Địa chỉ";
-            this.DiaChi.MinimumWidth = 6;
-            this.DiaChi.Name = "DiaChi";
-            this.DiaChi.ReadOnly = true;
-            // 
-            // SdtNV
-            // 
-            this.SdtNV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.SdtNV.DataPropertyName = "SdtNV";
-            this.SdtNV.HeaderText = "Số DT";
-            this.SdtNV.MinimumWidth = 6;
-            this.SdtNV.Name = "SdtNV";
-            this.SdtNV.ReadOnly = true;
-            this.SdtNV.Width = 69;
-            // 
-            // SoFax
-            // 
-            this.SoFax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.SoFax.DataPropertyName = "SoFax";
-            this.SoFax.HeaderText = "Số Fax";
-            this.SoFax.MinimumWidth = 6;
-            this.SoFax.Name = "SoFax";
-            this.SoFax.ReadOnly = true;
-            this.SoFax.Width = 71;
             // 
             // NhaCCGUI
             // 

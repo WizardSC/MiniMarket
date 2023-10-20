@@ -17,15 +17,9 @@ namespace DTO
             private string dieuKienKm;
             private int trangThai;
 
-            public KhuyenMaiDTO(string maKm, string tenKm, DateTime ngayBd, DateTime ngayKt, int phanTramKm, string dieuKienKm, int trangThai)
+            public KhuyenMaiDTO()
             {
-                this.maKm = maKm;
-                this.tenKm = tenKm;
-                this.ngayBd = ngayBd;
-                this.ngayKt = ngayKt;
-                this.phanTramKm = phanTramKm;
-                this.dieuKienKm = dieuKienKm;
-                this.trangThai = trangThai;
+
             }
             public string Makm { get => maKm; set => maKm = value; }
             public string TenKm { get => tenKm; set => tenKm = value; }
