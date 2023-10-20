@@ -27,7 +27,9 @@ namespace GUI.MyCustom
         private string placeholderText = "";
         private bool isPlaceholder = false;
         private bool isPasswordChar = false;
+        private bool isReadOnly = false;
 
+       
         //Events
         public event EventHandler _TextChanged;
 
@@ -41,6 +43,16 @@ namespace GUI.MyCustom
         }
 
         #region -> Properties
+        [Category("RJ Code Advance")]
+        public bool ReadOnly
+        {
+            get { return isReadOnly; }
+            set
+            {
+                isReadOnly = value;
+                textBox1.ReadOnly = value;
+            }
+        }
         [Category("RJ Code Advance")]
         public Color BorderColor
         {

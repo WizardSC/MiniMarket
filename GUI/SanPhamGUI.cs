@@ -55,6 +55,7 @@ namespace GUI
             lblErrMaNCC.ForeColor = Color.Transparent;
             lblErrMaNSX.ForeColor = Color.Transparent;
             lblErrTrangThai.ForeColor = Color.Transparent;
+            lblErrIMG.ForeColor = Color.Transparent;
         }
         private void loadMaSP()
         {
@@ -76,10 +77,23 @@ namespace GUI
             }
         }
         //chuyển đổi một hình ảnh thành một dạng biểu diễn nhị phân 
-        private byte[] convertImageToBinaryString(Image img)
+        private byte[] convertImageToBinaryString(Image img,string tag)
         {
+
+            if (tag == "Placeholder")
+            {
+                lblErrIMG.ForeColor = Color.FromArgb(230, 76, 89);
+                return null;
+            }
+             else
+            {
+                lblErrIMG.ForeColor = Color.Transparent;
+
+            }
+
             MemoryStream ms = new MemoryStream();
             img.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+            
             return ms.ToArray();
 
         }
@@ -116,9 +130,8 @@ namespace GUI
         
         private void rjButton1_Click(object sender, EventArgs e)
         {
-            //string donViTinh = cbxDonViTinh.SelectedItem.ToString();
-            string trangThai = cbxTrangThai.SelectedItem.ToString();
-            Console.WriteLine(trangThai);
+            pbImage.Image = pbImage.InitialImage;
+            pbImage.Tag = "Placeholder";
         }
         private string CheckAndSetColor(object control, Label label)
         {
@@ -183,9 +196,8 @@ namespace GUI
             int soLuongTonKho = ConvertToInt(txtTonKho);
             int donGiaNhap = ConvertToInt(txtGiaNhap, lblErrGiaNhap);
             int donGiaBan = ConvertToInt(txtGiaBan);
-
+            byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
             //Có thể k cần truyền vào lbl Lỗi
-
             Console.WriteLine("maSP: " + maSP);
             Console.WriteLine("tenSP: " + tenSP);
             Console.WriteLine("donViTinh: " + donViTinh);
@@ -196,16 +208,18 @@ namespace GUI
             Console.WriteLine("tonKho: " + soLuongTonKho);
             Console.WriteLine("dongianhap: " + donGiaNhap);
             Console.WriteLine("dongiaban: " + donGiaBan);
-            if (!(maSP != "" && tenSP != "" && donViTinh != "" && maLoai != "" && maNSX != "" && maNCC != "" && trangThai != "" && soLuongTonKho != 0 && donGiaNhap != 0 && donGiaBan != 0))
+            // Xử lý trường hợp không có ảnh (imgBytes == null)
+           
+            if (!(maSP != "" && tenSP != "" && donViTinh != "" && maLoai != "" && maNSX != "" && maNCC != "" && trangThai != "" && donGiaNhap != 0 && donGiaBan != 0 && img != null))
             {
                 return;
             }
                 Console.WriteLine("Không có cái nào null");
 
-            
 
 
-            //byte[] img = this.convertImageToBinaryString(pbImage.Image);
+
+
             //SanPhamDTO sp = new SanPhamDTO(maSP,tenSP,soLuongTonKho,donGiaNhap, donGiaBan, donViTinh,trangThai,maLoai, maNSX,maNCC,img);
             //int flag = spBLL.insertSanPham(sp) ? 1 : 0;
             //if (flag == 1)
@@ -266,6 +280,20 @@ namespace GUI
         private void txtGiaNhap__TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtGiaBan_Click(object sender, EventArgs e)
+        {
+            int donGiaNhap = ConvertToInt(txtGiaNhap, lblErrGiaNhap);
+
+            if (donGiaNhap == 0)
+            {
+                return;
+            }
+            else
+            {
+                txtGiaBan.Texts = (donGiaNhap + (donGiaNhap * 15 / 100)).ToString();
+            }
         }
     }
 }
