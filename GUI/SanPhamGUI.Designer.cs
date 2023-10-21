@@ -114,7 +114,6 @@
             this.txtMaNCC = new GUI.MyCustom.RJTextBox();
             this.btnMaNCC = new GUI.MyCustom.RJButton();
             this.lblErrMaNCC = new System.Windows.Forms.Label();
-            this.rjTextBox1 = new GUI.MyCustom.RJTextBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnThem = new GUI.MyCustom.RJButton();
             this.btnSua = new GUI.MyCustom.RJButton();
@@ -144,7 +143,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1308, 763);
+            this.panel1.Size = new System.Drawing.Size(1180, 738);
             this.panel1.TabIndex = 1;
             // 
             // panel3
@@ -155,7 +154,7 @@
             this.panel3.Controls.Add(this.flpFilter);
             this.panel3.Location = new System.Drawing.Point(316, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(986, 754);
+            this.panel3.Size = new System.Drawing.Size(859, 730);
             this.panel3.TabIndex = 4;
             // 
             // flowLayoutPanel4
@@ -167,7 +166,7 @@
             this.flowLayoutPanel4.Controls.Add(this.btnFilter);
             this.flowLayoutPanel4.Location = new System.Drawing.Point(5, 6);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(974, 50);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(835, 50);
             this.flowLayoutPanel4.TabIndex = 2;
             // 
             // cbxTimKiem
@@ -210,7 +209,7 @@
             this.txtTimKiem.PlaceholderColor = System.Drawing.Color.DimGray;
             this.txtTimKiem.PlaceholderText = "Nhập thông tin tìm kiếm";
             this.txtTimKiem.ReadOnly = false;
-            this.txtTimKiem.Size = new System.Drawing.Size(730, 32);
+            this.txtTimKiem.Size = new System.Drawing.Size(604, 32);
             this.txtTimKiem.TabIndex = 1;
             this.txtTimKiem.Texts = "";
             this.txtTimKiem.UnderlinedStyle = true;
@@ -226,7 +225,7 @@
             this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimKiem.ForeColor = System.Drawing.Color.White;
             this.btnTimKiem.Image = global::GUI.Properties.Resources.icons8_search_32;
-            this.btnTimKiem.Location = new System.Drawing.Point(857, 8);
+            this.btnTimKiem.Location = new System.Drawing.Point(731, 8);
             this.btnTimKiem.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(29, 32);
@@ -248,7 +247,7 @@
             this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFilter.ForeColor = System.Drawing.Color.White;
             this.btnFilter.Image = global::GUI.Properties.Resources.icons8_filter_32;
-            this.btnFilter.Location = new System.Drawing.Point(904, 8);
+            this.btnFilter.Location = new System.Drawing.Point(778, 8);
             this.btnFilter.Margin = new System.Windows.Forms.Padding(15, 8, 10, 0);
             this.btnFilter.Name = "btnFilter";
             this.btnFilter.Size = new System.Drawing.Size(44, 36);
@@ -305,7 +304,7 @@
             this.dgvSanPham.RowTemplate.Height = 30;
             this.dgvSanPham.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvSanPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSanPham.Size = new System.Drawing.Size(974, 683);
+            this.dgvSanPham.Size = new System.Drawing.Size(846, 660);
             this.dgvSanPham.TabIndex = 1;
             this.dgvSanPham.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvSanPham_DataBindingComplete);
             // 
@@ -443,7 +442,7 @@
             this.flpFilter.Controls.Add(this.label28);
             this.flpFilter.Controls.Add(this.chkKoHD);
             this.flpFilter.Controls.Add(this.label29);
-            this.flpFilter.Location = new System.Drawing.Point(676, 55);
+            this.flpFilter.Location = new System.Drawing.Point(533, 56);
             this.flpFilter.Name = "flpFilter";
             this.flpFilter.Size = new System.Drawing.Size(289, 184);
             this.flpFilter.TabIndex = 3;
@@ -890,7 +889,7 @@
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(308, 754);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(308, 730);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -902,7 +901,7 @@
             this.label1.Location = new System.Drawing.Point(5, 5);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(296, 35);
+            this.label1.Size = new System.Drawing.Size(296, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "THÔNG TIN SẢN PHẨM";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -912,7 +911,8 @@
             this.flowLayoutPanel5.Controls.Add(this.panel4);
             this.flowLayoutPanel5.Controls.Add(this.pbImage);
             this.flowLayoutPanel5.Controls.Add(this.panel2);
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(8, 43);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(6, 31);
+            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(1, 3, 3, 1);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
             this.flowLayoutPanel5.Size = new System.Drawing.Size(290, 149);
             this.flowLayoutPanel5.TabIndex = 3;
@@ -1033,10 +1033,10 @@
             this.flowLayoutPanel2.Controls.Add(this.txtMaNCC);
             this.flowLayoutPanel2.Controls.Add(this.btnMaNCC);
             this.flowLayoutPanel2.Controls.Add(this.lblErrMaNCC);
-            this.flowLayoutPanel2.Controls.Add(this.rjTextBox1);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(8, 198);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(8, 182);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(290, 498);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(290, 499);
             this.flowLayoutPanel2.TabIndex = 2;
             // 
             // label2
@@ -1571,39 +1571,16 @@
             this.lblErrMaNCC.Text = "* Bạn phải nhập Mã NCC";
             this.lblErrMaNCC.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // rjTextBox1
-            // 
-            this.rjTextBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox1.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjTextBox1.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.rjTextBox1.BorderRadius = 0;
-            this.rjTextBox1.BorderSize = 2;
-            this.rjTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.rjTextBox1.Location = new System.Drawing.Point(262, 483);
-            this.rjTextBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox1.Multiline = false;
-            this.rjTextBox1.Name = "rjTextBox1";
-            this.rjTextBox1.Padding = new System.Windows.Forms.Padding(7);
-            this.rjTextBox1.PasswordChar = false;
-            this.rjTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox1.PlaceholderText = "";
-            this.rjTextBox1.ReadOnly = false;
-            this.rjTextBox1.Size = new System.Drawing.Size(8, 31);
-            this.rjTextBox1.TabIndex = 47;
-            this.rjTextBox1.Texts = "";
-            this.rjTextBox1.UnderlinedStyle = false;
-            // 
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.Controls.Add(this.btnThem);
             this.flowLayoutPanel3.Controls.Add(this.btnSua);
             this.flowLayoutPanel3.Controls.Add(this.btnXoa);
             this.flowLayoutPanel3.Controls.Add(this.btnReset);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(8, 701);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(8, 683);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 1, 3, 0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(290, 45);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(290, 43);
             this.flowLayoutPanel3.TabIndex = 1;
             // 
             // btnThem
@@ -1688,7 +1665,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1308, 763);
+            this.ClientSize = new System.Drawing.Size(1180, 738);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SanPhamGUI";
@@ -1797,7 +1774,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Label lblErrDonViTinh;
         private MyCustom.RJButton rjButton1;
-        private MyCustom.RJTextBox rjTextBox1;
         private System.Windows.Forms.Label lblErrTrangThai;
         private MyCustom.RJTextBox txtGiaNhap;
         private System.Windows.Forms.Label lblErrIMG;

@@ -119,7 +119,7 @@
             this.pnSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnSidebar.Location = new System.Drawing.Point(0, 35);
             this.pnSidebar.Name = "pnSidebar";
-            this.pnSidebar.Size = new System.Drawing.Size(184, 731);
+            this.pnSidebar.Size = new System.Drawing.Size(184, 738);
             this.pnSidebar.TabIndex = 1;
             // 
             // pnMainMenu
@@ -133,7 +133,7 @@
             this.pnMainMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMainMenu.Location = new System.Drawing.Point(0, 164);
             this.pnMainMenu.Name = "pnMainMenu";
-            this.pnMainMenu.Size = new System.Drawing.Size(182, 474);
+            this.pnMainMenu.Size = new System.Drawing.Size(182, 481);
             this.pnMainMenu.TabIndex = 5;
             // 
             // pnSubQuanLy
@@ -768,7 +768,7 @@
             this.pnMenu.Controls.Add(this.panel6);
             this.pnMenu.Controls.Add(this.rjButton2);
             this.pnMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnMenu.Location = new System.Drawing.Point(0, 638);
+            this.pnMenu.Location = new System.Drawing.Point(0, 645);
             this.pnMenu.Name = "pnMenu";
             this.pnMenu.Size = new System.Drawing.Size(182, 91);
             this.pnMenu.TabIndex = 4;
@@ -929,7 +929,7 @@
             this.pnForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnForm.Location = new System.Drawing.Point(184, 35);
             this.pnForm.Name = "pnForm";
-            this.pnForm.Size = new System.Drawing.Size(1180, 731);
+            this.pnForm.Size = new System.Drawing.Size(1180, 738);
             this.pnForm.TabIndex = 4;
             this.pnForm.Paint += new System.Windows.Forms.PaintEventHandler(this.pnForm_Paint);
             // 
@@ -942,7 +942,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1366, 768);
+            this.panel3.Size = new System.Drawing.Size(1366, 775);
             this.panel3.TabIndex = 0;
             // 
             // GiaoDienGUI
@@ -950,7 +950,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.ClientSize = new System.Drawing.Size(1366, 775);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
