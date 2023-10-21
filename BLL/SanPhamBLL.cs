@@ -26,5 +26,14 @@ namespace BLL
         {
             return spDAL.insertSanPham(sp);
         }
+        public bool deleteSanPham(string maSP, out bool isLoiKhoaNgoai)
+        {
+            return spDAL.deleteSanPham(maSP, out isLoiKhoaNgoai);
+        }
+        public bool updateTrangThai(int trangThai, string maSP)
+        {
+            trangThai = (trangThai == 0) ? 1 : 0;
+            return spDAL.updateTrangThai(trangThai, maSP);
+        }
     }
 }

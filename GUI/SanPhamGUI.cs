@@ -33,8 +33,7 @@ namespace GUI
         private void SanPhamGUI_Load(object sender, EventArgs e)
         {
             dgvSanPham.DataSource = spBLL.getListSanPham();
-            dgvSanPham.ClearSelection();
-            dgvSanPham.CurrentCell = null;
+
         }
 
         private void dgvSanPham_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -60,24 +59,26 @@ namespace GUI
         private void loadMaSP()
         {
             string lastMaSP = null;
-            foreach(DataRow row in dt.Rows)
+            foreach (DataRow row in dt.Rows)
             {
                 lastMaSP = row["MaSP"].ToString();
             }
-            if(lastMaSP == "")
+            if (lastMaSP == "")
             {
                 txtMaSP.Texts = "SP001";
             }
             int tempNum = int.Parse(lastMaSP.Substring(2));
-            if((tempNum + 1) >= 10)
+            if ((tempNum + 1) >= 10)
             {
                 txtMaSP.Texts = "SP0" + (tempNum + 1).ToString();
-            } else if(tempNum >= 1 && tempNum < 9) { 
+            }
+            else if (tempNum >= 1 && tempNum < 9)
+            {
                 txtMaSP.Texts = "SP00" + (tempNum + 1).ToString();
             }
         }
         //chuyển đổi một hình ảnh thành một dạng biểu diễn nhị phân 
-        private byte[] convertImageToBinaryString(Image img,string tag)
+        private byte[] convertImageToBinaryString(Image img, string tag)
         {
 
             if (tag == "Placeholder")
@@ -85,7 +86,7 @@ namespace GUI
                 lblErrIMG.ForeColor = Color.FromArgb(230, 76, 89);
                 return null;
             }
-             else
+            else
             {
                 lblErrIMG.ForeColor = Color.Transparent;
 
@@ -93,7 +94,7 @@ namespace GUI
 
             MemoryStream ms = new MemoryStream();
             img.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-            
+
             return ms.ToArray();
 
         }
@@ -127,7 +128,7 @@ namespace GUI
 
             }
         }
-        
+
         private void rjButton1_Click(object sender, EventArgs e)
         {
             pbImage.Image = pbImage.InitialImage;
@@ -209,12 +210,12 @@ namespace GUI
             Console.WriteLine("dongianhap: " + donGiaNhap);
             Console.WriteLine("dongiaban: " + donGiaBan);
             // Xử lý trường hợp không có ảnh (imgBytes == null)
-           
+
             if (!(maSP != "" && tenSP != "" && donViTinh != "" && maLoai != "" && maNSX != "" && maNCC != "" && trangThai != "" && donGiaNhap != 0 && donGiaBan != 0 && img != null))
             {
                 return;
             }
-                Console.WriteLine("Không có cái nào null");
+            Console.WriteLine("Không có cái nào null");
 
 
 
@@ -293,6 +294,89 @@ namespace GUI
             else
             {
                 txtGiaBan.Texts = (donGiaNhap + (donGiaNhap * 15 / 100)).ToString();
+            }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            string maSP = txtMaSP.Texts;
+            string stringTrangThai = cbxTrangThai.SelectedItem.ToString();
+            int trangThai = (stringTrangThai == "Hoạt động") ? 1 : 0;
+            var choice = MessageBox.Show("Xóa sản phẩm này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (choice == DialogResult.Yes)
+            {
+                bool isLoiKhoaNgoai;
+                bool kq = spBLL.deleteSanPham(maSP, out isLoiKhoaNgoai);
+                if (kq)
+                {
+                    MessageBox.Show("Xóa thành công",
+                      "Thông báo",
+                      MessageBoxButtons.OK,
+                      MessageBoxIcon.Information);
+
+                }
+                else
+                {
+                    if (isLoiKhoaNgoai)
+                    {
+                        MessageBoxButtons buttons = MessageBoxButtons.OK;
+                        var result = MessageBox.Show("Không thể xóa sản phẩm này vì có dữ liệu liên quan đến sản phẩm trong hệ thống. " +
+                            "Vui lòng xóa các dữ liệu liên quan trước khi tiếp tục", "Lỗi", buttons, MessageBoxIcon.Error);
+                        if (result == DialogResult.OK)
+                        {
+                            if (trangThai == 1)
+                            {
+                                var result1 = MessageBox.Show("Bạn có muốn thay đổi trạng thái của sản phẩm này?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                                if (result1 == DialogResult.OK)
+                                {
+                                    int flag = spBLL.updateTrangThai(trangThai, maSP) ? 1 : 0;
+                                    if (flag == 1)
+                                    {
+                                        MessageBox.Show("Thay đổi trạng thái thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Thay đổi trạng thái thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                    }
+                                }
+                                else if (result1 == DialogResult.Cancel)
+                                {
+                                    return;
+                                }
+                            }
+                            else return;
+
+                        }
+
+                    }
+
+                }
+            }
+        }
+
+        private void dgvSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i = dgvSanPham.CurrentRow.Index;
+            txtMaSP.Enabled = true;
+            txtMaSP.Texts = dgvSanPham.Rows[i].Cells[0].Value.ToString();
+            int trangThaiValue = Convert.ToInt32(dgvSanPham.Rows[i].Cells[6].Value);
+            cbxTrangThai.SelectedItem = (trangThaiValue == 0) ? "Không hoạt động" : "Hoạt động";
+        }
+        //Hiển thị Trạng thái lên DataGridView
+        private void dgvSanPham_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == dgvSanPham.Columns["TrangThai"].Index && e.Value != null)
+            {
+                int trangThaiValue = Convert.ToInt32(e.Value);
+                if (trangThaiValue == 0)
+                {
+                    e.Value = "Không hoạt động";
+                }
+                else if (trangThaiValue == 1)
+                {
+                    e.Value = "Hoạt động";
+                }
             }
         }
     }
