@@ -117,16 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="rjButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAACZSURBVDhPYxgFNAGZQHwbiM+QiK8CcQUQowAPIN4LxOxg
-        HmmAEYhBhsKBFhCfBWJRMI88AHIpGEgC8TkgVgXzUIE2EHtCmGAgCMTJECYGABvICcSHgdgRxMECBIAY
-        JO+HxsYGwAauB+JoEAMPALnqKBBfAGJvkAAOQBsDqe5lEKBqpMAAVZMNDFA1YcMAJVmvHIhHAUWAgQEA
-        blI0+mNHwnUAAAAASUVORK5CYII=
-</value>
-  </data>
   <metadata name="MaKH.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -160,6 +150,16 @@
   <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="rjButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EQAACxEBf2RfkQAAAJlJREFUOE9jGAU0AZlAfBuIz5CIrwJxBRCjAA8g3gvE7GAeaYARiEGGwoEWEJ8F
+        YlEwjzwAcikYSALxOSBWBfNQgTYQe0KYYCAIxMkQJgYAG8gJxIeB2BHEwQIEgBgk74fGxgbABq4H4mgQ
+        Aw8AueooEF8AYm+QAA5AGwOp7mUQoGqkwABVkw0MUDVhwwAlWa8ciEcBRYCBAQBuUjT6Y0fCdQAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
   <data name="btnThem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL

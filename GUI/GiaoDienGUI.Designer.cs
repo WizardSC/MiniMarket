@@ -119,7 +119,7 @@
             this.pnSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnSidebar.Location = new System.Drawing.Point(0, 35);
             this.pnSidebar.Name = "pnSidebar";
-            this.pnSidebar.Size = new System.Drawing.Size(190, 731);
+            this.pnSidebar.Size = new System.Drawing.Size(184, 731);
             this.pnSidebar.TabIndex = 1;
             // 
             // pnMainMenu
@@ -133,7 +133,7 @@
             this.pnMainMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMainMenu.Location = new System.Drawing.Point(0, 164);
             this.pnMainMenu.Name = "pnMainMenu";
-            this.pnMainMenu.Size = new System.Drawing.Size(188, 474);
+            this.pnMainMenu.Size = new System.Drawing.Size(182, 474);
             this.pnMainMenu.TabIndex = 5;
             // 
             // pnSubQuanLy
@@ -149,7 +149,7 @@
             this.pnSubQuanLy.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnSubQuanLy.Location = new System.Drawing.Point(0, 301);
             this.pnSubQuanLy.Name = "pnSubQuanLy";
-            this.pnSubQuanLy.Size = new System.Drawing.Size(171, 350);
+            this.pnSubQuanLy.Size = new System.Drawing.Size(165, 350);
             this.pnSubQuanLy.TabIndex = 3;
             this.pnSubQuanLy.Visible = false;
             // 
@@ -161,7 +161,7 @@
             this.panel18.Location = new System.Drawing.Point(0, 300);
             this.panel18.Name = "panel18";
             this.panel18.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel18.Size = new System.Drawing.Size(171, 50);
+            this.panel18.Size = new System.Drawing.Size(165, 50);
             this.panel18.TabIndex = 9;
             // 
             // pnNhaCCContainer
@@ -182,7 +182,7 @@
             this.pnNhaCCContainer.Location = new System.Drawing.Point(8, 0);
             this.pnNhaCCContainer.Name = "pnNhaCCContainer";
             this.pnNhaCCContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnNhaCCContainer.Size = new System.Drawing.Size(163, 40);
+            this.pnNhaCCContainer.Size = new System.Drawing.Size(157, 40);
             this.pnNhaCCContainer.TabIndex = 3;
             this.pnNhaCCContainer.Text = "         Nhà cung cấp";
             this.pnNhaCCContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -207,7 +207,7 @@
             this.panel8.Location = new System.Drawing.Point(0, 250);
             this.panel8.Name = "panel8";
             this.panel8.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel8.Size = new System.Drawing.Size(171, 50);
+            this.panel8.Size = new System.Drawing.Size(165, 50);
             this.panel8.TabIndex = 8;
             // 
             // pnKhuyenMaiContainer
@@ -228,7 +228,7 @@
             this.pnKhuyenMaiContainer.Location = new System.Drawing.Point(8, 0);
             this.pnKhuyenMaiContainer.Name = "pnKhuyenMaiContainer";
             this.pnKhuyenMaiContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnKhuyenMaiContainer.Size = new System.Drawing.Size(163, 40);
+            this.pnKhuyenMaiContainer.Size = new System.Drawing.Size(157, 40);
             this.pnKhuyenMaiContainer.TabIndex = 3;
             this.pnKhuyenMaiContainer.Text = "         Khuyến mãi";
             this.pnKhuyenMaiContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -253,7 +253,7 @@
             this.panel17.Location = new System.Drawing.Point(0, 200);
             this.panel17.Name = "panel17";
             this.panel17.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel17.Size = new System.Drawing.Size(171, 50);
+            this.panel17.Size = new System.Drawing.Size(165, 50);
             this.panel17.TabIndex = 7;
             // 
             // pnNhaSanXuatContainer
@@ -274,7 +274,7 @@
             this.pnNhaSanXuatContainer.Location = new System.Drawing.Point(8, 0);
             this.pnNhaSanXuatContainer.Name = "pnNhaSanXuatContainer";
             this.pnNhaSanXuatContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnNhaSanXuatContainer.Size = new System.Drawing.Size(163, 40);
+            this.pnNhaSanXuatContainer.Size = new System.Drawing.Size(157, 40);
             this.pnNhaSanXuatContainer.TabIndex = 3;
             this.pnNhaSanXuatContainer.Text = "         Nhà sản xuất";
             this.pnNhaSanXuatContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -299,7 +299,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 150);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel5.Size = new System.Drawing.Size(171, 50);
+            this.panel5.Size = new System.Drawing.Size(165, 50);
             this.panel5.TabIndex = 6;
             // 
             // pnDanhMucContainer
@@ -320,7 +320,7 @@
             this.pnDanhMucContainer.Location = new System.Drawing.Point(8, 0);
             this.pnDanhMucContainer.Name = "pnDanhMucContainer";
             this.pnDanhMucContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnDanhMucContainer.Size = new System.Drawing.Size(163, 40);
+            this.pnDanhMucContainer.Size = new System.Drawing.Size(157, 40);
             this.pnDanhMucContainer.TabIndex = 3;
             this.pnDanhMucContainer.Text = "         Danh mục";
             this.pnDanhMucContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -345,7 +345,7 @@
             this.panel16.Location = new System.Drawing.Point(0, 100);
             this.panel16.Name = "panel16";
             this.panel16.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel16.Size = new System.Drawing.Size(171, 50);
+            this.panel16.Size = new System.Drawing.Size(165, 50);
             this.panel16.TabIndex = 5;
             // 
             // pnSanPhamContainer
@@ -366,7 +366,7 @@
             this.pnSanPhamContainer.Location = new System.Drawing.Point(8, 0);
             this.pnSanPhamContainer.Name = "pnSanPhamContainer";
             this.pnSanPhamContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnSanPhamContainer.Size = new System.Drawing.Size(163, 40);
+            this.pnSanPhamContainer.Size = new System.Drawing.Size(157, 40);
             this.pnSanPhamContainer.TabIndex = 3;
             this.pnSanPhamContainer.Text = "         Sản phẩm";
             this.pnSanPhamContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -391,7 +391,7 @@
             this.panel13.Location = new System.Drawing.Point(0, 50);
             this.panel13.Name = "panel13";
             this.panel13.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel13.Size = new System.Drawing.Size(171, 50);
+            this.panel13.Size = new System.Drawing.Size(165, 50);
             this.panel13.TabIndex = 4;
             // 
             // pnKhachHangContainer
@@ -412,7 +412,7 @@
             this.pnKhachHangContainer.Location = new System.Drawing.Point(8, 0);
             this.pnKhachHangContainer.Name = "pnKhachHangContainer";
             this.pnKhachHangContainer.Padding = new System.Windows.Forms.Padding(3, 0, 10, 0);
-            this.pnKhachHangContainer.Size = new System.Drawing.Size(163, 40);
+            this.pnKhachHangContainer.Size = new System.Drawing.Size(157, 40);
             this.pnKhachHangContainer.TabIndex = 2;
             this.pnKhachHangContainer.Text = "         Khách hàng";
             this.pnKhachHangContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -437,7 +437,7 @@
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Name = "panel10";
             this.panel10.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel10.Size = new System.Drawing.Size(171, 50);
+            this.panel10.Size = new System.Drawing.Size(165, 50);
             this.panel10.TabIndex = 3;
             // 
             // pnNhanVienContainer
@@ -458,7 +458,7 @@
             this.pnNhanVienContainer.Location = new System.Drawing.Point(8, 0);
             this.pnNhanVienContainer.Name = "pnNhanVienContainer";
             this.pnNhanVienContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnNhanVienContainer.Size = new System.Drawing.Size(163, 40);
+            this.pnNhanVienContainer.Size = new System.Drawing.Size(157, 40);
             this.pnNhanVienContainer.TabIndex = 2;
             this.pnNhanVienContainer.Text = "         Nhân viên";
             this.pnNhanVienContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -484,7 +484,7 @@
             this.pnQuanLy.Location = new System.Drawing.Point(0, 251);
             this.pnQuanLy.Name = "pnQuanLy";
             this.pnQuanLy.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.pnQuanLy.Size = new System.Drawing.Size(171, 50);
+            this.pnQuanLy.Size = new System.Drawing.Size(165, 50);
             this.pnQuanLy.TabIndex = 2;
             // 
             // pnQuanLyContainer
@@ -505,7 +505,7 @@
             this.pnQuanLyContainer.Location = new System.Drawing.Point(8, 0);
             this.pnQuanLyContainer.Name = "pnQuanLyContainer";
             this.pnQuanLyContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnQuanLyContainer.Size = new System.Drawing.Size(163, 40);
+            this.pnQuanLyContainer.Size = new System.Drawing.Size(157, 40);
             this.pnQuanLyContainer.TabIndex = 1;
             this.pnQuanLyContainer.Text = "         Quản lý";
             this.pnQuanLyContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -531,7 +531,7 @@
             this.pnSubHangHoa.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnSubHangHoa.Location = new System.Drawing.Point(0, 50);
             this.pnSubHangHoa.Name = "pnSubHangHoa";
-            this.pnSubHangHoa.Size = new System.Drawing.Size(171, 201);
+            this.pnSubHangHoa.Size = new System.Drawing.Size(165, 201);
             this.pnSubHangHoa.TabIndex = 4;
             this.pnSubHangHoa.Visible = false;
             // 
@@ -543,7 +543,7 @@
             this.panel14.Location = new System.Drawing.Point(0, 150);
             this.panel14.Name = "panel14";
             this.panel14.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel14.Size = new System.Drawing.Size(171, 50);
+            this.panel14.Size = new System.Drawing.Size(165, 50);
             this.panel14.TabIndex = 9;
             // 
             // rjButton6
@@ -564,7 +564,7 @@
             this.rjButton6.Location = new System.Drawing.Point(8, 0);
             this.rjButton6.Name = "rjButton6";
             this.rjButton6.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rjButton6.Size = new System.Drawing.Size(163, 40);
+            this.rjButton6.Size = new System.Drawing.Size(157, 40);
             this.rjButton6.TabIndex = 3;
             this.rjButton6.Text = "         Phiếu nhập";
             this.rjButton6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -588,7 +588,7 @@
             this.panel4.Location = new System.Drawing.Point(0, 100);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel4.Size = new System.Drawing.Size(171, 50);
+            this.panel4.Size = new System.Drawing.Size(165, 50);
             this.panel4.TabIndex = 8;
             // 
             // rjButton5
@@ -608,7 +608,7 @@
             this.rjButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.rjButton5.Location = new System.Drawing.Point(8, 0);
             this.rjButton5.Name = "rjButton5";
-            this.rjButton5.Size = new System.Drawing.Size(163, 40);
+            this.rjButton5.Size = new System.Drawing.Size(157, 40);
             this.rjButton5.TabIndex = 3;
             this.rjButton5.Text = "         Nhập hàng";
             this.rjButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -632,7 +632,7 @@
             this.panel9.Location = new System.Drawing.Point(0, 50);
             this.panel9.Name = "panel9";
             this.panel9.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel9.Size = new System.Drawing.Size(171, 50);
+            this.panel9.Size = new System.Drawing.Size(165, 50);
             this.panel9.TabIndex = 7;
             // 
             // rjButton4
@@ -653,7 +653,7 @@
             this.rjButton4.Location = new System.Drawing.Point(8, 0);
             this.rjButton4.Name = "rjButton4";
             this.rjButton4.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rjButton4.Size = new System.Drawing.Size(163, 40);
+            this.rjButton4.Size = new System.Drawing.Size(157, 40);
             this.rjButton4.TabIndex = 3;
             this.rjButton4.Text = "         Hóa đơn";
             this.rjButton4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -677,7 +677,7 @@
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel7.Size = new System.Drawing.Size(171, 50);
+            this.panel7.Size = new System.Drawing.Size(165, 50);
             this.panel7.TabIndex = 6;
             // 
             // pnBanHangContainer
@@ -698,7 +698,7 @@
             this.pnBanHangContainer.Location = new System.Drawing.Point(8, 0);
             this.pnBanHangContainer.Name = "pnBanHangContainer";
             this.pnBanHangContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnBanHangContainer.Size = new System.Drawing.Size(163, 40);
+            this.pnBanHangContainer.Size = new System.Drawing.Size(157, 40);
             this.pnBanHangContainer.TabIndex = 3;
             this.pnBanHangContainer.Text = "         Bán hàng";
             this.pnBanHangContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -723,7 +723,7 @@
             this.pnHangHoa.Location = new System.Drawing.Point(0, 0);
             this.pnHangHoa.Name = "pnHangHoa";
             this.pnHangHoa.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.pnHangHoa.Size = new System.Drawing.Size(171, 50);
+            this.pnHangHoa.Size = new System.Drawing.Size(165, 50);
             this.pnHangHoa.TabIndex = 1;
             // 
             // pnHangHoaContainer
@@ -744,7 +744,7 @@
             this.pnHangHoaContainer.Location = new System.Drawing.Point(8, 0);
             this.pnHangHoaContainer.Name = "pnHangHoaContainer";
             this.pnHangHoaContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnHangHoaContainer.Size = new System.Drawing.Size(163, 40);
+            this.pnHangHoaContainer.Size = new System.Drawing.Size(157, 40);
             this.pnHangHoaContainer.TabIndex = 2;
             this.pnHangHoaContainer.Text = "         Hàng hóa";
             this.pnHangHoaContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -770,7 +770,7 @@
             this.pnMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnMenu.Location = new System.Drawing.Point(0, 638);
             this.pnMenu.Name = "pnMenu";
-            this.pnMenu.Size = new System.Drawing.Size(188, 91);
+            this.pnMenu.Size = new System.Drawing.Size(182, 91);
             this.pnMenu.TabIndex = 4;
             // 
             // panel6
@@ -778,7 +778,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(186, 41);
+            this.panel6.Size = new System.Drawing.Size(180, 41);
             this.panel6.TabIndex = 5;
             // 
             // rjButton2
@@ -799,7 +799,7 @@
             this.rjButton2.Location = new System.Drawing.Point(0, 46);
             this.rjButton2.Name = "rjButton2";
             this.rjButton2.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rjButton2.Size = new System.Drawing.Size(186, 43);
+            this.rjButton2.Size = new System.Drawing.Size(180, 43);
             this.rjButton2.TabIndex = 4;
             this.rjButton2.Text = "Đăng xuất";
             this.rjButton2.TextColor = System.Drawing.Color.Black;
@@ -811,7 +811,7 @@
             this.pnImage.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnImage.Location = new System.Drawing.Point(0, 0);
             this.pnImage.Name = "pnImage";
-            this.pnImage.Size = new System.Drawing.Size(188, 164);
+            this.pnImage.Size = new System.Drawing.Size(182, 164);
             this.pnImage.TabIndex = 0;
             // 
             // pictureBox1
@@ -820,7 +820,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(188, 164);
+            this.pictureBox1.Size = new System.Drawing.Size(182, 164);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -927,9 +927,9 @@
             this.pnForm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnForm.Cursor = System.Windows.Forms.Cursors.Default;
             this.pnForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnForm.Location = new System.Drawing.Point(190, 35);
+            this.pnForm.Location = new System.Drawing.Point(184, 35);
             this.pnForm.Name = "pnForm";
-            this.pnForm.Size = new System.Drawing.Size(1174, 731);
+            this.pnForm.Size = new System.Drawing.Size(1180, 731);
             this.pnForm.TabIndex = 4;
             this.pnForm.Paint += new System.Windows.Forms.PaintEventHandler(this.pnForm_Paint);
             // 
