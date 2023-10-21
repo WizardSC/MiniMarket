@@ -32,6 +32,9 @@
             this.pnSidebar = new System.Windows.Forms.Panel();
             this.pnMainMenu = new System.Windows.Forms.Panel();
             this.pnSubQuanLy = new System.Windows.Forms.Panel();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.pnNhaCCContainer = new GUI.MyCustom.RJButton();
+            this.pnLeftBorderNhaCC = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.pnKhuyenMaiContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderKhuyenMai = new System.Windows.Forms.Panel();
@@ -82,12 +85,10 @@
             this.btnClose = new GUI.MyCustom.RJButton();
             this.pnForm = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.pnNhaCCContainer = new GUI.MyCustom.RJButton();
-            this.pnLeftBorderNhaCC = new System.Windows.Forms.Panel();
             this.pnSidebar.SuspendLayout();
             this.pnMainMenu.SuspendLayout();
             this.pnSubQuanLy.SuspendLayout();
+            this.panel18.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -106,7 +107,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnHeader.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel18.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnSidebar
@@ -119,7 +119,7 @@
             this.pnSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnSidebar.Location = new System.Drawing.Point(0, 35);
             this.pnSidebar.Name = "pnSidebar";
-            this.pnSidebar.Size = new System.Drawing.Size(190, 763);
+            this.pnSidebar.Size = new System.Drawing.Size(190, 731);
             this.pnSidebar.TabIndex = 1;
             // 
             // pnMainMenu
@@ -133,7 +133,7 @@
             this.pnMainMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMainMenu.Location = new System.Drawing.Point(0, 164);
             this.pnMainMenu.Name = "pnMainMenu";
-            this.pnMainMenu.Size = new System.Drawing.Size(188, 506);
+            this.pnMainMenu.Size = new System.Drawing.Size(188, 474);
             this.pnMainMenu.TabIndex = 5;
             // 
             // pnSubQuanLy
@@ -152,6 +152,52 @@
             this.pnSubQuanLy.Size = new System.Drawing.Size(171, 350);
             this.pnSubQuanLy.TabIndex = 3;
             this.pnSubQuanLy.Visible = false;
+            // 
+            // panel18
+            // 
+            this.panel18.Controls.Add(this.pnNhaCCContainer);
+            this.panel18.Controls.Add(this.pnLeftBorderNhaCC);
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel18.Location = new System.Drawing.Point(0, 300);
+            this.panel18.Name = "panel18";
+            this.panel18.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.panel18.Size = new System.Drawing.Size(171, 50);
+            this.panel18.TabIndex = 9;
+            // 
+            // pnNhaCCContainer
+            // 
+            this.pnNhaCCContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnNhaCCContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnNhaCCContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnNhaCCContainer.BorderRadius = 0;
+            this.pnNhaCCContainer.BorderSize = 0;
+            this.pnNhaCCContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnNhaCCContainer.FlatAppearance.BorderSize = 0;
+            this.pnNhaCCContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnNhaCCContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnNhaCCContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnNhaCCContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnNhaCCContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnNhaCCContainer.Image")));
+            this.pnNhaCCContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnNhaCCContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnNhaCCContainer.Name = "pnNhaCCContainer";
+            this.pnNhaCCContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnNhaCCContainer.Size = new System.Drawing.Size(163, 40);
+            this.pnNhaCCContainer.TabIndex = 3;
+            this.pnNhaCCContainer.Text = "         Nhà cung cấp";
+            this.pnNhaCCContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnNhaCCContainer.TextColor = System.Drawing.Color.Black;
+            this.pnNhaCCContainer.UseVisualStyleBackColor = false;
+            this.pnNhaCCContainer.Click += new System.EventHandler(this.pnNhaCCContainer_Click);
+            // 
+            // pnLeftBorderNhaCC
+            // 
+            this.pnLeftBorderNhaCC.BackColor = System.Drawing.Color.Transparent;
+            this.pnLeftBorderNhaCC.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnLeftBorderNhaCC.Location = new System.Drawing.Point(0, 0);
+            this.pnLeftBorderNhaCC.Name = "pnLeftBorderNhaCC";
+            this.pnLeftBorderNhaCC.Size = new System.Drawing.Size(8, 40);
+            this.pnLeftBorderNhaCC.TabIndex = 0;
             // 
             // panel8
             // 
@@ -722,7 +768,7 @@
             this.pnMenu.Controls.Add(this.panel6);
             this.pnMenu.Controls.Add(this.rjButton2);
             this.pnMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnMenu.Location = new System.Drawing.Point(0, 670);
+            this.pnMenu.Location = new System.Drawing.Point(0, 638);
             this.pnMenu.Name = "pnMenu";
             this.pnMenu.Size = new System.Drawing.Size(188, 91);
             this.pnMenu.TabIndex = 4;
@@ -790,7 +836,7 @@
             this.pnHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnHeader.Location = new System.Drawing.Point(0, 0);
             this.pnHeader.Name = "pnHeader";
-            this.pnHeader.Size = new System.Drawing.Size(1498, 35);
+            this.pnHeader.Size = new System.Drawing.Size(1364, 35);
             this.pnHeader.TabIndex = 3;
             // 
             // btnMinimize
@@ -806,7 +852,7 @@
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.ForeColor = System.Drawing.Color.White;
             this.btnMinimize.Image = global::GUI.Properties.Resources.icons8_minimize_32__1_;
-            this.btnMinimize.Location = new System.Drawing.Point(1357, 0);
+            this.btnMinimize.Location = new System.Drawing.Point(1223, 0);
             this.btnMinimize.Margin = new System.Windows.Forms.Padding(2);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(43, 35);
@@ -818,7 +864,7 @@
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(1400, 0);
+            this.panel2.Location = new System.Drawing.Point(1266, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(6, 35);
             this.panel2.TabIndex = 4;
@@ -836,7 +882,7 @@
             this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximize.ForeColor = System.Drawing.Color.White;
             this.btnMaximize.Image = global::GUI.Properties.Resources.icons8_toggle_full_screen_32;
-            this.btnMaximize.Location = new System.Drawing.Point(1406, 0);
+            this.btnMaximize.Location = new System.Drawing.Point(1272, 0);
             this.btnMaximize.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(43, 35);
@@ -848,7 +894,7 @@
             // panel1
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(1449, 0);
+            this.panel1.Location = new System.Drawing.Point(1315, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(6, 35);
             this.panel1.TabIndex = 3;
@@ -866,7 +912,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Image = global::GUI.Properties.Resources.icons8_close_32;
-            this.btnClose.Location = new System.Drawing.Point(1455, 0);
+            this.btnClose.Location = new System.Drawing.Point(1321, 0);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(43, 35);
@@ -883,7 +929,7 @@
             this.pnForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnForm.Location = new System.Drawing.Point(190, 35);
             this.pnForm.Name = "pnForm";
-            this.pnForm.Size = new System.Drawing.Size(1308, 763);
+            this.pnForm.Size = new System.Drawing.Size(1174, 731);
             this.pnForm.TabIndex = 4;
             this.pnForm.Paint += new System.Windows.Forms.PaintEventHandler(this.pnForm_Paint);
             // 
@@ -896,61 +942,15 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1500, 800);
+            this.panel3.Size = new System.Drawing.Size(1366, 768);
             this.panel3.TabIndex = 0;
-            // 
-            // panel18
-            // 
-            this.panel18.Controls.Add(this.pnNhaCCContainer);
-            this.panel18.Controls.Add(this.pnLeftBorderNhaCC);
-            this.panel18.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel18.Location = new System.Drawing.Point(0, 300);
-            this.panel18.Name = "panel18";
-            this.panel18.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel18.Size = new System.Drawing.Size(171, 50);
-            this.panel18.TabIndex = 9;
-            // 
-            // pnNhaCCContainer
-            // 
-            this.pnNhaCCContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnNhaCCContainer.BackgroundColor = System.Drawing.Color.Transparent;
-            this.pnNhaCCContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.pnNhaCCContainer.BorderRadius = 0;
-            this.pnNhaCCContainer.BorderSize = 0;
-            this.pnNhaCCContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnNhaCCContainer.FlatAppearance.BorderSize = 0;
-            this.pnNhaCCContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.pnNhaCCContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pnNhaCCContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnNhaCCContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnNhaCCContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnNhaCCContainer.Image")));
-            this.pnNhaCCContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnNhaCCContainer.Location = new System.Drawing.Point(8, 0);
-            this.pnNhaCCContainer.Name = "pnNhaCCContainer";
-            this.pnNhaCCContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnNhaCCContainer.Size = new System.Drawing.Size(163, 40);
-            this.pnNhaCCContainer.TabIndex = 3;
-            this.pnNhaCCContainer.Text = "         Nhà cung cấp";
-            this.pnNhaCCContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnNhaCCContainer.TextColor = System.Drawing.Color.Black;
-            this.pnNhaCCContainer.UseVisualStyleBackColor = false;
-            this.pnNhaCCContainer.Click += new System.EventHandler(this.pnNhaCCContainer_Click);
-            // 
-            // pnLeftBorderNhaCC
-            // 
-            this.pnLeftBorderNhaCC.BackColor = System.Drawing.Color.Transparent;
-            this.pnLeftBorderNhaCC.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnLeftBorderNhaCC.Location = new System.Drawing.Point(0, 0);
-            this.pnLeftBorderNhaCC.Name = "pnLeftBorderNhaCC";
-            this.pnLeftBorderNhaCC.Size = new System.Drawing.Size(8, 40);
-            this.pnLeftBorderNhaCC.TabIndex = 0;
             // 
             // GiaoDienGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.ClientSize = new System.Drawing.Size(1500, 800);
+            this.ClientSize = new System.Drawing.Size(1366, 768);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -963,6 +963,7 @@
             this.pnMainMenu.ResumeLayout(false);
             this.pnMainMenu.PerformLayout();
             this.pnSubQuanLy.ResumeLayout(false);
+            this.panel18.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -981,7 +982,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnHeader.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel18.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
