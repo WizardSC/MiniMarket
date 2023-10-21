@@ -21,6 +21,9 @@ namespace DTO
             this.SoDT = soDT;
         }
 
+        public NhaSanXuatDTO() { }
+       
+
         public string MaNSX { get => maNSX; set => maNSX = value; }
         public string TenNSX { get => tenNSX; set => tenNSX = value; }
         public string DiaChi { get => diaChi; set => diaChi = value; }

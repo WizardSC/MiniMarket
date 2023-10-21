@@ -48,6 +48,7 @@ namespace GUI
             int i = dgvNhaSanXuat.CurrentRow.Index;
             txtMaNSX.Texts = dgvNhaSanXuat.Rows[i].Cells[0].Value.ToString();
             txtTenNSX.Texts = dgvNhaSanXuat.Rows[i].Cells[1].Value.ToString();
+           // txtDiaChi.Texts = dgvNhaSanXuat.Rows[i].Cells[2].Value.ToString();
 
         }
 
