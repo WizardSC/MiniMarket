@@ -14,7 +14,7 @@ namespace DAL
     {
         public DataTable getListSanPham()
         {
-            DataTable dt=  new DataTable();
+            DataTable dt = new DataTable();
             try
             {
                 Connect();
@@ -25,7 +25,8 @@ namespace DAL
                 SqlDataAdapter adt = new SqlDataAdapter(cmd);
                 adt.Fill(dt);
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 return null;
             }
             finally
@@ -55,6 +56,66 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@MaNSX", sp.MaNSX).SqlDbType = SqlDbType.Char;
                 cmd.Parameters.AddWithValue("@MaNCC", sp.MaNCC).SqlDbType = SqlDbType.Char;
                 cmd.Parameters.AddWithValue("@IMG", sp.Img).SqlDbType = SqlDbType.Image;
+                cmd.ExecuteNonQuery();
+                return true;
+
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Disconnect();
+            }
+        }
+
+        public bool deleteSanPham(string maSP, out bool isLoiKhoaNgoai)
+        {
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "delete from sanpham where MaSP = @MaSP";
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@MaSP", maSP).SqlDbType = SqlDbType.Char;
+                cmd.ExecuteNonQuery();
+                isLoiKhoaNgoai = false;
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 547) // Mã lỗi 547 là mã lỗi cho việc tham chiếu đến khóa ngoại
+                {
+                    Console.WriteLine("Lỗi: Không thể xóa sản phẩm vì có khóa ngoại tham chiếu.");
+                    isLoiKhoaNgoai = true;
+                }
+                else
+                {
+                    Console.WriteLine("Lỗi: " + ex.Message);
+                    isLoiKhoaNgoai = false;
+
+                }
+                return false;
+            }
+            finally
+            {
+                Disconnect();
+            }
+        }
+        public bool updateTrangThai(int trangThai, string maSP)
+        {
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "update sanpham set TrangThai = @TrangThai where MaSP = @MaSP";
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@TrangThai", trangThai).SqlDbType = SqlDbType.Int;
+                cmd.Parameters.AddWithValue("@MaSP", maSP).SqlDbType = SqlDbType.Char;
                 cmd.ExecuteNonQuery();
                 return true;
 
