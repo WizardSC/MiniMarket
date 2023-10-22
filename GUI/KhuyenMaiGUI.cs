@@ -20,6 +20,14 @@ namespace GUI
         private ChiTietKhuyenMaiGUI CTKhuyenMai;
         private ThongTinSPKMGUI ThongTinSPKM;
         private DataTable dt;
+        private bool isFormFilter = false;
+        private string cbxItemsMacDinh;
+         private string currentSearch;
+        private string textSearchCondition = ""; // Biến để lưu trữ điều kiện từ textbox tìm kiếm
+        private bool isTrangThai = false;
+        private bool isHoatDong = false;
+        private bool isKoHD = false;
+        private string statusCondition = "";
 
         public KhuyenMaiGUI()
         {
@@ -30,7 +38,8 @@ namespace GUI
             CTKhuyenMai = new ChiTietKhuyenMaiGUI();
             dt = kmBLL.getListDsKm();
             loadMaKM();
-            
+            loadDataToCBX(cbxTimKiem);
+
         }
 
         private void loadMaKM()
@@ -55,6 +64,86 @@ namespace GUI
             }
         }
 
+        private void loadDataToCBX(RJComboBox cbx)
+        {
+            cbx.Items.Add("Mã KM");
+            cbx.Items.Add("Tên KM");
+            cbx.Items.Add("Phần Trăm KM");
+            cbxTimKiem.SelectedIndex = 0;
+        }
+
+        private string returnDieuKien(string text)
+        {
+            return text;
+        }
+        private string GetTextSearchCondition(string searchText)
+        {
+            switch (cbxItemsMacDinh)
+            {
+                case "Mã KM":
+                    return returnDieuKien($"MaKM like '%{searchText}%'");
+                case "Tên KM":
+                    return returnDieuKien($"TenKM like '%{searchText}%'");
+                case "Phần Trăm KM":
+                    int phanTramKM;
+                    if (int.TryParse(searchText, out phanTramKM))
+                    {
+                        return returnDieuKien($"PhanTramKM = {phanTramKM}");
+                    }
+                    else
+                    {
+                        return "";
+                    }
+                default:
+                    return "";
+            }
+        }
+
+        private void applySearchs(string text)
+        {
+            currentSearch = text;
+            Console.WriteLine(currentSearch);
+            DataView dvKhuyenMai = kmBLL.getListDsKm().DefaultView;
+            dvKhuyenMai.RowFilter = currentSearch;
+            dgvKhuyenMai.DataSource = dvKhuyenMai.ToTable();
+        }
+        private void UpdateStatusCondition()
+        {
+            List<string> statusConditions = new List<string>();
+
+            if (isHoatDong)
+            {
+                statusConditions.Add("TrangThai = 1");
+            }
+
+            if (isKoHD)
+            {
+                statusConditions.Add("TrangThai = 0");
+            }
+
+            statusCondition = string.Join(" OR ", statusConditions);
+        }
+        // Hàm để kết hợp các điều kiện
+        private string CombineConditions(string condition1, string condition2)
+        {
+            if (!string.IsNullOrEmpty(condition1) && !string.IsNullOrEmpty(condition2))
+            {
+                return $"({condition1}) AND ({condition2})";
+            }
+            else if (!string.IsNullOrEmpty(condition1))
+            {
+                return condition1;
+            }
+            else if (!string.IsNullOrEmpty(condition2))
+            {
+                return condition2;
+            }
+            else
+            {
+                return "";
+            }
+        }
+
         public void clearForm()
         {
             loadMaKM();
@@ -67,38 +156,6 @@ namespace GUI
             cbxTrangThai.SelectedIndex = 0;
             btnThongTinKM.Visible = false;
         }
-       
-        private void dgvKhuyenMai_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int i = dgvKhuyenMai.CurrentRow.Index;
-            txtMaKM.Texts = dgvKhuyenMai.Rows[i].Cells[0].Value.ToString();
-            DateTime NgayBd = DateTime.Parse(dgvKhuyenMai.Rows[i].Cells[2].Value.ToString());
-            DateTime NgayKt = DateTime.Parse(dgvKhuyenMai.Rows[i].Cells[3].Value.ToString());
-            txtTenKm.Texts = dgvKhuyenMai.Rows[i].Cells[1].Value.ToString();
-            dtpNgayBD.Value = NgayBd;
-            dtpNgayKT.Value = NgayKt;
-            txtPhanTramKM.Texts = dgvKhuyenMai.Rows[i].Cells[4].Value.ToString();
-            txtDkKM.Texts = dgvKhuyenMai.Rows[i].Cells[5].Value.ToString();
-            int TrangThai = int.Parse(dgvKhuyenMai.Rows[i].Cells[6].Value.ToString());
-            if(TrangThai == 1)
-            {
-                cbxTrangThai.SelectedIndex = 0;
-            }
-            else
-            {
-                cbxTrangThai.SelectedIndex = 1;
-            }
-
-            if(txtDkKM.Texts == "")
-            {
-                btnThongTinKM.Visible = true;
-            }
-            else
-            {
-                btnThongTinKM.Visible = false;
-            }
-  
-        }
         //load form DataTable
         public void init()
         {
@@ -109,12 +166,12 @@ namespace GUI
         private void KhuyenMaiGUI_Load(object sender, EventArgs e)
         {
             init();
+           
         }
 
         private void btnXem_Click(object sender, EventArgs e)
         {
            CTKhuyenMai.ShowDialog();
-            
         }
 
        
@@ -127,9 +184,6 @@ namespace GUI
         private void btnThongTinKM_Click(object sender, EventArgs e)
         {
             string MaKM = txtMaKM.Texts;
-            //// Truyền MaKM sang Form ThongTinSPKMGUI và mở Form đó
-            //ThongTinSPKMGUI ThongTin = new ThongTinSPKMGUI(this, MaKM);
-            //ThongTin.Show();
             DataTable dataTable = kmBLL.getThongTinSPKM(MaKM);
             if (dataTable != null && dataTable.Rows.Count > 0)
             {
@@ -154,13 +208,22 @@ namespace GUI
             KM_DTO.PhanTramKm= int.Parse(txtPhanTramKM.Texts);
             KM_DTO.DieuKiemKm = txtDkKM.Texts;
             KM_DTO.TrangThai = trangthai;
-            kmBLL.insertKhuyenMai(KM_DTO);
-            loadMaKM();
-            init();
-            clearForm();
+            try
+            {
+                kmBLL.insertKhuyenMai(KM_DTO);
+                MessageBox.Show("Thêm khuyến mãi thành công!");
+                loadMaKM();
+                init();
+                clearForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+            }
+
         }
 
-            private void btnSua_Click(object sender, EventArgs e)
+        private void btnSua_Click(object sender, EventArgs e)
             {
             string CheckTrangThai = cbxTrangThai.Texts.ToString();
             int trangthai = (CheckTrangThai == "Hoạt động") ? 1 : 0;
@@ -173,21 +236,201 @@ namespace GUI
             KM_DTO.DieuKiemKm = txtDkKM.Texts;
             KM_DTO.TrangThai = trangthai;
             KM_DTO.Makm = txtMaKM.Texts;
-            kmBLL.UpdateKhuyenMai(KM_DTO);
-            loadMaKM();
-            init();
-            clearForm();
+            try
+            {
+                kmBLL.UpdateKhuyenMai(KM_DTO);
+                MessageBox.Show("Chỉnh sửa khuyến mãi thành công!");
+                loadMaKM();
+                init();
+                clearForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            
-            KhuyenMaiDTO KM_DTO = new KhuyenMaiDTO();
-            KM_DTO.Makm = txtMaKM.Texts;
-            kmBLL.DeleteKhuyenMai(KM_DTO);
-            loadMaKM();
-            init();
-            clearForm();
+
+            string maSP = txtMaKM.Texts;
+            string stringTrangThai = cbxTrangThai.SelectedItem.ToString();
+            int trangThai = (stringTrangThai == "Hoạt động") ? 1 : 0;
+            var choice = MessageBox.Show("Xóa khuyến mãi này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (choice == DialogResult.Yes)
+            {
+                bool isLoiKhoaNgoai;
+                bool kq = kmBLL.deleteSanPham(maSP, out isLoiKhoaNgoai);
+                if (kq)
+                {
+                    MessageBox.Show("Xóa thành công",
+                      "Thông báo",
+                      MessageBoxButtons.OK,
+                      MessageBoxIcon.Information);
+                        loadMaKM();
+                        init();
+                        clearForm();
+
+                }
+                else
+                {
+                    if (isLoiKhoaNgoai)
+                    {
+                        MessageBoxButtons buttons = MessageBoxButtons.OK;
+                        var result = MessageBox.Show("Không thể xóa sản phẩm này vì có dữ liệu liên quan đến sản phẩm trong hệ thống. " +
+                            "Vui lòng xóa các dữ liệu liên quan trước khi tiếp tục", "Lỗi", buttons, MessageBoxIcon.Error);
+                        if (result == DialogResult.OK)
+                        {
+                            if (trangThai == 1)
+                            {
+                                var result1 = MessageBox.Show("Bạn có muốn thay đổi trạng thái của sản phẩm này?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                                if (result1 == DialogResult.OK)
+                                {
+                                    int flag = kmBLL.updateTrangThai(trangThai, maSP) ? 1 : 0;
+                                    if (flag == 1)
+                                    {
+                                        MessageBox.Show("Thay đổi trạng thái thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        loadMaKM();
+                                        init();
+                                        clearForm();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Thay đổi trạng thái thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                    }
+                                }
+                                else if (result1 == DialogResult.Cancel)
+                                {
+                                    return;
+                                }
+                            }
+                            else return;
+
+                        }
+
+                    }
+
+                }
+            }
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            isFormFilter = !isFormFilter;
+            if (isFormFilter)
+            {
+                btnFilter.BackColor = Color.FromArgb(224, 224, 224);
+                flpFilter.Visible = true;
+                flpFilter.BringToFront();
+
+            }
+            else
+            {
+                btnFilter.BackColor = Color.FromArgb(224, 252, 237);
+                flpFilter.Visible = false;
+                flpFilter.SendToBack();
+            }
+        }
+
+        private void dgvKhuyenMai_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i = dgvKhuyenMai.CurrentRow.Index;
+            txtMaKM.Texts = dgvKhuyenMai.Rows[i].Cells[0].Value.ToString();
+            DateTime NgayBd = DateTime.Parse(dgvKhuyenMai.Rows[i].Cells[2].Value.ToString());
+            DateTime NgayKt = DateTime.Parse(dgvKhuyenMai.Rows[i].Cells[3].Value.ToString());
+            txtTenKm.Texts = dgvKhuyenMai.Rows[i].Cells[1].Value.ToString();
+            dtpNgayBD.Value = NgayBd;
+            dtpNgayKT.Value = NgayKt;
+            txtPhanTramKM.Texts = dgvKhuyenMai.Rows[i].Cells[4].Value.ToString();
+            txtDkKM.Texts = dgvKhuyenMai.Rows[i].Cells[5].Value.ToString();
+            int TrangThai = int.Parse(dgvKhuyenMai.Rows[i].Cells[6].Value.ToString());
+            if (TrangThai == 1)
+            {
+                cbxTrangThai.SelectedIndex = 0;
+            }
+            else
+            {
+                cbxTrangThai.SelectedIndex = 1;
+            }
+
+            if (txtDkKM.Texts == "")
+            {
+                btnThongTinKM.Visible = true;
+            }
+            else
+            {
+                btnThongTinKM.Visible = false;
+            }
+        }
+
+        private void cbxTimKiem_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbxItemsMacDinh = cbxTimKiem.SelectedItem.ToString();
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            string textTimKiem = txtTimKiem.Texts;
+            textSearchCondition = GetTextSearchCondition(textTimKiem);
+            string combinedCondition = CombineConditions(textSearchCondition, statusCondition);
+            applySearchs(combinedCondition);
+        }
+
+        private void txtTimKiem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnTimKiem.PerformClick();
+                e.Handled = true;
+            }
+        }
+
+        private void chkHoatDong_CheckedChanged(object sender, EventArgs e)
+        {
+            isHoatDong = toggleDieuKien(isHoatDong);
+            UpdateStatusCondition();
+            btnTimKiem.PerformClick();
+        }
+
+        private void chkKoHD_CheckedChanged(object sender, EventArgs e)
+        {
+            isKoHD = toggleDieuKien(isKoHD);
+            UpdateStatusCondition();
+            btnTimKiem.PerformClick();
+        }
+        private bool toggleDieuKien(bool value)
+        {
+            return !value;
+        }
+
+        private void chkTrangThai_CheckedChanged(object sender, EventArgs e)
+        {
+            isTrangThai = toggleDieuKien(isTrangThai);
+            chkHoatDong.Enabled = isTrangThai;
+            chkKoHD.Enabled = isTrangThai;
+            if (isTrangThai)
+            {
+
+                if (isHoatDong)
+                {
+
+                    chkHoatDong_CheckedChanged(sender, e);
+                }
+
+                if (isKoHD)
+                {
+                    chkKoHD_CheckedChanged(sender, e);
+                }
+            }
+            else
+            {
+                // Nếu chkHoatDong không được kiểm tra, tắt chkHd và chkKhd và xóa check
+                chkHoatDong.Checked = false;
+                chkKoHD.Checked = false;
+                chkHoatDong.Enabled = isHoatDong;
+                chkKoHD.Enabled = isKoHD;
+            }
         }
     }
 }

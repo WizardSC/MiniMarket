@@ -79,7 +79,7 @@ namespace DAL
             {
                 MSSQLConnect dbConnect = new MSSQLConnect();
                 dbConnect.Connect();
-                string query = "INSERT INTO KhuyenMai(MaKM,TenKM,NgayBatDau,NgayKetThuc,PhanTramKM,DieuKienKM,TrangThaiKM) VALUES(@MaKM,@TenKM,@NgayBatDau,@NgayKetThuc,@PhanTramKM,@DieuKienKM,@TrangThaiKM)";
+                string query = "INSERT INTO KhuyenMai(MaKM,TenKM,NgayBatDau,NgayKetThuc,PhanTramKM,DieuKienKM,TrangThai) VALUES(@MaKM,@TenKM,@NgayBatDau,@NgayKetThuc,@PhanTramKM,@DieuKienKM,@TrangThai)";
                 SqlCommand cmd = new SqlCommand(query, dbConnect.conn);
 
                 cmd.Parameters.AddWithValue("@MaKm", KM_DTO.Makm);
@@ -88,23 +88,14 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@NgayKetThuc", KM_DTO.NgayKt);
                 cmd.Parameters.AddWithValue("@PhanTramKM", KM_DTO.PhanTramKm);
                 cmd.Parameters.AddWithValue("@DieuKienKM", KM_DTO.DieuKiemKm);
-                cmd.Parameters.AddWithValue("@TrangThaiKM", KM_DTO.TrangThai);
-                int rowsAffected = cmd.ExecuteNonQuery();
+                cmd.Parameters.AddWithValue("@TrangThai", KM_DTO.TrangThai);
+                cmd.ExecuteNonQuery();
+                return true;
 
-                if (rowsAffected > 0)
-                {
-                    MessageBox.Show("Thêm khuyến mãi thành công."); // Display a success message
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
 
             }
             catch (Exception e)
             {
-                MessageBox.Show("Thêm khuyến mãi thất bại. " + e.Message);
                 return false;
             }
             finally
@@ -119,7 +110,7 @@ namespace DAL
             {
                 MSSQLConnect dbConnect = new MSSQLConnect();
                 dbConnect.Connect();
-                string query = "UPDATE KhuyenMai SET TenKM = @TenKM, NgayBatDau = @NgayBatDau, NgayKetThuc = @NgayKetThuc, PhanTramKM = @PhanTramKM, DieuKienKM = @DieuKienKM, TrangThaiKM = @TrangThaiKM WHERE MaKM = @MaKM";
+                string query = "UPDATE KhuyenMai SET TenKM = @TenKM, NgayBatDau = @NgayBatDau, NgayKetThuc = @NgayKetThuc, PhanTramKM = @PhanTramKM, DieuKienKM = @DieuKienKM, TrangThai = @TrangThai WHERE MaKM = @MaKM";
                 SqlCommand cmd = new SqlCommand(query, dbConnect.conn);
                 cmd.Parameters.AddWithValue("@MaKm", KM_DTO.Makm);
                 cmd.Parameters.AddWithValue("@TenKM", KM_DTO.TenKm);
@@ -127,23 +118,13 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@NgayKetThuc", KM_DTO.NgayKt);
                 cmd.Parameters.AddWithValue("@PhanTramKM", KM_DTO.PhanTramKm);
                 cmd.Parameters.AddWithValue("@DieuKienKM", KM_DTO.DieuKiemKm);
-                cmd.Parameters.AddWithValue("@TrangThaiKM", KM_DTO.TrangThai);
+                cmd.Parameters.AddWithValue("@TrangThai", KM_DTO.TrangThai);
                 // Execute the SQL command
-                int rowsAffected = cmd.ExecuteNonQuery();
-
-                if (rowsAffected > 0)
-                {
-                    MessageBox.Show("Chỉnh sửa khuyến mãi thành công."); // Display a success message
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+               cmd.ExecuteNonQuery();
+                return true;
             }
             catch (Exception e)
             {
-                MessageBox.Show("Chỉnh sửa khuyến mãi thất bại. " + e.Message);
                 return false;
             }
             finally
@@ -151,32 +132,58 @@ namespace DAL
                 Disconnect();
             }
         }
-        public bool Delete_KhuyenMai(KhuyenMaiDTO KM_DTO)
+        public bool delete_khuyenMai(string maKM, out bool isLoiKhoaNgoai)
         {
-
             try
             {
-                MSSQLConnect dbConnect = new MSSQLConnect();
-                dbConnect.Connect();
-                string query = "UPDATE KhuyenMai SET TrangThaiKM =0 WHERE MaKM = @MaKM";
-                SqlCommand cmd = new SqlCommand(query, dbConnect.conn);
-                cmd.Parameters.AddWithValue("@MaKm", KM_DTO.Makm);
-                // Execute the SQL command
-                int rowsAffected = cmd.ExecuteNonQuery();
-
-                if (rowsAffected > 0)
+                Connect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "delete from khuyenmai where MaKM = @MaKM";
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@MaKM", maKM).SqlDbType = SqlDbType.Char;
+                cmd.ExecuteNonQuery();
+                isLoiKhoaNgoai = false;
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 547) // Mã lỗi 547 là mã lỗi cho việc tham chiếu đến khóa ngoại
                 {
-                    MessageBox.Show("Xóa khuyến mãi thành công."); // Display a success message
-                    return true;
+                    Console.WriteLine("Lỗi: Không thể xóa khuyến mãi vì có khóa ngoại tham chiếu.");
+                    isLoiKhoaNgoai = true;
                 }
                 else
                 {
-                    return false;
+                    Console.WriteLine("Lỗi: " + ex.Message);
+                    isLoiKhoaNgoai = false;
+
                 }
+                return false;
             }
-            catch (Exception e)
+            finally
             {
-                MessageBox.Show("Xóa khuyến mãi thất bại. " + e.Message);
+                Disconnect();
+            }
+        }
+        public bool update_TrangThai(int trangThai, string maKM)
+        {
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "update khuyenmai set TrangThai = @TrangThai where MaKM = @MaKM";
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@TrangThai", trangThai).SqlDbType = SqlDbType.Int;
+                cmd.Parameters.AddWithValue("@MaKM", maKM).SqlDbType = SqlDbType.Char;
+                cmd.ExecuteNonQuery();
+                return true;
+
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
                 return false;
             }
             finally
