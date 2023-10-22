@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Drawing.Text;
 using System.IO;
@@ -13,6 +14,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OfficeOpenXml;
 
 
 namespace GUI
@@ -378,18 +380,18 @@ namespace GUI
         //Hiển thị Trạng thái lên DataGridView
         private void dgvSanPham_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.ColumnIndex == dgvSanPham.Columns["TrangThai"].Index && e.Value != null)
-            {
-                int trangThaiValue = Convert.ToInt32(e.Value);
-                if (trangThaiValue == 0)
-                {
-                    e.Value = "Không hoạt động";
-                }
-                else if (trangThaiValue == 1)
-                {
-                    e.Value = "Hoạt động";
-                }
-            }
+            //if (e.ColumnIndex == dgvSanPham.Columns["TrangThai"].Index && e.Value != null)
+            //{
+            //    int trangThaiValue = Convert.ToInt32(e.Value);
+            //    if (trangThaiValue == 0)
+            //    {
+            //        e.Value = "Không hoạt động";
+            //    }
+            //    else if (trangThaiValue == 1)
+            //    {
+            //        e.Value = "Hoạt động";
+            //    }
+            //}
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -423,6 +425,117 @@ namespace GUI
                    "Lỗi",
                    MessageBoxButtons.OK,
                    MessageBoxIcon.Error);
+            }
+        }
+        private void ReadExcelAndPopulateDGV(string filePath)
+        {
+            try
+            {
+                using (ExcelPackage package = new ExcelPackage(new FileInfo(filePath)))
+                {
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets[0]; // Lấy sheet đầu tiên (index 0)
+
+                    int totalRows = worksheet.Dimension.Rows;
+                    int totalCols = worksheet.Dimension.Columns;
+
+                    DataTable dt = new DataTable();
+
+                    for (int col = 1; col <= totalCols; col++)
+                    {
+                        dt.Columns.Add(worksheet.Cells[1, col].Text);
+                    }
+
+                    for (int row = 2; row <= totalRows; row++)
+                    {
+                        DataRow newRow = dt.NewRow();
+                        for (int col = 1; col <= totalCols; col++)
+                        {
+                            newRow[col - 1] = worksheet.Cells[row, col].Text;
+                        }
+                        dt.Rows.Add(newRow);
+                    }
+
+                    dgvSanPham.DataSource = dt;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+            }
+        }
+
+        private void btnImportExcel_Click(object sender, EventArgs e)
+        {
+
+            //OpenFileDialog op = new OpenFileDialog();
+            //op.Filter = "Excel Sheet(*.xlsx)|*.xlsx|All Files(*.*)|*.*";
+            //if(op.ShowDialog() == DialogResult.OK)
+            //{
+            //    string filepath = op.FileName;
+            //    string con = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties ='Excel 8.0;HDR={1}'";
+            //    con = string.Format(con, filepath, "yes");
+            //    OleDbConnection excelConnection = new OleDbConnection(con);
+            //    excelConnection.Open();
+            //    DataTable dtexcel = excelConnection.GetOleDbSchemaTable(OleDbSchemaGuid.Tables,null); 
+            //    string excelSheet = dtexcel.Rows[0]["TABLE_NAME"].ToString();
+            //    OleDbCommand com = new OleDbCommand("Select * from [" + excelSheet + "]", excelConnection);
+            //    OleDbDataAdapter oda = new OleDbDataAdapter(com);
+            //    DataTable dt = new DataTable();
+            //    oda.Fill(dt);
+            //    excelConnection.Close();
+            //    dgvSanPham.DataSource = dt;
+            //}
+            OpenFileDialog op = new OpenFileDialog();
+            op.Filter = "Excel Sheet(*.xlsx)|*.xlsx|All Files(*.*)|*.*";
+            if (op.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = op.FileName;
+                ReadExcelAndPopulateDGV(filePath);
+            }
+        }
+        private void ExportDataToExcel(DataGridView dataGridView, string filePath)
+        {
+            try
+            {
+                using (ExcelPackage package = new ExcelPackage())
+                {
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Sheet1");
+
+                    // Ghi tiêu đề cột
+                    for (int col = 1; col <= dataGridView.Columns.Count; col++)
+                    {
+                        worksheet.Cells[1, col].Value = dataGridView.Columns[col - 1].HeaderText;
+                    }
+
+                    // Ghi dữ liệu từ DataGridView vào Excel
+                    for (int row = 0; row < dataGridView.Rows.Count; row++)
+                    {
+                        for (int col = 0; col < dataGridView.Columns.Count; col++)
+                        {
+                            worksheet.Cells[row + 2, col + 1].Value = dataGridView.Rows[row].Cells[col].Value;
+                        }
+                    }
+
+                    // Lưu tệp Excel
+                    package.SaveAs(new System.IO.FileInfo(filePath));
+                }
+
+                MessageBox.Show("Dữ liệu đã được xuất ra file Excel thành công.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+            }
+        }
+
+        private void btnExportExcel_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel Files|*.xlsx";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = saveFileDialog.FileName;
+                ExportDataToExcel(dgvSanPham, filePath); // Thay thế dataGridView1 bằng tên của DataGridView của bạn
             }
         }
     }
