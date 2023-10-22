@@ -1515,6 +1515,7 @@
             this.btnSua.TabIndex = 1;
             this.btnSua.TextColor = System.Drawing.Color.White;
             this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
@@ -1583,7 +1584,7 @@
             this.Ten.MinimumWidth = 6;
             this.Ten.Name = "Ten";
             this.Ten.ReadOnly = true;
-            this.Ten.Width = 90;
+            this.Ten.Width = 75;
             // 
             // NgaySinh
             // 
