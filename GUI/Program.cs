@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,8 +17,10 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
             Application.Run(new GiaoDienGUI());
-            Console.WriteLine("Test 16/10/2023");
+            
         }
     }
 }
