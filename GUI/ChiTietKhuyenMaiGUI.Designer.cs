@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChiTietKhuyenMaiGUI));
             this.panel3 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
@@ -102,8 +102,6 @@
             this.cbxTimKiem.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxTimKiem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.cbxTimKiem.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.cbxTimKiem.Items.AddRange(new object[] {
-            "TenKM"});
             this.cbxTimKiem.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
             this.cbxTimKiem.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.cbxTimKiem.Location = new System.Drawing.Point(4, 8);
@@ -113,7 +111,8 @@
             this.cbxTimKiem.Padding = new System.Windows.Forms.Padding(2);
             this.cbxTimKiem.Size = new System.Drawing.Size(108, 30);
             this.cbxTimKiem.TabIndex = 4;
-            this.cbxTimKiem.Texts = "Mã KM";
+            this.cbxTimKiem.Texts = "";
+            this.cbxTimKiem.OnSelectedIndexChanged += new System.EventHandler(this.cbxTimKiem_OnSelectedIndexChanged);
             // 
             // txtTimKiem
             // 
@@ -134,10 +133,12 @@
             this.txtTimKiem.PasswordChar = false;
             this.txtTimKiem.PlaceholderColor = System.Drawing.Color.DimGray;
             this.txtTimKiem.PlaceholderText = "Nhập thông tin tìm kiếm";
+            this.txtTimKiem.ReadOnly = false;
             this.txtTimKiem.Size = new System.Drawing.Size(499, 32);
             this.txtTimKiem.TabIndex = 1;
             this.txtTimKiem.Texts = "";
             this.txtTimKiem.UnderlinedStyle = true;
+            this.txtTimKiem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTimKiem_KeyPress);
             // 
             // btnTimKiem
             // 
@@ -157,6 +158,7 @@
             this.btnTimKiem.TabIndex = 2;
             this.btnTimKiem.TextColor = System.Drawing.Color.White;
             this.btnTimKiem.UseVisualStyleBackColor = false;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // dgvChiTietKM
             // 
@@ -167,14 +169,14 @@
             this.dgvChiTietKM.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvChiTietKM.BackgroundColor = System.Drawing.Color.White;
             this.dgvChiTietKM.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvChiTietKM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvChiTietKM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvChiTietKM.ColumnHeadersHeight = 28;
             this.dgvChiTietKM.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaKM,
@@ -183,14 +185,14 @@
             this.TenSp,
             this.PhanTramKm,
             this.TrangThai});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvChiTietKM.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvChiTietKM.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvChiTietKM.EnableHeadersVisualStyles = false;
             this.dgvChiTietKM.GridColor = System.Drawing.Color.Black;
             this.dgvChiTietKM.Location = new System.Drawing.Point(3, 60);
@@ -431,6 +433,7 @@
             this.txtPhanTramKM.PasswordChar = false;
             this.txtPhanTramKM.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtPhanTramKM.PlaceholderText = "";
+            this.txtPhanTramKM.ReadOnly = false;
             this.txtPhanTramKM.Size = new System.Drawing.Size(171, 28);
             this.txtPhanTramKM.TabIndex = 32;
             this.txtPhanTramKM.Texts = "";
@@ -462,6 +465,9 @@
             // 
             // cbxTrangThai
             // 
+            this.cbxTrangThai.AutoCompleteCustomSource.AddRange(new string[] {
+            "Hoạt động",
+            "Không hoạt động"});
             this.cbxTrangThai.BackColor = System.Drawing.Color.White;
             this.cbxTrangThai.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
             this.cbxTrangThai.BorderSize = 2;
@@ -477,7 +483,7 @@
             this.cbxTrangThai.Padding = new System.Windows.Forms.Padding(2);
             this.cbxTrangThai.Size = new System.Drawing.Size(171, 28);
             this.cbxTrangThai.TabIndex = 38;
-            this.cbxTrangThai.Texts = "Hoạt động";
+            this.cbxTrangThai.Texts = "";
             // 
             // flowLayoutPanel5
             // 
@@ -509,6 +515,7 @@
             this.btnThemCTKM.TabIndex = 0;
             this.btnThemCTKM.TextColor = System.Drawing.Color.White;
             this.btnThemCTKM.UseVisualStyleBackColor = false;
+            this.btnThemCTKM.Click += new System.EventHandler(this.btnThemCTKM_Click);
             // 
             // btnUpdateKM
             // 
@@ -528,6 +535,7 @@
             this.btnUpdateKM.TabIndex = 1;
             this.btnUpdateKM.TextColor = System.Drawing.Color.White;
             this.btnUpdateKM.UseVisualStyleBackColor = false;
+            this.btnUpdateKM.Click += new System.EventHandler(this.btnUpdateKM_Click);
             // 
             // btnXoaKM
             // 
@@ -547,6 +555,7 @@
             this.btnXoaKM.TabIndex = 2;
             this.btnXoaKM.TextColor = System.Drawing.Color.White;
             this.btnXoaKM.UseVisualStyleBackColor = false;
+            this.btnXoaKM.Click += new System.EventHandler(this.btnXoaKM_Click);
             // 
             // btnRS
             // 
@@ -566,6 +575,7 @@
             this.btnRS.TabIndex = 3;
             this.btnRS.TextColor = System.Drawing.Color.White;
             this.btnRS.UseVisualStyleBackColor = false;
+            this.btnRS.Click += new System.EventHandler(this.btnRS_Click);
             // 
             // panel1
             // 

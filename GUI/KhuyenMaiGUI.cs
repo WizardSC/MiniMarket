@@ -253,14 +253,14 @@ namespace GUI
         private void btnXoa_Click(object sender, EventArgs e)
         {
 
-            string maSP = txtMaKM.Texts;
+            string maKM = txtMaKM.Texts;
             string stringTrangThai = cbxTrangThai.SelectedItem.ToString();
             int trangThai = (stringTrangThai == "Hoạt động") ? 1 : 0;
             var choice = MessageBox.Show("Xóa khuyến mãi này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (choice == DialogResult.Yes)
             {
                 bool isLoiKhoaNgoai;
-                bool kq = kmBLL.deleteSanPham(maSP, out isLoiKhoaNgoai);
+                bool kq = kmBLL.deleteKhuyenMai(maKM, out isLoiKhoaNgoai);
                 if (kq)
                 {
                     MessageBox.Show("Xóa thành công",
@@ -286,7 +286,7 @@ namespace GUI
                                 var result1 = MessageBox.Show("Bạn có muốn thay đổi trạng thái của sản phẩm này?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                                 if (result1 == DialogResult.OK)
                                 {
-                                    int flag = kmBLL.updateTrangThai(trangThai, maSP) ? 1 : 0;
+                                    int flag = kmBLL.updateTrangThai(trangThai, maKM) ? 1 : 0;
                                     if (flag == 1)
                                     {
                                         MessageBox.Show("Thay đổi trạng thái thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -24,5 +24,23 @@ namespace BLL
         {
             return CtKmDAL.getListChiTietKhuyenMai();
         }
+
+        public bool insertCTKhuyenMai(ChiTietKhuyenMaiDTO CTKM_DTO)
+        {
+            return CtKmDAL.insert_CTKhuyenMai(CTKM_DTO);
+        }
+        public bool UpdateCTKhuyenMai(ChiTietKhuyenMaiDTO CTKM_DTO)
+        {
+            return CtKmDAL.Update_CTKhuyenMai(CTKM_DTO);
+        }
+        public bool deleteCTKhuyenMai(string maKM, out bool isLoiKhoaNgoai)
+        {
+            return CtKmDAL.delete_ChiTietkhuyenMai(maKM, out isLoiKhoaNgoai);
+        }
+        public bool updateCTTrangThai(int trangThai, string maKM)
+        {
+            trangThai = (trangThai == 0) ? 1 : 0;
+            return CtKmDAL.update_TrangThai(trangThai, maKM);
+        }
     }
 }

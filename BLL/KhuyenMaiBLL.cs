@@ -37,14 +37,14 @@ namespace BLL
             {
                 return kmDAL.Update_KhuyenMai(KM_DTO);
             }
-            public bool deleteSanPham(string maSP, out bool isLoiKhoaNgoai)
+            public bool deleteKhuyenMai(string maKM, out bool isLoiKhoaNgoai)
             {
-                return kmDAL.delete_khuyenMai(maSP, out isLoiKhoaNgoai);
+                return kmDAL.delete_khuyenMai(maKM, out isLoiKhoaNgoai);
             }
-            public bool updateTrangThai(int trangThai, string maSP)
+            public bool updateTrangThai(int trangThai, string maKM)
             {
                 trangThai = (trangThai == 0) ? 1 : 0;
-                return kmDAL.update_TrangThai(trangThai, maSP);
+                return kmDAL.update_TrangThai(trangThai, maKM);
             }
     }
 }

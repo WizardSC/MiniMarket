@@ -139,7 +139,7 @@ namespace DAL
                 Connect();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "delete from khuyenmai where MaKM = @MaKM";
+                cmd.CommandText = "delete from KhuyenMai where MaKM = @MaKM";
                 cmd.Connection = conn;
                 cmd.Parameters.AddWithValue("@MaKM", maKM).SqlDbType = SqlDbType.Char;
                 cmd.ExecuteNonQuery();
@@ -173,7 +173,7 @@ namespace DAL
                 Connect();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "update khuyenmai set TrangThai = @TrangThai where MaKM = @MaKM";
+                cmd.CommandText = "update KhuyenMai set TrangThai = @TrangThai where MaKM = @MaKM";
                 cmd.Connection = conn;
                 cmd.Parameters.AddWithValue("@TrangThai", trangThai).SqlDbType = SqlDbType.Int;
                 cmd.Parameters.AddWithValue("@MaKM", maKM).SqlDbType = SqlDbType.Char;
