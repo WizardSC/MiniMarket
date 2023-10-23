@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Drawing.Text;
 using System.IO;
@@ -12,8 +13,9 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
+using System.Windows.Forms;
+using OfficeOpenXml;
 
 namespace GUI
 {
@@ -360,24 +362,74 @@ namespace GUI
             int i = dgvSanPham.CurrentRow.Index;
             txtMaSP.Enabled = true;
             txtMaSP.Texts = dgvSanPham.Rows[i].Cells[0].Value.ToString();
+            txtTenSP.Texts = dgvSanPham.Rows[i].Cells[1].Value.ToString();
+            txtTonKho.Texts = dgvSanPham.Rows[i].Cells[2].Value.ToString();
+            txtGiaNhap.Texts = dgvSanPham.Rows[i].Cells[3].Value.ToString();
+            txtGiaBan.Texts = dgvSanPham.Rows[i].Cells[4].Value.ToString();
+            cbxDonViTinh.SelectedItem = dgvSanPham.Rows[i].Cells[5].Value.ToString();
+
+            txtMaLoai.Texts = dgvSanPham.Rows[i].Cells[7].Value.ToString();
+            txtMaNSX.Texts = dgvSanPham.Rows[i].Cells[8].Value.ToString();
+            txtMaNCC.Texts = dgvSanPham.Rows[i].Cells[9].Value.ToString();
+            byte[] imageBytes = (byte[])dgvSanPham.Rows[i].Cells[10].Value;
+            pbImage.Image = convertBinaryStringToImage(imageBytes);
+            pbImage.Tag = dgvSanPham.Rows[i].Cells[0].Value.ToString();
             int trangThaiValue = Convert.ToInt32(dgvSanPham.Rows[i].Cells[6].Value);
             cbxTrangThai.SelectedItem = (trangThaiValue == 0) ? "Không hoạt động" : "Hoạt động";
         }
         //Hiển thị Trạng thái lên DataGridView
         private void dgvSanPham_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.ColumnIndex == dgvSanPham.Columns["TrangThai"].Index && e.Value != null)
+            //if (e.ColumnIndex == dgvSanPham.Columns["TrangThai"].Index && e.Value != null)
+            //{
+            //    int trangThaiValue = Convert.ToInt32(e.Value);
+            //    if (trangThaiValue == 0)
+            //    {
+            //        e.Value = "Không hoạt động";
+            //    }
+            //    else if (trangThaiValue == 1)
+            //    {
+            //        e.Value = "Hoạt động";
+            //    }
+            //}
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            string maSP = txtMaSP.Texts;
+            string tenSP = txtTenSP.Texts;
+            int soLuong = int.Parse(txtTonKho.Texts);
+            int donGiaNhap = int.Parse(txtGiaNhap.Texts);
+            int donGiaBan = int.Parse(txtGiaBan.Texts);
+            string donViTinh = cbxDonViTinh.SelectedItem.ToString();
+            string trangThai = cbxTrangThai.SelectedItem.ToString();
+            int trangThaiValue = (trangThai == "Hoạt động") ? 1 : 0;
+            string maLoai = txtMaLoai.Texts;
+            string maNSX = txtMaNSX.Texts;
+            string maNCC = txtMaNCC.Texts;
+            byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
+
+            SanPhamDTO sp = new SanPhamDTO(maSP, tenSP, soLuong, donGiaNhap, donGiaBan, donViTinh, trangThaiValue, maLoai, maNSX, maNCC, img);
+            int kq = spBLL.updateSanPham(sp) ? 1 : 0;
+            if (kq == 1)
             {
-                int trangThaiValue = Convert.ToInt32(e.Value);
-                if (trangThaiValue == 0)
-                {
-                    e.Value = "Không hoạt động";
-                }
-                else if (trangThaiValue == 1)
-                {
-                    e.Value = "Hoạt động";
-                }
+                MessageBox.Show("Sửa thành công",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+            }
+            else
+            {
+                MessageBox.Show("Sửa thất bại",
+                   "Lỗi",
+                   MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
             }
         }
+        
     }
+
 }
+
+

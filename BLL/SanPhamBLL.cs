@@ -26,6 +26,10 @@ namespace BLL
         {
             return spDAL.insertSanPham(sp);
         }
+        public bool updateSanPham(SanPhamDTO sp)
+        {
+            return spDAL.updateSanPham(sp);
+        }
         public bool deleteSanPham(string maSP, out bool isLoiKhoaNgoai)
         {
             return spDAL.deleteSanPham(maSP, out isLoiKhoaNgoai);
