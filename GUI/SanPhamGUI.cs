@@ -109,7 +109,43 @@ namespace GUI
             return img;
         }
         #endregion
+        #region Các hàm validate lỗi
+        private void txtTenSP__TextChanged(object sender, EventArgs e)
+        {
+            CheckAndSetColor(txtTenSP, lblErrTenSP);
+        }
 
+        private void txtGiaNhap__TextChanged_1(object sender, EventArgs e)
+        {
+            ConvertToInt(txtGiaNhap, lblErrGiaNhap);
+
+        }
+
+        private void cbxDonViTinh_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            CheckAndSetColor(cbxDonViTinh, lblErrDonViTinh);
+        }
+
+        private void cbxTrangThai_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
+        }
+
+        private void txtMaLoai__TextChanged(object sender, EventArgs e)
+        {
+            CheckAndSetColor(txtMaLoai, lblErrMaLoai);
+        }
+
+        private void txtMaNSX__TextChanged(object sender, EventArgs e)
+        {
+            CheckAndSetColor(txtMaNSX, lblErrMaNSX);
+        }
+
+        private void txtMaNCC__TextChanged(object sender, EventArgs e)
+        {
+            CheckAndSetColor(txtMaNCC, lblErrMaNCC);
+        }
+        #endregion
         private void btnUploadAnh_Click(object sender, EventArgs e)
         {
             string appDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
@@ -131,11 +167,6 @@ namespace GUI
             }
         }
 
-        private void rjButton1_Click(object sender, EventArgs e)
-        {
-            pbImage.Image = pbImage.InitialImage;
-            pbImage.Tag = "Placeholder";
-        }
         private string CheckAndSetColor(object control, Label label)
         {
             if (control is RJTextBox textBox)
@@ -200,6 +231,7 @@ namespace GUI
             int donGiaNhap = ConvertToInt(txtGiaNhap, lblErrGiaNhap);
             int donGiaBan = ConvertToInt(txtGiaBan);
             byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
+            int trangThaiValue = (trangThai == "Hoạt động") ? 1 : 0;
             //Có thể k cần truyền vào lbl Lỗi
             Console.WriteLine("maSP: " + maSP);
             Console.WriteLine("tenSP: " + tenSP);
@@ -218,26 +250,22 @@ namespace GUI
                 return;
             }
             Console.WriteLine("Không có cái nào null");
-
-
-
-
-
-            //SanPhamDTO sp = new SanPhamDTO(maSP,tenSP,soLuongTonKho,donGiaNhap, donGiaBan, donViTinh,trangThai,maLoai, maNSX,maNCC,img);
-            //int flag = spBLL.insertSanPham(sp) ? 1 : 0;
-            //if (flag == 1)
-            //{
-            //    MessageBox.Show("Thêm thành công",
-            //        "Thông báo",
-            //        MessageBoxButtons.OK,
-            //        MessageBoxIcon.Information);
-            //} else
-            //{
-            //    MessageBox.Show("Thêm thất bại",
-            //        "Lỗi",
-            //        MessageBoxButtons.OK,
-            //        MessageBoxIcon.Error);
-            //}
+            SanPhamDTO sp = new SanPhamDTO(maSP, tenSP, soLuongTonKho, donGiaNhap, donGiaBan, donViTinh, trangThaiValue, maLoai, maNSX, maNCC, img);
+            int flag = spBLL.insertSanPham(sp) ? 1 : 0;
+            if (flag == 1)
+            {
+                MessageBox.Show("Thêm thành công",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Thêm thất bại",
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
 
         }
 
@@ -427,7 +455,12 @@ namespace GUI
                    MessageBoxIcon.Error);
             }
         }
-        
+
+        private void btnDeleteIMG_Click(object sender, EventArgs e)
+        {
+            pbImage.Image = pbImage.InitialImage;
+            pbImage.Tag = "Placeholder";
+        }
     }
 
 }
