@@ -496,6 +496,11 @@ namespace GUI
             txtMaKH.Texts = dgvKhachHang.Rows[i].Cells[0].Value.ToString();
             txtHo.Texts = dgvKhachHang.Rows[i].Cells[1].Value.ToString();
         }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

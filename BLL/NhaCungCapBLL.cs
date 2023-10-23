@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -18,6 +19,14 @@ namespace BLL
         public DataTable getListNCC()
         {
             return nccDAL.getListNhaCC();
+        }
+        public bool InsertNhaCC(NhaCungCapDTO nhacc)
+        {
+            return nccDAL.InsertNhaCC(nhacc);
+        }
+        public bool deleteNhaCC(string maNCC, out bool isLoiKhoaNgoai)
+        {
+            return nccDAL.deleteNhaCC(maNCC, out isLoiKhoaNgoai);
         }
     }
 }
