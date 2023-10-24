@@ -41,7 +41,7 @@ namespace DAL
             return dt;
         }
 
-
+       
         public bool insert_CTKhuyenMai(ChiTietKhuyenMaiDTO CTKM_DTO)
         {
 
@@ -53,7 +53,7 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand(query, dbConnect.conn);
 
                 cmd.Parameters.AddWithValue("@MaKm", CTKM_DTO.Makm);
-                cmd.Parameters.AddWithValue("@TenKM", CTKM_DTO.Masp);
+                cmd.Parameters.AddWithValue("@MaSP", CTKM_DTO.Masp);
                 cmd.Parameters.AddWithValue("@PhanTramKM", CTKM_DTO.PhanTramKm);
                 cmd.Parameters.AddWithValue("@TrangThai", CTKM_DTO.TrangThai);
                 cmd.ExecuteNonQuery();

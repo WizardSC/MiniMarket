@@ -12,12 +12,9 @@ namespace DTO
         private string maSp;
         private int phanTramKm;
         private int trangThai;
-        public ChiTietKhuyenMaiDTO(string maKm, string maSp, int phanTramKm,int trangThai)
+        public ChiTietKhuyenMaiDTO()
         {
-            this.maKm = maKm;
-            this.maSp = maSp;
-            this.phanTramKm = phanTramKm;
-            this.trangThai = trangThai;
+           
         }
         public string Makm { get => maKm; set => maKm = value; }
         public string Masp { get => maSp; set => maSp = value; }

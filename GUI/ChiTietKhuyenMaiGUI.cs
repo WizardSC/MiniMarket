@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DTO;
 using GUI.MyCustom;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -38,8 +40,8 @@ namespace GUI
             data = KmBLL.getListDsKm();
             cbxTenKM.DataSource = data;
             cbxTenKM.DisplayMember = "TenKM";
-            cbxTenKM.SelectedIndex = -1;
-           
+            cbxTenKM.Texts = "--Chọn tên km--";
+
         }
         //load tensp
         public void loadsItemTenSp()
@@ -47,7 +49,7 @@ namespace GUI
             data = SpBLL.getListSanPham();
             cbxTenSp.DataSource = data;
             cbxTenSp.DisplayMember = "TenSP";
-            cbxTenSp.SelectedIndex = -1;
+            cbxTenSp.Texts = "--Chọn tên sp--";
 
         }
         //load combobox timkiem
@@ -112,9 +114,24 @@ namespace GUI
             dgvChiTietKM.DataSource = dvCTKhuyenMai.ToTable();
         }
 
-        private void ChiTietKhuyenMaiGUI_Load(object sender, EventArgs e)
+        
+        public void init()
         {
             dgvChiTietKM.DataSource = CTKhuyenMaiBLL.getListDsCTKm();
+
+            cbxTrangThai.SelectedIndex=0;
+        }
+
+        public void clearForm()
+        {
+             cbxTenSp.Texts = "--Chọn tên sp--";;
+            cbxTenKM.Texts = "--Chọn tên km--";
+            txtPhanTramKM.Texts = " ";
+        }
+
+        private void ChiTietKhuyenMaiGUI_Load(object sender, EventArgs e)
+        {
+            init();
         }
 
         private void dgvChiTietKM_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -146,6 +163,53 @@ namespace GUI
 
         private void btnThemCTKM_Click(object sender, EventArgs e)
         {
+            string tenKM = cbxTenKM.Texts;
+            
+            string tenSp = cbxTenSp.Texts;
+            // Lấy ID khuyen mai từ tên khuyenmai
+            string idKm = "KM000"; // Giá trị mặc định nếu không tìm thấy
+           
+            data = KmBLL.getListDsKm();
+            foreach (DataRow row in data.Rows)
+            {
+                if (row["TenKM"].ToString() == tenKM)
+                {
+                    idKm = row["MaKM"].ToString();
+                    break; // Thoát vòng lặp khi tìm thấy ID
+                }
+            }
+            string idSp = "SP000";
+            data = SpBLL.getListSanPham();
+            foreach (DataRow row in data.Rows)
+            {
+                if (row["TenSP"].ToString() == tenSp)
+                {
+                    idSp = row["MaSP"].ToString();
+                    break; // Thoát vòng lặp khi tìm thấy ID
+                }
+            }
+
+
+            string CheckTrangThai = cbxTrangThai.Texts.ToString();
+            int trangthai = (CheckTrangThai == "Hoạt động") ? 1 : 0;
+            ChiTietKhuyenMaiDTO CTKM_DTO = new ChiTietKhuyenMaiDTO();
+            CTKM_DTO.Makm = idKm;
+            CTKM_DTO.Masp = idSp;
+            CTKM_DTO.PhanTramKm = int.Parse(txtPhanTramKM.Texts);
+            CTKM_DTO.TrangThai = trangthai;
+
+            try
+            {
+                CTKhuyenMaiBLL.insertCTKhuyenMai(CTKM_DTO);
+                MessageBox.Show("Thêm khuyến mãi cho sản phẩm thành công!");
+                init();
+                clearForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+            }
+
 
         }
 
