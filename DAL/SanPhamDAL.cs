@@ -12,6 +12,45 @@ namespace DAL
 {
     public class SanPhamDAL : MSSQLConnect
     {
+        public List<SanPhamDTO> getListSP()
+        {
+            List<SanPhamDTO> listSP = new List<SanPhamDTO>();
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from sanpham";
+                cmd.Connection = conn;
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    SanPhamDTO sp = new SanPhamDTO(
+                        reader["MaSP"].ToString(),
+                        reader["TenSP"].ToString(),
+                        reader.GetInt32(reader.GetOrdinal("SoLuong")),
+                        reader.GetInt32(reader.GetOrdinal("DonGiaNhap")),
+                        reader.GetInt32(reader.GetOrdinal("DonGiaBan")),
+                        reader["DonViTinh"].ToString(),
+                        reader.GetInt32(reader.GetOrdinal("TrangThai")),
+                        reader["MaLoai"].ToString(),
+                        reader["MaNSX"].ToString(),
+                        reader["MaNCC"].ToString(),
+                        (byte[])reader["IMG"]
+                    );
+                    listSP.Add(sp);
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return listSP;
+        }
         public DataTable getListSanPham()
         {
             DataTable dt = new DataTable();

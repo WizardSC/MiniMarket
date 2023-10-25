@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MyProductInCart));
             this.pnProductInCart = new System.Windows.Forms.Panel();
-            this.btnDelete = new GUI.MyCustom.RJButton();
+            this.lblMaSP = new System.Windows.Forms.Label();
             this.lblDonGia = new System.Windows.Forms.Label();
             this.lblSeperator = new System.Windows.Forms.Label();
             this.lblTongTien = new System.Windows.Forms.Label();
-            this.btnGiam = new GUI.MyCustom.RJButton();
-            this.btnTang = new GUI.MyCustom.RJButton();
             this.txtSoLuong = new GUI.MyCustom.RJTextBox();
             this.lblTenSP = new System.Windows.Forms.Label();
-            this.lblMaSP = new System.Windows.Forms.Label();
+            this.btnDelete = new GUI.MyCustom.RJButton();
+            this.btnGiam = new GUI.MyCustom.RJButton();
+            this.btnTang = new GUI.MyCustom.RJButton();
             this.pnProductInCart.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,31 +57,22 @@
             this.pnProductInCart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnProductInCart.Location = new System.Drawing.Point(0, 0);
             this.pnProductInCart.Name = "pnProductInCart";
-            this.pnProductInCart.Size = new System.Drawing.Size(452, 85);
+            this.pnProductInCart.Size = new System.Drawing.Size(371, 85);
             this.pnProductInCart.TabIndex = 0;
             // 
-            // btnDelete
+            // lblMaSP
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.White;
-            this.btnDelete.BackgroundColor = System.Drawing.Color.White;
-            this.btnDelete.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnDelete.BorderRadius = 0;
-            this.btnDelete.BorderSize = 0;
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
-            this.btnDelete.Location = new System.Drawing.Point(417, 28);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(31, 28);
-            this.btnDelete.TabIndex = 9;
-            this.btnDelete.TextColor = System.Drawing.Color.White;
-            this.btnDelete.UseVisualStyleBackColor = false;
+            this.lblMaSP.Font = new System.Drawing.Font("Cambria", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaSP.Location = new System.Drawing.Point(3, 11);
+            this.lblMaSP.Name = "lblMaSP";
+            this.lblMaSP.Size = new System.Drawing.Size(56, 23);
+            this.lblMaSP.TabIndex = 10;
+            this.lblMaSP.Text = "SP001";
             // 
             // lblDonGia
             // 
             this.lblDonGia.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDonGia.Location = new System.Drawing.Point(216, 43);
+            this.lblDonGia.Location = new System.Drawing.Point(174, 48);
             this.lblDonGia.Name = "lblDonGia";
             this.lblDonGia.Size = new System.Drawing.Size(76, 23);
             this.lblDonGia.TabIndex = 7;
@@ -95,19 +86,74 @@
             this.lblSeperator.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSeperator.Location = new System.Drawing.Point(0, 83);
             this.lblSeperator.Name = "lblSeperator";
-            this.lblSeperator.Size = new System.Drawing.Size(452, 2);
+            this.lblSeperator.Size = new System.Drawing.Size(371, 2);
             this.lblSeperator.TabIndex = 8;
             this.lblSeperator.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblTongTien
             // 
             this.lblTongTien.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTongTien.Location = new System.Drawing.Point(335, 43);
+            this.lblTongTien.Location = new System.Drawing.Point(276, 48);
             this.lblTongTien.Name = "lblTongTien";
             this.lblTongTien.Size = new System.Drawing.Size(76, 23);
             this.lblTongTien.TabIndex = 6;
             this.lblTongTien.Text = "0đ";
             this.lblTongTien.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtSoLuong
+            // 
+            this.txtSoLuong.BackColor = System.Drawing.SystemColors.Window;
+            this.txtSoLuong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.txtSoLuong.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.txtSoLuong.BorderRadius = 0;
+            this.txtSoLuong.BorderSize = 2;
+            this.txtSoLuong.Enabled = false;
+            this.txtSoLuong.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSoLuong.ForeColor = System.Drawing.Color.Black;
+            this.txtSoLuong.Location = new System.Drawing.Point(46, 43);
+            this.txtSoLuong.Margin = new System.Windows.Forms.Padding(4, 20, 4, 10);
+            this.txtSoLuong.MaximumSize = new System.Drawing.Size(500, 28);
+            this.txtSoLuong.MinimumSize = new System.Drawing.Size(10, 28);
+            this.txtSoLuong.Multiline = false;
+            this.txtSoLuong.Name = "txtSoLuong";
+            this.txtSoLuong.Padding = new System.Windows.Forms.Padding(15, 4, 2, 2);
+            this.txtSoLuong.PasswordChar = false;
+            this.txtSoLuong.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtSoLuong.PlaceholderText = "";
+            this.txtSoLuong.ReadOnly = false;
+            this.txtSoLuong.Size = new System.Drawing.Size(39, 28);
+            this.txtSoLuong.TabIndex = 3;
+            this.txtSoLuong.Texts = "1";
+            this.txtSoLuong.UnderlinedStyle = false;
+            // 
+            // lblTenSP
+            // 
+            this.lblTenSP.AutoEllipsis = true;
+            this.lblTenSP.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenSP.Location = new System.Drawing.Point(65, 11);
+            this.lblTenSP.Name = "lblTenSP";
+            this.lblTenSP.Size = new System.Drawing.Size(259, 23);
+            this.lblTenSP.TabIndex = 0;
+            this.lblTenSP.Text = "Xịt côn trùng Raid Lavender 600ml";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.White;
+            this.btnDelete.BackgroundColor = System.Drawing.Color.White;
+            this.btnDelete.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnDelete.BorderRadius = 0;
+            this.btnDelete.BorderSize = 0;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.Location = new System.Drawing.Point(321, 6);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(31, 28);
+            this.btnDelete.TabIndex = 9;
+            this.btnDelete.TextColor = System.Drawing.Color.White;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnGiam
             // 
@@ -120,7 +166,7 @@
             this.btnGiam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGiam.ForeColor = System.Drawing.Color.White;
             this.btnGiam.Image = ((System.Drawing.Image)(resources.GetObject("btnGiam.Image")));
-            this.btnGiam.Location = new System.Drawing.Point(15, 38);
+            this.btnGiam.Location = new System.Drawing.Point(8, 43);
             this.btnGiam.Name = "btnGiam";
             this.btnGiam.Size = new System.Drawing.Size(31, 28);
             this.btnGiam.TabIndex = 5;
@@ -139,7 +185,7 @@
             this.btnTang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTang.ForeColor = System.Drawing.Color.White;
             this.btnTang.Image = ((System.Drawing.Image)(resources.GetObject("btnTang.Image")));
-            this.btnTang.Location = new System.Drawing.Point(99, 38);
+            this.btnTang.Location = new System.Drawing.Point(92, 43);
             this.btnTang.Name = "btnTang";
             this.btnTang.Size = new System.Drawing.Size(31, 28);
             this.btnTang.TabIndex = 4;
@@ -147,56 +193,13 @@
             this.btnTang.UseVisualStyleBackColor = false;
             this.btnTang.Click += new System.EventHandler(this.btnTang_Click);
             // 
-            // txtSoLuong
-            // 
-            this.txtSoLuong.BackColor = System.Drawing.SystemColors.Window;
-            this.txtSoLuong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.txtSoLuong.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.txtSoLuong.BorderRadius = 0;
-            this.txtSoLuong.BorderSize = 2;
-            this.txtSoLuong.Enabled = false;
-            this.txtSoLuong.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSoLuong.ForeColor = System.Drawing.Color.Black;
-            this.txtSoLuong.Location = new System.Drawing.Point(53, 38);
-            this.txtSoLuong.Margin = new System.Windows.Forms.Padding(4, 20, 4, 10);
-            this.txtSoLuong.MaximumSize = new System.Drawing.Size(500, 28);
-            this.txtSoLuong.MinimumSize = new System.Drawing.Size(10, 28);
-            this.txtSoLuong.Multiline = false;
-            this.txtSoLuong.Name = "txtSoLuong";
-            this.txtSoLuong.Padding = new System.Windows.Forms.Padding(15, 4, 2, 2);
-            this.txtSoLuong.PasswordChar = false;
-            this.txtSoLuong.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtSoLuong.PlaceholderText = "";
-            this.txtSoLuong.Size = new System.Drawing.Size(39, 28);
-            this.txtSoLuong.TabIndex = 3;
-            this.txtSoLuong.Texts = "1";
-            this.txtSoLuong.UnderlinedStyle = false;
-            // 
-            // lblTenSP
-            // 
-            this.lblTenSP.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenSP.Location = new System.Drawing.Point(70, 11);
-            this.lblTenSP.Name = "lblTenSP";
-            this.lblTenSP.Size = new System.Drawing.Size(341, 23);
-            this.lblTenSP.TabIndex = 0;
-            this.lblTenSP.Text = "Xịt côn trùng Raid Lavender 600ml";
-            // 
-            // lblMaSP
-            // 
-            this.lblMaSP.Font = new System.Drawing.Font("Cambria", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaSP.Location = new System.Drawing.Point(3, 11);
-            this.lblMaSP.Name = "lblMaSP";
-            this.lblMaSP.Size = new System.Drawing.Size(56, 23);
-            this.lblMaSP.TabIndex = 10;
-            this.lblMaSP.Text = "SP001";
-            // 
             // MyProductInCart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnProductInCart);
             this.Name = "MyProductInCart";
-            this.Size = new System.Drawing.Size(452, 85);
+            this.Size = new System.Drawing.Size(371, 85);
             this.pnProductInCart.ResumeLayout(false);
             this.ResumeLayout(false);
 

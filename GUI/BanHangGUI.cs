@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,119 +18,46 @@ namespace GUI
         private int ProductsPerPage = 10;  // Số sản phẩm trên mỗi trang
         private int TotalPages;  // Tổng số trang
         private int CurrentPage = 1;  // Trang hiện tại
-        List<Product> productList = new List<Product>();
+        
         private SanPhamBLL spBLL;
         private DataTable dt;
-
-        public void loadSP()
-        {
-            productList.Add(new Product
-            {
-                ProductId = "SP001",
-                ProductName = "Bánh quy Cosy Marie",
-                Price = 20000
-            });
-            productList.Add(new Product
-            {
-                ProductId = "P001",
-                ProductName = "Sản phẩm 1",
-                Price = 19.99
-            });
-            productList.Add(new Product
-            {
-                ProductId = "P001",
-                ProductName = "Sản phẩm 1",
-                Price = 19.99
-            });
-            productList.Add(new Product
-            {
-                ProductId = "P001",
-                ProductName = "Sản phẩm 1",
-                Price = 19.99
-            });
-            productList.Add(new Product
-            {
-                ProductId = "P001",
-                ProductName = "Sản phẩm 1",
-                Price = 19.99
-            });
-            productList.Add(new Product
-            {
-                ProductId = "P001",
-                ProductName = "Sản phẩm 1",
-                Price = 19.99
-            });
-            productList.Add(new Product
-            {
-                ProductId = "P001",
-                ProductName = "Sản phẩm 1",
-                Price = 19.99
-            });
-            productList.Add(new Product
-            {
-                ProductId = "P001",
-                ProductName = "Sản phẩm 1",
-                Price = 19.99
-            });
-            productList.Add(new Product
-            {
-                ProductId = "P001",
-                ProductName = "Sản phẩm 1",
-                Price = 19.99
-            });
-            productList.Add(new Product
-            {
-                ProductId = "P001",
-                ProductName = "Sản phẩm 1",
-                Price = 19.99
-            });
-            productList.Add(new Product
-            {
-                ProductId = "P001",
-                ProductName = "Sản phẩm 1",
-                Price = 19.99
-            });
-            productList.Add(new Product
-            {
-                ProductId = "P001",
-                ProductName = "Sản phẩm 1",
-                Price = 19.99
-            });
-            productList.Add(new Product
-            {
-                ProductId = "P001",
-                ProductName = "Sản phẩm 1",
-                Price = 19.99
-            });
-            productList.Add(new Product
-            {
-                ProductId = "P001",
-                ProductName = "Sản phẩm 1",
-                Price = 19.99
-            });
-        }
+        private List<SanPhamDTO> listSP;
+        Dictionary<string, int> gioHang = new Dictionary<string, int>(); //theo dõi số lượng sản phẩm đã thêm vào giỏ hàng
+        
         public BanHangGUI()
         {
             InitializeComponent();
             spBLL = new SanPhamBLL();
             dt = spBLL.getListSanPham();
-
+            listSP = spBLL.getListSP();
             // Thêm dữ liệu mẫu vào danh sách
             //loadSP();
             // Gọi hàm tính toán số trang
-            CalculateTotalPages(productList);
+            CalculateTotalPages(listSP);
 
             // Hiển thị trang hiện tại
             UpdateCurrentPage(dt);
             //addProductToCart();
+            MyCustom.MyProductInCart item = new MyCustom.MyProductInCart();
 
-
+            item.DeleteButtonClicked += (sender, e) =>
+            {
+                Console.WriteLine("Xin chào");
+            };
 
         }
 
         // Các hàm khác ở đây
-
-        private void CalculateTotalPages(List<Product> productList)
+        private void refreshThongTin()
+        {
+            txtMaSP.Texts = "";
+            txtTenSP.Texts = "";
+            txtTonKho.Texts = "";
+            txtDonGia.Texts = "";
+            pbImage.Image = pbImage.InitialImage;
+            nudSoLuongMua.Value = 0;
+        }
+        private void CalculateTotalPages(List<SanPhamDTO> productList)
         {
             TotalPages = (int)Math.Ceiling((double)productList.Count / ProductsPerPage);
         }
@@ -141,6 +69,22 @@ namespace GUI
                 MyCustom.MyProductInCart item = new MyCustom.MyProductInCart();
                 this.flpGioHang.Controls.Add(item);
             }
+        }
+        private byte[] convertImageToBinaryString(Image img)
+        {
+            MemoryStream ms = new MemoryStream();
+            img.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+
+            return ms.ToArray();
+
+        }
+
+        //chuyển đổi một dạng biểu diễn nhị phân thành một hình ảnh 
+        private Image convertBinaryStringToImage(byte[] binaryString)
+        {
+            MemoryStream ms = new MemoryStream(binaryString);
+            Image img = Image.FromStream(ms);
+            return img;
         }
         private void UpdateCurrentPage(DataTable dt)
         {
@@ -156,8 +100,11 @@ namespace GUI
                 item.lblMaSP.Text = dt.Rows[i]["MaSP"].ToString();
                 item.lblTenSP.Text = dt.Rows[i]["TenSP"].ToString();
                 item.lblDonGia.Text = dt.Rows[i]["DonGiaNhap"].ToString() + "đ";
+
+                byte[] imageBytes = (byte[])dt.Rows[i]["IMG"];
+                item.pbxIMG.Image = convertBinaryStringToImage(imageBytes);
                 item.Margin = new Padding(4); // 4 pixels cho mỗi hướng
-                item.ItemClicked += Item_ItemClicked; // Gán sự kiện ở đây, đảm bảo chỉ gán một lần
+                item.ItemClicked += Item_ItemClicked; // Gán sự kiện ở đây
 
                 this.flpDanhSachSanPham.Controls.Add(item);
             }
@@ -165,20 +112,7 @@ namespace GUI
             // Cập nhật thông tin phân trang
             lblPagination.Text = $"{CurrentPage}/{TotalPages}";
         }
-        private void Item_ItemClicked(object sender, EventArgs e)
-        {
-            // Đây là nơi bạn có thể xử lý khi item được click
-            // Dựa vào item để lấy thông tin sản phẩm và hiển thị nó lên màn hình
-            MyCustom.MyProductItem clickedItem = (MyCustom.MyProductItem)sender;
-            string maSP = clickedItem.lblMaSP.Text;
-            string tenSP = clickedItem.lblTenSP.Text;
-            string donGia = clickedItem.lblDonGia.Text.Substring(0,clickedItem.lblDonGia.Text.Length - 1);
-
-            txtMaSP.Texts = maSP;
-            txtTenSP.Texts = tenSP;
-            txtDonGia.Texts = donGia;
-
-        }
+        
         // Các sự kiện nút "Previous" và "Next" ở đây
 
         private void btnPrevious_Click(object sender, EventArgs e)
@@ -199,7 +133,57 @@ namespace GUI
                 Console.WriteLine("a");
             }
         }
+        private void Item_ItemClicked(object sender, EventArgs e)
+        {
+            // Đây là nơi bạn có thể xử lý khi item được click
+            // Dựa vào item để lấy thông tin sản phẩm và hiển thị nó lên màn hình
+            MyCustom.MyProductItem clickedItem = (MyCustom.MyProductItem)sender;
+            string maSP = clickedItem.lblMaSP.Text;
+            string tenSP = clickedItem.lblTenSP.Text;
+            string donGia = clickedItem.lblDonGia.Text.Substring(0, clickedItem.lblDonGia.Text.Length - 1);
+            int soLuong = 0;
+            foreach (SanPhamDTO sp in listSP)
+            {
+                if (sp.MaSP == maSP)
+                {
+                    soLuong = sp.SoLuong;
+                    
+                    break;
+                }
+            }
 
+            txtMaSP.Texts = maSP;
+            txtTenSP.Texts = tenSP;
+            txtDonGia.Texts = donGia;
+            pbImage.Image = clickedItem.pbxIMG.Image;
+            // Cập nhật số lượng tồn kho nếu sản phẩm đã có số lượng được thêm vào giỏ
+
+            if (gioHang.ContainsKey(maSP))
+            {
+                int soLuongTrongGio = gioHang[maSP];
+                soLuong -= soLuongTrongGio;
+            }
+
+            // Cập nhật số lượng tồn kho
+            txtTonKho.Texts = soLuong.ToString();
+
+            // Cập nhật giá trị tối đa cho nudSoLuongMua
+            nudSoLuongMua.Maximum = soLuong;
+
+            // Kiểm tra số lượng và cập nhật nút "Thêm vào giỏ"
+            if (soLuong == 0)
+            {
+                btnThemVaoGio.Enabled = false;
+                btnThemVaoGio.BackColor = Color.FromArgb(153, 160, 159);
+            }
+            else
+            {
+                btnThemVaoGio.Enabled = true;
+                btnThemVaoGio.BackColor = Color.FromArgb(58, 191, 186);
+            }
+
+
+        }
         private void btnThemVaoGio_Click(object sender, EventArgs e)
         {
             string maSP = txtMaSP.Texts;
@@ -207,7 +191,27 @@ namespace GUI
             int soLuongTonKho = int.Parse(txtTonKho.Texts);
             int donGia = int.Parse(txtDonGia.Texts);
             int soLuongMua = Convert.ToInt32(Math.Round(nudSoLuongMua.Value, 0));
+            if (int.Parse(txtTonKho.Texts) == 0)
 
+            {
+                MessageBox.Show("Vui lòng chọn số lượng cần thêm", "Thông báo");
+                return;
+            }
+
+            //Cập nhật tồn kho(chưa cập nhật trên database)
+            if (gioHang.ContainsKey(maSP))
+            {
+                gioHang[maSP] += soLuongMua;
+            }
+            else
+            {
+                gioHang[maSP] = soLuongMua;
+            }
+            txtTonKho.Texts = (soLuongTonKho - gioHang[maSP]).ToString(); //trừ đi số lượng đã thêm vào giỏ
+                                                                          //chỉ cập nhật tạm thời chứ chưa lưu vào DB
+
+
+            
             // Tìm sản phẩm trong flpGioHang bằng Mã SP
             MyCustom.MyProductInCart existingItem = null;
             foreach (Control control in flpGioHang.Controls)
@@ -239,8 +243,20 @@ namespace GUI
                 item.txtSoLuong.Texts = soLuongMua.ToString();
                 item.lblDonGia.Text = donGia.ToString() + "đ";
 
-                flpGioHang.Controls.Add(item);
+                
+
             }
+            refreshThongTin();
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
         }
     }
     public class Product
