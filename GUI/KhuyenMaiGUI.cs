@@ -166,7 +166,9 @@ namespace GUI
         private void KhuyenMaiGUI_Load(object sender, EventArgs e)
         {
             init();
-           
+            // Gán sự kiện CellFormatting
+            dgvKhuyenMai.CellFormatting += dgvKhuyenMai_CellFormatting;
+
         }
 
         private void btnXem_Click(object sender, EventArgs e)
@@ -430,6 +432,49 @@ namespace GUI
                 chkKoHD.Checked = false;
                 chkHoatDong.Enabled = isHoatDong;
                 chkKoHD.Enabled = isKoHD;
+            }
+        }
+
+        private void dgvKhuyenMai_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == 2) // Thay yourDateColumnIndex bằng chỉ số cột ngày của bạn.
+            {
+                if (e.Value != null && e.Value is DateTime)
+                {
+                    DateTime dateValue = (DateTime)e.Value;
+                    e.Value = dateValue.ToString("dd/MM/yyyy"); // Định dạng lại ngày thành "ngày/tháng/năm".
+                    e.FormattingApplied = true;
+                }
+            }
+            if (e.ColumnIndex == 3) // Thay yourDateColumnIndex bằng chỉ số cột ngày của bạn.
+            {
+                if (e.Value != null && e.Value is DateTime)
+                {
+                    DateTime dateValue = (DateTime)e.Value;
+                    e.Value = dateValue.ToString("dd/MM/yyyy"); // Định dạng lại ngày thành "ngày/tháng/năm".
+                    e.FormattingApplied = true;
+                }
+            }
+            if (e.ColumnIndex == 6) // Thay 4 bằng chỉ số cột thứ 5 (chú ý: chỉ số cột bắt đầu từ 0).
+            {
+                if (e.Value != null && e.Value is int)
+                {
+                    int value = (int)e.Value;
+                    if (value == 1)
+                    {
+                        e.Value = "Hoạt động";
+                    }
+                    else if (value == 0)
+                    {
+                        e.Value = "Không hoạt động";
+                    }
+                    e.FormattingApplied = true;
+                }
+            }
+            if (e.Value != null)
+            {
+                // Đặt chữ nằm ở giữa cho tất cả các cột
+                dgvKhuyenMai.Columns[e.ColumnIndex].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
         }
     }

@@ -29,7 +29,11 @@ namespace BLL
             {
                 return kmDAL.getThongTinKM(MaKM);
             }
-            public bool insertKhuyenMai(KhuyenMaiDTO KM_DTO)
+        public DataTable getListMaKmNoDK()
+        {
+            return kmDAL.getMaKmNoDK();
+        }
+        public bool insertKhuyenMai(KhuyenMaiDTO KM_DTO)
             {
                 return kmDAL.insert_KhuyenMai(KM_DTO);
             }

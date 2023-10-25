@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChiTietKhuyenMaiGUI));
             this.panel3 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
@@ -37,12 +37,6 @@
             this.txtTimKiem = new GUI.MyCustom.RJTextBox();
             this.btnTimKiem = new GUI.MyCustom.RJButton();
             this.dgvChiTietKM = new System.Windows.Forms.DataGridView();
-            this.MaKM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Masp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenKM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenSp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PhanTramKm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -63,6 +57,12 @@
             this.btnXoaKM = new GUI.MyCustom.RJButton();
             this.btnRS = new GUI.MyCustom.RJButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.MaKM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Masp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenKM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenSp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhanTramKm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietKM)).BeginInit();
@@ -79,7 +79,7 @@
             this.panel3.Controls.Add(this.dgvChiTietKM);
             this.panel3.Location = new System.Drawing.Point(322, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(676, 357);
+            this.panel3.Size = new System.Drawing.Size(681, 357);
             this.panel3.TabIndex = 4;
             // 
             // flowLayoutPanel4
@@ -90,7 +90,7 @@
             this.flowLayoutPanel4.Controls.Add(this.btnTimKiem);
             this.flowLayoutPanel4.Location = new System.Drawing.Point(5, 6);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(666, 50);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(674, 50);
             this.flowLayoutPanel4.TabIndex = 2;
             // 
             // cbxTimKiem
@@ -169,14 +169,14 @@
             this.dgvChiTietKM.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvChiTietKM.BackgroundColor = System.Drawing.Color.White;
             this.dgvChiTietKM.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvChiTietKM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvChiTietKM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvChiTietKM.ColumnHeadersHeight = 28;
             this.dgvChiTietKM.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaKM,
@@ -185,14 +185,14 @@
             this.TenSp,
             this.PhanTramKm,
             this.TrangThai});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvChiTietKM.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvChiTietKM.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvChiTietKM.EnableHeadersVisualStyles = false;
             this.dgvChiTietKM.GridColor = System.Drawing.Color.Black;
             this.dgvChiTietKM.Location = new System.Drawing.Point(3, 60);
@@ -204,68 +204,10 @@
             this.dgvChiTietKM.RowTemplate.Height = 30;
             this.dgvChiTietKM.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvChiTietKM.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvChiTietKM.Size = new System.Drawing.Size(666, 292);
+            this.dgvChiTietKM.Size = new System.Drawing.Size(676, 292);
             this.dgvChiTietKM.TabIndex = 1;
-            this.dgvChiTietKM.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChiTietKM_CellContentClick);
-            // 
-            // MaKM
-            // 
-            this.MaKM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.MaKM.DataPropertyName = "MaKM";
-            this.MaKM.Frozen = true;
-            this.MaKM.HeaderText = "Mã KM";
-            this.MaKM.MinimumWidth = 6;
-            this.MaKM.Name = "MaKM";
-            this.MaKM.ReadOnly = true;
-            this.MaKM.Width = 75;
-            // 
-            // Masp
-            // 
-            this.Masp.DataPropertyName = "MaSP";
-            this.Masp.HeaderText = "Mã SP";
-            this.Masp.Name = "Masp";
-            this.Masp.ReadOnly = true;
-            this.Masp.Width = 70;
-            // 
-            // TenKM
-            // 
-            this.TenKM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.TenKM.DataPropertyName = "TenKM";
-            this.TenKM.HeaderText = "Tên KM";
-            this.TenKM.MinimumWidth = 6;
-            this.TenKM.Name = "TenKM";
-            this.TenKM.ReadOnly = true;
-            this.TenKM.Width = 150;
-            // 
-            // TenSp
-            // 
-            this.TenSp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.TenSp.DataPropertyName = "TenSP";
-            this.TenSp.HeaderText = "Tên SP";
-            this.TenSp.MinimumWidth = 6;
-            this.TenSp.Name = "TenSp";
-            this.TenSp.ReadOnly = true;
-            this.TenSp.Width = 150;
-            // 
-            // PhanTramKm
-            // 
-            this.PhanTramKm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.PhanTramKm.DataPropertyName = "PhanTramKM";
-            this.PhanTramKm.HeaderText = "Phần trăm KM";
-            this.PhanTramKm.MinimumWidth = 6;
-            this.PhanTramKm.Name = "PhanTramKm";
-            this.PhanTramKm.ReadOnly = true;
-            this.PhanTramKm.Width = 121;
-            // 
-            // TrangThai
-            // 
-            this.TrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.TrangThai.DataPropertyName = "TrangThai";
-            this.TrangThai.HeaderText = "Trạng thái";
-            this.TrangThai.MinimumWidth = 6;
-            this.TrangThai.Name = "TrangThai";
-            this.TrangThai.ReadOnly = true;
-            this.TrangThai.Width = 95;
+            this.dgvChiTietKM.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChiTietKM_CellClick);
+            this.dgvChiTietKM.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvChiTietKM_CellFormatting);
             // 
             // flowLayoutPanel1
             // 
@@ -590,14 +532,73 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1002, 363);
+            this.panel1.Size = new System.Drawing.Size(1005, 365);
             this.panel1.TabIndex = 3;
+            // 
+            // MaKM
+            // 
+            this.MaKM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.MaKM.DataPropertyName = "MaKM";
+            this.MaKM.Frozen = true;
+            this.MaKM.HeaderText = "Mã KM";
+            this.MaKM.MinimumWidth = 6;
+            this.MaKM.Name = "MaKM";
+            this.MaKM.ReadOnly = true;
+            this.MaKM.Width = 75;
+            // 
+            // Masp
+            // 
+            this.Masp.DataPropertyName = "MaSP";
+            this.Masp.HeaderText = "Mã SP";
+            this.Masp.Name = "Masp";
+            this.Masp.ReadOnly = true;
+            this.Masp.Width = 70;
+            // 
+            // TenKM
+            // 
+            this.TenKM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TenKM.DataPropertyName = "TenKM";
+            this.TenKM.HeaderText = "Tên KM";
+            this.TenKM.MinimumWidth = 6;
+            this.TenKM.Name = "TenKM";
+            this.TenKM.ReadOnly = true;
+            this.TenKM.Width = 150;
+            // 
+            // TenSp
+            // 
+            this.TenSp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TenSp.DataPropertyName = "TenSP";
+            this.TenSp.HeaderText = "Tên SP";
+            this.TenSp.MinimumWidth = 6;
+            this.TenSp.Name = "TenSp";
+            this.TenSp.ReadOnly = true;
+            this.TenSp.Width = 150;
+            // 
+            // PhanTramKm
+            // 
+            this.PhanTramKm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.PhanTramKm.DataPropertyName = "PhanTramKM";
+            this.PhanTramKm.HeaderText = "Phần trăm KM";
+            this.PhanTramKm.MinimumWidth = 6;
+            this.PhanTramKm.Name = "PhanTramKm";
+            this.PhanTramKm.ReadOnly = true;
+            this.PhanTramKm.Width = 105;
+            // 
+            // TrangThai
+            // 
+            this.TrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TrangThai.DataPropertyName = "TrangThai";
+            this.TrangThai.HeaderText = "Trạng thái";
+            this.TrangThai.MinimumWidth = 6;
+            this.TrangThai.Name = "TrangThai";
+            this.TrangThai.ReadOnly = true;
+            this.TrangThai.Width = 123;
             // 
             // ChiTietKhuyenMaiGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1002, 363);
+            this.ClientSize = new System.Drawing.Size(1005, 365);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "ChiTietKhuyenMaiGUI";
@@ -635,12 +636,6 @@
         private System.Windows.Forms.Label label14;
         private MyCustom.RJComboBox cbxTrangThai;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaKM;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Masp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenKM;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenSp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PhanTramKm;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
         private MyCustom.RJButton btnThemCTKM;
         private MyCustom.RJButton btnUpdateKM;
@@ -649,5 +644,11 @@
         private MyCustom.RJComboBox cbxTenSp;
         private MyCustom.RJComboBox cbxTenKM;
         private MyCustom.RJTextBox txtPhanTramKM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaKM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Masp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenKM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenSp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PhanTramKm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
     }
 }
