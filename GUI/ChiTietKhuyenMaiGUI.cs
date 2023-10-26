@@ -34,24 +34,23 @@ namespace GUI
             loadDataToCBX(cbxTimKiem);
 
 
-
         }
         //load tenkm
         public void loadsItemTenKM()
         {
             data = KmBLL.getListMaKmNoDK();
-            cbxTenKM.DataSource = data;
-            cbxTenKM.DisplayMember = "TenKM";
-            cbxTenKM.Texts = "--Chọn tên km--";
+            comboBoxTenKM.DataSource = data;
+            comboBoxTenKM.DisplayMember = "TenKM";
+            comboBoxTenKM.SelectedIndex = -1;
 
         }
         //load tensp
         public void loadsItemTenSp()
         {
             data = SpBLL.getListSanPham();
-            cbxTenSp.DataSource = data;
-            cbxTenSp.DisplayMember = "TenSP";
-            cbxTenSp.Texts = "--Chọn tên sp--";
+            comboBoxTenSP.DataSource = data;
+            comboBoxTenSP.DisplayMember = "TenSP";
+            comboBoxTenSP.SelectedIndex = -1;
 
         }
         //load combobox timkiem
@@ -129,6 +128,8 @@ namespace GUI
         public void clearForm()
         {
             txtPhanTramKM.Texts = " ";
+            comboBoxTenKM.SelectedIndex = -1;
+            comboBoxTenSP.SelectedIndex = -1;
         }
 
         private void ChiTietKhuyenMaiGUI_Load(object sender, EventArgs e)
@@ -136,10 +137,7 @@ namespace GUI
             init();
         }
 
-        private void dgvChiTietKM_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+       
 
         private void cbxTimKiem_OnSelectedIndexChanged(object sender, EventArgs e)
         {
@@ -163,11 +161,38 @@ namespace GUI
             }
         }
 
+
+        private string CheckAndSetColor(object control, Label label)
+        {
+            if (control is RJTextBox textBox)
+            {
+                string text = textBox.Texts.Trim();
+                label.ForeColor = string.IsNullOrWhiteSpace(text) ? Color.FromArgb(230, 76, 89) : Color.Transparent;
+                return text;
+            }
+            else if (control is System.Windows.Forms.ComboBox comboBox)
+            {
+                string selectedValue = comboBox.SelectedItem?.ToString();
+                if (string.IsNullOrWhiteSpace(selectedValue))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                }
+                else
+                {
+                    label.ForeColor = Color.Transparent;
+                }
+                return selectedValue;
+            }
+
+            return null; // Nếu kiểu dữ liệu không hợp lệ.
+        }
+
         private void btnThemCTKM_Click(object sender, EventArgs e)
         {
-            string tenKM = cbxTenKM.Texts;
-            
-            string tenSp = cbxTenSp.Texts;
+            string tenKM = comboBoxTenKM.Text;
+
+            string tenSp = comboBoxTenSP.Text;
+           
             // Lấy ID khuyen mai từ tên khuyenmai
             string idKm = "KM000"; // Giá trị mặc định nếu không tìm thấy
            
@@ -191,13 +216,15 @@ namespace GUI
                 }
             }
 
-
+            string phantram = CheckAndSetColor(txtPhanTramKM, label10);
             string CheckTrangThai = cbxTrangThai.Texts.ToString();
             int trangthai = (CheckTrangThai == "Hoạt động") ? 1 : 0;
+
+            
             ChiTietKhuyenMaiDTO CTKM_DTO = new ChiTietKhuyenMaiDTO();
             CTKM_DTO.Makm = idKm;
             CTKM_DTO.Masp = idSp;
-            CTKM_DTO.PhanTramKm = int.Parse(txtPhanTramKM.Texts);
+            CTKM_DTO.PhanTramKm = int.Parse(phantram);
             CTKM_DTO.TrangThai = trangthai;
 
             try
@@ -214,12 +241,12 @@ namespace GUI
 
 
         }
-
+        // đang lỗi update cần check lại database 
         private void btnUpdateKM_Click(object sender, EventArgs e)
         {
-            string tenKM = cbxTenKM.Texts;
+            string tenKM = comboBoxTenKM.Text;
 
-            string tenSp = cbxTenSp.Texts;
+            string tenSp = comboBoxTenSP.Text;
             // Lấy ID khuyen mai từ tên khuyenmai
             string idKm = ""; // Giá trị mặc định nếu không tìm thấy
 
@@ -268,9 +295,9 @@ namespace GUI
         private void btnXoaKM_Click(object sender, EventArgs e)
         {
 
-            string tenKM = cbxTenKM.Texts;
+            string tenKM = comboBoxTenKM.Text;
 
-            string tenSp = cbxTenSp.Texts;
+            string tenSp = comboBoxTenSP.Text;
             // Lấy ID khuyen mai từ tên khuyenmai
             string idKm = ""; // Giá trị mặc định nếu không tìm thấy
 
@@ -315,7 +342,7 @@ namespace GUI
 
         private void btnRS_Click(object sender, EventArgs e)
         {
-
+            clearForm();
         }
 
         private void dgvChiTietKM_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -332,46 +359,26 @@ namespace GUI
                 cbxTrangThai.SelectedIndex = 1;
             }
 
-            // tenkm
-            string tenkm = dgvChiTietKM.Rows[i].Cells[2].Value.ToString();
-            int IndexKM = -1;
-
-            foreach (DataRowView item in cbxTenKM.Items)
+            // Lấy giá trị "Ma KM " từ dòng được chọn
+            string Tenkm = dgvChiTietKM.Rows[i].Cells[2].Value.ToString();
+            
+            // Kiểm tra xem giá trị khuyenmai có tồn tại trong ComboBox không
+            int indexKM = comboBoxTenKM.FindStringExact(Tenkm);
+            if (indexKM != -1)
             {
-                string itemText = item.Row["TenKM"].ToString();
+                comboBoxTenKM.SelectedIndex = indexKM; // Hiển thị giá trị khuyenmai trong ComboBox
 
-                if (tenkm == itemText)
-                {
-                    IndexKM = cbxTenKM.Items.IndexOf(item);
-                    break;
-                }
             }
 
-            if (IndexKM != -1)
+            // Lấy giá trị "Ma SP " từ dòng được chọn
+            string Tensp = dgvChiTietKM.Rows[i].Cells[3].Value.ToString();
+            // Kiểm tra xem giá trị khuyenmai có tồn tại trong ComboBox không
+            int indexSP = comboBoxTenSP.FindStringExact(Tensp);
+            if (indexSP != -1)
             {
-                cbxTenKM.SelectedIndex = IndexKM;
+                comboBoxTenSP.SelectedIndex = indexSP; // Hiển thị giá trị sanpham trong ComboBox
+
             }
-
-            // tensp
-            string tensp = dgvChiTietKM.Rows[i].Cells[3].Value.ToString();
-            int IndexSP = -1;
-
-            foreach (DataRowView item in cbxTenSp.Items)
-            {
-                string itemSp = item.Row["TenSP"].ToString();
-
-                if (tensp == itemSp)
-                {
-                    IndexSP = cbxTenSp.Items.IndexOf(item);
-                    break;
-                }
-            }
-
-            if (IndexSP != -1)
-            {
-                cbxTenSp.SelectedIndex = IndexSP;
-            }
-            MessageBox.Show(IndexSP.ToString());
         }
 
         private void dgvChiTietKM_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -397,6 +404,21 @@ namespace GUI
                 // Đặt chữ nằm ở giữa cho tất cả các cột
                 dgvChiTietKM.Columns[e.ColumnIndex].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
+        }
+
+        private void comboBoxTenKM_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CheckAndSetColor(comboBoxTenKM, label13);
+        }
+
+        private void txtPhanTramKM__TextChanged(object sender, EventArgs e)
+        {
+            CheckAndSetColor(txtPhanTramKM, label10);
+        }
+
+        private void comboBoxTenSP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CheckAndSetColor(comboBoxTenSP, label4);
         }
     }
     

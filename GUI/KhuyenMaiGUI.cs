@@ -169,6 +169,7 @@ namespace GUI
             // Gán sự kiện CellFormatting
             dgvKhuyenMai.CellFormatting += dgvKhuyenMai_CellFormatting;
 
+
         }
 
         private void btnXem_Click(object sender, EventArgs e)
@@ -198,24 +199,74 @@ namespace GUI
             }
         }
 
+
+        private string CheckAndSetColor(object control, Label label)
+        {
+            if (control is RJTextBox textBox)
+            {
+                string text = textBox.Texts.Trim();
+                label.ForeColor = string.IsNullOrWhiteSpace(text) ? Color.FromArgb(230, 76, 89) : Color.Transparent;
+                return text;
+            }
+            return null; // Nếu kiểu dữ liệu không hợp lệ.
+        }
+        private DateTime CheckAndSetColorDate(DateTime dateTime, Label label)
+        {
+            DateTime currentDate = DateTime.Now; // Lấy ngày hiện tại
+
+            if (dateTime != default(DateTime))
+            {
+                if (dateTime <= currentDate)
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                }
+                else
+                {
+                    label.ForeColor = Color.Transparent;
+                }
+            }
+            else
+            {
+                label.ForeColor = Color.FromArgb(230, 76, 89);
+            }
+
+            return dateTime;
+        }
+
         private void btnThem_Click(object sender, EventArgs e)
         {
+            string tenKM = CheckAndSetColor(txtTenKm, label4);
+            string phantramkm = CheckAndSetColor(txtPhanTramKM, label10);
+            DateTime ngaykt = CheckAndSetColorDate(dtpNgayKT.Value, label8);
+            DateTime Ngaybd = dtpNgayBD.Value;
+            //DateTime Ngaykt = dtpNgayKT.Value;
             string CheckTrangThai = cbxTrangThai.Texts.ToString();
             int trangthai = (CheckTrangThai == "Hoạt động") ? 1 : 0;
+
+            if (!(tenKM != "" && phantramkm != "" ))
+            {
+                return;
+            }
+            if (ngaykt <= Ngaybd)
+            {
+                return;
+            }
+
             KhuyenMaiDTO KM_DTO = new KhuyenMaiDTO();
             KM_DTO.Makm = txtMaKM.Texts;
-            KM_DTO.TenKm = txtTenKm.Texts; ;
-            KM_DTO.NgayBd = dtpNgayBD.Value;
-            KM_DTO.NgayKt = dtpNgayKT.Value;
-            KM_DTO.PhanTramKm= int.Parse(txtPhanTramKM.Texts);
+            KM_DTO.TenKm = tenKM;
+            KM_DTO.NgayBd = Ngaybd;
+            KM_DTO.NgayKt = ngaykt;
+            KM_DTO.PhanTramKm = int.Parse(phantramkm);
             KM_DTO.DieuKiemKm = txtDkKM.Texts;
             KM_DTO.TrangThai = trangthai;
             try
             {
                 kmBLL.insertKhuyenMai(KM_DTO);
                 MessageBox.Show("Thêm khuyến mãi thành công!");
-                loadMaKM();
+                
                 init();
+                loadMaKM();
                 clearForm();
             }
             catch (Exception ex)
@@ -227,23 +278,37 @@ namespace GUI
 
         private void btnSua_Click(object sender, EventArgs e)
             {
+            string tenkm = txtTenKm.Texts;
+            string phantram = txtPhanTramKM.Texts;
+            string dieukien = txtDkKM.Texts;
+            DateTime ngaykt = dtpNgayKT.Value;
+            DateTime Ngaybd = dtpNgayBD.Value;
             string CheckTrangThai = cbxTrangThai.Texts.ToString();
             int trangthai = (CheckTrangThai == "Hoạt động") ? 1 : 0;
+
+            if (!(tenkm != "" && phantram != "" ))
+            {
+                return;
+            }
+            if (ngaykt <= Ngaybd)
+            {
+                return;
+            }
             KhuyenMaiDTO KM_DTO = new KhuyenMaiDTO();
 
-            KM_DTO.TenKm = txtTenKm.Texts; ;
-            KM_DTO.NgayBd = dtpNgayBD.Value;
-            KM_DTO.NgayKt = dtpNgayKT.Value;
-            KM_DTO.PhanTramKm = int.Parse(txtPhanTramKM.Texts);
-            KM_DTO.DieuKiemKm = txtDkKM.Texts;
+            KM_DTO.TenKm = tenkm;
+            KM_DTO.NgayBd = Ngaybd;
+            KM_DTO.NgayKt = ngaykt;
+            KM_DTO.PhanTramKm = int.Parse(phantram);
+            KM_DTO.DieuKiemKm = dieukien;
             KM_DTO.TrangThai = trangthai;
             KM_DTO.Makm = txtMaKM.Texts;
             try
             {
                 kmBLL.UpdateKhuyenMai(KM_DTO);
                 MessageBox.Show("Chỉnh sửa khuyến mãi thành công!");
-                loadMaKM();
                 init();
+                loadMaKM();
                 clearForm();
             }
             catch (Exception ex)
@@ -476,6 +541,26 @@ namespace GUI
                 // Đặt chữ nằm ở giữa cho tất cả các cột
                 dgvKhuyenMai.Columns[e.ColumnIndex].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
+        }
+
+        private void txtTenKm__TextChanged(object sender, EventArgs e)
+        {
+          CheckAndSetColor(txtTenKm, label4);
+        }
+
+        private void txtPhanTramKM__TextChanged(object sender, EventArgs e)
+        {
+            CheckAndSetColor(txtPhanTramKM, label10);
+        }
+
+        private void txtDkKM__TextChanged(object sender, EventArgs e)
+        {
+             CheckAndSetColor(txtDkKM, label12);
+        }
+
+        private void dtpNgayKT_ValueChanged(object sender, EventArgs e)
+        {
+            CheckAndSetColorDate(dtpNgayKT.Value, label8);
         }
     }
 }
