@@ -60,6 +60,7 @@
             this.btnSua = new GUI.MyCustom.RJButton();
             this.btnXoa = new GUI.MyCustom.RJButton();
             this.btnReset = new GUI.MyCustom.RJButton();
+            this.label6 = new System.Windows.Forms.Label();
             this.MaNSX = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenNSX = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -120,7 +121,7 @@
             this.dgvNSX.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvNSX.EnableHeadersVisualStyles = false;
             this.dgvNSX.GridColor = System.Drawing.Color.Black;
-            this.dgvNSX.Location = new System.Drawing.Point(415, 68);
+            this.dgvNSX.Location = new System.Drawing.Point(409, 68);
             this.dgvNSX.Margin = new System.Windows.Forms.Padding(4);
             this.dgvNSX.Name = "dgvNSX";
             this.dgvNSX.ReadOnly = true;
@@ -130,8 +131,8 @@
             this.dgvNSX.RowTemplate.Height = 30;
             this.dgvNSX.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvNSX.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvNSX.Size = new System.Drawing.Size(1299, 841);
-            this.dgvNSX.TabIndex = 4;
+            this.dgvNSX.Size = new System.Drawing.Size(1128, 812);
+            this.dgvNSX.TabIndex = 1;
             this.dgvNSX.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNSX_CellClick);
             this.dgvNSX.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNSX_CellContentClick);
             this.dgvNSX.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvNSX_CellFormatting);
@@ -143,10 +144,10 @@
             this.flowLayoutPanel4.Controls.Add(this.txtTimKiem);
             this.flowLayoutPanel4.Controls.Add(this.btnTimKiem);
             this.flowLayoutPanel4.Controls.Add(this.btnFilter);
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(415, 9);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(409, 9);
             this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(1298, 61);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(1128, 61);
             this.flowLayoutPanel4.TabIndex = 3;
             // 
             // cbxTimKiem
@@ -193,7 +194,7 @@
             this.txtTimKiem.PlaceholderColor = System.Drawing.Color.DimGray;
             this.txtTimKiem.PlaceholderText = "Nhập thông tin tìm kiếm";
             this.txtTimKiem.ReadOnly = false;
-            this.txtTimKiem.Size = new System.Drawing.Size(973, 41);
+            this.txtTimKiem.Size = new System.Drawing.Size(830, 41);
             this.txtTimKiem.TabIndex = 1;
             this.txtTimKiem.Texts = "";
             this.txtTimKiem.UnderlinedStyle = true;
@@ -209,7 +210,7 @@
             this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimKiem.ForeColor = System.Drawing.Color.White;
             this.btnTimKiem.Image = global::GUI.Properties.Resources.icons8_search_32;
-            this.btnTimKiem.Location = new System.Drawing.Point(1130, 10);
+            this.btnTimKiem.Location = new System.Drawing.Point(987, 10);
             this.btnTimKiem.Margin = new System.Windows.Forms.Padding(4, 10, 4, 4);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(39, 39);
@@ -231,7 +232,7 @@
             this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFilter.ForeColor = System.Drawing.Color.White;
             this.btnFilter.Image = global::GUI.Properties.Resources.icons8_filter_32;
-            this.btnFilter.Location = new System.Drawing.Point(1193, 10);
+            this.btnFilter.Location = new System.Drawing.Point(1050, 10);
             this.btnFilter.Margin = new System.Windows.Forms.Padding(20, 10, 13, 0);
             this.btnFilter.Name = "btnFilter";
             this.btnFilter.Size = new System.Drawing.Size(59, 46);
@@ -241,7 +242,6 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -250,11 +250,10 @@
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel3);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 1);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(7, 6, 7, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(411, 928);
-            this.flowLayoutPanel1.TabIndex = 1;
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(401, 496);
+            this.flowLayoutPanel1.TabIndex = 2;
             // 
             // label1
             // 
@@ -262,7 +261,7 @@
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.label1.Location = new System.Drawing.Point(7, 6);
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(395, 43);
@@ -286,10 +285,11 @@
             this.flowLayoutPanel2.Controls.Add(this.label18);
             this.flowLayoutPanel2.Controls.Add(this.label5);
             this.flowLayoutPanel2.Controls.Add(this.cbxTrangThai);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(11, 53);
+            this.flowLayoutPanel2.Controls.Add(this.label6);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(4, 47);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(387, 357);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(391, 363);
             this.flowLayoutPanel2.TabIndex = 2;
             // 
             // label2
@@ -525,7 +525,7 @@
             this.flowLayoutPanel3.Controls.Add(this.btnSua);
             this.flowLayoutPanel3.Controls.Add(this.btnXoa);
             this.flowLayoutPanel3.Controls.Add(this.btnReset);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(11, 420);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(4, 420);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 4);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(387, 55);
@@ -611,6 +611,19 @@
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
+            this.label6.Location = new System.Drawing.Point(4, 308);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Padding = new System.Windows.Forms.Padding(0, 0, 27, 0);
+            this.label6.Size = new System.Drawing.Size(351, 25);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "* Bạn phải nhập trạng thái";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // MaNSX
             // 
             this.MaNSX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -643,13 +656,13 @@
             // 
             // SoDT
             // 
-            this.SoDT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.SoDT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.SoDT.DataPropertyName = "SoDT";
             this.SoDT.HeaderText = "Số điện thoại NSX";
             this.SoDT.MinimumWidth = 6;
             this.SoDT.Name = "SoDT";
             this.SoDT.ReadOnly = true;
-            this.SoDT.Width = 178;
+            this.SoDT.Width = 120;
             // 
             // TrangThai
             // 
@@ -715,6 +728,7 @@
         private System.Windows.Forms.DataGridView dgvNSX;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbxTrangThai;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNSX;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenNSX;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;

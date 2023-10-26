@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DTO;
+using GUI.MyCustom;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,13 +8,18 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI
 {
+
     public partial class LoaiGUI : Form
     {
+        private string cbxItemsMacDinh;
+        private string textSearchCondition = "";
+        private string currentSearch;
         private LoaiBLL loaibill;
         private DataTable dt;
         private List<LoaiDTO> listLoai;
@@ -25,8 +31,38 @@ namespace GUI
             dt = loaibill.getListLoai();
             loadMaLoai();
             clearForm();
+            unhideError();
         }
+        private void unhideError()
+        {
+            label13.ForeColor = Color.Transparent;
+            label15.ForeColor = Color.Transparent;
+            label3.ForeColor = Color.Transparent;
+        }
+        private string CheckAndSetColor(object control, Label label)
+        {
+            if (control is RJTextBox textBox)
+            {
+                string text = textBox.Texts.Trim();
+                label.ForeColor = string.IsNullOrWhiteSpace(text) ? Color.FromArgb(230, 76, 89) : Color.Transparent;
+                return text;
+            }
+            else if (control is RJComboBox comboBox)
+            {
+                string selectedValue = comboBox.SelectedItem?.ToString();
+                if (string.IsNullOrWhiteSpace(selectedValue))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                }
+                else
+                {
+                    label.ForeColor = Color.Transparent;
+                }
+                return selectedValue;
+            }
 
+            return null; // Nếu kiểu dữ liệu không hợp lệ.
+        }
         private void loadMaLoai()
         {
             string lastMaLoai = null;
@@ -66,10 +102,14 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            String MaLoai = txtMaLoai.Texts;
-            String TenLoai = txtTenLoai.Texts;
-            string trangThai = cbxTrangThai.SelectedItem.ToString();
+            String MaLoai = CheckAndSetColor(txtMaLoai,label13);
+            String TenLoai = CheckAndSetColor(txtTenLoai,label15);
+            string trangThai = CheckAndSetColor(cbxTrangThai,label3);
             int trangThaiValue = (trangThai == "Hoạt động") ? 1 : 0;
+            if (!(MaLoai != "" && TenLoai != "" && trangThai != "" ))
+            {
+                return;
+            }
             LoaiDTO LSP = new LoaiDTO(MaLoai, TenLoai, trangThaiValue);
             int flag = loaibill.insert_LoaiSP(LSP) ? 1 : 0;
             if (flag == 1)
@@ -152,7 +192,7 @@ namespace GUI
             int trangThai = (stringTrangThai == "Hoạt động") ? 1 : 0;
             if (trangThai == 0)
             {
-                var choice1 = MessageBox.Show("Da chuyen ve khong hoat dong", "Thông báo");
+                var choice1 = MessageBox.Show("Đã chuyển về không hoạt động", "Thông báo");
                 clearForm();
 
             }
@@ -235,6 +275,51 @@ namespace GUI
         private void btnReset_Click(object sender, EventArgs e)
         {
             clearForm();
+        }
+        private string returnDieuKien(string text)
+        {
+            return text;
+        }
+
+        private void cbxTimKiem_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbxItemsMacDinh = cbxTimKiem.SelectedItem.ToString();
+        }
+        private string GetTextSearchCondition(string searchText)
+        {
+            switch (cbxItemsMacDinh)
+            {
+                case "Mã Loại":
+                    return returnDieuKien($"MaLoai like '%{searchText}%'");
+                case "Tên Loại":
+                    return returnDieuKien($"TenLoai like '%{searchText}%'");
+                default:
+                    return "";
+            }
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            string textTimKiem = txtTimKiem.Texts;
+            textSearchCondition = GetTextSearchCondition(textTimKiem);
+            /*string combinedCondition = CombineConditions(textSearchCondition, genderCondition);
+            combinedCondition = ApplyOrRemoveTuoiCondition(combinedCondition, isTuoi);
+            combinedCondition = CombineConditions(combinedCondition, statusCondition);
+            combinedCondition = ApplyOrRemoveDiemTLCondition(combinedCondition, isDiemTL);*/
+            applySearchs(textSearchCondition);
+        }
+        private void applySearchs(string text)
+        {
+            currentSearch = text;
+            Console.WriteLine(currentSearch);
+            DataView dvLoai = loaibill.getListLoai().DefaultView;
+            dvLoai.RowFilter = currentSearch;
+            dgvLoai.DataSource = dvLoai.ToTable();
+        }
+
+        private void txtTimKiem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
         }
     }
 
