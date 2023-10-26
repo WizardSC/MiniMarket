@@ -34,6 +34,7 @@ namespace GUI
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.gradientPanel1 = new GUI.MyCustom.GradientPanel();
+            this.rjButton3 = new GUI.MyCustom.RJButton();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -45,14 +46,14 @@ namespace GUI
             this.flpGioHang = new System.Windows.Forms.FlowLayoutPanel();
             this.gradientPanel2 = new GUI.MyCustom.GradientPanel();
             this.rjButton2 = new GUI.MyCustom.RJButton();
-            this.label23 = new System.Windows.Forms.Label();
+            this.lblTongTien = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lblTongTienTT = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.rjButton1 = new GUI.MyCustom.RJButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -127,6 +128,7 @@ namespace GUI
             // gradientPanel1
             // 
             this.gradientPanel1.BottomColor = System.Drawing.Color.Empty;
+            this.gradientPanel1.Controls.Add(this.rjButton3);
             this.gradientPanel1.Controls.Add(this.label20);
             this.gradientPanel1.Controls.Add(this.label19);
             this.gradientPanel1.Controls.Add(this.label18);
@@ -141,6 +143,25 @@ namespace GUI
             this.gradientPanel1.Size = new System.Drawing.Size(374, 144);
             this.gradientPanel1.TabIndex = 3;
             this.gradientPanel1.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
+            // 
+            // rjButton3
+            // 
+            this.rjButton3.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjButton3.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjButton3.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton3.BorderRadius = 0;
+            this.rjButton3.BorderSize = 0;
+            this.rjButton3.FlatAppearance.BorderSize = 0;
+            this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton3.ForeColor = System.Drawing.Color.White;
+            this.rjButton3.Location = new System.Drawing.Point(37, 58);
+            this.rjButton3.Name = "rjButton3";
+            this.rjButton3.Size = new System.Drawing.Size(79, 40);
+            this.rjButton3.TabIndex = 0;
+            this.rjButton3.Text = "rjButton3";
+            this.rjButton3.TextColor = System.Drawing.Color.White;
+            this.rjButton3.UseVisualStyleBackColor = false;
+            this.rjButton3.Click += new System.EventHandler(this.rjButton3_Click);
             // 
             // label20
             // 
@@ -252,14 +273,14 @@ namespace GUI
             // 
             this.gradientPanel2.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
             this.gradientPanel2.Controls.Add(this.rjButton2);
-            this.gradientPanel2.Controls.Add(this.label23);
+            this.gradientPanel2.Controls.Add(this.lblTongTien);
             this.gradientPanel2.Controls.Add(this.label24);
             this.gradientPanel2.Controls.Add(this.label21);
             this.gradientPanel2.Controls.Add(this.label22);
             this.gradientPanel2.Controls.Add(this.label17);
             this.gradientPanel2.Controls.Add(this.label15);
             this.gradientPanel2.Controls.Add(this.label16);
-            this.gradientPanel2.Controls.Add(this.label13);
+            this.gradientPanel2.Controls.Add(this.lblTongTienTT);
             this.gradientPanel2.Controls.Add(this.label14);
             this.gradientPanel2.Controls.Add(this.rjButton1);
             this.gradientPanel2.Location = new System.Drawing.Point(3, 513);
@@ -293,17 +314,17 @@ namespace GUI
             this.rjButton2.TextColor = System.Drawing.Color.Black;
             this.rjButton2.UseVisualStyleBackColor = false;
             // 
-            // label23
+            // lblTongTien
             // 
-            this.label23.BackColor = System.Drawing.Color.Transparent;
-            this.label23.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(189, 135);
-            this.label23.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(83, 21);
-            this.label23.TabIndex = 15;
-            this.label23.Text = "1200000đ";
-            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTongTien.BackColor = System.Drawing.Color.Transparent;
+            this.lblTongTien.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTongTien.Location = new System.Drawing.Point(189, 135);
+            this.lblTongTien.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.lblTongTien.Name = "lblTongTien";
+            this.lblTongTien.Size = new System.Drawing.Size(137, 21);
+            this.lblTongTien.TabIndex = 15;
+            this.lblTongTien.Text = "1200000đ";
+            this.lblTongTien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label24
             // 
@@ -380,17 +401,17 @@ namespace GUI
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
-            // label13
+            // lblTongTienTT
             // 
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(189, 12);
-            this.label13.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(161, 21);
-            this.label13.TabIndex = 8;
-            this.label13.Text = "1200000đ";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTongTienTT.BackColor = System.Drawing.Color.Transparent;
+            this.lblTongTienTT.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTongTienTT.Location = new System.Drawing.Point(189, 12);
+            this.lblTongTienTT.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.lblTongTienTT.Name = "lblTongTienTT";
+            this.lblTongTienTT.Size = new System.Drawing.Size(161, 21);
+            this.lblTongTienTT.TabIndex = 8;
+            this.lblTongTienTT.Text = "1200000đ";
+            this.lblTongTienTT.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label14
             // 
@@ -971,14 +992,15 @@ namespace GUI
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblTongTienTT;
         private System.Windows.Forms.Label label14;
         private MyCustom.RJButton rjButton1;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private MyCustom.RJButton rjButton2;
-        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label lblTongTien;
         private System.Windows.Forms.Label label24;
+        private MyCustom.RJButton rjButton3;
     }
 }
