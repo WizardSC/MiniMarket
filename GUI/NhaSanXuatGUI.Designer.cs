@@ -33,10 +33,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NhaSanXuatGUI));
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvNSX = new System.Windows.Forms.DataGridView();
-            this.MaNSX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenNSX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.cbxTimKiem = new GUI.MyCustom.RJComboBox();
             this.txtTimKiem = new GUI.MyCustom.RJTextBox();
@@ -57,11 +53,18 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtSoDT = new GUI.MyCustom.RJTextBox();
             this.label18 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbxTrangThai = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnThem = new GUI.MyCustom.RJButton();
             this.btnSua = new GUI.MyCustom.RJButton();
             this.btnXoa = new GUI.MyCustom.RJButton();
             this.btnReset = new GUI.MyCustom.RJButton();
+            this.MaNSX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenNSX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNSX)).BeginInit();
             this.flowLayoutPanel4.SuspendLayout();
@@ -80,7 +83,7 @@
             this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Margin = new System.Windows.Forms.Padding(5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1734, 929);
+            this.panel1.Size = new System.Drawing.Size(1546, 874);
             this.panel1.TabIndex = 0;
             // 
             // dgvNSX
@@ -89,7 +92,7 @@
             this.dgvNSX.AllowUserToDeleteRows = false;
             this.dgvNSX.AllowUserToResizeColumns = false;
             this.dgvNSX.AllowUserToResizeRows = false;
-            this.dgvNSX.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvNSX.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvNSX.BackgroundColor = System.Drawing.Color.White;
             this.dgvNSX.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -105,7 +108,8 @@
             this.MaNSX,
             this.TenNSX,
             this.DiaChi,
-            this.SoDT});
+            this.SoDT,
+            this.TrangThai});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -130,47 +134,7 @@
             this.dgvNSX.TabIndex = 4;
             this.dgvNSX.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNSX_CellClick);
             this.dgvNSX.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNSX_CellContentClick);
-            // 
-            // MaNSX
-            // 
-            this.MaNSX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.MaNSX.DataPropertyName = "MaNSX";
-            this.MaNSX.Frozen = true;
-            this.MaNSX.HeaderText = "Mã NSX";
-            this.MaNSX.MinimumWidth = 6;
-            this.MaNSX.Name = "MaNSX";
-            this.MaNSX.ReadOnly = true;
-            this.MaNSX.Width = 200;
-            // 
-            // TenNSX
-            // 
-            this.TenNSX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.TenNSX.DataPropertyName = "TenNSX";
-            this.TenNSX.HeaderText = "Tên NSX";
-            this.TenNSX.MinimumWidth = 6;
-            this.TenNSX.Name = "TenNSX";
-            this.TenNSX.ReadOnly = true;
-            this.TenNSX.Width = 200;
-            // 
-            // DiaChi
-            // 
-            this.DiaChi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.DiaChi.DataPropertyName = "DiaChi";
-            this.DiaChi.HeaderText = "Địa chỉ NSX";
-            this.DiaChi.MinimumWidth = 6;
-            this.DiaChi.Name = "DiaChi";
-            this.DiaChi.ReadOnly = true;
-            this.DiaChi.Width = 300;
-            // 
-            // SoDT
-            // 
-            this.SoDT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.SoDT.DataPropertyName = "SoDT";
-            this.SoDT.HeaderText = "Số điện thoại NSX";
-            this.SoDT.MinimumWidth = 6;
-            this.SoDT.Name = "SoDT";
-            this.SoDT.ReadOnly = true;
-            this.SoDT.Width = 300;
+            this.dgvNSX.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvNSX_CellFormatting);
             // 
             // flowLayoutPanel4
             // 
@@ -205,7 +169,7 @@
             this.cbxTimKiem.MinimumSize = new System.Drawing.Size(133, 37);
             this.cbxTimKiem.Name = "cbxTimKiem";
             this.cbxTimKiem.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbxTimKiem.Size = new System.Drawing.Size(144, 37);
+            this.cbxTimKiem.Size = new System.Drawing.Size(133, 37);
             this.cbxTimKiem.TabIndex = 4;
             this.cbxTimKiem.Texts = "Mã NSX";
             // 
@@ -220,7 +184,7 @@
             this.txtTimKiem.BorderSize = 2;
             this.txtTimKiem.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTimKiem.ForeColor = System.Drawing.Color.DimGray;
-            this.txtTimKiem.Location = new System.Drawing.Point(159, 10);
+            this.txtTimKiem.Location = new System.Drawing.Point(148, 10);
             this.txtTimKiem.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
             this.txtTimKiem.Multiline = false;
             this.txtTimKiem.Name = "txtTimKiem";
@@ -228,6 +192,7 @@
             this.txtTimKiem.PasswordChar = false;
             this.txtTimKiem.PlaceholderColor = System.Drawing.Color.DimGray;
             this.txtTimKiem.PlaceholderText = "Nhập thông tin tìm kiếm";
+            this.txtTimKiem.ReadOnly = false;
             this.txtTimKiem.Size = new System.Drawing.Size(973, 41);
             this.txtTimKiem.TabIndex = 1;
             this.txtTimKiem.Texts = "";
@@ -244,7 +209,7 @@
             this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimKiem.ForeColor = System.Drawing.Color.White;
             this.btnTimKiem.Image = global::GUI.Properties.Resources.icons8_search_32;
-            this.btnTimKiem.Location = new System.Drawing.Point(1141, 10);
+            this.btnTimKiem.Location = new System.Drawing.Point(1130, 10);
             this.btnTimKiem.Margin = new System.Windows.Forms.Padding(4, 10, 4, 4);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(39, 39);
@@ -266,7 +231,7 @@
             this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFilter.ForeColor = System.Drawing.Color.White;
             this.btnFilter.Image = global::GUI.Properties.Resources.icons8_filter_32;
-            this.btnFilter.Location = new System.Drawing.Point(1204, 10);
+            this.btnFilter.Location = new System.Drawing.Point(1193, 10);
             this.btnFilter.Margin = new System.Windows.Forms.Padding(20, 10, 13, 0);
             this.btnFilter.Name = "btnFilter";
             this.btnFilter.Size = new System.Drawing.Size(59, 46);
@@ -319,10 +284,12 @@
             this.flowLayoutPanel2.Controls.Add(this.label7);
             this.flowLayoutPanel2.Controls.Add(this.txtSoDT);
             this.flowLayoutPanel2.Controls.Add(this.label18);
+            this.flowLayoutPanel2.Controls.Add(this.label5);
+            this.flowLayoutPanel2.Controls.Add(this.cbxTrangThai);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(11, 53);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(387, 294);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(387, 357);
             this.flowLayoutPanel2.TabIndex = 2;
             // 
             // label2
@@ -356,6 +323,7 @@
             this.txtMaNSX.PasswordChar = false;
             this.txtMaNSX.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtMaNSX.PlaceholderText = "";
+            this.txtMaNSX.ReadOnly = false;
             this.txtMaNSX.Size = new System.Drawing.Size(228, 34);
             this.txtMaNSX.TabIndex = 1;
             this.txtMaNSX.Texts = "";
@@ -405,6 +373,7 @@
             this.txtTenNSX.PasswordChar = false;
             this.txtTenNSX.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtTenNSX.PlaceholderText = "";
+            this.txtTenNSX.ReadOnly = false;
             this.txtTenNSX.Size = new System.Drawing.Size(228, 34);
             this.txtTenNSX.TabIndex = 3;
             this.txtTenNSX.Texts = "";
@@ -454,6 +423,7 @@
             this.txtDiaChi.PasswordChar = false;
             this.txtDiaChi.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtDiaChi.PlaceholderText = "";
+            this.txtDiaChi.ReadOnly = false;
             this.txtDiaChi.Size = new System.Drawing.Size(228, 34);
             this.txtDiaChi.TabIndex = 5;
             this.txtDiaChi.Texts = "";
@@ -503,6 +473,7 @@
             this.txtSoDT.PasswordChar = false;
             this.txtSoDT.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtSoDT.PlaceholderText = "";
+            this.txtSoDT.ReadOnly = false;
             this.txtSoDT.Size = new System.Drawing.Size(228, 34);
             this.txtSoDT.TabIndex = 11;
             this.txtSoDT.Texts = "";
@@ -516,10 +487,37 @@
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Padding = new System.Windows.Forms.Padding(0, 0, 27, 0);
-            this.label18.Size = new System.Drawing.Size(321, 21);
+            this.label18.Size = new System.Drawing.Size(315, 25);
             this.label18.TabIndex = 25;
             this.label18.Text = "* Bạn phải nhập số ĐT";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label5.Location = new System.Drawing.Point(5, 269);
+            this.label5.Margin = new System.Windows.Forms.Padding(5);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(125, 34);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "Trạng Thái";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // cbxTrangThai
+            // 
+            this.cbxTrangThai.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxTrangThai.FormattingEnabled = true;
+            this.cbxTrangThai.Items.AddRange(new object[] {
+            "Hoạt động",
+            "Không hoạt động"});
+            this.cbxTrangThai.Location = new System.Drawing.Point(139, 268);
+            this.cbxTrangThai.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxTrangThai.MinimumSize = new System.Drawing.Size(132, 0);
+            this.cbxTrangThai.Name = "cbxTrangThai";
+            this.cbxTrangThai.Size = new System.Drawing.Size(228, 31);
+            this.cbxTrangThai.TabIndex = 27;
+            this.cbxTrangThai.Text = "--Chọn trạng thái--";
             // 
             // flowLayoutPanel3
             // 
@@ -527,7 +525,7 @@
             this.flowLayoutPanel3.Controls.Add(this.btnSua);
             this.flowLayoutPanel3.Controls.Add(this.btnXoa);
             this.flowLayoutPanel3.Controls.Add(this.btnReset);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(11, 357);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(11, 420);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 4);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(387, 55);
@@ -613,11 +611,61 @@
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
+            // MaNSX
+            // 
+            this.MaNSX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.MaNSX.DataPropertyName = "MaNSX";
+            this.MaNSX.Frozen = true;
+            this.MaNSX.HeaderText = "Mã NSX";
+            this.MaNSX.MinimumWidth = 6;
+            this.MaNSX.Name = "MaNSX";
+            this.MaNSX.ReadOnly = true;
+            // 
+            // TenNSX
+            // 
+            this.TenNSX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.TenNSX.DataPropertyName = "TenNSX";
+            this.TenNSX.HeaderText = "Tên NSX";
+            this.TenNSX.MinimumWidth = 6;
+            this.TenNSX.Name = "TenNSX";
+            this.TenNSX.ReadOnly = true;
+            this.TenNSX.Width = 104;
+            // 
+            // DiaChi
+            // 
+            this.DiaChi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.DiaChi.DataPropertyName = "DiaChi";
+            this.DiaChi.HeaderText = "Địa chỉ NSX";
+            this.DiaChi.MinimumWidth = 6;
+            this.DiaChi.Name = "DiaChi";
+            this.DiaChi.ReadOnly = true;
+            this.DiaChi.Width = 350;
+            // 
+            // SoDT
+            // 
+            this.SoDT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.SoDT.DataPropertyName = "SoDT";
+            this.SoDT.HeaderText = "Số điện thoại NSX";
+            this.SoDT.MinimumWidth = 6;
+            this.SoDT.Name = "SoDT";
+            this.SoDT.ReadOnly = true;
+            this.SoDT.Width = 178;
+            // 
+            // TrangThai
+            // 
+            this.TrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.TrangThai.DataPropertyName = "TrangThai";
+            this.TrangThai.HeaderText = "Trạng Thái";
+            this.TrangThai.MinimumWidth = 6;
+            this.TrangThai.Name = "TrangThai";
+            this.TrangThai.ReadOnly = true;
+            this.TrangThai.Width = 124;
+            // 
             // NhaSanXuatGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1744, 939);
+            this.ClientSize = new System.Drawing.Size(1556, 884);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -665,9 +713,12 @@
         private MyCustom.RJButton btnTimKiem;
         private MyCustom.RJButton btnFilter;
         private System.Windows.Forms.DataGridView dgvNSX;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbxTrangThai;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNSX;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenNSX;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoDT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
     }
 }

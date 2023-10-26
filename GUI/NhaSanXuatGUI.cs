@@ -39,17 +39,19 @@ namespace GUI
             String TenNSX = txtTenNSX.Texts;
             String DiaChi = txtDiaChi.Texts;
             String SoDT = txtSoDT.Texts;
-            NhaSanXuatDTO nsx = new NhaSanXuatDTO(MaNSX, TenNSX, DiaChi, SoDT);
+            string trangThai = cbxTrangThai.SelectedItem.ToString();
+            int trangThaiValue = (trangThai == "Hoạt động") ? 1 : 0;
+            NhaSanXuatDTO nsx = new NhaSanXuatDTO(MaNSX, TenNSX, DiaChi, SoDT, trangThaiValue);
             int flag = nsxBLL.insertNhaSanXuat(nsx) ? 1 : 0;
             if (flag == 1)
             {
-                dgvNSX.DataSource = nsxBLL.getListNSX();
+                
                 MessageBox.Show("Thêm nhà sản xuất thành công thành công.",
                     "Thông báo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+                    dgvNSX.DataSource = nsxBLL.getListNSX();
 
-              
             }
             else
             {
@@ -89,6 +91,7 @@ namespace GUI
             txtTenNSX.Texts = "";
             txtDiaChi.Texts = "";
             txtSoDT.Texts = "";
+            cbxTrangThai.Text = "--Chọn trạng thái--";
         }
 
         private void NhaSanXuatGUI_Load(object sender, EventArgs e)
@@ -97,17 +100,38 @@ namespace GUI
             init();
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
+       private void btnSua_Click(object sender, EventArgs e)
         {
             NhaSanXuatDTO nsx = new NhaSanXuatDTO();
             nsx.TenNSX = txtTenNSX.Texts;
             nsx.DiaChi = txtDiaChi.Texts;
             nsx.SoDT = txtSoDT.Texts;
             nsx.MaNSX = txtMaNSX.Texts;
-            nsxBLL.update_nhasanxuat(nsx);
-            loadMaNSX();
-            init();
-            clearForm();
+            string trangThai = cbxTrangThai.SelectedItem.ToString();
+            int trangThaiValue = (trangThai == "Hoạt động") ? 1 : 0;
+            nsx.TrangThaiNSX = trangThaiValue;
+
+            //nsx.Trangthai = cbxTrangThai.Texts;
+            int kq = nsxBLL.update_nhasanxuat(nsx) ? 1 : 0;
+            if (kq == 1)
+            {
+                MessageBox.Show("Sửa thành công",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                loadMaNSX();
+                init();
+                clearForm();
+
+            }
+            else
+            {
+                MessageBox.Show("Sửa thất bại",
+                   "Lỗi",
+                   MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
+            }
+         
             
            
 
@@ -121,6 +145,8 @@ namespace GUI
             txtTenNSX.Texts = dgvNSX.Rows[i].Cells[1].Value.ToString();
             txtDiaChi.Texts = dgvNSX.Rows[i].Cells[2].Value.ToString();
             txtSoDT.Texts = dgvNSX.Rows[i].Cells[3].Value.ToString();
+            int trangThaiValue = Convert.ToInt32(dgvNSX.Rows[i].Cells[4].Value);
+            cbxTrangThai.SelectedItem = (trangThaiValue == 0) ? "Không hoạt động" : "Hoạt động";
         }
 
         public void init()
@@ -134,7 +160,7 @@ namespace GUI
             clearForm();
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
+        /*private void btnXoa_Click(object sender, EventArgs e)
         {
             NhaSanXuatDTO nsx = new NhaSanXuatDTO();
             nsx.MaNSX = txtMaNSX.Texts;
@@ -142,7 +168,7 @@ namespace GUI
             loadMaNSX();
             init();
             clearForm();
-        }
+        }*/
 
         private void dgvNSX_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -151,6 +177,84 @@ namespace GUI
             txtTenNSX.Texts = dgvNSX.Rows[i].Cells[1].Value.ToString();
             txtDiaChi.Texts = dgvNSX.Rows[i].Cells[2].Value.ToString();
             txtSoDT.Texts = dgvNSX.Rows[i].Cells[3].Value.ToString();
+            int trangThaiValue = Convert.ToInt32(dgvNSX.Rows[i].Cells[4].Value);
+            cbxTrangThai.SelectedItem = (trangThaiValue == 0) ? "Không hoạt động" : "Hoạt động";
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            string MaNSX = txtMaNSX.Texts;
+            string stringTrangThai = cbxTrangThai.SelectedItem.ToString();
+            int trangThai = (stringTrangThai == "Hoạt động") ? 1 : 0;
+            var choice = MessageBox.Show("Xóa nhà sản xuât này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (choice == DialogResult.Yes)
+            {
+                bool isLoiKhoaNgoai;
+                bool kq = nsxBLL.delete_nhasanxuat(MaNSX, out isLoiKhoaNgoai);
+                if (kq)
+                {
+                    MessageBox.Show("Xóa thành công",
+                      "Thông báo",
+                      MessageBoxButtons.OK,
+                      MessageBoxIcon.Information);
+                    init();
+                    clearForm();
+
+                }
+                else
+                {
+                    if (isLoiKhoaNgoai)
+                    {
+                        MessageBoxButtons buttons = MessageBoxButtons.OK;
+                        var result = MessageBox.Show("Không thể xóa nhà sản xuất này vì có dữ liệu liên quan đến sản phẩm trong hệ thống. " +
+                            "Vui lòng xóa các dữ liệu liên quan trước khi tiếp tục", "Lỗi", buttons, MessageBoxIcon.Error);
+                        if (result == DialogResult.OK)
+                        {
+                            if (trangThai == 1)
+                            {
+                                var result1 = MessageBox.Show("Bạn có muốn thay đổi trạng thái của nhà sản xuất này này?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                                if (result1 == DialogResult.OK)
+                                {
+                                    int flag = nsxBLL.update_nhasanxuat(trangThai, MaNSX) ? 1 : 0;
+                                    if (flag == 1)
+                                    {
+                                        MessageBox.Show("Thay đổi trạng thái thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Thay đổi trạng thái thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                    }
+                                }
+                                else if (result1 == DialogResult.Cancel)
+                                {
+                                    return;
+                                }
+                            }
+                            else return;
+
+                        }
+
+                    }
+
+                }
+            }
+        }
+
+        private void dgvNSX_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == dgvNSX.Columns["TrangThai"].Index && e.Value != null)
+            {
+                int trangThaiValue = Convert.ToInt32(e.Value);
+                if (trangThaiValue == 0)
+                {
+                    e.Value = "Không hoạt động";
+                }
+                else if (trangThaiValue == 1)
+                {
+                    e.Value = "Hoạt động";
+                }
+            }
         }
     }
 }
