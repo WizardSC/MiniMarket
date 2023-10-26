@@ -34,11 +34,11 @@
             this.lblDonGia = new System.Windows.Forms.Label();
             this.lblSeperator = new System.Windows.Forms.Label();
             this.lblTongTien = new System.Windows.Forms.Label();
-            this.txtSoLuong = new GUI.MyCustom.RJTextBox();
             this.lblTenSP = new System.Windows.Forms.Label();
             this.btnDelete = new GUI.MyCustom.RJButton();
             this.btnGiam = new GUI.MyCustom.RJButton();
             this.btnTang = new GUI.MyCustom.RJButton();
+            this.txtSoLuong = new GUI.MyCustom.RJTextBox();
             this.pnProductInCart.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,38 +93,12 @@
             // lblTongTien
             // 
             this.lblTongTien.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTongTien.Location = new System.Drawing.Point(276, 48);
+            this.lblTongTien.Location = new System.Drawing.Point(256, 48);
             this.lblTongTien.Name = "lblTongTien";
-            this.lblTongTien.Size = new System.Drawing.Size(76, 23);
+            this.lblTongTien.Size = new System.Drawing.Size(96, 23);
             this.lblTongTien.TabIndex = 6;
             this.lblTongTien.Text = "0đ";
             this.lblTongTien.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtSoLuong
-            // 
-            this.txtSoLuong.BackColor = System.Drawing.SystemColors.Window;
-            this.txtSoLuong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.txtSoLuong.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.txtSoLuong.BorderRadius = 0;
-            this.txtSoLuong.BorderSize = 2;
-            this.txtSoLuong.Enabled = false;
-            this.txtSoLuong.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSoLuong.ForeColor = System.Drawing.Color.Black;
-            this.txtSoLuong.Location = new System.Drawing.Point(46, 43);
-            this.txtSoLuong.Margin = new System.Windows.Forms.Padding(4, 20, 4, 10);
-            this.txtSoLuong.MaximumSize = new System.Drawing.Size(500, 28);
-            this.txtSoLuong.MinimumSize = new System.Drawing.Size(10, 28);
-            this.txtSoLuong.Multiline = false;
-            this.txtSoLuong.Name = "txtSoLuong";
-            this.txtSoLuong.Padding = new System.Windows.Forms.Padding(15, 4, 2, 2);
-            this.txtSoLuong.PasswordChar = false;
-            this.txtSoLuong.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtSoLuong.PlaceholderText = "";
-            this.txtSoLuong.ReadOnly = false;
-            this.txtSoLuong.Size = new System.Drawing.Size(39, 28);
-            this.txtSoLuong.TabIndex = 3;
-            this.txtSoLuong.Texts = "1";
-            this.txtSoLuong.UnderlinedStyle = false;
             // 
             // lblTenSP
             // 
@@ -192,6 +166,32 @@
             this.btnTang.TextColor = System.Drawing.Color.White;
             this.btnTang.UseVisualStyleBackColor = false;
             this.btnTang.Click += new System.EventHandler(this.btnTang_Click);
+            // 
+            // txtSoLuong
+            // 
+            this.txtSoLuong.BackColor = System.Drawing.SystemColors.Window;
+            this.txtSoLuong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.txtSoLuong.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.txtSoLuong.BorderRadius = 0;
+            this.txtSoLuong.BorderSize = 2;
+            this.txtSoLuong.Enabled = false;
+            this.txtSoLuong.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSoLuong.ForeColor = System.Drawing.Color.Black;
+            this.txtSoLuong.Location = new System.Drawing.Point(46, 43);
+            this.txtSoLuong.Margin = new System.Windows.Forms.Padding(4, 20, 4, 10);
+            this.txtSoLuong.MaximumSize = new System.Drawing.Size(500, 28);
+            this.txtSoLuong.MinimumSize = new System.Drawing.Size(10, 28);
+            this.txtSoLuong.Multiline = false;
+            this.txtSoLuong.Name = "txtSoLuong";
+            this.txtSoLuong.Padding = new System.Windows.Forms.Padding(15, 4, 2, 2);
+            this.txtSoLuong.PasswordChar = false;
+            this.txtSoLuong.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtSoLuong.PlaceholderText = "";
+            this.txtSoLuong.ReadOnly = false;
+            this.txtSoLuong.Size = new System.Drawing.Size(39, 28);
+            this.txtSoLuong.TabIndex = 3;
+            this.txtSoLuong.Texts = "1";
+            this.txtSoLuong.UnderlinedStyle = false;
             // 
             // MyProductInCart
             // 
