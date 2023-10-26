@@ -115,8 +115,9 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@PhanTramKM", KM_DTO.PhanTramKm);
                 cmd.Parameters.AddWithValue("@DieuKienKM", KM_DTO.DieuKiemKm);
                 cmd.Parameters.AddWithValue("@TrangThai", KM_DTO.TrangThai);
-                cmd.ExecuteNonQuery();
-                return true;
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                return rowsAffected > 0; // Trả về true nếu có dòng bị xóa.
 
 
             }
@@ -145,9 +146,8 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@PhanTramKM", KM_DTO.PhanTramKm);
                 cmd.Parameters.AddWithValue("@DieuKienKM", KM_DTO.DieuKiemKm);
                 cmd.Parameters.AddWithValue("@TrangThai", KM_DTO.TrangThai);
-                // Execute the SQL command
-               cmd.ExecuteNonQuery();
-                return true;
+                int rowsAffected = cmd.ExecuteNonQuery();
+                return rowsAffected > 0; // Trả về true nếu có dòng bị xóa.
             }
             catch (Exception e)
             {

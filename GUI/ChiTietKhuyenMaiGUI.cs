@@ -130,11 +130,18 @@ namespace GUI
             txtPhanTramKM.Texts = " ";
             comboBoxTenKM.SelectedIndex = -1;
             comboBoxTenSP.SelectedIndex = -1;
+            cbxTrangThai.SelectedIndex = 0;
+            btnThemCTKM.Enabled = true;
+            btnUpdateKM.Enabled = false;
+            btnXoaKM.Enabled = false;
         }
 
         private void ChiTietKhuyenMaiGUI_Load(object sender, EventArgs e)
         {
             init();
+            btnThemCTKM.Enabled = true;
+            btnUpdateKM.Enabled = false;
+            btnXoaKM.Enabled = false;
         }
 
        
@@ -164,13 +171,7 @@ namespace GUI
 
         private string CheckAndSetColor(object control, Label label)
         {
-            if (control is RJTextBox textBox)
-            {
-                string text = textBox.Texts.Trim();
-                label.ForeColor = string.IsNullOrWhiteSpace(text) ? Color.FromArgb(230, 76, 89) : Color.Transparent;
-                return text;
-            }
-            else if (control is System.Windows.Forms.ComboBox comboBox)
+             if (control is System.Windows.Forms.ComboBox comboBox)
             {
                 string selectedValue = comboBox.SelectedItem?.ToString();
                 if (string.IsNullOrWhiteSpace(selectedValue))
@@ -187,6 +188,36 @@ namespace GUI
             return null; // Nếu kiểu dữ liệu không hợp lệ.
         }
 
+        // check phantramkm nhập int
+        private string CheckAndSetColorPhanTramKM(object control, Label label)
+        {
+            if (control is RJTextBox textBox)
+            {
+                string text = textBox.Texts.Trim();
+                if (string.IsNullOrWhiteSpace(text))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "* Bạn phải nhập % KM";
+                }
+                else if (!int.TryParse(text, out int result))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "* Bạn phải nhập số nguyên";
+                }
+                else
+                {
+                    label.ForeColor = Color.Transparent;
+                    label.Text = "";
+                }
+                return text;
+            }
+            return null; // Nếu kiểu dữ liệu không hợp lệ.
+        }
+        private bool IsInteger(string text)
+        {
+            int result;
+            return int.TryParse(text, out result);
+        }
         private void btnThemCTKM_Click(object sender, EventArgs e)
         {
             string tenKM = comboBoxTenKM.Text;
@@ -216,29 +247,33 @@ namespace GUI
                 }
             }
 
-            string phantram = CheckAndSetColor(txtPhanTramKM, label10);
+            string phantram = CheckAndSetColorPhanTramKM(txtPhanTramKM, label10);
             string CheckTrangThai = cbxTrangThai.Texts.ToString();
             int trangthai = (CheckTrangThai == "Hoạt động") ? 1 : 0;
+            if ( string.IsNullOrWhiteSpace(phantram) || !IsInteger(phantram) || string.IsNullOrWhiteSpace(tenKM) || string.IsNullOrWhiteSpace(tenSp))
+            {
+                return;
+            }
 
-            
             ChiTietKhuyenMaiDTO CTKM_DTO = new ChiTietKhuyenMaiDTO();
             CTKM_DTO.Makm = idKm;
             CTKM_DTO.Masp = idSp;
             CTKM_DTO.PhanTramKm = int.Parse(phantram);
             CTKM_DTO.TrangThai = trangthai;
 
-            try
+           
+            bool result = CTKhuyenMaiBLL.insertCTKhuyenMai(CTKM_DTO);
+
+            if (result)
             {
-                CTKhuyenMaiBLL.insertCTKhuyenMai(CTKM_DTO);
-                MessageBox.Show("Thêm khuyến mãi cho sản phẩm thành công!");
+                MessageBox.Show("Thêm khuyến mãi cho sản phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 init();
                 clearForm();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+                MessageBox.Show("Thêm thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
 
         }
         // đang lỗi update cần check lại database 
@@ -320,22 +355,23 @@ namespace GUI
                     break; // Thoát vòng lặp khi tìm thấy ID
                 }
             }
-            string stringTrangThai = cbxTrangThai.SelectedItem.ToString();
 
             ChiTietKhuyenMaiDTO CTKM_DTO = new ChiTietKhuyenMaiDTO();
 
             CTKM_DTO.Makm = idKm;
             CTKM_DTO.Masp = idSp;
-            try
+           
+            bool result = CTKhuyenMaiBLL.deleteCTKhuyenMai(CTKM_DTO);
+
+            if (result)
             {
-                CTKhuyenMaiBLL.deleteCTKhuyenMai(CTKM_DTO);
-                MessageBox.Show("Xoa khuyến mãi cho sản phẩm thành công!");
+                MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 init();
                 clearForm();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+                MessageBox.Show("Xóa thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -343,6 +379,10 @@ namespace GUI
         private void btnRS_Click(object sender, EventArgs e)
         {
             clearForm();
+            cbxTrangThai.SelectedIndex = 0;
+            btnThemCTKM.Enabled = true;
+            btnUpdateKM.Enabled = false;
+            btnXoaKM.Enabled = false;
         }
 
         private void dgvChiTietKM_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -379,6 +419,9 @@ namespace GUI
                 comboBoxTenSP.SelectedIndex = indexSP; // Hiển thị giá trị sanpham trong ComboBox
 
             }
+            btnThemCTKM.Enabled = false;
+            btnUpdateKM.Enabled = true;
+            btnXoaKM.Enabled = true;
         }
 
         private void dgvChiTietKM_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -413,7 +456,7 @@ namespace GUI
 
         private void txtPhanTramKM__TextChanged(object sender, EventArgs e)
         {
-            CheckAndSetColor(txtPhanTramKM, label10);
+            CheckAndSetColorPhanTramKM(txtPhanTramKM, label10);
         }
 
         private void comboBoxTenSP_SelectedIndexChanged(object sender, EventArgs e)

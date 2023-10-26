@@ -58,8 +58,9 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@MaSP", CTKM_DTO.Masp);
                 cmd.Parameters.AddWithValue("@PhanTramKM", CTKM_DTO.PhanTramKm);
                 cmd.Parameters.AddWithValue("@TrangThai", CTKM_DTO.TrangThai);
-                cmd.ExecuteNonQuery();
-                return true;
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                return rowsAffected > 0; // Trả về true nếu có dòng bị xóa.
 
 
             }
@@ -84,8 +85,9 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@MaSP", CTKM_DTO.Masp);
                 cmd.Parameters.AddWithValue("@PhanTramKM", CTKM_DTO.PhanTramKm);
                 cmd.Parameters.AddWithValue("@TrangThai", CTKM_DTO.TrangThai);
-                cmd.ExecuteNonQuery();
-                return true;
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                return rowsAffected > 0; // Trả về true nếu có dòng bị xóa.
             }
             catch (Exception e)
             {
@@ -106,8 +108,9 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand(query, dbConnect.conn);
                 cmd.Parameters.AddWithValue("@MaKM", CTKM_DTO.Makm);
                 cmd.Parameters.AddWithValue("@MaSP", CTKM_DTO.Masp);
-                cmd.ExecuteNonQuery();
-                return true;
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                return rowsAffected > 0; // Trả về true nếu có dòng bị xóa.
             }
             catch (SqlException ex)
             {

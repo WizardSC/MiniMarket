@@ -147,6 +147,7 @@ namespace GUI
         public void clearForm()
         {
             loadMaKM();
+            cbxTrangThai.SelectedIndex = 0;
             txtTenKm.Texts = "";
             txtDkKM.Texts = "";
             DateTime currentDate = DateTime.Now;
@@ -155,6 +156,9 @@ namespace GUI
             txtPhanTramKM.Texts = "";
             cbxTrangThai.SelectedIndex = 0;
             btnThongTinKM.Visible = false;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
+            btnThem.Enabled = true;
         }
         //load form DataTable
         public void init()
@@ -169,7 +173,9 @@ namespace GUI
             // Gán sự kiện CellFormatting
             dgvKhuyenMai.CellFormatting += dgvKhuyenMai_CellFormatting;
 
-
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
+            btnThem.Enabled = true;
         }
 
         private void btnXem_Click(object sender, EventArgs e)
@@ -182,6 +188,10 @@ namespace GUI
         private void btnReset_Click(object sender, EventArgs e)
         {
             clearForm();
+            cbxTrangThai.SelectedIndex = 0;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
+            btnThem.Enabled = true;
         }
 
         private void btnThongTinKM_Click(object sender, EventArgs e)
@@ -233,24 +243,54 @@ namespace GUI
             return dateTime;
         }
 
+        // check phantramkm nhập int
+        private string CheckAndSetColorPhanTramKM(object control, Label label)
+        {
+            if (control is RJTextBox textBox)
+            {
+                string text = textBox.Texts.Trim();
+                if (string.IsNullOrWhiteSpace(text))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "* Bạn phải nhập % KM";
+                }
+                else if (!int.TryParse(text, out int result))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "* Bạn phải nhập số nguyên";
+                }
+                else
+                {
+                    label.ForeColor = Color.Transparent;
+                    label.Text = "";
+                }
+                return text;
+            }
+            return null; // Nếu kiểu dữ liệu không hợp lệ.
+        }
+
+        private bool IsInteger(string text)
+        {
+            int result;
+            return int.TryParse(text, out result);
+        }
+
         private void btnThem_Click(object sender, EventArgs e)
         {
             string tenKM = CheckAndSetColor(txtTenKm, label4);
-            string phantramkm = CheckAndSetColor(txtPhanTramKM, label10);
+            string phantramkm = CheckAndSetColorPhanTramKM(txtPhanTramKM, label10);
             DateTime ngaykt = CheckAndSetColorDate(dtpNgayKT.Value, label8);
             DateTime Ngaybd = dtpNgayBD.Value;
             //DateTime Ngaykt = dtpNgayKT.Value;
             string CheckTrangThai = cbxTrangThai.Texts.ToString();
             int trangthai = (CheckTrangThai == "Hoạt động") ? 1 : 0;
 
-            if (!(tenKM != "" && phantramkm != "" ))
+            if (string.IsNullOrWhiteSpace(tenKM) || ngaykt <= Ngaybd || string.IsNullOrWhiteSpace(phantramkm) || !IsInteger(phantramkm))
             {
                 return;
             }
-            if (ngaykt <= Ngaybd)
-            {
-                return;
-            }
+
+            // Tiếp tục xử lý dữ liệu nếu tất cả điều kiện đều đúng.
 
             KhuyenMaiDTO KM_DTO = new KhuyenMaiDTO();
             KM_DTO.Makm = txtMaKM.Texts;
@@ -260,20 +300,20 @@ namespace GUI
             KM_DTO.PhanTramKm = int.Parse(phantramkm);
             KM_DTO.DieuKiemKm = txtDkKM.Texts;
             KM_DTO.TrangThai = trangthai;
-            try
+            
+            bool result = kmBLL.insertKhuyenMai(KM_DTO);
+
+            if (result)
             {
-                kmBLL.insertKhuyenMai(KM_DTO);
-                MessageBox.Show("Thêm khuyến mãi thành công!");
-                
+                MessageBox.Show("Thêm khuyến mãi thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 init();
                 loadMaKM();
                 clearForm();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+                MessageBox.Show("Thêm thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -286,14 +326,11 @@ namespace GUI
             string CheckTrangThai = cbxTrangThai.Texts.ToString();
             int trangthai = (CheckTrangThai == "Hoạt động") ? 1 : 0;
 
-            if (!(tenkm != "" && phantram != "" ))
+            if (string.IsNullOrWhiteSpace(tenkm) || ngaykt <= Ngaybd || string.IsNullOrWhiteSpace(phantram) || !IsInteger(phantram))
             {
                 return;
             }
-            if (ngaykt <= Ngaybd)
-            {
-                return;
-            }
+
             KhuyenMaiDTO KM_DTO = new KhuyenMaiDTO();
 
             KM_DTO.TenKm = tenkm;
@@ -303,17 +340,19 @@ namespace GUI
             KM_DTO.DieuKiemKm = dieukien;
             KM_DTO.TrangThai = trangthai;
             KM_DTO.Makm = txtMaKM.Texts;
-            try
+
+            bool result = kmBLL.UpdateKhuyenMai(KM_DTO);
+
+            if (result)
             {
-                kmBLL.UpdateKhuyenMai(KM_DTO);
-                MessageBox.Show("Chỉnh sửa khuyến mãi thành công!");
+                MessageBox.Show("Sửa khuyến mãi thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 init();
                 loadMaKM();
                 clearForm();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+                MessageBox.Show("Sửa thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -429,6 +468,9 @@ namespace GUI
             {
                 btnThongTinKM.Visible = false;
             }
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
+            btnThem.Enabled =false;
         }
 
         private void cbxTimKiem_OnSelectedIndexChanged(object sender, EventArgs e)
@@ -550,7 +592,7 @@ namespace GUI
 
         private void txtPhanTramKM__TextChanged(object sender, EventArgs e)
         {
-            CheckAndSetColor(txtPhanTramKM, label10);
+            CheckAndSetColorPhanTramKM(txtPhanTramKM, label10);
         }
 
         private void txtDkKM__TextChanged(object sender, EventArgs e)
