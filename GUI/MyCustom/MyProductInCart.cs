@@ -15,12 +15,10 @@ namespace GUI.MyCustom
         public string maSP;
         public int donGia;
         public int soLuong;
-        public event EventHandler DeleteButtonClicked;
+        
         public MyProductInCart()
         {
-            btnDelete.Click += (sender, e) => {
-                OnDeleteButtonClicked(EventArgs.Empty);
-            };
+          
         }
 
         public MyProductInCart(string maSP, int donGia, int soLuong)
@@ -80,10 +78,7 @@ namespace GUI.MyCustom
             lblTongTien.Text = tongTien.ToString() + "đ";
 
         }
-        protected virtual void OnDeleteButtonClicked(EventArgs e)
-        {
-            DeleteButtonClicked?.Invoke(this, e);
-        }
+        
         private void btnDelete_Click(object sender, EventArgs e)
         {
            
