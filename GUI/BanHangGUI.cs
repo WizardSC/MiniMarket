@@ -38,12 +38,7 @@ namespace GUI
             // Hiển thị trang hiện tại
             UpdateCurrentPage(dt);
             //addProductToCart();
-            MyCustom.MyProductInCart item = new MyCustom.MyProductInCart();
-
-            item.DeleteButtonClicked += (sender, e) =>
-            {
-                Console.WriteLine("Xin chào");
-            };
+           
 
         }
 
@@ -142,12 +137,13 @@ namespace GUI
             string tenSP = clickedItem.lblTenSP.Text;
             string donGia = clickedItem.lblDonGia.Text.Substring(0, clickedItem.lblDonGia.Text.Length - 1);
             int soLuong = 0;
+
             foreach (SanPhamDTO sp in listSP)
             {
                 if (sp.MaSP == maSP)
                 {
                     soLuong = sp.SoLuong;
-                    
+                    txtTonKho.Texts = soLuong.ToString();
                     break;
                 }
             }
@@ -156,7 +152,6 @@ namespace GUI
             txtTenSP.Texts = tenSP;
             txtDonGia.Texts = donGia;
             pbImage.Image = clickedItem.pbxIMG.Image;
-            // Cập nhật số lượng tồn kho nếu sản phẩm đã có số lượng được thêm vào giỏ
 
             if (gioHang.ContainsKey(maSP))
             {
@@ -182,7 +177,6 @@ namespace GUI
                 btnThemVaoGio.BackColor = Color.FromArgb(58, 191, 186);
             }
 
-
         }
         private void btnThemVaoGio_Click(object sender, EventArgs e)
         {
@@ -191,7 +185,7 @@ namespace GUI
             int soLuongTonKho = int.Parse(txtTonKho.Texts);
             int donGia = int.Parse(txtDonGia.Texts);
             int soLuongMua = Convert.ToInt32(Math.Round(nudSoLuongMua.Value, 0));
-            if (int.Parse(txtTonKho.Texts) == 0)
+            if (soLuongMua == 0)
 
             {
                 MessageBox.Show("Vui lòng chọn số lượng cần thêm", "Thông báo");
@@ -224,6 +218,7 @@ namespace GUI
                         existingItem = item;
                         break;
                     }
+                   
                 }
             }
 
@@ -243,7 +238,7 @@ namespace GUI
                 item.txtSoLuong.Texts = soLuongMua.ToString();
                 item.lblDonGia.Text = donGia.ToString() + "đ";
 
-                
+                flpGioHang.Controls.Add(item);
 
             }
             refreshThongTin();
