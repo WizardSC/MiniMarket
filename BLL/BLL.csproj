@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChiTietKhuyenMaiBLL.cs" />
+    <Compile Include="HoaDonBLL.cs" />
     <Compile Include="KhachHangBLL.cs" />
     <Compile Include="KhuyenMaiBLL.cs" />
     <Compile Include="LoaiBLL.cs" />
