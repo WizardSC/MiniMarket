@@ -115,9 +115,9 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@PhanTramKM", KM_DTO.PhanTramKm);
                 cmd.Parameters.AddWithValue("@DieuKienKM", KM_DTO.DieuKiemKm);
                 cmd.Parameters.AddWithValue("@TrangThai", KM_DTO.TrangThai);
-                int rowsAffected = cmd.ExecuteNonQuery();
-
-                return rowsAffected > 0; // Trả về true nếu có dòng bị xóa.
+                cmd.ExecuteReader();
+                return true;
+              
 
 
             }
@@ -146,8 +146,8 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@PhanTramKM", KM_DTO.PhanTramKm);
                 cmd.Parameters.AddWithValue("@DieuKienKM", KM_DTO.DieuKiemKm);
                 cmd.Parameters.AddWithValue("@TrangThai", KM_DTO.TrangThai);
-                int rowsAffected = cmd.ExecuteNonQuery();
-                return rowsAffected > 0; // Trả về true nếu có dòng bị xóa.
+                cmd.ExecuteReader();
+                return true;
             }
             catch (Exception e)
             {
@@ -168,7 +168,7 @@ namespace DAL
                 cmd.CommandText = "delete from KhuyenMai where MaKM = @MaKM";
                 cmd.Connection = conn;
                 cmd.Parameters.AddWithValue("@MaKM", maKM).SqlDbType = SqlDbType.Char;
-                cmd.ExecuteNonQuery();
+                cmd.ExecuteReader();
                 isLoiKhoaNgoai = false;
                 return true;
             }
@@ -203,7 +203,7 @@ namespace DAL
                 cmd.Connection = conn;
                 cmd.Parameters.AddWithValue("@TrangThai", trangThai).SqlDbType = SqlDbType.Int;
                 cmd.Parameters.AddWithValue("@MaKM", maKM).SqlDbType = SqlDbType.Char;
-                cmd.ExecuteNonQuery();
+                cmd.ExecuteReader();
                 return true;
 
             }
