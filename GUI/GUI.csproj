@@ -212,6 +212,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KhachHangGUI.resx">
       <DependentUpon>KhachHangGUI.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="KhuyenMaiGUI.resx">
       <DependentUpon>KhuyenMaiGUI.cs</DependentUpon>

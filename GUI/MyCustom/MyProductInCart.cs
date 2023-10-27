@@ -12,6 +12,7 @@ namespace GUI.MyCustom
 {
     public partial class MyProductInCart : UserControl
     {
+<<<<<<< HEAD
         public string maSP;
         public int donGia;
         public int soLuong;
@@ -19,63 +20,63 @@ namespace GUI.MyCustom
         {
            
         }
+=======
 
-        public MyProductInCart(string maSP, int donGia, int soLuong)
+        public int soLuongTrongKho;
+        public int soLuongMuaThem;
+        public event EventHandler TangButtonClicked;
+        public event EventHandler GiamButtonClicked;
+        public event EventHandler DeleteButtonClicked;
+
+        
+        public MyProductInCart()
         {
-            InitializeComponent();
-            this.maSP = maSP;
-            this.donGia = donGia;
-            this.soLuong = soLuong;
-            tinhTongTien();
+>>>>>>> d2608a1a22880381357abd8e1dd862e4ca8edf3a
 
+            InitializeComponent();
         }
+
         public void tinhTongTien()
         {
 
-            lblTongTien.Text = (soLuong*donGia).ToString() + "đ";
+            //lblTongTien.Text = (soLuong*donGia).ToString() + "đ";
 
         }
 
 
         private void btnTang_Click(object sender, EventArgs e)
         {
-            int soLuong = int.Parse(txtSoLuong.Texts);
-            soLuong += 1;
-            txtSoLuong.Texts = soLuong.ToString();
-            
-            int donGia = 0;
-            int tongTien = 0;
-            this.soLuong = soLuong;
-            if (lblDonGia.Text.EndsWith("đ"))
-            {
-                donGia = int.Parse(lblDonGia.Text.Substring(0, lblDonGia.Text.Length - 1));
-            }
-            tongTien = tongTien + (soLuong * donGia);
-            
-            lblTongTien.Text = tongTien.ToString() + "đ";
-
+            OnTangButtonClicked(EventArgs.Empty);
         }
 
         private void btnGiam_Click(object sender, EventArgs e)
         {
-            int soLuong = int.Parse(txtSoLuong.Texts);
-            if (soLuong == 0)
-            {
-                return;
-            }
-            soLuong -= 1;
-            txtSoLuong.Texts = soLuong.ToString();
-            this.soLuong = soLuong;
-
-            int donGia = 0;
-            int tongTien = 0;
-            if (lblDonGia.Text.EndsWith("đ"))
-            {
-                donGia = int.Parse(lblDonGia.Text.Substring(0, lblDonGia.Text.Length - 1));
-            }
-            tongTien = tongTien + (soLuong*donGia);
-            lblTongTien.Text = tongTien.ToString() + "đ";
-
+            OnGiamButtonClicked(EventArgs.Empty);
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            OnDeleteButtonClicked(EventArgs.Empty);
+        }
+<<<<<<< HEAD
+=======
+        protected virtual void OnDeleteButtonClicked(EventArgs e)
+        {
+            EventHandler handler = DeleteButtonClicked;
+            handler?.Invoke(this, e);
+        }
+
+        protected virtual void OnTangButtonClicked(EventArgs e)
+        {
+            EventHandler handler = TangButtonClicked;
+            handler?.Invoke(this, e);
+        }
+
+        protected virtual void OnGiamButtonClicked(EventArgs e)
+        {
+            EventHandler handler = GiamButtonClicked;
+            handler?.Invoke(this, e);
+        }
+>>>>>>> d2608a1a22880381357abd8e1dd862e4ca8edf3a
     }
 }
