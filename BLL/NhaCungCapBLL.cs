@@ -1,5 +1,4 @@
 ﻿using DAL;
-using DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -20,22 +19,5 @@ namespace BLL
         {
             return nccDAL.getListNhaCC();
         }
-        public bool InsertNhaCC(NhaCungCapDTO nhacc)
-        {
-            return nccDAL.InsertNhaCC(nhacc);
-        }
-        public bool deleteNhaCC(string maNCC, out bool isLoiKhoaNgoai)
-        {
-            return nccDAL.deleteNhaCC(maNCC, out isLoiKhoaNgoai);
-        }
-        public bool updateTrangThai(String maNCC, int trangthai)
-        {
-            return nccDAL.updateTrangThai(trangthai, maNCC);
-        }
-        public bool updateNhaCC(NhaCungCapDTO nhacc)
-        {
-            return nccDAL.updateNhaCC(nhacc);
-        }
-    }   
-
+    }
 }

@@ -36,21 +36,16 @@ namespace GUI
             this.gradientPanel1 = new GUI.MyCustom.GradientPanel();
             this.rjButton3 = new GUI.MyCustom.RJButton();
             this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lblKhachHang = new System.Windows.Forms.Label();
+            this.lblNhanVien = new System.Windows.Forms.Label();
+            this.lblNgayLap = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.flpGioHang = new System.Windows.Forms.FlowLayoutPanel();
             this.gradientPanel2 = new GUI.MyCustom.GradientPanel();
-<<<<<<< HEAD
-            this.label13 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-=======
-            this.rjButton2 = new GUI.MyCustom.RJButton();
+            this.btnInHoaDon = new GUI.MyCustom.RJButton();
             this.lblTongTien = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -60,8 +55,7 @@ namespace GUI
             this.label16 = new System.Windows.Forms.Label();
             this.lblTongTienTT = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.rjButton1 = new GUI.MyCustom.RJButton();
->>>>>>> d2608a1a22880381357abd8e1dd862e4ca8edf3a
+            this.btnThanhToan = new GUI.MyCustom.RJButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.cbxTimKiem = new GUI.MyCustom.RJComboBox();
@@ -89,7 +83,7 @@ namespace GUI
             this.nudSoLuongMua = new GUI.MyCustom.CustomNumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbImage = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnThemVaoGio = new GUI.MyCustom.RJButton();
             this.panel1.SuspendLayout();
@@ -104,7 +98,7 @@ namespace GUI
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSoLuongMua)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -116,7 +110,7 @@ namespace GUI
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1180, 738);
+            this.panel1.Size = new System.Drawing.Size(1167, 718);
             this.panel1.TabIndex = 0;
             // 
             // flowLayoutPanel3
@@ -136,9 +130,9 @@ namespace GUI
             this.gradientPanel1.BottomColor = System.Drawing.Color.Empty;
             this.gradientPanel1.Controls.Add(this.rjButton3);
             this.gradientPanel1.Controls.Add(this.label20);
-            this.gradientPanel1.Controls.Add(this.label19);
-            this.gradientPanel1.Controls.Add(this.label18);
-            this.gradientPanel1.Controls.Add(this.label12);
+            this.gradientPanel1.Controls.Add(this.lblKhachHang);
+            this.gradientPanel1.Controls.Add(this.lblNhanVien);
+            this.gradientPanel1.Controls.Add(this.lblNgayLap);
             this.gradientPanel1.Controls.Add(this.label11);
             this.gradientPanel1.Controls.Add(this.label10);
             this.gradientPanel1.Controls.Add(this.label9);
@@ -146,7 +140,7 @@ namespace GUI
             this.gradientPanel1.Location = new System.Drawing.Point(3, 3);
             this.gradientPanel1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.gradientPanel1.Name = "gradientPanel1";
-            this.gradientPanel1.Size = new System.Drawing.Size(374, 164);
+            this.gradientPanel1.Size = new System.Drawing.Size(374, 144);
             this.gradientPanel1.TabIndex = 3;
             this.gradientPanel1.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
             // 
@@ -173,7 +167,7 @@ namespace GUI
             // 
             this.label20.BackColor = System.Drawing.Color.Transparent;
             this.label20.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(293, 118);
+            this.label20.Location = new System.Drawing.Point(290, 106);
             this.label20.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.label20.Name = "label20";
             this.label20.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
@@ -182,47 +176,47 @@ namespace GUI
             this.label20.Text = "...";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label19
+            // lblKhachHang
             // 
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(128, 119);
-            this.label19.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(161, 32);
-            this.label19.TabIndex = 8;
-            this.label19.Text = "Huỳnh Phúc Toàn";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblKhachHang.BackColor = System.Drawing.Color.Transparent;
+            this.lblKhachHang.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKhachHang.Location = new System.Drawing.Point(125, 106);
+            this.lblKhachHang.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.lblKhachHang.Name = "lblKhachHang";
+            this.lblKhachHang.Size = new System.Drawing.Size(161, 32);
+            this.lblKhachHang.TabIndex = 8;
+            this.lblKhachHang.Text = "Im Hyunsik";
+            this.lblKhachHang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label18
+            // lblNhanVien
             // 
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(128, 82);
-            this.label18.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(161, 32);
-            this.label18.TabIndex = 7;
-            this.label18.Text = "Lee Changsub";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblNhanVien.BackColor = System.Drawing.Color.Transparent;
+            this.lblNhanVien.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNhanVien.Location = new System.Drawing.Point(125, 69);
+            this.lblNhanVien.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.lblNhanVien.Name = "lblNhanVien";
+            this.lblNhanVien.Size = new System.Drawing.Size(161, 32);
+            this.lblNhanVien.TabIndex = 7;
+            this.lblNhanVien.Text = "Lee Changsub";
+            this.lblNhanVien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label12
+            // lblNgayLap
             // 
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(128, 45);
-            this.label12.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(161, 32);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "12/10/2023";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblNgayLap.BackColor = System.Drawing.Color.Transparent;
+            this.lblNgayLap.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNgayLap.Location = new System.Drawing.Point(125, 32);
+            this.lblNgayLap.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.lblNgayLap.Name = "lblNgayLap";
+            this.lblNgayLap.Size = new System.Drawing.Size(161, 32);
+            this.lblNgayLap.TabIndex = 6;
+            this.lblNgayLap.Text = "12/10/2023";
+            this.lblNgayLap.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label11
             // 
             this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(11, 119);
+            this.label11.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(8, 106);
             this.label11.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(108, 32);
@@ -233,8 +227,8 @@ namespace GUI
             // label10
             // 
             this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(11, 82);
+            this.label10.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(8, 69);
             this.label10.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(108, 32);
@@ -245,8 +239,8 @@ namespace GUI
             // label9
             // 
             this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(11, 45);
+            this.label9.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(8, 32);
             this.label9.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(108, 32);
@@ -257,8 +251,8 @@ namespace GUI
             // label8
             // 
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(11, 8);
+            this.label8.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(9, 0);
             this.label8.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(254, 32);
@@ -269,22 +263,16 @@ namespace GUI
             // flpGioHang
             // 
             this.flpGioHang.AutoScroll = true;
-            this.flpGioHang.Location = new System.Drawing.Point(0, 167);
-            this.flpGioHang.Margin = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.flpGioHang.Location = new System.Drawing.Point(0, 147);
+            this.flpGioHang.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.flpGioHang.Name = "flpGioHang";
-            this.flpGioHang.Size = new System.Drawing.Size(377, 417);
+            this.flpGioHang.Size = new System.Drawing.Size(377, 360);
             this.flpGioHang.TabIndex = 8;
             // 
             // gradientPanel2
             // 
             this.gradientPanel2.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
-<<<<<<< HEAD
-            this.gradientPanel2.Controls.Add(this.label13);
-            this.gradientPanel2.Controls.Add(this.label16);
-            this.gradientPanel2.Controls.Add(this.label17);
-            this.gradientPanel2.Location = new System.Drawing.Point(3, 590);
-=======
-            this.gradientPanel2.Controls.Add(this.rjButton2);
+            this.gradientPanel2.Controls.Add(this.btnInHoaDon);
             this.gradientPanel2.Controls.Add(this.lblTongTien);
             this.gradientPanel2.Controls.Add(this.label24);
             this.gradientPanel2.Controls.Add(this.label21);
@@ -294,40 +282,38 @@ namespace GUI
             this.gradientPanel2.Controls.Add(this.label16);
             this.gradientPanel2.Controls.Add(this.lblTongTienTT);
             this.gradientPanel2.Controls.Add(this.label14);
-            this.gradientPanel2.Controls.Add(this.rjButton1);
+            this.gradientPanel2.Controls.Add(this.btnThanhToan);
             this.gradientPanel2.Location = new System.Drawing.Point(3, 513);
->>>>>>> d2608a1a22880381357abd8e1dd862e4ca8edf3a
             this.gradientPanel2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.gradientPanel2.Name = "gradientPanel2";
-            this.gradientPanel2.Size = new System.Drawing.Size(374, 143);
+            this.gradientPanel2.Size = new System.Drawing.Size(374, 224);
             this.gradientPanel2.TabIndex = 7;
             this.gradientPanel2.TopColor = System.Drawing.Color.Empty;
             // 
-            // label13
+            // btnInHoaDon
             // 
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(137, 45);
-            this.label13.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(108, 32);
-            this.label13.TabIndex = 6;
-            this.label13.Text = "Ngày lập: ";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInHoaDon.BackColor = System.Drawing.Color.White;
+            this.btnInHoaDon.BackgroundColor = System.Drawing.Color.White;
+            this.btnInHoaDon.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(77)))), ((int)(((byte)(89)))));
+            this.btnInHoaDon.BorderRadius = 10;
+            this.btnInHoaDon.BorderSize = 2;
+            this.btnInHoaDon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInHoaDon.FlatAppearance.BorderSize = 0;
+            this.btnInHoaDon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.btnInHoaDon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnInHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInHoaDon.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInHoaDon.ForeColor = System.Drawing.Color.Black;
+            this.btnInHoaDon.Image = global::GUI.Properties.Resources.icons8_print_28;
+            this.btnInHoaDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInHoaDon.Location = new System.Drawing.Point(23, 173);
+            this.btnInHoaDon.Name = "btnInHoaDon";
+            this.btnInHoaDon.Size = new System.Drawing.Size(150, 41);
+            this.btnInHoaDon.TabIndex = 16;
+            this.btnInHoaDon.Text = "         IN HÓA ĐƠN";
+            this.btnInHoaDon.TextColor = System.Drawing.Color.Black;
+            this.btnInHoaDon.UseVisualStyleBackColor = false;
             // 
-<<<<<<< HEAD
-            // label16
-            // 
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(11, 45);
-            this.label16.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(108, 32);
-            this.label16.TabIndex = 3;
-            this.label16.Text = "Ngày lập: ";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-=======
             // lblTongTien
             // 
             this.lblTongTien.BackColor = System.Drawing.Color.Transparent;
@@ -375,22 +361,20 @@ namespace GUI
             this.label22.TabIndex = 12;
             this.label22.Text = "Điểm tích lũy: ";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
->>>>>>> d2608a1a22880381357abd8e1dd862e4ca8edf3a
             // 
             // label17
             // 
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(11, 8);
+            this.label17.Location = new System.Drawing.Point(299, 43);
             this.label17.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(254, 32);
-            this.label17.TabIndex = 2;
-            this.label17.Text = "ĐƠN HÀNG MỚI  #HD001";
+            this.label17.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.label17.Size = new System.Drawing.Size(27, 32);
+            this.label17.TabIndex = 11;
+            this.label17.Text = "...";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-<<<<<<< HEAD
-=======
             // label15
             // 
             this.label15.BackColor = System.Drawing.Color.Transparent;
@@ -441,31 +425,31 @@ namespace GUI
             this.label14.Text = "Tổng tiền (tạm tính):";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // rjButton1
+            // btnThanhToan
             // 
-            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            this.rjButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            this.rjButton1.BorderColor = System.Drawing.Color.Black;
-            this.rjButton1.BorderRadius = 10;
-            this.rjButton1.BorderSize = 2;
-            this.rjButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.rjButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton1.ForeColor = System.Drawing.Color.Black;
-            this.rjButton1.Image = global::GUI.Properties.Resources.icons8_checkout_28;
-            this.rjButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton1.Location = new System.Drawing.Point(200, 173);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(150, 41);
-            this.rjButton1.TabIndex = 1;
-            this.rjButton1.Text = "         THANH TOÁN";
-            this.rjButton1.TextColor = System.Drawing.Color.Black;
-            this.rjButton1.UseVisualStyleBackColor = false;
+            this.btnThanhToan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
+            this.btnThanhToan.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
+            this.btnThanhToan.BorderColor = System.Drawing.Color.Black;
+            this.btnThanhToan.BorderRadius = 10;
+            this.btnThanhToan.BorderSize = 2;
+            this.btnThanhToan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnThanhToan.FlatAppearance.BorderSize = 0;
+            this.btnThanhToan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.btnThanhToan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnThanhToan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThanhToan.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThanhToan.ForeColor = System.Drawing.Color.Black;
+            this.btnThanhToan.Image = global::GUI.Properties.Resources.icons8_checkout_28;
+            this.btnThanhToan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThanhToan.Location = new System.Drawing.Point(200, 173);
+            this.btnThanhToan.Name = "btnThanhToan";
+            this.btnThanhToan.Size = new System.Drawing.Size(150, 41);
+            this.btnThanhToan.TabIndex = 1;
+            this.btnThanhToan.Text = "         THANH TOÁN";
+            this.btnThanhToan.TextColor = System.Drawing.Color.Black;
+            this.btnThanhToan.UseVisualStyleBackColor = false;
+            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
             // 
->>>>>>> d2608a1a22880381357abd8e1dd862e4ca8edf3a
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoSize = true;
@@ -506,7 +490,7 @@ namespace GUI
             this.cbxTimKiem.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
             this.cbxTimKiem.MinimumSize = new System.Drawing.Size(100, 30);
             this.cbxTimKiem.Name = "cbxTimKiem";
-            this.cbxTimKiem.Padding = new System.Windows.Forms.Padding(2);
+            this.cbxTimKiem.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbxTimKiem.Size = new System.Drawing.Size(108, 30);
             this.cbxTimKiem.TabIndex = 4;
             this.cbxTimKiem.Texts = "Mã KH";
@@ -526,7 +510,7 @@ namespace GUI
             this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
             this.txtTimKiem.Multiline = false;
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Padding = new System.Windows.Forms.Padding(7);
+            this.txtTimKiem.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.txtTimKiem.PasswordChar = false;
             this.txtTimKiem.PlaceholderColor = System.Drawing.Color.DimGray;
             this.txtTimKiem.PlaceholderText = "Nhập thông tin tìm kiếm";
@@ -879,23 +863,25 @@ namespace GUI
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Controls.Add(this.pbImage);
             this.panel3.Location = new System.Drawing.Point(540, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(225, 185);
             this.panel3.TabIndex = 0;
             // 
-            // pictureBox1
+            // pbImage
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::GUI.Properties.Resources.placeholder_image;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(225, 185);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pbImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbImage.Image = global::GUI.Properties.Resources.placeholder_image;
+            this.pbImage.InitialImage = global::GUI.Properties.Resources.placeholder_image;
+            this.pbImage.Location = new System.Drawing.Point(0, 0);
+            this.pbImage.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(225, 185);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbImage.TabIndex = 0;
+            this.pbImage.TabStop = false;
             // 
             // panel5
             // 
@@ -935,7 +921,7 @@ namespace GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1180, 738);
+            this.ClientSize = new System.Drawing.Size(1167, 718);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BanHangGUI";
@@ -954,7 +940,7 @@ namespace GUI
             this.flowLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudSoLuongMua)).EndInit();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -976,7 +962,7 @@ namespace GUI
         private MyCustom.RJButton btnNext;
         private System.Windows.Forms.FlowLayoutPanel flpThongTinSP;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbImage;
         private System.Windows.Forms.Panel panel5;
         private MyCustom.RJButton btnThemVaoGio;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
@@ -999,29 +985,23 @@ namespace GUI
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblNgayLap;
         private System.Windows.Forms.FlowLayoutPanel flpGioHang;
         private MyCustom.GradientPanel gradientPanel2;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-<<<<<<< HEAD
-=======
+        private System.Windows.Forms.Label lblKhachHang;
+        private System.Windows.Forms.Label lblNhanVien;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label lblTongTienTT;
         private System.Windows.Forms.Label label14;
-        private MyCustom.RJButton rjButton1;
+        private MyCustom.RJButton btnThanhToan;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
-        private MyCustom.RJButton rjButton2;
+        private MyCustom.RJButton btnInHoaDon;
         private System.Windows.Forms.Label lblTongTien;
         private System.Windows.Forms.Label label24;
         private MyCustom.RJButton rjButton3;
->>>>>>> d2608a1a22880381357abd8e1dd862e4ca8edf3a
     }
 }

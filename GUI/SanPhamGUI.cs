@@ -452,16 +452,6 @@ namespace GUI
             pbImage.Image = pbImage.InitialImage;
             pbImage.Tag = "Placeholder";
         }
-
-        private void lblErrMaSP_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 
 }

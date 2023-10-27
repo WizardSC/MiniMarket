@@ -15,7 +15,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Net.Mime.MediaTypeNames;
 using System.Runtime.InteropServices;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
-
+using System.IO;
 namespace GUI
 {
 
@@ -28,7 +28,7 @@ namespace GUI
         private string textSearchCondition = ""; // Biến để lưu trữ điều kiện từ textbox tìm kiếm
         private string genderCondition = ""; // Biến để lưu trữ điều kiện từ checkbox "Giới Tính"
         private string statusCondition = "";
-        private string activeCondition = "";
+
         private int tuoiStart = 0;
         private int tuoiEnd = 0;
         private int diemTLStart = 0;
@@ -42,10 +42,17 @@ namespace GUI
 
         private bool isHoatDong = false;
         private bool isKoHD = false;
+        private DataTable dt;
         public KhachHangGUI()
         {
             InitializeComponent();
             khBLL = new KhachHangBLL();
+            dt = khBLL.getListKhachHang();
+            DateTime currentDate = DateTime.Now;
+            dtpNgaySinh.MaxDate = currentDate; //không cho chọn ngày lớn hơn ngày hiện tại
+            unhideError(); //set màu trong suốt cho các label lỗi
+            loadMaKH();
+            txtMaKH.Enabled = false;
 
         }
         private void KhachHangGUI_Load(object sender, EventArgs e)
@@ -56,11 +63,68 @@ namespace GUI
             loadDataToCBX(cbxTimKiem);
             chkNam.Enabled = isGioiTinh;
             chkNu.Enabled = isGioiTinh;
-            Console.WriteLine(DateTime.Now.Year);
+
         }
         //Xóa bỏ tự chọn dòng đầu tiên của DataGridView khi load form
 
         #region các hàm bổ trợ
+        //chuyển đổi một hình ảnh thành một dạng biểu diễn nhị phân 
+        private byte[] convertImageToBinaryString(System.Drawing.Image img, string tag)
+        {
+
+            if (tag == "Placeholder")
+            {
+                lblErrIMG.ForeColor = Color.FromArgb(230, 76, 89);
+                return null;
+            }
+            else
+            {
+                lblErrIMG.ForeColor = Color.Transparent;
+
+            }
+
+            MemoryStream ms = new MemoryStream();
+            img.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+
+            return ms.ToArray();
+
+        }
+
+        //chuyển đổi một dạng biểu diễn nhị phân thành một hình ảnh 
+        private System.Drawing.Image convertBinaryStringToImage(byte[] binaryString)
+        {
+            MemoryStream ms = new MemoryStream(binaryString);
+            System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
+            return img;
+        }
+
+        //Load mã khách hàng cuối cùng lên form
+        private void loadMaKH()
+        {
+            string lastMaKH = dt.AsEnumerable()
+                .Select(row => row.Field<string>("MaKH"))
+                .LastOrDefault();
+
+            int nextNum = 1;
+            if (!string.IsNullOrEmpty(lastMaKH) && lastMaKH.Length >= 5)
+            {
+                int.TryParse(lastMaKH.Substring(2), out nextNum);
+                nextNum++;
+            }
+            txtMaKH.Texts = "KH" + nextNum.ToString("D3");
+        }
+        private void unhideError()
+        {
+            lblErrMaKH.ForeColor = Color.Transparent;
+            lblErrHo.ForeColor = Color.Transparent;
+            lblErrTen.ForeColor = Color.Transparent;
+            lblErrGioiTinh.ForeColor = Color.Transparent;
+            lblErrSoDT.ForeColor = Color.Transparent;
+            lblErrDiaChi.ForeColor = Color.Transparent;
+
+            lblErrTrangThai.ForeColor = Color.Transparent;
+            lblErrIMG.ForeColor = Color.Transparent;
+        }
         private void loadDataToCBX(RJComboBox cbx)
         {
             cbx.Items.Add("Mã KH");
@@ -73,6 +137,56 @@ namespace GUI
         private string returnDieuKien(string text)
         {
             return text;
+        }
+
+        private string CheckAndSetColor(object control, Label label)
+        {
+            if (control is RJTextBox textBox)
+            {
+                string text = textBox.Texts.Trim();
+                label.ForeColor = string.IsNullOrWhiteSpace(text) ? Color.FromArgb(230, 76, 89) : Color.Transparent;
+                return text;
+            }
+            else if (control is RJComboBox comboBox)
+            {
+                string selectedValue = comboBox.SelectedItem?.ToString();
+                if (string.IsNullOrWhiteSpace(selectedValue))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                }
+                else
+                {
+                    label.ForeColor = Color.Transparent;
+                }
+                return selectedValue;
+            }
+
+            return null; // Nếu kiểu dữ liệu không hợp lệ.
+        }
+
+        private int ConvertToInt(RJTextBox textBox, Label label = null)
+        //Nếu không có lbl Lỗi thì mặc định giá trị là null
+        {
+            string text = textBox.Texts.Trim();
+            int result;
+
+            bool isNumeric = int.TryParse(text, out result);
+
+            if (label != null)
+            {
+                if (string.IsNullOrWhiteSpace(text))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "*Vui lòng nhập Giá nhập hàng";
+                }
+                else
+                {
+                    label.ForeColor = isNumeric ? Color.Transparent : Color.FromArgb(230, 76, 89);
+                    label.Text = isNumeric ? "" : "*Vui lòng nhập 1 số nguyên";
+                }
+            }
+
+            return isNumeric ? result : 0;
         }
         #endregion
 
@@ -439,7 +553,7 @@ namespace GUI
             {
                 return;
             }
-           
+
 
         }
 
@@ -490,17 +604,195 @@ namespace GUI
             return condition;
         }
 
-        private void dgvKhachHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            string maKH = CheckAndSetColor(txtMaKH, lblErrMaKH);
+            string ho = CheckAndSetColor(txtHo, lblErrHo);
+            string ten = CheckAndSetColor(txtTen, lblErrTen);
+            string soDT = CheckAndSetColor(txtSoDT, lblErrSoDT);
+            DateTime ngaySinh = dtpNgaySinh.Value;
+            string diaChi = CheckAndSetColor(txtDiaChi, lblErrDiaChi);
+            string trangThai = CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
+            int trangThaiValue = (trangThai == "Hoạt động" ? 1 : 0);
+            int diemTichLuy = int.Parse(lblDiemTL.Text);
+            byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
+            string gioiTinh = "";
+            if (!(rdbNam.Checked || rdbNu.Checked))
+            {
+                lblErrGioiTinh.ForeColor = Color.FromArgb(230, 76, 89); // Đổi màu nếu cả hai CheckBox đều không được chọn
+                return;
+            }
+            else if (rdbNam.Checked)
+            {
+                gioiTinh = Convert.ToString(rdbNam.Text);
+                lblErrGioiTinh.ForeColor = Color.Transparent; // Đổi màu trong suốt nếu có một trong hai CheckBox được chọn
+            }
+            else if (rdbNu.Checked)
+            {
+                gioiTinh = Convert.ToString(rdbNu.Text);
+                lblErrGioiTinh.ForeColor = Color.Transparent; // Đổi màu trong suốt nếu có một trong hai CheckBox được chọn
+
+            }
+
+            if (!(maKH != "" && ho != "" && ten != "" && soDT != "" && diaChi != "" && trangThai != "" && img != null))
+            {
+                return;
+            }
+            KhachHangDTO kh = new KhachHangDTO(maKH, ho, ten, ngaySinh, gioiTinh, soDT, diaChi, trangThaiValue, img, diemTichLuy);
+            int result = khBLL.insertKhachhang(kh) ? 1 : 0;
+            if (result == 1)
+            {
+                MessageBox.Show("Thêm thành công",
+                  "Thông báo",
+                  MessageBoxButtons.OK,
+                  MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Thêm thất bại",
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void dgvKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int i = dgvKhachHang.CurrentRow.Index;
             txtMaKH.Texts = dgvKhachHang.Rows[i].Cells[0].Value.ToString();
             txtHo.Texts = dgvKhachHang.Rows[i].Cells[1].Value.ToString();
-        }
+            txtTen.Texts = dgvKhachHang.Rows[i].Cells[2].Value.ToString();
+            dtpNgaySinh.Value = DateTime.Parse((dgvKhachHang.Rows[i].Cells[3].Value.ToString()));
+            string gioiTinh = dgvKhachHang.Rows[i].Cells[4].Value.ToString();
+            rdbNam.Checked = (gioiTinh == "Nam");
+            rdbNu.Checked = (gioiTinh == "Nữ");
+            txtSoDT.Texts = dgvKhachHang.Rows[i].Cells[5].Value.ToString();
+            txtDiaChi.Texts = dgvKhachHang.Rows[i].Cells[6].Value.ToString();
+            int trangThai = int.Parse(dgvKhachHang.Rows[i].Cells[7].Value.ToString());
+            byte[] imageBytes = (byte[])dgvKhachHang.Rows[i].Cells[9].Value;
+            pbImage.Image = convertBinaryStringToImage(imageBytes);
+            pbImage.Tag = dgvKhachHang.Rows[i].Cells[0].Value.ToString();
+            cbxTrangThai.SelectedItem = (trangThai == 1) ? "Hoạt động" : "Không hoạt động";
 
-        private void btnThem_Click(object sender, EventArgs e)
+            lblDiemTL.Text = dgvKhachHang.Rows[i].Cells[8].Value.ToString();
+        }
+        #region validate Dữ liệu
+        private void txtHo__TextChanged(object sender, EventArgs e)
         {
-
+            CheckAndSetColor(txtHo, lblErrHo);
         }
+
+        private void txtTen__TextChanged(object sender, EventArgs e)
+        {
+            CheckAndSetColor(txtTen, lblErrTen);
+        }
+
+        private void txtSoDT__TextChanged(object sender, EventArgs e)
+        {
+            CheckAndSetColor(txtSoDT, lblErrSoDT);
+        }
+
+        private void txtDiaChi__TextChanged(object sender, EventArgs e)
+        {
+            CheckAndSetColor(txtDiaChi, lblErrDiaChi);
+        }
+
+        private void cbxTrangThai_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
+        }
+        private void rdbNam_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!(rdbNam.Checked || rdbNu.Checked))
+            {
+                lblErrGioiTinh.ForeColor = Color.FromArgb(230, 76, 89); // Đổi màu nếu cả hai CheckBox đều không được chọn
+            }
+            else
+            {
+                lblErrGioiTinh.ForeColor = Color.Transparent; // Đổi màu trong suốt nếu có một trong hai CheckBox được chọn
+            }
+        }
+
+        private void rdbNu_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!(rdbNam.Checked || rdbNu.Checked))
+            {
+                lblErrGioiTinh.ForeColor = Color.FromArgb(230, 76, 89); // Đổi màu nếu cả hai CheckBox đều không được chọn
+            }
+            else
+            {
+                lblErrGioiTinh.ForeColor = Color.Transparent; // Đổi màu trong suốt nếu có một trong hai CheckBox được chọn
+            }
+        }
+
+        #endregion
+
+        private void btnUploadIMG_Click(object sender, EventArgs e)
+        {
+            string appDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            string folderPath = Path.Combine(appDirectory, "resources", "image", "KhachHang");
+            OpenFileDialog open = new OpenFileDialog
+            {
+                InitialDirectory = folderPath,
+                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp",
+                RestoreDirectory = true
+            };
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                pbImage.Image = System.Drawing.Image.FromFile(open.FileName);
+
+                this.Text = open.FileName;
+
+                pbImage.Tag = txtMaKH.Texts;
+                Console.WriteLine(pbImage.Tag);
+
+            }
+        }
+
+        private void btnDeleteIMG_Click(object sender, EventArgs e)
+        {
+            pbImage.Image = pbImage.InitialImage;
+            pbImage.Tag = "Placeholder";
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            string maKH = txtMaKH.Texts;
+            string ho = txtHo.Texts;
+            string ten = txtTen.Texts;
+            DateTime ngaySinh = dtpNgaySinh.Value;
+            string gioiTinh = rdbNam.Checked ? rdbNam.Text : (rdbNu.Checked ? rdbNu.Text : "");
+            string soDT = txtSoDT.Texts;
+            string diaChi = txtDiaChi.Texts;
+            int trangThaiValue = (cbxTrangThai.SelectedItem == "Hoạt động") ? 1 : 0;
+            int diemTL = int.Parse(lblDiemTL.Text);
+            byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
+
+            KhachHangDTO kh = new KhachHangDTO(maKH, ho, ten, ngaySinh, gioiTinh, soDT, diaChi, trangThaiValue, img, diemTL);
+            int result = khBLL.updateKhachHang(kh) ? 1 : 0;
+            if (result == 1)
+            {
+                MessageBox.Show("Sửa thành công",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+            }
+            else
+            {
+                MessageBox.Show("Sửa thất bại",
+                   "Lỗi",
+                   MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
+            }
+            
+        }
+
+
+
     }
 }
+
 
