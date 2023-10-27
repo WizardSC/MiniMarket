@@ -108,6 +108,56 @@ namespace GUI
             Image img = Image.FromStream(ms);
             return img;
         }
+
+        private string CheckAndSetColor(object control, Label label)
+        {
+            if (control is RJTextBox textBox)
+            {
+                string text = textBox.Texts.Trim();
+                label.ForeColor = string.IsNullOrWhiteSpace(text) ? Color.FromArgb(230, 76, 89) : Color.Transparent;
+                return text;
+            }
+            else if (control is RJComboBox comboBox)
+            {
+                string selectedValue = comboBox.SelectedItem?.ToString();
+                if (string.IsNullOrWhiteSpace(selectedValue))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                }
+                else
+                {
+                    label.ForeColor = Color.Transparent;
+                }
+                return selectedValue;
+            }
+
+            return null; // Nếu kiểu dữ liệu không hợp lệ.
+        }
+
+        private int ConvertToInt(RJTextBox textBox, Label label = null)
+        //Nếu không có lbl Lỗi thì mặc định giá trị là null
+        {
+            string text = textBox.Texts.Trim();
+            int result;
+
+            bool isNumeric = int.TryParse(text, out result);
+
+            if (label != null)
+            {
+                if (string.IsNullOrWhiteSpace(text))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "*Vui lòng nhập Giá nhập hàng";
+                }
+                else
+                {
+                    label.ForeColor = isNumeric ? Color.Transparent : Color.FromArgb(230, 76, 89);
+                    label.Text = isNumeric ? "" : "*Vui lòng nhập 1 số nguyên";
+                }
+            }
+
+            return isNumeric ? result : 0;
+        }
         #endregion
         #region Các hàm validate lỗi
         private void txtTenSP__TextChanged(object sender, EventArgs e)
@@ -167,55 +217,6 @@ namespace GUI
             }
         }
 
-        private string CheckAndSetColor(object control, Label label)
-        {
-            if (control is RJTextBox textBox)
-            {
-                string text = textBox.Texts.Trim();
-                label.ForeColor = string.IsNullOrWhiteSpace(text) ? Color.FromArgb(230, 76, 89) : Color.Transparent;
-                return text;
-            }
-            else if (control is RJComboBox comboBox)
-            {
-                string selectedValue = comboBox.SelectedItem?.ToString();
-                if (string.IsNullOrWhiteSpace(selectedValue))
-                {
-                    label.ForeColor = Color.FromArgb(230, 76, 89);
-                }
-                else
-                {
-                    label.ForeColor = Color.Transparent;
-                }
-                return selectedValue;
-            }
-
-            return null; // Nếu kiểu dữ liệu không hợp lệ.
-        }
-
-        private int ConvertToInt(RJTextBox textBox, Label label = null)
-        //Nếu không có lbl Lỗi thì mặc định giá trị là null
-        {
-            string text = textBox.Texts.Trim();
-            int result;
-
-            bool isNumeric = int.TryParse(text, out result);
-
-            if (label != null)
-            {
-                if (string.IsNullOrWhiteSpace(text))
-                {
-                    label.ForeColor = Color.FromArgb(230, 76, 89);
-                    label.Text = "*Vui lòng nhập Giá nhập hàng";
-                }
-                else
-                {
-                    label.ForeColor = isNumeric ? Color.Transparent : Color.FromArgb(230, 76, 89);
-                    label.Text = isNumeric ? "" : "*Vui lòng nhập 1 số nguyên";
-                }
-            }
-
-            return isNumeric ? result : 0;
-        }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -233,23 +234,13 @@ namespace GUI
             byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
             int trangThaiValue = (trangThai == "Hoạt động") ? 1 : 0;
             //Có thể k cần truyền vào lbl Lỗi
-            Console.WriteLine("maSP: " + maSP);
-            Console.WriteLine("tenSP: " + tenSP);
-            Console.WriteLine("donViTinh: " + donViTinh);
-            Console.WriteLine("maLoai: " + maLoai);
-            Console.WriteLine("maNSX: " + maNSX);
-            Console.WriteLine("maNCC: " + maNCC);
-            Console.WriteLine("trangThai: " + trangThai);
-            Console.WriteLine("tonKho: " + soLuongTonKho);
-            Console.WriteLine("dongianhap: " + donGiaNhap);
-            Console.WriteLine("dongiaban: " + donGiaBan);
-            // Xử lý trường hợp không có ảnh (imgBytes == null)
+            
+            // Nếu null thì return 
 
             if (!(maSP != "" && tenSP != "" && donViTinh != "" && maLoai != "" && maNSX != "" && maNCC != "" && trangThai != "" && donGiaNhap != 0 && donGiaBan != 0 && img != null))
             {
                 return;
             }
-            Console.WriteLine("Không có cái nào null");
             SanPhamDTO sp = new SanPhamDTO(maSP, tenSP, soLuongTonKho, donGiaNhap, donGiaBan, donViTinh, trangThaiValue, maLoai, maNSX, maNCC, img);
             int flag = spBLL.insertSanPham(sp) ? 1 : 0;
             if (flag == 1)

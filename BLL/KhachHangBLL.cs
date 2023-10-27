@@ -23,5 +23,15 @@ namespace BLL
         {
             return khDAL.getListKhachHang();
         }
+
+        public bool insertKhachhang(KhachHangDTO kh)
+        {
+            return khDAL.insertKhachHang(kh);
+        }
+
+        public bool updateKhachHang(KhachHangDTO kh)
+        {
+            return khDAL.updateKhachHang(kh);
+        }
     }
 }
