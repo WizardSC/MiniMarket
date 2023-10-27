@@ -12,15 +12,6 @@ namespace GUI.MyCustom
 {
     public partial class MyProductInCart : UserControl
     {
-<<<<<<< HEAD
-        public string maSP;
-        public int donGia;
-        public int soLuong;
-        public MyProductInCart()
-        {
-           
-        }
-=======
 
         public int soLuongTrongKho;
         public int soLuongMuaThem;
@@ -31,7 +22,6 @@ namespace GUI.MyCustom
         
         public MyProductInCart()
         {
->>>>>>> d2608a1a22880381357abd8e1dd862e4ca8edf3a
 
             InitializeComponent();
         }
@@ -58,8 +48,6 @@ namespace GUI.MyCustom
         {
             OnDeleteButtonClicked(EventArgs.Empty);
         }
-<<<<<<< HEAD
-=======
         protected virtual void OnDeleteButtonClicked(EventArgs e)
         {
             EventHandler handler = DeleteButtonClicked;
@@ -77,6 +65,5 @@ namespace GUI.MyCustom
             EventHandler handler = GiamButtonClicked;
             handler?.Invoke(this, e);
         }
->>>>>>> d2608a1a22880381357abd8e1dd862e4ca8edf3a
     }
 }
