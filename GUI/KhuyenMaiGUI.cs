@@ -196,16 +196,18 @@ namespace GUI
 
         private void btnThongTinKM_Click(object sender, EventArgs e)
         {
-            string MaKM = txtMaKM.Texts;
+            string MaKM = txtMaKM.Texts;            
+            string TenKM = txtTenKm.Texts;
             DataTable dataTable = kmBLL.getThongTinSPKM(MaKM);
             if (dataTable != null && dataTable.Rows.Count > 0)
             {
-                ThongTinSPKMGUI ThongTin = new ThongTinSPKMGUI(this, MaKM);
+                ThongTinSPKMGUI ThongTin = new ThongTinSPKMGUI(this, MaKM,TenKM);
                 ThongTin.Show();
             }
             else
             {
-                MessageBox.Show("Khuyến mãi này chưa áp dụng cho sản phẩm nào.");
+                MessageBox.Show("Khuyến mãi này chưa áp dụng cho sản phẩm nào.", "Thông báo");
+
             }
         }
 
@@ -222,11 +224,11 @@ namespace GUI
         }
         private DateTime CheckAndSetColorDate(DateTime dateTime, Label label)
         {
-            DateTime currentDate = DateTime.Now; // Lấy ngày hiện tại
+            DateTime currentDate = dtpNgayBD.Value; // Lấy ngày hiện tại
 
             if (dateTime != default(DateTime))
             {
-                if (dateTime <= currentDate)
+                if (dateTime < currentDate)
                 {
                     label.ForeColor = Color.FromArgb(230, 76, 89);
                 }
@@ -285,7 +287,7 @@ namespace GUI
             string CheckTrangThai = cbxTrangThai.Texts.ToString();
             int trangthai = (CheckTrangThai == "Hoạt động") ? 1 : 0;
 
-            if (string.IsNullOrWhiteSpace(tenKM) || ngaykt <= Ngaybd || string.IsNullOrWhiteSpace(phantramkm) || !IsInteger(phantramkm))
+            if (string.IsNullOrWhiteSpace(tenKM) || ngaykt < Ngaybd || string.IsNullOrWhiteSpace(phantramkm) || !IsInteger(phantramkm))
             {
                 return;
             }
@@ -603,6 +605,14 @@ namespace GUI
         private void dtpNgayKT_ValueChanged(object sender, EventArgs e)
         {
             CheckAndSetColorDate(dtpNgayKT.Value, label8);
+        }
+
+
+        private void dtpNgayBD_ValueChanged_1(object sender, EventArgs e)
+        {
+            // Đặt MinDate thành ngày hiện tại
+            dtpNgayBD.MinDate = DateTime.Now;
+            
         }
     }
 }

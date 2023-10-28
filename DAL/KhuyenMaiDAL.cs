@@ -39,7 +39,7 @@ namespace DAL
             return dt;
         }
 
-        //thong tin chi tiet km 
+        //thong tin chi tiet km khi click vao km 
         public DataTable getThongTinKM(string MaKM)
         {
             DataTable dt = new DataTable();
@@ -49,7 +49,7 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "select ChiTietKhuyenMai.MaKM,ChiTietKhuyenMai.MaSP," +
-                    "KhuyenMai.TenKM,SanPham.TenSP,KhuyenMai.NgayBatDau,KhuyenMai.NgayKetThuc," +
+                    "SanPham.TenSP,KhuyenMai.NgayBatDau,KhuyenMai.NgayKetThuc," +
                     "ChiTietKhuyenMai.PhanTramKM,ChiTietKhuyenMai.TrangThai" +
                     " from ChiTietKhuyenMai,KhuyenMai,SanPham " +
                     "where KhuyenMai.MaKM = ChiTietKhuyenMai.MaKM AND SanPham.MaSP = ChiTietKhuyenMai.MaSP AND KhuyenMai.MaKM=@MaKM";

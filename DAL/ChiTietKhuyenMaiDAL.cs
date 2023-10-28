@@ -78,7 +78,7 @@ namespace DAL
             try
             {
                 dbConnect.Connect();
-                string query = "UPDATE ChiTietKhuyenMai SET MaSP = @MaSP, PhanTramKM = @PhanTramKM, TrangThai = @TrangThai WHERE MaKM = @MaKM";
+                string query = "UPDATE ChiTietKhuyenMai SET  PhanTramKM = @PhanTramKM, TrangThai = @TrangThai WHERE MaKM = @MaKM and MaSP = @MaSP";
                 SqlCommand cmd = new SqlCommand(query, dbConnect.conn);
                 cmd.Parameters.AddWithValue("@MaKM", CTKM_DTO.Makm);
                 cmd.Parameters.AddWithValue("@MaSP", CTKM_DTO.Masp);
@@ -96,23 +96,34 @@ namespace DAL
                 Disconnect();
             }
         }
-        public bool delete_ChiTietkhuyenMai(ChiTietKhuyenMaiDTO CTKM_DTO)
+        public bool delete_CTkhuyenMai(string maKM,string MaSP, out bool isLoiKhoaNgoai)
         {
             try
             {
-                MSSQLConnect dbConnect = new MSSQLConnect();
-                dbConnect.Connect();
-                string query= "delete from ChiTietKhuyenMai where MaKM = @MaKM and MaSP = @MaSP";
-                SqlCommand cmd = new SqlCommand(query, dbConnect.conn);
-                cmd.Parameters.AddWithValue("@MaKM", CTKM_DTO.Makm);
-                cmd.Parameters.AddWithValue("@MaSP", CTKM_DTO.Masp);
+                Connect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "delete from ChiTietKhuyenMai where MaKM = @MaKM and MaSP =@MaSP";
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@MaKM", maKM).SqlDbType = SqlDbType.Char;
+                cmd.Parameters.AddWithValue("@MaSP", MaSP).SqlDbType = SqlDbType.Char;
                 cmd.ExecuteReader();
+                isLoiKhoaNgoai = false;
                 return true;
             }
             catch (SqlException ex)
             {
-                
-               
+                if (ex.Number == 547) // Mã lỗi 547 là mã lỗi cho việc tham chiếu đến khóa ngoại
+                {
+                    Console.WriteLine("Lỗi: Không thể xóa khuyến mãi vì có khóa ngoại tham chiếu.");
+                    isLoiKhoaNgoai = true;
+                }
+                else
+                {
+                    Console.WriteLine("Lỗi: " + ex.Message);
+                    isLoiKhoaNgoai = false;
+
+                }
                 return false;
             }
             finally
@@ -120,6 +131,31 @@ namespace DAL
                 Disconnect();
             }
         }
-       
+        public bool update_TrangThai(int trangThai, string maKM,string maSP)
+        {
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "update ChiTietKhuyenMai set TrangThai = @TrangThai where MaKM = @MaKM and MaSP =@MaSP";
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@TrangThai", trangThai).SqlDbType = SqlDbType.Int;
+                cmd.Parameters.AddWithValue("@MaKM", maKM).SqlDbType = SqlDbType.Char;
+                cmd.Parameters.AddWithValue("@MaSP", maSP).SqlDbType = SqlDbType.Char;
+                cmd.ExecuteReader();
+                return true;
+
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Disconnect();
+            }
+        }
     }
 }

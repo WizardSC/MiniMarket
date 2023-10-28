@@ -329,7 +329,8 @@ namespace GUI
 
         private void btnXoaKM_Click(object sender, EventArgs e)
         {
-
+            string stringTrangThai = cbxTrangThai.SelectedItem.ToString();
+            int trangThai = (stringTrangThai == "Hoạt động") ? 1 : 0;
             string tenKM = comboBoxTenKM.Text;
 
             string tenSp = comboBoxTenSP.Text;
@@ -356,24 +357,63 @@ namespace GUI
                 }
             }
 
-            ChiTietKhuyenMaiDTO CTKM_DTO = new ChiTietKhuyenMaiDTO();
-
-            CTKM_DTO.Makm = idKm;
-            CTKM_DTO.Masp = idSp;
-           
-            bool result = CTKhuyenMaiBLL.deleteCTKhuyenMai(CTKM_DTO);
-
-            if (result)
+            var choice = MessageBox.Show("Xóa khuyến mãi này??", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (choice == DialogResult.Yes)
             {
-                MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                init();
-                clearForm();
-            }
-            else
-            {
-                MessageBox.Show("Xóa thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                bool isLoiKhoaNgoai;
+                bool kq = CTKhuyenMaiBLL.deleteCTKhuyenMai(idKm,idSp, out isLoiKhoaNgoai);
+                if (kq)
+                {
+                    MessageBox.Show("Xóa thành công",
+                      "Thông báo",
+                      MessageBoxButtons.OK,
+                      MessageBoxIcon.Information);
+                    init();
+                    clearForm();
 
+                }
+                else
+                {
+                    if (isLoiKhoaNgoai)
+                    {
+                        MessageBoxButtons buttons = MessageBoxButtons.OK;
+                        var result = MessageBox.Show("Không thể xóa sản phẩm này vì có dữ liệu liên quan đến sản phẩm trong hệ thống. " +
+                            "Vui lòng xóa các dữ liệu liên quan trước khi tiếp tục", "Lỗi", buttons, MessageBoxIcon.Error);
+                        if (result == DialogResult.OK)
+                        {
+                            if (trangThai == 1)
+                            {
+                                var result1 = MessageBox.Show("Bạn có muốn thay đổi trạng thái của sản phẩm này?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                                if (result1 == DialogResult.OK)
+                                {
+                                    int flag = CTKhuyenMaiBLL.updateTrangThai(trangThai, idKm,idSp) ? 1 : 0;
+                                    if (flag == 1)
+                                    {
+                                        MessageBox.Show("Thay đổi trạng thái thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                   
+                                        init();
+                                        clearForm();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Thay đổi trạng thái thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                    }
+                                }
+                                else if (result1 == DialogResult.Cancel)
+                                {
+                                    return;
+                                }
+                            }
+                            else return;
+
+                        }
+
+                    }
+                
+
+                }
+            }
         }
 
         private void btnRS_Click(object sender, EventArgs e)

@@ -33,7 +33,6 @@
             this.dgvThongTinSPKM = new System.Windows.Forms.DataGridView();
             this.MaKM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Masp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenKM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,7 +62,6 @@
             this.dgvThongTinSPKM.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaKM,
             this.Masp,
-            this.TenKM,
             this.TenSp,
             this.Column1,
             this.NgayKT,
@@ -88,8 +86,9 @@
             this.dgvThongTinSPKM.RowTemplate.Height = 30;
             this.dgvThongTinSPKM.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvThongTinSPKM.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvThongTinSPKM.Size = new System.Drawing.Size(911, 128);
+            this.dgvThongTinSPKM.Size = new System.Drawing.Size(903, 128);
             this.dgvThongTinSPKM.TabIndex = 2;
+            this.dgvThongTinSPKM.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvThongTinSPKM_CellFormatting);
             // 
             // MaKM
             // 
@@ -110,16 +109,6 @@
             this.Masp.ReadOnly = true;
             this.Masp.Width = 71;
             // 
-            // TenKM
-            // 
-            this.TenKM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.TenKM.DataPropertyName = "TenKM";
-            this.TenKM.HeaderText = "Tên KM";
-            this.TenKM.MinimumWidth = 6;
-            this.TenKM.Name = "TenKM";
-            this.TenKM.ReadOnly = true;
-            this.TenKM.Width = 150;
-            // 
             // TenSp
             // 
             this.TenSp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -128,7 +117,7 @@
             this.TenSp.MinimumWidth = 6;
             this.TenSp.Name = "TenSp";
             this.TenSp.ReadOnly = true;
-            this.TenSp.Width = 150;
+            this.TenSp.Width = 315;
             // 
             // Column1
             // 
@@ -137,7 +126,7 @@
             this.Column1.HeaderText = "Ngày bắt đầu";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 130;
+            this.Column1.Width = 108;
             // 
             // NgayKT
             // 
@@ -146,37 +135,36 @@
             this.NgayKT.HeaderText = "Ngày kết thúc";
             this.NgayKT.Name = "NgayKT";
             this.NgayKT.ReadOnly = true;
-            this.NgayKT.Width = 130;
+            this.NgayKT.Width = 108;
             // 
             // PhanTramKm
             // 
-            this.PhanTramKm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.PhanTramKm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.PhanTramKm.DataPropertyName = "PhanTramKM";
             this.PhanTramKm.HeaderText = "Phần trăm KM";
             this.PhanTramKm.MinimumWidth = 6;
             this.PhanTramKm.Name = "PhanTramKm";
             this.PhanTramKm.ReadOnly = true;
-            this.PhanTramKm.Width = 113;
             // 
             // TrangThai
             // 
-            this.TrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.TrangThai.DataPropertyName = "TrangThai";
             this.TrangThai.HeaderText = "Trạng thái";
             this.TrangThai.MinimumWidth = 6;
             this.TrangThai.Name = "TrangThai";
             this.TrangThai.ReadOnly = true;
-            this.TrangThai.Width = 91;
+            this.TrangThai.Width = 125;
             // 
             // ThongTinSPKMGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 130);
+            this.ClientSize = new System.Drawing.Size(907, 130);
             this.Controls.Add(this.dgvThongTinSPKM);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ThongTinSPKMGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thông tin chi tiết sản phẩm khuyến mãi";
@@ -190,7 +178,6 @@
         private System.Windows.Forms.DataGridView dgvThongTinSPKM;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKM;
         private System.Windows.Forms.DataGridViewTextBoxColumn Masp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenKM;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSp;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayKT;
