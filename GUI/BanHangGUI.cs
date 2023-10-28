@@ -59,7 +59,7 @@ namespace GUI
             hdBLL = new HoaDonBLL();
             khBLL = new KhachHangBLL();
             dt = spBLL.getListSanPham();
-            
+
             dtKhachHang = khBLL.getListKhachHang();
             listSP = spBLL.getListSP();
             // Gọi hàm tính toán số trang
@@ -69,19 +69,19 @@ namespace GUI
             UpdateCurrentPage(dt);
             loadNgayThang();
 
-            
+
         }
 
         // Các hàm khác ở đây
         private List<Tuple<string, string, string>> ConvertDataTableToList(DataTable dt)
         {
             List<Tuple<string, string, string>> listKH = new List<Tuple<string, string, string>>();
-            foreach(DataRow row in dt.Rows)
+            foreach (DataRow row in dt.Rows)
             {
                 string maKH = row["MaKH"].ToString();
                 string hoKH = row["Ho"].ToString();
-                string tenKH = row["Ten"].ToString() ;
-                listKH.Add(new Tuple<string, string, string>(maKH, hoKH,tenKH));
+                string tenKH = row["Ten"].ToString();
+                listKH.Add(new Tuple<string, string, string>(maKH, hoKH, tenKH));
             }
 
             return listKH;
@@ -417,14 +417,44 @@ namespace GUI
 
                 gioHang[maSP] = existingProduct;
             }
-            tinhTongTien();
+            //Khi click về 0 thì xóa sản phẩm
+            if (clickedItem.txtSoLuong.Texts == "0")
+            {
+                var result = MessageBox.Show("Bạn có muốn xóa sản phẩm khỏi giỏ hàng không?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if (result == DialogResult.OK)
+                {
+                    flpGioHang.Controls.Remove(clickedItem);
+                    List<string> keysToRemove = new List<string>();
+                    foreach (var pair in gioHang)
+                    {
+                        if (pair.Key == maSP)
+                        {
+                            keysToRemove.Add(pair.Key);
+                        }
+                    }
 
+                    foreach (string key in keysToRemove)
+                    {
+                        gioHang.Remove(key);
+                    }
+                }
+            }
+            else
+            {
+
+            }
+            tinhTongTien();
             refreshThongTin();
 
         }
         private void MyProductInCart_DeleteButtonClicked(object sender, EventArgs e)
         {
             MyCustom.MyProductInCart item = (MyCustom.MyProductInCart)sender;
+            var result = MessageBox.Show("Bạn có muốn xóa sản phẩm khỏi giỏ hàng không?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
             flpGioHang.Controls.Remove(item);
             List<string> keysToRemove = new List<string>();
 
@@ -480,7 +510,11 @@ namespace GUI
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            
+            if(gioHang.Count == 0)
+            {
+                MessageBox.Show("Không có sản phẩm trong giỏ hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             HoaDonDTO hd = new HoaDonDTO();
 
             hd.MaHD = "HD004";
@@ -497,6 +531,7 @@ namespace GUI
                 .Where(tuple => (tuple.Item2 + " " + tuple.Item3).Equals(lblKhachHang.Text))
                 .Select(tuple => tuple.Item1)
                 .FirstOrDefault();
+            Console.WriteLine(hd.MaKH);
             //cách dùng forEach truyền thống
             //foreach (var tuple in listKH) 
             //{
@@ -506,21 +541,21 @@ namespace GUI
             //    {
             //        maKH = tuple.Item1;
             //    }
-            int result = hdBLL.insertHoaDon(hd) ? 1 : 0;
-            if (result == 1)
-            {
-                MessageBox.Show("Thêm thành công",
-                  "Thông báo",
-                  MessageBoxButtons.OK,
-                  MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Thêm thất bại",
-                    "Lỗi",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
+            //int result = hdBLL.insertHoaDon(hd) ? 1 : 0;
+            //if (result == 1)
+            //{
+            //    MessageBox.Show("Thêm thành công",
+            //      "Thông báo",
+            //      MessageBoxButtons.OK,
+            //      MessageBoxIcon.Information);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Thêm thất bại",
+            //        "Lỗi",
+            //        MessageBoxButtons.OK,
+            //        MessageBoxIcon.Error);
+            //}
 
         }
     }
