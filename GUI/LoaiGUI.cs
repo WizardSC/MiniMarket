@@ -18,7 +18,9 @@ namespace GUI
     public partial class LoaiGUI : Form
     {
         private string cbxItemsMacDinh;
-        private string textSearchCondition = "";
+        private string statusCondition = "";
+        private string textSearchCondition = ""; // Biến để lưu trữ điều kiện từ textbox tìm kiếm
+        private string genderCondition = ""; // Biến để lưu trữ điều kiện từ checkbox "Giới Tính"
         private string currentSearch;
         private LoaiBLL loaibill;
         private DataTable dt;
@@ -93,6 +95,7 @@ namespace GUI
 
         private void LoaiGUI_Load(object sender, EventArgs e)
         {
+            loadDataToCBX(cbxTimKiem);
             init();
         }
         public void init()
@@ -276,11 +279,17 @@ namespace GUI
         {
             clearForm();
         }
+        private void loadDataToCBX(RJComboBox cbx)
+        {
+            cbx.Items.Add("MÃ LOẠI");
+            cbx.Items.Add("TÊN LOẠI");
+            cbxItemsMacDinh = cbx.Items[0].ToString();
+        }
         private string returnDieuKien(string text)
         {
             return text;
         }
-
+        
         private void cbxTimKiem_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             cbxItemsMacDinh = cbxTimKiem.SelectedItem.ToString();
@@ -300,27 +309,132 @@ namespace GUI
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            string textTimKiem = txtTimKiem.Texts;
-            textSearchCondition = GetTextSearchCondition(textTimKiem);
-            /*string combinedCondition = CombineConditions(textSearchCondition, genderCondition);
-            combinedCondition = ApplyOrRemoveTuoiCondition(combinedCondition, isTuoi);
-            combinedCondition = CombineConditions(combinedCondition, statusCondition);
-            combinedCondition = ApplyOrRemoveDiemTLCondition(combinedCondition, isDiemTL);*/
-            applySearchs(textSearchCondition);
-        }
-        private void applySearchs(string text)
-        {
-            currentSearch = text;
-            Console.WriteLine(currentSearch);
-            DataView dvLoai = loaibill.getListLoai().DefaultView;
-            dvLoai.RowFilter = currentSearch;
-            dgvLoai.DataSource = dvLoai.ToTable();
+             
+
+             string textTimKiem = txtTimKiem.Texts;
+             textSearchCondition = GetTextSearchCondition(textTimKiem);
+             string combinedCondition = CombineConditions(textSearchCondition, genderCondition);
+             applySearchs(combinedCondition);
         }
 
-        private void txtTimKiem_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtTimKiem_KeyPress_1(object sender, KeyPressEventArgs e)
         {
-
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                //btnTimKiem.PerformClick();
+                btnTimKiem_Click(sender, e);
+                e.Handled = true;
+            }
         }
+           private void applySearchs(string text)
+            {
+               // dt = loaibill.getListLoai();
+                currentSearch = text;
+                Console.WriteLine(currentSearch);
+                DataView dvLoai = loaibill.getListLoai().DefaultView;
+                dvLoai.RowFilter = currentSearch;
+                dgvLoai.DataSource = dvLoai.ToTable();
+            }
+         private string CombineConditions(string condition1, string condition2)
+         {
+             if (!string.IsNullOrEmpty(condition1) && !string.IsNullOrEmpty(condition2))
+             {
+                 return $"({condition1}) AND ({condition2})";
+             }
+             else if (!string.IsNullOrEmpty(condition1))
+             {
+                 return condition1;
+             }
+             else if (!string.IsNullOrEmpty(condition2))
+             {
+                 return condition2;
+             }
+             else
+             {
+                 return "";
+             }
+         }
+        private string CombineConditions(string condition1)
+        {
+            if (!string.IsNullOrEmpty(condition1))
+            {
+                return $"({condition1})";
+            }
+            else if (!string.IsNullOrEmpty(condition1))
+            {
+                return condition1;
+            }
+            else
+            {
+                return "";
+            }
+        }
+       /* private string CombineConditions(string condition1)
+        {
+            if (!string.IsNullOrEmpty(condition1))
+            {
+                return $"({condition1})";
+            }
+            return "";
+        }*/
+
+
+        private void dgvLoai_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvLoai.ClearSelection();
+            dgvLoai.CurrentCell = null;
+        }
+        /* private void cbxTimKiem_OnSelectedIndexChanged(object sender, EventArgs e)
+{
+    cbxItemsMacDinh = cbxTimKiem.SelectedItem.ToString();
+}
+
+private string GetTextSearchCondition(string searchText)
+{
+    string columnName = "";
+
+    switch (cbxItemsMacDinh)
+    {
+        case "Mã Loại":
+            columnName = "MALOAI";
+            break;
+        case "Tên Loại":
+            columnName = "TENLOAI";
+            break;
+        default:
+            return "";
     }
 
-                            }
+    return $"{columnName} like '%{searchText}%'";
+}
+
+private void btnTimKiem_Click(object sender, EventArgs e)
+{
+    string textTimKiem = txtTimKiem.Texts;
+    textSearchCondition = GetTextSearchCondition(textTimKiem);
+    applySearchs(textSearchCondition);
+}
+
+private void txtTimKiem_KeyPress_1(object sender, KeyPressEventArgs e)
+{
+    if (e.KeyChar == (char)Keys.Enter)
+    {
+        btnTimKiem_Click(sender, e);
+        e.Handled = true;
+    }
+}
+
+private void applySearchs(string text)
+{
+    currentSearch = text;
+    Console.WriteLine(currentSearch);
+    DataView dvLoai = loaibill.getListLoai().DefaultView;
+    dvLoai.RowFilter = currentSearch;
+    dgvLoai.DataSource = dvLoai.ToTable();
+}*/
+
+
+
+    }
+
+}

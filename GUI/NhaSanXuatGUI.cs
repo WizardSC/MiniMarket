@@ -17,6 +17,11 @@ namespace GUI
 {
     public partial class NhaSanXuatGUI : Form
     {
+        private string cbxItemsMacDinh;
+        private string statusCondition = "";
+        private string textSearchCondition = ""; // Biến để lưu trữ điều kiện từ textbox tìm kiếm
+        private string genderCondition = ""; // Biến để lưu trữ điều kiện từ checkbox "Giới Tính"
+        private string currentSearch;
 
         private NhaSanXuatBLL nsxBLL;
         private DataTable dt;
@@ -140,6 +145,7 @@ namespace GUI
         private void NhaSanXuatGUI_Load(object sender, EventArgs e)
         {
             // dgvNSX.DataSource = nsxBLL.getListNSX();
+            loadDataToCBX(cbxTimKiem);
             init();
         }
 
@@ -308,6 +314,97 @@ namespace GUI
                     e.Value = "Hoạt động";
                 }
             }
+        }
+        private void loadDataToCBX(RJComboBox cbx)
+        {
+            cbx.Items.Add("Mã NSX");
+            cbx.Items.Add("Tên NSX");
+            cbx.Items.Add("Địa chỉ");
+            cbx.Items.Add("Số ĐT");
+            cbxItemsMacDinh = cbx.Items[0].ToString();
+        }
+        private string returnDieuKien(string text)
+        {
+            return text;
+        }
+
+       
+        private string GetTextSearchCondition(string searchText)
+        {
+            switch (cbxItemsMacDinh)
+            {
+                case "Mã NSX":
+                    return returnDieuKien($"MaNSX like '%{searchText}%'");
+                case "Tên NSX":
+                    return returnDieuKien($"TenNSX like '%{searchText}%'");
+                case "Địa chỉ":
+                    return returnDieuKien($"DiaChi like '%{searchText}%'");
+                case "Số ĐT":
+                    return returnDieuKien($"SoDT like '%{searchText}%'");
+                default:
+                    return "";
+            }
+        }
+
+        private void applySearchs(string text)
+        {
+            // dt = loaibill.getListLoai();
+            currentSearch = text;
+            Console.WriteLine(currentSearch);
+            DataView dvNSX = nsxBLL.getListNSX().DefaultView;
+            dvNSX.RowFilter = currentSearch;
+            dgvNSX.DataSource = dvNSX.ToTable();
+        }
+        private string CombineConditions(string condition1, string condition2)
+        {
+            if (!string.IsNullOrEmpty(condition1) && !string.IsNullOrEmpty(condition2))
+            {
+                return $"({condition1}) AND ({condition2})";
+            }
+            else if (!string.IsNullOrEmpty(condition1))
+            {
+                return condition1;
+            }
+            else if (!string.IsNullOrEmpty(condition2))
+            {
+                return condition2;
+            }
+            else
+            {
+                return "";
+            }
+        }
+
+        private void btnTimKiem_Click_1(object sender, EventArgs e)
+        {
+            string textTimKiem = txtTimKiem.Texts;
+            textSearchCondition = GetTextSearchCondition(textTimKiem);
+            string combinedCondition = CombineConditions(textSearchCondition, genderCondition);
+            applySearchs(combinedCondition);
+        }
+
+        private void txtTimKiem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+                if (e.KeyChar == (char)Keys.Enter)
+                {
+                    //btnTimKiem.PerformClick();
+                    btnTimKiem_Click_1(sender, e);
+                    e.Handled = true;
+                }
+            
+        }
+
+        private void cbxTimKiem_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+                cbxItemsMacDinh = cbxTimKiem.SelectedItem.ToString();
+            
+        }
+
+        private void dgvNSX_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvNSX.ClearSelection();
+            dgvNSX.CurrentCell = null;
         }
     }
 

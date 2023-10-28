@@ -39,40 +39,40 @@ namespace DAO
         public bool insertLoaiSP(LoaiDTO LSP)
         {
             try
-            {
-                MSSQLConnect dbConnect = new MSSQLConnect();
-                dbConnect.Connect();
-                // string query = "INSERT INTO KhuyenMai(MaKM,TenKM,NgayBatDau,NgayKetThuc,PhanTramKM,DieuKienKM,TrangThaiKM) VALUES(@MaKM,@TenKM,@NgayBatDau,@NgayKetThuc,@PhanTramKM,@DieuKienKM,@TrangThaiKM)";
-                string query = "INSERT INTO LoaiSP(MaLoai,TenLoai,TrangThai) VALUES(@MaLoai,@TenLoai,@TrangThai)";
-                SqlCommand cmd = new SqlCommand(query, dbConnect.conn);
-
-                cmd.Parameters.AddWithValue("@MaLoai", LSP.MaLoai);
-                cmd.Parameters.AddWithValue("@TenLoai", LSP.TenLoai);
-                cmd.Parameters.AddWithValue("@TrangThai", LSP.TrangThaiLoai);
-                int rowsAffected = cmd.ExecuteNonQuery();
-
-                if (rowsAffected > 0)
                 {
-                    //MessageBox.Show("Thêm loại sản phẩm thành công thành công."); // Display a success message
-                    return true;
+                    MSSQLConnect dbConnect = new MSSQLConnect();
+                    dbConnect.Connect();
+                    // string query = "INSERT INTO KhuyenMai(MaKM,TenKM,NgayBatDau,NgayKetThuc,PhanTramKM,DieuKienKM,TrangThaiKM) VALUES(@MaKM,@TenKM,@NgayBatDau,@NgayKetThuc,@PhanTramKM,@DieuKienKM,@TrangThaiKM)";
+                    string query = "INSERT INTO LoaiSP(MaLoai,TenLoai,TrangThai) VALUES(@MaLoai,@TenLoai,@TrangThai)";
+                    SqlCommand cmd = new SqlCommand(query, dbConnect.conn);
+
+                    cmd.Parameters.AddWithValue("@MaLoai", LSP.MaLoai);
+                    cmd.Parameters.AddWithValue("@TenLoai", LSP.TenLoai);
+                    cmd.Parameters.AddWithValue("@TrangThai", LSP.TrangThaiLoai);
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        //MessageBox.Show("Thêm loại sản phẩm thành công thành công."); // Display a success message
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
                 }
-                else
+                catch (Exception e)
                 {
+                    //MessageBox.Show("Thêm loại sản phẩm thất bại. " + e.Message);
                     return false;
                 }
+                finally
+                {
+                    Disconnect();
+                }
 
             }
-            catch (Exception e)
-            {
-                //MessageBox.Show("Thêm loại sản phẩm thất bại. " + e.Message);
-                return false;
-            }
-            finally
-            {
-                Disconnect();
-            }
-
-        }
 
        public bool update_LoaiSP(LoaiDTO LSP)
         {
