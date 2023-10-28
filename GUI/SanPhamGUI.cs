@@ -249,6 +249,7 @@ namespace GUI
                     "Thông báo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+                    dgvSanPham.DataSource = spBLL.getListSanPham();
             }
             else
             {
