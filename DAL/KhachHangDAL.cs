@@ -33,7 +33,30 @@ namespace DAL
             }
             return dt; 
         }
+        public DataTable getMiniListKhachHang()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select makh, ho, ten, diemtichluy from khachhang";
+                cmd.Connection = conn;
+                SqlDataAdapter adt = new SqlDataAdapter(cmd);
+                adt.Fill(dt);
+            }
 
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return dt;
+        }
         public bool insertKhachHang(KhachHangDTO kh)
         {
             try

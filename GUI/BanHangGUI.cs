@@ -19,17 +19,20 @@ namespace GUI
 
     public partial class BanHangGUI : Form
     {
-        private int ProductsPerPage = 10;  // Số sản phẩm trên mỗi trang
+        private int ProductsPerPage = 9;  // Số sản phẩm trên mỗi trang
         private int TotalPages;  // Tổng số trang
         private int CurrentPage = 1;  // Trang hiện tại
+        private int diemTLCuaKhachHang = 0; //Điểm TL hiện tại của khách hàng mua hàng
         private int soLuongTrongKhoLucBanDau = 0;
         private SanPhamBLL spBLL;
         private HoaDonBLL hdBLL;
         private KhachHangBLL khBLL;
+
         //private NhanVienBLL nvBLL;
-        private DataTable dt;
+        private DataTable dtSanPham;
         private DataTable dtKhachHang;
         private DataTable dtNhanVien;
+        private DataTable dtHoaDon;
         private List<SanPhamDTO> listSP;
         Dictionary<string, ProductInfo> gioHang = new Dictionary<string, ProductInfo>();
         //Lưu trữ giỏ hàng tạm thời
@@ -58,18 +61,18 @@ namespace GUI
             spBLL = new SanPhamBLL();
             hdBLL = new HoaDonBLL();
             khBLL = new KhachHangBLL();
-            dt = spBLL.getListSanPham();
-
+            dtSanPham = spBLL.getListSanPham();
+            dtHoaDon = hdBLL.getListHoaDon();
             dtKhachHang = khBLL.getListKhachHang();
             listSP = spBLL.getListSP();
             // Gọi hàm tính toán số trang
             CalculateTotalPages(listSP);
 
             // Hiển thị trang hiện tại
-            UpdateCurrentPage(dt);
+            UpdateCurrentPage(dtSanPham);
             loadNgayThang();
 
-
+            loadMaHD();
         }
 
         // Các hàm khác ở đây
@@ -85,6 +88,23 @@ namespace GUI
             }
 
             return listKH;
+        }
+
+        private void loadMaHD()
+        {
+            if (dtHoaDon.Rows.Count > 0)
+            {
+                var lastMaHD = dtHoaDon.AsEnumerable().Last()["MaHD"].ToString();
+                int lastNumber = int.Parse(lastMaHD.Substring(2));
+                int newNumber = lastNumber + 1;
+                string newMaHD = "HD" + newNumber.ToString("D3");
+                lblMaHD.Text = $"#{newMaHD}";
+            }
+            else
+            {
+                lblMaHD.Text = "#HD001";
+
+            }
         }
         private void loadNgayThang()
         {
@@ -103,15 +123,7 @@ namespace GUI
         {
             TotalPages = (int)Math.Ceiling((double)productList.Count / ProductsPerPage);
         }
-        private void addProductToCart()
-        {
-            this.flpGioHang.Controls.Clear();
-            for (int i = 0; i < 5; i++)
-            {
-                MyCustom.MyProductInCart item = new MyCustom.MyProductInCart();
-                this.flpGioHang.Controls.Add(item);
-            }
-        }
+
         private byte[] convertImageToBinaryString(Image img)
         {
             MemoryStream ms = new MemoryStream();
@@ -157,6 +169,22 @@ namespace GUI
                 throw new ArgumentException("Không thể chuyển đổi chuỗi thành số nguyên.");
             }
         }
+        public float ConvertVNDToFloat(string vndAmount)
+        {
+            // Loại bỏ ký hiệu "đ" và dấu phẩy (,) trong chuỗi
+            string cleanedAmount = vndAmount.Replace("đ", "").Replace(",", "");
+
+            // Chuyển đổi chuỗi thành số float
+            if (float.TryParse(cleanedAmount, out float result))
+            {
+                return result;
+            }
+            else
+            {
+                // Xử lý lỗi nếu chuỗi không thể chuyển đổi thành số float
+                throw new ArgumentException("Không thể chuyển đổi chuỗi thành số float.");
+            }
+        }
         private void UpdateCurrentPage(DataTable dt)
         {
             int startIndex = (CurrentPage - 1) * ProductsPerPage;
@@ -191,7 +219,7 @@ namespace GUI
             if (CurrentPage > 1)
             {
                 CurrentPage--;
-                UpdateCurrentPage(dt);
+                UpdateCurrentPage(dtSanPham);
             }
         }
 
@@ -200,7 +228,7 @@ namespace GUI
             if (CurrentPage < TotalPages)
             {
                 CurrentPage++;
-                UpdateCurrentPage(dt);
+                UpdateCurrentPage(dtSanPham);
                 Console.WriteLine("a");
             }
         }
@@ -275,6 +303,12 @@ namespace GUI
         }
         private void btnThemVaoGio_Click(object sender, EventArgs e)
         {
+            string tenKH = lblKhachHang.Text;
+            if (string.IsNullOrWhiteSpace(tenKH))
+            {
+                MessageBox.Show("Vui lòng nhập thông tin khách hàng", "Thông báo");
+                return;
+            }
             string maSP = txtMaSP.Texts;
             string tenSP = txtTenSP.Texts;
             int soLuongTonKho = int.Parse(txtTonKho.Texts);
@@ -474,6 +508,7 @@ namespace GUI
             {
                 gioHang.Remove(key);
             }
+            tinhTongTien();
 
             refreshThongTin();
 
@@ -510,7 +545,7 @@ namespace GUI
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            if(gioHang.Count == 0)
+            if (gioHang.Count == 0)
             {
                 MessageBox.Show("Không có sản phẩm trong giỏ hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -557,6 +592,58 @@ namespace GUI
             //        MessageBoxIcon.Error);
             //}
 
+        }
+
+        private void btnChonKH_Click(object sender, EventArgs e)
+        {
+            MiniKhachHangGUI khGUI = new MiniKhachHangGUI();
+            khGUI.Show();
+            khGUI.FormClosed += (s, args) =>
+            {
+                string hoTenKH = khGUI.hoTenKH;
+                diemTLCuaKhachHang = khGUI.diemTL;
+                lblKhachHang.Text = hoTenKH;
+                Console.WriteLine(diemTLCuaKhachHang);
+            };
+        }
+
+        private void btnChonKM_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(lblKhuyenMai.Text))
+            {
+                MessageBox.Show("Giỏ hàng đang trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void btnChonDTL_Click(object sender, EventArgs e)
+        {
+            if(ConvertVNDToInt(lblTongTienTT.Text) == 0)
+            {
+                MessageBox.Show("Giỏ hàng đang trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            int diemTLCoTheSD = ConvertVNDToInt(lblTongTienTT.Text) / 10000;
+            
+            MiniChonDTLGUI chonDTLGUI = new MiniChonDTLGUI(diemTLCuaKhachHang, diemTLCoTheSD);
+            
+            chonDTLGUI.Show();
+            chonDTLGUI.FormClosed += (s, args) =>
+            {
+                lblDiemTL.Text = chonDTLGUI.diemTLSuDung.ToString();
+                tinhTien();
+
+            };
+
+            //Tính tiền sau khi sử dụng ĐTL: 1đ = giảm 10k
+        }
+        private void tinhTien()
+        {
+            int diemTL = int.Parse(lblDiemTL.Text);
+            int tongTienTT = ConvertVNDToInt(lblTongTienTT.Text);
+
+            int tongTien = tongTienTT - (diemTL * 10000);
+            lblTongTien.Text = ConvertFloatToVND(tongTien);
         }
     }
 
