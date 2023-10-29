@@ -328,7 +328,7 @@ namespace GUI
             string CheckTrangThai = cbxTrangThai.Texts.ToString();
             int trangthai = (CheckTrangThai == "Hoạt động") ? 1 : 0;
 
-            if (string.IsNullOrWhiteSpace(tenkm) || ngaykt <= Ngaybd || string.IsNullOrWhiteSpace(phantram) || !IsInteger(phantram))
+            if (string.IsNullOrWhiteSpace(tenkm) || ngaykt < Ngaybd || string.IsNullOrWhiteSpace(phantram) || !IsInteger(phantram))
             {
                 return;
             }
@@ -608,11 +608,6 @@ namespace GUI
         }
 
 
-        private void dtpNgayBD_ValueChanged_1(object sender, EventArgs e)
-        {
-            // Đặt MinDate thành ngày hiện tại
-            dtpNgayBD.MinDate = DateTime.Now;
-            
-        }
+        
     }
 }

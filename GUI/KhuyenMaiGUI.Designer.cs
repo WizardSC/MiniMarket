@@ -62,11 +62,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.flpFilter = new System.Windows.Forms.FlowLayoutPanel();
-            this.chkTuoi = new GUI.MyCustom.BiggerCheckBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.rjDatePicker1 = new GUI.MyCustom.RJDatePicker();
-            this.label24 = new System.Windows.Forms.Label();
-            this.rjDatePicker2 = new GUI.MyCustom.RJDatePicker();
             this.chkTrangThai = new GUI.MyCustom.BiggerCheckBox();
             this.label27 = new System.Windows.Forms.Label();
             this.chkHoatDong = new GUI.MyCustom.BiggerCheckBox();
@@ -531,11 +526,6 @@
             // 
             this.flpFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
             this.flpFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flpFilter.Controls.Add(this.chkTuoi);
-            this.flpFilter.Controls.Add(this.label23);
-            this.flpFilter.Controls.Add(this.rjDatePicker1);
-            this.flpFilter.Controls.Add(this.label24);
-            this.flpFilter.Controls.Add(this.rjDatePicker2);
             this.flpFilter.Controls.Add(this.chkTrangThai);
             this.flpFilter.Controls.Add(this.label27);
             this.flpFilter.Controls.Add(this.chkHoatDong);
@@ -544,95 +534,9 @@
             this.flpFilter.Controls.Add(this.label29);
             this.flpFilter.Location = new System.Drawing.Point(402, 56);
             this.flpFilter.Name = "flpFilter";
-            this.flpFilter.Size = new System.Drawing.Size(416, 84);
+            this.flpFilter.Size = new System.Drawing.Size(416, 42);
             this.flpFilter.TabIndex = 4;
             this.flpFilter.Visible = false;
-            // 
-            // chkTuoi
-            // 
-            this.chkTuoi.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chkTuoi.BoxBackColor = System.Drawing.Color.Transparent;
-            this.chkTuoi.BoxColor = System.Drawing.Color.Black;
-            this.chkTuoi.BoxLocationX = 5;
-            this.chkTuoi.BoxLocationY = 8;
-            this.chkTuoi.BoxSize = 14;
-            this.chkTuoi.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkTuoi.FlatAppearance.BorderSize = 0;
-            this.chkTuoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkTuoi.Location = new System.Drawing.Point(3, 3);
-            this.chkTuoi.Name = "chkTuoi";
-            this.chkTuoi.Padding = new System.Windows.Forms.Padding(10);
-            this.chkTuoi.Size = new System.Drawing.Size(24, 29);
-            this.chkTuoi.TabIndex = 10;
-            this.chkTuoi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkTuoi.TextLocationX = 16;
-            this.chkTuoi.TextLocationY = 1;
-            this.chkTuoi.TickColor = System.Drawing.Color.Black;
-            this.chkTuoi.TickLeftPosition = 5F;
-            this.chkTuoi.TickSize = 11F;
-            this.chkTuoi.TickTopPosition = 8F;
-            this.chkTuoi.UseVisualStyleBackColor = true;
-            // 
-            // label23
-            // 
-            this.label23.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label23.Location = new System.Drawing.Point(33, 4);
-            this.label23.Margin = new System.Windows.Forms.Padding(3, 4, 4, 4);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(78, 28);
-            this.label23.TabIndex = 11;
-            this.label23.Text = "Ngày KM:";
-            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // rjDatePicker1
-            // 
-            this.rjDatePicker1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.rjDatePicker1.BorderSize = 2;
-            this.rjDatePicker1.CalendarForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.rjDatePicker1.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.rjDatePicker1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjDatePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.rjDatePicker1.Location = new System.Drawing.Point(119, 4);
-            this.rjDatePicker1.Margin = new System.Windows.Forms.Padding(4);
-            this.rjDatePicker1.MaximumSize = new System.Drawing.Size(250, 28);
-            this.rjDatePicker1.MinimumSize = new System.Drawing.Size(4, 28);
-            this.rjDatePicker1.Name = "rjDatePicker1";
-            this.rjDatePicker1.Size = new System.Drawing.Size(120, 28);
-            this.rjDatePicker1.SkinColor = System.Drawing.Color.White;
-            this.rjDatePicker1.TabIndex = 27;
-            this.rjDatePicker1.TextColor = System.Drawing.Color.Black;
-            this.rjDatePicker1.Value = new System.DateTime(2023, 10, 22, 0, 0, 0, 0);
-            // 
-            // label24
-            // 
-            this.label24.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label24.Location = new System.Drawing.Point(246, 4);
-            this.label24.Margin = new System.Windows.Forms.Padding(3, 4, 4, 4);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(13, 28);
-            this.label24.TabIndex = 28;
-            this.label24.Text = "-";
-            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // rjDatePicker2
-            // 
-            this.rjDatePicker2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.rjDatePicker2.BorderSize = 2;
-            this.rjDatePicker2.CalendarForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.rjDatePicker2.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.rjDatePicker2.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjDatePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.rjDatePicker2.Location = new System.Drawing.Point(267, 4);
-            this.rjDatePicker2.Margin = new System.Windows.Forms.Padding(4);
-            this.rjDatePicker2.MaximumSize = new System.Drawing.Size(250, 28);
-            this.rjDatePicker2.MinimumSize = new System.Drawing.Size(4, 28);
-            this.rjDatePicker2.Name = "rjDatePicker2";
-            this.rjDatePicker2.Size = new System.Drawing.Size(120, 28);
-            this.rjDatePicker2.SkinColor = System.Drawing.Color.White;
-            this.rjDatePicker2.TabIndex = 29;
-            this.rjDatePicker2.TextColor = System.Drawing.Color.Black;
             // 
             // chkTrangThai
             // 
@@ -645,7 +549,7 @@
             this.chkTrangThai.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkTrangThai.FlatAppearance.BorderSize = 0;
             this.chkTrangThai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkTrangThai.Location = new System.Drawing.Point(3, 39);
+            this.chkTrangThai.Location = new System.Drawing.Point(3, 3);
             this.chkTrangThai.Name = "chkTrangThai";
             this.chkTrangThai.Padding = new System.Windows.Forms.Padding(10);
             this.chkTrangThai.Size = new System.Drawing.Size(24, 29);
@@ -664,7 +568,7 @@
             // 
             this.label27.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label27.Location = new System.Drawing.Point(33, 40);
+            this.label27.Location = new System.Drawing.Point(33, 4);
             this.label27.Margin = new System.Windows.Forms.Padding(3, 4, 4, 4);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(62, 28);
@@ -684,7 +588,7 @@
             this.chkHoatDong.Enabled = false;
             this.chkHoatDong.FlatAppearance.BorderSize = 0;
             this.chkHoatDong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkHoatDong.Location = new System.Drawing.Point(102, 39);
+            this.chkHoatDong.Location = new System.Drawing.Point(102, 3);
             this.chkHoatDong.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.chkHoatDong.Name = "chkHoatDong";
             this.chkHoatDong.Padding = new System.Windows.Forms.Padding(10);
@@ -704,7 +608,7 @@
             // 
             this.label28.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label28.Location = new System.Drawing.Point(130, 40);
+            this.label28.Location = new System.Drawing.Point(130, 4);
             this.label28.Margin = new System.Windows.Forms.Padding(4);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(93, 28);
@@ -724,7 +628,7 @@
             this.chkKoHD.Enabled = false;
             this.chkKoHD.FlatAppearance.BorderSize = 0;
             this.chkKoHD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkKoHD.Location = new System.Drawing.Point(230, 39);
+            this.chkKoHD.Location = new System.Drawing.Point(230, 3);
             this.chkKoHD.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.chkKoHD.Name = "chkKoHD";
             this.chkKoHD.Padding = new System.Windows.Forms.Padding(10);
@@ -744,7 +648,7 @@
             // 
             this.label29.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label29.Location = new System.Drawing.Point(258, 40);
+            this.label29.Location = new System.Drawing.Point(258, 4);
             this.label29.Margin = new System.Windows.Forms.Padding(4);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(146, 28);
@@ -979,7 +883,6 @@
             this.dtpNgayBD.SkinColor = System.Drawing.Color.White;
             this.dtpNgayBD.TabIndex = 26;
             this.dtpNgayBD.TextColor = System.Drawing.Color.Black;
-            this.dtpNgayBD.ValueChanged += new System.EventHandler(this.dtpNgayBD_ValueChanged_1);
             // 
             // label6
             // 
@@ -1149,11 +1052,6 @@
         private MyCustom.RJButton btnFilter;
         private MyCustom.RJButton btnThongTinKM;
         private System.Windows.Forms.FlowLayoutPanel flpFilter;
-        private MyCustom.BiggerCheckBox chkTuoi;
-        private System.Windows.Forms.Label label23;
-        private MyCustom.RJDatePicker rjDatePicker1;
-        private System.Windows.Forms.Label label24;
-        private MyCustom.RJDatePicker rjDatePicker2;
         private MyCustom.BiggerCheckBox chkTrangThai;
         private System.Windows.Forms.Label label27;
         private MyCustom.BiggerCheckBox chkHoatDong;
