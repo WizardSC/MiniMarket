@@ -452,6 +452,11 @@ namespace GUI
             pbImage.Image = pbImage.InitialImage;
             pbImage.Tag = "Placeholder";
         }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

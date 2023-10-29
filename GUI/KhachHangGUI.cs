@@ -790,8 +790,10 @@ namespace GUI
             
         }
 
+        private void btnReset_Click(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }
 
