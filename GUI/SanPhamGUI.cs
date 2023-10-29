@@ -60,24 +60,24 @@ namespace GUI
         }
         private void loadMaSP()
         {
-            //string lastMaSP = null;
-            //foreach (DataRow row in dt.Rows)
-            //{
-            //    lastMaSP = row["MaSP"].ToString();
-            //}
-            //if (lastMaSP == "")
-            //{
-            //    txtMaSP.Texts = "SP001";
-            //}
-            //int tempNum = int.Parse(lastMaSP.Substring(2));
-            //if ((tempNum + 1) >= 10)
-            //{
-            //    txtMaSP.Texts = "SP0" + (tempNum + 1).ToString();
-            //}
-            //else if (tempNum >= 1 && tempNum < 9)
-            //{
-            //    txtMaSP.Texts = "SP00" + (tempNum + 1).ToString();
-            //}
+            string lastMaSP = null;
+            foreach (DataRow row in dt.Rows)
+            {
+               lastMaSP = row["MaSP"].ToString();
+            }
+            if (lastMaSP == "")
+            {
+               txtMaSP.Texts = "SP001";
+            }
+            int tempNum = int.Parse(lastMaSP.Substring(2));
+            if ((tempNum + 1) >= 10)
+            {
+               txtMaSP.Texts = "SP0" + (tempNum + 1).ToString();
+            }
+            else if (tempNum >= 1 && tempNum < 9)
+            {
+               txtMaSP.Texts = "SP00" + (tempNum + 1).ToString();
+            }
         }
         //chuyển đổi một hình ảnh thành một dạng biểu diễn nhị phân 
         private byte[] convertImageToBinaryString(Image img, string tag)
