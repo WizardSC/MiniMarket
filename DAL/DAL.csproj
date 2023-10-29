@@ -70,11 +70,21 @@
     <Compile Include="KhachHangDAL.cs" />
     <Compile Include="KhuyenMaiDAL.cs" />
     <Compile Include="LoaiDAL.cs" />
+    <Compile Include="MiniMarketDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MiniMarketDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MSSQLConnect.cs" />
     <Compile Include="NhaCungCapDAL.cs" />
     <Compile Include="NhaSanXuatDAL.cs" />
     <Compile Include="PhieuNhap_DAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="SanPhamDAL.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -84,7 +94,23 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
+    <None Include="MiniMarketDataSet.xsc">
+      <DependentUpon>MiniMarketDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MiniMarketDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MiniMarketDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MiniMarketDataSet.xss">
+      <DependentUpon>MiniMarketDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
