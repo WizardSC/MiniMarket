@@ -11,7 +11,24 @@ namespace DAL
 {
     public class HoaDonDAL : MSSQLConnect
     {
-
+        public DataTable getListHoaDon()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand("select * from hoadon", conn);
+                SqlDataAdapter adt = new SqlDataAdapter(cmd);
+                adt.Fill(dt);
+            }
+            catch(Exception ex) {
+                return null;
+            } finally
+            {
+                Disconnect();
+            }
+            return dt;
+        }
         public bool insertHoaDon(HoaDonDTO hd)
         {
             try

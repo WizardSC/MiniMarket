@@ -112,6 +112,18 @@
     <Compile Include="LoaiGUI.Designer.cs">
       <DependentUpon>LoaiGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="MiniChonDTLGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MiniChonDTLGUI.Designer.cs">
+      <DependentUpon>MiniChonDTLGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MiniKhachHangGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MiniKhachHangGUI.Designer.cs">
+      <DependentUpon>MiniKhachHangGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="MiniLoaiGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,6 +230,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoaiGUI.resx">
       <DependentUpon>LoaiGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MiniChonDTLGUI.resx">
+      <DependentUpon>MiniChonDTLGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MiniKhachHangGUI.resx">
+      <DependentUpon>MiniKhachHangGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MiniLoaiGUI.resx">
       <DependentUpon>MiniLoaiGUI.cs</DependentUpon>

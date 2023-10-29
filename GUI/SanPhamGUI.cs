@@ -34,7 +34,7 @@ namespace GUI
 
         private void SanPhamGUI_Load(object sender, EventArgs e)
         {
-            dgvSanPham.DataSource = spBLL.getListSanPham();
+            dgvSanPham.DataSource = dt;
 
         }
 
