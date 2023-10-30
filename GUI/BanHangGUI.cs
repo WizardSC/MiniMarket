@@ -609,7 +609,7 @@ namespace GUI
 
         private void btnChonKM_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(lblKhuyenMai.Text))
+            if (ConvertVNDToInt(lblTongTienTT.Text) == 0)
             {
                 MessageBox.Show("Giỏ hàng đang trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
