@@ -70,11 +70,6 @@
     <Compile Include="KhachHangDAL.cs" />
     <Compile Include="KhuyenMaiDAL.cs" />
     <Compile Include="LoaiDAL.cs" />
-    <Compile Include="MiniMarketDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MiniMarketDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="MSSQLConnect.cs" />
     <Compile Include="NhaCungCapDAL.cs" />
     <Compile Include="NhanVienDAL.cs" />
@@ -96,17 +91,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="MiniMarketDataSet.xsc">
-      <DependentUpon>MiniMarketDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="MiniMarketDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MiniMarketDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="MiniMarketDataSet.xss">
-      <DependentUpon>MiniMarketDataSet.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

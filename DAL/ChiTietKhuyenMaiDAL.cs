@@ -13,6 +13,28 @@ namespace DAL
 {
     public class ChiTietKhuyenMaiDAL : MSSQLConnect
     {
+        public DataTable getListCTKM(string maKM)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand("Select * from chitietkhuyenmai where MaKM = @MaKM", conn);
+                cmd.Parameters.AddWithValue("@MaKM", maKM).SqlDbType = SqlDbType.Char;
+
+                SqlDataAdapter adt = new SqlDataAdapter(cmd);
+                adt.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return dt;
+        }
         public DataTable getListChiTietKhuyenMai()
         {
             DataTable dt = new DataTable();
@@ -25,7 +47,7 @@ namespace DAL
                     "SanPham.TenSP,ChiTietKhuyenMai.PhanTramKM,ChiTietKhuyenMai.TrangThai" +
                     " from ChiTietKhuyenMai,KhuyenMai,SanPham" +
                     " where KhuyenMai.MaKM = ChiTietKhuyenMai.MaKM AND SanPham.MaSP = ChiTietKhuyenMai.MaSP";
-;
+                ;
                 cmd.Connection = conn;
                 SqlDataAdapter adt = new SqlDataAdapter(cmd);
                 adt.Fill(dt);
@@ -33,7 +55,7 @@ namespace DAL
 
             catch (Exception ex)
             {
-                
+
                 return null;
             }
             finally
@@ -43,7 +65,7 @@ namespace DAL
             return dt;
         }
 
-       
+
         public bool insert_CTKhuyenMai(ChiTietKhuyenMaiDTO CTKM_DTO)
         {
 
@@ -96,7 +118,7 @@ namespace DAL
                 Disconnect();
             }
         }
-        public bool delete_CTkhuyenMai(string maKM,string MaSP, out bool isLoiKhoaNgoai)
+        public bool delete_CTkhuyenMai(string maKM, string MaSP, out bool isLoiKhoaNgoai)
         {
             try
             {
@@ -131,7 +153,7 @@ namespace DAL
                 Disconnect();
             }
         }
-        public bool update_TrangThai(int trangThai, string maKM,string maSP)
+        public bool update_TrangThai(int trangThai, string maKM, string maSP)
         {
             try
             {

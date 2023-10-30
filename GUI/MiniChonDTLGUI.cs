@@ -15,6 +15,7 @@ namespace GUI
         public int diemTL;
         public int diemTLSuDung;
         public int diemCoTheSD;
+        
         public MiniChonDTLGUI(int diemTL, int diemCoTheSD)
         {
             InitializeComponent();
