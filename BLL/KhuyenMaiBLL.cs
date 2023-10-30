@@ -29,7 +29,11 @@ namespace BLL
             {
                 return kmDAL.getThongTinKM(MaKM);
             }
-            public bool insertKhuyenMai(KhuyenMaiDTO KM_DTO)
+        public DataTable getListMaKmNoDK()
+        {
+            return kmDAL.getMaKmNoDK();
+        }
+        public bool insertKhuyenMai(KhuyenMaiDTO KM_DTO)
             {
                 return kmDAL.insert_KhuyenMai(KM_DTO);
             }
@@ -37,9 +41,14 @@ namespace BLL
             {
                 return kmDAL.Update_KhuyenMai(KM_DTO);
             }
-            public bool DeleteKhuyenMai(KhuyenMaiDTO KM_DTO)
+            public bool deleteKhuyenMai(string maKM, out bool isLoiKhoaNgoai)
             {
-                return kmDAL.Delete_KhuyenMai(KM_DTO);
+                return kmDAL.delete_khuyenMai(maKM, out isLoiKhoaNgoai);
+            }
+            public bool updateTrangThai(int trangThai, string maKM)
+            {
+                trangThai = (trangThai == 0) ? 1 : 0;
+                return kmDAL.update_TrangThai(trangThai, maKM);
             }
     }
 }
