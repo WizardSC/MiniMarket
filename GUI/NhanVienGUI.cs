@@ -37,6 +37,8 @@ namespace GUI
         private void NhanViennGUI_Load(object sender, EventArgs e)
         {
             dgvNhanVien.DataSource = nvBLL.getListNhanVien();
+            dtpNgaySinh.Format = DateTimePickerFormat.Custom;
+            dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
         }
         private string CheckAndSetColor(object control, Label label)
         {
@@ -64,14 +66,14 @@ namespace GUI
         }
         private void loadMaNV()
         {
-            string lastMaKH = dt.AsEnumerable()
+            string lastMaNV = dt.AsEnumerable()
                 .Select(row => row.Field<string>("MaNV"))
                 .LastOrDefault();
 
             int nextNum = 1;
-            if (!string.IsNullOrEmpty(lastMaKH) && lastMaKH.Length >= 5)
+            if (!string.IsNullOrEmpty(lastMaNV) && lastMaNV.Length >= 5)
             {
-                int.TryParse(lastMaKH.Substring(2), out nextNum);
+                int.TryParse(lastMaNV.Substring(2), out nextNum);
                 nextNum++;
             }
             txtMaNV.Texts = "NV" + nextNum.ToString("D3");
@@ -114,7 +116,7 @@ namespace GUI
                 case 7:
                     return returnDieuKien($"TrangThai like '%{searchText}%'");
                 case 8:
-                    return returnDieuKien($"MaCV like '%{searchText}%'");
+                    return returnDieuKien($"TenCV like '%{searchText}%'");
                 default:
                     return returnDieuKien($"MaNV like '%{searchText}%'"); ;
             }
@@ -122,7 +124,6 @@ namespace GUI
         private void applySearchs(string text)
         {
             currentSearch = text;
-            Console.WriteLine(currentSearch);
             DataView dvNhanVien = nvBLL.getListNhanVien().DefaultView;
             dvNhanVien.RowFilter = currentSearch;
             dgvNhanVien.DataSource = dvNhanVien.ToTable();
@@ -294,7 +295,7 @@ namespace GUI
             txtSoDT.Texts = dgvNhanVien.Rows[i].Cells[5].Value.ToString();
             txtDiaChi.Texts = dgvNhanVien.Rows[i].Cells[6].Value.ToString();
             int trangThai = int.Parse(dgvNhanVien.Rows[i].Cells[7].Value.ToString());
-            string chucVu = dgvNhanVien.Rows[i].Cells[10].Value.ToString();
+            string chucVu = dgvNhanVien.Rows[i].Cells[9].Value.ToString();
             //byte[] imageBytes = (byte[])dgvNhanVien.Rows[i].Cells[9].Value;
             //pbImage.Image = convertBinaryStringToImage(imageBytes);
             //pbImage.Tag = dgvNhanVien.Rows[i].Cells[0].Value.ToString();
@@ -432,6 +433,39 @@ namespace GUI
             }
         }
 
-        
+        private void dgvNhanVien_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
+            if (e.ColumnIndex == dgvNhanVien.Columns["NgaySinh"].Index && e.Value != null)
+            {
+                if (e.Value != null && e.Value is DateTime)
+                {
+                    DateTime dateValue = (DateTime)e.Value;
+                    e.Value = dateValue.ToString("dd/MM/yyyy");
+                    e.FormattingApplied = true;
+                }
+            }
+            if (e.ColumnIndex == dgvNhanVien.Columns["TrangThai"].Index && e.Value != null)
+            {
+                int intValue;
+                if (int.TryParse(e.Value.ToString(), out intValue))
+                {
+                    if (intValue == 1)
+                    {
+                        e.Value = "Hoạt động";
+                    }
+                    else
+                    {
+                        e.Value = "Không hoạt động";
+                    }
+                    e.FormattingApplied = true;
+                }
+            }
+        }
+
+        private void dtpNgaySinh_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -134,7 +134,7 @@
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1167, 718);
             this.panel1.TabIndex = 0;
@@ -177,7 +177,7 @@
             this.cbxTimKiem.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
             this.cbxTimKiem.MinimumSize = new System.Drawing.Size(100, 30);
             this.cbxTimKiem.Name = "cbxTimKiem";
-            this.cbxTimKiem.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxTimKiem.Padding = new System.Windows.Forms.Padding(2);
             this.cbxTimKiem.Size = new System.Drawing.Size(108, 30);
             this.cbxTimKiem.TabIndex = 4;
             this.cbxTimKiem.Texts = "Mã KH";
@@ -198,7 +198,7 @@
             this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
             this.txtTimKiem.Multiline = false;
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.txtTimKiem.Padding = new System.Windows.Forms.Padding(7);
             this.txtTimKiem.PasswordChar = false;
             this.txtTimKiem.PlaceholderColor = System.Drawing.Color.DimGray;
             this.txtTimKiem.PlaceholderText = "Nhập thông tin tìm kiếm";
@@ -452,7 +452,7 @@
             this.chkGioiTinh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkGioiTinh.Location = new System.Drawing.Point(3, 3);
             this.chkGioiTinh.Name = "chkGioiTinh";
-            this.chkGioiTinh.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.chkGioiTinh.Padding = new System.Windows.Forms.Padding(10);
             this.chkGioiTinh.Size = new System.Drawing.Size(24, 29);
             this.chkGioiTinh.TabIndex = 3;
             this.chkGioiTinh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -491,7 +491,7 @@
             this.chkNam.Location = new System.Drawing.Point(128, 3);
             this.chkNam.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.chkNam.Name = "chkNam";
-            this.chkNam.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.chkNam.Padding = new System.Windows.Forms.Padding(10);
             this.chkNam.Size = new System.Drawing.Size(24, 29);
             this.chkNam.TabIndex = 4;
             this.chkNam.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -509,7 +509,7 @@
             this.label21.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.label21.Location = new System.Drawing.Point(156, 4);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label21.Margin = new System.Windows.Forms.Padding(4);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(49, 28);
             this.label21.TabIndex = 6;
@@ -530,7 +530,7 @@
             this.chkNu.Location = new System.Drawing.Point(212, 3);
             this.chkNu.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.chkNu.Name = "chkNu";
-            this.chkNu.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.chkNu.Padding = new System.Windows.Forms.Padding(10);
             this.chkNu.Size = new System.Drawing.Size(24, 29);
             this.chkNu.TabIndex = 5;
             this.chkNu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -548,7 +548,7 @@
             this.label22.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.label22.Location = new System.Drawing.Point(240, 4);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label22.Margin = new System.Windows.Forms.Padding(4);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(41, 28);
             this.label22.TabIndex = 7;
@@ -568,7 +568,7 @@
             this.chkTuoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkTuoi.Location = new System.Drawing.Point(3, 39);
             this.chkTuoi.Name = "chkTuoi";
-            this.chkTuoi.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.chkTuoi.Padding = new System.Windows.Forms.Padding(10);
             this.chkTuoi.Size = new System.Drawing.Size(24, 29);
             this.chkTuoi.TabIndex = 9;
             this.chkTuoi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -604,7 +604,7 @@
             this.txtTuoiStart.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTuoiStart.ForeColor = System.Drawing.Color.Black;
             this.txtTuoiStart.Location = new System.Drawing.Point(119, 40);
-            this.txtTuoiStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTuoiStart.Margin = new System.Windows.Forms.Padding(4);
             this.txtTuoiStart.MinimumSize = new System.Drawing.Size(0, 28);
             this.txtTuoiStart.Multiline = false;
             this.txtTuoiStart.Name = "txtTuoiStart";
@@ -642,7 +642,7 @@
             this.txtTuoiEnd.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTuoiEnd.ForeColor = System.Drawing.Color.Black;
             this.txtTuoiEnd.Location = new System.Drawing.Point(206, 40);
-            this.txtTuoiEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTuoiEnd.Margin = new System.Windows.Forms.Padding(4);
             this.txtTuoiEnd.MinimumSize = new System.Drawing.Size(0, 28);
             this.txtTuoiEnd.Multiline = false;
             this.txtTuoiEnd.Name = "txtTuoiEnd";
@@ -670,7 +670,7 @@
             this.chkDiemTL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkDiemTL.Location = new System.Drawing.Point(3, 75);
             this.chkDiemTL.Name = "chkDiemTL";
-            this.chkDiemTL.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.chkDiemTL.Padding = new System.Windows.Forms.Padding(10);
             this.chkDiemTL.Size = new System.Drawing.Size(24, 29);
             this.chkDiemTL.TabIndex = 14;
             this.chkDiemTL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -706,7 +706,7 @@
             this.txtDiemTLStart.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiemTLStart.ForeColor = System.Drawing.Color.Black;
             this.txtDiemTLStart.Location = new System.Drawing.Point(119, 76);
-            this.txtDiemTLStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDiemTLStart.Margin = new System.Windows.Forms.Padding(4);
             this.txtDiemTLStart.MinimumSize = new System.Drawing.Size(0, 28);
             this.txtDiemTLStart.Multiline = false;
             this.txtDiemTLStart.Name = "txtDiemTLStart";
@@ -744,7 +744,7 @@
             this.txtDiemTLEnd.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiemTLEnd.ForeColor = System.Drawing.Color.Black;
             this.txtDiemTLEnd.Location = new System.Drawing.Point(206, 76);
-            this.txtDiemTLEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDiemTLEnd.Margin = new System.Windows.Forms.Padding(4);
             this.txtDiemTLEnd.MinimumSize = new System.Drawing.Size(0, 28);
             this.txtDiemTLEnd.Multiline = false;
             this.txtDiemTLEnd.Name = "txtDiemTLEnd";
@@ -772,7 +772,7 @@
             this.chkTrangThai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkTrangThai.Location = new System.Drawing.Point(3, 111);
             this.chkTrangThai.Name = "chkTrangThai";
-            this.chkTrangThai.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.chkTrangThai.Padding = new System.Windows.Forms.Padding(10);
             this.chkTrangThai.Size = new System.Drawing.Size(24, 29);
             this.chkTrangThai.TabIndex = 19;
             this.chkTrangThai.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -812,7 +812,7 @@
             this.chkHoatDong.Location = new System.Drawing.Point(118, 111);
             this.chkHoatDong.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.chkHoatDong.Name = "chkHoatDong";
-            this.chkHoatDong.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.chkHoatDong.Padding = new System.Windows.Forms.Padding(10);
             this.chkHoatDong.Size = new System.Drawing.Size(24, 29);
             this.chkHoatDong.TabIndex = 20;
             this.chkHoatDong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -830,7 +830,7 @@
             this.label28.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.label28.Location = new System.Drawing.Point(146, 112);
-            this.label28.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label28.Margin = new System.Windows.Forms.Padding(4);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(119, 28);
             this.label28.TabIndex = 22;
@@ -852,7 +852,7 @@
             this.chkKoHD.Location = new System.Drawing.Point(100, 147);
             this.chkKoHD.Margin = new System.Windows.Forms.Padding(100, 3, 0, 3);
             this.chkKoHD.Name = "chkKoHD";
-            this.chkKoHD.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.chkKoHD.Padding = new System.Windows.Forms.Padding(10);
             this.chkKoHD.Size = new System.Drawing.Size(24, 29);
             this.chkKoHD.TabIndex = 21;
             this.chkKoHD.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -870,7 +870,7 @@
             this.label29.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.label29.Location = new System.Drawing.Point(128, 148);
-            this.label29.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label29.Margin = new System.Windows.Forms.Padding(4);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(147, 28);
             this.label29.TabIndex = 23;
@@ -1040,7 +1040,7 @@
             this.label2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.label2.Location = new System.Drawing.Point(4, 4);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label2.Margin = new System.Windows.Forms.Padding(4);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(94, 28);
             this.label2.TabIndex = 0;
@@ -1057,7 +1057,7 @@
             this.txtMaKH.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaKH.ForeColor = System.Drawing.Color.Black;
             this.txtMaKH.Location = new System.Drawing.Point(106, 4);
-            this.txtMaKH.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMaKH.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaKH.MaximumSize = new System.Drawing.Size(171, 28);
             this.txtMaKH.MinimumSize = new System.Drawing.Size(150, 28);
             this.txtMaKH.Multiline = false;
@@ -1089,7 +1089,7 @@
             this.label3.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.label3.Location = new System.Drawing.Point(4, 57);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label3.Margin = new System.Windows.Forms.Padding(4);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 28);
             this.label3.TabIndex = 2;
@@ -1106,12 +1106,12 @@
             this.txtHo.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHo.ForeColor = System.Drawing.Color.Black;
             this.txtHo.Location = new System.Drawing.Point(106, 57);
-            this.txtHo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtHo.Margin = new System.Windows.Forms.Padding(4);
             this.txtHo.MaximumSize = new System.Drawing.Size(171, 28);
             this.txtHo.MinimumSize = new System.Drawing.Size(150, 28);
             this.txtHo.Multiline = false;
             this.txtHo.Name = "txtHo";
-            this.txtHo.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.txtHo.Padding = new System.Windows.Forms.Padding(7);
             this.txtHo.PasswordChar = false;
             this.txtHo.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtHo.PlaceholderText = "";
@@ -1139,7 +1139,7 @@
             this.label4.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.label4.Location = new System.Drawing.Point(4, 110);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label4.Margin = new System.Windows.Forms.Padding(4);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 28);
             this.label4.TabIndex = 4;
@@ -1156,12 +1156,12 @@
             this.txtTen.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTen.ForeColor = System.Drawing.Color.Black;
             this.txtTen.Location = new System.Drawing.Point(106, 110);
-            this.txtTen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTen.Margin = new System.Windows.Forms.Padding(4);
             this.txtTen.MaximumSize = new System.Drawing.Size(171, 28);
             this.txtTen.MinimumSize = new System.Drawing.Size(150, 28);
             this.txtTen.Multiline = false;
             this.txtTen.Name = "txtTen";
-            this.txtTen.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.txtTen.Padding = new System.Windows.Forms.Padding(7);
             this.txtTen.PasswordChar = false;
             this.txtTen.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtTen.PlaceholderText = "";
@@ -1189,7 +1189,7 @@
             this.label5.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.label5.Location = new System.Drawing.Point(4, 163);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label5.Margin = new System.Windows.Forms.Padding(4);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 28);
             this.label5.TabIndex = 6;
@@ -1205,7 +1205,7 @@
             this.dtpNgaySinh.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpNgaySinh.Location = new System.Drawing.Point(106, 163);
-            this.dtpNgaySinh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpNgaySinh.Margin = new System.Windows.Forms.Padding(4);
             this.dtpNgaySinh.MaxDate = new System.DateTime(2023, 10, 24, 8, 30, 34, 0);
             this.dtpNgaySinh.MaximumSize = new System.Drawing.Size(171, 28);
             this.dtpNgaySinh.MinimumSize = new System.Drawing.Size(4, 28);
@@ -1221,7 +1221,7 @@
             this.label6.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.label6.Location = new System.Drawing.Point(4, 199);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label6.Margin = new System.Windows.Forms.Padding(4);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(94, 28);
             this.label6.TabIndex = 8;
@@ -1254,7 +1254,7 @@
             this.rdbNu.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
             this.rdbNu.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbNu.Location = new System.Drawing.Point(212, 199);
-            this.rdbNu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbNu.Margin = new System.Windows.Forms.Padding(4);
             this.rdbNu.MinimumSize = new System.Drawing.Size(0, 21);
             this.rdbNu.Name = "rdbNu";
             this.rdbNu.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -1283,7 +1283,7 @@
             this.label7.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.label7.Location = new System.Drawing.Point(4, 255);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label7.Margin = new System.Windows.Forms.Padding(4);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(94, 28);
             this.label7.TabIndex = 10;
@@ -1300,12 +1300,12 @@
             this.txtSoDT.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSoDT.ForeColor = System.Drawing.Color.Black;
             this.txtSoDT.Location = new System.Drawing.Point(106, 255);
-            this.txtSoDT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSoDT.Margin = new System.Windows.Forms.Padding(4);
             this.txtSoDT.MaximumSize = new System.Drawing.Size(171, 28);
             this.txtSoDT.MinimumSize = new System.Drawing.Size(150, 28);
             this.txtSoDT.Multiline = false;
             this.txtSoDT.Name = "txtSoDT";
-            this.txtSoDT.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.txtSoDT.Padding = new System.Windows.Forms.Padding(7);
             this.txtSoDT.PasswordChar = false;
             this.txtSoDT.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtSoDT.PlaceholderText = "";
@@ -1333,7 +1333,7 @@
             this.label8.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.label8.Location = new System.Drawing.Point(4, 308);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label8.Margin = new System.Windows.Forms.Padding(4);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(94, 28);
             this.label8.TabIndex = 12;
@@ -1350,12 +1350,12 @@
             this.txtDiaChi.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiaChi.ForeColor = System.Drawing.Color.Black;
             this.txtDiaChi.Location = new System.Drawing.Point(106, 308);
-            this.txtDiaChi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDiaChi.Margin = new System.Windows.Forms.Padding(4);
             this.txtDiaChi.MaximumSize = new System.Drawing.Size(171, 28);
             this.txtDiaChi.MinimumSize = new System.Drawing.Size(150, 28);
             this.txtDiaChi.Multiline = false;
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.txtDiaChi.Padding = new System.Windows.Forms.Padding(7);
             this.txtDiaChi.PasswordChar = false;
             this.txtDiaChi.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtDiaChi.PlaceholderText = "";
@@ -1383,7 +1383,7 @@
             this.label9.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.label9.Location = new System.Drawing.Point(4, 361);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label9.Margin = new System.Windows.Forms.Padding(4);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(94, 28);
             this.label9.TabIndex = 14;
@@ -1407,7 +1407,7 @@
             this.cbxTrangThai.Location = new System.Drawing.Point(105, 360);
             this.cbxTrangThai.MinimumSize = new System.Drawing.Size(100, 5);
             this.cbxTrangThai.Name = "cbxTrangThai";
-            this.cbxTrangThai.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxTrangThai.Padding = new System.Windows.Forms.Padding(2);
             this.cbxTrangThai.Size = new System.Drawing.Size(171, 28);
             this.cbxTrangThai.TabIndex = 28;
             this.cbxTrangThai.Texts = "--Chọn trạng thái--";
@@ -1430,7 +1430,7 @@
             this.label10.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.label10.Location = new System.Drawing.Point(4, 414);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label10.Margin = new System.Windows.Forms.Padding(4);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(104, 28);
             this.label10.TabIndex = 18;
@@ -1442,7 +1442,7 @@
             this.lblDiemTL.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDiemTL.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.lblDiemTL.Location = new System.Drawing.Point(116, 414);
-            this.lblDiemTL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lblDiemTL.Margin = new System.Windows.Forms.Padding(4);
             this.lblDiemTL.Name = "lblDiemTL";
             this.lblDiemTL.Size = new System.Drawing.Size(136, 31);
             this.lblDiemTL.TabIndex = 19;
@@ -1519,6 +1519,7 @@
             this.btnXoa.TabIndex = 2;
             this.btnXoa.TextColor = System.Drawing.Color.White;
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnReset
             // 

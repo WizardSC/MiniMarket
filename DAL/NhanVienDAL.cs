@@ -19,7 +19,9 @@ namespace DAL
                 Connect();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from nhanVien";
+                cmd.CommandText = "SELECT NV.MaNV, NV.Ho, NV.Ten, NV.NgaySinh, NV.GioiTinh, NV.SoDT, NV.DiaChi, NV.TrangThai, NV.IMG, CV.TenCV " +
+                    "FROM NhanVien NV " +
+                    "INNER JOIN ChucVu CV ON NV.MaCV = CV.MaCV;";
                 cmd.Connection = conn;
                 SqlDataAdapter adt = new SqlDataAdapter(cmd);
                 adt.Fill(dt);
@@ -126,7 +128,6 @@ namespace DAL
             {
                 if (ex.Number == 547)
                 {
-                    Console.WriteLine("Lỗi: Không thể xóa sản phẩm vì có khóa ngoại tham chiếu.");
                     isLoiKhoaNgoai = true;
                 }
                 else
