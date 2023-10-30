@@ -99,7 +99,7 @@ namespace GUI
         private void btnHuyBo_Click(object sender, EventArgs e)
         {
             listCTKMinFormMini = new List<ChiTietKhuyenMaiDTO>();
-
+            MaKM1 = "";
             this.Close();
 
         }

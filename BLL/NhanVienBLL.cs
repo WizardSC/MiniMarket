@@ -18,7 +18,10 @@ namespace BLL
         {
             nvDAL = new NhanVienDAL();
         }
-
+        public List<NhanVienDTO> getListNV()
+        {
+            return nvDAL.getListNV();
+        }
         public DataTable getListNhanVien()
         {
             return nvDAL.getListNhanVien();

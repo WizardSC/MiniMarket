@@ -39,14 +39,12 @@
             this.btnTang = new GUI.MyCustom.RJButton();
             this.txtSoLuong = new GUI.MyCustom.RJTextBox();
             this.lblTenSP = new System.Windows.Forms.Label();
-            this.lblDonGiaTruocKM = new System.Windows.Forms.Label();
             this.pnProductInCart.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnProductInCart
             // 
             this.pnProductInCart.BackColor = System.Drawing.Color.White;
-            this.pnProductInCart.Controls.Add(this.lblDonGiaTruocKM);
             this.pnProductInCart.Controls.Add(this.lblMaSP);
             this.pnProductInCart.Controls.Add(this.btnDelete);
             this.pnProductInCart.Controls.Add(this.lblDonGia);
@@ -195,16 +193,6 @@
             this.lblTenSP.TabIndex = 0;
             this.lblTenSP.Text = "Xịt côn trùng Raid Lavender 600ml";
             // 
-            // lblDonGiaTruocKM
-            // 
-            this.lblDonGiaTruocKM.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDonGiaTruocKM.Location = new System.Drawing.Point(174, 25);
-            this.lblDonGiaTruocKM.Name = "lblDonGiaTruocKM";
-            this.lblDonGiaTruocKM.Size = new System.Drawing.Size(76, 23);
-            this.lblDonGiaTruocKM.TabIndex = 11;
-            this.lblDonGiaTruocKM.Text = "10000đ";
-            this.lblDonGiaTruocKM.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // MyProductInCart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,6 +217,5 @@
         public System.Windows.Forms.Label lblSeperator;
         public RJButton btnDelete;
         public System.Windows.Forms.Label lblMaSP;
-        public System.Windows.Forms.Label lblDonGiaTruocKM;
     }
 }

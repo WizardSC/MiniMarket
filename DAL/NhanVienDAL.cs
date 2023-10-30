@@ -11,6 +11,35 @@ namespace DAL
 {
     public class NhanVienDAL : MSSQLConnect
     {
+
+        public List<NhanVienDTO> getListNV()
+        {
+            List<NhanVienDTO> listNV = new List<NhanVienDTO>();
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand("select MaNV, Ho, Ten from nhanvien", conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    NhanVienDTO nv = new NhanVienDTO();
+                    nv.MaNV = reader["MaNV"].ToString();
+                    nv.Ho = reader["Ho"].ToString();
+                    nv.Ten = reader["Ten"].ToString();
+                    listNV.Add(nv);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return listNV;
+        }
         public DataTable getListNhanVien()
         {
             DataTable dt = new DataTable();
