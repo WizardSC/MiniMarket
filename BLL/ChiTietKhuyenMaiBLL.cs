@@ -19,7 +19,10 @@ namespace BLL
         {
             CtKmDAL = new ChiTietKhuyenMaiDAL();
         }
-
+        public DataTable getListCTKM(string maKM)
+        {
+            return CtKmDAL.getListCTKM(maKM);
+        }
         public DataTable getListDsCTKm()
         {
             return CtKmDAL.getListChiTietKhuyenMai();

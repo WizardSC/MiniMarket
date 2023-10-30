@@ -88,7 +88,6 @@ namespace GUI
             this.pbImage = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnThemVaoGio = new GUI.MyCustom.RJButton();
-            
             this.panel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.gradientPanel1.SuspendLayout();
@@ -103,7 +102,6 @@ namespace GUI
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.panel5.SuspendLayout();
-            
             this.SuspendLayout();
             // 
             // panel1
@@ -114,7 +112,7 @@ namespace GUI
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1180, 738);
+            this.panel1.Size = new System.Drawing.Size(1167, 718);
             this.panel1.TabIndex = 0;
             // 
             // flowLayoutPanel3
@@ -501,7 +499,6 @@ namespace GUI
             this.flowLayoutPanel4.Controls.Add(this.txtTimKiem);
             this.flowLayoutPanel4.Controls.Add(this.btnTimKiem);
             this.flowLayoutPanel4.Controls.Add(this.btnFilter);
-           
             this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
@@ -523,7 +520,7 @@ namespace GUI
             this.cbxTimKiem.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
             this.cbxTimKiem.MinimumSize = new System.Drawing.Size(100, 30);
             this.cbxTimKiem.Name = "cbxTimKiem";
-            this.cbxTimKiem.Padding = new System.Windows.Forms.Padding(2);
+            this.cbxTimKiem.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbxTimKiem.Size = new System.Drawing.Size(108, 30);
             this.cbxTimKiem.TabIndex = 4;
             this.cbxTimKiem.Texts = "Mã KH";
@@ -543,7 +540,7 @@ namespace GUI
             this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
             this.txtTimKiem.Multiline = false;
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Padding = new System.Windows.Forms.Padding(7);
+            this.txtTimKiem.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.txtTimKiem.PasswordChar = false;
             this.txtTimKiem.PlaceholderColor = System.Drawing.Color.DimGray;
             this.txtTimKiem.PlaceholderText = "Nhập thông tin tìm kiếm";
@@ -589,7 +586,7 @@ namespace GUI
             this.btnFilter.Location = new System.Drawing.Point(15, 52);
             this.btnFilter.Margin = new System.Windows.Forms.Padding(15, 8, 10, 0);
             this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(44, 6);
+            this.btnFilter.Size = new System.Drawing.Size(44, 0);
             this.btnFilter.TabIndex = 4;
             this.btnFilter.TextColor = System.Drawing.Color.White;
             this.btnFilter.UseVisualStyleBackColor = false;
@@ -950,12 +947,11 @@ namespace GUI
             this.btnThemVaoGio.UseVisualStyleBackColor = false;
             this.btnThemVaoGio.Click += new System.EventHandler(this.btnThemVaoGio_Click);
             // 
-           
             // BanHangGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1180, 738);
+            this.ClientSize = new System.Drawing.Size(1167, 718);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BanHangGUI";
@@ -976,7 +972,6 @@ namespace GUI
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.panel5.ResumeLayout(false);
-           
             this.ResumeLayout(false);
 
         }
