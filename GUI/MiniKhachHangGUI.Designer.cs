@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MiniKhachHangGUI));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.gradientPanel1 = new GUI.MyCustom.GradientPanel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -42,15 +42,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtMaKH = new GUI.MyCustom.RJTextBox();
             this.dgvKhachHang = new System.Windows.Forms.DataGridView();
+            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ho = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiemTichLuy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnHeader = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.btnMinimize = new GUI.MyCustom.RJButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnClose = new GUI.MyCustom.RJButton();
-            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ho = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiemTichLuy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             this.gradientPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -236,28 +236,28 @@
             this.dgvKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvKhachHang.BackgroundColor = System.Drawing.Color.White;
             this.dgvKhachHang.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvKhachHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvKhachHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvKhachHang.ColumnHeadersHeight = 28;
             this.dgvKhachHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaKH,
             this.Ho,
             this.Ten,
             this.DiemTichLuy});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvKhachHang.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvKhachHang.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvKhachHang.EnableHeadersVisualStyles = false;
             this.dgvKhachHang.GridColor = System.Drawing.Color.Black;
             this.dgvKhachHang.Location = new System.Drawing.Point(12, 12);
@@ -272,6 +272,41 @@
             this.dgvKhachHang.Size = new System.Drawing.Size(642, 243);
             this.dgvKhachHang.TabIndex = 2;
             this.dgvKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhachHang_CellClick);
+            // 
+            // MaKH
+            // 
+            this.MaKH.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MaKH.DataPropertyName = "MaKH";
+            this.MaKH.HeaderText = "Mã KH";
+            this.MaKH.MinimumWidth = 6;
+            this.MaKH.Name = "MaKH";
+            this.MaKH.ReadOnly = true;
+            this.MaKH.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Ho
+            // 
+            this.Ho.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ho.DataPropertyName = "Ho";
+            this.Ho.HeaderText = "Họ";
+            this.Ho.MinimumWidth = 6;
+            this.Ho.Name = "Ho";
+            this.Ho.ReadOnly = true;
+            // 
+            // Ten
+            // 
+            this.Ten.DataPropertyName = "Ten";
+            this.Ten.HeaderText = "Tên";
+            this.Ten.Name = "Ten";
+            this.Ten.ReadOnly = true;
+            this.Ten.Width = 55;
+            // 
+            // DiemTichLuy
+            // 
+            this.DiemTichLuy.DataPropertyName = "DiemTichLuy";
+            this.DiemTichLuy.HeaderText = "Điểm TL";
+            this.DiemTichLuy.Name = "DiemTichLuy";
+            this.DiemTichLuy.ReadOnly = true;
+            this.DiemTichLuy.Width = 85;
             // 
             // pnHeader
             // 
@@ -297,7 +332,7 @@
             this.label3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.label3.Size = new System.Drawing.Size(292, 35);
             this.label3.TabIndex = 5;
-            this.label3.Text = "       CHỌN LOẠI HÀNG";
+            this.label3.Text = "       CHỌN KHÁCH HÀNG";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnMinimize
@@ -351,41 +386,6 @@
             this.btnClose.TextColor = System.Drawing.Color.White;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // MaKH
-            // 
-            this.MaKH.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MaKH.DataPropertyName = "MaKH";
-            this.MaKH.HeaderText = "Mã KH";
-            this.MaKH.MinimumWidth = 6;
-            this.MaKH.Name = "MaKH";
-            this.MaKH.ReadOnly = true;
-            this.MaKH.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Ho
-            // 
-            this.Ho.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ho.DataPropertyName = "Ho";
-            this.Ho.HeaderText = "Họ";
-            this.Ho.MinimumWidth = 6;
-            this.Ho.Name = "Ho";
-            this.Ho.ReadOnly = true;
-            // 
-            // Ten
-            // 
-            this.Ten.DataPropertyName = "Ten";
-            this.Ten.HeaderText = "Tên";
-            this.Ten.Name = "Ten";
-            this.Ten.ReadOnly = true;
-            this.Ten.Width = 55;
-            // 
-            // DiemTichLuy
-            // 
-            this.DiemTichLuy.DataPropertyName = "DiemTichLuy";
-            this.DiemTichLuy.HeaderText = "Điểm TL";
-            this.DiemTichLuy.Name = "DiemTichLuy";
-            this.DiemTichLuy.ReadOnly = true;
-            this.DiemTichLuy.Width = 85;
             // 
             // MiniKhachHangGUI
             // 

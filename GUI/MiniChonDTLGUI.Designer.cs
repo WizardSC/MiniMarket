@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MiniChonDTLGUI));
             this.panel3 = new System.Windows.Forms.Panel();
             this.gradientPanel1 = new GUI.MyCustom.GradientPanel();
+            this.lblDiemTLCoTheSD = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtDiemTL = new GUI.MyCustom.RJTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblDiemTL = new System.Windows.Forms.Label();
@@ -43,8 +45,7 @@
             this.btnMinimize = new GUI.MyCustom.RJButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnClose = new GUI.MyCustom.RJButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblDiemTLCoTheSD = new System.Windows.Forms.Label();
+            this.btnKhongApDungDTL = new GUI.MyCustom.RJButton();
             this.panel3.SuspendLayout();
             this.gradientPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -78,6 +79,30 @@
             this.gradientPanel1.Size = new System.Drawing.Size(518, 148);
             this.gradientPanel1.TabIndex = 0;
             this.gradientPanel1.TopColor = System.Drawing.Color.White;
+            // 
+            // lblDiemTLCoTheSD
+            // 
+            this.lblDiemTLCoTheSD.BackColor = System.Drawing.Color.Transparent;
+            this.lblDiemTLCoTheSD.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDiemTLCoTheSD.Location = new System.Drawing.Point(150, 128);
+            this.lblDiemTLCoTheSD.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.lblDiemTLCoTheSD.Name = "lblDiemTLCoTheSD";
+            this.lblDiemTLCoTheSD.Size = new System.Drawing.Size(37, 21);
+            this.lblDiemTLCoTheSD.TabIndex = 15;
+            this.lblDiemTLCoTheSD.Text = "0";
+            this.lblDiemTLCoTheSD.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(2, 127);
+            this.label1.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(142, 21);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Được sử dụng tối đa: ";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtDiemTL
             // 
@@ -143,11 +168,12 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.btnKhongApDungDTL);
             this.panel2.Controls.Add(this.btnXacNhan);
             this.panel2.Controls.Add(this.btnHuyBo);
-            this.panel2.Location = new System.Drawing.Point(361, 10);
+            this.panel2.Location = new System.Drawing.Point(327, 10);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(146, 112);
+            this.panel2.Size = new System.Drawing.Size(180, 135);
             this.panel2.TabIndex = 4;
             // 
             // btnXacNhan
@@ -163,7 +189,7 @@
             this.btnXacNhan.ForeColor = System.Drawing.Color.Black;
             this.btnXacNhan.Image = ((System.Drawing.Image)(resources.GetObject("btnXacNhan.Image")));
             this.btnXacNhan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXacNhan.Location = new System.Drawing.Point(10, 11);
+            this.btnXacNhan.Location = new System.Drawing.Point(30, 0);
             this.btnXacNhan.Margin = new System.Windows.Forms.Padding(23, 3, 10, 3);
             this.btnXacNhan.Name = "btnXacNhan";
             this.btnXacNhan.Size = new System.Drawing.Size(120, 40);
@@ -187,7 +213,7 @@
             this.btnHuyBo.ForeColor = System.Drawing.Color.Black;
             this.btnHuyBo.Image = ((System.Drawing.Image)(resources.GetObject("btnHuyBo.Image")));
             this.btnHuyBo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHuyBo.Location = new System.Drawing.Point(10, 57);
+            this.btnHuyBo.Location = new System.Drawing.Point(30, 46);
             this.btnHuyBo.Margin = new System.Windows.Forms.Padding(23, 3, 10, 3);
             this.btnHuyBo.Name = "btnHuyBo";
             this.btnHuyBo.Size = new System.Drawing.Size(120, 40);
@@ -196,6 +222,7 @@
             this.btnHuyBo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHuyBo.TextColor = System.Drawing.Color.Black;
             this.btnHuyBo.UseVisualStyleBackColor = false;
+            this.btnHuyBo.Click += new System.EventHandler(this.btnHuyBo_Click);
             // 
             // pnHeader
             // 
@@ -273,30 +300,31 @@
             this.btnClose.TabIndex = 1;
             this.btnClose.TextColor = System.Drawing.Color.White;
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // label1
+            // btnKhongApDungDTL
             // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(2, 127);
-            this.label1.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 21);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Được sử dụng tối đa: ";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblDiemTLCoTheSD
-            // 
-            this.lblDiemTLCoTheSD.BackColor = System.Drawing.Color.Transparent;
-            this.lblDiemTLCoTheSD.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiemTLCoTheSD.Location = new System.Drawing.Point(150, 128);
-            this.lblDiemTLCoTheSD.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
-            this.lblDiemTLCoTheSD.Name = "lblDiemTLCoTheSD";
-            this.lblDiemTLCoTheSD.Size = new System.Drawing.Size(37, 21);
-            this.lblDiemTLCoTheSD.TabIndex = 15;
-            this.lblDiemTLCoTheSD.Text = "0";
-            this.lblDiemTLCoTheSD.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnKhongApDungDTL.BackColor = System.Drawing.Color.Transparent;
+            this.btnKhongApDungDTL.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnKhongApDungDTL.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.btnKhongApDungDTL.BorderRadius = 20;
+            this.btnKhongApDungDTL.BorderSize = 2;
+            this.btnKhongApDungDTL.FlatAppearance.BorderSize = 0;
+            this.btnKhongApDungDTL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKhongApDungDTL.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKhongApDungDTL.ForeColor = System.Drawing.Color.Black;
+            this.btnKhongApDungDTL.Image = ((System.Drawing.Image)(resources.GetObject("btnKhongApDungDTL.Image")));
+            this.btnKhongApDungDTL.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnKhongApDungDTL.Location = new System.Drawing.Point(0, 87);
+            this.btnKhongApDungDTL.Margin = new System.Windows.Forms.Padding(23, 3, 0, 3);
+            this.btnKhongApDungDTL.Name = "btnKhongApDungDTL";
+            this.btnKhongApDungDTL.Size = new System.Drawing.Size(170, 40);
+            this.btnKhongApDungDTL.TabIndex = 3;
+            this.btnKhongApDungDTL.Text = "        Không áp dụng ĐTL";
+            this.btnKhongApDungDTL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnKhongApDungDTL.TextColor = System.Drawing.Color.Black;
+            this.btnKhongApDungDTL.UseVisualStyleBackColor = false;
+            this.btnKhongApDungDTL.Click += new System.EventHandler(this.btnKhongApDungDTL_Click);
             // 
             // MiniChonDTLGUI
             // 
@@ -334,5 +362,6 @@
         private MyCustom.RJTextBox txtDiemTL;
         private System.Windows.Forms.Label lblDiemTLCoTheSD;
         private System.Windows.Forms.Label label1;
+        private MyCustom.RJButton btnKhongApDungDTL;
     }
 }
