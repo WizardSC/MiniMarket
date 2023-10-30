@@ -683,6 +683,7 @@ namespace GUI
         {
             gioHang.Clear();
             lblKhachHang.Text = string.Empty;
+            lblTongTienTT.Text = ConvertIntToVND(0);
             lblTongTien.Text = ConvertIntToVND(0);
             lblKhuyenMai.Text = string.Empty;
             lblDiemTL.Text = "0";
