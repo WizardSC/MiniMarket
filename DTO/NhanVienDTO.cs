@@ -19,6 +19,18 @@ namespace DTO
         private byte[] img;
         private string maTK;
         private string maCV;
+        //dùng để load mã NV từ họ tên NV ở hóa đơn
+        public NhanVienDTO(string maNV, string ho, string ten)
+        {
+            this.maNV = maNV;
+            this.ho = ho;
+            this.ten = ten;
+        }
+
+        public NhanVienDTO()
+        {
+        }
+
 
 
         //public NhanVienDTO(string maNV, string ho, string ten, DateTime ngaySinh, string gioiTinh, string soDT, string diaChi, int trangThai, byte[] img,string maTK, string maCV)
@@ -48,6 +60,7 @@ namespace DTO
             this.trangThai = trangThai;
             this.maCV = maCV;
         }
+
 
         public string MaNV { get => maNV; set => maNV = value; }
         public string Ho { get => ho; set => ho = value; }

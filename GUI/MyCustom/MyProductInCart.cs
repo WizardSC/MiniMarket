@@ -16,6 +16,7 @@ namespace GUI.MyCustom
         public int soLuongTrongKho;
         public int soLuongMuaThem;
         public int donGiaBanDau;
+        public int phanTramKM;
         public event EventHandler TangButtonClicked;
         public event EventHandler GiamButtonClicked;
         public event EventHandler DeleteButtonClicked;
