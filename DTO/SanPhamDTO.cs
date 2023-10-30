@@ -20,6 +20,20 @@ namespace DTO
         private string maNCC;
         private byte[] img;
 
+        public SanPhamDTO(string maSP, string tenSP, int soLuong, int donGiaNhap, int donGiaBan, string donViTinh, int trangThaiSP, string maLoai, string maNSX, string maNCC)
+        {
+            this.maSP = maSP;
+            this.tenSP = tenSP;
+            this.soLuong = soLuong;
+            this.donGiaNhap = donGiaNhap;
+            this.donGiaBan = donGiaBan;
+            this.donViTinh = donViTinh;
+            this.trangThaiSP = trangThaiSP;
+            this.maLoai = maLoai;
+            this.maNSX = maNSX;
+            this.maNCC = maNCC;
+        }
+
         public SanPhamDTO(string maSP, string tenSP, int soLuong, int donGiaNhap, int donGiaBan, string donViTinh, int trangThaiSP, string maLoai, string maNSX, string maNCC, byte[] img)
         {
             this.maSP = maSP;

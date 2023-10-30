@@ -47,10 +47,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
-            this.cbxTenKM = new GUI.MyCustom.RJComboBox();
+            this.comboBoxTenKM = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbxTenSp = new GUI.MyCustom.RJComboBox();
+            this.comboBoxTenSP = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtPhanTramKM = new GUI.MyCustom.RJTextBox();
@@ -79,7 +79,7 @@
             this.panel3.Controls.Add(this.dgvChiTietKM);
             this.panel3.Location = new System.Drawing.Point(322, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(676, 357);
+            this.panel3.Size = new System.Drawing.Size(681, 357);
             this.panel3.TabIndex = 4;
             // 
             // flowLayoutPanel4
@@ -90,7 +90,7 @@
             this.flowLayoutPanel4.Controls.Add(this.btnTimKiem);
             this.flowLayoutPanel4.Location = new System.Drawing.Point(5, 6);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(666, 50);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(674, 50);
             this.flowLayoutPanel4.TabIndex = 2;
             // 
             // cbxTimKiem
@@ -102,8 +102,6 @@
             this.cbxTimKiem.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxTimKiem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.cbxTimKiem.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.cbxTimKiem.Items.AddRange(new object[] {
-            "TenKM"});
             this.cbxTimKiem.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
             this.cbxTimKiem.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.cbxTimKiem.Location = new System.Drawing.Point(4, 8);
@@ -113,7 +111,8 @@
             this.cbxTimKiem.Padding = new System.Windows.Forms.Padding(2);
             this.cbxTimKiem.Size = new System.Drawing.Size(108, 30);
             this.cbxTimKiem.TabIndex = 4;
-            this.cbxTimKiem.Texts = "Mã KM";
+            this.cbxTimKiem.Texts = "";
+            this.cbxTimKiem.OnSelectedIndexChanged += new System.EventHandler(this.cbxTimKiem_OnSelectedIndexChanged);
             // 
             // txtTimKiem
             // 
@@ -134,10 +133,12 @@
             this.txtTimKiem.PasswordChar = false;
             this.txtTimKiem.PlaceholderColor = System.Drawing.Color.DimGray;
             this.txtTimKiem.PlaceholderText = "Nhập thông tin tìm kiếm";
+            this.txtTimKiem.ReadOnly = false;
             this.txtTimKiem.Size = new System.Drawing.Size(499, 32);
             this.txtTimKiem.TabIndex = 1;
             this.txtTimKiem.Texts = "";
             this.txtTimKiem.UnderlinedStyle = true;
+            this.txtTimKiem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTimKiem_KeyPress);
             // 
             // btnTimKiem
             // 
@@ -157,6 +158,7 @@
             this.btnTimKiem.TabIndex = 2;
             this.btnTimKiem.TextColor = System.Drawing.Color.White;
             this.btnTimKiem.UseVisualStyleBackColor = false;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // dgvChiTietKM
             // 
@@ -202,9 +204,10 @@
             this.dgvChiTietKM.RowTemplate.Height = 30;
             this.dgvChiTietKM.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvChiTietKM.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvChiTietKM.Size = new System.Drawing.Size(666, 292);
+            this.dgvChiTietKM.Size = new System.Drawing.Size(676, 292);
             this.dgvChiTietKM.TabIndex = 1;
-            this.dgvChiTietKM.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChiTietKM_CellContentClick);
+            this.dgvChiTietKM.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChiTietKM_CellClick);
+            this.dgvChiTietKM.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvChiTietKM_CellFormatting);
             // 
             // MaKM
             // 
@@ -247,23 +250,23 @@
             // 
             // PhanTramKm
             // 
-            this.PhanTramKm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.PhanTramKm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.PhanTramKm.DataPropertyName = "PhanTramKM";
             this.PhanTramKm.HeaderText = "Phần trăm KM";
             this.PhanTramKm.MinimumWidth = 6;
             this.PhanTramKm.Name = "PhanTramKm";
             this.PhanTramKm.ReadOnly = true;
-            this.PhanTramKm.Width = 121;
+            this.PhanTramKm.Width = 105;
             // 
             // TrangThai
             // 
-            this.TrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.TrangThai.DataPropertyName = "TrangThai";
             this.TrangThai.HeaderText = "Trạng thái";
             this.TrangThai.MinimumWidth = 6;
             this.TrangThai.Name = "TrangThai";
             this.TrangThai.ReadOnly = true;
-            this.TrangThai.Width = 95;
+            this.TrangThai.Width = 123;
             // 
             // flowLayoutPanel1
             // 
@@ -299,10 +302,10 @@
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.label2);
-            this.flowLayoutPanel2.Controls.Add(this.cbxTenKM);
+            this.flowLayoutPanel2.Controls.Add(this.comboBoxTenKM);
             this.flowLayoutPanel2.Controls.Add(this.label13);
             this.flowLayoutPanel2.Controls.Add(this.label3);
-            this.flowLayoutPanel2.Controls.Add(this.cbxTenSp);
+            this.flowLayoutPanel2.Controls.Add(this.comboBoxTenSP);
             this.flowLayoutPanel2.Controls.Add(this.label4);
             this.flowLayoutPanel2.Controls.Add(this.label9);
             this.flowLayoutPanel2.Controls.Add(this.txtPhanTramKM);
@@ -326,24 +329,16 @@
             this.label2.Text = "Tên KM";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // cbxTenKM
+            // comboBoxTenKM
             // 
-            this.cbxTenKM.BackColor = System.Drawing.Color.White;
-            this.cbxTenKM.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.cbxTenKM.BorderSize = 2;
-            this.cbxTenKM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.cbxTenKM.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxTenKM.ForeColor = System.Drawing.Color.Black;
-            this.cbxTenKM.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.cbxTenKM.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.cbxTenKM.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbxTenKM.Location = new System.Drawing.Point(105, 3);
-            this.cbxTenKM.MinimumSize = new System.Drawing.Size(100, 5);
-            this.cbxTenKM.Name = "cbxTenKM";
-            this.cbxTenKM.Padding = new System.Windows.Forms.Padding(2);
-            this.cbxTenKM.Size = new System.Drawing.Size(171, 28);
-            this.cbxTenKM.TabIndex = 40;
-            this.cbxTenKM.Texts = "";
+            this.comboBoxTenKM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTenKM.Font = new System.Drawing.Font("Cambria", 11.25F);
+            this.comboBoxTenKM.FormattingEnabled = true;
+            this.comboBoxTenKM.Location = new System.Drawing.Point(105, 3);
+            this.comboBoxTenKM.Name = "comboBoxTenKM";
+            this.comboBoxTenKM.Size = new System.Drawing.Size(171, 25);
+            this.comboBoxTenKM.TabIndex = 41;
+            this.comboBoxTenKM.SelectedIndexChanged += new System.EventHandler(this.comboBoxTenKM_SelectedIndexChanged);
             // 
             // label13
             // 
@@ -369,24 +364,16 @@
             this.label3.Text = "Tên SP";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // cbxTenSp
+            // comboBoxTenSP
             // 
-            this.cbxTenSp.BackColor = System.Drawing.Color.White;
-            this.cbxTenSp.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.cbxTenSp.BorderSize = 2;
-            this.cbxTenSp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.cbxTenSp.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxTenSp.ForeColor = System.Drawing.Color.Black;
-            this.cbxTenSp.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.cbxTenSp.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.cbxTenSp.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbxTenSp.Location = new System.Drawing.Point(105, 58);
-            this.cbxTenSp.MinimumSize = new System.Drawing.Size(100, 5);
-            this.cbxTenSp.Name = "cbxTenSp";
-            this.cbxTenSp.Padding = new System.Windows.Forms.Padding(2);
-            this.cbxTenSp.Size = new System.Drawing.Size(171, 28);
-            this.cbxTenSp.TabIndex = 39;
-            this.cbxTenSp.Texts = "";
+            this.comboBoxTenSP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTenSP.Font = new System.Drawing.Font("Cambria", 11.25F);
+            this.comboBoxTenSP.FormattingEnabled = true;
+            this.comboBoxTenSP.Location = new System.Drawing.Point(105, 58);
+            this.comboBoxTenSP.Name = "comboBoxTenSP";
+            this.comboBoxTenSP.Size = new System.Drawing.Size(171, 25);
+            this.comboBoxTenSP.TabIndex = 42;
+            this.comboBoxTenSP.SelectedIndexChanged += new System.EventHandler(this.comboBoxTenSP_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -431,10 +418,12 @@
             this.txtPhanTramKM.PasswordChar = false;
             this.txtPhanTramKM.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtPhanTramKM.PlaceholderText = "";
+            this.txtPhanTramKM.ReadOnly = false;
             this.txtPhanTramKM.Size = new System.Drawing.Size(171, 28);
             this.txtPhanTramKM.TabIndex = 32;
             this.txtPhanTramKM.Texts = "";
             this.txtPhanTramKM.UnderlinedStyle = false;
+            this.txtPhanTramKM._TextChanged += new System.EventHandler(this.txtPhanTramKM__TextChanged);
             // 
             // label10
             // 
@@ -462,6 +451,9 @@
             // 
             // cbxTrangThai
             // 
+            this.cbxTrangThai.AutoCompleteCustomSource.AddRange(new string[] {
+            "Hoạt động",
+            "Không hoạt động"});
             this.cbxTrangThai.BackColor = System.Drawing.Color.White;
             this.cbxTrangThai.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
             this.cbxTrangThai.BorderSize = 2;
@@ -469,6 +461,9 @@
             this.cbxTrangThai.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxTrangThai.ForeColor = System.Drawing.Color.Black;
             this.cbxTrangThai.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.cbxTrangThai.Items.AddRange(new object[] {
+            "Hoạt động",
+            "Không hoạt động"});
             this.cbxTrangThai.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
             this.cbxTrangThai.ListTextColor = System.Drawing.Color.DimGray;
             this.cbxTrangThai.Location = new System.Drawing.Point(105, 168);
@@ -477,7 +472,7 @@
             this.cbxTrangThai.Padding = new System.Windows.Forms.Padding(2);
             this.cbxTrangThai.Size = new System.Drawing.Size(171, 28);
             this.cbxTrangThai.TabIndex = 38;
-            this.cbxTrangThai.Texts = "Hoạt động";
+            this.cbxTrangThai.Texts = "--Chọn trạng thái--";
             // 
             // flowLayoutPanel5
             // 
@@ -509,6 +504,7 @@
             this.btnThemCTKM.TabIndex = 0;
             this.btnThemCTKM.TextColor = System.Drawing.Color.White;
             this.btnThemCTKM.UseVisualStyleBackColor = false;
+            this.btnThemCTKM.Click += new System.EventHandler(this.btnThemCTKM_Click);
             // 
             // btnUpdateKM
             // 
@@ -528,6 +524,7 @@
             this.btnUpdateKM.TabIndex = 1;
             this.btnUpdateKM.TextColor = System.Drawing.Color.White;
             this.btnUpdateKM.UseVisualStyleBackColor = false;
+            this.btnUpdateKM.Click += new System.EventHandler(this.btnUpdateKM_Click);
             // 
             // btnXoaKM
             // 
@@ -547,6 +544,7 @@
             this.btnXoaKM.TabIndex = 2;
             this.btnXoaKM.TextColor = System.Drawing.Color.White;
             this.btnXoaKM.UseVisualStyleBackColor = false;
+            this.btnXoaKM.Click += new System.EventHandler(this.btnXoaKM_Click);
             // 
             // btnRS
             // 
@@ -566,6 +564,7 @@
             this.btnRS.TabIndex = 3;
             this.btnRS.TextColor = System.Drawing.Color.White;
             this.btnRS.UseVisualStyleBackColor = false;
+            this.btnRS.Click += new System.EventHandler(this.btnRS_Click);
             // 
             // panel1
             // 
@@ -577,14 +576,14 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1002, 363);
+            this.panel1.Size = new System.Drawing.Size(1005, 365);
             this.panel1.TabIndex = 3;
             // 
             // ChiTietKhuyenMaiGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1002, 363);
+            this.ClientSize = new System.Drawing.Size(1005, 365);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "ChiTietKhuyenMaiGUI";
@@ -622,19 +621,19 @@
         private System.Windows.Forms.Label label14;
         private MyCustom.RJComboBox cbxTrangThai;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
+        private MyCustom.RJButton btnThemCTKM;
+        private MyCustom.RJButton btnUpdateKM;
+        private MyCustom.RJButton btnXoaKM;
+        private MyCustom.RJButton btnRS;
+        private MyCustom.RJTextBox txtPhanTramKM;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKM;
         private System.Windows.Forms.DataGridViewTextBoxColumn Masp;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenKM;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSp;
         private System.Windows.Forms.DataGridViewTextBoxColumn PhanTramKm;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
-        private MyCustom.RJButton btnThemCTKM;
-        private MyCustom.RJButton btnUpdateKM;
-        private MyCustom.RJButton btnXoaKM;
-        private MyCustom.RJButton btnRS;
-        private MyCustom.RJComboBox cbxTenSp;
-        private MyCustom.RJComboBox cbxTenKM;
-        private MyCustom.RJTextBox txtPhanTramKM;
+        private System.Windows.Forms.ComboBox comboBoxTenKM;
+        private System.Windows.Forms.ComboBox comboBoxTenSP;
     }
 }

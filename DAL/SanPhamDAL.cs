@@ -12,6 +12,7 @@ namespace DAL
 {
     public class SanPhamDAL : MSSQLConnect
     {
+        //Không lấy cột hình ảnh để tiết kiệm dung lượng
         public List<SanPhamDTO> getListSP()
         {
             List<SanPhamDTO> listSP = new List<SanPhamDTO>();
@@ -20,7 +21,8 @@ namespace DAL
                 Connect();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from sanpham";
+                cmd.CommandText = "SELECT MaSP, TenSP, SoLuong, DonGiaNhap, DonGiaBan, DonViTinh, TrangThai, MaLoai, MaNSX, MaNCC FROM sanpham";
+
                 cmd.Connection = conn;
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -35,8 +37,8 @@ namespace DAL
                         reader.GetInt32(reader.GetOrdinal("TrangThai")),
                         reader["MaLoai"].ToString(),
                         reader["MaNSX"].ToString(),
-                        reader["MaNCC"].ToString(),
-                        (byte[])reader["IMG"]
+                        reader["MaNCC"].ToString()
+                        
                     );
                     listSP.Add(sp);
                 }

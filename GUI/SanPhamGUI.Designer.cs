@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SanPhamGUI));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -141,9 +141,9 @@
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(5);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1573, 908);
+            this.panel1.Size = new System.Drawing.Size(1167, 718);
             this.panel1.TabIndex = 1;
             // 
             // panel3
@@ -152,10 +152,9 @@
             this.panel3.Controls.Add(this.flowLayoutPanel4);
             this.panel3.Controls.Add(this.dgvSanPham);
             this.panel3.Controls.Add(this.flpFilter);
-            this.panel3.Location = new System.Drawing.Point(421, 4);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Location = new System.Drawing.Point(316, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1145, 898);
+            this.panel3.Size = new System.Drawing.Size(859, 730);
             this.panel3.TabIndex = 4;
             // 
             // flowLayoutPanel4
@@ -165,10 +164,9 @@
             this.flowLayoutPanel4.Controls.Add(this.txtTimKiem);
             this.flowLayoutPanel4.Controls.Add(this.btnTimKiem);
             this.flowLayoutPanel4.Controls.Add(this.btnFilter);
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(7, 7);
-            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(5, 6);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(1113, 61);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(835, 50);
             this.flowLayoutPanel4.TabIndex = 2;
             // 
             // cbxTimKiem
@@ -182,12 +180,12 @@
             this.cbxTimKiem.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
             this.cbxTimKiem.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
             this.cbxTimKiem.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.cbxTimKiem.Location = new System.Drawing.Point(5, 10);
-            this.cbxTimKiem.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
-            this.cbxTimKiem.MinimumSize = new System.Drawing.Size(133, 37);
+            this.cbxTimKiem.Location = new System.Drawing.Point(4, 8);
+            this.cbxTimKiem.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
+            this.cbxTimKiem.MinimumSize = new System.Drawing.Size(100, 30);
             this.cbxTimKiem.Name = "cbxTimKiem";
-            this.cbxTimKiem.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbxTimKiem.Size = new System.Drawing.Size(144, 37);
+            this.cbxTimKiem.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxTimKiem.Size = new System.Drawing.Size(108, 30);
             this.cbxTimKiem.TabIndex = 4;
             this.cbxTimKiem.Texts = "Mã KH";
             // 
@@ -202,16 +200,16 @@
             this.txtTimKiem.BorderSize = 2;
             this.txtTimKiem.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTimKiem.ForeColor = System.Drawing.Color.DimGray;
-            this.txtTimKiem.Location = new System.Drawing.Point(159, 10);
-            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
+            this.txtTimKiem.Location = new System.Drawing.Point(120, 8);
+            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
             this.txtTimKiem.Multiline = false;
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Padding = new System.Windows.Forms.Padding(9);
+            this.txtTimKiem.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.txtTimKiem.PasswordChar = false;
             this.txtTimKiem.PlaceholderColor = System.Drawing.Color.DimGray;
             this.txtTimKiem.PlaceholderText = "Nhập thông tin tìm kiếm";
             this.txtTimKiem.ReadOnly = false;
-            this.txtTimKiem.Size = new System.Drawing.Size(805, 41);
+            this.txtTimKiem.Size = new System.Drawing.Size(604, 32);
             this.txtTimKiem.TabIndex = 1;
             this.txtTimKiem.Texts = "";
             this.txtTimKiem.UnderlinedStyle = true;
@@ -227,10 +225,10 @@
             this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimKiem.ForeColor = System.Drawing.Color.White;
             this.btnTimKiem.Image = global::GUI.Properties.Resources.icons8_search_32;
-            this.btnTimKiem.Location = new System.Drawing.Point(973, 10);
-            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(4, 10, 4, 4);
+            this.btnTimKiem.Location = new System.Drawing.Point(731, 8);
+            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(39, 39);
+            this.btnTimKiem.Size = new System.Drawing.Size(29, 32);
             this.btnTimKiem.TabIndex = 2;
             this.btnTimKiem.TextColor = System.Drawing.Color.White;
             this.btnTimKiem.UseVisualStyleBackColor = false;
@@ -249,10 +247,10 @@
             this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFilter.ForeColor = System.Drawing.Color.White;
             this.btnFilter.Image = global::GUI.Properties.Resources.icons8_filter_32;
-            this.btnFilter.Location = new System.Drawing.Point(1036, 10);
-            this.btnFilter.Margin = new System.Windows.Forms.Padding(20, 10, 13, 0);
+            this.btnFilter.Location = new System.Drawing.Point(778, 8);
+            this.btnFilter.Margin = new System.Windows.Forms.Padding(15, 8, 10, 0);
             this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(59, 46);
+            this.btnFilter.Size = new System.Drawing.Size(44, 36);
             this.btnFilter.TabIndex = 4;
             this.btnFilter.TextColor = System.Drawing.Color.White;
             this.btnFilter.UseVisualStyleBackColor = false;
@@ -266,14 +264,14 @@
             this.dgvSanPham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvSanPham.BackgroundColor = System.Drawing.Color.White;
             this.dgvSanPham.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSanPham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSanPham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSanPham.ColumnHeadersHeight = 28;
             this.dgvSanPham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaKH,
@@ -287,18 +285,17 @@
             this.MaNSX,
             this.MaNCC,
             this.Column1});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSanPham.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSanPham.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvSanPham.EnableHeadersVisualStyles = false;
             this.dgvSanPham.GridColor = System.Drawing.Color.Black;
-            this.dgvSanPham.Location = new System.Drawing.Point(7, 76);
-            this.dgvSanPham.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvSanPham.Location = new System.Drawing.Point(5, 62);
             this.dgvSanPham.Name = "dgvSanPham";
             this.dgvSanPham.ReadOnly = true;
             this.dgvSanPham.RowHeadersVisible = false;
@@ -307,7 +304,7 @@
             this.dgvSanPham.RowTemplate.Height = 30;
             this.dgvSanPham.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvSanPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSanPham.Size = new System.Drawing.Size(1128, 812);
+            this.dgvSanPham.Size = new System.Drawing.Size(846, 660);
             this.dgvSanPham.TabIndex = 1;
             this.dgvSanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSanPham_CellClick);
             this.dgvSanPham.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvSanPham_CellFormatting);
@@ -351,7 +348,7 @@
             this.NgaySinh.MinimumWidth = 6;
             this.NgaySinh.Name = "NgaySinh";
             this.NgaySinh.ReadOnly = true;
-            this.NgaySinh.Width = 109;
+            this.NgaySinh.Width = 86;
             // 
             // GioiTinh
             // 
@@ -361,7 +358,7 @@
             this.GioiTinh.MinimumWidth = 6;
             this.GioiTinh.Name = "GioiTinh";
             this.GioiTinh.ReadOnly = true;
-            this.GioiTinh.Width = 98;
+            this.GioiTinh.Width = 78;
             // 
             // SoDT
             // 
@@ -424,7 +421,7 @@
             this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Column1.Visible = false;
-            this.Column1.Width = 112;
+            this.Column1.Width = 89;
             // 
             // flpFilter
             // 
@@ -452,10 +449,9 @@
             this.flpFilter.Controls.Add(this.label28);
             this.flpFilter.Controls.Add(this.chkKoHD);
             this.flpFilter.Controls.Add(this.label29);
-            this.flpFilter.Location = new System.Drawing.Point(711, 69);
-            this.flpFilter.Margin = new System.Windows.Forms.Padding(4);
+            this.flpFilter.Location = new System.Drawing.Point(533, 56);
             this.flpFilter.Name = "flpFilter";
-            this.flpFilter.Size = new System.Drawing.Size(385, 226);
+            this.flpFilter.Size = new System.Drawing.Size(289, 184);
             this.flpFilter.TabIndex = 3;
             this.flpFilter.Visible = false;
             // 
@@ -470,11 +466,10 @@
             this.chkGioiTinh.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkGioiTinh.FlatAppearance.BorderSize = 0;
             this.chkGioiTinh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkGioiTinh.Location = new System.Drawing.Point(4, 4);
-            this.chkGioiTinh.Margin = new System.Windows.Forms.Padding(4);
+            this.chkGioiTinh.Location = new System.Drawing.Point(3, 3);
             this.chkGioiTinh.Name = "chkGioiTinh";
-            this.chkGioiTinh.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
-            this.chkGioiTinh.Size = new System.Drawing.Size(32, 36);
+            this.chkGioiTinh.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.chkGioiTinh.Size = new System.Drawing.Size(24, 29);
             this.chkGioiTinh.TabIndex = 3;
             this.chkGioiTinh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkGioiTinh.TextLocationX = 16;
@@ -489,10 +484,10 @@
             // 
             this.label12.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label12.Location = new System.Drawing.Point(44, 5);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 5, 5, 5);
+            this.label12.Location = new System.Drawing.Point(33, 4);
+            this.label12.Margin = new System.Windows.Forms.Padding(3, 4, 4, 4);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(117, 34);
+            this.label12.Size = new System.Drawing.Size(88, 28);
             this.label12.TabIndex = 1;
             this.label12.Text = "Giới tính:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -508,11 +503,11 @@
             this.chkNam.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkNam.FlatAppearance.BorderSize = 0;
             this.chkNam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkNam.Location = new System.Drawing.Point(170, 4);
-            this.chkNam.Margin = new System.Windows.Forms.Padding(4, 4, 0, 4);
+            this.chkNam.Location = new System.Drawing.Point(128, 3);
+            this.chkNam.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.chkNam.Name = "chkNam";
-            this.chkNam.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
-            this.chkNam.Size = new System.Drawing.Size(32, 36);
+            this.chkNam.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.chkNam.Size = new System.Drawing.Size(24, 29);
             this.chkNam.TabIndex = 4;
             this.chkNam.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkNam.TextLocationX = 16;
@@ -527,10 +522,10 @@
             // 
             this.label21.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label21.Location = new System.Drawing.Point(207, 5);
-            this.label21.Margin = new System.Windows.Forms.Padding(5);
+            this.label21.Location = new System.Drawing.Point(156, 4);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(65, 34);
+            this.label21.Size = new System.Drawing.Size(49, 28);
             this.label21.TabIndex = 6;
             this.label21.Text = "Nam";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -546,11 +541,11 @@
             this.chkNu.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkNu.FlatAppearance.BorderSize = 0;
             this.chkNu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkNu.Location = new System.Drawing.Point(281, 4);
-            this.chkNu.Margin = new System.Windows.Forms.Padding(4, 4, 0, 4);
+            this.chkNu.Location = new System.Drawing.Point(212, 3);
+            this.chkNu.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.chkNu.Name = "chkNu";
-            this.chkNu.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
-            this.chkNu.Size = new System.Drawing.Size(32, 36);
+            this.chkNu.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.chkNu.Size = new System.Drawing.Size(24, 29);
             this.chkNu.TabIndex = 5;
             this.chkNu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkNu.TextLocationX = 16;
@@ -565,10 +560,10 @@
             // 
             this.label22.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label22.Location = new System.Drawing.Point(318, 5);
-            this.label22.Margin = new System.Windows.Forms.Padding(5);
+            this.label22.Location = new System.Drawing.Point(240, 4);
+            this.label22.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(55, 34);
+            this.label22.Size = new System.Drawing.Size(41, 28);
             this.label22.TabIndex = 7;
             this.label22.Text = "Nữ";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -584,11 +579,10 @@
             this.chkTuoi.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkTuoi.FlatAppearance.BorderSize = 0;
             this.chkTuoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkTuoi.Location = new System.Drawing.Point(4, 48);
-            this.chkTuoi.Margin = new System.Windows.Forms.Padding(4);
+            this.chkTuoi.Location = new System.Drawing.Point(3, 39);
             this.chkTuoi.Name = "chkTuoi";
-            this.chkTuoi.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
-            this.chkTuoi.Size = new System.Drawing.Size(32, 36);
+            this.chkTuoi.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.chkTuoi.Size = new System.Drawing.Size(24, 29);
             this.chkTuoi.TabIndex = 9;
             this.chkTuoi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkTuoi.TextLocationX = 16;
@@ -603,10 +597,10 @@
             // 
             this.label23.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label23.Location = new System.Drawing.Point(44, 49);
-            this.label23.Margin = new System.Windows.Forms.Padding(4, 5, 5, 5);
+            this.label23.Location = new System.Drawing.Point(33, 40);
+            this.label23.Margin = new System.Windows.Forms.Padding(3, 4, 4, 4);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(104, 34);
+            this.label23.Size = new System.Drawing.Size(78, 28);
             this.label23.TabIndex = 8;
             this.label23.Text = "Tuổi:";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -621,17 +615,17 @@
             this.txtTuoiStart.Enabled = false;
             this.txtTuoiStart.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTuoiStart.ForeColor = System.Drawing.Color.Black;
-            this.txtTuoiStart.Location = new System.Drawing.Point(158, 49);
-            this.txtTuoiStart.Margin = new System.Windows.Forms.Padding(5);
-            this.txtTuoiStart.MinimumSize = new System.Drawing.Size(0, 34);
+            this.txtTuoiStart.Location = new System.Drawing.Point(119, 40);
+            this.txtTuoiStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTuoiStart.MinimumSize = new System.Drawing.Size(0, 28);
             this.txtTuoiStart.Multiline = false;
             this.txtTuoiStart.Name = "txtTuoiStart";
-            this.txtTuoiStart.Padding = new System.Windows.Forms.Padding(11, 5, 3, 2);
+            this.txtTuoiStart.Padding = new System.Windows.Forms.Padding(8, 4, 2, 2);
             this.txtTuoiStart.PasswordChar = false;
             this.txtTuoiStart.PlaceholderColor = System.Drawing.Color.DimGray;
             this.txtTuoiStart.PlaceholderText = "Từ";
             this.txtTuoiStart.ReadOnly = false;
-            this.txtTuoiStart.Size = new System.Drawing.Size(79, 34);
+            this.txtTuoiStart.Size = new System.Drawing.Size(59, 28);
             this.txtTuoiStart.TabIndex = 10;
             this.txtTuoiStart.Texts = "";
             this.txtTuoiStart.UnderlinedStyle = false;
@@ -640,10 +634,10 @@
             // 
             this.label24.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label24.Location = new System.Drawing.Point(246, 49);
-            this.label24.Margin = new System.Windows.Forms.Padding(4, 5, 5, 5);
+            this.label24.Location = new System.Drawing.Point(185, 40);
+            this.label24.Margin = new System.Windows.Forms.Padding(3, 4, 4, 4);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(17, 34);
+            this.label24.Size = new System.Drawing.Size(13, 28);
             this.label24.TabIndex = 12;
             this.label24.Text = "-";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -658,17 +652,17 @@
             this.txtTuoiEnd.Enabled = false;
             this.txtTuoiEnd.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTuoiEnd.ForeColor = System.Drawing.Color.Black;
-            this.txtTuoiEnd.Location = new System.Drawing.Point(273, 49);
-            this.txtTuoiEnd.Margin = new System.Windows.Forms.Padding(5);
-            this.txtTuoiEnd.MinimumSize = new System.Drawing.Size(0, 34);
+            this.txtTuoiEnd.Location = new System.Drawing.Point(206, 40);
+            this.txtTuoiEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTuoiEnd.MinimumSize = new System.Drawing.Size(0, 28);
             this.txtTuoiEnd.Multiline = false;
             this.txtTuoiEnd.Name = "txtTuoiEnd";
-            this.txtTuoiEnd.Padding = new System.Windows.Forms.Padding(11, 5, 3, 2);
+            this.txtTuoiEnd.Padding = new System.Windows.Forms.Padding(8, 4, 2, 2);
             this.txtTuoiEnd.PasswordChar = false;
             this.txtTuoiEnd.PlaceholderColor = System.Drawing.Color.DimGray;
             this.txtTuoiEnd.PlaceholderText = "Đến";
             this.txtTuoiEnd.ReadOnly = false;
-            this.txtTuoiEnd.Size = new System.Drawing.Size(79, 34);
+            this.txtTuoiEnd.Size = new System.Drawing.Size(59, 28);
             this.txtTuoiEnd.TabIndex = 11;
             this.txtTuoiEnd.Texts = "";
             this.txtTuoiEnd.UnderlinedStyle = false;
@@ -684,11 +678,10 @@
             this.chkDiemTL.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkDiemTL.FlatAppearance.BorderSize = 0;
             this.chkDiemTL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkDiemTL.Location = new System.Drawing.Point(4, 92);
-            this.chkDiemTL.Margin = new System.Windows.Forms.Padding(4);
+            this.chkDiemTL.Location = new System.Drawing.Point(3, 75);
             this.chkDiemTL.Name = "chkDiemTL";
-            this.chkDiemTL.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
-            this.chkDiemTL.Size = new System.Drawing.Size(32, 36);
+            this.chkDiemTL.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.chkDiemTL.Size = new System.Drawing.Size(24, 29);
             this.chkDiemTL.TabIndex = 14;
             this.chkDiemTL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkDiemTL.TextLocationX = 16;
@@ -703,10 +696,10 @@
             // 
             this.label25.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label25.Location = new System.Drawing.Point(44, 93);
-            this.label25.Margin = new System.Windows.Forms.Padding(4, 5, 5, 5);
+            this.label25.Location = new System.Drawing.Point(33, 76);
+            this.label25.Margin = new System.Windows.Forms.Padding(3, 4, 4, 4);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(104, 34);
+            this.label25.Size = new System.Drawing.Size(78, 28);
             this.label25.TabIndex = 13;
             this.label25.Text = "Điểm TL:";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -721,17 +714,17 @@
             this.txtDiemTLStart.Enabled = false;
             this.txtDiemTLStart.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiemTLStart.ForeColor = System.Drawing.Color.Black;
-            this.txtDiemTLStart.Location = new System.Drawing.Point(158, 93);
-            this.txtDiemTLStart.Margin = new System.Windows.Forms.Padding(5);
-            this.txtDiemTLStart.MinimumSize = new System.Drawing.Size(0, 34);
+            this.txtDiemTLStart.Location = new System.Drawing.Point(119, 76);
+            this.txtDiemTLStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDiemTLStart.MinimumSize = new System.Drawing.Size(0, 28);
             this.txtDiemTLStart.Multiline = false;
             this.txtDiemTLStart.Name = "txtDiemTLStart";
-            this.txtDiemTLStart.Padding = new System.Windows.Forms.Padding(11, 5, 3, 2);
+            this.txtDiemTLStart.Padding = new System.Windows.Forms.Padding(8, 4, 2, 2);
             this.txtDiemTLStart.PasswordChar = false;
             this.txtDiemTLStart.PlaceholderColor = System.Drawing.Color.DimGray;
             this.txtDiemTLStart.PlaceholderText = "Từ";
             this.txtDiemTLStart.ReadOnly = false;
-            this.txtDiemTLStart.Size = new System.Drawing.Size(79, 34);
+            this.txtDiemTLStart.Size = new System.Drawing.Size(59, 28);
             this.txtDiemTLStart.TabIndex = 15;
             this.txtDiemTLStart.Texts = "";
             this.txtDiemTLStart.UnderlinedStyle = false;
@@ -740,10 +733,10 @@
             // 
             this.label26.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label26.Location = new System.Drawing.Point(246, 93);
-            this.label26.Margin = new System.Windows.Forms.Padding(4, 5, 5, 5);
+            this.label26.Location = new System.Drawing.Point(185, 76);
+            this.label26.Margin = new System.Windows.Forms.Padding(3, 4, 4, 4);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(17, 34);
+            this.label26.Size = new System.Drawing.Size(13, 28);
             this.label26.TabIndex = 17;
             this.label26.Text = "-";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -758,17 +751,17 @@
             this.txtDiemTLEnd.Enabled = false;
             this.txtDiemTLEnd.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiemTLEnd.ForeColor = System.Drawing.Color.Black;
-            this.txtDiemTLEnd.Location = new System.Drawing.Point(273, 93);
-            this.txtDiemTLEnd.Margin = new System.Windows.Forms.Padding(5);
-            this.txtDiemTLEnd.MinimumSize = new System.Drawing.Size(0, 34);
+            this.txtDiemTLEnd.Location = new System.Drawing.Point(206, 76);
+            this.txtDiemTLEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDiemTLEnd.MinimumSize = new System.Drawing.Size(0, 28);
             this.txtDiemTLEnd.Multiline = false;
             this.txtDiemTLEnd.Name = "txtDiemTLEnd";
-            this.txtDiemTLEnd.Padding = new System.Windows.Forms.Padding(11, 5, 3, 2);
+            this.txtDiemTLEnd.Padding = new System.Windows.Forms.Padding(8, 4, 2, 2);
             this.txtDiemTLEnd.PasswordChar = false;
             this.txtDiemTLEnd.PlaceholderColor = System.Drawing.Color.DimGray;
             this.txtDiemTLEnd.PlaceholderText = "Đến";
             this.txtDiemTLEnd.ReadOnly = false;
-            this.txtDiemTLEnd.Size = new System.Drawing.Size(79, 34);
+            this.txtDiemTLEnd.Size = new System.Drawing.Size(59, 28);
             this.txtDiemTLEnd.TabIndex = 16;
             this.txtDiemTLEnd.Texts = "";
             this.txtDiemTLEnd.UnderlinedStyle = false;
@@ -784,11 +777,10 @@
             this.chkTrangThai.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkTrangThai.FlatAppearance.BorderSize = 0;
             this.chkTrangThai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkTrangThai.Location = new System.Drawing.Point(4, 136);
-            this.chkTrangThai.Margin = new System.Windows.Forms.Padding(4);
+            this.chkTrangThai.Location = new System.Drawing.Point(3, 111);
             this.chkTrangThai.Name = "chkTrangThai";
-            this.chkTrangThai.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
-            this.chkTrangThai.Size = new System.Drawing.Size(32, 36);
+            this.chkTrangThai.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.chkTrangThai.Size = new System.Drawing.Size(24, 29);
             this.chkTrangThai.TabIndex = 19;
             this.chkTrangThai.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkTrangThai.TextLocationX = 16;
@@ -803,10 +795,10 @@
             // 
             this.label27.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label27.Location = new System.Drawing.Point(44, 137);
-            this.label27.Margin = new System.Windows.Forms.Padding(4, 5, 5, 5);
+            this.label27.Location = new System.Drawing.Point(33, 112);
+            this.label27.Margin = new System.Windows.Forms.Padding(3, 4, 4, 4);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(104, 34);
+            this.label27.Size = new System.Drawing.Size(78, 28);
             this.label27.TabIndex = 18;
             this.label27.Text = "T.Thái:";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -823,11 +815,11 @@
             this.chkHoatDong.Enabled = false;
             this.chkHoatDong.FlatAppearance.BorderSize = 0;
             this.chkHoatDong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkHoatDong.Location = new System.Drawing.Point(157, 136);
-            this.chkHoatDong.Margin = new System.Windows.Forms.Padding(4, 4, 0, 4);
+            this.chkHoatDong.Location = new System.Drawing.Point(118, 111);
+            this.chkHoatDong.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.chkHoatDong.Name = "chkHoatDong";
-            this.chkHoatDong.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
-            this.chkHoatDong.Size = new System.Drawing.Size(32, 36);
+            this.chkHoatDong.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.chkHoatDong.Size = new System.Drawing.Size(24, 29);
             this.chkHoatDong.TabIndex = 20;
             this.chkHoatDong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkHoatDong.TextLocationX = 16;
@@ -842,10 +834,10 @@
             // 
             this.label28.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label28.Location = new System.Drawing.Point(194, 137);
-            this.label28.Margin = new System.Windows.Forms.Padding(5);
+            this.label28.Location = new System.Drawing.Point(146, 112);
+            this.label28.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(159, 34);
+            this.label28.Size = new System.Drawing.Size(119, 28);
             this.label28.TabIndex = 22;
             this.label28.Text = "Hoạt động";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -862,11 +854,11 @@
             this.chkKoHD.Enabled = false;
             this.chkKoHD.FlatAppearance.BorderSize = 0;
             this.chkKoHD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkKoHD.Location = new System.Drawing.Point(133, 180);
-            this.chkKoHD.Margin = new System.Windows.Forms.Padding(133, 4, 0, 4);
+            this.chkKoHD.Location = new System.Drawing.Point(100, 147);
+            this.chkKoHD.Margin = new System.Windows.Forms.Padding(100, 3, 0, 3);
             this.chkKoHD.Name = "chkKoHD";
-            this.chkKoHD.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
-            this.chkKoHD.Size = new System.Drawing.Size(32, 36);
+            this.chkKoHD.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.chkKoHD.Size = new System.Drawing.Size(24, 29);
             this.chkKoHD.TabIndex = 21;
             this.chkKoHD.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKoHD.TextLocationX = 16;
@@ -881,10 +873,10 @@
             // 
             this.label29.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label29.Location = new System.Drawing.Point(170, 181);
-            this.label29.Margin = new System.Windows.Forms.Padding(5);
+            this.label29.Location = new System.Drawing.Point(128, 148);
+            this.label29.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(196, 34);
+            this.label29.Size = new System.Drawing.Size(147, 28);
             this.label29.TabIndex = 23;
             this.label29.Text = "Không hoạt động";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -900,11 +892,11 @@
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel3);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 4);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(7, 6, 7, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(411, 898);
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 0);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(309, 730);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -913,10 +905,10 @@
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.label1.Location = new System.Drawing.Point(7, 6);
+            this.label1.Location = new System.Drawing.Point(5, 5);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(395, 28);
+            this.label1.Size = new System.Drawing.Size(296, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "THÔNG TIN SẢN PHẨM";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -926,18 +918,17 @@
             this.flowLayoutPanel5.Controls.Add(this.panel4);
             this.flowLayoutPanel5.Controls.Add(this.pbImage);
             this.flowLayoutPanel5.Controls.Add(this.panel2);
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(8, 38);
-            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(1, 4, 4, 1);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(6, 31);
+            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(1, 3, 3, 1);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(387, 183);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(290, 149);
             this.flowLayoutPanel5.TabIndex = 3;
             // 
             // panel4
             // 
-            this.panel4.Location = new System.Drawing.Point(4, 4);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4);
+            this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(13, 176);
+            this.panel4.Size = new System.Drawing.Size(10, 143);
             this.panel4.TabIndex = 23;
             // 
             // pbImage
@@ -946,10 +937,10 @@
             this.pbImage.ErrorImage = null;
             this.pbImage.Image = global::GUI.Properties.Resources.placeholder_image;
             this.pbImage.InitialImage = global::GUI.Properties.Resources.placeholder_image;
-            this.pbImage.Location = new System.Drawing.Point(21, 0);
+            this.pbImage.Location = new System.Drawing.Point(16, 0);
             this.pbImage.Margin = new System.Windows.Forms.Padding(0);
             this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(265, 183);
+            this.pbImage.Size = new System.Drawing.Size(199, 149);
             this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbImage.TabIndex = 0;
             this.pbImage.TabStop = false;
@@ -960,10 +951,10 @@
             this.panel2.Controls.Add(this.btnDeleteIMG);
             this.panel2.Controls.Add(this.lblErrIMG);
             this.panel2.Controls.Add(this.btnUploadAnh);
-            this.panel2.Location = new System.Drawing.Point(286, 0);
+            this.panel2.Location = new System.Drawing.Point(215, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(100, 183);
+            this.panel2.Size = new System.Drawing.Size(75, 149);
             this.panel2.TabIndex = 1;
             // 
             // btnDeleteIMG
@@ -977,10 +968,9 @@
             this.btnDeleteIMG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteIMG.ForeColor = System.Drawing.Color.White;
             this.btnDeleteIMG.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteIMG.Image")));
-            this.btnDeleteIMG.Location = new System.Drawing.Point(4, 0);
-            this.btnDeleteIMG.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeleteIMG.Location = new System.Drawing.Point(3, 0);
             this.btnDeleteIMG.Name = "btnDeleteIMG";
-            this.btnDeleteIMG.Size = new System.Drawing.Size(31, 34);
+            this.btnDeleteIMG.Size = new System.Drawing.Size(23, 28);
             this.btnDeleteIMG.TabIndex = 4;
             this.btnDeleteIMG.TextColor = System.Drawing.Color.White;
             this.btnDeleteIMG.UseVisualStyleBackColor = false;
@@ -990,10 +980,9 @@
             // 
             this.lblErrIMG.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrIMG.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
-            this.lblErrIMG.Location = new System.Drawing.Point(4, 110);
-            this.lblErrIMG.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblErrIMG.Location = new System.Drawing.Point(3, 89);
             this.lblErrIMG.Name = "lblErrIMG";
-            this.lblErrIMG.Size = new System.Drawing.Size(92, 65);
+            this.lblErrIMG.Size = new System.Drawing.Size(69, 53);
             this.lblErrIMG.TabIndex = 22;
             this.lblErrIMG.Text = "* Bạn phải chọn ảnh đại diện";
             this.lblErrIMG.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1009,10 +998,10 @@
             this.btnUploadAnh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUploadAnh.ForeColor = System.Drawing.Color.White;
             this.btnUploadAnh.Image = global::GUI.Properties.Resources.icons8_upload_32;
-            this.btnUploadAnh.Location = new System.Drawing.Point(31, 48);
-            this.btnUploadAnh.Margin = new System.Windows.Forms.Padding(4, 10, 4, 4);
+            this.btnUploadAnh.Location = new System.Drawing.Point(23, 39);
+            this.btnUploadAnh.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.btnUploadAnh.Name = "btnUploadAnh";
-            this.btnUploadAnh.Size = new System.Drawing.Size(39, 39);
+            this.btnUploadAnh.Size = new System.Drawing.Size(29, 32);
             this.btnUploadAnh.TabIndex = 3;
             this.btnUploadAnh.TextColor = System.Drawing.Color.White;
             this.btnUploadAnh.UseVisualStyleBackColor = false;
@@ -1051,20 +1040,20 @@
             this.flowLayoutPanel2.Controls.Add(this.txtMaNCC);
             this.flowLayoutPanel2.Controls.Add(this.btnMaNCC);
             this.flowLayoutPanel2.Controls.Add(this.lblErrMaNCC);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(11, 223);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(8, 182);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(387, 614);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(290, 499);
             this.flowLayoutPanel2.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label2.Location = new System.Drawing.Point(5, 5);
-            this.label2.Margin = new System.Windows.Forms.Padding(5);
+            this.label2.Location = new System.Drawing.Point(4, 4);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 34);
+            this.label2.Size = new System.Drawing.Size(94, 28);
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã SP";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1076,20 +1065,21 @@
             this.txtMaSP.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
             this.txtMaSP.BorderRadius = 0;
             this.txtMaSP.BorderSize = 2;
+            this.txtMaSP.Enabled = false;
             this.txtMaSP.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaSP.ForeColor = System.Drawing.Color.Black;
-            this.txtMaSP.Location = new System.Drawing.Point(140, 5);
-            this.txtMaSP.Margin = new System.Windows.Forms.Padding(5);
-            this.txtMaSP.MaximumSize = new System.Drawing.Size(228, 34);
-            this.txtMaSP.MinimumSize = new System.Drawing.Size(200, 34);
+            this.txtMaSP.Location = new System.Drawing.Point(106, 4);
+            this.txtMaSP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMaSP.MaximumSize = new System.Drawing.Size(171, 28);
+            this.txtMaSP.MinimumSize = new System.Drawing.Size(150, 28);
             this.txtMaSP.Multiline = false;
             this.txtMaSP.Name = "txtMaSP";
-            this.txtMaSP.Padding = new System.Windows.Forms.Padding(5, 5, 3, 2);
+            this.txtMaSP.Padding = new System.Windows.Forms.Padding(4, 4, 2, 2);
             this.txtMaSP.PasswordChar = false;
             this.txtMaSP.PlaceholderColor = System.Drawing.Color.Black;
             this.txtMaSP.PlaceholderText = "";
             this.txtMaSP.ReadOnly = false;
-            this.txtMaSP.Size = new System.Drawing.Size(228, 34);
+            this.txtMaSP.Size = new System.Drawing.Size(171, 28);
             this.txtMaSP.TabIndex = 1;
             this.txtMaSP.Texts = "";
             this.txtMaSP.UnderlinedStyle = false;
@@ -1098,11 +1088,10 @@
             // 
             this.lblErrMaSP.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrMaSP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
-            this.lblErrMaSP.Location = new System.Drawing.Point(4, 44);
-            this.lblErrMaSP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblErrMaSP.Location = new System.Drawing.Point(3, 36);
             this.lblErrMaSP.Name = "lblErrMaSP";
-            this.lblErrMaSP.Padding = new System.Windows.Forms.Padding(0, 0, 27, 0);
-            this.lblErrMaSP.Size = new System.Drawing.Size(336, 21);
+            this.lblErrMaSP.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblErrMaSP.Size = new System.Drawing.Size(252, 17);
             this.lblErrMaSP.TabIndex = 21;
             this.lblErrMaSP.Text = "* Bạn phải nhập Mã SP";
             this.lblErrMaSP.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1111,10 +1100,10 @@
             // 
             this.label3.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label3.Location = new System.Drawing.Point(5, 70);
-            this.label3.Margin = new System.Windows.Forms.Padding(5);
+            this.label3.Location = new System.Drawing.Point(4, 57);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 34);
+            this.label3.Size = new System.Drawing.Size(94, 28);
             this.label3.TabIndex = 2;
             this.label3.Text = "Tên SP";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1128,18 +1117,18 @@
             this.txtTenSP.BorderSize = 2;
             this.txtTenSP.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenSP.ForeColor = System.Drawing.Color.Black;
-            this.txtTenSP.Location = new System.Drawing.Point(140, 70);
-            this.txtTenSP.Margin = new System.Windows.Forms.Padding(5);
-            this.txtTenSP.MaximumSize = new System.Drawing.Size(228, 34);
-            this.txtTenSP.MinimumSize = new System.Drawing.Size(200, 34);
+            this.txtTenSP.Location = new System.Drawing.Point(106, 57);
+            this.txtTenSP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTenSP.MaximumSize = new System.Drawing.Size(171, 28);
+            this.txtTenSP.MinimumSize = new System.Drawing.Size(150, 28);
             this.txtTenSP.Multiline = false;
             this.txtTenSP.Name = "txtTenSP";
-            this.txtTenSP.Padding = new System.Windows.Forms.Padding(9);
+            this.txtTenSP.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.txtTenSP.PasswordChar = false;
             this.txtTenSP.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtTenSP.PlaceholderText = "";
             this.txtTenSP.ReadOnly = false;
-            this.txtTenSP.Size = new System.Drawing.Size(228, 34);
+            this.txtTenSP.Size = new System.Drawing.Size(171, 28);
             this.txtTenSP.TabIndex = 3;
             this.txtTenSP.Texts = "";
             this.txtTenSP.UnderlinedStyle = false;
@@ -1149,11 +1138,10 @@
             // 
             this.lblErrTenSP.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrTenSP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
-            this.lblErrTenSP.Location = new System.Drawing.Point(4, 109);
-            this.lblErrTenSP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblErrTenSP.Location = new System.Drawing.Point(3, 89);
             this.lblErrTenSP.Name = "lblErrTenSP";
-            this.lblErrTenSP.Padding = new System.Windows.Forms.Padding(0, 0, 27, 0);
-            this.lblErrTenSP.Size = new System.Drawing.Size(336, 21);
+            this.lblErrTenSP.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblErrTenSP.Size = new System.Drawing.Size(252, 17);
             this.lblErrTenSP.TabIndex = 22;
             this.lblErrTenSP.Text = "* Bạn phải nhập Tên SP";
             this.lblErrTenSP.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1162,10 +1150,10 @@
             // 
             this.label4.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label4.Location = new System.Drawing.Point(5, 135);
-            this.label4.Margin = new System.Windows.Forms.Padding(5);
+            this.label4.Location = new System.Drawing.Point(4, 110);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 34);
+            this.label4.Size = new System.Drawing.Size(94, 28);
             this.label4.TabIndex = 4;
             this.label4.Text = "Tồn kho";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1177,20 +1165,21 @@
             this.txtTonKho.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
             this.txtTonKho.BorderRadius = 0;
             this.txtTonKho.BorderSize = 2;
+            this.txtTonKho.Enabled = false;
             this.txtTonKho.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTonKho.ForeColor = System.Drawing.Color.Black;
-            this.txtTonKho.Location = new System.Drawing.Point(140, 135);
-            this.txtTonKho.Margin = new System.Windows.Forms.Padding(5);
-            this.txtTonKho.MaximumSize = new System.Drawing.Size(228, 34);
-            this.txtTonKho.MinimumSize = new System.Drawing.Size(200, 34);
+            this.txtTonKho.Location = new System.Drawing.Point(106, 110);
+            this.txtTonKho.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTonKho.MaximumSize = new System.Drawing.Size(171, 28);
+            this.txtTonKho.MinimumSize = new System.Drawing.Size(150, 28);
             this.txtTonKho.Multiline = false;
             this.txtTonKho.Name = "txtTonKho";
-            this.txtTonKho.Padding = new System.Windows.Forms.Padding(9);
+            this.txtTonKho.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.txtTonKho.PasswordChar = false;
             this.txtTonKho.PlaceholderColor = System.Drawing.Color.Black;
             this.txtTonKho.PlaceholderText = "";
             this.txtTonKho.ReadOnly = false;
-            this.txtTonKho.Size = new System.Drawing.Size(228, 34);
+            this.txtTonKho.Size = new System.Drawing.Size(171, 28);
             this.txtTonKho.TabIndex = 5;
             this.txtTonKho.Texts = "0";
             this.txtTonKho.UnderlinedStyle = false;
@@ -1199,10 +1188,10 @@
             // 
             this.label5.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label5.Location = new System.Drawing.Point(5, 179);
-            this.label5.Margin = new System.Windows.Forms.Padding(5);
+            this.label5.Location = new System.Drawing.Point(4, 146);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(125, 34);
+            this.label5.Size = new System.Drawing.Size(94, 28);
             this.label5.TabIndex = 6;
             this.label5.Text = "Giá nhập";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1216,18 +1205,18 @@
             this.txtGiaNhap.BorderSize = 2;
             this.txtGiaNhap.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGiaNhap.ForeColor = System.Drawing.Color.Black;
-            this.txtGiaNhap.Location = new System.Drawing.Point(140, 179);
-            this.txtGiaNhap.Margin = new System.Windows.Forms.Padding(5);
-            this.txtGiaNhap.MaximumSize = new System.Drawing.Size(228, 34);
-            this.txtGiaNhap.MinimumSize = new System.Drawing.Size(200, 34);
+            this.txtGiaNhap.Location = new System.Drawing.Point(106, 146);
+            this.txtGiaNhap.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtGiaNhap.MaximumSize = new System.Drawing.Size(171, 28);
+            this.txtGiaNhap.MinimumSize = new System.Drawing.Size(150, 28);
             this.txtGiaNhap.Multiline = false;
             this.txtGiaNhap.Name = "txtGiaNhap";
-            this.txtGiaNhap.Padding = new System.Windows.Forms.Padding(9);
+            this.txtGiaNhap.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.txtGiaNhap.PasswordChar = false;
             this.txtGiaNhap.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtGiaNhap.PlaceholderText = "";
             this.txtGiaNhap.ReadOnly = false;
-            this.txtGiaNhap.Size = new System.Drawing.Size(228, 34);
+            this.txtGiaNhap.Size = new System.Drawing.Size(171, 28);
             this.txtGiaNhap.TabIndex = 29;
             this.txtGiaNhap.Texts = "";
             this.txtGiaNhap.UnderlinedStyle = false;
@@ -1237,10 +1226,9 @@
             // 
             this.lblErrGiaNhap.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrGiaNhap.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
-            this.lblErrGiaNhap.Location = new System.Drawing.Point(4, 218);
-            this.lblErrGiaNhap.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblErrGiaNhap.Location = new System.Drawing.Point(3, 178);
             this.lblErrGiaNhap.Name = "lblErrGiaNhap";
-            this.lblErrGiaNhap.Size = new System.Drawing.Size(367, 21);
+            this.lblErrGiaNhap.Size = new System.Drawing.Size(275, 17);
             this.lblErrGiaNhap.TabIndex = 33;
             this.lblErrGiaNhap.Text = "* Bạn phải nhập Giá nhập hàng";
             this.lblErrGiaNhap.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1249,10 +1237,10 @@
             // 
             this.label6.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label6.Location = new System.Drawing.Point(5, 244);
-            this.label6.Margin = new System.Windows.Forms.Padding(5);
+            this.label6.Location = new System.Drawing.Point(4, 199);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(125, 34);
+            this.label6.Size = new System.Drawing.Size(94, 28);
             this.label6.TabIndex = 8;
             this.label6.Text = "Giá bán";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1266,18 +1254,18 @@
             this.txtGiaBan.BorderSize = 2;
             this.txtGiaBan.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGiaBan.ForeColor = System.Drawing.Color.Black;
-            this.txtGiaBan.Location = new System.Drawing.Point(140, 244);
-            this.txtGiaBan.Margin = new System.Windows.Forms.Padding(5);
-            this.txtGiaBan.MaximumSize = new System.Drawing.Size(228, 34);
-            this.txtGiaBan.MinimumSize = new System.Drawing.Size(200, 34);
+            this.txtGiaBan.Location = new System.Drawing.Point(106, 199);
+            this.txtGiaBan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtGiaBan.MaximumSize = new System.Drawing.Size(171, 28);
+            this.txtGiaBan.MinimumSize = new System.Drawing.Size(150, 28);
             this.txtGiaBan.Multiline = false;
             this.txtGiaBan.Name = "txtGiaBan";
-            this.txtGiaBan.Padding = new System.Windows.Forms.Padding(9);
+            this.txtGiaBan.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.txtGiaBan.PasswordChar = false;
             this.txtGiaBan.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtGiaBan.PlaceholderText = "";
             this.txtGiaBan.ReadOnly = true;
-            this.txtGiaBan.Size = new System.Drawing.Size(228, 34);
+            this.txtGiaBan.Size = new System.Drawing.Size(171, 28);
             this.txtGiaBan.TabIndex = 30;
             this.txtGiaBan.Texts = "";
             this.txtGiaBan.UnderlinedStyle = false;
@@ -1287,10 +1275,10 @@
             // 
             this.label7.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label7.Location = new System.Drawing.Point(5, 288);
-            this.label7.Margin = new System.Windows.Forms.Padding(5);
+            this.label7.Location = new System.Drawing.Point(4, 235);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(125, 34);
+            this.label7.Size = new System.Drawing.Size(94, 28);
             this.label7.TabIndex = 10;
             this.label7.Text = "Đơn vị tính";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1313,12 +1301,11 @@
             "Thùng"});
             this.cbxDonViTinh.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
             this.cbxDonViTinh.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbxDonViTinh.Location = new System.Drawing.Point(139, 287);
-            this.cbxDonViTinh.Margin = new System.Windows.Forms.Padding(4);
-            this.cbxDonViTinh.MinimumSize = new System.Drawing.Size(133, 6);
+            this.cbxDonViTinh.Location = new System.Drawing.Point(105, 234);
+            this.cbxDonViTinh.MinimumSize = new System.Drawing.Size(100, 5);
             this.cbxDonViTinh.Name = "cbxDonViTinh";
-            this.cbxDonViTinh.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbxDonViTinh.Size = new System.Drawing.Size(228, 34);
+            this.cbxDonViTinh.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxDonViTinh.Size = new System.Drawing.Size(171, 28);
             this.cbxDonViTinh.TabIndex = 31;
             this.cbxDonViTinh.Texts = "--Chọn đơn vị--";
             this.cbxDonViTinh.OnSelectedIndexChanged += new System.EventHandler(this.cbxDonViTinh_OnSelectedIndexChanged);
@@ -1327,11 +1314,10 @@
             // 
             this.lblErrDonViTinh.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrDonViTinh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
-            this.lblErrDonViTinh.Location = new System.Drawing.Point(4, 327);
-            this.lblErrDonViTinh.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblErrDonViTinh.Location = new System.Drawing.Point(3, 267);
             this.lblErrDonViTinh.Name = "lblErrDonViTinh";
-            this.lblErrDonViTinh.Padding = new System.Windows.Forms.Padding(0, 0, 13, 0);
-            this.lblErrDonViTinh.Size = new System.Drawing.Size(367, 21);
+            this.lblErrDonViTinh.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.lblErrDonViTinh.Size = new System.Drawing.Size(275, 17);
             this.lblErrDonViTinh.TabIndex = 46;
             this.lblErrDonViTinh.Text = "* Bạn phải chọn Đơn vị tính";
             this.lblErrDonViTinh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1340,10 +1326,10 @@
             // 
             this.label9.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label9.Location = new System.Drawing.Point(5, 353);
-            this.label9.Margin = new System.Windows.Forms.Padding(5);
+            this.label9.Location = new System.Drawing.Point(4, 288);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(125, 34);
+            this.label9.Size = new System.Drawing.Size(94, 28);
             this.label9.TabIndex = 14;
             this.label9.Text = "Trạng thái";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1362,12 +1348,11 @@
             "Không hoạt động"});
             this.cbxTrangThai.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
             this.cbxTrangThai.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbxTrangThai.Location = new System.Drawing.Point(139, 352);
-            this.cbxTrangThai.Margin = new System.Windows.Forms.Padding(4);
-            this.cbxTrangThai.MinimumSize = new System.Drawing.Size(133, 6);
+            this.cbxTrangThai.Location = new System.Drawing.Point(105, 287);
+            this.cbxTrangThai.MinimumSize = new System.Drawing.Size(100, 5);
             this.cbxTrangThai.Name = "cbxTrangThai";
-            this.cbxTrangThai.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbxTrangThai.Size = new System.Drawing.Size(228, 34);
+            this.cbxTrangThai.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxTrangThai.Size = new System.Drawing.Size(171, 28);
             this.cbxTrangThai.TabIndex = 28;
             this.cbxTrangThai.Texts = "--Chọn trạng thái--";
             this.cbxTrangThai.OnSelectedIndexChanged += new System.EventHandler(this.cbxTrangThai_OnSelectedIndexChanged);
@@ -1376,11 +1361,10 @@
             // 
             this.lblErrTrangThai.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrTrangThai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
-            this.lblErrTrangThai.Location = new System.Drawing.Point(4, 392);
-            this.lblErrTrangThai.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblErrTrangThai.Location = new System.Drawing.Point(3, 320);
             this.lblErrTrangThai.Name = "lblErrTrangThai";
-            this.lblErrTrangThai.Padding = new System.Windows.Forms.Padding(0, 0, 13, 0);
-            this.lblErrTrangThai.Size = new System.Drawing.Size(367, 21);
+            this.lblErrTrangThai.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.lblErrTrangThai.Size = new System.Drawing.Size(275, 17);
             this.lblErrTrangThai.TabIndex = 48;
             this.lblErrTrangThai.Text = "* Bạn phải chọn Trạng thái";
             this.lblErrTrangThai.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1389,10 +1373,10 @@
             // 
             this.label8.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label8.Location = new System.Drawing.Point(5, 418);
-            this.label8.Margin = new System.Windows.Forms.Padding(5);
+            this.label8.Location = new System.Drawing.Point(4, 341);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(125, 34);
+            this.label8.Size = new System.Drawing.Size(94, 28);
             this.label8.TabIndex = 32;
             this.label8.Text = "Mã loại";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1406,18 +1390,18 @@
             this.txtMaLoai.BorderSize = 2;
             this.txtMaLoai.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaLoai.ForeColor = System.Drawing.Color.Black;
-            this.txtMaLoai.Location = new System.Drawing.Point(140, 418);
-            this.txtMaLoai.Margin = new System.Windows.Forms.Padding(5, 5, 0, 5);
-            this.txtMaLoai.MaximumSize = new System.Drawing.Size(228, 34);
-            this.txtMaLoai.MinimumSize = new System.Drawing.Size(67, 34);
+            this.txtMaLoai.Location = new System.Drawing.Point(106, 341);
+            this.txtMaLoai.Margin = new System.Windows.Forms.Padding(4, 4, 0, 4);
+            this.txtMaLoai.MaximumSize = new System.Drawing.Size(171, 28);
+            this.txtMaLoai.MinimumSize = new System.Drawing.Size(50, 28);
             this.txtMaLoai.Multiline = false;
             this.txtMaLoai.Name = "txtMaLoai";
-            this.txtMaLoai.Padding = new System.Windows.Forms.Padding(9);
+            this.txtMaLoai.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.txtMaLoai.PasswordChar = false;
             this.txtMaLoai.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtMaLoai.PlaceholderText = "";
             this.txtMaLoai.ReadOnly = false;
-            this.txtMaLoai.Size = new System.Drawing.Size(163, 34);
+            this.txtMaLoai.Size = new System.Drawing.Size(122, 28);
             this.txtMaLoai.TabIndex = 35;
             this.txtMaLoai.Texts = "";
             this.txtMaLoai.UnderlinedStyle = false;
@@ -1435,10 +1419,10 @@
             this.btnMaLoai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaLoai.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMaLoai.ForeColor = System.Drawing.Color.Black;
-            this.btnMaLoai.Location = new System.Drawing.Point(310, 418);
-            this.btnMaLoai.Margin = new System.Windows.Forms.Padding(7, 5, 0, 4);
+            this.btnMaLoai.Location = new System.Drawing.Point(233, 341);
+            this.btnMaLoai.Margin = new System.Windows.Forms.Padding(5, 4, 0, 3);
             this.btnMaLoai.Name = "btnMaLoai";
-            this.btnMaLoai.Size = new System.Drawing.Size(59, 34);
+            this.btnMaLoai.Size = new System.Drawing.Size(44, 28);
             this.btnMaLoai.TabIndex = 40;
             this.btnMaLoai.Text = "...";
             this.btnMaLoai.TextColor = System.Drawing.Color.Black;
@@ -1449,11 +1433,10 @@
             // 
             this.lblErrMaLoai.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrMaLoai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
-            this.lblErrMaLoai.Location = new System.Drawing.Point(4, 457);
-            this.lblErrMaLoai.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblErrMaLoai.Location = new System.Drawing.Point(3, 373);
             this.lblErrMaLoai.Name = "lblErrMaLoai";
-            this.lblErrMaLoai.Padding = new System.Windows.Forms.Padding(0, 0, 27, 0);
-            this.lblErrMaLoai.Size = new System.Drawing.Size(336, 21);
+            this.lblErrMaLoai.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblErrMaLoai.Size = new System.Drawing.Size(252, 17);
             this.lblErrMaLoai.TabIndex = 43;
             this.lblErrMaLoai.Text = "* Bạn phải nhập Mã loại";
             this.lblErrMaLoai.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1462,10 +1445,10 @@
             // 
             this.label10.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label10.Location = new System.Drawing.Point(5, 483);
-            this.label10.Margin = new System.Windows.Forms.Padding(5);
+            this.label10.Location = new System.Drawing.Point(4, 394);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(125, 34);
+            this.label10.Size = new System.Drawing.Size(94, 28);
             this.label10.TabIndex = 33;
             this.label10.Text = "Mã NSX";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1479,18 +1462,18 @@
             this.txtMaNSX.BorderSize = 2;
             this.txtMaNSX.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaNSX.ForeColor = System.Drawing.Color.Black;
-            this.txtMaNSX.Location = new System.Drawing.Point(140, 483);
-            this.txtMaNSX.Margin = new System.Windows.Forms.Padding(5, 5, 0, 5);
-            this.txtMaNSX.MaximumSize = new System.Drawing.Size(228, 34);
-            this.txtMaNSX.MinimumSize = new System.Drawing.Size(67, 34);
+            this.txtMaNSX.Location = new System.Drawing.Point(106, 394);
+            this.txtMaNSX.Margin = new System.Windows.Forms.Padding(4, 4, 0, 4);
+            this.txtMaNSX.MaximumSize = new System.Drawing.Size(171, 28);
+            this.txtMaNSX.MinimumSize = new System.Drawing.Size(50, 28);
             this.txtMaNSX.Multiline = false;
             this.txtMaNSX.Name = "txtMaNSX";
-            this.txtMaNSX.Padding = new System.Windows.Forms.Padding(9);
+            this.txtMaNSX.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.txtMaNSX.PasswordChar = false;
             this.txtMaNSX.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtMaNSX.PlaceholderText = "";
             this.txtMaNSX.ReadOnly = false;
-            this.txtMaNSX.Size = new System.Drawing.Size(163, 34);
+            this.txtMaNSX.Size = new System.Drawing.Size(122, 28);
             this.txtMaNSX.TabIndex = 36;
             this.txtMaNSX.Texts = "";
             this.txtMaNSX.UnderlinedStyle = false;
@@ -1508,10 +1491,10 @@
             this.btnMaNSX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaNSX.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMaNSX.ForeColor = System.Drawing.Color.Black;
-            this.btnMaNSX.Location = new System.Drawing.Point(310, 483);
-            this.btnMaNSX.Margin = new System.Windows.Forms.Padding(7, 5, 0, 4);
+            this.btnMaNSX.Location = new System.Drawing.Point(233, 394);
+            this.btnMaNSX.Margin = new System.Windows.Forms.Padding(5, 4, 0, 3);
             this.btnMaNSX.Name = "btnMaNSX";
-            this.btnMaNSX.Size = new System.Drawing.Size(59, 34);
+            this.btnMaNSX.Size = new System.Drawing.Size(44, 28);
             this.btnMaNSX.TabIndex = 42;
             this.btnMaNSX.Text = "...";
             this.btnMaNSX.TextColor = System.Drawing.Color.Black;
@@ -1522,11 +1505,10 @@
             // 
             this.lblErrMaNSX.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrMaNSX.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
-            this.lblErrMaNSX.Location = new System.Drawing.Point(4, 522);
-            this.lblErrMaNSX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblErrMaNSX.Location = new System.Drawing.Point(3, 426);
             this.lblErrMaNSX.Name = "lblErrMaNSX";
-            this.lblErrMaNSX.Padding = new System.Windows.Forms.Padding(0, 0, 27, 0);
-            this.lblErrMaNSX.Size = new System.Drawing.Size(336, 21);
+            this.lblErrMaNSX.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblErrMaNSX.Size = new System.Drawing.Size(252, 17);
             this.lblErrMaNSX.TabIndex = 44;
             this.lblErrMaNSX.Text = "* Bạn phải nhập Mã NSX";
             this.lblErrMaNSX.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1535,10 +1517,10 @@
             // 
             this.label11.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label11.Location = new System.Drawing.Point(5, 548);
-            this.label11.Margin = new System.Windows.Forms.Padding(5);
+            this.label11.Location = new System.Drawing.Point(4, 447);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(125, 34);
+            this.label11.Size = new System.Drawing.Size(94, 28);
             this.label11.TabIndex = 34;
             this.label11.Text = "Mã NCC";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1552,18 +1534,18 @@
             this.txtMaNCC.BorderSize = 2;
             this.txtMaNCC.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaNCC.ForeColor = System.Drawing.Color.Black;
-            this.txtMaNCC.Location = new System.Drawing.Point(140, 548);
-            this.txtMaNCC.Margin = new System.Windows.Forms.Padding(5, 5, 0, 5);
-            this.txtMaNCC.MaximumSize = new System.Drawing.Size(228, 34);
-            this.txtMaNCC.MinimumSize = new System.Drawing.Size(67, 34);
+            this.txtMaNCC.Location = new System.Drawing.Point(106, 447);
+            this.txtMaNCC.Margin = new System.Windows.Forms.Padding(4, 4, 0, 4);
+            this.txtMaNCC.MaximumSize = new System.Drawing.Size(171, 28);
+            this.txtMaNCC.MinimumSize = new System.Drawing.Size(50, 28);
             this.txtMaNCC.Multiline = false;
             this.txtMaNCC.Name = "txtMaNCC";
-            this.txtMaNCC.Padding = new System.Windows.Forms.Padding(9);
+            this.txtMaNCC.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.txtMaNCC.PasswordChar = false;
             this.txtMaNCC.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtMaNCC.PlaceholderText = "";
             this.txtMaNCC.ReadOnly = false;
-            this.txtMaNCC.Size = new System.Drawing.Size(163, 34);
+            this.txtMaNCC.Size = new System.Drawing.Size(122, 28);
             this.txtMaNCC.TabIndex = 37;
             this.txtMaNCC.Texts = "";
             this.txtMaNCC.UnderlinedStyle = false;
@@ -1581,10 +1563,10 @@
             this.btnMaNCC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaNCC.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMaNCC.ForeColor = System.Drawing.Color.Black;
-            this.btnMaNCC.Location = new System.Drawing.Point(310, 548);
-            this.btnMaNCC.Margin = new System.Windows.Forms.Padding(7, 5, 0, 4);
+            this.btnMaNCC.Location = new System.Drawing.Point(233, 447);
+            this.btnMaNCC.Margin = new System.Windows.Forms.Padding(5, 4, 0, 3);
             this.btnMaNCC.Name = "btnMaNCC";
-            this.btnMaNCC.Size = new System.Drawing.Size(59, 34);
+            this.btnMaNCC.Size = new System.Drawing.Size(44, 28);
             this.btnMaNCC.TabIndex = 41;
             this.btnMaNCC.Text = "...";
             this.btnMaNCC.TextColor = System.Drawing.Color.Black;
@@ -1595,11 +1577,10 @@
             // 
             this.lblErrMaNCC.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrMaNCC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
-            this.lblErrMaNCC.Location = new System.Drawing.Point(4, 587);
-            this.lblErrMaNCC.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblErrMaNCC.Location = new System.Drawing.Point(3, 479);
             this.lblErrMaNCC.Name = "lblErrMaNCC";
-            this.lblErrMaNCC.Padding = new System.Windows.Forms.Padding(0, 0, 27, 0);
-            this.lblErrMaNCC.Size = new System.Drawing.Size(336, 21);
+            this.lblErrMaNCC.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblErrMaNCC.Size = new System.Drawing.Size(252, 17);
             this.lblErrMaNCC.TabIndex = 45;
             this.lblErrMaNCC.Text = "* Bạn phải nhập Mã NCC";
             this.lblErrMaNCC.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1610,10 +1591,10 @@
             this.flowLayoutPanel3.Controls.Add(this.btnSua);
             this.flowLayoutPanel3.Controls.Add(this.btnXoa);
             this.flowLayoutPanel3.Controls.Add(this.btnReset);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(11, 839);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 1, 4, 0);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(8, 683);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 1, 3, 0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(387, 53);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(290, 43);
             this.flowLayoutPanel3.TabIndex = 1;
             // 
             // btnThem
@@ -1627,10 +1608,10 @@
             this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThem.ForeColor = System.Drawing.Color.White;
             this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
-            this.btnThem.Location = new System.Drawing.Point(27, 1);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(27, 1, 4, 4);
+            this.btnThem.Location = new System.Drawing.Point(20, 1);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(20, 1, 3, 3);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(59, 49);
+            this.btnThem.Size = new System.Drawing.Size(44, 40);
             this.btnThem.TabIndex = 0;
             this.btnThem.TextColor = System.Drawing.Color.White;
             this.btnThem.UseVisualStyleBackColor = false;
@@ -1647,10 +1628,10 @@
             this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSua.ForeColor = System.Drawing.Color.White;
             this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
-            this.btnSua.Location = new System.Drawing.Point(117, 1);
-            this.btnSua.Margin = new System.Windows.Forms.Padding(27, 1, 4, 4);
+            this.btnSua.Location = new System.Drawing.Point(87, 1);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(20, 1, 3, 3);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(59, 49);
+            this.btnSua.Size = new System.Drawing.Size(44, 40);
             this.btnSua.TabIndex = 1;
             this.btnSua.TextColor = System.Drawing.Color.White;
             this.btnSua.UseVisualStyleBackColor = false;
@@ -1667,10 +1648,10 @@
             this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoa.ForeColor = System.Drawing.Color.White;
             this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
-            this.btnXoa.Location = new System.Drawing.Point(207, 1);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(27, 1, 4, 4);
+            this.btnXoa.Location = new System.Drawing.Point(154, 1);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(20, 1, 3, 3);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(59, 49);
+            this.btnXoa.Size = new System.Drawing.Size(44, 40);
             this.btnXoa.TabIndex = 2;
             this.btnXoa.TextColor = System.Drawing.Color.White;
             this.btnXoa.UseVisualStyleBackColor = false;
@@ -1687,23 +1668,23 @@
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReset.ForeColor = System.Drawing.Color.White;
             this.btnReset.Image = ((System.Drawing.Image)(resources.GetObject("btnReset.Image")));
-            this.btnReset.Location = new System.Drawing.Point(297, 1);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(27, 1, 4, 4);
+            this.btnReset.Location = new System.Drawing.Point(221, 1);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(20, 1, 3, 3);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(53, 49);
+            this.btnReset.Size = new System.Drawing.Size(40, 40);
             this.btnReset.TabIndex = 3;
             this.btnReset.TextColor = System.Drawing.Color.White;
             this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // SanPhamGUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1573, 908);
+            this.ClientSize = new System.Drawing.Size(1167, 718);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SanPhamGUI";
             this.Text = "SanPhamGUI";
             this.Load += new System.EventHandler(this.SanPhamGUI_Load);

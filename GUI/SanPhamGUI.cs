@@ -34,7 +34,7 @@ namespace GUI
 
         private void SanPhamGUI_Load(object sender, EventArgs e)
         {
-            dgvSanPham.DataSource = spBLL.getListSanPham();
+            dgvSanPham.DataSource = dt;
 
         }
 
@@ -234,7 +234,7 @@ namespace GUI
             byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
             int trangThaiValue = (trangThai == "Hoạt động") ? 1 : 0;
             //Có thể k cần truyền vào lbl Lỗi
-            
+
             // Nếu null thì return 
 
             if (!(maSP != "" && tenSP != "" && donViTinh != "" && maLoai != "" && maNSX != "" && maNCC != "" && trangThai != "" && donGiaNhap != 0 && donGiaBan != 0 && img != null))
@@ -249,7 +249,6 @@ namespace GUI
                     "Thông báo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
-                    dgvSanPham.DataSource = spBLL.getListSanPham();
             }
             else
             {
@@ -335,6 +334,7 @@ namespace GUI
                       "Thông báo",
                       MessageBoxButtons.OK,
                       MessageBoxIcon.Information);
+
 
                 }
                 else
@@ -437,7 +437,6 @@ namespace GUI
                     "Thông báo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
-                dgvSanPham.DataSource = spBLL.getListSanPham();
 
             }
             else
@@ -453,6 +452,11 @@ namespace GUI
         {
             pbImage.Image = pbImage.InitialImage;
             pbImage.Tag = "Placeholder";
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

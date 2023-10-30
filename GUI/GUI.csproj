@@ -112,6 +112,24 @@
     <Compile Include="LoaiGUI.Designer.cs">
       <DependentUpon>LoaiGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="MiniChonDTLGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MiniChonDTLGUI.Designer.cs">
+      <DependentUpon>MiniChonDTLGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MiniChonKMGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MiniChonKMGUI.Designer.cs">
+      <DependentUpon>MiniChonKMGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MiniKhachHangGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MiniKhachHangGUI.Designer.cs">
+      <DependentUpon>MiniKhachHangGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="MiniLoaiGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +219,12 @@
     <Compile Include="ThongTinSPKMGUI.Designer.cs">
       <DependentUpon>ThongTinSPKMGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="XemPhieuNhapGUItest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XemPhieuNhapGUItest.Designer.cs">
+      <DependentUpon>XemPhieuNhapGUItest.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BanHangGUI.resx">
       <DependentUpon>BanHangGUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -218,6 +242,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoaiGUI.resx">
       <DependentUpon>LoaiGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MiniChonDTLGUI.resx">
+      <DependentUpon>MiniChonDTLGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MiniChonKMGUI.resx">
+      <DependentUpon>MiniChonKMGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MiniKhachHangGUI.resx">
+      <DependentUpon>MiniKhachHangGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MiniLoaiGUI.resx">
       <DependentUpon>MiniLoaiGUI.cs</DependentUpon>
@@ -262,6 +295,9 @@
     <EmbeddedResource Include="ThongTinSPKMGUI.resx">
       <DependentUpon>ThongTinSPKMGUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="XemPhieuNhapGUItest.resx">
+      <DependentUpon>XemPhieuNhapGUItest.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -280,6 +316,10 @@
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{a9f7f05e-5dc3-45b6-95d3-f979780e9ad5}</Project>
       <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{22CDAEA8-9974-40C7-BE68-591012BBA7A5}</Project>
+      <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{9703605c-78bf-44a5-9353-50d9d2c35ab1}</Project>

@@ -24,6 +24,10 @@ namespace BLL
             return khDAL.getListKhachHang();
         }
 
+        public DataTable getMiniListKhachHang()
+        {
+            return khDAL.getMiniListKhachHang();
+        }
         public bool insertKhachhang(KhachHangDTO kh)
         {
             return khDAL.insertKhachHang(kh);
