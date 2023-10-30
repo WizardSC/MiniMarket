@@ -17,6 +17,7 @@ namespace DTO
         private string diaChi;
         private int trangThai;
         private byte[] img;
+        private string maTK;
         private string maCV;
         //dùng để load mã NV từ họ tên NV ở hóa đơn
         public NhanVienDTO(string maNV, string ho, string ten)
@@ -32,7 +33,7 @@ namespace DTO
 
 
 
-        //public NhanVienDTO(string maNV, string ho, string ten, DateTime ngaySinh, string gioiTinh, string soDT, string diaChi, int trangThai, byte[] img, string maCV)
+        //public NhanVienDTO(string maNV, string ho, string ten, DateTime ngaySinh, string gioiTinh, string soDT, string diaChi, int trangThai, byte[] img,string maTK, string maCV)
         //{
         //    this.maNV = maNV;
         //    this.ho = ho;
@@ -43,9 +44,10 @@ namespace DTO
         //    this.diaChi = diaChi;
         //    this.trangThai = trangThai;
         //    this.img = img;
+        //    this.maTK = maTK;
         //    this.maCV = maCV;
         //}
-        // Chưa thêm hình 
+        // Chưa thêm hình , mã tk
         public NhanVienDTO(string maNV, string ho, string ten, DateTime ngaySinh, string gioiTinh, string soDT, string diaChi, int trangThai, string maCV)
         {
             this.maNV = maNV;
@@ -69,6 +71,8 @@ namespace DTO
         public string DiaChi { get => diaChi; set => diaChi = value; }
         public int TrangThai { get => trangThai; set => trangThai = value; }
         public byte[] Img { get => img; set => img = value; }
+
+        public string MaTK { get => maTK; set => maTK = value; }
         public string MaCV { get => maCV; set => maCV = value; }
     }
 }

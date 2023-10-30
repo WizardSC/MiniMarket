@@ -787,10 +787,20 @@ namespace GUI
                    MessageBoxButtons.OK,
                    MessageBoxIcon.Error);
             }
-            
+
         }
 
         private void btnReset_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvKhachHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
         {
 
         }

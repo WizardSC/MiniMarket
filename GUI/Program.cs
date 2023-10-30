@@ -20,8 +20,9 @@ namespace GUI
             Application.SetCompatibleTextRenderingDefault(false);
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
+            // Application.Run(new GiaoDienGUI());
             Application.Run(new GiaoDienGUI());
-           
+
 
         }
     }
