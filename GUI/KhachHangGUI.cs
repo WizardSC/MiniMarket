@@ -787,7 +787,7 @@ namespace GUI
                    MessageBoxButtons.OK,
                    MessageBoxIcon.Error);
             }
-            
+
         }
 
         private void btnReset_Click(object sender, EventArgs e)

@@ -36,36 +36,62 @@ namespace DAO
             }
             return dt;
         }
-        public bool insertNhaSanXuat(NhaSanXuatDTO nsx)
+        public bool insertLoaiSP(LoaiDTO LSP)
+        {
+            try
+                {
+                    MSSQLConnect dbConnect = new MSSQLConnect();
+                    dbConnect.Connect();
+                    // string query = "INSERT INTO KhuyenMai(MaKM,TenKM,NgayBatDau,NgayKetThuc,PhanTramKM,DieuKienKM,TrangThaiKM) VALUES(@MaKM,@TenKM,@NgayBatDau,@NgayKetThuc,@PhanTramKM,@DieuKienKM,@TrangThaiKM)";
+                    string query = "INSERT INTO LoaiSP(MaLoai,TenLoai,TrangThai) VALUES(@MaLoai,@TenLoai,@TrangThai)";
+                    SqlCommand cmd = new SqlCommand(query, dbConnect.conn);
+
+                    cmd.Parameters.AddWithValue("@MaLoai", LSP.MaLoai);
+                    cmd.Parameters.AddWithValue("@TenLoai", LSP.TenLoai);
+                    cmd.Parameters.AddWithValue("@TrangThai", LSP.TrangThaiLoai);
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        //MessageBox.Show("Thêm loại sản phẩm thành công thành công."); // Display a success message
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    //MessageBox.Show("Thêm loại sản phẩm thất bại. " + e.Message);
+                    return false;
+                }
+                finally
+                {
+                    Disconnect();
+                }
+
+            }
+
+       public bool update_LoaiSP(LoaiDTO LSP)
         {
             try
             {
                 MSSQLConnect dbConnect = new MSSQLConnect();
                 dbConnect.Connect();
-                // string query = "INSERT INTO KhuyenMai(MaKM,TenKM,NgayBatDau,NgayKetThuc,PhanTramKM,DieuKienKM,TrangThaiKM) VALUES(@MaKM,@TenKM,@NgayBatDau,@NgayKetThuc,@PhanTramKM,@DieuKienKM,@TrangThaiKM)";
-                string query = "INSERT INTO LoaiSP(MaNSX,TenNSX,DiaChi,SoDT) VALUES(@MaNSX,@TenNSX,@DiaChi,@SoDT)";
+                string query = "UPDATE LoaiSP SET TenLoai = @TenLoai,TrangThai = @TrangThai  WHERE MaLoai = @MaLoai";
                 SqlCommand cmd = new SqlCommand(query, dbConnect.conn);
+                cmd.Parameters.AddWithValue("@MaLoai", LSP.MaLoai);
+                cmd.Parameters.AddWithValue("@TenLoai", LSP.TenLoai);
+                cmd.Parameters.AddWithValue("@TrangThai", LSP.TrangThaiLoai);
+                cmd.ExecuteNonQuery();
 
-                cmd.Parameters.AddWithValue("@MaNSX", nsx.MaNSX);
-                cmd.Parameters.AddWithValue("@TenNSX", nsx.TenNSX);
-                cmd.Parameters.AddWithValue("@DiaChi", nsx.DiaChi);
-                cmd.Parameters.AddWithValue("@SoDT", nsx.SoDT);
-                int rowsAffected = cmd.ExecuteNonQuery();
-
-                if (rowsAffected > 0)
-                {
-                    //MessageBox.Show("Thêm nhà sản xuất thành công thành công."); // Display a success message
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-
+                return true;
             }
             catch (Exception e)
             {
-                MessageBox.Show("Thêm nhà sản xuất thất bại. " + e.Message);
+               //MessageBox.Show("Chỉnh sửa loại thất bại. " + e.Message);
                 return false;
             }
             finally
@@ -73,6 +99,67 @@ namespace DAO
                 Disconnect();
             }
 
+
+        }
+        public bool delete_LoaiSP(string MaLoai, out bool isLoiKhoaNgoai)
+        {
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "delete from loaisp where MaLoai = @MaLoai";
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@MaLoai", MaLoai).SqlDbType = SqlDbType.Char;
+                cmd.ExecuteNonQuery();
+                isLoiKhoaNgoai = false;
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 547) // Mã lỗi 547 là mã lỗi cho việc tham chiếu đến khóa ngoại
+                {
+                    Console.WriteLine("Lỗi: Không thể xóa nhà sản xuất vì có khóa ngoại tham chiếu.");
+                    isLoiKhoaNgoai = true;
+                }
+                else
+                {
+                    Console.WriteLine("Lỗi: " + ex.Message);
+                    isLoiKhoaNgoai = false;
+
+                }
+                return false;
+            }
+            finally
+            {
+                Disconnect();
+            }
+        }
+
+        public bool update_LoaiSP(int trangThai, string MaLoai)
+        {
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "update LoaiSP set TrangThai = @TrangThai where MaLoai = @MaLoai";
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@TrangThai", trangThai).SqlDbType = SqlDbType.Int;
+                cmd.Parameters.AddWithValue("@MaLoai", MaLoai).SqlDbType = SqlDbType.Char;
+                cmd.ExecuteNonQuery();
+                return true;
+
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Disconnect();
+            }
         }
     }
 }

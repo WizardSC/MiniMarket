@@ -12,13 +12,18 @@ namespace DTO
         private string tenNSX;
         private string diaChi;
         private string soDT;
+        private int trangThaiNSX;
 
-        public NhaSanXuatDTO(string maNSX, string tenNSX, string diaChi, string soDT)
+
+        public NhaSanXuatDTO(string maNSX, string tenNSX, string diaChi, string soDT,int trangThaiNSX)
         {
             this.MaNSX = maNSX;
             this.TenNSX = tenNSX;
             this.DiaChi = diaChi;
             this.SoDT = soDT;
+            this.TrangThaiNSX = trangThaiNSX;
+         
+           
         }
 
         public NhaSanXuatDTO() { }
@@ -28,5 +33,7 @@ namespace DTO
         public string TenNSX { get => tenNSX; set => tenNSX = value; }
         public string DiaChi { get => diaChi; set => diaChi = value; }
         public string SoDT { get => soDT; set => soDT = value; }
+        public int TrangThaiNSX { get => trangThaiNSX; set => trangThaiNSX = value; }
+
     }
 }

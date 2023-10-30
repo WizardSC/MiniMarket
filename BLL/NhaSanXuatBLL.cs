@@ -30,9 +30,15 @@ namespace BLL
         {
             return nsxDAL.update_nhasanxuat(nsx);
         }
-        public bool delete_nhasanxuat(NhaSanXuatDTO nsx)
+        //public bool delete_nhasanxuat(NhaSanXuatDTO nsx)maSP, out isLoiKhoaNgoai //string maSP, out bool isLoiKhoaNgoai
+        public bool delete_nhasanxuat(string MaNSX, out bool isLoiKhoaNgoai)
         {
-            return nsxDAL.delete_nhasanxuat(nsx);
+            return nsxDAL.delete_nhasanxuat(MaNSX, out isLoiKhoaNgoai);
+        }
+        public bool update_nhasanxuat(int Trangthai, string MaNSX)
+        {
+            Trangthai = (Trangthai == 0) ? 1 : 0;
+            return nsxDAL.update_nhasanxuat(Trangthai, MaNSX);
         }
     }
 }
