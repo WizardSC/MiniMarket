@@ -24,6 +24,8 @@ namespace GUI
         private int CurrentPage = 1;  // Trang hiện tại
         private int diemTLCuaKhachHang = 0; //Điểm TL hiện tại của khách hàng mua hàng
         private float phanTramKM = 0; //Phần trăm KM
+        private List<ChiTietKhuyenMaiDTO> listCTKM; //Dưới đây là list CTKM lấy từ form MiniCTKM;
+
         private int soLuongTrongKhoLucBanDau = 0;
         private float giaTienLanDauLucCoKM = 0;
         private bool isClickedMiniDTL = false;
@@ -68,6 +70,7 @@ namespace GUI
             dtHoaDon = hdBLL.getListHoaDon();
             dtKhachHang = khBLL.getListKhachHang();
             listSP = spBLL.getListSP();
+            listCTKM = new List<ChiTietKhuyenMaiDTO>();
             // Gọi hàm tính toán số trang
             CalculateTotalPages(listSP);
 
@@ -309,7 +312,12 @@ namespace GUI
             string tenKH = lblKhachHang.Text;
             if (string.IsNullOrWhiteSpace(tenKH))
             {
-                MessageBox.Show("Vui lòng nhập thông tin khách hàng", "Thông báo");
+                MessageBox.Show("Vui lòng nhập thông tin khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (listCTKM.Count != 0)
+            {
+                MessageBox.Show("Vui lòng bỏ áp dụng chương trình khuyến mãi trước khi thêm sản phẩm mới", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             string maSP = txtMaSP.Texts;
@@ -376,6 +384,8 @@ namespace GUI
                 MyCustom.MyProductInCart item = new MyCustom.MyProductInCart();
                 //Đây là số lượng ban đầu trong db
                 item.soLuongTrongKho = soLuongTrongKhoLucBanDau;
+                //Đây là đơn giá lúc ban đầu
+                item.donGiaBanDau = donGia;
                 item.lblMaSP.Text = maSP;
                 item.lblTenSP.Text = tenSP;
                 item.txtSoLuong.Texts = soLuongMua.ToString();
@@ -396,11 +406,16 @@ namespace GUI
 
         private void MyProductInCart_TangButtonClicked(object sender, EventArgs e)
         {
-            lblDiemTL.Text = "0";
-            lblKhuyenMai.Text = "";
-            phanTramKM = 0;
-            giaTienLanDauLucCoKM = 0;
-            isClickedMiniDTL = false;
+            if (listCTKM.Any() || lblKhuyenMai.Text!="Không KM")
+            {
+                MessageBox.Show("Vui lòng bỏ áp dụng chương trình khuyến mãi trước khi thay đổi số lượng sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (lblDiemTL.Text != "0")
+            {
+                MessageBox.Show("Vui lòng bỏ áp dụng điểm tích lũy trước khi thay đổi số lượng sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             MyCustom.MyProductInCart item = (MyCustom.MyProductInCart)sender;
 
@@ -427,6 +442,10 @@ namespace GUI
 
                 gioHang[maSP] = existingProduct;
             }
+            
+            phanTramKM = 0;
+            giaTienLanDauLucCoKM = 0;
+            isClickedMiniDTL = false;
             tinhTongTien();
             tinhTien();
             refreshThongTin();
@@ -436,11 +455,16 @@ namespace GUI
         private void MyProductInCart_GiamButtonClicked(object sender, EventArgs e)
         {
 
-            lblDiemTL.Text = "0";
-            lblKhuyenMai.Text = "";
-            phanTramKM = 0;
-            giaTienLanDauLucCoKM = 0;
-            isClickedMiniDTL = false;
+            if (listCTKM.Any() || lblKhuyenMai.Text != "Không KM")
+            {
+                MessageBox.Show("Vui lòng bỏ áp dụng chương trình khuyến mãi trước khi thay đổi số lượng sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (lblDiemTL.Text != "0")
+            {
+                MessageBox.Show("Vui lòng bỏ áp dụng điểm tích lũy trước khi thay đổi số lượng sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             MyCustom.MyProductInCart clickedItem = (MyCustom.MyProductInCart)sender;
             string maSP = clickedItem.lblMaSP.Text;
@@ -486,24 +510,38 @@ namespace GUI
                     {
                         gioHang.Remove(key);
                     }
+                    return;
+
                 }
             }
             else
             {
 
             }
-            tinhTongTien();
             
+            
+            phanTramKM = 0;
+            giaTienLanDauLucCoKM = 0;
+            isClickedMiniDTL = false;
+            
+            tinhTongTien();
+            tinhTien();
+
             refreshThongTin();
 
         }
         private void MyProductInCart_DeleteButtonClicked(object sender, EventArgs e)
         {
-            lblDiemTL.Text = "0";
-            lblKhuyenMai.Text = "";
-            phanTramKM = 0;
-            giaTienLanDauLucCoKM = 0;
-            isClickedMiniDTL = false;
+            if (listCTKM.Any() || lblKhuyenMai.Text != "Không KM")
+            {
+                MessageBox.Show("Vui lòng bỏ áp dụng chương trình khuyến mãi trước khi xóa sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (lblDiemTL.Text != "0")
+            {
+                MessageBox.Show("Vui lòng bỏ áp dụng điểm tích lũy trước khi xóa sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             MyCustom.MyProductInCart item = (MyCustom.MyProductInCart)sender;
             var result = MessageBox.Show("Bạn có muốn xóa sản phẩm khỏi giỏ hàng không?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
@@ -530,8 +568,12 @@ namespace GUI
             {
                 gioHang.Remove(key);
             }
-            tinhTongTien();
             
+            phanTramKM = 0;
+            giaTienLanDauLucCoKM = 0;
+            isClickedMiniDTL = false;
+            tinhTongTien();
+
             refreshThongTin();
 
         }
@@ -545,7 +587,7 @@ namespace GUI
 
         }
 
-        
+
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
@@ -625,14 +667,128 @@ namespace GUI
             {
                 string maKM = chonKMGUI.MaKM1;
                 phanTramKM = chonKMGUI.PhanTramKM1;
-                
+
                 lblKhuyenMai.Text = maKM;
-                
+
                 tinhTien();
+                //Lưu danh sách CTKM từ form mini chọn CTKM
+                listCTKM = chonKMGUI.listCTKMinFormMini;
+                Console.WriteLine(listCTKM.Count);
+                capNhatGioHangKhiChonCTKM();
+
             };
+
+
+
             lblDiemTL.Text = "0";
             giaTienLanDauLucCoKM = 0;
             isClickedMiniDTL = false;
+
+
+        }
+
+        private void capNhatGioHangKhiChonCTKM()
+        {
+            if (listCTKM.Count == 0)
+            {
+                foreach (Control control in flpGioHang.Controls)
+                {
+                    if (control is MyCustom.MyProductInCart)
+                    {
+
+                        MyCustom.MyProductInCart item = (MyCustom.MyProductInCart)control;
+                        item.lblDonGia.Text = ConvertIntToVND(item.donGiaBanDau);
+                        item.lblTongTien.Text = ConvertIntToVND(item.donGiaBanDau * int.Parse(item.txtSoLuong.Texts));
+                        item.lblDonGia.ForeColor = Color.Black;
+
+
+                        if (gioHang.ContainsKey(item.lblMaSP.Text))
+                        {
+                            ProductInfo existingProduct = gioHang[item.lblMaSP.Text];
+                            existingProduct.DonGia = item.donGiaBanDau;
+                            existingProduct.ThanhTienTT = existingProduct.SoLuong * existingProduct.DonGia;
+                            existingProduct.ThanhTien = existingProduct.ThanhTienTT;
+
+                            gioHang[item.lblMaSP.Text] = existingProduct;
+                        }
+                    }
+                }
+                tinhTien();
+                tinhTongTien();
+                //Duyệt thử qua cái Dictionary giỏ hàng
+                Console.WriteLine("Lúc chưa có ctkm");
+                foreach (KeyValuePair<string, ProductInfo> pair in gioHang)
+                {
+                    string key = pair.Key;
+                    ProductInfo product = pair.Value;
+
+                    string maSP = product.MaSP;
+                    string tenSP = product.TenSP;
+                    int soLuong = product.SoLuong;
+                    int donGia = product.DonGia;
+                    int thanhTienTT = product.ThanhTienTT;
+                    float thanhTien = product.ThanhTien;
+
+                    Console.WriteLine(maSP + " " + tenSP + " " + soLuong + " " + donGia + " " + thanhTienTT + " " + thanhTien);
+
+                }
+                return;
+            }
+            else
+            {
+                foreach (Control control in flpGioHang.Controls)
+                {
+                    if (control is MyCustom.MyProductInCart)
+                    {
+
+                        MyCustom.MyProductInCart item = (MyCustom.MyProductInCart)control;
+
+                        foreach (var ctkm in listCTKM)
+                        {
+                            if (item.lblMaSP.Text == ctkm.Masp)
+                            {
+                                // Ở đây bạn có thể thay đổi thuộc tính của item
+                                item.lblDonGia.ForeColor = Color.Red;
+                                int donGia = ConvertVNDToInt(item.lblDonGia.Text);
+                                int soLuong = int.Parse(item.txtSoLuong.Texts);
+                                int donGiaSauKhuyenMai = donGia - (donGia * ctkm.PhanTramKm / 100);
+                                item.lblDonGia.Text = ConvertIntToVND(donGiaSauKhuyenMai);
+                                item.lblTongTien.Text = ConvertIntToVND((donGiaSauKhuyenMai * soLuong));
+                            }
+                        }
+
+                        if (gioHang.ContainsKey(item.lblMaSP.Text))
+                        {
+                            ProductInfo existingProduct = gioHang[item.lblMaSP.Text];
+                            existingProduct.DonGia = ConvertVNDToInt(item.lblDonGia.Text);
+                            existingProduct.ThanhTienTT = existingProduct.SoLuong * existingProduct.DonGia;
+                            existingProduct.ThanhTien = existingProduct.ThanhTienTT;
+
+                            gioHang[item.lblMaSP.Text] = existingProduct;
+                        }
+                    }
+                }
+                tinhTien();
+                tinhTongTien();
+                //Duyệt thử qua cái Dictionary giỏ hàng
+                Console.WriteLine("Lúc đã có ctkm");
+
+                foreach (KeyValuePair<string, ProductInfo> pair in gioHang)
+                {
+                    string key = pair.Key;
+                    ProductInfo product = pair.Value;
+
+                    string maSP = product.MaSP;
+                    string tenSP = product.TenSP;
+                    int soLuong = product.SoLuong;
+                    int donGia = product.DonGia;
+                    int thanhTienTT = product.ThanhTienTT;
+                    float thanhTien = product.ThanhTien;
+
+                    Console.WriteLine(maSP + " " + tenSP + " " + soLuong + " " + donGia + " " + thanhTienTT + " " + thanhTien);
+
+                }
+            }
 
         }
         private void tinhTien()
@@ -644,7 +800,8 @@ namespace GUI
             {
                 tongTienTTSauKM = tempTongTienTTTruocKM - (tempTongTienTTTruocKM * (phanTramKM / 100));
             }
-            if(tongTienTTSauKM != 0) {
+            if (tongTienTTSauKM != 0)
+            {
                 int diemTL = int.Parse(lblDiemTL.Text);
                 float tongTien = tongTienTTSauKM - (diemTL * 1000);
                 lblTongTien.Text = ConvertFloatToVND(tongTien);
@@ -656,12 +813,12 @@ namespace GUI
                 float tongTien = tongTienTT - (diemTL * 1000);
                 lblTongTien.Text = ConvertFloatToVND(tongTien);
             }
-           
-           
+
+
         }
         private void btnChonDTL_Click(object sender, EventArgs e)
         {
-           
+
 
             if (ConvertVNDToInt(lblTongTienTT.Text) == 0)
             {
@@ -679,7 +836,7 @@ namespace GUI
                 isClickedMiniDTL = true;
             }
 
-            
+
 
             int diemTLCoTheSD;
             float tongTien = phanTramKM != 0 ? giaTienLanDauLucCoKM : ConvertVNDToInt(lblTongTienTT.Text);
@@ -699,6 +856,41 @@ namespace GUI
         }
         private void rjButton3_Click(object sender, EventArgs e)
         {
+
+            foreach (Control control in flpGioHang.Controls)
+            {
+                if (control is MyCustom.MyProductInCart)
+                {
+
+                    MyCustom.MyProductInCart item = (MyCustom.MyProductInCart)control;
+
+                    foreach (var ctkm in listCTKM)
+                    {
+                        if (item.lblMaSP.Text == ctkm.Masp)
+                        {
+                            // Ở đây bạn có thể thay đổi thuộc tính của item
+
+                            int donGia = ConvertVNDToInt(item.lblDonGia.Text);
+                            int soLuong = int.Parse(item.txtSoLuong.Texts);
+                            int donGiaSauKhuyenMai = donGia - (donGia * ctkm.PhanTramKm / 100);
+                            item.lblDonGia.Text = ConvertIntToVND(donGiaSauKhuyenMai);
+                            item.lblTongTien.Text = ConvertIntToVND((donGiaSauKhuyenMai * soLuong));
+                        }
+                    }
+
+                    if (gioHang.ContainsKey(item.lblMaSP.Text))
+                    {
+                        ProductInfo existingProduct = gioHang[item.lblMaSP.Text];
+                        existingProduct.DonGia = ConvertVNDToInt(item.lblDonGia.Text);
+                        existingProduct.ThanhTienTT = existingProduct.SoLuong * existingProduct.DonGia;
+                        existingProduct.ThanhTien = existingProduct.ThanhTienTT;
+
+                        gioHang[item.lblMaSP.Text] = existingProduct;
+                    }
+                }
+            }
+            tinhTien();
+            tinhTongTien();
             //Duyệt thử qua cái Dictionary giỏ hàng
             foreach (KeyValuePair<string, ProductInfo> pair in gioHang)
             {
@@ -715,6 +907,17 @@ namespace GUI
                 Console.WriteLine(maSP + " " + tenSP + " " + soLuong + " " + donGia + " " + thanhTienTT + " " + thanhTien);
 
             }
+
+            //Thay đổi SL trong Dictionary giỏ hàng
+            //if (gioHang.ContainsKey(maSP))
+            //{
+            //    ProductInfo existingProduct = gioHang[maSP];
+            //    existingProduct.SoLuong += 1;
+            //    existingProduct.ThanhTienTT = existingProduct.SoLuong * existingProduct.DonGia;
+            //    existingProduct.ThanhTien = existingProduct.ThanhTienTT;
+
+            //    gioHang[maSP] = existingProduct;
+            //}
         }
     }
 

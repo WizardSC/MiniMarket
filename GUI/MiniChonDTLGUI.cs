@@ -55,5 +55,22 @@ namespace GUI
                 MessageBox.Show("Cần nhập vào không một số nguyên.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnKhongApDungDTL_Click(object sender, EventArgs e)
+        {
+            diemTLSuDung = 0;
+            this.Close();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnHuyBo_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
     }
 }

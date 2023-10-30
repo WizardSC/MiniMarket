@@ -24,6 +24,13 @@ namespace GUI
         private string maKM1;
         private int phanTramKM1;
 
+        public List<ChiTietKhuyenMaiDTO> listCTKMinFormMini { get; set; }
+        public List<string> MaKMinCTKMList { get; set; }
+        public List<string> MaSPinCTKMList { get; set; }
+        public List<int> PhantramKMinCTKMList { get; set; }
+        public List<int> TrangThaiinCTKMList { get; set; }
+
+        
         public string MaKM1 { get => maKM1; set => maKM1 = value; }
         public int PhanTramKM1 { get => phanTramKM1; set => phanTramKM1 = value; }
 
@@ -35,6 +42,18 @@ namespace GUI
             dtKhuyenMai = kmBLL.getListDsKm();
             dgvKhuyenMai.DataSource = dtKhuyenMai;
             this.tongTienTT = tongTienTT;
+
+            MaKMinCTKMList = new List<string>();
+            MaSPinCTKMList = new List<string>();
+            PhantramKMinCTKMList = new List<int>();
+            TrangThaiinCTKMList = new List<int>();
+
+            listCTKMinFormMini = new List<ChiTietKhuyenMaiDTO>();
+        }
+
+        public MiniChonKMGUI() : this(0) // Gọi hàm khởi tạo có tham số với giá trị mặc định 0
+        {
+            // Mã khởi tạo không có tham số
         }
 
         private void MiniChonKMGUI_Load(object sender, EventArgs e)
@@ -79,6 +98,8 @@ namespace GUI
 
         private void btnHuyBo_Click(object sender, EventArgs e)
         {
+            listCTKMinFormMini = new List<ChiTietKhuyenMaiDTO>();
+
             this.Close();
 
         }
@@ -111,15 +132,20 @@ namespace GUI
                         .ToList();
                 foreach (var ctkm in listCTKM)
                 {
-                    Console.WriteLine("MaKM: " + ctkm.Makm);
-                    Console.WriteLine("MaSP: " + ctkm.Masp);
-                    Console.WriteLine("PhanTramKM: " + ctkm.PhanTramKm);
-                    Console.WriteLine("TrangThai: " + ctkm.TrangThai);
-                    Console.WriteLine(); // In một dòng trống để phân tách giữa các đối tượng
+                    MaKMinCTKMList.Add(ctkm.Makm);
+                    MaSPinCTKMList.Add(ctkm.Masp);
+                    PhantramKMinCTKMList.Add(ctkm.PhanTramKm);
+                    TrangThaiinCTKMList.Add(ctkm.TrangThai);
+
+
                 }
+                listCTKMinFormMini = listCTKM;
+            }
+            else
+            {
+                listCTKMinFormMini = new List<ChiTietKhuyenMaiDTO>();
             }
 
-           
             this.Close();
 
         }
@@ -138,6 +164,8 @@ namespace GUI
         {
             MaKM1 = "Không KM";
             PhanTramKM1 = 0;
+            listCTKMinFormMini = new List<ChiTietKhuyenMaiDTO>();
+
             this.Close();
         }
     }

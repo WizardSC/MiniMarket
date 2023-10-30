@@ -31,20 +31,22 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MyProductInCart));
             this.pnProductInCart = new System.Windows.Forms.Panel();
             this.lblMaSP = new System.Windows.Forms.Label();
+            this.btnDelete = new GUI.MyCustom.RJButton();
             this.lblDonGia = new System.Windows.Forms.Label();
             this.lblSeperator = new System.Windows.Forms.Label();
             this.lblTongTien = new System.Windows.Forms.Label();
-            this.lblTenSP = new System.Windows.Forms.Label();
-            this.btnDelete = new GUI.MyCustom.RJButton();
             this.btnGiam = new GUI.MyCustom.RJButton();
             this.btnTang = new GUI.MyCustom.RJButton();
             this.txtSoLuong = new GUI.MyCustom.RJTextBox();
+            this.lblTenSP = new System.Windows.Forms.Label();
+            this.lblDonGiaTruocKM = new System.Windows.Forms.Label();
             this.pnProductInCart.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnProductInCart
             // 
             this.pnProductInCart.BackColor = System.Drawing.Color.White;
+            this.pnProductInCart.Controls.Add(this.lblDonGiaTruocKM);
             this.pnProductInCart.Controls.Add(this.lblMaSP);
             this.pnProductInCart.Controls.Add(this.btnDelete);
             this.pnProductInCart.Controls.Add(this.lblDonGia);
@@ -68,6 +70,25 @@
             this.lblMaSP.Size = new System.Drawing.Size(56, 23);
             this.lblMaSP.TabIndex = 10;
             this.lblMaSP.Text = "SP001";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.White;
+            this.btnDelete.BackgroundColor = System.Drawing.Color.White;
+            this.btnDelete.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnDelete.BorderRadius = 0;
+            this.btnDelete.BorderSize = 0;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.Location = new System.Drawing.Point(321, 6);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(31, 28);
+            this.btnDelete.TabIndex = 9;
+            this.btnDelete.TextColor = System.Drawing.Color.White;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // lblDonGia
             // 
@@ -99,35 +120,6 @@
             this.lblTongTien.TabIndex = 6;
             this.lblTongTien.Text = "0đ";
             this.lblTongTien.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblTenSP
-            // 
-            this.lblTenSP.AutoEllipsis = true;
-            this.lblTenSP.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenSP.Location = new System.Drawing.Point(65, 11);
-            this.lblTenSP.Name = "lblTenSP";
-            this.lblTenSP.Size = new System.Drawing.Size(259, 23);
-            this.lblTenSP.TabIndex = 0;
-            this.lblTenSP.Text = "Xịt côn trùng Raid Lavender 600ml";
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.White;
-            this.btnDelete.BackgroundColor = System.Drawing.Color.White;
-            this.btnDelete.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnDelete.BorderRadius = 0;
-            this.btnDelete.BorderSize = 0;
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
-            this.btnDelete.Location = new System.Drawing.Point(321, 6);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(31, 28);
-            this.btnDelete.TabIndex = 9;
-            this.btnDelete.TextColor = System.Drawing.Color.White;
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnGiam
             // 
@@ -193,6 +185,26 @@
             this.txtSoLuong.Texts = "1";
             this.txtSoLuong.UnderlinedStyle = false;
             // 
+            // lblTenSP
+            // 
+            this.lblTenSP.AutoEllipsis = true;
+            this.lblTenSP.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenSP.Location = new System.Drawing.Point(65, 11);
+            this.lblTenSP.Name = "lblTenSP";
+            this.lblTenSP.Size = new System.Drawing.Size(259, 23);
+            this.lblTenSP.TabIndex = 0;
+            this.lblTenSP.Text = "Xịt côn trùng Raid Lavender 600ml";
+            // 
+            // lblDonGiaTruocKM
+            // 
+            this.lblDonGiaTruocKM.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDonGiaTruocKM.Location = new System.Drawing.Point(174, 25);
+            this.lblDonGiaTruocKM.Name = "lblDonGiaTruocKM";
+            this.lblDonGiaTruocKM.Size = new System.Drawing.Size(76, 23);
+            this.lblDonGiaTruocKM.TabIndex = 11;
+            this.lblDonGiaTruocKM.Text = "10000đ";
+            this.lblDonGiaTruocKM.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // MyProductInCart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -217,5 +229,6 @@
         public System.Windows.Forms.Label lblSeperator;
         public RJButton btnDelete;
         public System.Windows.Forms.Label lblMaSP;
+        public System.Windows.Forms.Label lblDonGiaTruocKM;
     }
 }
