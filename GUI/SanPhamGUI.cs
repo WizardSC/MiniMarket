@@ -334,6 +334,7 @@ namespace GUI
                       "Thông báo",
                       MessageBoxButtons.OK,
                       MessageBoxIcon.Information);
+                    
 
                 }
                 else
