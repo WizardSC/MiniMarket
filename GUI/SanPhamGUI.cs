@@ -63,20 +63,20 @@ namespace GUI
             string lastMaSP = null;
             foreach (DataRow row in dt.Rows)
             {
-                lastMaSP = row["MaSP"].ToString();
+               lastMaSP = row["MaSP"].ToString();
             }
             if (lastMaSP == "")
             {
-                txtMaSP.Texts = "SP001";
+               txtMaSP.Texts = "SP001";
             }
             int tempNum = int.Parse(lastMaSP.Substring(2));
             if ((tempNum + 1) >= 10)
             {
-                txtMaSP.Texts = "SP0" + (tempNum + 1).ToString();
+               txtMaSP.Texts = "SP0" + (tempNum + 1).ToString();
             }
             else if (tempNum >= 1 && tempNum < 9)
             {
-                txtMaSP.Texts = "SP00" + (tempNum + 1).ToString();
+               txtMaSP.Texts = "SP00" + (tempNum + 1).ToString();
             }
         }
         //chuyển đổi một hình ảnh thành một dạng biểu diễn nhị phân 
@@ -451,6 +451,11 @@ namespace GUI
         {
             pbImage.Image = pbImage.InitialImage;
             pbImage.Tag = "Placeholder";
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
