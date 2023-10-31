@@ -89,12 +89,15 @@ namespace GUI
             CalculateTotalPages(listSP);
 
             // Hiển thị trang hiện tại
-            UpdateCurrentPage(dtSanPham);
             loadNgayThang();
 
             loadMaHD();
         }
+        private void BanHangGUI_Load(object sender, EventArgs e)
+        {
+            UpdateCurrentPage(dtSanPham);
 
+        }
         // Các hàm khác ở đây
         private List<Tuple<string, string, string>> ConvertDataTableToList(DataTable dt)
         {
@@ -619,8 +622,19 @@ namespace GUI
                 .Where(tuple => (tuple.Item2 + " " + tuple.Item3).Equals(lblKhachHang.Text))
                 .Select(tuple => tuple.Item1)
                 .FirstOrDefault();
+            int resultDiemTL = khBLL.updateDiemTL(hd.MaKH, -hd.DiemSuDung) ? 1 : 0;
+            if (resultDiemTL == 1)
+            {
+                MessageBox.Show($"Khách hàng đã sử dụng {hd.DiemSuDung} điểm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            MessageBox.Show($"Khách hàng sẽ nhận được {hd.DiemNhanDuoc} điểm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            int resultDiemTL1 = khBLL.updateDiemTL(hd.MaKH, hd.DiemNhanDuoc) ? 1 : 0;
+            if (resultDiemTL1 == 1)
+            {
+                MessageBox.Show($"Khách hàng sẽ nhận được {hd.DiemNhanDuoc} điểm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
             int result = hdBLL.insertHoaDon(hd) ? 1 : 0;
             if (result == 1)
             {
@@ -655,7 +669,14 @@ namespace GUI
                 cthd.DonGiaDaGiam = product.DonGiaDaGiam;
                 cthd.PhanTramKM = product.PhanTramKM;
                 cthd.ThanhTien = (int)product.ThanhTien;
+                //Cập nhật lại sản phẩm trên DB
+                int resultSP = spBLL.updateTonKho(product.MaSP, -product.SoLuong) ? 1 : 0;
+                if (resultSP == 1)
+                {
+                    MessageBox.Show("Cập nhật dữ liệu sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+
+                }
                 int resultCTHD = cthdBLL.insertCTHoaDon(cthd) ? 1 : 0;
 
                 if (resultCTHD != 1)
@@ -667,7 +688,7 @@ namespace GUI
 
             if (success)
             {
-                MessageBox.Show("Thêm thành công tất cả chi tiết hóa đơn");
+                MessageBox.Show("Thêm thành công tất cả chi tiết hóa đơn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 clearThongTinSauKhiTaoHD();
 
             }
@@ -675,6 +696,8 @@ namespace GUI
             {
                 MessageBox.Show("Có lỗi xảy ra khi thêm chi tiết hóa đơn");
             }
+            listSP = spBLL.getListSP();
+
             clearThongTinSauKhiTaoHD();
 
         }
@@ -695,11 +718,26 @@ namespace GUI
                 control.Dispose(); // Loại bỏ control và giải phóng tài nguyên
             }
             loadMaHD();
-            
+
         }
 
         private void btnChonKH_Click(object sender, EventArgs e)
         {
+            if (listCTKM.Any() || !string.IsNullOrWhiteSpace(lblKhuyenMai.Text))
+            {
+                MessageBox.Show("Vui lòng bỏ áp dụng chương trình khuyến mãi trước khi thay đổi số lượng sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (lblDiemTL.Text != "0")
+            {
+                MessageBox.Show("Vui lòng bỏ áp dụng điểm tích lũy trước khi thay đổi số lượng sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (gioHang.Any())
+            {
+                MessageBox.Show("Không thể thay đổi thông tin khách hàng khi giỏ hàng vẫn còn sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             MiniKhachHangGUI khGUI = new MiniKhachHangGUI();
             khGUI.Show();
             khGUI.FormClosed += (s, args) =>
@@ -726,13 +764,22 @@ namespace GUI
                 string maKM = chonKMGUI.MaKM1;
                 phanTramKM = chonKMGUI.PhanTramKM1;
 
-                lblKhuyenMai.Text = maKM;
 
 
                 //Lưu danh sách CTKM từ form mini chọn CTKM
                 listCTKM = chonKMGUI.listCTKMinFormMini;
-                Console.WriteLine(listCTKM.Count);
-                capNhatGioHangKhiChonCTKM();
+
+                int result = capNhatGioHangKhiChonCTKM() ? 1 : 0;
+                if(result == 1)
+                {
+                    lblKhuyenMai.Text = maKM;
+
+                } else
+                {
+                    lblKhuyenMai.Text = string.Empty;
+
+                }
+
 
             };
 
@@ -745,8 +792,10 @@ namespace GUI
 
         }
 
-        private void capNhatGioHangKhiChonCTKM()
+        private bool capNhatGioHangKhiChonCTKM()
         {
+            bool flagKhongKhopMaSP = false; // Biến cờ để kiểm tra xem có chi tiết khuyến mãi nào không khớp mã SP trong giỏ hàng
+
             if (listCTKM.Count == 0)
             {
                 foreach (Control control in flpGioHang.Controls)
@@ -776,7 +825,7 @@ namespace GUI
                 tinhTongTien(true);
 
 
-                return;
+                return true;
             }
             else
             {
@@ -786,13 +835,13 @@ namespace GUI
                     {
 
                         MyCustom.MyProductInCart item = (MyCustom.MyProductInCart)control;
-
+                        bool flagKhuyenMai = false; //biến kt nếu trong giỏ hàng không có sp nào khớp với ctkm
                         foreach (var ctkm in listCTKM)
                         {
                             //Nếu sản phẩm đó có CTKM
                             if (item.lblMaSP.Text == ctkm.Masp)
                             {
-
+                                flagKhuyenMai = true;
                                 // Ở đây bạn có thể thay đổi thuộc tính của item
                                 item.lblDonGia.ForeColor = Color.Red;
                                 item.phanTramKM = ctkm.PhanTramKm;
@@ -805,10 +854,14 @@ namespace GUI
                             //NẾu sản phẩm đó ko có CTKM
                             else
                             {
-
+                              
                             }
                         }
-
+                        if (flagKhuyenMai == true)
+                        {
+                            flagKhongKhopMaSP = true;
+                        }
+                       
                         if (gioHang.ContainsKey(item.lblMaSP.Text))
                         {
                             ProductInfo existingProduct = gioHang[item.lblMaSP.Text];
@@ -822,10 +875,17 @@ namespace GUI
                         }
                     }
                 }
+                // Kiểm tra biến cờ và hiển thị thông báo nếu có chi tiết khuyến mãi không khớp
+                if (flagKhongKhopMaSP)
+                {
+                    MessageBox.Show("Giỏ hàng không có sản phẩm nào sử dụng được khuyến mãi này!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
 
                 tinhTongTien(true);
+                
                 //Duyệt thử qua cái Dictionary giỏ hàng
-                Console.WriteLine("Lúc đã có ctkm");
+
 
                 foreach (var pair in gioHang)
                 {
@@ -851,6 +911,7 @@ namespace GUI
                     Console.WriteLine(); // In một dòng trống để phân biệt giữa các sản phẩm
                 }
             }
+            return true;
 
         }
         private void tinhTongTien(bool applyDiscount)
@@ -889,7 +950,7 @@ namespace GUI
             }
 
         }
-       
+
         private void btnChonDTL_Click(object sender, EventArgs e)
         {
 
@@ -929,7 +990,8 @@ namespace GUI
 
             //Tính tiền sau khi sử dụng ĐTL: 1đ = giảm 10k
         }
-       
+
+
     }
 
 }
