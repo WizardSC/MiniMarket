@@ -42,6 +42,7 @@
             this.dgvThongTinPhieuNhap = new System.Windows.Forms.DataGridView();
             this.MaPN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayLap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,7 +60,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(966, 725);
+            this.panel1.Size = new System.Drawing.Size(1076, 725);
             this.panel1.TabIndex = 1;
             // 
             // panel3
@@ -71,7 +72,7 @@
             this.panel3.Controls.Add(this.dgvThongTinPhieuNhap);
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(958, 719);
+            this.panel3.Size = new System.Drawing.Size(1070, 719);
             this.panel3.TabIndex = 4;
             // 
             // label5
@@ -208,6 +209,7 @@
             this.dgvThongTinPhieuNhap.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaPN,
             this.NgayLap,
+            this.SoLuong,
             this.TongTien,
             this.Ten,
             this.TenNCC});
@@ -230,7 +232,7 @@
             this.dgvThongTinPhieuNhap.RowTemplate.Height = 30;
             this.dgvThongTinPhieuNhap.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvThongTinPhieuNhap.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvThongTinPhieuNhap.Size = new System.Drawing.Size(946, 652);
+            this.dgvThongTinPhieuNhap.Size = new System.Drawing.Size(1062, 652);
             this.dgvThongTinPhieuNhap.TabIndex = 1;
             this.dgvThongTinPhieuNhap.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvThongTinPhieuNhap_CellFormatting);
             // 
@@ -249,7 +251,16 @@
             this.NgayLap.HeaderText = "Ngày lập";
             this.NgayLap.Name = "NgayLap";
             this.NgayLap.ReadOnly = true;
-            this.NgayLap.Width = 270;
+            this.NgayLap.Width = 250;
+            // 
+            // SoLuong
+            // 
+            this.SoLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.SoLuong.DataPropertyName = "SoLuong";
+            this.SoLuong.HeaderText = "Số Lượng";
+            this.SoLuong.Name = "SoLuong";
+            this.SoLuong.ReadOnly = true;
+            this.SoLuong.Width = 130;
             // 
             // TongTien
             // 
@@ -276,13 +287,13 @@
             this.TenNCC.HeaderText = "Tên NCC";
             this.TenNCC.Name = "TenNCC";
             this.TenNCC.ReadOnly = true;
-            this.TenNCC.Width = 200;
+            this.TenNCC.Width = 209;
             // 
             // XemPhieuNhapGUItest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(967, 725);
+            this.ClientSize = new System.Drawing.Size(1078, 725);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "XemPhieuNhapGUItest";
@@ -306,12 +317,13 @@
         private MyCustom.RJTextBox txtTimKiem;
         private MyCustom.RJButton btnTimKiem;
         private System.Windows.Forms.DataGridView dgvThongTinPhieuNhap;
+        private MyCustom.RJButton btnExport;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaPN;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayLap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn TongTien;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenNCC;
-        private MyCustom.RJButton btnExport;
-        private System.Windows.Forms.Label label5;
     }
 }

@@ -86,8 +86,6 @@ namespace GUI
         private void XemPhieuNhapGUI_Load(object sender, EventArgs e)
         {
             init();
-            // Gán sự kiện CellFormatting
-           // dgvThongTinPhieuNhap.CellFormatting += dgvThongTinPhieuNhap_CellFormatting;
         }
 
         private void dgvThongTinPhieuNhap_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

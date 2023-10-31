@@ -291,7 +291,7 @@ namespace GUI
             {
                 return;
             }
-
+            
             // Tiếp tục xử lý dữ liệu nếu tất cả điều kiện đều đúng.
 
             KhuyenMaiDTO KM_DTO = new KhuyenMaiDTO();
@@ -300,7 +300,14 @@ namespace GUI
             KM_DTO.NgayBd = Ngaybd;
             KM_DTO.NgayKt = ngaykt;
             KM_DTO.PhanTramKm = int.Parse(phantramkm);
-            KM_DTO.DieuKiemKm = txtDkKM.Texts;
+            if (string.IsNullOrWhiteSpace(txtDkKM.Texts))
+            {
+                KM_DTO.DieuKiemKm = "0";
+            }
+            else
+            {
+                KM_DTO.DieuKiemKm = txtDkKM.Texts;
+            }
             KM_DTO.TrangThai = trangthai;
             
             bool result = kmBLL.insertKhuyenMai(KM_DTO);
@@ -339,7 +346,14 @@ namespace GUI
             KM_DTO.NgayBd = Ngaybd;
             KM_DTO.NgayKt = ngaykt;
             KM_DTO.PhanTramKm = int.Parse(phantram);
-            KM_DTO.DieuKiemKm = dieukien;
+            if (string.IsNullOrWhiteSpace(txtDkKM.Texts))
+            {
+                KM_DTO.DieuKiemKm = "0";
+            }
+            else
+            {
+                KM_DTO.DieuKiemKm = txtDkKM.Texts;
+            }
             KM_DTO.TrangThai = trangthai;
             KM_DTO.Makm = txtMaKM.Texts;
 
@@ -462,7 +476,7 @@ namespace GUI
                 cbxTrangThai.SelectedIndex = 1;
             }
 
-            if (txtDkKM.Texts == "")
+            if (int.Parse(txtDkKM.Texts) == 0 && int.Parse(txtPhanTramKM.Texts) == 0)
             {
                 btnThongTinKM.Visible = true;
             }

@@ -219,6 +219,12 @@
     <Compile Include="ThongTinSPKMGUI.Designer.cs">
       <DependentUpon>ThongTinSPKMGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="XemChiTietPhieuNhapGUITest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XemChiTietPhieuNhapGUITest.Designer.cs">
+      <DependentUpon>XemChiTietPhieuNhapGUITest.cs</DependentUpon>
+    </Compile>
     <Compile Include="XemPhieuNhapGUItest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,6 +300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ThongTinSPKMGUI.resx">
       <DependentUpon>ThongTinSPKMGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XemChiTietPhieuNhapGUITest.resx">
+      <DependentUpon>XemChiTietPhieuNhapGUITest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XemPhieuNhapGUItest.resx">
       <DependentUpon>XemPhieuNhapGUItest.cs</DependentUpon>

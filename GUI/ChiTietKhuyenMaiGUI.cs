@@ -139,6 +139,7 @@ namespace GUI
         private void ChiTietKhuyenMaiGUI_Load(object sender, EventArgs e)
         {
             init();
+            loadsItemTenKM();
             btnThemCTKM.Enabled = true;
             btnUpdateKM.Enabled = false;
             btnXoaKM.Enabled = false;
