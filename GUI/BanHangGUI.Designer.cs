@@ -934,6 +934,7 @@ namespace GUI
             this.Name = "BanHangGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
+            this.Load += new System.EventHandler(this.BanHangGUI_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);

@@ -37,5 +37,10 @@ namespace BLL
         {
             return khDAL.updateKhachHang(kh);
         }
+
+        public bool updateDiemTL(string maKH, int diemTL)
+        {
+            return khDAL.updateDiemTichLuy(maKH, diemTL);
+        }
     }
 }

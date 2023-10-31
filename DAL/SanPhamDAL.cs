@@ -111,6 +111,28 @@ namespace DAL
                 Disconnect();
             }
         }
+        public bool updateTonKho(string maSP, int soLuong)
+        {
+            try
+            {
+                Connect();
+                String sql = "update sanpham set SoLuong = SoLuong + @SL where MaSP = @MaSP";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Add("@SL", SqlDbType.Int).Value = soLuong;
+                cmd.Parameters.Add("@MaSP", SqlDbType.Char).Value = maSP;
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Disconnect();
+            }
+        }
         public bool updateSanPham(SanPhamDTO sp)
         {
             try
