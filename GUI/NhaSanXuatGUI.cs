@@ -406,6 +406,11 @@ namespace GUI
             dgvNSX.ClearSelection();
             dgvNSX.CurrentCell = null;
         }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 
 
