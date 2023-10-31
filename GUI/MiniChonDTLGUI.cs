@@ -15,6 +15,7 @@ namespace GUI
         public int diemTL;
         public int diemTLSuDung;
         public int diemCoTheSD;
+        
         public MiniChonDTLGUI(int diemTL, int diemCoTheSD)
         {
             InitializeComponent();
@@ -53,6 +54,23 @@ namespace GUI
                 // Không thể chuyển đổi thành số nguyên, hiển thị thông báo lỗi
                 MessageBox.Show("Cần nhập vào không một số nguyên.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnKhongApDungDTL_Click(object sender, EventArgs e)
+        {
+            diemTLSuDung = 0;
+            this.Close();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnHuyBo_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
         }
     }
 }

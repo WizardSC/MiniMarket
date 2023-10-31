@@ -17,6 +17,8 @@ namespace GUI
     public partial class NhanVienGUI : Form
     {
 
+        private string textSearchCondition = "";
+        private string currentSearch;
         private NhanVienBLL nvBLL;
         private DataTable dt;
         public NhanVienGUI()
@@ -26,10 +28,17 @@ namespace GUI
             InitializeComponent();
             unhideError();
             loadMaNV();
+            loadCbxTimKiem();
+        }
+        private void load_Form()
+        {
+            dgvNhanVien.DataSource = nvBLL.getListNhanVien();
         }
         private void NhanViennGUI_Load(object sender, EventArgs e)
         {
             dgvNhanVien.DataSource = nvBLL.getListNhanVien();
+            dtpNgaySinh.Format = DateTimePickerFormat.Custom;
+            dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
         }
         private string CheckAndSetColor(object control, Label label)
         {
@@ -57,19 +66,75 @@ namespace GUI
         }
         private void loadMaNV()
         {
-            string lastMaKH = dt.AsEnumerable()
+            string lastMaNV = dt.AsEnumerable()
                 .Select(row => row.Field<string>("MaNV"))
                 .LastOrDefault();
 
             int nextNum = 1;
-            if (!string.IsNullOrEmpty(lastMaKH) && lastMaKH.Length >= 5)
+            if (!string.IsNullOrEmpty(lastMaNV) && lastMaNV.Length >= 5)
             {
-                int.TryParse(lastMaKH.Substring(2), out nextNum);
+                int.TryParse(lastMaNV.Substring(2), out nextNum);
                 nextNum++;
             }
-            txtMaNV.Texts = "MaNV" + nextNum.ToString("D3");
+            txtMaNV.Texts = "NV" + nextNum.ToString("D3");
+        }
+        private void loadCbxTimKiem()
+        {
+            cbxTimKiem.Items.Add("Mã NV");
+            cbxTimKiem.Items.Add("Họ");
+            cbxTimKiem.Items.Add("Tên");
+            cbxTimKiem.Items.Add("Ngày sinh");
+            cbxTimKiem.Items.Add("Giới tính");
+            cbxTimKiem.Items.Add("Số SĐT");
+            cbxTimKiem.Items.Add("Địa chỉ");
+            cbxTimKiem.Items.Add("Trạng thái");
+            cbxTimKiem.Items.Add("Chức vụ");
+            cbxTimKiem.SelectedItem = 0;
+        }
+        private string returnDieuKien(string text)
+        {
+            return text;
+        }
+        private string GetTextSearchCondition(string searchText)
+        {
+            switch (cbxTimKiem.SelectedIndex)
+            {
+                case 0:
+                    return returnDieuKien($"MaNV like '%{searchText}%'");
+                case 1:
+                    return returnDieuKien($"Ho like '%{searchText}%'");
+                case 2:
+                    return returnDieuKien($"Ten like '%{searchText}%'");
+                case 3:
+                    return returnDieuKien($"NgaySinh like '%{searchText}%'");
+                case 4:
+                    return returnDieuKien($"GioiTinh like '%{searchText}%'");
+                case 5:
+                    return returnDieuKien($"SoDT like '%{searchText}%'");
+                case 6:
+                    return returnDieuKien($"DiaChi like '%{searchText}%'");
+                case 7:
+                    return returnDieuKien($"TrangThai like '%{searchText}%'");
+                case 8:
+                    return returnDieuKien($"TenCV like '%{searchText}%'");
+                default:
+                    return returnDieuKien($"MaNV like '%{searchText}%'"); ;
+            }
+        }
+        private void applySearchs(string text)
+        {
+            currentSearch = text;
+            DataView dvNhanVien = nvBLL.getListNhanVien().DefaultView;
+            dvNhanVien.RowFilter = currentSearch;
+            dgvNhanVien.DataSource = dvNhanVien.ToTable();
         }
 
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            string textTimKiem = txtTimKiem.Texts;
+            textSearchCondition = GetTextSearchCondition(textTimKiem);
+            applySearchs(textSearchCondition);
+        }
         private void unhideError()
         {
             lblErrMaNV.ForeColor = Color.Transparent;
@@ -95,6 +160,8 @@ namespace GUI
             string chucVu = CheckAndSetColor(cbxChucVu,lblErrChucVu);
             string valueChucVu = (chucVu == "Nhân viên bán hàng" ? "CV001" : "CV002");
             //byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
+            //string maTK = null;
+            byte[] img = null;
             string gioiTinh = "";
             if (!(rdbNam.Checked || rdbNu.Checked))
             {
@@ -117,18 +184,18 @@ namespace GUI
             {
                 return;
             }
-            NhanVienDTO nv = new NhanVienDTO(maNV, ho, ten, ngaySinh, gioiTinh, soDT, diaChi, trangThaiValue, valueChucVu);
-            int result = nvBLL.insertNhanVien(nv) ? 1 : 0;
-            if (result == 1)
+            NhanVienDTO nv = new NhanVienDTO(maNV, ho, ten, ngaySinh, gioiTinh, soDT, diaChi, trangThaiValue ,valueChucVu);
+            if (nvBLL.insertNhanVien(nv))
             {
                 MessageBox.Show("Thêm thành công",
                   "Thông báo",
                   MessageBoxButtons.OK,
                   MessageBoxIcon.Information);
+                    load_Form();
             }
             else
             {
-                MessageBox.Show("Thêm thất bại",
+                MessageBox.Show("Thêm thất bại" ,
                     "Lỗi",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
@@ -228,12 +295,12 @@ namespace GUI
             txtSoDT.Texts = dgvNhanVien.Rows[i].Cells[5].Value.ToString();
             txtDiaChi.Texts = dgvNhanVien.Rows[i].Cells[6].Value.ToString();
             int trangThai = int.Parse(dgvNhanVien.Rows[i].Cells[7].Value.ToString());
-            string chucVu = dgvNhanVien.Rows[i].Cells[8].Value.ToString();
+            string chucVu = dgvNhanVien.Rows[i].Cells[9].Value.ToString();
             //byte[] imageBytes = (byte[])dgvNhanVien.Rows[i].Cells[9].Value;
             //pbImage.Image = convertBinaryStringToImage(imageBytes);
             //pbImage.Tag = dgvNhanVien.Rows[i].Cells[0].Value.ToString();
             cbxTrangThai.SelectedItem = (trangThai == 1) ? "Hoạt động" : "Không hoạt động";
-
+  
             cbxChucVu.SelectedItem = (chucVu == "CV001") ? "Nhân viên bán hàng" : "Nhân viên quản lý";
         }
         private byte[] convertImageToBinaryString(System.Drawing.Image img, string tag)
@@ -258,6 +325,145 @@ namespace GUI
         }
 
         private void btnReset_Click(object sender, EventArgs e)
+        {
+            loadMaNV();
+            txtHo.Texts = "";
+            txtTen.Texts = "";
+            txtSoDT.Texts = "";
+            txtDiaChi.Texts = "";
+            rdbNam.Checked = false;
+            rdbNu.Checked = false;
+            cbxChucVu.SelectedIndex = -1;
+            cbxChucVu.Texts = "--Chọn chức vụ--";
+            cbxTrangThai.SelectedIndex = -1;
+            cbxTrangThai.Texts = "--Chọn trạng thái--";
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            string maNV = txtMaNV.Texts;
+            string ho = txtHo.Texts;
+            string ten = txtTen.Texts;
+            DateTime ngaySinh = dtpNgaySinh.Value;
+            string gioiTinh = rdbNam.Checked ? rdbNam.Text : (rdbNu.Checked ? rdbNu.Text : "");
+            string soDT = txtSoDT.Texts;
+            string diaChi = txtDiaChi.Texts;
+            int trangThaiValue = (cbxTrangThai.SelectedItem == "Hoạt động") ? 1 : 0;
+            string valueChucVu = (cbxChucVu.SelectedItem == "Nhân viên bán hàng") ? "CV001" : "CV002";
+            byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
+
+            NhanVienDTO nv = new NhanVienDTO(maNV, ho, ten, ngaySinh, gioiTinh, soDT, diaChi, trangThaiValue,valueChucVu );
+            if (nvBLL.updateNhanVien(nv))
+            {
+                MessageBox.Show("Sửa thành công",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                    load_Form();
+
+            }
+            else
+            {
+                MessageBox.Show("Sửa thất bại",
+                   "Lỗi",
+                   MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            string maNV = txtMaNV.Texts;
+            string stringTrangThai = cbxTrangThai.SelectedItem.ToString();
+            int trangThai = (stringTrangThai == "Hoạt động") ? 1 : 0;
+            var choice = MessageBox.Show("Xóa sản phẩm này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (choice == DialogResult.Yes)
+            {
+                bool isLoiKhoaNgoai;
+                if (nvBLL.deleteNhanVien(maNV, out isLoiKhoaNgoai))
+                {
+                    MessageBox.Show("Xóa thành công",
+                      "Thông báo",
+                      MessageBoxButtons.OK,
+                      MessageBoxIcon.Information);
+                        load_Form();
+
+                }
+                else
+                {
+                    if (isLoiKhoaNgoai)
+                    {
+                        MessageBoxButtons buttons = MessageBoxButtons.OK;
+                        var result = MessageBox.Show("Không thể xóa nhân viên này vì có dữ liệu liên quan đến sản phẩm trong hệ thống. " +
+                            "Vui lòng xóa các dữ liệu liên quan trước khi tiếp tục", "Lỗi", buttons, MessageBoxIcon.Error);
+                        if (result == DialogResult.OK)
+                        {
+                            if (trangThai == 1)
+                            {
+                                var result1 = MessageBox.Show("Bạn có muốn thay đổi trạng thái của nhân viên này?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                                if (result1 == DialogResult.OK)
+                                {
+                                    if (nvBLL.updateTrangThai(trangThai, maNV))
+                                    {
+                                        MessageBox.Show("Thay đổi trạng thái thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        load_Form();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Thay đổi trạng thái thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                    }
+                                }
+                                else if (result1 == DialogResult.Cancel)
+                                {
+                                    return;
+                                }
+                            }
+                            else return;
+
+                        }
+
+                    }
+
+                }
+            }
+        }
+
+        private void dgvNhanVien_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
+            if (e.ColumnIndex == dgvNhanVien.Columns["NgaySinh"].Index && e.Value != null)
+            {
+                if (e.Value != null && e.Value is DateTime)
+                {
+                    DateTime dateValue = (DateTime)e.Value;
+                    e.Value = dateValue.ToString("dd/MM/yyyy");
+                    e.FormattingApplied = true;
+                }
+            }
+            if (e.ColumnIndex == dgvNhanVien.Columns["TrangThai"].Index && e.Value != null)
+            {
+                int intValue;
+                if (int.TryParse(e.Value.ToString(), out intValue))
+                {
+                    if (intValue == 1)
+                    {
+                        e.Value = "Hoạt động";
+                    }
+                    else
+                    {
+                        e.Value = "Không hoạt động";
+                    }
+                    e.FormattingApplied = true;
+                }
+            }
+        }
+
+        private void dtpNgaySinh_ValueChanged(object sender, EventArgs e)
         {
 
         }
