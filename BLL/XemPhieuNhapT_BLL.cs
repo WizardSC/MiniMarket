@@ -9,19 +9,22 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class PhieuNhapT_BLL
+    public class XemPhieuNhapT_BLL
     {
-        private PhieuNhap_DAL PnDAL;
+        private XemPhieuNhap_DAL PnDAL;
 
-        public PhieuNhapT_BLL()
+        public XemPhieuNhapT_BLL()
         {
-            PnDAL = new PhieuNhap_DAL();
+            PnDAL = new XemPhieuNhap_DAL();
         }
 
         public DataTable getListDsPhieuNhap()
         {
             return PnDAL.getListPhieuNhap();
         }
-
+        public DataTable getListDsChiTietPhieuNhap(string MaPN)
+        {
+            return PnDAL.getListChiTietPhieuNhap(MaPN);
+        }
     }
 }

@@ -60,7 +60,6 @@ namespace GUI
             cbx.Items.Add("Mã SP");
             cbx.Items.Add("Tên KM");
             cbx.Items.Add("Tên SP");
-            cbx.Items.Add("Phần Trăm KM");
             cbxTimKiem.SelectedIndex = 0;
         }
 
@@ -80,16 +79,7 @@ namespace GUI
                     return returnDieuKien($"TenKM like '%{searchText}%'");
                 case "Tên SP":
                     return returnDieuKien($"TenSP like '%{searchText}%'");
-                case "Phần Trăm KM":
-                    int phanTramKM;
-                    if (int.TryParse(searchText, out phanTramKM))
-                    {
-                        return returnDieuKien($"PhanTramKM = {phanTramKM}");
-                    }
-                    else
-                    {
-                        return "";
-                    }
+               
                 default:
                     return "";
             }

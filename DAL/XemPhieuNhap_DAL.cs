@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class PhieuNhap_DAL : MSSQLConnect
+    public class XemPhieuNhap_DAL : MSSQLConnect
     {
         public DataTable getListPhieuNhap()
         {
@@ -38,6 +38,27 @@ namespace DAL
             return dt;
         }
 
-        
+        public DataTable getListChiTietPhieuNhap(string MaPN)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand("Select * from ChiTietPhieuNhap where MaPN = @MaPN", conn);
+                cmd.Parameters.AddWithValue("@MaPN", MaPN).SqlDbType = SqlDbType.Char;
+
+                SqlDataAdapter adt = new SqlDataAdapter(cmd);
+                adt.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return dt;
+        }
     }
 }

@@ -39,7 +39,6 @@ namespace GUI
             dt = kmBLL.getListDsKm();
             loadMaKM();
             loadDataToCBX(cbxTimKiem);
-
         }
 
         private void loadMaKM()
@@ -68,7 +67,6 @@ namespace GUI
         {
             cbx.Items.Add("Mã KM");
             cbx.Items.Add("Tên KM");
-            cbx.Items.Add("Phần Trăm KM");
             cbxTimKiem.SelectedIndex = 0;
         }
 
@@ -84,16 +82,7 @@ namespace GUI
                     return returnDieuKien($"MaKM like '%{searchText}%'");
                 case "Tên KM":
                     return returnDieuKien($"TenKM like '%{searchText}%'");
-                case "Phần Trăm KM":
-                    int phanTramKM;
-                    if (int.TryParse(searchText, out phanTramKM))
-                    {
-                        return returnDieuKien($"PhanTramKM = {phanTramKM}");
-                    }
-                    else
-                    {
-                        return "";
-                    }
+              
                 default:
                     return "";
             }
