@@ -1,4 +1,4 @@
-﻿using OfficeOpenXml;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +18,7 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+           
 
             // Application.Run(new GiaoDienGUI());
             Application.Run(new GiaoDienGUI());

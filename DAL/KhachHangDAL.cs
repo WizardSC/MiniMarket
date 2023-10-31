@@ -91,7 +91,28 @@ namespace DAL
             }
            
         }
-
+        public bool updateDiemTichLuy (string maKH, int diemTL)
+        {
+            try
+            {
+                Connect();
+                string sql = "update khachhang set DiemTichLuy = DiemTichLuy + @DiemTL where MaKH = @MaKH";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Add("@DiemTL", SqlDbType.Int).Value = diemTL;
+                cmd.Parameters.Add("@MaKH", SqlDbType.Char).Value = maKH;
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi:" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Disconnect();
+            }
+        }
         public bool updateKhachHang(KhachHangDTO kh)
         {
             try

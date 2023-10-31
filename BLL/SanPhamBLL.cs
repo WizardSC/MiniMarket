@@ -42,5 +42,10 @@ namespace BLL
             trangThai = (trangThai == 0) ? 1 : 0;
             return spDAL.updateTrangThai(trangThai, maSP);
         }
+
+        public bool updateTonKho(string maSP,int soLuong)
+        {
+            return spDAL.updateTonKho(maSP, soLuong);
+        }
     }
 }
