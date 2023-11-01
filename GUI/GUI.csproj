@@ -96,6 +96,12 @@
     <Compile Include="GiaoDienGUI.Designer.cs">
       <DependentUpon>GiaoDienGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="HoaDonGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HoaDonGUI.Designer.cs">
+      <DependentUpon>HoaDonGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="KhachHangGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoDienGUI.resx">
       <DependentUpon>GiaoDienGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HoaDonGUI.resx">
+      <DependentUpon>HoaDonGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KhachHangGUI.resx">
       <DependentUpon>KhachHangGUI.cs</DependentUpon>

@@ -1,49 +1,50 @@
 ﻿using BLL;
 using GUI.MyCustom;
+using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using OfficeOpenXml;
-using System.IO;
-
 namespace GUI
 {
-    public partial class XemPhieuNhapGUItest : Form
+    public partial class HoaDonGUI : Form
     {
-        private XemPhieuNhapT_BLL PnBLL;
-        private XemChiTietPhieuNhapGUITest ChiTietPN;
-        private string MaPhieuNhap;     // tạo biến lưu giá trị khi double click
-        private string TenNhaCungCap;
-        private DateTime NgayTaoPN;
+
+        private XemThongTinHoaDonBLL HdBLL;
+       // private XemChiTietHoaDonGUI ChiTietHD;
+        private string MaHoaDon;     // tạo biến lưu giá trị khi double click
         private string currentSearch;
         private string textSearchCondition = ""; // Biến để lưu trữ điều kiện từ textbox tìm kiếm
         private string cbxItemsMacDinh;
-        public XemPhieuNhapGUItest()
+        public HoaDonGUI()
         {
+            HdBLL = new XemThongTinHoaDonBLL();
             InitializeComponent();
-            PnBLL = new XemPhieuNhapT_BLL();
             loadDataToCBX(cbxTimKiem);
         }
-
         private void loadDataToCBX(RJComboBox cbx)
         {
-            cbx.Items.Add("Mã PN");
+            cbx.Items.Add("Mã HD");
+            cbx.Items.Add("Tên KH");
             cbx.Items.Add("Tên NV");
-            cbx.Items.Add("Tên NCC");
             cbxTimKiem.SelectedIndex = 0;
         }
         //load form DataTable
         public void init()
         {
-            dgvXemThongTinPhieuNhap.DataSource = PnBLL.getListDsPhieuNhap();
+            dgvXemThongTinHoaDon.DataSource = HdBLL.getXemListDsHoaDon();
 
+        }
+        private void HoaDonGUI_Load(object sender, EventArgs e)
+        {
+            init();
         }
 
         //timkiem 
@@ -55,8 +56,8 @@ namespace GUI
         {
             switch (cbxItemsMacDinh)
             {
-                case "Mã PN":
-                    return returnDieuKien($"MaPN like '%{searchText}%'");
+                case "Mã HD":
+                    return returnDieuKien($"MaHD like '%{searchText}%'");
                 case "Tên KH":
                     return returnDieuKien($"Ten like '%{searchText}%'");
                 case "Tên NV":
@@ -71,41 +72,19 @@ namespace GUI
         {
             currentSearch = text;
             Console.WriteLine(currentSearch);
-            DataView dvPhieuNhap = PnBLL.getListDsPhieuNhap().DefaultView;
-            dvPhieuNhap.RowFilter = currentSearch;
-            dgvXemThongTinPhieuNhap.DataSource = dvPhieuNhap.ToTable();
+            DataView dvHoaDon = HdBLL.getXemListDsHoaDon().DefaultView;
+            dvHoaDon.RowFilter = currentSearch;
+            dgvXemThongTinHoaDon.DataSource = dvHoaDon.ToTable();
         }
         private string CombineConditions(string condition)
         {
-            if (!string.IsNullOrEmpty(condition)) 
-            { 
+            if (!string.IsNullOrEmpty(condition))
+            {
                 return $"({condition})";
             }
             else
             {
                 return "";
-            }
-        }
-        private void XemPhieuNhapGUI_Load(object sender, EventArgs e)
-        {
-            init();
-        }
-
-        private void dgvThongTinPhieuNhap_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (e.Value != null)
-            {
-                // Đặt chữ nằm ở giữa cho tất cả các cột
-                dgvXemThongTinPhieuNhap.Columns[e.ColumnIndex].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            }
-            if (e.ColumnIndex == 1) // Thay yourDateColumnIndex bằng chỉ số cột ngày của bạn.
-            {
-                if (e.Value != null && e.Value is DateTime)
-                {
-                    DateTime dateValue = (DateTime)e.Value;
-                    e.Value = dateValue.ToString("dd/MM/yyyy"); // Định dạng lại ngày thành "ngày/tháng/năm".
-                    e.FormattingApplied = true;
-                }
             }
         }
 
@@ -119,7 +98,7 @@ namespace GUI
 
         private void cbxTimKiem_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            cbxItemsMacDinh = cbxTimKiem.SelectedItem.ToString();
+             cbxItemsMacDinh = cbxTimKiem.SelectedItem.ToString();
         }
 
         private void txtTimKiem_KeyPress(object sender, KeyPressEventArgs e)
@@ -140,7 +119,7 @@ namespace GUI
                 ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Dữ liệu");
 
                 // Lấy dữ liệu từ DataTable
-                DataTable dataTable = (DataTable)dgvXemThongTinPhieuNhap.DataSource; // Hãy  lấy dữ liệu thực tế
+                DataTable dataTable = (DataTable)dgvXemThongTinHoaDon.DataSource; // Hãy  lấy dữ liệu thực tế
 
                 // Số hàng và cột
                 int rowCount = dataTable.Rows.Count;
@@ -184,16 +163,22 @@ namespace GUI
             }
         }
 
-        private void dgvThongTinPhieuNhap_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvXemThongTinHoaDon_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            int i = dgvXemThongTinPhieuNhap.CurrentRow.Index;
-            MaPhieuNhap = dgvXemThongTinPhieuNhap.Rows[i].Cells[0].Value.ToString();
-            NgayTaoPN = DateTime.Parse(dgvXemThongTinPhieuNhap.Rows[i].Cells[1].Value.ToString());
-            TenNhaCungCap = dgvXemThongTinPhieuNhap.Rows[i].Cells[4].Value.ToString();
-            XemChiTietPhieuNhapGUITest ChiTietPN = new XemChiTietPhieuNhapGUITest(MaPhieuNhap,NgayTaoPN,TenNhaCungCap);
-            ChiTietPN.ShowDialog();
+            if (e.Value != null)
+            {
+                // Đặt chữ nằm ở giữa cho tất cả các cột
+                dgvXemThongTinHoaDon.Columns[e.ColumnIndex].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            }
+            if (e.ColumnIndex == 1) // Thay yourDateColumnIndex bằng chỉ số cột ngày của bạn.
+            {
+                if (e.Value != null && e.Value is DateTime)
+                {
+                    DateTime dateValue = (DateTime)e.Value;
+                    e.Value = dateValue.ToString("dd/MM/yyyy"); // Định dạng lại ngày thành "ngày/tháng/năm".
+                    e.FormattingApplied = true;
+                }
+            }
         }
-    
-    
     }
 }

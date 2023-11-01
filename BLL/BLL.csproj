@@ -67,6 +67,7 @@
     <Compile Include="XemPhieuNhapT_BLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SanPhamBLL.cs" />
+    <Compile Include="XemThongTinHoaDonBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

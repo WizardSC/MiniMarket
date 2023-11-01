@@ -20,7 +20,7 @@ namespace GUI
             Application.SetCompatibleTextRenderingDefault(false);
            
 
-             Application.Run(new XemPhieuNhapGUItest());
+             Application.Run(new GiaoDienGUI());
 
 
         }
