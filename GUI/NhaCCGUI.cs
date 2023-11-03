@@ -22,6 +22,11 @@ namespace GUI
         NhaCungCapBLL nccBLL;
         DataTable dt;
         private string currentSearch;
+        private bool isFormFilter = false;
+        private string trangThaiCondition = "";
+        private bool isHoatDong = false;
+        private bool isKhongHoatDong = false;
+        private bool isTrangThai = false;
         public NhaCCGUI()
         {
             InitializeComponent();
@@ -30,6 +35,13 @@ namespace GUI
             loadMaNCC();
             loadCbxTimKiem();
 
+        }
+        private void applySearchs(string text)
+        {
+            currentSearch = text;
+            DataView dvNhaCC = nccBLL.getListNCC().DefaultView;
+            dvNhaCC.RowFilter = currentSearch;
+            dgvNhaCC.DataSource = dvNhaCC.ToTable();
         }
         private  void load_Form()
         {
@@ -65,9 +77,7 @@ namespace GUI
             cbxTimKiem.Items.Add("Mã NCC");
             cbxTimKiem.Items.Add("Tên NCC");
             cbxTimKiem.Items.Add("Địa chỉ");
-            cbxTimKiem.Items.Add("Số SĐT");
             cbxTimKiem.Items.Add("Số Fax");
-            cbxTimKiem.Items.Add("Trạng thái");
             cbxTimKiem.SelectedItem = 0;
         }
         private string returnDieuKien(string text)
@@ -85,29 +95,38 @@ namespace GUI
                 case 2:
                     return returnDieuKien($"DiaChi like '%{searchText}%'");
                 case 3:
-                    return returnDieuKien($"SoDT like '%{searchText}%'");
-                case 4:
                     return returnDieuKien($"SoFax like '%{searchText}%'");
-                case 5:
-                    return returnDieuKien($"TrangThai like '%{searchText}%'");
                 default:
-                    return returnDieuKien($"MaNV like '%{searchText}%'"); ;
+                    return returnDieuKien($"MaNCC like '%{searchText}%'"); ;
             }
         }
-        private void applySearchs(string text)
+        private string CombineConditions(string condition1, string condition2)
         {
-            currentSearch = text;
-            Console.WriteLine(currentSearch);
-            DataView dvNhaCC = nccBLL.getListNCC().DefaultView;
-            dvNhaCC.RowFilter = currentSearch;
-            dgvNhaCC.DataSource = dvNhaCC.ToTable();
+            if (!string.IsNullOrEmpty(condition1) && !string.IsNullOrEmpty(condition2))
+            {
+                return $"({condition1}) AND ({condition2})";
+            }
+            else if (!string.IsNullOrEmpty(condition1))
+            {
+                return condition1;
+            }
+            else if (!string.IsNullOrEmpty(condition2))
+            {
+                return condition2;
+            }
+            else
+            {
+                return "";
+            }
         }
+        
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             string textTimKiem = txtTimKiem.Texts;
             textSearchCondition = GetTextSearchCondition(textTimKiem);
-            applySearchs(textSearchCondition);
+            string combinedCondition = CombineConditions(textSearchCondition, trangThaiCondition);
+            applySearchs(combinedCondition);
         }
         private void resetForm()
         {
@@ -326,6 +345,86 @@ namespace GUI
                     }
                     e.FormattingApplied = true; 
                 }
+            }
+        }
+        private bool toggleDieuKien(bool value)
+        {
+            return !value;
+        }
+        private void UpdateTrangThaiCondition()
+        {
+            List<string> trangThaiConditions = new List<string>();
+
+            if (isHoatDong)
+            {
+                trangThaiConditions.Add("TrangThai = 1");
+            }
+
+            if (isKhongHoatDong)
+            {
+                trangThaiConditions.Add("TrangThai = 0");
+            }
+
+            trangThaiCondition = string.Join(" OR ", trangThaiConditions);
+        }
+        private void chkTrangThai_CheckedChanged(object sender, EventArgs e)
+        {
+            isTrangThai = toggleDieuKien(isTrangThai);
+
+            // Bật hoặc tắt chkNam và chkNu dựa trên trạng thái của chkGioiTinh
+            chkHoatDong.Enabled = isTrangThai;
+            chkKoHD.Enabled = isTrangThai;
+            if (isTrangThai)
+            {
+
+                if (isHoatDong)
+                {
+
+                    chkHoatDong_CheckedChanged(sender, e);
+                }
+
+                if (isKhongHoatDong)
+                {
+
+                    chkKoHD_CheckedChanged(sender, e);
+                }
+            }
+            else
+            {
+                chkHoatDong.Checked = false;
+                chkKoHD.Checked = false;
+                chkHoatDong.Enabled = isTrangThai;
+                chkKoHD.Enabled = isTrangThai;
+            }
+        }
+        private void chkHoatDong_CheckedChanged(object sender, EventArgs e)
+        {
+            isHoatDong = toggleDieuKien(isHoatDong);
+            UpdateTrangThaiCondition();
+            btnTimKiem.PerformClick();
+        }
+        private void chkKoHD_CheckedChanged(object sender, EventArgs e)
+        {
+            isKhongHoatDong = toggleDieuKien(isKhongHoatDong);
+            UpdateTrangThaiCondition();
+            btnTimKiem.PerformClick();
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            isFormFilter = !isFormFilter;
+            if (isFormFilter)
+            {
+                btnFilter.BackColor = Color.FromArgb(224, 224, 224);
+                flpFilter.Visible = true;
+                flpFilter.BringToFront();
+
+            }
+            else
+            {
+                btnFilter.BackColor = Color.FromArgb(224, 252, 237);
+                flpFilter.Visible = false;
+                flpFilter.SendToBack();
             }
         }
     }
