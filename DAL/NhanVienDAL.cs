@@ -48,9 +48,7 @@ namespace DAL
                 Connect();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT NV.MaNV, NV.Ho, NV.Ten, NV.NgaySinh, NV.GioiTinh, NV.SoDT, NV.DiaChi, NV.TrangThai, NV.IMG, CV.TenCV " +
-                    "FROM NhanVien NV " +
-                    "INNER JOIN ChucVu CV ON NV.MaCV = CV.MaCV;";
+                cmd.CommandText = "SELECT * from nhanvien";
                 cmd.Connection = conn;
                 SqlDataAdapter adt = new SqlDataAdapter(cmd);
                 adt.Fill(dt);

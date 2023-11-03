@@ -25,7 +25,6 @@ namespace BLL
         {
             return nvDAL.getListNhanVien();
         }
-
         public bool insertNhanVien(NhanVienDTO nv)
         {
             return nvDAL.insertNhanVien(nv);
