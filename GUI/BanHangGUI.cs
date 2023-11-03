@@ -794,7 +794,7 @@ namespace GUI
 
         private bool capNhatGioHangKhiChonCTKM()
         {
-            bool flagKhongKhopMaSP = false; // Biến cờ để kiểm tra xem có chi tiết khuyến mãi nào không khớp mã SP trong giỏ hàng
+            bool flagKhongKhopMaSP = true; // Biến cờ để kiểm tra xem có chi tiết khuyến mãi nào không khớp mã SP trong giỏ hàng
 
             if (listCTKM.Count == 0)
             {
@@ -833,84 +833,54 @@ namespace GUI
                 {
                     if (control is MyCustom.MyProductInCart)
                     {
-
                         MyCustom.MyProductInCart item = (MyCustom.MyProductInCart)control;
-                        bool flagKhuyenMai = false; //biến kt nếu trong giỏ hàng không có sp nào khớp với ctkm
+                        bool flagKhuyenMai = false; // Đặt biến này là false ở đầu mỗi sản phẩm
+
                         foreach (var ctkm in listCTKM)
                         {
                             //Nếu sản phẩm đó có CTKM
                             if (item.lblMaSP.Text == ctkm.Masp)
                             {
-                                flagKhuyenMai = true;
-                                // Ở đây bạn có thể thay đổi thuộc tính của item
+                                flagKhuyenMai = true; // Đánh dấu rằng có sản phẩm khớp với chi tiết khuyến mãi
+                                                      // Ở đây bạn có thể thay đổi thuộc tính của item
                                 item.lblDonGia.ForeColor = Color.Red;
                                 item.phanTramKM = ctkm.PhanTramKm;
                                 int donGia = ConvertVNDToInt(item.lblDonGia.Text);
                                 int soLuong = int.Parse(item.txtSoLuong.Texts);
                                 int donGiaSauKhuyenMai = donGia - (donGia * ctkm.PhanTramKm / 100);
                                 item.lblDonGia.Text = ConvertIntToVND(donGiaSauKhuyenMai);
-                                item.lblTongTien.Text = ConvertIntToVND((donGiaSauKhuyenMai * soLuong));
-                            }
-                            //NẾu sản phẩm đó ko có CTKM
-                            else
-                            {
-                              
+                                item.lblTongTien.Text = ConvertIntToVND(donGiaSauKhuyenMai * soLuong);
                             }
                         }
-                        if (flagKhuyenMai == true)
-                        {
-                            flagKhongKhopMaSP = true;
-                        }
-                       
+
                         if (gioHang.ContainsKey(item.lblMaSP.Text))
                         {
                             ProductInfo existingProduct = gioHang[item.lblMaSP.Text];
                             existingProduct.DonGiaBanDau = item.donGiaBanDau;
                             existingProduct.DonGiaDaGiam = ConvertVNDToInt(item.lblDonGia.Text);
                             existingProduct.PhanTramKM = item.phanTramKM;
-
                             existingProduct.ThanhTien = existingProduct.SoLuong * existingProduct.DonGiaDaGiam;
-
                             gioHang[item.lblMaSP.Text] = existingProduct;
                         }
+
+                        // Kiểm tra biến cờ flagKhuyenMai cho từng sản phẩm
+                        if (flagKhuyenMai)
+                        {
+                            flagKhongKhopMaSP = false; // Có ít nhất một sản phẩm khớp
+                        }
                     }
+
+                    tinhTongTien(true);
                 }
-                // Kiểm tra biến cờ và hiển thị thông báo nếu có chi tiết khuyến mãi không khớp
+
+                // Kiểm tra biến cờ flagKhongKhopMaSP và hiển thị thông báo nếu không có sản phẩm nào khớp
                 if (flagKhongKhopMaSP)
                 {
                     MessageBox.Show("Giỏ hàng không có sản phẩm nào sử dụng được khuyến mãi này!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-
-                tinhTongTien(true);
-                
-                //Duyệt thử qua cái Dictionary giỏ hàng
-
-
-                foreach (var pair in gioHang)
-                {
-                    string key = pair.Key;
-                    ProductInfo product = pair.Value;
-
-                    string maSP = product.MaSP;
-                    string tenSP = product.TenSP;
-                    int soLuong = product.SoLuong;
-                    int donGiaBanDau = product.DonGiaBanDau;
-                    int donGiaDaGiam = product.DonGiaDaGiam;
-                    int phanTramKM = product.PhanTramKM;
-                    float thanhTien = product.ThanhTien;
-
-                    // Sử dụng thông tin sản phẩm ở đây, ví dụ:
-                    Console.WriteLine($"Mã SP: {maSP}");
-                    Console.WriteLine($"Tên SP: {tenSP}");
-                    Console.WriteLine($"Số lượng: {soLuong}");
-                    Console.WriteLine($"Đơn giá ban đầu: {donGiaBanDau}");
-                    Console.WriteLine($"Đơn giá đã giảm: {donGiaDaGiam}");
-                    Console.WriteLine($"Phần trăm khuyến mãi: {phanTramKM}");
-                    Console.WriteLine($"Thành tiền: {thanhTien}");
-                    Console.WriteLine(); // In một dòng trống để phân biệt giữa các sản phẩm
-                }
             }
+
             return true;
 
         }
