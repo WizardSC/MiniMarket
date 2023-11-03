@@ -42,7 +42,7 @@ namespace DAL
                 Connect();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "insert into nhacungcap values (@MaNCC, @TenNCC,@DiaChi,@SoDT, @SoFax,@TrangThai)";
+                cmd.CommandText = "insert into nhacungcap values (@MaNCC, @TenNCC,@DiaChi,@SoDT, @SoFax,@TrangThai,@IMG)";
                 cmd.Connection = conn;
                 cmd.Parameters.AddWithValue("@MaNCC", ncc.MaNCC).SqlDbType = SqlDbType.Char;
                 cmd.Parameters.AddWithValue("@TenNCC", ncc.TenNCC).SqlDbType = SqlDbType.NVarChar;
@@ -50,6 +50,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@SoDT", ncc.SoDT).SqlDbType = SqlDbType.Char;
                 cmd.Parameters.AddWithValue("@SoFax", ncc.SoFAX).SqlDbType = SqlDbType.NVarChar;
                 cmd.Parameters.AddWithValue("@TrangThai", ncc.TrangThai).SqlDbType = SqlDbType.Int;
+                cmd.Parameters.AddWithValue("@IMG", ncc.Img).SqlDbType = SqlDbType.VarBinary;
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -70,12 +71,13 @@ namespace DAL
                 Connect();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "update nhacungcap set TenNCC = @TenNCC,SoDT = @SoDT, DiaChi = @DiaChi,SoFax = @SoFax, TrangThai = @TrangThai where MaNCC = @MaNCC";
+                cmd.CommandText = "update nhacungcap set TenNCC = @TenNCC,SoDT = @SoDT, DiaChi = @DiaChi,SoFax = @SoFax, TrangThai = @TrangThai, IMG = @IMG where MaNCC = @MaNCC";
                 cmd.Parameters.AddWithValue("@TenNCC", ncc.TenNCC).SqlDbType = SqlDbType.Char;
                 cmd.Parameters.AddWithValue("@SoDT", ncc.SoDT).SqlDbType = SqlDbType.Char;
                 cmd.Parameters.AddWithValue("@DiaChi", ncc.DiaChi).SqlDbType = SqlDbType.NVarChar;
                 cmd.Parameters.AddWithValue("@SoFax", ncc.SoFAX).SqlDbType = SqlDbType.NVarChar;
                 cmd.Parameters.AddWithValue("@TrangThai", ncc.TrangThai).SqlDbType = SqlDbType.Int;
+                cmd.Parameters.AddWithValue("@IMG", ncc.Img).SqlDbType = SqlDbType.VarBinary;
                 cmd.Parameters.AddWithValue("@MaNCC", ncc.MaNCC).SqlDbType = SqlDbType.Char;
                 cmd.Connection = conn;
 

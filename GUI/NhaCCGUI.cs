@@ -6,12 +6,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media;
 using static System.Net.Mime.MediaTypeNames;
+using Color = System.Drawing.Color;
+using Image = System.Drawing.Image;
 
 namespace GUI
 {
@@ -34,7 +38,18 @@ namespace GUI
             dt = nccBLL.getListNCC();
             loadMaNCC();
             loadCbxTimKiem();
+            unhideError();
+        }
 
+        private void unhideError()
+        {
+            lblErrMaNCC.ForeColor = Color.Transparent;
+            lblErrTen.ForeColor = Color.Transparent;
+            lblErrDiaChi.ForeColor = Color.Transparent;
+            lblErrSoDT.ForeColor = Color.Transparent;
+            lblErrSoFax.ForeColor = Color.Transparent;
+            lblErrTrangThai.ForeColor = Color.Transparent;
+            lblErrIMG.ForeColor = Color.Transparent;
         }
         private void applySearchs(string text)
         {
@@ -131,6 +146,7 @@ namespace GUI
         private void resetForm()
         {
             loadMaNCC();
+            btnDeleteIMG.PerformClick();
             txtTen.Texts = "";
             txtDiaChi.Texts = "";
             txtSoDT.Texts = "";
@@ -172,11 +188,12 @@ namespace GUI
             string soFax = CheckAndSetColor(txtSoFax, lblErrSoFax);
             string trangThai = CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
             int trangThaiValue = (trangThai == "Hoạt động" ? 1 : 0);
-            if (!(maNCC != "" && ten != "" && diaChi != "" && soDT != "" && trangThai != ""))
+            byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
+            if (!(maNCC != "" && ten != "" && diaChi != "" && soDT != "" && trangThai != "" && img != null))
             {
                 return;
-            }
-            NhaCungCapDTO ncc = new NhaCungCapDTO(maNCC,ten, diaChi, soDT, soFax, trangThaiValue);
+            } 
+            NhaCungCapDTO ncc = new NhaCungCapDTO(maNCC,ten, diaChi, soDT, soFax, trangThaiValue, img);
             if (nccBLL.insertNhaCungCap(ncc))
             {
                 MessageBox.Show("Thêm thành công",
@@ -192,11 +209,6 @@ namespace GUI
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
-        }
-
-        private void lblErrSoFax_Click(object sender, EventArgs e)
-        {
-
         }
         private void txtTenNCC__TextChanged(object sender, EventArgs e)
         {
@@ -222,7 +234,32 @@ namespace GUI
         {
             CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
         }
+        private byte[] convertImageToBinaryString(Image img, string tag)
+        {
 
+            if (tag == "Placeholder")
+            {
+                lblErrIMG.ForeColor = Color.FromArgb(230, 76, 89);
+                return null;
+            }
+            else
+            {
+                lblErrIMG.ForeColor = Color.Transparent;
+
+            }
+
+            MemoryStream ms = new MemoryStream();
+            img.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+
+            return ms.ToArray();
+
+        }
+        private Image convertBinaryStringToImage(byte[] binaryString)
+        {
+            MemoryStream ms = new MemoryStream(binaryString);
+            Image img = Image.FromStream(ms);
+            return img;
+        }
         private void btnSua_Click(object sender, EventArgs e)
         {
             string maNCC = txtMaNCC.Texts;
@@ -231,8 +268,9 @@ namespace GUI
             string diaChi = txtDiaChi.Texts;
             string soFax = txtSoFax.Texts;
             int trangThaiValue = (cbxTrangThai.SelectedItem == "Hoạt động") ? 1 : 0;
+            byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
 
-            NhaCungCapDTO ncc = new NhaCungCapDTO(maNCC,ten, diaChi,soDT, soFax, trangThaiValue);
+            NhaCungCapDTO ncc = new NhaCungCapDTO(maNCC,ten, diaChi,soDT, soFax, trangThaiValue,img);
             if (nccBLL.updateNhaCC(ncc))
             {
                 MessageBox.Show("Sửa thành công",
@@ -261,6 +299,10 @@ namespace GUI
             txtSoFax.Texts = dgvNhaCC.Rows[i].Cells[4].Value.ToString();
             int trangThai = int.Parse(dgvNhaCC.Rows[i].Cells[5].Value.ToString());
             cbxTrangThai.SelectedItem = (trangThai == 1) ? "Hoạt động" : "Không hoạt động";
+            byte[] imageBytes = (byte[])dgvNhaCC.Rows[i].Cells[6].Value;
+            pbImage.Image = convertBinaryStringToImage(imageBytes);
+            pbImage.Tag = dgvNhaCC.Rows[i].Cells[0].Value.ToString();
+
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -426,6 +468,48 @@ namespace GUI
                 flpFilter.Visible = false;
                 flpFilter.SendToBack();
             }
+        }
+
+        private void btnUploadIMG_Click(object sender, EventArgs e)
+        {
+            string appDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            string folderPath = Path.Combine(appDirectory, "resources", "image", "NhaCungCap");
+            OpenFileDialog open = new OpenFileDialog
+            {
+                InitialDirectory = folderPath,
+                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp",
+                RestoreDirectory = true
+            };
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                pbImage.Image = Image.FromFile(open.FileName);
+                this.Text = open.FileName;
+
+                pbImage.Tag = txtMaNCC.Texts;
+                Console.WriteLine(pbImage.Tag);
+
+            }
+        }
+
+
+        private void btnDeleteIMG_Click(object sender, EventArgs e)
+        {
+            pbImage.Image = pbImage.InitialImage;
+            pbImage.Tag = "Placeholder";
+        }
+
+        private void btnReset_Click_1(object sender, EventArgs e)
+        {
+            reset();
+        }
+        private void reset()
+        {
+            loadMaNCC();
+            txtTen.Texts = "";
+            txtDiaChi.Texts = "";
+            txtSoDT.Texts = "";
+            txtSoFax.Texts = "";
+            btnDeleteIMG.PerformClick();
         }
     }
 }
