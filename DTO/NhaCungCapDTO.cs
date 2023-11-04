@@ -14,12 +14,12 @@ namespace DTO
         private string soDT;
         private string soFAX;
         private int trangThai;
-
+        private byte[] img;
         public NhaCungCapDTO()
         {
         }
 
-        public NhaCungCapDTO(string maNCC, string tenNCC, string diaChi, string soDT, string soFAX, int trangThai)
+        public NhaCungCapDTO(string maNCC, string tenNCC, string diaChi, string soDT, string soFAX, int trangThai, byte[] img)
         {
             this.maNCC = maNCC;
             this.tenNCC = tenNCC;
@@ -27,6 +27,7 @@ namespace DTO
             this.soDT = soDT;
             this.soFAX = soFAX;
             this.trangThai = trangThai;
+            this.img = img;
         }
 
         public string MaNCC { get => maNCC; set => maNCC = value; }
@@ -35,5 +36,6 @@ namespace DTO
         public string SoDT { get => soDT; set => soDT = value; }
         public string SoFAX { get => soFAX; set => soFAX = value; }
         public int TrangThai { get => trangThai; set => trangThai = value; }
+        public byte[] Img { get => img; set => img = value; }
     }
 }
