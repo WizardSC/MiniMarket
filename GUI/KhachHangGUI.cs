@@ -57,7 +57,7 @@ namespace GUI
         }
         private void KhachHangGUI_Load(object sender, EventArgs e)
         {
-            dgvKhachHang.DataSource = khBLL.getListKhachHang();
+            dgvKhachHang.DataSource = dt;
 
             cbxTimKiem.Refresh();
             loadDataToCBX(cbxTimKiem);

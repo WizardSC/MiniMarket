@@ -65,6 +65,7 @@
     <Compile Include="MSSQLConnect.cs" />
     <Compile Include="NhaCungCapDAL.cs" />
     <Compile Include="NhanVienDAL.cs" />
+    <Compile Include="NhapHangDAL.cs" />
     <Compile Include="NhaSanXuatDAL.cs" />
     <Compile Include="PhieuNhap_DAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

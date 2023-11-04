@@ -163,6 +163,12 @@
     <Compile Include="MyCustom\MyProductItem.Designer.cs">
       <DependentUpon>MyProductItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyCustom\MySuppiler.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyCustom\MySuppiler.Designer.cs">
+      <DependentUpon>MySuppiler.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyCustom\RJButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -192,6 +198,12 @@
     </Compile>
     <Compile Include="NhanVienGUI.Designer.cs">
       <DependentUpon>NhanVienGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhapHangGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhapHangGUI.Designer.cs">
+      <DependentUpon>NhapHangGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="NhaSanXuatGUI.cs">
       <SubType>Form</SubType>
@@ -261,6 +273,9 @@
     <EmbeddedResource Include="MyCustom\MyProductItem.resx">
       <DependentUpon>MyProductItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyCustom\MySuppiler.resx">
+      <DependentUpon>MySuppiler.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyCustom\RJTextBox.resx">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -269,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NhanVienGUI.resx">
       <DependentUpon>NhanVienGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhapHangGUI.resx">
+      <DependentUpon>NhapHangGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NhaSanXuatGUI.resx">
       <DependentUpon>NhaSanXuatGUI.cs</DependentUpon>
