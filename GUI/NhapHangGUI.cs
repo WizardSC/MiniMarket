@@ -1,9 +1,12 @@
 ﻿using BLL;
+using DevExpress.Utils.Commands;
+using GUI.MyCustom;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +31,12 @@ namespace GUI
             dgvSanPham.DataSource = dtSanPham;
             loadToFlpNhaCungCap();
         }
+        private Image convertBinaryStringToImage(byte[] binaryString)
+        {
+            MemoryStream ms = new MemoryStream(binaryString);
+            Image img = Image.FromStream(ms);
+            return img;
+        }
 
         private void loadToFlpNhaCungCap()
         {
@@ -36,12 +45,57 @@ namespace GUI
             {
                 MyCustom.MySuppiler item = new MyCustom.MySuppiler();
                 item.lblNhaCungCap.Text = dtNhaCungCap.Rows[i]["TenNCC"].ToString();
-
+                byte[] imageBytes = (byte[])dtNhaCungCap.Rows[i]["IMG"];
+                item.pbNhaCungCap.Image = convertBinaryStringToImage(imageBytes);
                 item.Margin = new Padding(6, 0, 6, 0);
+                item.ItemClicked += Item_ItemClicked;
                 this.flpNhaCungCap.Controls.Add(item);
             }
 
         }
+        private DataTable searchWithTenNCC(string tenNCC)
+        {
+            DataTable nhaCungCapTable = dtSanPham.Clone(); // DataTable đã tồn tại
+           
+
+            var nhaCungCap = dtSanPham.AsEnumerable()
+                .Where(row => row.Field<string>("TenNCC") == tenNCC)
+                .ToList();
+
+            if (nhaCungCap.Count == 0)
+            {
+                return nhaCungCapTable; // Trả về DataTable đã tồn tại nhưng rỗng
+            }
+
+            foreach (DataRow row in nhaCungCap)
+            {
+                nhaCungCapTable.ImportRow(row); // Sao chép các dòng từ danh sách đã lọc vào DataTable đã tồn tại
+            }
+
+            return nhaCungCapTable;
+        }
+
+        private string searchMaNCCbyTenNCC(string tenNCC)
+        {
+            string maNCC = dtNhaCungCap.AsEnumerable()
+                .Where(row => row.Field<string>("TenNCC") == tenNCC)
+                .Select(row => row.Field<string>("MaNCC"))
+                .FirstOrDefault();
+            return maNCC;
+        }
+        #region Các hàm thực hiện xử lý sự kiện ở MySupplier
+        private void Item_ItemClicked(object sender, EventArgs e)
+        {
+            MySuppiler item = (MySuppiler)sender;
+            string tenNCC = item.lblNhaCungCap.Text;
+            var listNCC = searchWithTenNCC(tenNCC);
+            dgvSanPham.DataSource = listNCC;
+
+            string maNCC = searchMaNCCbyTenNCC(tenNCC);
+            lblNhaCungCap.Text = maNCC.ToString();
+            
+        }
+        #endregion
         private void NhapHangGUI_Load(object sender, EventArgs e)
         {
 
@@ -53,31 +107,25 @@ namespace GUI
             dgvSanPham.ClearSelection();
         }
 
-        int currentPosition = 0;
-        int step = 80;
 
-        private void rjButton1_Click(object sender, EventArgs e)
+        private void label6_Click(object sender, EventArgs e)
         {
-            currentPosition += step;
 
-            // Kiểm tra xem đã đạt đến cuối cùng chưa.
-            int maxPosition = flpNhaCungCap.Controls.Cast<Control>().Sum(c => c.Width) - flpNhaCungCap.ClientSize.Width;
+        }
 
-            // Kiểm tra giới hạn tối đa của thanh cuộn ngang.
-            int maxScrollValue = flpNhaCungCap.HorizontalScroll.Maximum;
+        private void btnInHoaDon_Click(object sender, EventArgs e)
+        {
 
-            if (currentPosition > maxPosition)
-            {
-                currentPosition = maxPosition;
-            }
+        }
 
-            if (currentPosition > maxScrollValue)
-            {
-                currentPosition = maxScrollValue;
-            }
+        private void btnThanhToan_Click(object sender, EventArgs e)
+        {
 
-            // Cuộn nội dung của FlowLayoutPanel.
-            flpNhaCungCap.HorizontalScroll.Value = currentPosition;
+        }
+
+        private void lblTongTien_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
