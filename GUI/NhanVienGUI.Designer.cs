@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NhanVienGUI));
             this.label2 = new System.Windows.Forms.Label();
             this.lblErrMaNV = new System.Windows.Forms.Label();
@@ -46,7 +46,6 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -56,54 +55,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flpFilter = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.pbImage = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblErrIMG = new System.Windows.Forms.Label();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lblErrTrangThai = new System.Windows.Forms.Label();
-            this.lblErrChucVu = new System.Windows.Forms.Label();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.cbxTimKiem = new GUI.MyCustom.RJComboBox();
-            this.txtTimKiem = new GUI.MyCustom.RJTextBox();
-            this.btnTimKiem = new GUI.MyCustom.RJButton();
-            this.btnFilter = new GUI.MyCustom.RJButton();
-            this.chkGioiTinh = new GUI.MyCustom.BiggerCheckBox();
-            this.chkNam = new GUI.MyCustom.BiggerCheckBox();
-            this.chkNu = new GUI.MyCustom.BiggerCheckBox();
-            this.chkTuoi = new GUI.MyCustom.BiggerCheckBox();
-            this.txtTuoiStart = new GUI.MyCustom.RJTextBox();
-            this.txtTuoiEnd = new GUI.MyCustom.RJTextBox();
-            this.chkDiemTL = new GUI.MyCustom.BiggerCheckBox();
-            this.txtDiemTLStart = new GUI.MyCustom.RJTextBox();
-            this.txtDiemTLEnd = new GUI.MyCustom.RJTextBox();
-            this.chkTrangThai = new GUI.MyCustom.BiggerCheckBox();
-            this.chkHoatDong = new GUI.MyCustom.BiggerCheckBox();
-            this.chkKoHD = new GUI.MyCustom.BiggerCheckBox();
-            this.btnDeleteIMG = new GUI.MyCustom.RJButton();
-            this.btnUploadIMG = new GUI.MyCustom.RJButton();
-            this.txtMaNV = new GUI.MyCustom.RJTextBox();
-            this.txtHo = new GUI.MyCustom.RJTextBox();
-            this.txtTen = new GUI.MyCustom.RJTextBox();
-            this.dtpNgaySinh = new GUI.MyCustom.RJDatePicker();
-            this.rdbNam = new GUI.MyCustom.RJRadioButton();
-            this.rdbNu = new GUI.MyCustom.RJRadioButton();
-            this.txtSoDT = new GUI.MyCustom.RJTextBox();
-            this.txtDiaChi = new GUI.MyCustom.RJTextBox();
-            this.cbxTrangThai = new GUI.MyCustom.RJComboBox();
-            this.cbxChucVu = new GUI.MyCustom.RJComboBox();
-            this.btnThem = new GUI.MyCustom.RJButton();
-            this.btnSua = new GUI.MyCustom.RJButton();
-            this.btnXoa = new GUI.MyCustom.RJButton();
-            this.btnReset = new GUI.MyCustom.RJButton();
             this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ho = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -113,18 +64,68 @@
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IMG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenCV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaCV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.cbxTimKiem = new GUI.MyCustom.RJComboBox();
+            this.txtTimKiem = new GUI.MyCustom.RJTextBox();
+            this.btnTimKiem = new GUI.MyCustom.RJButton();
+            this.btnFilter = new GUI.MyCustom.RJButton();
+            this.flpFilter = new System.Windows.Forms.FlowLayoutPanel();
+            this.chkGioiTinh = new GUI.MyCustom.BiggerCheckBox();
+            this.chkNam = new GUI.MyCustom.BiggerCheckBox();
+            this.chkNu = new GUI.MyCustom.BiggerCheckBox();
+            this.chkTuoi = new GUI.MyCustom.BiggerCheckBox();
+            this.txtTuoiStart = new GUI.MyCustom.RJTextBox();
+            this.txtTuoiEnd = new GUI.MyCustom.RJTextBox();
+            this.chkChucVu = new GUI.MyCustom.BiggerCheckBox();
+            this.chkBanHang = new GUI.MyCustom.BiggerCheckBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.chkQuanLy = new GUI.MyCustom.BiggerCheckBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.chkHoatDong = new GUI.MyCustom.BiggerCheckBox();
+            this.chkTrangThai = new GUI.MyCustom.BiggerCheckBox();
+            this.chkKoHD = new GUI.MyCustom.BiggerCheckBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.txtMaNV = new GUI.MyCustom.RJTextBox();
+            this.txtHo = new GUI.MyCustom.RJTextBox();
+            this.txtTen = new GUI.MyCustom.RJTextBox();
+            this.dtpNgaySinh = new GUI.MyCustom.RJDatePicker();
+            this.rdbNam = new GUI.MyCustom.RJRadioButton();
+            this.rdbNu = new GUI.MyCustom.RJRadioButton();
+            this.txtSoDT = new GUI.MyCustom.RJTextBox();
+            this.txtDiaChi = new GUI.MyCustom.RJTextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cbxTrangThai = new GUI.MyCustom.RJComboBox();
+            this.lblErrTrangThai = new System.Windows.Forms.Label();
+            this.cbxChucVu = new GUI.MyCustom.RJComboBox();
+            this.lblErrChucVu = new System.Windows.Forms.Label();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnThem = new GUI.MyCustom.RJButton();
+            this.btnSua = new GUI.MyCustom.RJButton();
+            this.btnXoa = new GUI.MyCustom.RJButton();
+            this.btnReset = new GUI.MyCustom.RJButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnUploadIMG = new GUI.MyCustom.RJButton();
+            this.lblErrIMG = new System.Windows.Forms.Label();
+            this.btnDeleteIMG = new GUI.MyCustom.RJButton();
+            this.pbImage = new System.Windows.Forms.PictureBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             this.flpFilter.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.flowLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
-            this.panel2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            this.flowLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -304,20 +305,8 @@
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(78, 28);
             this.label25.TabIndex = 13;
-            this.label25.Text = "Điểm TL:";
+            this.label25.Text = "Chức vụ: ";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label26
-            // 
-            this.label26.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label26.Location = new System.Drawing.Point(185, 76);
-            this.label26.Margin = new System.Windows.Forms.Padding(3, 4, 4, 4);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(13, 28);
-            this.label26.TabIndex = 17;
-            this.label26.Text = "-";
-            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label10
             // 
@@ -335,10 +324,10 @@
             // 
             this.label27.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label27.Location = new System.Drawing.Point(33, 112);
+            this.label27.Location = new System.Drawing.Point(30, 148);
             this.label27.Margin = new System.Windows.Forms.Padding(3, 4, 4, 4);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(78, 28);
+            this.label27.Size = new System.Drawing.Size(63, 28);
             this.label27.TabIndex = 18;
             this.label27.Text = "T.Thái:";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -347,7 +336,7 @@
             // 
             this.label28.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label28.Location = new System.Drawing.Point(146, 112);
+            this.label28.Location = new System.Drawing.Point(131, 148);
             this.label28.Margin = new System.Windows.Forms.Padding(4);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(119, 28);
@@ -407,7 +396,7 @@
             // 
             this.label29.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label29.Location = new System.Drawing.Point(128, 148);
+            this.label29.Location = new System.Drawing.Point(136, 184);
             this.label29.Margin = new System.Windows.Forms.Padding(4);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(147, 28);
@@ -424,14 +413,14 @@
             this.dgvNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvNhanVien.BackgroundColor = System.Drawing.Color.White;
             this.dgvNhanVien.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvNhanVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvNhanVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvNhanVien.ColumnHeadersHeight = 28;
             this.dgvNhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaNV,
@@ -443,18 +432,18 @@
             this.DiaChi,
             this.TrangThai,
             this.IMG,
-            this.TenCV});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvNhanVien.DefaultCellStyle = dataGridViewCellStyle10;
+            this.MaCV});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvNhanVien.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvNhanVien.EnableHeadersVisualStyles = false;
             this.dgvNhanVien.GridColor = System.Drawing.Color.Black;
-            this.dgvNhanVien.Location = new System.Drawing.Point(5, 62);
+            this.dgvNhanVien.Location = new System.Drawing.Point(3, 62);
             this.dgvNhanVien.Name = "dgvNhanVien";
             this.dgvNhanVien.ReadOnly = true;
             this.dgvNhanVien.RowHeadersVisible = false;
@@ -463,11 +452,112 @@
             this.dgvNhanVien.RowTemplate.Height = 30;
             this.dgvNhanVien.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvNhanVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvNhanVien.Size = new System.Drawing.Size(846, 660);
+            this.dgvNhanVien.Size = new System.Drawing.Size(844, 727);
             this.dgvNhanVien.TabIndex = 1;
             this.dgvNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellClick);
             this.dgvNhanVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellContentClick);
             this.dgvNhanVien.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvNhanVien_CellFormatting);
+            // 
+            // MaNV
+            // 
+            this.MaNV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.MaNV.DataPropertyName = "MaNV";
+            this.MaNV.Frozen = true;
+            this.MaNV.HeaderText = "Mã NV";
+            this.MaNV.MinimumWidth = 6;
+            this.MaNV.Name = "MaNV";
+            this.MaNV.ReadOnly = true;
+            this.MaNV.Width = 73;
+            // 
+            // Ho
+            // 
+            this.Ho.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Ho.DataPropertyName = "Ho";
+            this.Ho.HeaderText = "Họ";
+            this.Ho.MinimumWidth = 6;
+            this.Ho.Name = "Ho";
+            this.Ho.ReadOnly = true;
+            this.Ho.Width = 50;
+            // 
+            // Ten
+            // 
+            this.Ten.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Ten.DataPropertyName = "Ten";
+            this.Ten.HeaderText = "Tên";
+            this.Ten.MinimumWidth = 6;
+            this.Ten.Name = "Ten";
+            this.Ten.ReadOnly = true;
+            this.Ten.Width = 55;
+            // 
+            // NgaySinh
+            // 
+            this.NgaySinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.NgaySinh.DataPropertyName = "NgaySinh";
+            this.NgaySinh.HeaderText = "Ngày sinh";
+            this.NgaySinh.MinimumWidth = 6;
+            this.NgaySinh.Name = "NgaySinh";
+            this.NgaySinh.ReadOnly = true;
+            this.NgaySinh.Width = 93;
+            // 
+            // GioiTinh
+            // 
+            this.GioiTinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.GioiTinh.DataPropertyName = "GioiTinh";
+            this.GioiTinh.HeaderText = "Giới tính";
+            this.GioiTinh.MinimumWidth = 6;
+            this.GioiTinh.Name = "GioiTinh";
+            this.GioiTinh.ReadOnly = true;
+            this.GioiTinh.Width = 76;
+            // 
+            // SoDT
+            // 
+            this.SoDT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.SoDT.DataPropertyName = "SoDT";
+            this.SoDT.HeaderText = "Số DT";
+            this.SoDT.MinimumWidth = 6;
+            this.SoDT.Name = "SoDT";
+            this.SoDT.ReadOnly = true;
+            this.SoDT.Width = 69;
+            // 
+            // DiaChi
+            // 
+            this.DiaChi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DiaChi.DataPropertyName = "DiaChi";
+            this.DiaChi.HeaderText = "Địa chỉ";
+            this.DiaChi.MinimumWidth = 6;
+            this.DiaChi.Name = "DiaChi";
+            this.DiaChi.ReadOnly = true;
+            // 
+            // TrangThai
+            // 
+            this.TrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TrangThai.DataPropertyName = "TrangThai";
+            this.TrangThai.HeaderText = "Trạng thái";
+            this.TrangThai.MinimumWidth = 6;
+            this.TrangThai.Name = "TrangThai";
+            this.TrangThai.ReadOnly = true;
+            this.TrangThai.Width = 95;
+            // 
+            // IMG
+            // 
+            this.IMG.DataPropertyName = "IMG";
+            this.IMG.HeaderText = "Hình ảnh";
+            this.IMG.MinimumWidth = 6;
+            this.IMG.Name = "IMG";
+            this.IMG.ReadOnly = true;
+            this.IMG.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IMG.Visible = false;
+            this.IMG.Width = 89;
+            // 
+            // MaCV
+            // 
+            this.MaCV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.MaCV.DataPropertyName = "MaCV";
+            this.MaCV.HeaderText = "Chức vụ";
+            this.MaCV.MinimumWidth = 6;
+            this.MaCV.Name = "MaCV";
+            this.MaCV.ReadOnly = true;
+            this.MaCV.Width = 125;
             // 
             // panel1
             // 
@@ -504,206 +594,6 @@
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(846, 50);
             this.flowLayoutPanel4.TabIndex = 2;
-            // 
-            // flpFilter
-            // 
-            this.flpFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.flpFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flpFilter.Controls.Add(this.chkGioiTinh);
-            this.flpFilter.Controls.Add(this.label12);
-            this.flpFilter.Controls.Add(this.chkNam);
-            this.flpFilter.Controls.Add(this.label21);
-            this.flpFilter.Controls.Add(this.chkNu);
-            this.flpFilter.Controls.Add(this.label22);
-            this.flpFilter.Controls.Add(this.chkTuoi);
-            this.flpFilter.Controls.Add(this.label23);
-            this.flpFilter.Controls.Add(this.txtTuoiStart);
-            this.flpFilter.Controls.Add(this.label24);
-            this.flpFilter.Controls.Add(this.txtTuoiEnd);
-            this.flpFilter.Controls.Add(this.chkDiemTL);
-            this.flpFilter.Controls.Add(this.label25);
-            this.flpFilter.Controls.Add(this.txtDiemTLStart);
-            this.flpFilter.Controls.Add(this.label26);
-            this.flpFilter.Controls.Add(this.txtDiemTLEnd);
-            this.flpFilter.Controls.Add(this.chkTrangThai);
-            this.flpFilter.Controls.Add(this.label27);
-            this.flpFilter.Controls.Add(this.chkHoatDong);
-            this.flpFilter.Controls.Add(this.label28);
-            this.flpFilter.Controls.Add(this.chkKoHD);
-            this.flpFilter.Controls.Add(this.label29);
-            this.flpFilter.Location = new System.Drawing.Point(551, 55);
-            this.flpFilter.Name = "flpFilter";
-            this.flpFilter.Size = new System.Drawing.Size(289, 184);
-            this.flpFilter.TabIndex = 3;
-            this.flpFilter.Visible = false;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.AutoSize = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Controls.Add(this.label1);
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel5);
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel3);
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(309, 729);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.label1.Location = new System.Drawing.Point(5, 5);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(296, 24);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "THÔNG TIN NHÂN VIÊN";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // flowLayoutPanel5
-            // 
-            this.flowLayoutPanel5.Controls.Add(this.panel4);
-            this.flowLayoutPanel5.Controls.Add(this.pbImage);
-            this.flowLayoutPanel5.Controls.Add(this.panel2);
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(8, 32);
-            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(290, 149);
-            this.flowLayoutPanel5.TabIndex = 3;
-            // 
-            // panel4
-            // 
-            this.panel4.Location = new System.Drawing.Point(3, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(10, 143);
-            this.panel4.TabIndex = 2;
-            // 
-            // pbImage
-            // 
-            this.pbImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbImage.Image = global::GUI.Properties.Resources.placeholder_image;
-            this.pbImage.InitialImage = global::GUI.Properties.Resources.placeholder_image;
-            this.pbImage.Location = new System.Drawing.Point(16, 0);
-            this.pbImage.Margin = new System.Windows.Forms.Padding(0);
-            this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(199, 149);
-            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbImage.TabIndex = 0;
-            this.pbImage.TabStop = false;
-            this.pbImage.Tag = "Placeholder";
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btnDeleteIMG);
-            this.panel2.Controls.Add(this.lblErrIMG);
-            this.panel2.Controls.Add(this.btnUploadIMG);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(215, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(73, 149);
-            this.panel2.TabIndex = 1;
-            // 
-            // lblErrIMG
-            // 
-            this.lblErrIMG.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrIMG.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
-            this.lblErrIMG.Location = new System.Drawing.Point(1, 93);
-            this.lblErrIMG.Name = "lblErrIMG";
-            this.lblErrIMG.Size = new System.Drawing.Size(69, 53);
-            this.lblErrIMG.TabIndex = 23;
-            this.lblErrIMG.Text = "* Bạn phải chọn ảnh đại diện";
-            this.lblErrIMG.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Controls.Add(this.label2);
-            this.flowLayoutPanel2.Controls.Add(this.txtMaNV);
-            this.flowLayoutPanel2.Controls.Add(this.lblErrMaNV);
-            this.flowLayoutPanel2.Controls.Add(this.label3);
-            this.flowLayoutPanel2.Controls.Add(this.txtHo);
-            this.flowLayoutPanel2.Controls.Add(this.lblErrHo);
-            this.flowLayoutPanel2.Controls.Add(this.label4);
-            this.flowLayoutPanel2.Controls.Add(this.txtTen);
-            this.flowLayoutPanel2.Controls.Add(this.lblErrTen);
-            this.flowLayoutPanel2.Controls.Add(this.label5);
-            this.flowLayoutPanel2.Controls.Add(this.dtpNgaySinh);
-            this.flowLayoutPanel2.Controls.Add(this.label6);
-            this.flowLayoutPanel2.Controls.Add(this.rdbNam);
-            this.flowLayoutPanel2.Controls.Add(this.rdbNu);
-            this.flowLayoutPanel2.Controls.Add(this.lblErrGioiTinh);
-            this.flowLayoutPanel2.Controls.Add(this.label7);
-            this.flowLayoutPanel2.Controls.Add(this.txtSoDT);
-            this.flowLayoutPanel2.Controls.Add(this.lblErrSoDT);
-            this.flowLayoutPanel2.Controls.Add(this.label8);
-            this.flowLayoutPanel2.Controls.Add(this.txtDiaChi);
-            this.flowLayoutPanel2.Controls.Add(this.lblErrDiaChi);
-            this.flowLayoutPanel2.Controls.Add(this.label9);
-            this.flowLayoutPanel2.Controls.Add(this.cbxTrangThai);
-            this.flowLayoutPanel2.Controls.Add(this.lblErrTrangThai);
-            this.flowLayoutPanel2.Controls.Add(this.label10);
-            this.flowLayoutPanel2.Controls.Add(this.cbxChucVu);
-            this.flowLayoutPanel2.Controls.Add(this.lblErrChucVu);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(8, 187);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(290, 480);
-            this.flowLayoutPanel2.TabIndex = 2;
-            // 
-            // label9
-            // 
-            this.label9.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label9.Location = new System.Drawing.Point(4, 361);
-            this.label9.Margin = new System.Windows.Forms.Padding(4);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(94, 28);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "Trạng thái";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblErrTrangThai
-            // 
-            this.lblErrTrangThai.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrTrangThai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
-            this.lblErrTrangThai.Location = new System.Drawing.Point(3, 393);
-            this.lblErrTrangThai.Name = "lblErrTrangThai";
-            this.lblErrTrangThai.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.lblErrTrangThai.Size = new System.Drawing.Size(271, 17);
-            this.lblErrTrangThai.TabIndex = 26;
-            this.lblErrTrangThai.Text = "* Bạn phải chọn Trạng thái";
-            this.lblErrTrangThai.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblErrChucVu
-            // 
-            this.lblErrChucVu.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrChucVu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
-            this.lblErrChucVu.Location = new System.Drawing.Point(3, 446);
-            this.lblErrChucVu.Name = "lblErrChucVu";
-            this.lblErrChucVu.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.lblErrChucVu.Size = new System.Drawing.Size(271, 17);
-            this.lblErrChucVu.TabIndex = 30;
-            this.lblErrChucVu.Text = "* Bạn phải chọn chức vụ";
-            this.lblErrChucVu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Controls.Add(this.btnThem);
-            this.flowLayoutPanel3.Controls.Add(this.btnSua);
-            this.flowLayoutPanel3.Controls.Add(this.btnXoa);
-            this.flowLayoutPanel3.Controls.Add(this.btnReset);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(8, 675);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(290, 45);
-            this.flowLayoutPanel3.TabIndex = 4;
             // 
             // cbxTimKiem
             // 
@@ -791,6 +681,40 @@
             this.btnFilter.TabIndex = 4;
             this.btnFilter.TextColor = System.Drawing.Color.White;
             this.btnFilter.UseVisualStyleBackColor = false;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
+            // 
+            // flpFilter
+            // 
+            this.flpFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.flpFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flpFilter.Controls.Add(this.chkGioiTinh);
+            this.flpFilter.Controls.Add(this.label12);
+            this.flpFilter.Controls.Add(this.chkNam);
+            this.flpFilter.Controls.Add(this.label21);
+            this.flpFilter.Controls.Add(this.chkNu);
+            this.flpFilter.Controls.Add(this.label22);
+            this.flpFilter.Controls.Add(this.chkTuoi);
+            this.flpFilter.Controls.Add(this.label23);
+            this.flpFilter.Controls.Add(this.txtTuoiStart);
+            this.flpFilter.Controls.Add(this.label24);
+            this.flpFilter.Controls.Add(this.txtTuoiEnd);
+            this.flpFilter.Controls.Add(this.chkChucVu);
+            this.flpFilter.Controls.Add(this.label25);
+            this.flpFilter.Controls.Add(this.chkBanHang);
+            this.flpFilter.Controls.Add(this.label13);
+            this.flpFilter.Controls.Add(this.chkQuanLy);
+            this.flpFilter.Controls.Add(this.label11);
+            this.flpFilter.Controls.Add(this.chkHoatDong);
+            this.flpFilter.Controls.Add(this.label27);
+            this.flpFilter.Controls.Add(this.chkTrangThai);
+            this.flpFilter.Controls.Add(this.label28);
+            this.flpFilter.Controls.Add(this.chkKoHD);
+            this.flpFilter.Controls.Add(this.label29);
+            this.flpFilter.Location = new System.Drawing.Point(549, 55);
+            this.flpFilter.Name = "flpFilter";
+            this.flpFilter.Size = new System.Drawing.Size(291, 217);
+            this.flpFilter.TabIndex = 3;
+            this.flpFilter.Visible = false;
             // 
             // chkGioiTinh
             // 
@@ -816,6 +740,7 @@
             this.chkGioiTinh.TickSize = 11F;
             this.chkGioiTinh.TickTopPosition = 8F;
             this.chkGioiTinh.UseVisualStyleBackColor = true;
+            this.chkGioiTinh.CheckedChanged += new System.EventHandler(this.chkGioiTinh_CheckedChanged);
             // 
             // chkNam
             // 
@@ -842,6 +767,7 @@
             this.chkNam.TickSize = 11F;
             this.chkNam.TickTopPosition = 8F;
             this.chkNam.UseVisualStyleBackColor = true;
+            this.chkNam.CheckedChanged += new System.EventHandler(this.chkNam_CheckedChanged);
             // 
             // chkNu
             // 
@@ -868,6 +794,7 @@
             this.chkNu.TickSize = 11F;
             this.chkNu.TickTopPosition = 8F;
             this.chkNu.UseVisualStyleBackColor = true;
+            this.chkNu.CheckedChanged += new System.EventHandler(this.chkNu_CheckedChanged);
             // 
             // chkTuoi
             // 
@@ -893,6 +820,7 @@
             this.chkTuoi.TickSize = 11F;
             this.chkTuoi.TickTopPosition = 8F;
             this.chkTuoi.UseVisualStyleBackColor = true;
+            this.chkTuoi.CheckedChanged += new System.EventHandler(this.chkTuoi_CheckedChanged);
             // 
             // txtTuoiStart
             // 
@@ -918,6 +846,7 @@
             this.txtTuoiStart.TabIndex = 10;
             this.txtTuoiStart.Texts = "";
             this.txtTuoiStart.UnderlinedStyle = false;
+            this.txtTuoiStart._TextChanged += new System.EventHandler(this.txtTuoiStart__TextChanged);
             // 
             // txtTuoiEnd
             // 
@@ -943,106 +872,111 @@
             this.txtTuoiEnd.TabIndex = 11;
             this.txtTuoiEnd.Texts = "";
             this.txtTuoiEnd.UnderlinedStyle = false;
+            this.txtTuoiEnd._TextChanged += new System.EventHandler(this.txtTuoiEnd__TextChanged);
             // 
-            // chkDiemTL
+            // chkChucVu
             // 
-            this.chkDiemTL.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chkDiemTL.BoxBackColor = System.Drawing.Color.Transparent;
-            this.chkDiemTL.BoxColor = System.Drawing.Color.Black;
-            this.chkDiemTL.BoxLocationX = 5;
-            this.chkDiemTL.BoxLocationY = 8;
-            this.chkDiemTL.BoxSize = 14;
-            this.chkDiemTL.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkDiemTL.FlatAppearance.BorderSize = 0;
-            this.chkDiemTL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkDiemTL.Location = new System.Drawing.Point(3, 75);
-            this.chkDiemTL.Name = "chkDiemTL";
-            this.chkDiemTL.Padding = new System.Windows.Forms.Padding(10);
-            this.chkDiemTL.Size = new System.Drawing.Size(24, 29);
-            this.chkDiemTL.TabIndex = 14;
-            this.chkDiemTL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkDiemTL.TextLocationX = 16;
-            this.chkDiemTL.TextLocationY = 1;
-            this.chkDiemTL.TickColor = System.Drawing.Color.Black;
-            this.chkDiemTL.TickLeftPosition = 5F;
-            this.chkDiemTL.TickSize = 11F;
-            this.chkDiemTL.TickTopPosition = 8F;
-            this.chkDiemTL.UseVisualStyleBackColor = true;
+            this.chkChucVu.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkChucVu.BoxBackColor = System.Drawing.Color.Transparent;
+            this.chkChucVu.BoxColor = System.Drawing.Color.Black;
+            this.chkChucVu.BoxLocationX = 5;
+            this.chkChucVu.BoxLocationY = 8;
+            this.chkChucVu.BoxSize = 14;
+            this.chkChucVu.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkChucVu.FlatAppearance.BorderSize = 0;
+            this.chkChucVu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkChucVu.Location = new System.Drawing.Point(3, 75);
+            this.chkChucVu.Name = "chkChucVu";
+            this.chkChucVu.Padding = new System.Windows.Forms.Padding(10);
+            this.chkChucVu.Size = new System.Drawing.Size(24, 29);
+            this.chkChucVu.TabIndex = 14;
+            this.chkChucVu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkChucVu.TextLocationX = 16;
+            this.chkChucVu.TextLocationY = 1;
+            this.chkChucVu.TickColor = System.Drawing.Color.Black;
+            this.chkChucVu.TickLeftPosition = 5F;
+            this.chkChucVu.TickSize = 11F;
+            this.chkChucVu.TickTopPosition = 8F;
+            this.chkChucVu.UseVisualStyleBackColor = true;
+            this.chkChucVu.CheckedChanged += new System.EventHandler(this.chkChucVu_CheckedChanged);
             // 
-            // txtDiemTLStart
+            // chkBanHang
             // 
-            this.txtDiemTLStart.BackColor = System.Drawing.SystemColors.Window;
-            this.txtDiemTLStart.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.txtDiemTLStart.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.txtDiemTLStart.BorderRadius = 0;
-            this.txtDiemTLStart.BorderSize = 2;
-            this.txtDiemTLStart.Enabled = false;
-            this.txtDiemTLStart.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiemTLStart.ForeColor = System.Drawing.Color.Black;
-            this.txtDiemTLStart.Location = new System.Drawing.Point(119, 76);
-            this.txtDiemTLStart.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDiemTLStart.MinimumSize = new System.Drawing.Size(0, 28);
-            this.txtDiemTLStart.Multiline = false;
-            this.txtDiemTLStart.Name = "txtDiemTLStart";
-            this.txtDiemTLStart.Padding = new System.Windows.Forms.Padding(8, 4, 2, 2);
-            this.txtDiemTLStart.PasswordChar = false;
-            this.txtDiemTLStart.PlaceholderColor = System.Drawing.Color.DimGray;
-            this.txtDiemTLStart.PlaceholderText = "Từ";
-            this.txtDiemTLStart.ReadOnly = false;
-            this.txtDiemTLStart.Size = new System.Drawing.Size(59, 28);
-            this.txtDiemTLStart.TabIndex = 15;
-            this.txtDiemTLStart.Texts = "";
-            this.txtDiemTLStart.UnderlinedStyle = false;
+            this.chkBanHang.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkBanHang.BoxBackColor = System.Drawing.Color.Transparent;
+            this.chkBanHang.BoxColor = System.Drawing.Color.Black;
+            this.chkBanHang.BoxLocationX = 5;
+            this.chkBanHang.BoxLocationY = 8;
+            this.chkBanHang.BoxSize = 14;
+            this.chkBanHang.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkBanHang.FlatAppearance.BorderSize = 0;
+            this.chkBanHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkBanHang.Location = new System.Drawing.Point(118, 75);
+            this.chkBanHang.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.chkBanHang.Name = "chkBanHang";
+            this.chkBanHang.Padding = new System.Windows.Forms.Padding(10);
+            this.chkBanHang.Size = new System.Drawing.Size(24, 29);
+            this.chkBanHang.TabIndex = 24;
+            this.chkBanHang.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkBanHang.TextLocationX = 16;
+            this.chkBanHang.TextLocationY = 1;
+            this.chkBanHang.TickColor = System.Drawing.Color.Black;
+            this.chkBanHang.TickLeftPosition = 5F;
+            this.chkBanHang.TickSize = 11F;
+            this.chkBanHang.TickTopPosition = 8F;
+            this.chkBanHang.UseVisualStyleBackColor = true;
+            this.chkBanHang.CheckedChanged += new System.EventHandler(this.chkBanHang_CheckedChanged);
             // 
-            // txtDiemTLEnd
+            // label13
             // 
-            this.txtDiemTLEnd.BackColor = System.Drawing.SystemColors.Window;
-            this.txtDiemTLEnd.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.txtDiemTLEnd.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.txtDiemTLEnd.BorderRadius = 0;
-            this.txtDiemTLEnd.BorderSize = 2;
-            this.txtDiemTLEnd.Enabled = false;
-            this.txtDiemTLEnd.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiemTLEnd.ForeColor = System.Drawing.Color.Black;
-            this.txtDiemTLEnd.Location = new System.Drawing.Point(206, 76);
-            this.txtDiemTLEnd.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDiemTLEnd.MinimumSize = new System.Drawing.Size(0, 28);
-            this.txtDiemTLEnd.Multiline = false;
-            this.txtDiemTLEnd.Name = "txtDiemTLEnd";
-            this.txtDiemTLEnd.Padding = new System.Windows.Forms.Padding(8, 4, 2, 2);
-            this.txtDiemTLEnd.PasswordChar = false;
-            this.txtDiemTLEnd.PlaceholderColor = System.Drawing.Color.DimGray;
-            this.txtDiemTLEnd.PlaceholderText = "Đến";
-            this.txtDiemTLEnd.ReadOnly = false;
-            this.txtDiemTLEnd.Size = new System.Drawing.Size(59, 28);
-            this.txtDiemTLEnd.TabIndex = 16;
-            this.txtDiemTLEnd.Texts = "";
-            this.txtDiemTLEnd.UnderlinedStyle = false;
+            this.label13.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label13.Location = new System.Drawing.Point(146, 76);
+            this.label13.Margin = new System.Windows.Forms.Padding(4);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(119, 28);
+            this.label13.TabIndex = 26;
+            this.label13.Text = "Bán hàng";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // chkTrangThai
+            // chkQuanLy
             // 
-            this.chkTrangThai.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chkTrangThai.BoxBackColor = System.Drawing.Color.Transparent;
-            this.chkTrangThai.BoxColor = System.Drawing.Color.Black;
-            this.chkTrangThai.BoxLocationX = 5;
-            this.chkTrangThai.BoxLocationY = 8;
-            this.chkTrangThai.BoxSize = 14;
-            this.chkTrangThai.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkTrangThai.FlatAppearance.BorderSize = 0;
-            this.chkTrangThai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkTrangThai.Location = new System.Drawing.Point(3, 111);
-            this.chkTrangThai.Name = "chkTrangThai";
-            this.chkTrangThai.Padding = new System.Windows.Forms.Padding(10);
-            this.chkTrangThai.Size = new System.Drawing.Size(24, 29);
-            this.chkTrangThai.TabIndex = 19;
-            this.chkTrangThai.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkTrangThai.TextLocationX = 16;
-            this.chkTrangThai.TextLocationY = 1;
-            this.chkTrangThai.TickColor = System.Drawing.Color.Black;
-            this.chkTrangThai.TickLeftPosition = 5F;
-            this.chkTrangThai.TickSize = 11F;
-            this.chkTrangThai.TickTopPosition = 8F;
-            this.chkTrangThai.UseVisualStyleBackColor = true;
+            this.chkQuanLy.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkQuanLy.BoxBackColor = System.Drawing.Color.Transparent;
+            this.chkQuanLy.BoxColor = System.Drawing.Color.Black;
+            this.chkQuanLy.BoxLocationX = 5;
+            this.chkQuanLy.BoxLocationY = 8;
+            this.chkQuanLy.BoxSize = 14;
+            this.chkQuanLy.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkQuanLy.FlatAppearance.BorderSize = 0;
+            this.chkQuanLy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkQuanLy.Location = new System.Drawing.Point(118, 111);
+            this.chkQuanLy.Margin = new System.Windows.Forms.Padding(118, 3, 3, 3);
+            this.chkQuanLy.Name = "chkQuanLy";
+            this.chkQuanLy.Padding = new System.Windows.Forms.Padding(10);
+            this.chkQuanLy.Size = new System.Drawing.Size(24, 29);
+            this.chkQuanLy.TabIndex = 27;
+            this.chkQuanLy.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkQuanLy.TextLocationX = 16;
+            this.chkQuanLy.TextLocationY = 1;
+            this.chkQuanLy.TickColor = System.Drawing.Color.Black;
+            this.chkQuanLy.TickLeftPosition = 5F;
+            this.chkQuanLy.TickSize = 11F;
+            this.chkQuanLy.TickTopPosition = 8F;
+            this.chkQuanLy.UseVisualStyleBackColor = true;
+            this.chkQuanLy.CheckedChanged += new System.EventHandler(this.chkQuanLy_CheckedChanged);
+            // 
+            // label11
+            // 
+            this.label11.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label11.Location = new System.Drawing.Point(149, 112);
+            this.label11.Margin = new System.Windows.Forms.Padding(4);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(116, 28);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "Quản lý";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // chkHoatDong
             // 
@@ -1053,10 +987,9 @@
             this.chkHoatDong.BoxLocationY = 8;
             this.chkHoatDong.BoxSize = 14;
             this.chkHoatDong.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkHoatDong.Enabled = false;
             this.chkHoatDong.FlatAppearance.BorderSize = 0;
             this.chkHoatDong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkHoatDong.Location = new System.Drawing.Point(118, 111);
+            this.chkHoatDong.Location = new System.Drawing.Point(3, 147);
             this.chkHoatDong.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.chkHoatDong.Name = "chkHoatDong";
             this.chkHoatDong.Padding = new System.Windows.Forms.Padding(10);
@@ -1070,6 +1003,33 @@
             this.chkHoatDong.TickSize = 11F;
             this.chkHoatDong.TickTopPosition = 8F;
             this.chkHoatDong.UseVisualStyleBackColor = true;
+            this.chkHoatDong.CheckedChanged += new System.EventHandler(this.chkTrangThai_CheckedChanged);
+            // 
+            // chkTrangThai
+            // 
+            this.chkTrangThai.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkTrangThai.BoxBackColor = System.Drawing.Color.Transparent;
+            this.chkTrangThai.BoxColor = System.Drawing.Color.Black;
+            this.chkTrangThai.BoxLocationX = 5;
+            this.chkTrangThai.BoxLocationY = 8;
+            this.chkTrangThai.BoxSize = 14;
+            this.chkTrangThai.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkTrangThai.FlatAppearance.BorderSize = 0;
+            this.chkTrangThai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkTrangThai.Location = new System.Drawing.Point(100, 147);
+            this.chkTrangThai.Name = "chkTrangThai";
+            this.chkTrangThai.Padding = new System.Windows.Forms.Padding(10);
+            this.chkTrangThai.Size = new System.Drawing.Size(24, 29);
+            this.chkTrangThai.TabIndex = 19;
+            this.chkTrangThai.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkTrangThai.TextLocationX = 16;
+            this.chkTrangThai.TextLocationY = 1;
+            this.chkTrangThai.TickColor = System.Drawing.Color.Black;
+            this.chkTrangThai.TickLeftPosition = 5F;
+            this.chkTrangThai.TickSize = 11F;
+            this.chkTrangThai.TickTopPosition = 8F;
+            this.chkTrangThai.UseVisualStyleBackColor = true;
+            this.chkTrangThai.CheckedChanged += new System.EventHandler(this.chkHoatDong_CheckedChanged);
             // 
             // chkKoHD
             // 
@@ -1080,14 +1040,13 @@
             this.chkKoHD.BoxLocationY = 8;
             this.chkKoHD.BoxSize = 14;
             this.chkKoHD.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkKoHD.Enabled = false;
             this.chkKoHD.FlatAppearance.BorderSize = 0;
             this.chkKoHD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkKoHD.Location = new System.Drawing.Point(100, 147);
+            this.chkKoHD.Location = new System.Drawing.Point(100, 183);
             this.chkKoHD.Margin = new System.Windows.Forms.Padding(100, 3, 0, 3);
             this.chkKoHD.Name = "chkKoHD";
             this.chkKoHD.Padding = new System.Windows.Forms.Padding(10);
-            this.chkKoHD.Size = new System.Drawing.Size(24, 29);
+            this.chkKoHD.Size = new System.Drawing.Size(32, 29);
             this.chkKoHD.TabIndex = 21;
             this.chkKoHD.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKoHD.TextLocationX = 16;
@@ -1097,43 +1056,73 @@
             this.chkKoHD.TickSize = 11F;
             this.chkKoHD.TickTopPosition = 8F;
             this.chkKoHD.UseVisualStyleBackColor = true;
+            this.chkKoHD.CheckedChanged += new System.EventHandler(this.chkKoHD_CheckedChanged);
             // 
-            // btnDeleteIMG
+            // flowLayoutPanel1
             // 
-            this.btnDeleteIMG.BackColor = System.Drawing.Color.Transparent;
-            this.btnDeleteIMG.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnDeleteIMG.BorderColor = System.Drawing.Color.Transparent;
-            this.btnDeleteIMG.BorderRadius = 0;
-            this.btnDeleteIMG.BorderSize = 0;
-            this.btnDeleteIMG.FlatAppearance.BorderSize = 0;
-            this.btnDeleteIMG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteIMG.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteIMG.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteIMG.Image")));
-            this.btnDeleteIMG.Location = new System.Drawing.Point(3, 0);
-            this.btnDeleteIMG.Name = "btnDeleteIMG";
-            this.btnDeleteIMG.Size = new System.Drawing.Size(23, 28);
-            this.btnDeleteIMG.TabIndex = 24;
-            this.btnDeleteIMG.TextColor = System.Drawing.Color.White;
-            this.btnDeleteIMG.UseVisualStyleBackColor = false;
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel1.Controls.Add(this.label1);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel5);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel3);
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 0);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(309, 729);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // btnUploadIMG
+            // label1
             // 
-            this.btnUploadIMG.BackColor = System.Drawing.Color.Transparent;
-            this.btnUploadIMG.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnUploadIMG.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnUploadIMG.BorderRadius = 0;
-            this.btnUploadIMG.BorderSize = 0;
-            this.btnUploadIMG.FlatAppearance.BorderSize = 0;
-            this.btnUploadIMG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUploadIMG.ForeColor = System.Drawing.Color.White;
-            this.btnUploadIMG.Image = global::GUI.Properties.Resources.icons8_upload_32;
-            this.btnUploadIMG.Location = new System.Drawing.Point(22, 58);
-            this.btnUploadIMG.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
-            this.btnUploadIMG.Name = "btnUploadIMG";
-            this.btnUploadIMG.Size = new System.Drawing.Size(29, 32);
-            this.btnUploadIMG.TabIndex = 3;
-            this.btnUploadIMG.TextColor = System.Drawing.Color.White;
-            this.btnUploadIMG.UseVisualStyleBackColor = false;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.label1.Location = new System.Drawing.Point(5, 5);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(296, 24);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "THÔNG TIN NHÂN VIÊN";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.label2);
+            this.flowLayoutPanel2.Controls.Add(this.txtMaNV);
+            this.flowLayoutPanel2.Controls.Add(this.lblErrMaNV);
+            this.flowLayoutPanel2.Controls.Add(this.label3);
+            this.flowLayoutPanel2.Controls.Add(this.txtHo);
+            this.flowLayoutPanel2.Controls.Add(this.lblErrHo);
+            this.flowLayoutPanel2.Controls.Add(this.label4);
+            this.flowLayoutPanel2.Controls.Add(this.txtTen);
+            this.flowLayoutPanel2.Controls.Add(this.lblErrTen);
+            this.flowLayoutPanel2.Controls.Add(this.label5);
+            this.flowLayoutPanel2.Controls.Add(this.dtpNgaySinh);
+            this.flowLayoutPanel2.Controls.Add(this.label6);
+            this.flowLayoutPanel2.Controls.Add(this.rdbNam);
+            this.flowLayoutPanel2.Controls.Add(this.rdbNu);
+            this.flowLayoutPanel2.Controls.Add(this.lblErrGioiTinh);
+            this.flowLayoutPanel2.Controls.Add(this.label7);
+            this.flowLayoutPanel2.Controls.Add(this.txtSoDT);
+            this.flowLayoutPanel2.Controls.Add(this.lblErrSoDT);
+            this.flowLayoutPanel2.Controls.Add(this.label8);
+            this.flowLayoutPanel2.Controls.Add(this.txtDiaChi);
+            this.flowLayoutPanel2.Controls.Add(this.lblErrDiaChi);
+            this.flowLayoutPanel2.Controls.Add(this.label9);
+            this.flowLayoutPanel2.Controls.Add(this.cbxTrangThai);
+            this.flowLayoutPanel2.Controls.Add(this.lblErrTrangThai);
+            this.flowLayoutPanel2.Controls.Add(this.label10);
+            this.flowLayoutPanel2.Controls.Add(this.cbxChucVu);
+            this.flowLayoutPanel2.Controls.Add(this.lblErrChucVu);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(8, 187);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(290, 480);
+            this.flowLayoutPanel2.TabIndex = 2;
             // 
             // txtMaNV
             // 
@@ -1324,6 +1313,18 @@
             this.txtDiaChi.UnderlinedStyle = false;
             this.txtDiaChi._TextChanged += new System.EventHandler(this.txtDiaChi__TextChanged);
             // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label9.Location = new System.Drawing.Point(4, 361);
+            this.label9.Margin = new System.Windows.Forms.Padding(4);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(94, 28);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "Trạng thái";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // cbxTrangThai
             // 
             this.cbxTrangThai.BackColor = System.Drawing.Color.White;
@@ -1347,6 +1348,18 @@
             this.cbxTrangThai.Texts = "--Chọn trạng thái--";
             this.cbxTrangThai.OnSelectedIndexChanged += new System.EventHandler(this.cbxTrangThai_OnSelectedIndexChanged);
             // 
+            // lblErrTrangThai
+            // 
+            this.lblErrTrangThai.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrTrangThai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
+            this.lblErrTrangThai.Location = new System.Drawing.Point(3, 393);
+            this.lblErrTrangThai.Name = "lblErrTrangThai";
+            this.lblErrTrangThai.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblErrTrangThai.Size = new System.Drawing.Size(271, 17);
+            this.lblErrTrangThai.TabIndex = 26;
+            this.lblErrTrangThai.Text = "* Bạn phải chọn Trạng thái";
+            this.lblErrTrangThai.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // cbxChucVu
             // 
             this.cbxChucVu.BackColor = System.Drawing.Color.White;
@@ -1369,6 +1382,30 @@
             this.cbxChucVu.TabIndex = 29;
             this.cbxChucVu.Texts = "--Chọn chức vụ--";
             this.cbxChucVu.OnSelectedIndexChanged += new System.EventHandler(this.cbxChucVu_OnSelectedIndexChanged);
+            // 
+            // lblErrChucVu
+            // 
+            this.lblErrChucVu.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrChucVu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
+            this.lblErrChucVu.Location = new System.Drawing.Point(3, 446);
+            this.lblErrChucVu.Name = "lblErrChucVu";
+            this.lblErrChucVu.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblErrChucVu.Size = new System.Drawing.Size(271, 17);
+            this.lblErrChucVu.TabIndex = 30;
+            this.lblErrChucVu.Text = "* Bạn phải chọn chức vụ";
+            this.lblErrChucVu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.btnThem);
+            this.flowLayoutPanel3.Controls.Add(this.btnSua);
+            this.flowLayoutPanel3.Controls.Add(this.btnXoa);
+            this.flowLayoutPanel3.Controls.Add(this.btnReset);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(8, 675);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(290, 45);
+            this.flowLayoutPanel3.TabIndex = 4;
             // 
             // btnThem
             // 
@@ -1450,106 +1487,96 @@
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
-            // MaNV
+            // panel2
             // 
-            this.MaNV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.MaNV.DataPropertyName = "MaNV";
-            this.MaNV.Frozen = true;
-            this.MaNV.HeaderText = "Mã NV";
-            this.MaNV.MinimumWidth = 6;
-            this.MaNV.Name = "MaNV";
-            this.MaNV.ReadOnly = true;
-            this.MaNV.Width = 73;
+            this.panel2.Controls.Add(this.btnDeleteIMG);
+            this.panel2.Controls.Add(this.lblErrIMG);
+            this.panel2.Controls.Add(this.btnUploadIMG);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(215, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(73, 149);
+            this.panel2.TabIndex = 1;
             // 
-            // Ho
+            // btnUploadIMG
             // 
-            this.Ho.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Ho.DataPropertyName = "Ho";
-            this.Ho.HeaderText = "Họ";
-            this.Ho.MinimumWidth = 6;
-            this.Ho.Name = "Ho";
-            this.Ho.ReadOnly = true;
-            this.Ho.Width = 50;
+            this.btnUploadIMG.BackColor = System.Drawing.Color.Transparent;
+            this.btnUploadIMG.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnUploadIMG.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnUploadIMG.BorderRadius = 0;
+            this.btnUploadIMG.BorderSize = 0;
+            this.btnUploadIMG.FlatAppearance.BorderSize = 0;
+            this.btnUploadIMG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUploadIMG.ForeColor = System.Drawing.Color.White;
+            this.btnUploadIMG.Image = global::GUI.Properties.Resources.icons8_upload_32;
+            this.btnUploadIMG.Location = new System.Drawing.Point(22, 58);
+            this.btnUploadIMG.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.btnUploadIMG.Name = "btnUploadIMG";
+            this.btnUploadIMG.Size = new System.Drawing.Size(29, 32);
+            this.btnUploadIMG.TabIndex = 3;
+            this.btnUploadIMG.TextColor = System.Drawing.Color.White;
+            this.btnUploadIMG.UseVisualStyleBackColor = false;
             // 
-            // Ten
+            // lblErrIMG
             // 
-            this.Ten.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Ten.DataPropertyName = "Ten";
-            this.Ten.HeaderText = "Tên";
-            this.Ten.MinimumWidth = 6;
-            this.Ten.Name = "Ten";
-            this.Ten.ReadOnly = true;
-            this.Ten.Width = 55;
+            this.lblErrIMG.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrIMG.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
+            this.lblErrIMG.Location = new System.Drawing.Point(1, 93);
+            this.lblErrIMG.Name = "lblErrIMG";
+            this.lblErrIMG.Size = new System.Drawing.Size(69, 53);
+            this.lblErrIMG.TabIndex = 23;
+            this.lblErrIMG.Text = "* Bạn phải chọn ảnh đại diện";
+            this.lblErrIMG.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // NgaySinh
+            // btnDeleteIMG
             // 
-            this.NgaySinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.NgaySinh.DataPropertyName = "NgaySinh";
-            this.NgaySinh.HeaderText = "Ngày sinh";
-            this.NgaySinh.MinimumWidth = 6;
-            this.NgaySinh.Name = "NgaySinh";
-            this.NgaySinh.ReadOnly = true;
-            this.NgaySinh.Width = 93;
+            this.btnDeleteIMG.BackColor = System.Drawing.Color.Transparent;
+            this.btnDeleteIMG.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnDeleteIMG.BorderColor = System.Drawing.Color.Transparent;
+            this.btnDeleteIMG.BorderRadius = 0;
+            this.btnDeleteIMG.BorderSize = 0;
+            this.btnDeleteIMG.FlatAppearance.BorderSize = 0;
+            this.btnDeleteIMG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteIMG.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteIMG.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteIMG.Image")));
+            this.btnDeleteIMG.Location = new System.Drawing.Point(3, 0);
+            this.btnDeleteIMG.Name = "btnDeleteIMG";
+            this.btnDeleteIMG.Size = new System.Drawing.Size(23, 28);
+            this.btnDeleteIMG.TabIndex = 24;
+            this.btnDeleteIMG.TextColor = System.Drawing.Color.White;
+            this.btnDeleteIMG.UseVisualStyleBackColor = false;
             // 
-            // GioiTinh
+            // pbImage
             // 
-            this.GioiTinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.GioiTinh.DataPropertyName = "GioiTinh";
-            this.GioiTinh.HeaderText = "Giới tính";
-            this.GioiTinh.MinimumWidth = 6;
-            this.GioiTinh.Name = "GioiTinh";
-            this.GioiTinh.ReadOnly = true;
-            this.GioiTinh.Width = 76;
+            this.pbImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbImage.Image = global::GUI.Properties.Resources.placeholder_image;
+            this.pbImage.InitialImage = global::GUI.Properties.Resources.placeholder_image;
+            this.pbImage.Location = new System.Drawing.Point(16, 0);
+            this.pbImage.Margin = new System.Windows.Forms.Padding(0);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(199, 149);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbImage.TabIndex = 0;
+            this.pbImage.TabStop = false;
+            this.pbImage.Tag = "Placeholder";
             // 
-            // SoDT
+            // panel4
             // 
-            this.SoDT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.SoDT.DataPropertyName = "SoDT";
-            this.SoDT.HeaderText = "Số DT";
-            this.SoDT.MinimumWidth = 6;
-            this.SoDT.Name = "SoDT";
-            this.SoDT.ReadOnly = true;
-            this.SoDT.Width = 69;
+            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(10, 143);
+            this.panel4.TabIndex = 2;
             // 
-            // DiaChi
+            // flowLayoutPanel5
             // 
-            this.DiaChi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DiaChi.DataPropertyName = "DiaChi";
-            this.DiaChi.HeaderText = "Địa chỉ";
-            this.DiaChi.MinimumWidth = 6;
-            this.DiaChi.Name = "DiaChi";
-            this.DiaChi.ReadOnly = true;
-            // 
-            // TrangThai
-            // 
-            this.TrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.TrangThai.DataPropertyName = "TrangThai";
-            this.TrangThai.HeaderText = "Trạng thái";
-            this.TrangThai.MinimumWidth = 6;
-            this.TrangThai.Name = "TrangThai";
-            this.TrangThai.ReadOnly = true;
-            this.TrangThai.Width = 95;
-            // 
-            // IMG
-            // 
-            this.IMG.DataPropertyName = "IMG";
-            this.IMG.HeaderText = "Hình ảnh";
-            this.IMG.MinimumWidth = 6;
-            this.IMG.Name = "IMG";
-            this.IMG.ReadOnly = true;
-            this.IMG.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.IMG.Visible = false;
-            this.IMG.Width = 88;
-            // 
-            // TenCV
-            // 
-            this.TenCV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.TenCV.DataPropertyName = "TenCV";
-            this.TenCV.HeaderText = "Chức vụ";
-            this.TenCV.MinimumWidth = 6;
-            this.TenCV.Name = "TenCV";
-            this.TenCV.ReadOnly = true;
-            this.TenCV.Width = 125;
+            this.flowLayoutPanel5.Controls.Add(this.panel4);
+            this.flowLayoutPanel5.Controls.Add(this.pbImage);
+            this.flowLayoutPanel5.Controls.Add(this.panel2);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(8, 32);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(290, 149);
+            this.flowLayoutPanel5.TabIndex = 3;
             // 
             // NhanVienGUI
             // 
@@ -1569,11 +1596,11 @@
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flpFilter.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
-            this.panel2.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            this.flowLayoutPanel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1604,12 +1631,9 @@
         private MyCustom.RJTextBox txtTuoiStart;
         private System.Windows.Forms.Label label24;
         private MyCustom.RJTextBox txtTuoiEnd;
-        private MyCustom.BiggerCheckBox chkDiemTL;
+        private MyCustom.BiggerCheckBox chkChucVu;
         private System.Windows.Forms.Label label25;
-        private MyCustom.RJTextBox txtDiemTLStart;
-        private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label10;
-        private MyCustom.RJTextBox txtDiemTLEnd;
         private MyCustom.BiggerCheckBox chkTrangThai;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
@@ -1635,13 +1659,6 @@
         private System.Windows.Forms.FlowLayoutPanel flpFilter;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.PictureBox pbImage;
-        private System.Windows.Forms.Panel panel2;
-        private MyCustom.RJButton btnDeleteIMG;
-        private System.Windows.Forms.Label lblErrIMG;
-        private MyCustom.RJButton btnUploadIMG;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private MyCustom.RJComboBox cbxChucVu;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
@@ -1662,6 +1679,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
         private System.Windows.Forms.DataGridViewTextBoxColumn IMG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenCV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaCV;
+        private MyCustom.BiggerCheckBox chkBanHang;
+        private System.Windows.Forms.Label label13;
+        private MyCustom.BiggerCheckBox chkQuanLy;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.PictureBox pbImage;
+        private System.Windows.Forms.Panel panel2;
+        private MyCustom.RJButton btnDeleteIMG;
+        private System.Windows.Forms.Label lblErrIMG;
+        private MyCustom.RJButton btnUploadIMG;
     }
 }

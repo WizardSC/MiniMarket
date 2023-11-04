@@ -387,9 +387,6 @@ namespace GUI
 
             }
             btnTimKiem_Click(sender, e);
-
-
-
         }
         private void txtTuoiStart__TextChanged(object sender, EventArgs e)
         {
