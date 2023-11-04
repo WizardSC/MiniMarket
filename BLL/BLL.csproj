@@ -63,6 +63,7 @@
     <Compile Include="LoaiBLL.cs" />
     <Compile Include="NhaCungCapBLL.cs" />
     <Compile Include="NhanVienBLL.cs" />
+    <Compile Include="NhapHangBLL.cs" />
     <Compile Include="NhaSanXuatBLL.cs" />
     <Compile Include="PhieuNhapT_BLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

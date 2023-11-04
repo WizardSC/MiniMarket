@@ -108,7 +108,7 @@ namespace GUI.MyCustom
 
         #endregion
 
-        private System.Windows.Forms.Panel pnItem;
+        public System.Windows.Forms.Panel pnItem;
         public System.Windows.Forms.Label lblMaSP;
         public System.Windows.Forms.Label lblDonGia;
         public System.Windows.Forms.Label lblTenSP;
