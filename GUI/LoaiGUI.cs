@@ -22,6 +22,16 @@ namespace GUI
         private string textSearchCondition = ""; // Biến để lưu trữ điều kiện từ textbox tìm kiếm
         private string genderCondition = ""; // Biến để lưu trữ điều kiện từ checkbox "Giới Tính"
         private string currentSearch;
+
+        private bool isTrangThai = false;
+        private bool isHoatDong = false;
+        private bool isKoHD = false;
+
+        private bool isGioiTinh = false;
+        private bool isTuoi = false;
+
+        private bool isFormFilter = false;
+
         private LoaiBLL loaibill;
         private DataTable dt;
         private List<LoaiDTO> listLoai;
@@ -298,34 +308,18 @@ namespace GUI
         {
             switch (cbxItemsMacDinh)
             {
-                case "Mã Loại":
+                case "MÃ LOẠI":
                     return returnDieuKien($"MaLoai like '%{searchText}%'");
-                case "Tên Loại":
+                case "TÊN LOẠI":
                     return returnDieuKien($"TenLoai like '%{searchText}%'");
                 default:
                     return "";
             }
         }
 
-        private void btnTimKiem_Click(object sender, EventArgs e)
-        {
-             
+        
 
-             string textTimKiem = txtTimKiem.Texts;
-             textSearchCondition = GetTextSearchCondition(textTimKiem);
-             string combinedCondition = CombineConditions(textSearchCondition, genderCondition);
-             applySearchs(combinedCondition);
-        }
-
-        private void txtTimKiem_KeyPress_1(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                //btnTimKiem.PerformClick();
-                btnTimKiem_Click(sender, e);
-                e.Handled = true;
-            }
-        }
+       
            private void applySearchs(string text)
             {
                // dt = loaibill.getListLoai();
@@ -335,48 +329,33 @@ namespace GUI
                 dvLoai.RowFilter = currentSearch;
                 dgvLoai.DataSource = dvLoai.ToTable();
             }
-         private string CombineConditions(string condition1, string condition2)
-         {
-             if (!string.IsNullOrEmpty(condition1) && !string.IsNullOrEmpty(condition2))
-             {
-                 return $"({condition1}) AND ({condition2})";
-             }
-             else if (!string.IsNullOrEmpty(condition1))
-             {
-                 return condition1;
-             }
-             else if (!string.IsNullOrEmpty(condition2))
-             {
-                 return condition2;
-             }
-             else
-             {
-                 return "";
-             }
-         }
-        private string CombineConditions(string condition1)
+        private string CombineConditions(string condition1, string condition2)
         {
-            if (!string.IsNullOrEmpty(condition1))
+            if (!string.IsNullOrEmpty(condition1) && !string.IsNullOrEmpty(condition2))
             {
-                return $"({condition1})";
+                return $"({condition1}) AND ({condition2})";
             }
             else if (!string.IsNullOrEmpty(condition1))
             {
                 return condition1;
+            }
+            else if (!string.IsNullOrEmpty(condition2))
+            {
+                return condition2;
             }
             else
             {
                 return "";
             }
         }
-       /* private string CombineConditions(string condition1)
-        {
-            if (!string.IsNullOrEmpty(condition1))
-            {
-                return $"({condition1})";
-            }
-            return "";
-        }*/
+        /* private string CombineConditions(string condition1)
+         {
+             if (!string.IsNullOrEmpty(condition1))
+             {
+                 return $"({condition1})";
+             }
+             return "";
+         }*/
 
 
         private void dgvLoai_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -384,57 +363,111 @@ namespace GUI
             dgvLoai.ClearSelection();
             dgvLoai.CurrentCell = null;
         }
-        /* private void cbxTimKiem_OnSelectedIndexChanged(object sender, EventArgs e)
-{
-    cbxItemsMacDinh = cbxTimKiem.SelectedItem.ToString();
-}
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
 
-private string GetTextSearchCondition(string searchText)
-{
-    string columnName = "";
 
-    switch (cbxItemsMacDinh)
-    {
-        case "Mã Loại":
-            columnName = "MALOAI";
-            break;
-        case "Tên Loại":
-            columnName = "TENLOAI";
-            break;
-        default:
-            return "";
+            string textTimKiem = txtTimKiem.Texts;
+            textSearchCondition = GetTextSearchCondition(textTimKiem);
+            string combinedCondition = CombineConditions(textSearchCondition, genderCondition);
+            combinedCondition = CombineConditions(combinedCondition, statusCondition);
+            applySearchs(combinedCondition);
+        }
+        private void txtTimKiem_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                //btnTimKiem.PerformClick();
+                btnTimKiem_Click(sender, e);
+                e.Handled = true;
+            }
+        }
+
+        private bool toggleDieuKien(bool value)
+        {
+            return !value;
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            isFormFilter = !isFormFilter;
+            if (isFormFilter)
+            {
+                btnFilter.BackColor = Color.FromArgb(224, 224, 224);
+                flpFilter.Visible = true;
+                flpFilter.BringToFront();
+
+            }
+            else
+            {
+                btnFilter.BackColor = Color.FromArgb(224, 252, 237);
+                flpFilter.Visible = false;
+                flpFilter.SendToBack();
+            }
+        }
+
+        private void chkTrangThai_CheckedChanged(object sender, EventArgs e)
+        {
+            isTrangThai = toggleDieuKien(isTrangThai);
+            chkHoatDong.Enabled = isTrangThai;
+            chkKoHD.Enabled = isTrangThai;
+            if (isTrangThai)
+            {
+
+                if (isHoatDong)
+                {
+
+                    chkHoatDong_CheckedChanged(sender, e);
+                }
+
+                if (isKoHD)
+                {
+                    chkKoHD_CheckedChanged(sender, e);
+                }
+            }
+            else
+            {
+                // Nếu chkGioiTinh không được kiểm tra, tắt chkNam và chkNu và xóa check
+                chkHoatDong.Checked = false;
+                chkKoHD.Checked = false;
+                chkHoatDong.Enabled = isGioiTinh;
+                chkKoHD.Enabled = isGioiTinh;
+            }
+        }
+
+        private void chkHoatDong_CheckedChanged(object sender, EventArgs e)
+        {
+            isHoatDong = toggleDieuKien(isHoatDong);
+            UpdateStatusCondition();
+            btnTimKiem.PerformClick();
+        }
+
+        private void chkKoHD_CheckedChanged(object sender, EventArgs e)
+        {
+            isKoHD = toggleDieuKien(isKoHD);
+            UpdateStatusCondition();
+            btnTimKiem.PerformClick();
+        }
+        private void UpdateStatusCondition()
+        {
+            List<string> statusConditions = new List<string>();
+
+            if (isHoatDong)
+            {
+                statusConditions.Add("TrangThai = 1");
+            }
+
+            if (isKoHD)
+            {
+                statusConditions.Add("TrangThai = 0");
+            }
+
+            statusCondition = string.Join(" OR ", statusConditions);
+        }
     }
 
-    return $"{columnName} like '%{searchText}%'";
-}
-
-private void btnTimKiem_Click(object sender, EventArgs e)
-{
-    string textTimKiem = txtTimKiem.Texts;
-    textSearchCondition = GetTextSearchCondition(textTimKiem);
-    applySearchs(textSearchCondition);
-}
-
-private void txtTimKiem_KeyPress_1(object sender, KeyPressEventArgs e)
-{
-    if (e.KeyChar == (char)Keys.Enter)
-    {
-        btnTimKiem_Click(sender, e);
-        e.Handled = true;
-    }
-}
-
-private void applySearchs(string text)
-{
-    currentSearch = text;
-    Console.WriteLine(currentSearch);
-    DataView dvLoai = loaibill.getListLoai().DefaultView;
-    dvLoai.RowFilter = currentSearch;
-    dgvLoai.DataSource = dvLoai.ToTable();
-}*/
 
 
 
-    }
 
 }
