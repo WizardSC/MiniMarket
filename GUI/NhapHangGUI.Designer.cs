@@ -57,6 +57,12 @@
             this.btnFilter = new GUI.MyCustom.RJButton();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.dgvSanPham = new System.Windows.Forms.DataGridView();
+            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonGiaNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnThongTinSP = new System.Windows.Forms.Panel();
             this.btnChonSanPham = new GUI.MyCustom.RJButton();
             this.label5 = new System.Windows.Forms.Label();
@@ -70,12 +76,7 @@
             this.txtTonKho = new GUI.MyCustom.RJTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDonGia = new GUI.MyCustom.RJTextBox();
-            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DonGiaNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rjButton2 = new GUI.MyCustom.RJButton();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.gradientPanel1.SuspendLayout();
@@ -114,6 +115,7 @@
             // gradientPanel1
             // 
             this.gradientPanel1.BottomColor = System.Drawing.Color.Empty;
+            this.gradientPanel1.Controls.Add(this.rjButton2);
             this.gradientPanel1.Controls.Add(this.lblMaPN);
             this.gradientPanel1.Controls.Add(this.lblNhaCungCap);
             this.gradientPanel1.Controls.Add(this.lblNhanVien);
@@ -501,7 +503,67 @@
             this.dgvSanPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSanPham.Size = new System.Drawing.Size(774, 431);
             this.dgvSanPham.TabIndex = 2;
+            this.dgvSanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSanPham_CellClick);
             this.dgvSanPham.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvSanPham_DataBindingComplete);
+            // 
+            // MaSP
+            // 
+            this.MaSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.MaSP.DataPropertyName = "MaSP";
+            this.MaSP.Frozen = true;
+            this.MaSP.HeaderText = "Mã SP";
+            this.MaSP.MinimumWidth = 6;
+            this.MaSP.Name = "MaSP";
+            this.MaSP.ReadOnly = true;
+            this.MaSP.Width = 70;
+            // 
+            // TenSP
+            // 
+            this.TenSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenSP.DataPropertyName = "TenSP";
+            this.TenSP.HeaderText = "Tên SP";
+            this.TenSP.MinimumWidth = 6;
+            this.TenSP.Name = "TenSP";
+            this.TenSP.ReadOnly = true;
+            // 
+            // SoLuong
+            // 
+            this.SoLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.SoLuong.DataPropertyName = "SoLuong";
+            this.SoLuong.HeaderText = "Tồn kho";
+            this.SoLuong.MinimumWidth = 6;
+            this.SoLuong.Name = "SoLuong";
+            this.SoLuong.ReadOnly = true;
+            this.SoLuong.Width = 83;
+            // 
+            // DonGiaNhap
+            // 
+            this.DonGiaNhap.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.DonGiaNhap.DataPropertyName = "DonGiaNhap";
+            this.DonGiaNhap.HeaderText = "Đơn giá";
+            this.DonGiaNhap.MinimumWidth = 6;
+            this.DonGiaNhap.Name = "DonGiaNhap";
+            this.DonGiaNhap.ReadOnly = true;
+            this.DonGiaNhap.Width = 80;
+            // 
+            // TenLoai
+            // 
+            this.TenLoai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.TenLoai.DataPropertyName = "TenLoai";
+            this.TenLoai.HeaderText = "Tên loại";
+            this.TenLoai.MinimumWidth = 6;
+            this.TenLoai.Name = "TenLoai";
+            this.TenLoai.ReadOnly = true;
+            this.TenLoai.Width = 81;
+            // 
+            // TenNCC
+            // 
+            this.TenNCC.DataPropertyName = "TenNCC";
+            this.TenNCC.HeaderText = "TenNCC";
+            this.TenNCC.Name = "TenNCC";
+            this.TenNCC.ReadOnly = true;
+            this.TenNCC.Visible = false;
+            this.TenNCC.Width = 82;
             // 
             // pnThongTinSP
             // 
@@ -545,6 +607,7 @@
             this.btnChonSanPham.Text = "         CHỌN SẢN PHẨM";
             this.btnChonSanPham.TextColor = System.Drawing.Color.Black;
             this.btnChonSanPham.UseVisualStyleBackColor = false;
+            this.btnChonSanPham.Click += new System.EventHandler(this.btnChonSanPham_Click);
             // 
             // label5
             // 
@@ -725,64 +788,24 @@
             this.txtDonGia.Texts = "";
             this.txtDonGia.UnderlinedStyle = false;
             // 
-            // MaSP
+            // rjButton2
             // 
-            this.MaSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.MaSP.DataPropertyName = "MaSP";
-            this.MaSP.Frozen = true;
-            this.MaSP.HeaderText = "Mã SP";
-            this.MaSP.MinimumWidth = 6;
-            this.MaSP.Name = "MaSP";
-            this.MaSP.ReadOnly = true;
-            this.MaSP.Width = 70;
-            // 
-            // TenSP
-            // 
-            this.TenSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenSP.DataPropertyName = "TenSP";
-            this.TenSP.HeaderText = "Tên SP";
-            this.TenSP.MinimumWidth = 6;
-            this.TenSP.Name = "TenSP";
-            this.TenSP.ReadOnly = true;
-            // 
-            // SoLuong
-            // 
-            this.SoLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.SoLuong.DataPropertyName = "SoLuong";
-            this.SoLuong.HeaderText = "Tồn kho";
-            this.SoLuong.MinimumWidth = 6;
-            this.SoLuong.Name = "SoLuong";
-            this.SoLuong.ReadOnly = true;
-            this.SoLuong.Width = 83;
-            // 
-            // DonGiaNhap
-            // 
-            this.DonGiaNhap.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.DonGiaNhap.DataPropertyName = "DonGiaNhap";
-            this.DonGiaNhap.HeaderText = "Đơn giá";
-            this.DonGiaNhap.MinimumWidth = 6;
-            this.DonGiaNhap.Name = "DonGiaNhap";
-            this.DonGiaNhap.ReadOnly = true;
-            this.DonGiaNhap.Width = 80;
-            // 
-            // TenLoai
-            // 
-            this.TenLoai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.TenLoai.DataPropertyName = "TenLoai";
-            this.TenLoai.HeaderText = "Tên loại";
-            this.TenLoai.MinimumWidth = 6;
-            this.TenLoai.Name = "TenLoai";
-            this.TenLoai.ReadOnly = true;
-            this.TenLoai.Width = 81;
-            // 
-            // TenNCC
-            // 
-            this.TenNCC.DataPropertyName = "TenNCC";
-            this.TenNCC.HeaderText = "TenNCC";
-            this.TenNCC.Name = "TenNCC";
-            this.TenNCC.ReadOnly = true;
-            this.TenNCC.Visible = false;
-            this.TenNCC.Width = 81;
+            this.rjButton2.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjButton2.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton2.BorderRadius = 0;
+            this.rjButton2.BorderSize = 0;
+            this.rjButton2.FlatAppearance.BorderSize = 0;
+            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton2.ForeColor = System.Drawing.Color.White;
+            this.rjButton2.Location = new System.Drawing.Point(250, 87);
+            this.rjButton2.Name = "rjButton2";
+            this.rjButton2.Size = new System.Drawing.Size(60, 31);
+            this.rjButton2.TabIndex = 12;
+            this.rjButton2.Text = "rjButton2";
+            this.rjButton2.TextColor = System.Drawing.Color.White;
+            this.rjButton2.UseVisualStyleBackColor = false;
+            this.rjButton2.Click += new System.EventHandler(this.rjButton2_Click);
             // 
             // NhapHangGUI
             // 
@@ -855,5 +878,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DonGiaNhap;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenLoai;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenNCC;
+        private MyCustom.RJButton rjButton2;
     }
 }
