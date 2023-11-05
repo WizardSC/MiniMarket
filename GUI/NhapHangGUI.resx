@@ -132,4 +132,20 @@
   <metadata name="TenLoai.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="TenNCC.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnChonSanPham.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAXZJREFUSEvl1r8rRWEcx/HLQJKBZBCS8iuTMNhZSFksNmWwmpSykAzCymSQxT9A
+        FqPIZGI1WZBFys/3W5066Z7jOed2S91PvYb7vc/3PPc859xznkLFZAtHMYMoa67xFXOAsmYTntk5nPAV
+        s5gp0TiqkJgWOFn8bEs1h9S4nMUa8/IsUzOKaPCUhYypwx3sP7MQkivYcPLzKVtWYO8HhiyEZB42faLH
+        QmC8B55h776F0LgsD7DR/2ho9mDPCzosZMk2bH5CvYU/0o832LNmIWu64ZJ6gGV4PdJ4vR17jwbkyik8
+        SBYLyBV/ZXR7hzpENXJlBx7kHdMotoxxrcidTjiREzpx2TOBaJk2sJRDM4Lj4OgPnNcAMsVn6jF8zOXR
+        hf8dXyu3eETIk2Mdjr3BmIUsqYXN8WvijZSUScTH2luD4LQjfgAtIil+93t8G4LjPuQSUbPbjl4kpQ/x
+        rckFUvcyxdIEr90uhi38kRH4elpFo4VKTKHwDQ8PwWEXph6BAAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>
