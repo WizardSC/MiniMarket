@@ -15,7 +15,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
-
 namespace GUI
 {
     public partial class NhapHangGUI : Form
@@ -29,6 +28,7 @@ namespace GUI
         private SanPhamBLL spBLL;
         private DataTable dtSanPham;
         private DataTable dtNhaCungCap;
+        private DataTable dtNCCbyMaNCC;
         private List<NhanVienDTO> listNV;
         private Dictionary<string, thongTinSanPham> gioHangNhap = new Dictionary<string, thongTinSanPham>();
         public struct thongTinSanPham
@@ -298,16 +298,26 @@ namespace GUI
             if (success)
             {
                 MessageBox.Show("Thêm thành công tất cả chi tiết phiếu nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                refreshAfterInsertCTPN();
-                dgvSanPham.DataSource = nhBLL.getListNhapHang();
             }
             else
             {
                 MessageBox.Show("Có lỗi xảy ra khi thêm chi tiết phiếu nhập");
                 return;
             }
-            dtSanPham = nhBLL.getListNhapHang();
+            NhaCungCapDTO ncc = nccBLL.getNhaCungCapbyMaNCC(lblNhaCungCap.Text);
+            Reports.PhieuNhapCreator pnCreator = new Reports.PhieuNhapCreator();
+            pnCreator.DtThongTinCTPN = ctpnBLL.getListPhieuNhapbyMaPN(pn.MaPN);
 
+            pnCreator.NgayLap = DateTime.ParseExact(lblNgayLap.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture).ToString();
+            pnCreator.MaPN = lblMaPN.Text.Substring(1);
+            pnCreator.TenNCC = ncc.TenNCC;
+            pnCreator.DiaChi = ncc.DiaChi;
+            pnCreator.SoDT = ncc.SoDT;
+            pnCreator.SoFAX = ncc.SoFAX;
+            pnCreator.showPhieuNhapRP();
+            dtSanPham = nhBLL.getListNhapHang();
+            refreshAfterInsertCTPN();
+            dgvSanPham.DataSource = nhBLL.getListNhapHang();
             loadMaPN();
             refreshThongTin();
            
@@ -537,6 +547,11 @@ namespace GUI
             }
 
             tinhTongTien();
+            
+            
+            
+
+            
         }
     }
 }

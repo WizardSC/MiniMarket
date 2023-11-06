@@ -37,5 +37,10 @@ namespace BLL
             trangThai = (trangThai == 0) ? 1 : 0;
             return nccDAL.updateTrangThai(trangThai, maNCC);
         }
+
+        public NhaCungCapDTO getNhaCungCapbyMaNCC(string maNCC)
+        {
+            return nccDAL.getNhaCungCapbyMaNCC(maNCC);
+        }
     }
 }

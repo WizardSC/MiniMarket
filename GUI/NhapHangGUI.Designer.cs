@@ -166,13 +166,13 @@
             this.lblNhanVien.Text = "Lee Changsub";
             this.lblNhanVien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblNgayLap
+            // PhieuNhapRP
             // 
             this.lblNgayLap.BackColor = System.Drawing.Color.Transparent;
             this.lblNgayLap.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNgayLap.Location = new System.Drawing.Point(125, 32);
             this.lblNgayLap.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
-            this.lblNgayLap.Name = "lblNgayLap";
+            this.lblNgayLap.Name = "PhieuNhapRP";
             this.lblNgayLap.Size = new System.Drawing.Size(161, 32);
             this.lblNgayLap.TabIndex = 6;
             this.lblNgayLap.Text = "12/10/2023";

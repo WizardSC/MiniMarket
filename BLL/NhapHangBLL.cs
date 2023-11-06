@@ -20,5 +20,10 @@ namespace BLL
         {
             return nhDAL.getListSPToNhapHang();
         }
+
+        public DataTable getThongTinCTPhieuNhap(string maPN)
+        {
+            return nhDAL.getThongTinCTPhieuNhap(maPN);
+        }
     }
 }

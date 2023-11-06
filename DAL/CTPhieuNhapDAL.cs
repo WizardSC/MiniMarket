@@ -11,6 +11,32 @@ namespace DAL
 {
     public class CTPhieuNhapDAL : MSSQLConnect
     {
+        public DataTable getListPhieuNhapbyMaPN(string maPN)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select MaSP, TenSP, SoLuong, DonGiaNhap, ThanhTien from ChiTietPhieuNhap where MaPN = @MaPN";
+                cmd.Connection = conn;
+                cmd.Parameters.Add("@MaPN", SqlDbType.Char).Value = maPN;
+                SqlDataAdapter adt = new SqlDataAdapter(cmd);
+                adt.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Disconnect();
+            }
+
+            return dt;
+        }
+        
         public bool insertCTPhieuNhap(CTPhieuNhapDTO ctPN)
         {
             try
