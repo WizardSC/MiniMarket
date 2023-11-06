@@ -155,5 +155,35 @@ namespace DAL
                 Disconnect();
             }
         }
+        //Có thể dùng DataTable nhưng chọn cách này
+        public NhaCungCapDTO getNhaCungCapbyMaNCC(string maNCC)
+        {
+            NhaCungCapDTO ncc = new NhaCungCapDTO();
+            try
+            {
+                Connect();
+                string sql = "select TenNCC, DiaChi, SoDT, SoFAX from nhacungcap where MaNCC = @MaNCC";
+                SqlCommand cmd = new SqlCommand(sql,conn);
+                cmd.Parameters.Add("MaNCC", SqlDbType.Char).Value = maNCC;
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    ncc.TenNCC = reader["TenNCC"].ToString();
+                    ncc.DiaChi = reader["DiaChi"].ToString();
+                    ncc.SoDT = reader["SoDT"].ToString();
+                    ncc.SoFAX = reader["SoFAX"].ToString();
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return ncc;
+        }
     }
 }
