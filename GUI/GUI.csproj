@@ -237,6 +237,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\HoaDonCreator.cs" />
+    <Compile Include="Reports\HoaDonDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HoaDonDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\HoaDonRP.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\HoaDonRP.Designer.cs">
+      <DependentUpon>HoaDonRP.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\PhieuNhapCreator.cs" />
     <Compile Include="Reports\PhieuNhapDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -338,6 +350,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\HoaDonRP.resx">
+      <DependentUpon>HoaDonRP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\PhieuNhapRP.resx">
       <DependentUpon>PhieuNhapRP.cs</DependentUpon>
     </EmbeddedResource>
@@ -379,6 +394,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Reports\HoaDonDataSet.xsc">
+      <DependentUpon>HoaDonDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\HoaDonDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HoaDonDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\HoaDonDataSet.xss">
+      <DependentUpon>HoaDonDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Reports\PhieuNhapDataSet.xsc">
       <DependentUpon>PhieuNhapDataSet.xsd</DependentUpon>
     </None>
