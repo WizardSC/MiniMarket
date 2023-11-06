@@ -547,11 +547,21 @@ namespace GUI
             }
 
             tinhTongTien();
-            
-            
-            
 
             
+            Reports.HoaDonCreator hdCreator = new Reports.HoaDonCreator();
+            //hdCreator.DtThongTinCTPN = ctpnBLL.getListPhieuNhapbyMaPN(pn.MaPN);
+
+            hdCreator.NgayLap = DateTime.ParseExact(lblNgayLap.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture).ToString();
+            //hdCreator.MaPN = lblMaPN.Text.Substring(1);
+            //hdCreator.TenNCC = ncc.TenNCC;
+            //hdCreator.DiaChi = ncc.DiaChi;
+            //hdCreator.SoDT = ncc.SoDT;
+            //hdCreator.SoFAX = ncc.SoFAX;
+            hdCreator.showHoaDonRP();
+
+
+
         }
     }
 }
