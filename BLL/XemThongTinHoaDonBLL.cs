@@ -10,16 +10,17 @@ namespace BLL
 {
     public  class XemThongTinHoaDonBLL
     {
-        private XemThongTinHoaDonDAL HoaDonDAL;
+        private XemThongTinHoaDonDAL XemThongTinHoaDonDAL;
 
         public XemThongTinHoaDonBLL()
         {
-            HoaDonDAL = new XemThongTinHoaDonDAL();
+            XemThongTinHoaDonDAL = new XemThongTinHoaDonDAL();
         }
 
         public DataTable getXemListDsHoaDon()
         {
-            return HoaDonDAL.getXemListHoaDon();
+            // return HoaDonDAL.getXemListHoaDon();
+            return null;
         }
     }
 }

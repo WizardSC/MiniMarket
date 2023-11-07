@@ -1,6 +1,5 @@
 ﻿using BLL;
-using DevExpress.DirectX.NativeInterop.Direct2D.CCW;
-using DevExpress.Utils.Commands;
+
 using DTO;
 using GUI.MyCustom;
 using System;
@@ -305,17 +304,7 @@ namespace GUI
                 return;
             }
             NhaCungCapDTO ncc = nccBLL.getNhaCungCapbyMaNCC(lblNhaCungCap.Text);
-            Reports.PhieuNhapCreator pnCreator = new Reports.PhieuNhapCreator();
-            pnCreator.DtThongTinCTPN = ctpnBLL.getListPhieuNhapbyMaPN(pn.MaPN);
-
-            pnCreator.NgayLap = DateTime.ParseExact(lblNgayLap.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture).ToString();
-            pnCreator.MaPN = lblMaPN.Text.Substring(1);
-            pnCreator.TenNCC = ncc.TenNCC;
-            pnCreator.DiaChi = ncc.DiaChi;
-            pnCreator.SoDT = ncc.SoDT;
-            pnCreator.SoFAX = ncc.SoFAX;
-            pnCreator.showPhieuNhapRP();
-            dtSanPham = nhBLL.getListNhapHang();
+           
             refreshAfterInsertCTPN();
             dgvSanPham.DataSource = nhBLL.getListNhapHang();
             loadMaPN();
@@ -548,17 +537,7 @@ namespace GUI
 
             tinhTongTien();
 
-            
-            Reports.HoaDonCreator hdCreator = new Reports.HoaDonCreator();
-            //hdCreator.DtThongTinCTPN = ctpnBLL.getListPhieuNhapbyMaPN(pn.MaPN);
-
-            hdCreator.NgayLap = DateTime.ParseExact(lblNgayLap.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture).ToString();
-            //hdCreator.MaPN = lblMaPN.Text.Substring(1);
-            //hdCreator.TenNCC = ncc.TenNCC;
-            //hdCreator.DiaChi = ncc.DiaChi;
-            //hdCreator.SoDT = ncc.SoDT;
-            //hdCreator.SoFAX = ncc.SoFAX;
-            hdCreator.showHoaDonRP();
+        
 
 
 

@@ -58,6 +58,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="EPPlus.Core, Version=1.5.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.Core.1.5.4\lib\net46\EPPlus.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
     </Reference>
@@ -76,6 +79,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -111,6 +115,12 @@
     </Compile>
     <Compile Include="GiaoDienGUI.Designer.cs">
       <DependentUpon>GiaoDienGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HoaDonGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HoaDonGUI.Designer.cs">
+      <DependentUpon>HoaDonGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="KhachHangGUI.cs">
       <SubType>Form</SubType>
@@ -237,30 +247,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reports\HoaDonCreator.cs" />
-    <Compile Include="Reports\HoaDonDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HoaDonDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\HoaDonRP.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\HoaDonRP.Designer.cs">
-      <DependentUpon>HoaDonRP.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\PhieuNhapCreator.cs" />
-    <Compile Include="Reports\PhieuNhapDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PhieuNhapDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\PhieuNhapRP.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\PhieuNhapRP.Designer.cs">
-      <DependentUpon>PhieuNhapRP.cs</DependentUpon>
-    </Compile>
     <Compile Include="SanPhamGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -272,6 +258,12 @@
     </Compile>
     <Compile Include="ThongTinSPKMGUI.Designer.cs">
       <DependentUpon>ThongTinSPKMGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XemChiTietPhieuNhapGUITest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XemChiTietPhieuNhapGUITest.Designer.cs">
+      <DependentUpon>XemChiTietPhieuNhapGUITest.cs</DependentUpon>
     </Compile>
     <Compile Include="XemPhieuNhapGUItest.cs">
       <SubType>Form</SubType>
@@ -287,6 +279,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoDienGUI.resx">
       <DependentUpon>GiaoDienGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HoaDonGUI.resx">
+      <DependentUpon>HoaDonGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KhachHangGUI.resx">
       <DependentUpon>KhachHangGUI.cs</DependentUpon>
@@ -350,17 +345,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reports\HoaDonRP.resx">
-      <DependentUpon>HoaDonRP.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\PhieuNhapRP.resx">
-      <DependentUpon>PhieuNhapRP.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="SanPhamGUI.resx">
       <DependentUpon>SanPhamGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThongTinSPKMGUI.resx">
       <DependentUpon>ThongTinSPKMGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XemChiTietPhieuNhapGUITest.resx">
+      <DependentUpon>XemChiTietPhieuNhapGUITest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XemPhieuNhapGUItest.resx">
       <DependentUpon>XemPhieuNhapGUItest.cs</DependentUpon>
@@ -394,28 +386,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Reports\HoaDonDataSet.xsc">
-      <DependentUpon>HoaDonDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="Reports\HoaDonDataSet.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>HoaDonDataSet.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Reports\HoaDonDataSet.xss">
-      <DependentUpon>HoaDonDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="Reports\PhieuNhapDataSet.xsc">
-      <DependentUpon>PhieuNhapDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="Reports\PhieuNhapDataSet.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PhieuNhapDataSet.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Reports\PhieuNhapDataSet.xss">
-      <DependentUpon>PhieuNhapDataSet.xsd</DependentUpon>
-    </None>
     <None Include="resources\image\icons8-close-32.png" />
   </ItemGroup>
   <ItemGroup>

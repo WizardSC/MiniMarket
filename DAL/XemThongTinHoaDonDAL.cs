@@ -10,7 +10,7 @@ using DTO;
 
 namespace DAL
 {
-    public class PhieuNhap_DAL : MSSQLConnect
+    public class XemThongTinHoaDonDAL : MSSQLConnect
     {
         public DataTable getListPhieuNhap()
         {

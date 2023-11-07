@@ -17,8 +17,8 @@ namespace GUI
     public partial class HoaDonGUI : Form
     {
 
+        // private XemChiTietHoaDonGUI ChiTietHD;
         private XemThongTinHoaDonBLL HdBLL;
-       // private XemChiTietHoaDonGUI ChiTietHD;
         private string MaHoaDon;     // tạo biến lưu giá trị khi double click
         private string currentSearch;
         private string textSearchCondition = ""; // Biến để lưu trữ điều kiện từ textbox tìm kiếm
