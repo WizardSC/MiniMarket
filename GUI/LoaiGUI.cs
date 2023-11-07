@@ -365,8 +365,6 @@ namespace GUI
         }
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-
-
             string textTimKiem = txtTimKiem.Texts;
             textSearchCondition = GetTextSearchCondition(textTimKiem);
             string combinedCondition = CombineConditions(textSearchCondition, genderCondition);
@@ -377,7 +375,7 @@ namespace GUI
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                //btnTimKiem.PerformClick();
+                btnTimKiem.PerformClick();
                 btnTimKiem_Click(sender, e);
                 e.Handled = true;
             }
