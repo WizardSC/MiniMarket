@@ -60,7 +60,6 @@
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnThemCTKM = new GUI.MyCustom.RJButton();
             this.btnUpdateKM = new GUI.MyCustom.RJButton();
-            this.btnXoaKM = new GUI.MyCustom.RJButton();
             this.btnRS = new GUI.MyCustom.RJButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
@@ -478,7 +477,6 @@
             // 
             this.flowLayoutPanel5.Controls.Add(this.btnThemCTKM);
             this.flowLayoutPanel5.Controls.Add(this.btnUpdateKM);
-            this.flowLayoutPanel5.Controls.Add(this.btnXoaKM);
             this.flowLayoutPanel5.Controls.Add(this.btnRS);
             this.flowLayoutPanel5.Location = new System.Drawing.Point(8, 254);
             this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
@@ -526,26 +524,6 @@
             this.btnUpdateKM.UseVisualStyleBackColor = false;
             this.btnUpdateKM.Click += new System.EventHandler(this.btnUpdateKM_Click);
             // 
-            // btnXoaKM
-            // 
-            this.btnXoaKM.BackColor = System.Drawing.Color.Transparent;
-            this.btnXoaKM.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnXoaKM.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.btnXoaKM.BorderRadius = 20;
-            this.btnXoaKM.BorderSize = 2;
-            this.btnXoaKM.FlatAppearance.BorderSize = 0;
-            this.btnXoaKM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnXoaKM.ForeColor = System.Drawing.Color.White;
-            this.btnXoaKM.Image = ((System.Drawing.Image)(resources.GetObject("btnXoaKM.Image")));
-            this.btnXoaKM.Location = new System.Drawing.Point(171, 3);
-            this.btnXoaKM.Margin = new System.Windows.Forms.Padding(10, 3, 15, 3);
-            this.btnXoaKM.Name = "btnXoaKM";
-            this.btnXoaKM.Size = new System.Drawing.Size(44, 40);
-            this.btnXoaKM.TabIndex = 2;
-            this.btnXoaKM.TextColor = System.Drawing.Color.White;
-            this.btnXoaKM.UseVisualStyleBackColor = false;
-            this.btnXoaKM.Click += new System.EventHandler(this.btnXoaKM_Click);
-            // 
             // btnRS
             // 
             this.btnRS.BackColor = System.Drawing.Color.Transparent;
@@ -557,7 +535,7 @@
             this.btnRS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRS.ForeColor = System.Drawing.Color.White;
             this.btnRS.Image = ((System.Drawing.Image)(resources.GetObject("btnRS.Image")));
-            this.btnRS.Location = new System.Drawing.Point(240, 3);
+            this.btnRS.Location = new System.Drawing.Point(171, 3);
             this.btnRS.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
             this.btnRS.Name = "btnRS";
             this.btnRS.Size = new System.Drawing.Size(44, 40);
@@ -624,7 +602,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
         private MyCustom.RJButton btnThemCTKM;
         private MyCustom.RJButton btnUpdateKM;
-        private MyCustom.RJButton btnXoaKM;
         private MyCustom.RJButton btnRS;
         private MyCustom.RJTextBox txtPhanTramKM;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKM;
