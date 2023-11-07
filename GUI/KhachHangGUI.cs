@@ -57,7 +57,7 @@ namespace GUI
         }
         private void KhachHangGUI_Load(object sender, EventArgs e)
         {
-            dgvKhachHang.DataSource = khBLL.getListKhachHang();
+            dgvKhachHang.DataSource = dt;
 
             cbxTimKiem.Refresh();
             loadDataToCBX(cbxTimKiem);
@@ -387,9 +387,6 @@ namespace GUI
 
             }
             btnTimKiem_Click(sender, e);
-
-
-
         }
         private void txtTuoiStart__TextChanged(object sender, EventArgs e)
         {

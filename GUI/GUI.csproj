@@ -33,11 +33,30 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v23.1, Version=23.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <HintPath>..\packages\DevExpress.Data.23.1.6\lib\net452\DevExpress.Data.v23.1.dll</HintPath>
+    <Reference Include="DevExpress.Charts.v22.2.Core, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.Desktop.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Drawing.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v22.2.Core, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v22.2.Core, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v22.2.Core, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v22.2.Core, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v22.2.Core, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v22.2.Export, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v22.2.Core, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v22.2.UI, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v22.2.Core, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v22.2.Extensions, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="EPPlus.Core, Version=1.5.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPPlus.Core.1.5.4\lib\net46\EPPlus.Core.dll</HintPath>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
@@ -48,18 +67,15 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
-    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing.Common, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Drawing.Common.7.0.0\lib\net462\System.Drawing.Common.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Threading.Tasks" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -95,12 +111,6 @@
     </Compile>
     <Compile Include="GiaoDienGUI.Designer.cs">
       <DependentUpon>GiaoDienGUI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="HoaDonGUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HoaDonGUI.Designer.cs">
-      <DependentUpon>HoaDonGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="KhachHangGUI.cs">
       <SubType>Form</SubType>
@@ -177,6 +187,12 @@
     <Compile Include="MyCustom\MyProductItem.Designer.cs">
       <DependentUpon>MyProductItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyCustom\MySuppiler.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyCustom\MySuppiler.Designer.cs">
+      <DependentUpon>MySuppiler.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyCustom\RJButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -207,6 +223,12 @@
     <Compile Include="NhanVienGUI.Designer.cs">
       <DependentUpon>NhanVienGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="NhapHangGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhapHangGUI.Designer.cs">
+      <DependentUpon>NhapHangGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="NhaSanXuatGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,6 +237,30 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\HoaDonCreator.cs" />
+    <Compile Include="Reports\HoaDonDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HoaDonDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\HoaDonRP.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\HoaDonRP.Designer.cs">
+      <DependentUpon>HoaDonRP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PhieuNhapCreator.cs" />
+    <Compile Include="Reports\PhieuNhapDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PhieuNhapDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PhieuNhapRP.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PhieuNhapRP.Designer.cs">
+      <DependentUpon>PhieuNhapRP.cs</DependentUpon>
+    </Compile>
     <Compile Include="SanPhamGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,12 +272,6 @@
     </Compile>
     <Compile Include="ThongTinSPKMGUI.Designer.cs">
       <DependentUpon>ThongTinSPKMGUI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="XemChiTietPhieuNhapGUITest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="XemChiTietPhieuNhapGUITest.Designer.cs">
-      <DependentUpon>XemChiTietPhieuNhapGUITest.cs</DependentUpon>
     </Compile>
     <Compile Include="XemPhieuNhapGUItest.cs">
       <SubType>Form</SubType>
@@ -247,9 +287,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoDienGUI.resx">
       <DependentUpon>GiaoDienGUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HoaDonGUI.resx">
-      <DependentUpon>HoaDonGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KhachHangGUI.resx">
       <DependentUpon>KhachHangGUI.cs</DependentUpon>
@@ -284,6 +321,9 @@
     <EmbeddedResource Include="MyCustom\MyProductItem.resx">
       <DependentUpon>MyProductItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyCustom\MySuppiler.resx">
+      <DependentUpon>MySuppiler.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyCustom\RJTextBox.resx">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -293,9 +333,13 @@
     <EmbeddedResource Include="NhanVienGUI.resx">
       <DependentUpon>NhanVienGUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NhapHangGUI.resx">
+      <DependentUpon>NhapHangGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NhaSanXuatGUI.resx">
       <DependentUpon>NhaSanXuatGUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -306,14 +350,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\HoaDonRP.resx">
+      <DependentUpon>HoaDonRP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PhieuNhapRP.resx">
+      <DependentUpon>PhieuNhapRP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SanPhamGUI.resx">
       <DependentUpon>SanPhamGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThongTinSPKMGUI.resx">
       <DependentUpon>ThongTinSPKMGUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="XemChiTietPhieuNhapGUITest.resx">
-      <DependentUpon>XemChiTietPhieuNhapGUITest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XemPhieuNhapGUItest.resx">
       <DependentUpon>XemPhieuNhapGUItest.cs</DependentUpon>
@@ -347,6 +394,28 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Reports\HoaDonDataSet.xsc">
+      <DependentUpon>HoaDonDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\HoaDonDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HoaDonDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\HoaDonDataSet.xss">
+      <DependentUpon>HoaDonDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\PhieuNhapDataSet.xsc">
+      <DependentUpon>PhieuNhapDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\PhieuNhapDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PhieuNhapDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\PhieuNhapDataSet.xss">
+      <DependentUpon>PhieuNhapDataSet.xsd</DependentUpon>
+    </None>
     <None Include="resources\image\icons8-close-32.png" />
   </ItemGroup>
   <ItemGroup>
@@ -422,7 +491,7 @@
     <None Include="resources\image\icons8-print-28.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Reports\" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -44,6 +44,8 @@ namespace GUI
             allPanels.Add(pnNhaSanXuatContainer);
             allPanels.Add(pnDanhMucContainer);
             allPanels.Add(pnNhaCCContainer);
+            allPanels.Add(pnKhuyenMaiContainer);
+            allPanels.Add(pnNhapHangContainer);
         }
         private void addAllPnLeftBorders()
         {
@@ -56,6 +58,8 @@ namespace GUI
             allPnLeftBorders.Add(pnLeftBorderNSX);
             allPnLeftBorders.Add(pnLeftBorderDanhMuc);
             allPnLeftBorders.Add(pnLeftBorderNhaCC);
+            allPnLeftBorders.Add(pnLeftBorderNhapHang);
+            allPnLeftBorders.Add(pnLeftBorderKhuyenMai);
         }
 
         private void addAllPnSubPanels()
@@ -496,6 +500,39 @@ namespace GUI
                 pnLeftBorderNhaCC.BackColor = Color.FromArgb(58, 191, 186);
                 // Mở form con tương ứng (KhachHangGUI)
                 openChildForm(new NhaCCGUI());
+            }
+        }
+
+        private void pnNhapHangContainer_Click(object sender, EventArgs e)
+        {
+            if (sender is RJButton)
+            {
+                RJButton clickedButton = (RJButton)sender;
+
+                // Đặt màu của tất cả các RJButton khác thành màu transparent
+                foreach (RJButton button in allPanels)
+                {
+                    if (button != clickedButton)
+                    {
+                        button.BackColor = Color.Transparent; // hoặc màu nền mặc định của bạn
+                    }
+                }
+                foreach (Panel pn in allPnLeftBorders)
+                {
+                    if (pn != pnLeftBorderNhapHang)
+                    {
+                        pn.BackColor = Color.Transparent;
+                    }
+                }
+                foreach (RJButton button in allBtns)
+                {
+                    button.BackColor = Color.Transparent; // hoặc màu nền mặc định của bạn
+                }
+                // Đặt màu của RJButton được nhấn
+                clickedButton.BackColor = Color.White;
+                pnLeftBorderNhapHang.BackColor = Color.FromArgb(58, 191, 186);
+                // Mở form con tương ứng (KhachHangGUI)
+                openChildForm(new NhapHangGUI());
             }
         }
     }

@@ -21,11 +21,28 @@ namespace GUI
         private string currentSearch;
         private NhanVienBLL nvBLL;
         private DataTable dt;
+        private bool isFormFilter = false;
+        private bool isGioiTinh = false;
+        private bool isNam = false;
+        private bool isNu = false;
+        private bool isQuanLy = false;
+        private bool isBanHang = false;
+        private bool isHoatDong = false;
+        private bool isKhongHoatDong = false;
+        private string genderCondition = "";
+        private string chucVuCondition = "";
+        private string trangThaiCondition = "";
+
+        private int tuoiStart = 0;
+        private int tuoiEnd = 0;
+        private bool isTuoi = false;
+        private bool isChucVu = false;
+        private bool isTrangThai = false;
         public NhanVienGUI()
         {
+            InitializeComponent();
             nvBLL = new NhanVienBLL();
             dt = nvBLL.getListNhanVien();
-            InitializeComponent();
             unhideError();
             loadMaNV();
             loadCbxTimKiem();
@@ -83,12 +100,7 @@ namespace GUI
             cbxTimKiem.Items.Add("Mã NV");
             cbxTimKiem.Items.Add("Họ");
             cbxTimKiem.Items.Add("Tên");
-            cbxTimKiem.Items.Add("Ngày sinh");
-            cbxTimKiem.Items.Add("Giới tính");
-            cbxTimKiem.Items.Add("Số SĐT");
             cbxTimKiem.Items.Add("Địa chỉ");
-            cbxTimKiem.Items.Add("Trạng thái");
-            cbxTimKiem.Items.Add("Chức vụ");
             cbxTimKiem.SelectedItem = 0;
         }
         private string returnDieuKien(string text)
@@ -106,19 +118,28 @@ namespace GUI
                 case 2:
                     return returnDieuKien($"Ten like '%{searchText}%'");
                 case 3:
-                    return returnDieuKien($"NgaySinh like '%{searchText}%'");
-                case 4:
-                    return returnDieuKien($"GioiTinh like '%{searchText}%'");
-                case 5:
-                    return returnDieuKien($"SoDT like '%{searchText}%'");
-                case 6:
                     return returnDieuKien($"DiaChi like '%{searchText}%'");
-                case 7:
-                    return returnDieuKien($"TrangThai like '%{searchText}%'");
-                case 8:
-                    return returnDieuKien($"TenCV like '%{searchText}%'");
                 default:
                     return returnDieuKien($"MaNV like '%{searchText}%'"); ;
+            }
+        }
+        private string CombineConditions(string condition1, string condition2)
+        {
+            if (!string.IsNullOrEmpty(condition1) && !string.IsNullOrEmpty(condition2))
+            {
+                return $"({condition1}) AND ({condition2})";
+            }
+            else if (!string.IsNullOrEmpty(condition1))
+            {
+                return condition1;
+            }
+            else if (!string.IsNullOrEmpty(condition2))
+            {
+                return condition2;
+            }
+            else
+            {
+                return "";
             }
         }
         private void applySearchs(string text)
@@ -128,13 +149,101 @@ namespace GUI
             dvNhanVien.RowFilter = currentSearch;
             dgvNhanVien.DataSource = dvNhanVien.ToTable();
         }
-
-        private void btnTimKiem_Click(object sender, EventArgs e)
+        private void chkTuoi_CheckedChanged(object sender, EventArgs e)
         {
-            string textTimKiem = txtTimKiem.Texts;
-            textSearchCondition = GetTextSearchCondition(textTimKiem);
-            applySearchs(textSearchCondition);
+            isTuoi = toggleDieuKien(isTuoi);
+            txtTuoiStart.Enabled = isTuoi;
+            txtTuoiEnd.Enabled = isTuoi;
+
+            if (!isTuoi)
+            {
+                tuoiStart = 0;
+                tuoiEnd = 0;
+
+            }
+            if (isTuoi)
+            {
+                if (int.TryParse(txtTuoiStart.Texts, out int tuoiStartResult))
+                {
+                    // Chuyển đổi thành công, giá trị tuoiStartResult là số nguyên từ chuỗi
+                    tuoiStart = tuoiStartResult;
+                }
+                if (int.TryParse(txtTuoiEnd.Texts, out int tuoiEndResult))
+                {
+                    // Chuyển đổi thành công, giá trị tuoiStartResult là số nguyên từ chuỗi
+                    tuoiEnd = tuoiEndResult;
+
+                }
+
+
+            }
+            btnTimKiem_Click(sender, e);
         }
+        private void txtTuoiStart__TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtTuoiStart.Texts))
+            {
+                tuoiStart = 0;
+            }
+            if (int.TryParse(txtTuoiStart.Texts, out int tuoiStartResult))
+            {
+                // Chuyển đổi thành công, giá trị tuoiStartResult là số nguyên từ chuỗi
+                tuoiStart = tuoiStartResult;
+                btnTimKiem_Click(sender, e);
+            }
+            else
+            {
+                // Chuỗi không hợp lệ, bạn có thể xử lý lỗi hoặc thông báo cho người dùng
+                return;
+            }
+
+
+        }
+
+        private void txtTuoiEnd__TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtTuoiEnd.Texts))
+            {
+                tuoiEnd = 0;
+            }
+            if (int.TryParse(txtTuoiEnd.Texts, out int tuoiEndResult))
+            {
+                // Chuyển đổi thành công, giá trị tuoiStartResult là số nguyên từ chuỗi
+                tuoiEnd = tuoiEndResult;
+                btnTimKiem_Click(sender, e);
+            }
+            else
+            {
+                // Chuỗi không hợp lệ, bạn có thể xử lý lỗi hoặc thông báo cho người dùng
+                return;
+            }
+
+        }
+
+        private string ApplyOrRemoveTuoiCondition(string condition, bool isTuoi)
+        {
+            if (isTuoi)
+            {
+                if (tuoiStart > 0 && tuoiEnd > 0 && tuoiStart <= tuoiEnd)
+                {
+                    DateTime currentDate = DateTime.Now;
+                    int currentYear = currentDate.Year;
+
+                    int yearOfBirthStart = currentYear - tuoiStart;
+                    int yearOfBirthEnd = currentYear - tuoiEnd;
+
+                    return CombineConditions(condition, $"NgaySinh >= '{yearOfBirthEnd}-01-01' AND NgaySinh <= '{yearOfBirthStart}-12-31'");
+                }
+            }
+            else
+            {
+                // Nếu không có checkbox Tuoi được chọn, xóa điều kiện lọc theo ngày sinh
+                condition = condition.Replace("NgaySinh >= 'yyyy-01-01' AND NgaySinh <= 'yyyy-12-31' AND ", "");
+            }
+
+            return condition;
+        }
+       
         private void unhideError()
         {
             lblErrMaNV.ForeColor = Color.Transparent;
@@ -157,7 +266,7 @@ namespace GUI
             string diaChi = CheckAndSetColor(txtDiaChi, lblErrDiaChi);
             string trangThai = CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
             int trangThaiValue = (trangThai == "Hoạt động" ? 1 : 0);
-            string chucVu = CheckAndSetColor(cbxChucVu,lblErrChucVu);
+            string chucVu = CheckAndSetColor(cbxChucVu, lblErrChucVu);
             string valueChucVu = (chucVu == "Nhân viên bán hàng" ? "CV001" : "CV002");
             //byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
             //string maTK = null;
@@ -184,18 +293,19 @@ namespace GUI
             {
                 return;
             }
-            NhanVienDTO nv = new NhanVienDTO(maNV, ho, ten, ngaySinh, gioiTinh, soDT, diaChi, trangThaiValue ,valueChucVu);
+            NhanVienDTO nv = new NhanVienDTO(maNV, ho, ten, ngaySinh, gioiTinh, soDT, diaChi, trangThaiValue, valueChucVu);
             if (nvBLL.insertNhanVien(nv))
             {
                 MessageBox.Show("Thêm thành công",
                   "Thông báo",
                   MessageBoxButtons.OK,
                   MessageBoxIcon.Information);
-                    load_Form();
+                load_Form();
+                reset();
             }
             else
             {
-                MessageBox.Show("Thêm thất bại" ,
+                MessageBox.Show("Thêm thất bại",
                     "Lỗi",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
@@ -300,7 +410,7 @@ namespace GUI
             //pbImage.Image = convertBinaryStringToImage(imageBytes);
             //pbImage.Tag = dgvNhanVien.Rows[i].Cells[0].Value.ToString();
             cbxTrangThai.SelectedItem = (trangThai == 1) ? "Hoạt động" : "Không hoạt động";
-  
+
             cbxChucVu.SelectedItem = (chucVu == "CV001") ? "Nhân viên bán hàng" : "Nhân viên quản lý";
         }
         private byte[] convertImageToBinaryString(System.Drawing.Image img, string tag)
@@ -325,6 +435,10 @@ namespace GUI
         }
 
         private void btnReset_Click(object sender, EventArgs e)
+        {
+            reset();
+        }
+        private void reset()
         {
             loadMaNV();
             txtHo.Texts = "";
@@ -352,14 +466,15 @@ namespace GUI
             string valueChucVu = (cbxChucVu.SelectedItem == "Nhân viên bán hàng") ? "CV001" : "CV002";
             byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
 
-            NhanVienDTO nv = new NhanVienDTO(maNV, ho, ten, ngaySinh, gioiTinh, soDT, diaChi, trangThaiValue,valueChucVu );
+            NhanVienDTO nv = new NhanVienDTO(maNV, ho, ten, ngaySinh, gioiTinh, soDT, diaChi, trangThaiValue, valueChucVu);
             if (nvBLL.updateNhanVien(nv))
             {
                 MessageBox.Show("Sửa thành công",
                     "Thông báo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
-                    load_Form();
+                load_Form();
+                reset();
 
             }
             else
@@ -390,7 +505,7 @@ namespace GUI
                       "Thông báo",
                       MessageBoxButtons.OK,
                       MessageBoxIcon.Information);
-                        load_Form();
+                    load_Form();
 
                 }
                 else
@@ -466,6 +581,225 @@ namespace GUI
         private void dtpNgaySinh_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            isFormFilter = !isFormFilter;
+            if (isFormFilter)
+            {
+                btnFilter.BackColor = Color.FromArgb(224, 224, 224);
+                flpFilter.Visible = true;
+                flpFilter.BringToFront();
+
+            }
+            else
+            {
+                btnFilter.BackColor = Color.FromArgb(224, 252, 237);
+                flpFilter.Visible = false;
+                flpFilter.SendToBack();
+            }
+        }
+        private bool toggleDieuKien(bool value)
+        {
+            return !value;
+        }
+        private void UpdateGenderCondition()
+        {
+            List<string> genderConditions = new List<string>();
+
+            if (isNam)
+            {
+                genderConditions.Add("GioiTinh = 'Nam'");
+            }
+
+            if (isNu)
+            {
+                genderConditions.Add("GioiTinh = 'Nữ'");
+            }
+
+            genderCondition = string.Join(" OR ", genderConditions);
+        }
+        private void UpdateChucVuCondition()
+        {
+            List<string> chucVuConditions = new List<string>();
+
+            if (isBanHang)
+            {
+                chucVuConditions.Add("MaCV = 'CV001'");
+            }
+
+            if (isQuanLy)
+            {
+                chucVuConditions.Add("MaCV = 'CV002'");
+            }
+
+            chucVuCondition = string.Join(" OR ", chucVuConditions);
+        }
+        private void UpdateTrangThaiCondition()
+        {
+            List<string> trangThaiConditions = new List<string>();
+
+            if (isHoatDong)
+            {
+                trangThaiConditions.Add("TrangThai = 1");
+            }
+
+            if (isKhongHoatDong)
+            {
+                trangThaiConditions.Add("TrangThai = 0");
+            }
+
+            trangThaiCondition = string.Join(" OR ", trangThaiConditions);
+        }
+        private void chkNam_CheckedChanged(object sender, EventArgs e)
+        {
+            isNam = toggleDieuKien(isNam);
+            UpdateGenderCondition();
+            btnTimKiem.PerformClick();
+        }
+
+        // Thay đổi sự kiện khi checkbox "Nữ" thay đổi
+        private void chkNu_CheckedChanged(object sender, EventArgs e)
+        {
+            isNu = toggleDieuKien(isNu);
+            UpdateGenderCondition();
+            btnTimKiem.PerformClick();
+        }
+        private void chkGioiTinh_CheckedChanged(object sender, EventArgs e)
+        {
+            isGioiTinh = toggleDieuKien(isGioiTinh);
+
+            // Bật hoặc tắt chkNam và chkNu dựa trên trạng thái của chkGioiTinh
+            chkNam.Enabled = isGioiTinh;
+            chkNu.Enabled = isGioiTinh;
+
+            // Nếu chkGioiTinh được kiểm tra, thực hiện hành động của chkNam và chkNu
+            if (isGioiTinh)
+            {
+
+                if (isNam)
+                {
+
+                    chkNam_CheckedChanged(sender, e);
+                }
+
+                if (isNu)
+                {
+
+                    chkNu_CheckedChanged(sender, e);
+                }
+            }
+            else
+            {
+                // Nếu chkGioiTinh không được kiểm tra, tắt chkNam và chkNu và xóa check
+                chkNam.Checked = false;
+                chkNu.Checked = false;
+                chkNam.Enabled = isGioiTinh;
+                chkNu.Enabled = isGioiTinh;
+            }
+            
+        }
+        private void chkDiemTL_CheckedChanged(object sender, EventArgs e)
+        {
+        }
+        private void chkChucVu_CheckedChanged(object sender, EventArgs e)
+        {
+            isChucVu = toggleDieuKien(isChucVu);
+
+            // Bật hoặc tắt chkNam và chkNu dựa trên trạng thái của chkGioiTinh
+            chkNam.Enabled = isChucVu;
+            chkNu.Enabled = isChucVu;
+            if (isChucVu)
+            {
+
+                if (isBanHang)
+                {
+
+                    chkBanHang_CheckedChanged(sender, e);
+                }
+
+                if (isQuanLy)
+                {
+
+                    chkQuanLy_CheckedChanged(sender, e);
+                }
+            }
+            else
+            {
+                chkBanHang.Checked = false;
+                chkQuanLy.Checked = false;
+                chkBanHang.Enabled = isChucVu;
+                chkQuanLy.Enabled = isChucVu;
+            }
+        }
+        private void chkBanHang_CheckedChanged(object sender, EventArgs e)
+        {
+            isBanHang = toggleDieuKien(isBanHang);
+            UpdateChucVuCondition();
+            btnTimKiem.PerformClick();
+        }
+
+        private void chkQuanLy_CheckedChanged(object sender, EventArgs e)
+        {
+            isQuanLy = toggleDieuKien(isQuanLy);
+            UpdateChucVuCondition();
+            btnTimKiem.PerformClick();
+        }
+
+
+
+        private void chkTrangThai_CheckedChanged(object sender, EventArgs e)
+        {
+            isTrangThai = toggleDieuKien(isTrangThai);
+
+            // Bật hoặc tắt chkNam và chkNu dựa trên trạng thái của chkGioiTinh
+            chkHoatDong.Enabled = isTrangThai;
+            chkKoHD.Enabled = isTrangThai;
+            if (isTrangThai)
+            {
+
+                if (isHoatDong)
+                {
+
+                    chkHoatDong_CheckedChanged(sender, e);
+                }
+
+                if (isKhongHoatDong)
+                {
+
+                    chkKoHD_CheckedChanged(sender, e);
+                }
+            }
+            else
+            {
+                chkHoatDong.Checked = false;
+                chkKoHD.Checked = false;
+                chkHoatDong.Enabled = isTrangThai;
+                chkKoHD.Enabled = isTrangThai;
+            }
+        }
+        private void chkHoatDong_CheckedChanged(object sender, EventArgs e)
+        {
+            isHoatDong = toggleDieuKien(isHoatDong);
+            UpdateTrangThaiCondition();
+            btnTimKiem.PerformClick();
+        }
+        private void chkKoHD_CheckedChanged(object sender, EventArgs e)
+        {
+            isKhongHoatDong = toggleDieuKien(isKhongHoatDong);
+            UpdateTrangThaiCondition();
+            btnTimKiem.PerformClick();
+        }
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            string textTimKiem = txtTimKiem.Texts;
+            textSearchCondition = GetTextSearchCondition(textTimKiem);
+            string combinedCondition = CombineConditions(textSearchCondition, genderCondition);        
+            combinedCondition = CombineConditions(combinedCondition, trangThaiCondition);
+            combinedCondition = CombineConditions(combinedCondition, chucVuCondition);
+            combinedCondition = ApplyOrRemoveTuoiCondition(combinedCondition, isTuoi);
+            applySearchs(combinedCondition);
         }
     }
 }
