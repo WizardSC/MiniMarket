@@ -11,6 +11,31 @@ namespace DAL
 {
     public class CTHoaDonDAL : MSSQLConnect
     {
+        public DataTable getListCTHDByMaHD(string maHD)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select MaSP, TenSP, SoLuong, DonGiaBanDau, DonGiaDaGiam, ThanhTien from ChiTietHoaDon where MaHD = @MaHD";
+                cmd.Connection = conn;
+                cmd.Parameters.Add("@MaHD", SqlDbType.Char).Value = maHD;
+                SqlDataAdapter adt = new SqlDataAdapter(cmd);
+                adt.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Disconnect();
+            }
+
+            return dt;
+        }
         public bool insertCTHoaDon(CTHoaDonDTO cthd)
         {
             try
