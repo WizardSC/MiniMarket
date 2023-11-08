@@ -15,14 +15,18 @@ namespace DAL
         //string strconn = @"Data Source=DESKTOP-G0C5JTO\LEHONGTHAI;Initial Catalog = MiniMarket; Integrated Security = True";
 
         //Toàn đẹp try wizard
+<<<<<<< HEAD
+        //string strconn = @"Data Source=LAPTOP-AEI9M0MI\WIZARDSC;Initial Catalog = MiniMarket; Integrated Security = True";
+=======
        // string strconn = @"Data Source=LAPTOP-AEI9M0MI\WIZARDSC;Initial Catalog = MiniMarket; Integrated Security = True";
+>>>>>>> d9815d32aaf1c33a0160eb5a0d2c5f53f4ded9be
 
         //string strconn = @"Data Source=LAPTOP-AEI9M0MI\WIZARDSC;Initial Catalog = MiniMarket; Integrated Security = True";
 
 
         //Minh Toàn/
         //TheVinh
-         //string strconn = @"Data Source=MSI\MSSQLSERVER_1;Initial Catalog = MiniMarket; Integrated Security = True";
+        string strconn = @"Data Source=MSI\MSSQLSERVER_1;Initial Catalog = MiniMarket; Integrated Security = True";
         //TheVinh
         string strconn = @"Data Source=MSI;Initial Catalog = MiniMarket3110; Integrated Security = True";
 

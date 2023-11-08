@@ -539,6 +539,11 @@ namespace GUI
             }
         }
 
+<<<<<<< HEAD
+        private void rjButton6_Click(object sender, EventArgs e)
+        {
+
+=======
         private void pnThongKeContainer_Click(object sender, EventArgs e)
         {
             if (sender is RJButton)
@@ -570,6 +575,7 @@ namespace GUI
                 // Mở form con tương ứng (KhachHangGUI)
                 openChildForm(new ThongKeGUI());
             }
+>>>>>>> d9815d32aaf1c33a0160eb5a0d2c5f53f4ded9be
         }
     }
 }
