@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="ChiTietKhuyenMaiDAL.cs" />
     <Compile Include="CTHoaDonDAL.cs" />
+    <Compile Include="CTPhieuNhapDAL.cs" />
     <Compile Include="HoaDonDAL.cs" />
     <Compile Include="KhachHangDAL.cs" />
     <Compile Include="KhuyenMaiDAL.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="MSSQLConnect.cs" />
     <Compile Include="NhaCungCapDAL.cs" />
     <Compile Include="NhanVienDAL.cs" />
+    <Compile Include="NhapHangDAL.cs" />
     <Compile Include="NhaSanXuatDAL.cs" />
     <Compile Include="PhieuNhap_DAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

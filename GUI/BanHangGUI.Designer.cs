@@ -111,7 +111,7 @@ namespace GUI
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1167, 718);
+            this.panel1.Size = new System.Drawing.Size(1180, 738);
             this.panel1.TabIndex = 0;
             // 
             // flowLayoutPanel3
@@ -194,13 +194,13 @@ namespace GUI
             this.lblNhanVien.Text = "Lee Changsub";
             this.lblNhanVien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblNgayLap
+            // PhieuNhapRP
             // 
             this.lblNgayLap.BackColor = System.Drawing.Color.Transparent;
             this.lblNgayLap.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNgayLap.Location = new System.Drawing.Point(125, 32);
             this.lblNgayLap.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
-            this.lblNgayLap.Name = "lblNgayLap";
+            this.lblNgayLap.Name = "PhieuNhapRP";
             this.lblNgayLap.Size = new System.Drawing.Size(161, 32);
             this.lblNgayLap.TabIndex = 6;
             this.lblNgayLap.Text = "12/10/2023";
@@ -928,7 +928,7 @@ namespace GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1167, 718);
+            this.ClientSize = new System.Drawing.Size(1180, 738);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BanHangGUI";

@@ -6,12 +6,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media;
 using static System.Net.Mime.MediaTypeNames;
+using Color = System.Drawing.Color;
+using Image = System.Drawing.Image;
 
 namespace GUI
 {
@@ -22,6 +26,11 @@ namespace GUI
         NhaCungCapBLL nccBLL;
         DataTable dt;
         private string currentSearch;
+        private bool isFormFilter = false;
+        private string trangThaiCondition = "";
+        private bool isHoatDong = false;
+        private bool isKhongHoatDong = false;
+        private bool isTrangThai = false;
         public NhaCCGUI()
         {
             InitializeComponent();
@@ -29,7 +38,25 @@ namespace GUI
             dt = nccBLL.getListNCC();
             loadMaNCC();
             loadCbxTimKiem();
+            unhideError();
+        }
 
+        private void unhideError()
+        {
+            lblErrMaNCC.ForeColor = Color.Transparent;
+            lblErrTen.ForeColor = Color.Transparent;
+            lblErrDiaChi.ForeColor = Color.Transparent;
+            lblErrSoDT.ForeColor = Color.Transparent;
+            lblErrSoFax.ForeColor = Color.Transparent;
+            lblErrTrangThai.ForeColor = Color.Transparent;
+            lblErrIMG.ForeColor = Color.Transparent;
+        }
+        private void applySearchs(string text)
+        {
+            currentSearch = text;
+            DataView dvNhaCC = nccBLL.getListNCC().DefaultView;
+            dvNhaCC.RowFilter = currentSearch;
+            dgvNhaCC.DataSource = dvNhaCC.ToTable();
         }
         private  void load_Form()
         {
@@ -65,9 +92,7 @@ namespace GUI
             cbxTimKiem.Items.Add("Mã NCC");
             cbxTimKiem.Items.Add("Tên NCC");
             cbxTimKiem.Items.Add("Địa chỉ");
-            cbxTimKiem.Items.Add("Số SĐT");
             cbxTimKiem.Items.Add("Số Fax");
-            cbxTimKiem.Items.Add("Trạng thái");
             cbxTimKiem.SelectedItem = 0;
         }
         private string returnDieuKien(string text)
@@ -85,33 +110,43 @@ namespace GUI
                 case 2:
                     return returnDieuKien($"DiaChi like '%{searchText}%'");
                 case 3:
-                    return returnDieuKien($"SoDT like '%{searchText}%'");
-                case 4:
                     return returnDieuKien($"SoFax like '%{searchText}%'");
-                case 5:
-                    return returnDieuKien($"TrangThai like '%{searchText}%'");
                 default:
-                    return returnDieuKien($"MaNV like '%{searchText}%'"); ;
+                    return returnDieuKien($"MaNCC like '%{searchText}%'"); ;
             }
         }
-        private void applySearchs(string text)
+        private string CombineConditions(string condition1, string condition2)
         {
-            currentSearch = text;
-            Console.WriteLine(currentSearch);
-            DataView dvNhaCC = nccBLL.getListNCC().DefaultView;
-            dvNhaCC.RowFilter = currentSearch;
-            dgvNhaCC.DataSource = dvNhaCC.ToTable();
+            if (!string.IsNullOrEmpty(condition1) && !string.IsNullOrEmpty(condition2))
+            {
+                return $"({condition1}) AND ({condition2})";
+            }
+            else if (!string.IsNullOrEmpty(condition1))
+            {
+                return condition1;
+            }
+            else if (!string.IsNullOrEmpty(condition2))
+            {
+                return condition2;
+            }
+            else
+            {
+                return "";
+            }
         }
+        
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             string textTimKiem = txtTimKiem.Texts;
             textSearchCondition = GetTextSearchCondition(textTimKiem);
-            applySearchs(textSearchCondition);
+            string combinedCondition = CombineConditions(textSearchCondition, trangThaiCondition);
+            applySearchs(combinedCondition);
         }
         private void resetForm()
         {
             loadMaNCC();
+            btnDeleteIMG.PerformClick();
             txtTen.Texts = "";
             txtDiaChi.Texts = "";
             txtSoDT.Texts = "";
@@ -153,11 +188,12 @@ namespace GUI
             string soFax = CheckAndSetColor(txtSoFax, lblErrSoFax);
             string trangThai = CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
             int trangThaiValue = (trangThai == "Hoạt động" ? 1 : 0);
-            if (!(maNCC != "" && ten != "" && diaChi != "" && soDT != "" && trangThai != ""))
+            byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
+            if (!(maNCC != "" && ten != "" && diaChi != "" && soDT != "" && trangThai != "" && img != null))
             {
                 return;
-            }
-            NhaCungCapDTO ncc = new NhaCungCapDTO(maNCC,ten, diaChi, soDT, soFax, trangThaiValue);
+            } 
+            NhaCungCapDTO ncc = new NhaCungCapDTO(maNCC,ten, diaChi, soDT, soFax, trangThaiValue, img);
             if (nccBLL.insertNhaCungCap(ncc))
             {
                 MessageBox.Show("Thêm thành công",
@@ -173,11 +209,6 @@ namespace GUI
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
-        }
-
-        private void lblErrSoFax_Click(object sender, EventArgs e)
-        {
-
         }
         private void txtTenNCC__TextChanged(object sender, EventArgs e)
         {
@@ -203,7 +234,32 @@ namespace GUI
         {
             CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
         }
+        private byte[] convertImageToBinaryString(Image img, string tag)
+        {
 
+            if (tag == "Placeholder")
+            {
+                lblErrIMG.ForeColor = Color.FromArgb(230, 76, 89);
+                return null;
+            }
+            else
+            {
+                lblErrIMG.ForeColor = Color.Transparent;
+
+            }
+
+            MemoryStream ms = new MemoryStream();
+            img.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+
+            return ms.ToArray();
+
+        }
+        private Image convertBinaryStringToImage(byte[] binaryString)
+        {
+            MemoryStream ms = new MemoryStream(binaryString);
+            Image img = Image.FromStream(ms);
+            return img;
+        }
         private void btnSua_Click(object sender, EventArgs e)
         {
             string maNCC = txtMaNCC.Texts;
@@ -212,8 +268,9 @@ namespace GUI
             string diaChi = txtDiaChi.Texts;
             string soFax = txtSoFax.Texts;
             int trangThaiValue = (cbxTrangThai.SelectedItem == "Hoạt động") ? 1 : 0;
+            byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
 
-            NhaCungCapDTO ncc = new NhaCungCapDTO(maNCC,ten, diaChi,soDT, soFax, trangThaiValue);
+            NhaCungCapDTO ncc = new NhaCungCapDTO(maNCC,ten, diaChi,soDT, soFax, trangThaiValue,img);
             if (nccBLL.updateNhaCC(ncc))
             {
                 MessageBox.Show("Sửa thành công",
@@ -242,6 +299,10 @@ namespace GUI
             txtSoFax.Texts = dgvNhaCC.Rows[i].Cells[4].Value.ToString();
             int trangThai = int.Parse(dgvNhaCC.Rows[i].Cells[5].Value.ToString());
             cbxTrangThai.SelectedItem = (trangThai == 1) ? "Hoạt động" : "Không hoạt động";
+            byte[] imageBytes = (byte[])dgvNhaCC.Rows[i].Cells[6].Value;
+            pbImage.Image = convertBinaryStringToImage(imageBytes);
+            pbImage.Tag = dgvNhaCC.Rows[i].Cells[0].Value.ToString();
+
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -327,6 +388,128 @@ namespace GUI
                     e.FormattingApplied = true; 
                 }
             }
+        }
+        private bool toggleDieuKien(bool value)
+        {
+            return !value;
+        }
+        private void UpdateTrangThaiCondition()
+        {
+            List<string> trangThaiConditions = new List<string>();
+
+            if (isHoatDong)
+            {
+                trangThaiConditions.Add("TrangThai = 1");
+            }
+
+            if (isKhongHoatDong)
+            {
+                trangThaiConditions.Add("TrangThai = 0");
+            }
+
+            trangThaiCondition = string.Join(" OR ", trangThaiConditions);
+        }
+        private void chkTrangThai_CheckedChanged(object sender, EventArgs e)
+        {
+            isTrangThai = toggleDieuKien(isTrangThai);
+
+            // Bật hoặc tắt chkNam và chkNu dựa trên trạng thái của chkGioiTinh
+            chkHoatDong.Enabled = isTrangThai;
+            chkKoHD.Enabled = isTrangThai;
+            if (isTrangThai)
+            {
+
+                if (isHoatDong)
+                {
+
+                    chkHoatDong_CheckedChanged(sender, e);
+                }
+
+                if (isKhongHoatDong)
+                {
+
+                    chkKoHD_CheckedChanged(sender, e);
+                }
+            }
+            else
+            {
+                chkHoatDong.Checked = false;
+                chkKoHD.Checked = false;
+                chkHoatDong.Enabled = isTrangThai;
+                chkKoHD.Enabled = isTrangThai;
+            }
+        }
+        private void chkHoatDong_CheckedChanged(object sender, EventArgs e)
+        {
+            isHoatDong = toggleDieuKien(isHoatDong);
+            UpdateTrangThaiCondition();
+            btnTimKiem.PerformClick();
+        }
+        private void chkKoHD_CheckedChanged(object sender, EventArgs e)
+        {
+            isKhongHoatDong = toggleDieuKien(isKhongHoatDong);
+            UpdateTrangThaiCondition();
+            btnTimKiem.PerformClick();
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            isFormFilter = !isFormFilter;
+            if (isFormFilter)
+            {
+                btnFilter.BackColor = Color.FromArgb(224, 224, 224);
+                flpFilter.Visible = true;
+                flpFilter.BringToFront();
+
+            }
+            else
+            {
+                btnFilter.BackColor = Color.FromArgb(224, 252, 237);
+                flpFilter.Visible = false;
+                flpFilter.SendToBack();
+            }
+        }
+
+        private void btnUploadIMG_Click(object sender, EventArgs e)
+        {
+            string appDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            string folderPath = Path.Combine(appDirectory, "resources", "image", "NhaCungCap");
+            OpenFileDialog open = new OpenFileDialog
+            {
+                InitialDirectory = folderPath,
+                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp",
+                RestoreDirectory = true
+            };
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                pbImage.Image = Image.FromFile(open.FileName);
+                this.Text = open.FileName;
+
+                pbImage.Tag = txtMaNCC.Texts;
+                Console.WriteLine(pbImage.Tag);
+
+            }
+        }
+
+
+        private void btnDeleteIMG_Click(object sender, EventArgs e)
+        {
+            pbImage.Image = pbImage.InitialImage;
+            pbImage.Tag = "Placeholder";
+        }
+
+        private void btnReset_Click_1(object sender, EventArgs e)
+        {
+            reset();
+        }
+        private void reset()
+        {
+            loadMaNCC();
+            txtTen.Texts = "";
+            txtDiaChi.Texts = "";
+            txtSoDT.Texts = "";
+            txtSoFax.Texts = "";
+            btnDeleteIMG.PerformClick();
         }
     }
 }
