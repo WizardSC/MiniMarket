@@ -85,6 +85,9 @@
             this.btnClose = new GUI.MyCustom.RJButton();
             this.pnForm = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pnThongKe = new System.Windows.Forms.Panel();
+            this.pnThongKeContainer = new GUI.MyCustom.RJButton();
+            this.pnLeftBorderThongKe = new System.Windows.Forms.Panel();
             this.pnSidebar.SuspendLayout();
             this.pnMainMenu.SuspendLayout();
             this.pnSubQuanLy.SuspendLayout();
@@ -107,6 +110,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnHeader.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.pnThongKe.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnSidebar
@@ -126,6 +130,7 @@
             // 
             this.pnMainMenu.AutoScroll = true;
             this.pnMainMenu.AutoSize = true;
+            this.pnMainMenu.Controls.Add(this.pnThongKe);
             this.pnMainMenu.Controls.Add(this.pnSubQuanLy);
             this.pnMainMenu.Controls.Add(this.pnQuanLy);
             this.pnMainMenu.Controls.Add(this.pnSubHangHoa);
@@ -175,7 +180,7 @@
             this.pnNhaCCContainer.FlatAppearance.BorderSize = 0;
             this.pnNhaCCContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.pnNhaCCContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pnNhaCCContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnNhaCCContainer.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnNhaCCContainer.ForeColor = System.Drawing.Color.Black;
             this.pnNhaCCContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnNhaCCContainer.Image")));
             this.pnNhaCCContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -946,6 +951,52 @@
             this.panel3.Size = new System.Drawing.Size(1366, 775);
             this.panel3.TabIndex = 0;
             // 
+            // pnThongKe
+            // 
+            this.pnThongKe.Controls.Add(this.pnThongKeContainer);
+            this.pnThongKe.Controls.Add(this.pnLeftBorderThongKe);
+            this.pnThongKe.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnThongKe.Location = new System.Drawing.Point(0, 651);
+            this.pnThongKe.Name = "pnThongKe";
+            this.pnThongKe.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.pnThongKe.Size = new System.Drawing.Size(165, 50);
+            this.pnThongKe.TabIndex = 5;
+            // 
+            // pnThongKeContainer
+            // 
+            this.pnThongKeContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnThongKeContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnThongKeContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnThongKeContainer.BorderRadius = 0;
+            this.pnThongKeContainer.BorderSize = 0;
+            this.pnThongKeContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnThongKeContainer.FlatAppearance.BorderSize = 0;
+            this.pnThongKeContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnThongKeContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnThongKeContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnThongKeContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnThongKeContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnThongKeContainer.Image")));
+            this.pnThongKeContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnThongKeContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnThongKeContainer.Name = "pnThongKeContainer";
+            this.pnThongKeContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnThongKeContainer.Size = new System.Drawing.Size(157, 40);
+            this.pnThongKeContainer.TabIndex = 2;
+            this.pnThongKeContainer.Text = "         Thống kê";
+            this.pnThongKeContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnThongKeContainer.TextColor = System.Drawing.Color.Black;
+            this.pnThongKeContainer.UseVisualStyleBackColor = false;
+            this.pnThongKeContainer.Click += new System.EventHandler(this.pnThongKeContainer_Click);
+            // 
+            // pnLeftBorderThongKe
+            // 
+            this.pnLeftBorderThongKe.BackColor = System.Drawing.Color.Transparent;
+            this.pnLeftBorderThongKe.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnLeftBorderThongKe.Location = new System.Drawing.Point(0, 0);
+            this.pnLeftBorderThongKe.Name = "pnLeftBorderThongKe";
+            this.pnLeftBorderThongKe.Size = new System.Drawing.Size(8, 40);
+            this.pnLeftBorderThongKe.TabIndex = 0;
+            // 
             // GiaoDienGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -983,6 +1034,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnHeader.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.pnThongKe.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1044,5 +1096,8 @@
         private System.Windows.Forms.Panel panel18;
         private MyCustom.RJButton pnNhaCCContainer;
         private System.Windows.Forms.Panel pnLeftBorderNhaCC;
+        private System.Windows.Forms.Panel pnThongKe;
+        private MyCustom.RJButton pnThongKeContainer;
+        private System.Windows.Forms.Panel pnLeftBorderThongKe;
     }
 }

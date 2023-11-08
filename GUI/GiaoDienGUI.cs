@@ -60,11 +60,13 @@ namespace GUI
             allPnLeftBorders.Add(pnLeftBorderNhaCC);
             allPnLeftBorders.Add(pnLeftBorderNhapHang);
             allPnLeftBorders.Add(pnLeftBorderKhuyenMai);
+            allPnLeftBorders.Add(pnLeftBorderThongKe);
         }
 
         private void addAllPnSubPanels()
         {
             allSubPanels.Add(pnSubHangHoa);
+            
             allSubPanels.Add(pnSubQuanLy);
         }
 
@@ -72,6 +74,7 @@ namespace GUI
         {
             allBtns.Add(pnHangHoaContainer);
             allBtns.Add(pnQuanLyContainer);
+            allBtns.Add(pnThongKeContainer);
             
         }
         private void GiaoDienGUI_Load(object sender, EventArgs e)
@@ -536,9 +539,43 @@ namespace GUI
             }
         }
 
+<<<<<<< HEAD
         private void rjButton6_Click(object sender, EventArgs e)
         {
 
+=======
+        private void pnThongKeContainer_Click(object sender, EventArgs e)
+        {
+            if (sender is RJButton)
+            {
+                RJButton clickedButton = (RJButton)sender;
+
+                // Đặt màu của tất cả các RJButton khác thành màu transparent
+                foreach (RJButton button in allPanels)
+                {
+                    if (button != clickedButton)
+                    {
+                        button.BackColor = Color.Transparent; // hoặc màu nền mặc định của bạn
+                    }
+                }
+                foreach (Panel pn in allPnLeftBorders)
+                {
+                    if (pn != pnLeftBorderThongKe)
+                    {
+                        pn.BackColor = Color.Transparent;
+                    }
+                }
+                foreach (RJButton button in allBtns)
+                {
+                    button.BackColor = Color.Transparent; // hoặc màu nền mặc định của bạn
+                }
+                // Đặt màu của RJButton được nhấn
+                clickedButton.BackColor = Color.White;
+                pnLeftBorderThongKe.BackColor = Color.FromArgb(58, 191, 186);
+                // Mở form con tương ứng (KhachHangGUI)
+                openChildForm(new ThongKeGUI());
+            }
+>>>>>>> d9815d32aaf1c33a0160eb5a0d2c5f53f4ded9be
         }
     }
 }
