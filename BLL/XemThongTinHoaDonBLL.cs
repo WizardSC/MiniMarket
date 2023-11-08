@@ -19,8 +19,7 @@ namespace BLL
 
         public DataTable getXemListDsHoaDon()
         {
-            // return HoaDonDAL.getXemListHoaDon();
-            return null;
+             return XemThongTinHoaDonDAL.getListPhieuNhap();
         }
     }
 }
