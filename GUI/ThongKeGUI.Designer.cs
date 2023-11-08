@@ -29,12 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThongKeGUI));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnBoxThongKe = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -49,37 +54,55 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.chartDoanhThu = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.dgvTopSPBanChay = new System.Windows.Forms.DataGridView();
+            this.label10 = new System.Windows.Forms.Label();
+            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuongBanRa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnSelectThangNam = new System.Windows.Forms.Panel();
+            this.pnMain = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtHienThi = new GUI.MyCustom.RJTextBox();
+            this.cbxChonNam = new GUI.MyCustom.RJComboBox();
+            this.cbxChonThang = new GUI.MyCustom.RJComboBox();
+            this.chartSPTheoGioiTinh = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pnBoxThongKe.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartDoanhThu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTopSPBanChay)).BeginInit();
+            this.pnSelectThangNam.SuspendLayout();
+            this.pnMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartSPTheoGioiTinh)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.chartDoanhThu);
-            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.pnMain);
+            this.panel1.Controls.Add(this.pnBoxThongKe);
+            this.panel1.Controls.Add(this.pnSelectThangNam);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1180, 738);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
+            // pnBoxThongKe
             // 
-            this.panel2.Controls.Add(this.panel6);
-            this.panel2.Controls.Add(this.panel5);
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1180, 192);
-            this.panel2.TabIndex = 0;
+            this.pnBoxThongKe.Controls.Add(this.panel6);
+            this.pnBoxThongKe.Controls.Add(this.panel5);
+            this.pnBoxThongKe.Controls.Add(this.panel4);
+            this.pnBoxThongKe.Controls.Add(this.panel3);
+            this.pnBoxThongKe.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnBoxThongKe.Location = new System.Drawing.Point(0, 35);
+            this.pnBoxThongKe.Name = "pnBoxThongKe";
+            this.pnBoxThongKe.Size = new System.Drawing.Size(1180, 188);
+            this.pnBoxThongKe.TabIndex = 0;
             // 
             // panel3
             // 
@@ -87,7 +110,7 @@
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(36, 23);
+            this.panel3.Location = new System.Drawing.Point(36, 21);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(218, 147);
             this.panel3.TabIndex = 0;
@@ -97,7 +120,7 @@
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.label6);
             this.panel4.Controls.Add(this.label2);
-            this.panel4.Location = new System.Drawing.Point(333, 23);
+            this.panel4.Location = new System.Drawing.Point(333, 21);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(218, 147);
             this.panel4.TabIndex = 1;
@@ -107,7 +130,7 @@
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.label7);
             this.panel5.Controls.Add(this.label4);
-            this.panel5.Location = new System.Drawing.Point(630, 23);
+            this.panel5.Location = new System.Drawing.Point(630, 21);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(218, 147);
             this.panel5.TabIndex = 1;
@@ -117,7 +140,7 @@
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.label8);
             this.panel6.Controls.Add(this.label5);
-            this.panel6.Location = new System.Drawing.Point(927, 23);
+            this.panel6.Location = new System.Drawing.Point(927, 21);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(218, 147);
             this.panel6.TabIndex = 1;
@@ -219,25 +242,263 @@
             // 
             // chartDoanhThu
             // 
-            chartArea1.Name = "chartDoanhThu";
-            this.chartDoanhThu.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartDoanhThu.Legends.Add(legend1);
-            this.chartDoanhThu.Location = new System.Drawing.Point(12, 198);
+            chartArea2.Name = "chartDoanhThu";
+            this.chartDoanhThu.ChartAreas.Add(chartArea2);
+            this.chartDoanhThu.Location = new System.Drawing.Point(3, 0);
             this.chartDoanhThu.Name = "chartDoanhThu";
-            series1.ChartArea = "chartDoanhThu";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "chartDoanhThu";
-            this.chartDoanhThu.Series.Add(series1);
-            this.chartDoanhThu.Size = new System.Drawing.Size(514, 343);
+            this.chartDoanhThu.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
+            series2.ChartArea = "chartDoanhThu";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.IsVisibleInLegend = false;
+            series2.Name = "chartDoanhThu";
+            this.chartDoanhThu.Series.Add(series2);
+            this.chartDoanhThu.Size = new System.Drawing.Size(551, 343);
             this.chartDoanhThu.TabIndex = 1;
-            this.chartDoanhThu.Text = "chart1";
+            title2.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            title2.Name = "Title1";
+            title2.Text = "DOANH THU THEO THÁNG";
+            this.chartDoanhThu.Titles.Add(title2);
+            // 
+            // dgvTopSPBanChay
+            // 
+            this.dgvTopSPBanChay.AllowUserToAddRows = false;
+            this.dgvTopSPBanChay.AllowUserToDeleteRows = false;
+            this.dgvTopSPBanChay.AllowUserToResizeColumns = false;
+            this.dgvTopSPBanChay.AllowUserToResizeRows = false;
+            this.dgvTopSPBanChay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvTopSPBanChay.BackgroundColor = System.Drawing.Color.White;
+            this.dgvTopSPBanChay.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTopSPBanChay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvTopSPBanChay.ColumnHeadersHeight = 28;
+            this.dgvTopSPBanChay.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TenSP,
+            this.SoLuongBanRa});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTopSPBanChay.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvTopSPBanChay.EnableHeadersVisualStyles = false;
+            this.dgvTopSPBanChay.GridColor = System.Drawing.Color.Black;
+            this.dgvTopSPBanChay.Location = new System.Drawing.Point(637, 30);
+            this.dgvTopSPBanChay.Name = "dgvTopSPBanChay";
+            this.dgvTopSPBanChay.ReadOnly = true;
+            this.dgvTopSPBanChay.RowHeadersVisible = false;
+            this.dgvTopSPBanChay.RowHeadersWidth = 51;
+            this.dgvTopSPBanChay.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvTopSPBanChay.RowTemplate.Height = 30;
+            this.dgvTopSPBanChay.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvTopSPBanChay.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTopSPBanChay.Size = new System.Drawing.Size(538, 267);
+            this.dgvTopSPBanChay.TabIndex = 2;
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.Color.White;
+            this.label10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label10.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.label10.Location = new System.Drawing.Point(818, 3);
+            this.label10.Margin = new System.Windows.Forms.Padding(0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(200, 24);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "SẢN PHẨM BÁN CHẠY";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // TenSP
+            // 
+            this.TenSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenSP.DataPropertyName = "TenSP";
+            this.TenSP.HeaderText = "Tên SP";
+            this.TenSP.MinimumWidth = 6;
+            this.TenSP.Name = "TenSP";
+            this.TenSP.ReadOnly = true;
+            // 
+            // SoLuongBanRa
+            // 
+            this.SoLuongBanRa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.SoLuongBanRa.DataPropertyName = "SoLuongBanRa";
+            this.SoLuongBanRa.HeaderText = "Số lượng bán ra";
+            this.SoLuongBanRa.MinimumWidth = 6;
+            this.SoLuongBanRa.Name = "SoLuongBanRa";
+            this.SoLuongBanRa.ReadOnly = true;
+            this.SoLuongBanRa.Width = 129;
+            // 
+            // pnSelectThangNam
+            // 
+            this.pnSelectThangNam.Controls.Add(this.label12);
+            this.pnSelectThangNam.Controls.Add(this.cbxChonNam);
+            this.pnSelectThangNam.Controls.Add(this.label11);
+            this.pnSelectThangNam.Controls.Add(this.cbxChonThang);
+            this.pnSelectThangNam.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnSelectThangNam.Location = new System.Drawing.Point(0, 0);
+            this.pnSelectThangNam.Name = "pnSelectThangNam";
+            this.pnSelectThangNam.Size = new System.Drawing.Size(1180, 35);
+            this.pnSelectThangNam.TabIndex = 4;
+            // 
+            // pnMain
+            // 
+            this.pnMain.Controls.Add(this.chartSPTheoGioiTinh);
+            this.pnMain.Controls.Add(this.txtHienThi);
+            this.pnMain.Controls.Add(this.label13);
+            this.pnMain.Controls.Add(this.chartDoanhThu);
+            this.pnMain.Controls.Add(this.dgvTopSPBanChay);
+            this.pnMain.Controls.Add(this.label10);
+            this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnMain.Location = new System.Drawing.Point(0, 223);
+            this.pnMain.Name = "pnMain";
+            this.pnMain.Size = new System.Drawing.Size(1180, 515);
+            this.pnMain.TabIndex = 5;
+            // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.Color.White;
+            this.label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label11.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.label11.Location = new System.Drawing.Point(0, 5);
+            this.label11.Margin = new System.Windows.Forms.Padding(0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(60, 24);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "Tháng:";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.Color.White;
+            this.label12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label12.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.label12.Location = new System.Drawing.Point(205, 5);
+            this.label12.Margin = new System.Windows.Forms.Padding(0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(60, 24);
+            this.label12.TabIndex = 8;
+            this.label12.Text = "Năm:";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label13
+            // 
+            this.label13.BackColor = System.Drawing.Color.White;
+            this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label13.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(1046, 3);
+            this.label13.Margin = new System.Windows.Forms.Padding(0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(73, 24);
+            this.label13.TabIndex = 9;
+            this.label13.Text = "Hiển thị:";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtHienThi
+            // 
+            this.txtHienThi.BackColor = System.Drawing.SystemColors.Window;
+            this.txtHienThi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.txtHienThi.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.txtHienThi.BorderRadius = 0;
+            this.txtHienThi.BorderSize = 2;
+            this.txtHienThi.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHienThi.ForeColor = System.Drawing.Color.Black;
+            this.txtHienThi.Location = new System.Drawing.Point(1123, 3);
+            this.txtHienThi.Margin = new System.Windows.Forms.Padding(4);
+            this.txtHienThi.MaximumSize = new System.Drawing.Size(1000, 26);
+            this.txtHienThi.MinimumSize = new System.Drawing.Size(0, 26);
+            this.txtHienThi.Multiline = false;
+            this.txtHienThi.Name = "txtHienThi";
+            this.txtHienThi.Padding = new System.Windows.Forms.Padding(2, 4, 2, 2);
+            this.txtHienThi.PasswordChar = false;
+            this.txtHienThi.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtHienThi.PlaceholderText = "";
+            this.txtHienThi.ReadOnly = false;
+            this.txtHienThi.Size = new System.Drawing.Size(52, 26);
+            this.txtHienThi.TabIndex = 9;
+            this.txtHienThi.Texts = "";
+            this.txtHienThi.UnderlinedStyle = false;
+            this.txtHienThi._TextChanged += new System.EventHandler(this.txtHienThi__TextChanged);
+            this.txtHienThi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHienThi_KeyPress);
+            // 
+            // cbxChonNam
+            // 
+            this.cbxChonNam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.cbxChonNam.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.cbxChonNam.BorderSize = 2;
+            this.cbxChonNam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cbxChonNam.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxChonNam.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.cbxChonNam.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.cbxChonNam.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.cbxChonNam.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.cbxChonNam.Location = new System.Drawing.Point(278, 2);
+            this.cbxChonNam.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
+            this.cbxChonNam.MinimumSize = new System.Drawing.Size(100, 30);
+            this.cbxChonNam.Name = "cbxChonNam";
+            this.cbxChonNam.Padding = new System.Windows.Forms.Padding(2);
+            this.cbxChonNam.Size = new System.Drawing.Size(108, 30);
+            this.cbxChonNam.TabIndex = 7;
+            this.cbxChonNam.Texts = "--Chọn--";
+            this.cbxChonNam.OnSelectedIndexChanged += new System.EventHandler(this.cbxChonNam_OnSelectedIndexChanged);
+            // 
+            // cbxChonThang
+            // 
+            this.cbxChonThang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.cbxChonThang.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.cbxChonThang.BorderSize = 2;
+            this.cbxChonThang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cbxChonThang.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxChonThang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.cbxChonThang.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.cbxChonThang.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.cbxChonThang.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.cbxChonThang.Location = new System.Drawing.Point(73, 2);
+            this.cbxChonThang.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
+            this.cbxChonThang.MinimumSize = new System.Drawing.Size(100, 30);
+            this.cbxChonThang.Name = "cbxChonThang";
+            this.cbxChonThang.Padding = new System.Windows.Forms.Padding(2);
+            this.cbxChonThang.Size = new System.Drawing.Size(108, 30);
+            this.cbxChonThang.TabIndex = 5;
+            this.cbxChonThang.Texts = "--Chọn--";
+            this.cbxChonThang.OnSelectedIndexChanged += new System.EventHandler(this.cbxChonThang_OnSelectedIndexChanged);
+            // 
+            // chartSPTheoGioiTinh
+            // 
+            chartArea1.Name = "chartSPTheoGioiTinh";
+            this.chartSPTheoGioiTinh.ChartAreas.Add(chartArea1);
+            legend1.BorderWidth = 2;
+            legend1.Name = "Legend1";
+            this.chartSPTheoGioiTinh.Legends.Add(legend1);
+            this.chartSPTheoGioiTinh.Location = new System.Drawing.Point(927, 303);
+            this.chartSPTheoGioiTinh.Name = "chartSPTheoGioiTinh";
+            this.chartSPTheoGioiTinh.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartSPTheoGioiTinh.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(255)))), ((int)(((byte)(225))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(191)))), ((int)(((byte)(187))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))))};
+            series1.ChartArea = "chartSPTheoGioiTinh";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "chartSPTheoGioiTinh";
+            this.chartSPTheoGioiTinh.Series.Add(series1);
+            this.chartSPTheoGioiTinh.Size = new System.Drawing.Size(248, 204);
+            this.chartSPTheoGioiTinh.TabIndex = 11;
             title1.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             title1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
             title1.Name = "Title1";
-            title1.Text = "DOANH THU THEO THÁNG";
-            this.chartDoanhThu.Titles.Add(title1);
+            title1.Text = "Theo giới tính";
+            this.chartSPTheoGioiTinh.Titles.Add(title1);
             // 
             // ThongKeGUI
             // 
@@ -250,12 +511,16 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ThongKeGUI";
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
+            this.pnBoxThongKe.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartDoanhThu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTopSPBanChay)).EndInit();
+            this.pnSelectThangNam.ResumeLayout(false);
+            this.pnMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartSPTheoGioiTinh)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -263,7 +528,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnBoxThongKe;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
@@ -278,5 +543,18 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartDoanhThu;
+        private System.Windows.Forms.DataGridView dgvTopSPBanChay;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongBanRa;
+        private System.Windows.Forms.Panel pnSelectThangNam;
+        private System.Windows.Forms.Panel pnMain;
+        private System.Windows.Forms.Label label12;
+        private MyCustom.RJComboBox cbxChonNam;
+        private System.Windows.Forms.Label label11;
+        private MyCustom.RJComboBox cbxChonThang;
+        private System.Windows.Forms.Label label13;
+        private MyCustom.RJTextBox txtHienThi;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartSPTheoGioiTinh;
     }
 }
