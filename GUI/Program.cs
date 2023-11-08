@@ -21,7 +21,7 @@ namespace GUI
            
 
             // Application.Run(new GiaoDienGUI());
-            Application.Run(new GiaoDienGUI());
+            Application.Run(new NhapHangGUI());
 
 
         }

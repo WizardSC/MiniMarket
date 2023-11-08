@@ -535,5 +535,10 @@ namespace GUI
                 openChildForm(new NhapHangGUI());
             }
         }
+
+        private void rjButton6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

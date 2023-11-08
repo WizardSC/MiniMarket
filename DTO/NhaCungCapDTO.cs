@@ -15,8 +15,20 @@ namespace DTO
         private string soFAX;
         private int trangThai;
         private byte[] img;
+        
         public NhaCungCapDTO()
         {
+
+        }
+        public NhaCungCapDTO(string maNCC, string tenNCC, string diaChi, string soDT, string soFAX, int trangThai)
+        {
+            this.maNCC = maNCC;
+            this.tenNCC = tenNCC;
+            this.diaChi = diaChi;
+            this.soDT = soDT;
+            this.soFAX = soFAX;
+            this.trangThai = trangThai;
+   
         }
 
         public NhaCungCapDTO(string maNCC, string tenNCC, string diaChi, string soDT, string soFAX, int trangThai, byte[] img)

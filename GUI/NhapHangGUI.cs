@@ -19,6 +19,11 @@ namespace GUI
 {
     public partial class NhapHangGUI : Form
     {
+
+        private string textSearchCondition = "";
+        private string currentSearch;
+
+
         private int currentScrollPosition = 0;
         private CTPhieuNhapBLL ctpnBLL;
         private NhapHangBLL nhBLL;
@@ -66,6 +71,7 @@ namespace GUI
             loadToFlpNhaCungCap();
             loadNgayThang();
             loadMaPN();
+            loadCbxTimKiem();
         }
         private System.Drawing.Image convertBinaryStringToImage(byte[] binaryString)
         {
@@ -104,7 +110,66 @@ namespace GUI
             }
 
         }
+        private void loadCbxTimKiem()
+        {
+            cbxTimKiem.Items.Add("Mã SP");
+            cbxTimKiem.Items.Add("Tên SP");
+            cbxTimKiem.Items.Add("Tên loại");
+            cbxTimKiem.SelectedItem = 0;
+        }
 
+        private string returnDieuKien(string text)
+        {
+            return text;
+        }
+        private string GetTextSearchCondition(string searchText)
+        {
+            switch (cbxTimKiem.SelectedIndex)
+            {
+                case 0:
+                    return returnDieuKien($"MaSP like '%{searchText}%'");
+                case 1:
+                    return returnDieuKien($"TenSP like '%{searchText}%'");
+                case 2:
+                    return returnDieuKien($"TenLoai like '%{searchText}%'");
+                default:
+                    return returnDieuKien($"MaSP like '%{searchText}%'"); ;
+            }
+        }
+        private void applySearchs(string text)
+        {
+            currentSearch = text;
+            DataView dvSanPham = nhBLL.getListNhapHang().DefaultView;
+            dvSanPham.RowFilter = currentSearch;
+            dgvSanPham.DataSource = dvSanPham.ToTable();
+        }
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            string textTimKiem = txtTimKiem.Texts;
+            textSearchCondition = GetTextSearchCondition(textTimKiem);
+            applySearchs(textTimKiem);
+        }
+
+
+        private string CombineConditions(string condition1, string condition2)
+        {
+            if (!string.IsNullOrEmpty(condition1) && !string.IsNullOrEmpty(condition2))
+            {
+                return $"({condition1}) AND ({condition2})";
+            }
+            else if (!string.IsNullOrEmpty(condition1))
+            {
+                return condition1;
+            }
+            else if (!string.IsNullOrEmpty(condition2))
+            {
+                return condition2;
+            }
+            else
+            {
+                return "";
+            }
+        }
         private DataTable searchWithTenNCC(string tenNCC)
         {
             DataTable nhaCungCapTable = dtSanPham.Clone(); // DataTable đã tồn tại
@@ -563,5 +628,6 @@ namespace GUI
 
 
         }
+        
     }
 }
