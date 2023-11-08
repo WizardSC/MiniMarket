@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DevExpress.Charts.Native;
 using DevExpress.XtraExport.Xls;
 using DevExpress.XtraPrinting.Native;
 using DevExpress.XtraReports.UI;
@@ -15,6 +16,7 @@ namespace GUI.Reports
     {
         public HoaDonDataSet hdDS;
         public HoaDonRP hdRP;
+        private CTHoaDonBLL cthdBLL;
         private string maHD;
         private string ngayLap;
         private string tenNV;
@@ -22,14 +24,16 @@ namespace GUI.Reports
         private string tenKH;
         private int diemTLHienTai;
         private int diemTLNhanDuoc;
+        private int diemTLSuDung;
         private string maKM;
         private DataTable dtThongTinCTHD;
-        int tongTienTT = 0;
-        int tongTien = 0;
+        private int tongTienTT = 0;
+        private float tongTien = 0;
         int tongSoMatHang = 0;
         
         public HoaDonCreator()
         {
+            cthdBLL = new CTHoaDonBLL();
             hdDS = new HoaDonDataSet();
             hdRP = new HoaDonRP();
         }
@@ -43,28 +47,41 @@ namespace GUI.Reports
         public string MaKM { get => maKM; set => maKM = value; }
         public DataTable DtThongTinCTHD { get => dtThongTinCTHD; set => dtThongTinCTHD = value; }
         public int DiemTLNhanDuoc { get => diemTLNhanDuoc; set => diemTLNhanDuoc = value; }
-
+        public int TongTienTT { get => tongTienTT; set => tongTienTT = value; }
+        public float TongTien { get => tongTien; set => tongTien = value; }
+        public int DiemTLSuDung { get => diemTLSuDung; set => diemTLSuDung = value; }
+        public string ConvertFloatToVND(float amount)
+        {
+            // Sử dụng định dạng số float của tiền VND, thêm ký hiệu "đ" vào cuối
+            string formattedAmount = string.Format("{0:N}đ", amount);
+            return formattedAmount;
+        }
+        public string ConvertIntToVND(int amount)
+        {
+            // Sử dụng định dạng số nguyên của tiền VND và thêm ký hiệu "đ" vào cuối
+            string formattedAmount = string.Format("{0:N0}đ", amount);
+            return formattedAmount;
+        }
         public bool NhapDLVaoDataSet()
         {
             try
             {
 
-                //DataTable ttCTPN = nhBLL.getThongTinCTPhieuNhap(maPN);
+                DataTable ttCTPN = cthdBLL.getListCTHDbyMaHD(MaHD);
 
                 foreach (DataRow row in DtThongTinCTHD.Rows)
                 {
+                    Console.WriteLine(row.Field<int>("DonGiaDaGiam"));
                     string maSP = row["MaSP"].ToString();
                     string tenSP = row["TenSP"].ToString();
                     int soLuong = int.Parse(row["SoLuong"].ToString());
                     int donGiaDaGiam = int.Parse(row["DonGiaDaGiam"].ToString());
                     int thanhTien = int.Parse(row["ThanhTien"].ToString());
-                    int donGiaBanDau = int.Parse(row["DonGiaBanDau"].ToString());
-                    tongTienTT += donGiaBanDau*soLuong;
-                    tongTien += thanhTien;
+                    //hdRP.lblDonGiaBanDau.Text = ConvertIntToVND(donGiaBanDau);
                     tongSoMatHang += 1;
                     hdDS.HoaDon.Rows.Add(new object[]
                     {
-                        maSP, tenSP, soLuong, donGiaDaGiam, thanhTien
+                        maSP,tenSP,soLuong,donGiaDaGiam,thanhTien
                     });
                 }
 
@@ -89,9 +106,10 @@ namespace GUI.Reports
             hdRP.lblDiemTLHienTai.Text = diemTLHienTai.ToString();
             hdRP.lblMaKM.Text = maKM;
             hdRP.lblTongSoMH.Text = tongSoMatHang.ToString();
-            hdRP.lblTongTienTT.Text = tongTienTT.ToString();
+            hdRP.lblTongTienTT.Text = ConvertIntToVND(TongTienTT);
             hdRP.lblDiemTLNhanDuoc.Text = diemTLNhanDuoc.ToString();
-            hdRP.lblTongTien.Text = tongTien.ToString();
+            hdRP.lblDiemTLSuDung.Text = diemTLSuDung.ToString();
+            hdRP.lblTongTien.Text = ConvertFloatToVND(TongTien);
             ReportPrintTool viewRP = new ReportPrintTool(hdRP);
             viewRP.ShowPreview();
 
