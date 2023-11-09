@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DevExpress.XtraReports.UI;
 using DTO;
 using GUI.MyCustom;
 using System;
@@ -44,8 +45,46 @@ namespace GUI
             nvBLL = new NhanVienBLL();
             dt = nvBLL.getListNhanVien();
             unhideError();
-            loadMaNV();
             loadCbxTimKiem();
+            lblErrNgaySinh.Visible = false;
+            loadMaNV();
+        }
+        private void loadMaNV()
+        {
+            //string lastMaNV = null;
+            //foreach (DataRow row in dt.Rows)
+            //{
+            //    lastMaNV = row["MaNV"].ToString();
+            //}
+            //if (lastMaNV == "")
+            //{
+            //    txtMaNV.Texts = "NV001";
+            //}
+            //int tempNum = int.Parse(lastMaNV.Substring(2));
+            //if ((tempNum + 1) >= 10)
+            //{
+            //    txtMaNV.Texts = "NV0" + (tempNum + 1).ToString();
+            //}
+            //else if (tempNum >= 1 && tempNum < 9)
+            //{
+            //    txtMaNV.Texts = "NV00" + (tempNum + 1).ToString();
+            //}
+            //MessageBox.Show(txtMaNV.Texts,
+            //  "Thông báo",
+            //  MessageBoxButtons.OK,
+            //  MessageBoxIcon.Information);
+            string lastMaNV = dt.AsEnumerable()
+               .Select(row => row.Field<string>("MaNV"))
+               .LastOrDefault();
+
+            int nextNum = 1;
+            if (!string.IsNullOrEmpty(lastMaNV) && lastMaNV.Length >= 5)
+            {
+                int.TryParse(lastMaNV.Substring(2), out nextNum);
+                nextNum++;
+            }
+            txtMaNV.Texts = "NV" + nextNum.ToString("D3");
+
         }
         private void load_Form()
         {
@@ -56,6 +95,98 @@ namespace GUI
             dgvNhanVien.DataSource = nvBLL.getListNhanVien();
             dtpNgaySinh.Format = DateTimePickerFormat.Custom;
             dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
+ 
+        }
+
+        private bool ContainsLetter(string text)
+        {
+            foreach (char c in text)
+            {
+                if (char.IsLetter(c))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        private string CheckAndSetColorSDT(object control, Label label)
+        {
+            if (control is RJTextBox textBox)
+            {
+                string text = textBox.Texts.Trim();
+                if (string.IsNullOrWhiteSpace(text))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "*Bạn phải nhập so DT";
+                    return null;
+                }
+                else if (ContainsLetter(text))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "    *Số DT không thể chứa chữ";
+                    return null;
+                }
+                else
+                {
+                    label.ForeColor = Color.Transparent;
+                    label.Text = "";
+                }
+                return text;
+            }
+            return null;
+        }
+        private string CheckAndSetColorHo(object control, Label label)
+        {
+            if (control is RJTextBox textBox)
+            {
+                string text = textBox.Texts.Trim();
+                if (string.IsNullOrWhiteSpace(text))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "*Bạn phải nhập họ";
+                    return null;
+                }
+                else if (int.TryParse(text, out int result))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "    *Họ không thể chứa chữ số";
+                    return null;
+                }
+                else
+                {
+                    label.ForeColor = Color.Transparent;
+                    label.Text = "";
+
+                }
+                return text;
+            }
+            return null;
+        }
+        private string CheckAndSetColorTen(object control, Label label)
+        {
+            if (control is RJTextBox textBox)
+            {
+                string text = textBox.Texts.Trim();
+                if (string.IsNullOrWhiteSpace(text))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "*Bạn phải nhập tên";
+                    return null;
+                }
+                else if (int.TryParse(text, out int result))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "    *Tên không thể chứa chữ số";
+                    return null;
+                }
+                else
+                {
+                    label.ForeColor = Color.Transparent;
+                    label.Text = "";
+                }
+                return text;
+            }
+            return null;
         }
         private string CheckAndSetColor(object control, Label label)
         {
@@ -81,20 +212,7 @@ namespace GUI
 
             return null; // Nếu kiểu dữ liệu không hợp lệ.
         }
-        private void loadMaNV()
-        {
-            string lastMaNV = dt.AsEnumerable()
-                .Select(row => row.Field<string>("MaNV"))
-                .LastOrDefault();
-
-            int nextNum = 1;
-            if (!string.IsNullOrEmpty(lastMaNV) && lastMaNV.Length >= 5)
-            {
-                int.TryParse(lastMaNV.Substring(2), out nextNum);
-                nextNum++;
-            }
-            txtMaNV.Texts = "NV" + nextNum.ToString("D3");
-        }
+        
         private void loadCbxTimKiem()
         {
             cbxTimKiem.Items.Add("Mã NV");
@@ -151,14 +269,16 @@ namespace GUI
         }
         private void chkTuoi_CheckedChanged(object sender, EventArgs e)
         {
+ 
             isTuoi = toggleDieuKien(isTuoi);
             txtTuoiStart.Enabled = isTuoi;
             txtTuoiEnd.Enabled = isTuoi;
+            lblErrTuoiFilter.Visible = !isTuoi;
 
             if (!isTuoi)
             {
-                tuoiStart = 0;
-                tuoiEnd = 0;
+                txtTuoiStart.PlaceholderText = "Từ";
+                txtTuoiEnd.PlaceholderText = "Đến";
 
             }
             if (isTuoi)
@@ -187,34 +307,56 @@ namespace GUI
             }
             if (int.TryParse(txtTuoiStart.Texts, out int tuoiStartResult))
             {
-                // Chuyển đổi thành công, giá trị tuoiStartResult là số nguyên từ chuỗi
                 tuoiStart = tuoiStartResult;
-                btnTimKiem_Click(sender, e);
+                if(tuoiStart < 0)
+                {
+                    txtTuoiStart.Texts = "0";
+                    lblErrTuoiFilter.Text = "* Không được nhập tuổi là số âm";
+                    lblErrTuoiFilter.Visible = true;
+                    return;
+                }
+                else
+                {
+                    lblErrTuoiFilter.Visible = false;
+                    tuoiStart = tuoiStartResult;
+                    btnTimKiem_Click(sender, e);
+                }
+                lblErrTuoiFilter.Visible = false;
             }
+            
             else
             {
-                // Chuỗi không hợp lệ, bạn có thể xử lý lỗi hoặc thông báo cho người dùng
                 return;
             }
-
-
         }
 
         private void txtTuoiEnd__TextChanged(object sender, EventArgs e)
-        {
+        {  
             if (string.IsNullOrEmpty(txtTuoiEnd.Texts))
             {
                 tuoiEnd = 0;
             }
             if (int.TryParse(txtTuoiEnd.Texts, out int tuoiEndResult))
             {
-                // Chuyển đổi thành công, giá trị tuoiStartResult là số nguyên từ chuỗi
                 tuoiEnd = tuoiEndResult;
+                if(tuoiEnd < 0)
+                {
+                    txtTuoiEnd.Texts = "";
+                    lblErrTuoiFilter.Text = "* Không được nhập tuổi là số âm";
+                    lblErrTuoiFilter.Visible = true;
+                    return;
+                }
+                if(int.Parse(txtTuoiStart.Texts) >= tuoiEnd)
+                {
+                    lblErrTuoiFilter.Visible = true;
+                    lblErrTuoiFilter.Text = "* Bạn phải tuổi kết thúc lớn hơn tuổi bắt đầu ";
+                    return;
+                }
+                lblErrTuoiFilter.Visible = false;
                 btnTimKiem_Click(sender, e);
             }
             else
             {
-                // Chuỗi không hợp lệ, bạn có thể xử lý lỗi hoặc thông báo cho người dùng
                 return;
             }
 
@@ -259,10 +401,23 @@ namespace GUI
         private void btnThem_Click(object sender, EventArgs e)
         {
             string maNV = CheckAndSetColor(txtMaNV, lblErrMaNV);
-            string ho = CheckAndSetColor(txtHo, lblErrHo);
-            string ten = CheckAndSetColor(txtTen, lblErrTen);
-            string soDT = CheckAndSetColor(txtSoDT, lblErrSoDT);
+            string ho = CheckAndSetColorHo(txtHo, lblErrHo);
+            string ten = CheckAndSetColorTen(txtTen, lblErrTen);
+            string soDT = CheckAndSetColorSDT(txtSoDT, lblErrSoDT);
+            bool trueNgaySinh = true;
+
             DateTime ngaySinh = dtpNgaySinh.Value;
+            if(ngaySinh > DateTime.Now)
+            {
+                trueNgaySinh = false;
+                lblErrNgaySinh.Visible = true;
+            }
+            else
+            {
+                trueNgaySinh = true;
+                lblErrNgaySinh.Visible = false;
+
+            }
             string diaChi = CheckAndSetColor(txtDiaChi, lblErrDiaChi);
             string trangThai = CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
             int trangThaiValue = (trangThai == "Hoạt động" ? 1 : 0);
@@ -288,8 +443,7 @@ namespace GUI
                 lblErrGioiTinh.ForeColor = Color.Transparent; // Đổi màu trong suốt nếu có một trong hai CheckBox được chọn
 
             }
-
-            if (!(maNV != "" && ho != "" && ten != "" && soDT != "" && diaChi != "" && trangThai != ""))
+            if ((string.IsNullOrWhiteSpace(ho) || string.IsNullOrWhiteSpace(ten) || string.IsNullOrWhiteSpace(soDT) || string.IsNullOrWhiteSpace(diaChi) || string.IsNullOrWhiteSpace(trangThai) || string.IsNullOrWhiteSpace(chucVu) && trueNgaySinh == true ))
             {
                 return;
             }
@@ -300,7 +454,6 @@ namespace GUI
                   "Thông báo",
                   MessageBoxButtons.OK,
                   MessageBoxIcon.Information);
-                load_Form();
                 reset();
             }
             else
@@ -440,7 +593,7 @@ namespace GUI
         }
         private void reset()
         {
-            loadMaNV();
+            load_Form();
             txtHo.Texts = "";
             txtTen.Texts = "";
             txtSoDT.Texts = "";
@@ -451,6 +604,9 @@ namespace GUI
             cbxChucVu.Texts = "--Chọn chức vụ--";
             cbxTrangThai.SelectedIndex = -1;
             cbxTrangThai.Texts = "--Chọn trạng thái--";
+            txtTimKiem.Texts = "";
+            loadMaNV();
+
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -801,5 +957,6 @@ namespace GUI
             combinedCondition = ApplyOrRemoveTuoiCondition(combinedCondition, isTuoi);
             applySearchs(combinedCondition);
         }
+
     }
 }

@@ -575,6 +575,7 @@
             this.rjButton6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.rjButton6.TextColor = System.Drawing.Color.Black;
             this.rjButton6.UseVisualStyleBackColor = false;
+            this.rjButton6.Click += new System.EventHandler(this.rjButton6_Click);
             // 
             // panel15
             // 

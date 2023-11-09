@@ -11,6 +11,42 @@ namespace DAL
 {
     public class NhaCungCapDAL : MSSQLConnect
     {
+
+        public List<NhaCungCapDTO> getListNhaCungCap()
+        {
+            List<NhaCungCapDTO> listNhaCC = new List<NhaCungCapDTO>();
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT MaNCC, TenNCC, DiaChi, SoDT, soFax, TrangThai FROM nhacungcap";
+
+                cmd.Connection = conn;
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    NhaCungCapDTO ncc = new NhaCungCapDTO(
+                        reader["MaNCC"].ToString(),
+                        reader["TenNCC"].ToString(),
+                        reader["DiaChi"].ToString(),
+                        reader["SoDT"].ToString(),
+                        reader["soFax"].ToString(),
+                        reader.GetInt32(reader.GetOrdinal("TrangThai"))
+                    );
+                    listNhaCC.Add(ncc);
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return listNhaCC;
+        }
         public DataTable getListNhaCC()
         {
             DataTable dt = new DataTable();
@@ -155,35 +191,34 @@ namespace DAL
                 Disconnect();
             }
         }
-        //Có thể dùng DataTable nhưng chọn cách này
-        public NhaCungCapDTO getNhaCungCapbyMaNCC(string maNCC)
-        {
-            NhaCungCapDTO ncc = new NhaCungCapDTO();
-            try
+            public NhaCungCapDTO getNhaCungCapbyMaNCC(string maNCC)
             {
-                Connect();
-                string sql = "select TenNCC, DiaChi, SoDT, SoFAX from nhacungcap where MaNCC = @MaNCC";
-                SqlCommand cmd = new SqlCommand(sql,conn);
-                cmd.Parameters.Add("MaNCC", SqlDbType.Char).Value = maNCC;
-                SqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
+                NhaCungCapDTO ncc = new NhaCungCapDTO();
+                try
                 {
-                    ncc.TenNCC = reader["TenNCC"].ToString();
-                    ncc.DiaChi = reader["DiaChi"].ToString();
-                    ncc.SoDT = reader["SoDT"].ToString();
-                    ncc.SoFAX = reader["SoFAX"].ToString();
+                    Connect();
+                    string sql = "select TenNCC, DiaChi, SoDT, SoFAX from nhacungcap where MaNCC = @MaNCC";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.Add("MaNCC", SqlDbType.Char).Value = maNCC;
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        ncc.TenNCC = reader["TenNCC"].ToString();
+                        ncc.DiaChi = reader["DiaChi"].ToString();
+                        ncc.SoDT = reader["SoDT"].ToString();
+                        ncc.SoFAX = reader["SoFAX"].ToString();
+                    }
+                    reader.Close();
                 }
-                reader.Close();
+                catch (Exception ex)
+                {
+                    return null;
+                }
+                finally
+                {
+                    Disconnect();
+                }
+                return ncc;
             }
-            catch (Exception ex)
-            {
-                return null;
-            }
-            finally
-            {
-                Disconnect();
-            }
-            return ncc;
         }
     }
-}

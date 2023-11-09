@@ -86,6 +86,10 @@ namespace GUI
             {
                 txtMaNCC.Texts = "NCC00" + (tempNum + 1).ToString();
             }
+            MessageBox.Show(txtMaNCC.Texts,
+  "Thông báo",
+  MessageBoxButtons.OK,
+  MessageBoxIcon.Information);
         }
         private void loadCbxTimKiem()
         {
@@ -134,8 +138,6 @@ namespace GUI
                 return "";
             }
         }
-        
-
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             string textTimKiem = txtTimKiem.Texts;
@@ -154,7 +156,89 @@ namespace GUI
             cbxTrangThai.SelectedIndex = -1;
             cbxTrangThai.Texts = "--Chọn trạng thái--";
         }
-
+        private bool ContainsLetter(string text)
+        {
+            foreach (char c in text)
+            {
+                if (char.IsLetter(c))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        private string CheckAndSetColorSoFax(object control, Label label)
+        {
+            if (control is RJTextBox textBox)
+            {
+                string text = textBox.Texts.Trim();
+                if (string.IsNullOrWhiteSpace(text))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "*Bạn phải nhập so Fax";
+                }
+                else if (ContainsLetter(text))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "    *Số Fax không thể chứa chữ";
+                }
+                else
+                {
+                    label.ForeColor = Color.Transparent;
+                    label.Text = "";
+                }
+                return text;
+            }
+            return null;
+        }
+        private string CheckAndSetColorSoDT(object control, Label label)
+        {
+            if (control is RJTextBox textBox)
+            {
+                string text = textBox.Texts.Trim();
+                if (string.IsNullOrWhiteSpace(text))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "*Bạn phải nhập SDT";
+                }
+                else if (ContainsLetter(text))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "    *SDT không thể chứa chữ";
+                }
+                else
+                {
+                    label.ForeColor = Color.Transparent;
+                    label.Text = "";
+                }
+                return text;
+            }
+            return null;
+        }
+        private string CheckAndSetColorTen(object control, Label label)
+        {
+            if (control is RJTextBox textBox)
+            {
+                string text = textBox.Texts.Trim();
+                if (string.IsNullOrWhiteSpace(text))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "*Bạn phải nhập tên"; 
+                }
+                else if (int.TryParse(text, out int result))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "    *Tên không thể chứa chữ số";
+                }
+                else
+                {
+                    label.ForeColor = Color.Transparent;
+                    label.Text = "";
+                }
+                return text;
+            }
+            return null; 
+        }
         private string CheckAndSetColor(object control, Label label)
         {
             if (control is RJTextBox textBox)
@@ -182,37 +266,41 @@ namespace GUI
         private void btnThem_Click(object sender, EventArgs e)
         {
             string maNCC = CheckAndSetColor(txtMaNCC, lblErrMaNCC);
-            string ten = CheckAndSetColor(txtTen, lblErrTen);
+            string ten = CheckAndSetColorTen(txtTen, lblErrTen);
             string diaChi = CheckAndSetColor(txtDiaChi, lblErrDiaChi);
-            string soDT = CheckAndSetColor(txtSoDT, lblErrSoDT);
-            string soFax = CheckAndSetColor(txtSoFax, lblErrSoFax);
+            string soDT = CheckAndSetColorSoDT(txtSoDT, lblErrSoDT);
+            string soFax = CheckAndSetColorSoFax(txtSoFax, lblErrSoFax);
             string trangThai = CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
             int trangThaiValue = (trangThai == "Hoạt động" ? 1 : 0);
             byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
             if (!(maNCC != "" && ten != "" && diaChi != "" && soDT != "" && trangThai != "" && img != null))
             {
                 return;
-            } 
-            NhaCungCapDTO ncc = new NhaCungCapDTO(maNCC,ten, diaChi, soDT, soFax, trangThaiValue, img);
-            if (nccBLL.insertNhaCungCap(ncc))
-            {
-                MessageBox.Show("Thêm thành công",
-                  "Thông báo",
-                  MessageBoxButtons.OK,
-                  MessageBoxIcon.Information);
-                  load_Form();
             }
             else
             {
-                MessageBox.Show("Thêm thất bại",
-                    "Lỗi",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                NhaCungCapDTO ncc = new NhaCungCapDTO(maNCC, ten, diaChi, soDT, soFax, trangThaiValue, img);
+                if (nccBLL.insertNhaCungCap(ncc))
+                {
+                    MessageBox.Show("Thêm thành công",
+                      "Thông báo",
+                      MessageBoxButtons.OK,
+                      MessageBoxIcon.Information);
+                    load_Form();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại",
+                        "Lỗi",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
             }
+            
         }
         private void txtTenNCC__TextChanged(object sender, EventArgs e)
         {
-            CheckAndSetColor(txtTen, lblErrTen);
+            CheckAndSetColorTen(txtTen, lblErrTen);
         }
 
         private void txtDiaChi__TextChanged(object sender, EventArgs e)
@@ -262,14 +350,18 @@ namespace GUI
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
-            string maNCC = txtMaNCC.Texts;
-            string ten = txtTen.Texts;
-            string soDT = txtSoDT.Texts;
-            string diaChi = txtDiaChi.Texts;
-            string soFax = txtSoFax.Texts;
-            int trangThaiValue = (cbxTrangThai.SelectedItem == "Hoạt động") ? 1 : 0;
+            string maNCC = CheckAndSetColor(txtMaNCC, lblErrMaNCC);
+            string ten = CheckAndSetColorTen(txtTen, lblErrTen);
+            string diaChi = CheckAndSetColor(txtDiaChi, lblErrDiaChi);
+            string soDT = CheckAndSetColorSoDT(txtSoDT, lblErrSoDT);
+            string soFax = CheckAndSetColorSoFax(txtSoFax, lblErrSoFax);
+            string trangThai = CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
+            int trangThaiValue = (trangThai == "Hoạt động" ? 1 : 0);
             byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
-
+            if (!(maNCC != "" && ten != "" && diaChi != "" && soDT != "" && trangThai != "" && img != null))
+            {
+                return;
+            }
             NhaCungCapDTO ncc = new NhaCungCapDTO(maNCC,ten, diaChi,soDT, soFax, trangThaiValue,img);
             if (nccBLL.updateNhaCC(ncc))
             {
@@ -291,6 +383,7 @@ namespace GUI
 
         private void dgvNhaCC_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            btnSua.Enabled = true;
             int i = dgvNhaCC.CurrentRow.Index;
             txtMaNCC.Texts = dgvNhaCC.Rows[i].Cells[0].Value.ToString();
             txtTen.Texts = dgvNhaCC.Rows[i].Cells[1].Value.ToString();
@@ -505,11 +598,13 @@ namespace GUI
         private void reset()
         {
             loadMaNCC();
+            txtTimKiem.Texts = ""; 
             txtTen.Texts = "";
             txtDiaChi.Texts = "";
             txtSoDT.Texts = "";
             txtSoFax.Texts = "";
             btnDeleteIMG.PerformClick();
+            load_Form();
         }
     }
 }
