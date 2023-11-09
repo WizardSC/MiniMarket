@@ -36,6 +36,9 @@ namespace GUI
             loadDataToCBXChonThang();
             loadDataToCBXChonNam();
             loadDataToGioiTinhPieChart();
+            loadDataToLblKhachHang(currentMonth);
+
+            Console.WriteLine(tkBLL.getUniqueKhachHang(currentMonth).ToString());
 
             cbxChonThang.SelectedItem = currentMonth;
             cbxChonNam.SelectedItem = currentYear;
@@ -71,6 +74,11 @@ namespace GUI
             chartSPTheoGioiTinh.Series["chartSPTheoGioiTinh"].Points.AddXY("Nữ", 80);
             
 
+        }
+        private void loadDataToLblKhachHang(int thang)
+        {
+            lblKhachHang.Text = tkBLL.getUniqueKhachHang(thang).ToString();
+            Console.WriteLine(tkBLL.getUniqueKhachHang(thang).ToString());
         }
         private void loadDataToLineChart()
         {
@@ -111,6 +119,7 @@ namespace GUI
         {
             currentMonth = int.Parse(cbxChonThang.SelectedItem.ToString());
             loadDataTopSPBanChayTheoThang(currentMonth, soSPHienThi);
+            loadDataToLblKhachHang(currentMonth);
 
         }
 

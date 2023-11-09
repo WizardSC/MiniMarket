@@ -29,5 +29,10 @@ namespace BLL
         {
             return tkDAL.getTopSPBanChayTheoThang(thang, soSP);
         }
+
+        public int getUniqueKhachHang(int thang)
+        {
+            return tkDAL.getUniqueKhachHang(thang);
+        }
     }
 }
