@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvXemChiTietPN = new System.Windows.Forms.DataGridView();
             this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,6 +39,7 @@
             this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnExport = new GUI.MyCustom.RJButton();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpNgayNhap = new GUI.MyCustom.RJDatePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtMaPN = new GUI.MyCustom.RJTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnExport = new GUI.MyCustom.RJButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvXemChiTietPN)).BeginInit();
             this.panel2.SuspendLayout();
@@ -73,14 +73,14 @@
             this.dgvXemChiTietPN.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvXemChiTietPN.BackgroundColor = System.Drawing.Color.White;
             this.dgvXemChiTietPN.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvXemChiTietPN.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvXemChiTietPN.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvXemChiTietPN.ColumnHeadersHeight = 28;
             this.dgvXemChiTietPN.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaSP,
@@ -88,14 +88,14 @@
             this.SoLuong,
             this.DonGiaNhap,
             this.ThanhTien});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvXemChiTietPN.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvXemChiTietPN.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvXemChiTietPN.EnableHeadersVisualStyles = false;
             this.dgvXemChiTietPN.GridColor = System.Drawing.Color.Black;
             this.dgvXemChiTietPN.Location = new System.Drawing.Point(4, 172);
@@ -182,6 +182,28 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(947, 126);
             this.panel2.TabIndex = 2;
+            // 
+            // btnExport
+            // 
+            this.btnExport.AutoSize = true;
+            this.btnExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnExport.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnExport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.btnExport.BorderRadius = 0;
+            this.btnExport.BorderSize = 2;
+            this.btnExport.FlatAppearance.BorderSize = 0;
+            this.btnExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExport.ForeColor = System.Drawing.Color.White;
+            this.btnExport.Image = global::GUI.Properties.Resources.icons8_print_28;
+            this.btnExport.Location = new System.Drawing.Point(847, 37);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(120, 8, 10, 0);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(50, 49);
+            this.btnExport.TabIndex = 33;
+            this.btnExport.TextColor = System.Drawing.Color.White;
+            this.btnExport.UseVisualStyleBackColor = false;
             // 
             // label5
             // 
@@ -316,28 +338,6 @@
             this.label1.Text = "THÔNG TIN PHIẾU NHẬP";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnExport
-            // 
-            this.btnExport.AutoSize = true;
-            this.btnExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnExport.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnExport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.btnExport.BorderRadius = 0;
-            this.btnExport.BorderSize = 2;
-            this.btnExport.FlatAppearance.BorderSize = 0;
-            this.btnExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExport.ForeColor = System.Drawing.Color.White;
-            this.btnExport.Image = global::GUI.Properties.Resources.icons8_print_28;
-            this.btnExport.Location = new System.Drawing.Point(847, 37);
-            this.btnExport.Margin = new System.Windows.Forms.Padding(120, 8, 10, 0);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(50, 49);
-            this.btnExport.TabIndex = 33;
-            this.btnExport.TextColor = System.Drawing.Color.White;
-            this.btnExport.UseVisualStyleBackColor = false;
-            // 
             // XemChiTietPhieuNhapGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,6 +345,7 @@
             this.ClientSize = new System.Drawing.Size(961, 534);
             this.Controls.Add(this.panel1);
             this.Name = "XemChiTietPhieuNhapGUI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "XemChiTietPhieuNhapGUI";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvXemChiTietPN)).EndInit();

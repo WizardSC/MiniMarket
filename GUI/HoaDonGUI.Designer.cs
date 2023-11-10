@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HoaDonGUI));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnExport = new GUI.MyCustom.RJButton();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.cbxTimKiem = new GUI.MyCustom.RJComboBox();
             this.txtTimKiem = new GUI.MyCustom.RJTextBox();
+            this.btnTimKiem = new GUI.MyCustom.RJButton();
             this.dgvXemThongTinHoaDon = new System.Windows.Forms.DataGridView();
             this.MaHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayLapHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,8 +46,6 @@
             this.TongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiemNhanDuoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnExport = new GUI.MyCustom.RJButton();
-            this.btnTimKiem = new GUI.MyCustom.RJButton();
             this.panel3.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvXemThongTinHoaDon)).BeginInit();
@@ -60,7 +60,7 @@
             this.panel3.Controls.Add(this.dgvXemThongTinHoaDon);
             this.panel3.Location = new System.Drawing.Point(-6, -18);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1157, 721);
+            this.panel3.Size = new System.Drawing.Size(1180, 779);
             this.panel3.TabIndex = 7;
             // 
             // label5
@@ -74,6 +74,29 @@
             this.label5.TabIndex = 33;
             this.label5.Text = "Export Excel";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnExport
+            // 
+            this.btnExport.AutoSize = true;
+            this.btnExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnExport.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnExport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.btnExport.BorderRadius = 0;
+            this.btnExport.BorderSize = 2;
+            this.btnExport.FlatAppearance.BorderSize = 0;
+            this.btnExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExport.ForeColor = System.Drawing.Color.White;
+            this.btnExport.Image = ((System.Drawing.Image)(resources.GetObject("btnExport.Image")));
+            this.btnExport.Location = new System.Drawing.Point(918, 28);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(120, 8, 10, 0);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(44, 42);
+            this.btnExport.TabIndex = 32;
+            this.btnExport.TextColor = System.Drawing.Color.White;
+            this.btnExport.UseVisualStyleBackColor = false;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // flowLayoutPanel4
             // 
@@ -133,6 +156,26 @@
             this.txtTimKiem.UnderlinedStyle = true;
             this.txtTimKiem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTimKiem_KeyPress);
             // 
+            // btnTimKiem
+            // 
+            this.btnTimKiem.BackColor = System.Drawing.Color.Transparent;
+            this.btnTimKiem.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnTimKiem.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnTimKiem.BorderRadius = 0;
+            this.btnTimKiem.BorderSize = 0;
+            this.btnTimKiem.FlatAppearance.BorderSize = 0;
+            this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTimKiem.ForeColor = System.Drawing.Color.White;
+            this.btnTimKiem.Image = global::GUI.Properties.Resources.icons8_search_32;
+            this.btnTimKiem.Location = new System.Drawing.Point(795, 8);
+            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(29, 32);
+            this.btnTimKiem.TabIndex = 2;
+            this.btnTimKiem.TextColor = System.Drawing.Color.White;
+            this.btnTimKiem.UseVisualStyleBackColor = false;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+            // 
             // dgvXemThongTinHoaDon
             // 
             this.dgvXemThongTinHoaDon.AllowUserToAddRows = false;
@@ -142,14 +185,14 @@
             this.dgvXemThongTinHoaDon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvXemThongTinHoaDon.BackgroundColor = System.Drawing.Color.White;
             this.dgvXemThongTinHoaDon.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvXemThongTinHoaDon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvXemThongTinHoaDon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvXemThongTinHoaDon.ColumnHeadersHeight = 28;
             this.dgvXemThongTinHoaDon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaHD,
@@ -159,14 +202,14 @@
             this.TongTien,
             this.DiemNhanDuoc,
             this.TenNV});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvXemThongTinHoaDon.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvXemThongTinHoaDon.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvXemThongTinHoaDon.EnableHeadersVisualStyles = false;
             this.dgvXemThongTinHoaDon.GridColor = System.Drawing.Color.Black;
             this.dgvXemThongTinHoaDon.Location = new System.Drawing.Point(10, 76);
@@ -178,7 +221,7 @@
             this.dgvXemThongTinHoaDon.RowTemplate.Height = 30;
             this.dgvXemThongTinHoaDon.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvXemThongTinHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvXemThongTinHoaDon.Size = new System.Drawing.Size(1146, 639);
+            this.dgvXemThongTinHoaDon.Size = new System.Drawing.Size(1169, 702);
             this.dgvXemThongTinHoaDon.TabIndex = 1;
             this.dgvXemThongTinHoaDon.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvXemThongTinHoaDon_CellFormatting);
             // 
@@ -207,7 +250,7 @@
             this.Ten.HeaderText = "Tên khách hàng";
             this.Ten.Name = "Ten";
             this.Ten.ReadOnly = true;
-            this.Ten.Width = 265;
+            this.Ten.Width = 260;
             // 
             // DiemSuDung
             // 
@@ -224,7 +267,7 @@
             this.TongTien.HeaderText = "Tổng tiền";
             this.TongTien.Name = "TongTien";
             this.TongTien.ReadOnly = true;
-            this.TongTien.Width = 200;
+            this.TongTien.Width = 195;
             // 
             // DiemNhanDuoc
             // 
@@ -241,56 +284,13 @@
             this.TenNV.HeaderText = "Tên nhân viên";
             this.TenNV.Name = "TenNV";
             this.TenNV.ReadOnly = true;
-            this.TenNV.Width = 150;
-            // 
-            // btnExport
-            // 
-            this.btnExport.AutoSize = true;
-            this.btnExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnExport.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnExport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.btnExport.BorderRadius = 0;
-            this.btnExport.BorderSize = 2;
-            this.btnExport.FlatAppearance.BorderSize = 0;
-            this.btnExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExport.ForeColor = System.Drawing.Color.White;
-            this.btnExport.Image = ((System.Drawing.Image)(resources.GetObject("btnExport.Image")));
-            this.btnExport.Location = new System.Drawing.Point(918, 28);
-            this.btnExport.Margin = new System.Windows.Forms.Padding(120, 8, 10, 0);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(44, 42);
-            this.btnExport.TabIndex = 32;
-            this.btnExport.TextColor = System.Drawing.Color.White;
-            this.btnExport.UseVisualStyleBackColor = false;
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
-            // 
-            // btnTimKiem
-            // 
-            this.btnTimKiem.BackColor = System.Drawing.Color.Transparent;
-            this.btnTimKiem.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnTimKiem.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnTimKiem.BorderRadius = 0;
-            this.btnTimKiem.BorderSize = 0;
-            this.btnTimKiem.FlatAppearance.BorderSize = 0;
-            this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTimKiem.ForeColor = System.Drawing.Color.White;
-            this.btnTimKiem.Image = global::GUI.Properties.Resources.icons8_search_32;
-            this.btnTimKiem.Location = new System.Drawing.Point(795, 8);
-            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
-            this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(29, 32);
-            this.btnTimKiem.TabIndex = 2;
-            this.btnTimKiem.TextColor = System.Drawing.Color.White;
-            this.btnTimKiem.UseVisualStyleBackColor = false;
-            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+            this.TenNV.Width = 178;
             // 
             // HoaDonGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1144, 685);
+            this.ClientSize = new System.Drawing.Size(1176, 763);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "HoaDonGUI";
