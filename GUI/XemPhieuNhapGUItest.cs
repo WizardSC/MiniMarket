@@ -106,6 +106,7 @@ namespace GUI
         private void cbxTimKiem_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             cbxItemsMacDinh = cbxTimKiem.SelectedItem.ToString();
+            Console.WriteLine(123);
         }
 
         private void txtTimKiem_KeyPress(object sender, KeyPressEventArgs e)
