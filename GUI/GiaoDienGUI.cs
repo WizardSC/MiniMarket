@@ -60,11 +60,13 @@ namespace GUI
             allPnLeftBorders.Add(pnLeftBorderNhaCC);
             allPnLeftBorders.Add(pnLeftBorderNhapHang);
             allPnLeftBorders.Add(pnLeftBorderKhuyenMai);
+            allPnLeftBorders.Add(pnLeftBorderThongKe);
         }
 
         private void addAllPnSubPanels()
         {
             allSubPanels.Add(pnSubHangHoa);
+            
             allSubPanels.Add(pnSubQuanLy);
         }
 
@@ -72,6 +74,7 @@ namespace GUI
         {
             allBtns.Add(pnHangHoaContainer);
             allBtns.Add(pnQuanLyContainer);
+            allBtns.Add(pnThongKeContainer);
             
         }
         private void GiaoDienGUI_Load(object sender, EventArgs e)

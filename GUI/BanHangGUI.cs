@@ -37,7 +37,8 @@ namespace GUI
         private CTHoaDonBLL cthdBLL;
         //private NhanVienBLL nvBLL;
         private DataTable dtSanPham;
-        private DataTable dtKhachHang;
+
+        private DataTable dtThongTinKhachHang;
         private DataTable dtNhanVien;
         private DataTable dtHoaDon;
         private List<SanPhamDTO> listSP;
@@ -81,7 +82,8 @@ namespace GUI
             cthdBLL = new CTHoaDonBLL();
             dtSanPham = spBLL.getListSanPham();
             dtHoaDon = hdBLL.getListHoaDon();
-            dtKhachHang = khBLL.getListKhachHang();
+
+            dtThongTinKhachHang = khBLL.getMiniListKhachHang();
             listNV = nvBLL.getListNV();
             listSP = spBLL.getListSP();
             listCTKM = new List<ChiTietKhuyenMaiDTO>();
@@ -92,6 +94,8 @@ namespace GUI
             loadNgayThang();
 
             loadMaHD();
+            Console.WriteLine(searchMaKHbyTenKH("Jung Ilhoon"));
+
         }
         private void BanHangGUI_Load(object sender, EventArgs e)
         {
@@ -112,7 +116,24 @@ namespace GUI
 
             return listKH;
         }
+        private string searchMaKHbyTenKH(string tenKH)
+        {
+            string maKH = dtThongTinKhachHang.AsEnumerable()
+                .Where(row => (row.Field<string>("Ho") + " " + row.Field<string>("Ten")).ToLower() == tenKH.ToLower())
+                .Select(row => row.Field<string>("MaKH"))
+                .FirstOrDefault();
+            return maKH;
+        }
 
+        private int searchDiemTLbyTenKH(string tenKH)
+        {
+
+            int diemTL = dtThongTinKhachHang.AsEnumerable()
+                .Where(row => (row.Field<string>("Ho") + " " + row.Field<string>("Ten")).ToLower() == tenKH.ToLower())
+                .Select(row => row.Field<int>("DiemTichLuy"))
+                .FirstOrDefault();
+            return diemTL;
+        }
         private void loadMaHD()
         {
             if (hdBLL.getListHoaDon().Rows.Count > 0)
@@ -616,24 +637,13 @@ namespace GUI
                 .Select(row => row.MaNV)
                 .FirstOrDefault();
 
-            List<Tuple<string, string, string>> listKH = ConvertDataTableToList(dtKhachHang);
+            List<Tuple<string, string, string>> listKH = ConvertDataTableToList(dtThongTinKhachHang);
             //Dùng LINQ
             hd.MaKH = listKH
                 .Where(tuple => (tuple.Item2 + " " + tuple.Item3).Equals(lblKhachHang.Text))
                 .Select(tuple => tuple.Item1)
                 .FirstOrDefault();
-            int resultDiemTL = khBLL.updateDiemTL(hd.MaKH, -hd.DiemSuDung) ? 1 : 0;
-            if (resultDiemTL == 1)
-            {
-                MessageBox.Show($"Khách hàng đã sử dụng {hd.DiemSuDung} điểm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            }
-
-            int resultDiemTL1 = khBLL.updateDiemTL(hd.MaKH, hd.DiemNhanDuoc) ? 1 : 0;
-            if (resultDiemTL1 == 1)
-            {
-                MessageBox.Show($"Khách hàng sẽ nhận được {hd.DiemNhanDuoc} điểm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
 
             int result = hdBLL.insertHoaDon(hd) ? 1 : 0;
             if (result == 1)
@@ -668,15 +678,11 @@ namespace GUI
                 cthd.DonGiaBanDau = product.DonGiaBanDau;
                 cthd.DonGiaDaGiam = product.DonGiaDaGiam;
                 cthd.PhanTramKM = product.PhanTramKM;
-                cthd.ThanhTien = (int)product.ThanhTien;
+                cthd.ThanhTien = (int)product.DonGiaDaGiam * (int)product.SoLuong ;
                 //Cập nhật lại sản phẩm trên DB
                 int resultSP = spBLL.updateTonKho(product.MaSP, -product.SoLuong) ? 1 : 0;
-                if (resultSP == 1)
-                {
-                    MessageBox.Show("Cập nhật dữ liệu sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-                }
                 int resultCTHD = cthdBLL.insertCTHoaDon(cthd) ? 1 : 0;
 
                 if (resultCTHD != 1)
@@ -689,12 +695,39 @@ namespace GUI
             if (success)
             {
                 MessageBox.Show("Thêm thành công tất cả chi tiết hóa đơn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                clearThongTinSauKhiTaoHD();
-
             }
             else
             {
                 MessageBox.Show("Có lỗi xảy ra khi thêm chi tiết hóa đơn");
+            }
+            Console.WriteLine("Thuc hien khi tao hoa don:" + lblKhachHang.Text);
+            Console.WriteLine(searchMaKHbyTenKH(lblKhachHang.Text));
+            Reports.HoaDonCreator hdCreator = new Reports.HoaDonCreator();
+            //hdCreator.DtThongTinCTPN = ctpnBLL.getListPhieuNhapbyMaPN(pn.MaPN);
+            hdCreator.DtThongTinCTHD = cthdBLL.getListCTHDbyMaHD(lblMaHD.Text.Substring(1));
+            hdCreator.MaHD = lblMaHD.Text;
+            hdCreator.NgayLap = DateTime.ParseExact(lblNgayLap.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture).ToString();
+            hdCreator.TenNV = lblNhanVien.Text;
+            hdCreator.TenKH = lblKhachHang.Text;
+            hdCreator.MaKH = searchMaKHbyTenKH(lblKhachHang.Text);
+            hdCreator.DiemTLHienTai = searchDiemTLbyTenKH(lblKhachHang.Text);
+            hdCreator.DiemTLNhanDuoc = hd.DiemNhanDuoc;
+            hdCreator.DiemTLSuDung = hd.DiemSuDung;
+            hdCreator.MaKM = hd.MaKM;
+            hdCreator.TongTien = hd.TongTien;
+            hdCreator.TongTienTT = hd.TongTienTT;
+            hdCreator.showHoaDonRP();
+            int resultDiemTL = khBLL.updateDiemTL(hd.MaKH, -hd.DiemSuDung) ? 1 : 0;
+            if (resultDiemTL == 1)
+            {
+                MessageBox.Show($"Khách hàng đã sử dụng {hd.DiemSuDung} điểm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+
+            int resultDiemTL1 = khBLL.updateDiemTL(hd.MaKH, hd.DiemNhanDuoc) ? 1 : 0;
+            if (resultDiemTL1 == 1)
+            {
+                MessageBox.Show($"Khách hàng sẽ nhận được {hd.DiemNhanDuoc} điểm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             listSP = spBLL.getListSP();
 
@@ -746,7 +779,6 @@ namespace GUI
                 diemTLCuaKhachHang = khGUI.diemTL;
                 lblKhachHang.Text = hoTenKH;
 
-                Console.WriteLine(diemTLCuaKhachHang);
             };
         }
 
@@ -770,11 +802,12 @@ namespace GUI
                 listCTKM = chonKMGUI.listCTKMinFormMini;
 
                 int result = capNhatGioHangKhiChonCTKM() ? 1 : 0;
-                if(result == 1)
+                if (result == 1)
                 {
                     lblKhuyenMai.Text = maKM;
 
-                } else
+                }
+                else
                 {
                     lblKhuyenMai.Text = string.Empty;
 
@@ -961,7 +994,11 @@ namespace GUI
             //Tính tiền sau khi sử dụng ĐTL: 1đ = giảm 10k
         }
 
-
+        private void rjButton1_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine(lblKhachHang.Text);
+            Console.WriteLine(searchMaKHbyTenKH(lblKhachHang.Text));
+        }
     }
 
 }
