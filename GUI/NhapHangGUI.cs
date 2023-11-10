@@ -127,7 +127,7 @@ namespace GUI
             switch (cbxTimKiem.SelectedIndex)
             {
                 case 0:
-                    return returnDieuKien($"MaSP like '%{searchText}%'");
+                    return returnDieuKien($"SanPham.MaSP like '%{searchText}%'");
                 case 1:
                     return returnDieuKien($"TenSP like '%{searchText}%'");
                 case 2:
@@ -146,7 +146,7 @@ namespace GUI
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             string textTimKiem = txtTimKiem.Texts;
-            textSearchCondition = GetTextSearchCondition(textTimKiem);
+            //textSearchCondition = GetTextSearchCondition(textTimKiem);
             applySearchs(textTimKiem);
         }
 

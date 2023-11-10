@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DevExpress.Pdf.Native;
 using DevExpress.XtraReports.UI;
 using DTO;
 using GUI.MyCustom;
@@ -301,6 +302,7 @@ namespace GUI
         }
         private void txtTuoiStart__TextChanged(object sender, EventArgs e)
         {
+           
             if (string.IsNullOrEmpty(txtTuoiStart.Texts))
             {
                 tuoiStart = 0;
@@ -310,7 +312,7 @@ namespace GUI
                 tuoiStart = tuoiStartResult;
                 if(tuoiStart < 0)
                 {
-                    txtTuoiStart.Texts = "0";
+                    txtTuoiStart.Texts = "";
                     lblErrTuoiFilter.Text = "* Không được nhập tuổi là số âm";
                     lblErrTuoiFilter.Visible = true;
                     return;
@@ -345,15 +347,20 @@ namespace GUI
                     lblErrTuoiFilter.Text = "* Không được nhập tuổi là số âm";
                     lblErrTuoiFilter.Visible = true;
                     return;
-                }
+                }   
                 if(int.Parse(txtTuoiStart.Texts) >= tuoiEnd)
                 {
+                    txtTuoiEnd.Texts = "";
+                    lblErrTuoiFilter.Text = "* .Bạn phải tuổi kết thúc lớn hơn tuổi bắt đầu";
                     lblErrTuoiFilter.Visible = true;
-                    lblErrTuoiFilter.Text = "* Bạn phải tuổi kết thúc lớn hơn tuổi bắt đầu ";
                     return;
                 }
-                lblErrTuoiFilter.Visible = false;
-                btnTimKiem_Click(sender, e);
+                else
+                {
+                    lblErrTuoiFilter.Visible = false;
+                    btnTimKiem_Click(sender, e);
+                }
+                   
             }
             else
             {
