@@ -22,8 +22,16 @@ namespace GUI
 
         private string textSearchCondition = "";
         private string currentSearch;
+        private int giaStart = 0;
+        private int giaEnd = 0;
+        private bool isGia = false;
+        private int tonKhoStart = 0;
+        private int tonKhoEnd = 0;
+        private bool isTonKho = false;
+        private string genderCondition = "";
 
 
+        private bool isFormFilter = false;
         private int currentScrollPosition = 0;
         private CTPhieuNhapBLL ctpnBLL;
         private NhapHangBLL nhBLL;
@@ -146,8 +154,11 @@ namespace GUI
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             string textTimKiem = txtTimKiem.Texts;
-            //textSearchCondition = GetTextSearchCondition(textTimKiem);
-            applySearchs(textTimKiem);
+            textSearchCondition = GetTextSearchCondition(textTimKiem);
+            string combinedCondition = CombineConditions(textSearchCondition, genderCondition);
+            combinedCondition = ApplyOrRemoveGiaCondition(combinedCondition, isGia);
+            combinedCondition = ApplyOrRemoveTonKhoCondition(combinedCondition, isTonKho);
+            applySearchs(combinedCondition);
         }
 
 
@@ -602,7 +613,6 @@ namespace GUI
             {
 
                 thongTinSanPham sanPham = item.Value;
-
                 Console.WriteLine("Mã SP: " + sanPham.MaSP);
                 Console.WriteLine("Tên SP: " + sanPham.TenSP);
                 Console.WriteLine("Số lượng: " + sanPham.SoLuong);
@@ -612,13 +622,250 @@ namespace GUI
             }
 
             tinhTongTien();
-
-            
-            
-
-
-
         }
-        
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            isFormFilter = !isFormFilter;
+            if (isFormFilter)
+            {
+                btnFilter.BackColor = Color.FromArgb(224, 224, 224);
+                flpFilter.Visible = true;
+                flpFilter.BringToFront();
+
+            }
+            else
+            {
+                btnFilter.BackColor = Color.FromArgb(224, 252, 237);
+                flpFilter.Visible = false;
+                flpFilter.SendToBack();
+            }
+        }
+        private bool toggleDieuKien(bool value)
+        {
+            return !value;
+        }
+        private void chkGia_CheckedChanged(object sender, EventArgs e)
+        {
+            isGia = toggleDieuKien(isGia);
+            txtGiaStart.Enabled = isGia;
+            txtGiaEnd.Enabled = isGia;
+            
+            if (!isGia)
+            {
+                txtGiaStart.PlaceholderText = "Từ";
+                txtGiaEnd.PlaceholderText = "Đến";
+                lblErrGiaFilter.Visible = false;
+            }
+            if (isGia)
+            {
+                if (int.TryParse(txtGiaStart.Texts, out int giaStartResult))
+                {
+                    // Chuyển đổi thành công, giá trị tuoiStartResult là số nguyên từ chuỗi
+                    giaStart = giaStartResult;
+                }
+                if (int.TryParse(txtGiaEnd.Texts, out int giaEndResult))
+                {
+                    // Chuyển đổi thành công, giá trị tuoiStartResult là số nguyên từ chuỗi
+                    giaEnd = giaEndResult;
+
+                }
+            }
+            btnTimKiem_Click(sender, e);
+        }
+
+        private void chkTonKho_CheckedChanged(object sender, EventArgs e)
+        {
+            isTonKho = toggleDieuKien(isTonKho);
+            txtTonKhoStart.Enabled = isTonKho;
+            txtTonKhoEnd.Enabled = isTonKho;
+
+            if (!isTonKho)
+            {
+                txtTonKhoStart.PlaceholderText = "Từ";
+                txtTonKhoEnd.PlaceholderText = "Đến";
+                lblErrGiaFilter.Visible = false;
+            }
+            if (isGia)
+            {
+                if (int.TryParse(txtTonKhoStart.Texts, out int tonKhoStartResult))
+                {
+                    // Chuyển đổi thành công, giá trị tuoiStartResult là số nguyên từ chuỗi
+                    tonKhoStart = tonKhoStartResult;
+                }
+                if (int.TryParse(txtTonKhoEnd.Texts, out int tonKhoEndResult))
+                {
+                    // Chuyển đổi thành công, giá trị tuoiStartResult là số nguyên từ chuỗi
+                    tonKhoEnd = tonKhoEndResult;
+
+                }
+            }
+            btnTimKiem_Click(sender, e);
+        }
+
+        private void txtGiaStart__TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtGiaStart.Texts))
+            {
+                giaStart = 0;
+            }
+            if (int.TryParse(txtGiaStart.Texts, out int giaStartResult))
+            {
+                giaStart = giaStartResult;
+                if (giaStart < 0)
+                {
+                    lblErrGiaFilter.Text = "* Không được nhập giá là số âm";
+                    lblErrGiaFilter.Visible = true;
+                    return;
+                }
+                else
+                {
+                    lblErrGiaFilter.Visible = false;
+                    giaStart = giaStartResult;
+                    btnTimKiem_Click(sender, e);
+                }
+                lblErrGiaFilter.Visible = false;
+            }
+
+            else
+            {
+                return;
+            }
+        }
+
+        private void txtGiaEnd__TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtGiaEnd.Texts))
+            {
+                giaEnd = 0;
+            }
+            if (int.TryParse(txtGiaEnd.Texts, out int giaEndResult))
+            {
+                giaEnd = giaEndResult;
+                if (giaEnd < 0)
+                {
+
+                    lblErrGiaFilter.Text = "* Không được nhập giá là số âm";
+                    lblErrGiaFilter.Visible = true;
+                    return;
+                }
+                if (int.Parse(txtGiaStart.Texts) >= giaEnd)
+                {
+
+                    lblErrGiaFilter.Text = "* .Bạn phải giá kết thúc lớn hơn giá bắt đầu";
+                    lblErrGiaFilter.Visible = true;
+                    return;
+                }
+                else
+                {
+                    lblErrGiaFilter.Visible = false;
+                    btnTimKiem_Click(sender, e);
+                }
+
+            }
+            else
+            {
+                return;
+            }
+        }
+        private string ApplyOrRemoveGiaCondition(string condition, bool isGia)
+        {
+            if (isGia)
+            {
+                if (giaStart > 0 && giaEnd > 0 && giaStart <= giaEnd)
+                {
+                    return CombineConditions(condition, $"DonGiaNhap >= '{giaStart}' AND DonGiaNhap <= '{giaEnd}'");
+                }
+            }
+            else
+            {
+                // Nếu không có checkbox Tuoi được chọn, xóa điều kiện lọc theo ngày sinh
+                condition = condition.Replace("DonGiaNhap >= '0' AND DonGiaNhap <= '9999999' AND ", "");
+            }
+            return condition;
+        }
+
+        private void txtTonKhoStart__TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtTonKhoStart.Texts))
+            {
+                tonKhoStart = 0;
+            }
+            if (int.TryParse(txtTonKhoStart.Texts, out int tonKhoStartResult))
+            {
+                tonKhoStart = tonKhoStartResult;
+                if (tonKhoStart < 0)
+                {
+                    lblErrTonKhoFilter.Text = "* Không được nhập SL là số âm";
+                    lblErrTonKhoFilter.Visible = true;
+                    return;
+                }
+                else
+                {
+                    lblErrTonKhoFilter.Visible = false;
+                    tonKhoStart = tonKhoStartResult;
+                    btnTimKiem_Click(sender, e);
+                }
+                lblErrTonKhoFilter.Visible = false;
+            }
+
+            else
+            {
+                return;
+            }
+        }
+
+        private void txtTonKhoEnd__TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtTonKhoEnd.Texts))
+            {
+                tonKhoEnd = 0;
+            }
+            if (int.TryParse(txtTonKhoEnd.Texts, out int tonKhoEndResult))
+            {
+                tonKhoEnd = tonKhoEndResult;
+                if (tonKhoEnd < 0)
+                {
+
+                    lblErrTonKhoFilter.Text = "* Không được nhập SL là số âm";
+                    lblErrTonKhoFilter.Visible = true;
+                    return;
+                }
+                if (int.Parse(txtTonKhoStart.Texts) >= tonKhoEnd)
+                {
+
+                    lblErrTonKhoFilter.Text = "* .Bạn phải SL kết thúc lớn hơn SL bắt đầu";
+                    lblErrTonKhoFilter.Visible = true;
+                    return;
+                }
+                else
+                {
+                    lblErrTonKhoFilter.Visible = false;
+                    btnTimKiem_Click(sender, e);
+                }
+
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private string ApplyOrRemoveTonKhoCondition(string condition, bool isTonKho)
+        {
+            if (isTonKho)
+            {
+                if (tonKhoStart > 0 && tonKhoEnd > 0 && tonKhoStart <= tonKhoEnd)
+                {
+                    return CombineConditions(condition, $"SoLuong >= '{tonKhoStart}' AND SoLuong <= '{tonKhoEnd}'");
+                }
+            }
+            else
+            {
+                // Nếu không có checkbox Tuoi được chọn, xóa điều kiện lọc theo ngày sinh
+                condition = condition.Replace("SoLuong >= '0' AND SoLuong <= '10000000' AND ", "");
+            }
+            return condition;
+        }
     }
 }

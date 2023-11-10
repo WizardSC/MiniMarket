@@ -16,6 +16,7 @@ using System.Windows.Media;
 using static System.Net.Mime.MediaTypeNames;
 using Color = System.Drawing.Color;
 using Image = System.Drawing.Image;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace GUI
 {
@@ -86,10 +87,7 @@ namespace GUI
             {
                 txtMaNCC.Texts = "NCC00" + (tempNum + 1).ToString();
             }
-            MessageBox.Show(txtMaNCC.Texts,
-  "Thông báo",
-  MessageBoxButtons.OK,
-  MessageBoxIcon.Information);
+
         }
         private void loadCbxTimKiem()
         {
@@ -176,11 +174,13 @@ namespace GUI
                 {
                     label.ForeColor = Color.FromArgb(230, 76, 89);
                     label.Text = "*Bạn phải nhập so Fax";
+                    return null;
                 }
                 else if (ContainsLetter(text))
                 {
                     label.ForeColor = Color.FromArgb(230, 76, 89);
                     label.Text = "    *Số Fax không thể chứa chữ";
+                    return null;
                 }
                 else
                 {
@@ -191,7 +191,7 @@ namespace GUI
             }
             return null;
         }
-        private string CheckAndSetColorSoDT(object control, Label label)
+        private string CheckAndSetColorSDT(object control, Label label)
         {
             if (control is RJTextBox textBox)
             {
@@ -199,12 +199,14 @@ namespace GUI
                 if (string.IsNullOrWhiteSpace(text))
                 {
                     label.ForeColor = Color.FromArgb(230, 76, 89);
-                    label.Text = "*Bạn phải nhập SDT";
+                    label.Text = "*Bạn phải nhập so DT";
+                    return null;
                 }
                 else if (ContainsLetter(text))
                 {
                     label.ForeColor = Color.FromArgb(230, 76, 89);
-                    label.Text = "    *SDT không thể chứa chữ";
+                    label.Text = "    *Số DT không thể chứa chữ";
+                    return null;
                 }
                 else
                 {
@@ -268,12 +270,12 @@ namespace GUI
             string maNCC = CheckAndSetColor(txtMaNCC, lblErrMaNCC);
             string ten = CheckAndSetColorTen(txtTen, lblErrTen);
             string diaChi = CheckAndSetColor(txtDiaChi, lblErrDiaChi);
-            string soDT = CheckAndSetColorSoDT(txtSoDT, lblErrSoDT);
+            string soDT = CheckAndSetColorSDT(txtSoDT, lblErrSoDT);
             string soFax = CheckAndSetColorSoFax(txtSoFax, lblErrSoFax);
             string trangThai = CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
             int trangThaiValue = (trangThai == "Hoạt động" ? 1 : 0);
             byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
-            if (!(maNCC != "" && ten != "" && diaChi != "" && soDT != "" && trangThai != "" && img != null))
+            if ((string.IsNullOrWhiteSpace(ten) || string.IsNullOrWhiteSpace(diaChi) || string.IsNullOrWhiteSpace(soDT) || string.IsNullOrWhiteSpace(trangThai) || img == null))
             {
                 return;
             }
@@ -286,7 +288,7 @@ namespace GUI
                       "Thông báo",
                       MessageBoxButtons.OK,
                       MessageBoxIcon.Information);
-                    load_Form();
+                    reset();
                 }
                 else
                 {
@@ -294,6 +296,42 @@ namespace GUI
                         "Lỗi",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
+                }
+            }
+            
+        }
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            string maNCC = CheckAndSetColor(txtMaNCC, lblErrMaNCC);
+            string ten = CheckAndSetColorTen(txtTen, lblErrTen);
+            string diaChi = CheckAndSetColor(txtDiaChi, lblErrDiaChi);
+            string soDT = CheckAndSetColorSDT(txtSoDT, lblErrSoDT);
+            string soFax = CheckAndSetColorSoFax(txtSoFax, lblErrSoFax);
+            string trangThai = CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
+            int trangThaiValue = (trangThai == "Hoạt động" ? 1 : 0);
+            byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
+            if ((string.IsNullOrWhiteSpace(ten) || string.IsNullOrWhiteSpace(diaChi) || string.IsNullOrWhiteSpace(soDT) || string.IsNullOrWhiteSpace(trangThai) || img == null))
+            {
+                return;
+            }
+            else
+            {
+                NhaCungCapDTO ncc = new NhaCungCapDTO(maNCC, ten, diaChi, soDT, soFax, trangThaiValue, img);
+                if (nccBLL.updateNhaCC(ncc))
+                {
+                    MessageBox.Show("Sửa thành công",
+                        "Thông báo",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    reset();
+
+                }
+                else
+                {
+                    MessageBox.Show("Sửa thất bại",
+                       "Lỗi",
+                       MessageBoxButtons.OK,
+                       MessageBoxIcon.Error);
                 }
             }
             
@@ -348,38 +386,7 @@ namespace GUI
             Image img = Image.FromStream(ms);
             return img;
         }
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            string maNCC = CheckAndSetColor(txtMaNCC, lblErrMaNCC);
-            string ten = CheckAndSetColorTen(txtTen, lblErrTen);
-            string diaChi = CheckAndSetColor(txtDiaChi, lblErrDiaChi);
-            string soDT = CheckAndSetColorSoDT(txtSoDT, lblErrSoDT);
-            string soFax = CheckAndSetColorSoFax(txtSoFax, lblErrSoFax);
-            string trangThai = CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
-            int trangThaiValue = (trangThai == "Hoạt động" ? 1 : 0);
-            byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
-            if (!(maNCC != "" && ten != "" && diaChi != "" && soDT != "" && trangThai != "" && img != null))
-            {
-                return;
-            }
-            NhaCungCapDTO ncc = new NhaCungCapDTO(maNCC,ten, diaChi,soDT, soFax, trangThaiValue,img);
-            if (nccBLL.updateNhaCC(ncc))
-            {
-                MessageBox.Show("Sửa thành công",
-                    "Thông báo",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-                    load_Form();
-
-            }
-            else
-            {
-                MessageBox.Show("Sửa thất bại",
-                   "Lỗi",
-                   MessageBoxButtons.OK,
-                   MessageBoxIcon.Error);
-            }
-        }
+        
 
         private void dgvNhaCC_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -458,7 +465,7 @@ namespace GUI
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            resetForm();
+            reset();
         }
 
         private void dgvNhaCC_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -605,6 +612,11 @@ namespace GUI
             txtSoFax.Texts = "";
             btnDeleteIMG.PerformClick();
             load_Form();
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }
