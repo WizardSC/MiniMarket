@@ -13,6 +13,7 @@ namespace DAO
 {
     public class LoaiDAL : MSSQLConnect
     {
+        private List<LoaiDTO> listLoai;
         public DataTable getListLoai()
         {
             DataTable dt = new DataTable();
@@ -160,6 +161,13 @@ namespace DAO
             {
                 Disconnect();
             }
+        }
+
+        public void Export(String file)
+        {
+           
+            List<LoaiDTO> loai = listLoai;
+
         }
     }
 }
