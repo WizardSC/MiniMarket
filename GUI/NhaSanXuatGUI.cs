@@ -17,11 +17,18 @@ namespace GUI
 {
     public partial class NhaSanXuatGUI : Form
     {
+        private bool isFormFilter = false;
         private string cbxItemsMacDinh;
         private string statusCondition = "";
         private string textSearchCondition = ""; // Biến để lưu trữ điều kiện từ textbox tìm kiếm
         private string genderCondition = ""; // Biến để lưu trữ điều kiện từ checkbox "Giới Tính"
         private string currentSearch;
+        private bool isTrangThai = false;
+        private bool isHoatDong = false;
+        private bool isKoHD = false;
+
+        private bool isGioiTinh = false;
+        private bool isTuoi = false;
 
         private NhaSanXuatBLL nsxBLL;
         private DataTable dt;
@@ -276,6 +283,8 @@ namespace GUI
                                         if (flag == 1)
                                         {
                                             MessageBox.Show("Thay đổi trạng thái thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            init() ;
+                                            clearForm();
                                         }
                                         else
                                         {
@@ -327,8 +336,11 @@ namespace GUI
         {
             return text;
         }
+        private bool toggleDieuKien(bool value)
+        {
+            return !value;
+        }
 
-       
         private string GetTextSearchCondition(string searchText)
         {
             switch (cbxItemsMacDinh)
@@ -380,6 +392,7 @@ namespace GUI
             string textTimKiem = txtTimKiem.Texts;
             textSearchCondition = GetTextSearchCondition(textTimKiem);
             string combinedCondition = CombineConditions(textSearchCondition, genderCondition);
+            combinedCondition = CombineConditions(combinedCondition, statusCondition);
             applySearchs(combinedCondition);
         }
 
@@ -405,6 +418,98 @@ namespace GUI
         {
             dgvNSX.ClearSelection();
             dgvNSX.CurrentCell = null;
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            isFormFilter = !isFormFilter;
+            if (isFormFilter)
+            {
+                btnFilter.BackColor = Color.FromArgb(224, 224, 224);
+                flpFilter.Visible = true;
+                flpFilter.BringToFront();
+
+            }
+            else
+            {
+                btnFilter.BackColor = Color.FromArgb(224, 252, 237);
+                flpFilter.Visible = false;
+                flpFilter.SendToBack();
+            }
+        }
+        private void chkTrangThai_CheckedChanged(object sender, EventArgs e)
+        {
+            isTrangThai = toggleDieuKien(isTrangThai);
+            chkHoatDong.Enabled = isTrangThai;
+            chkKoHD.Enabled = isTrangThai;
+            if (isTrangThai)
+            {
+
+                if (isHoatDong)
+                {
+
+                    chkHoatDong_CheckedChanged(sender, e);
+                }
+
+                if (isKoHD)
+                {
+                    chkKoHD_CheckedChanged(sender, e);
+                }
+            }
+            else
+            {
+                // Nếu chkGioiTinh không được kiểm tra, tắt chkNam và chkNu và xóa check
+                chkHoatDong.Checked = false;
+                chkKoHD.Checked = false;
+                chkHoatDong.Enabled = isGioiTinh;
+                chkKoHD.Enabled = isGioiTinh;
+            }
+        }
+
+        private void chkHoatDong_CheckedChanged(object sender, EventArgs e)
+        {
+            isHoatDong = toggleDieuKien(isHoatDong);
+            UpdateStatusCondition();
+            btnTimKiem.PerformClick();
+        }
+
+
+        private void flpFilter_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+
+
+       
+
+        private void chkKoHD_CheckedChanged(object sender, EventArgs e)
+        {
+            isKoHD = toggleDieuKien(isKoHD);
+            UpdateStatusCondition();
+            btnTimKiem.PerformClick();
+        }
+
+        private void UpdateStatusCondition()
+        {
+            List<string> statusConditions = new List<string>();
+
+            if (isHoatDong)
+            {
+                statusConditions.Add("TrangThai = 1");
+            }
+
+            if (isKoHD)
+            {
+                statusConditions.Add("TrangThai = 0");
+            }
+
+            statusCondition = string.Join(" OR ", statusConditions);
         }
     }
 

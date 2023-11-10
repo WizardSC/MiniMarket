@@ -18,7 +18,10 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-             Application.Run(new HoaDonGUI());
+
+
+            // Application.Run(new GiaoDienGUI());
+            Application.Run(new GiaoDienGUI());
 
 
         }
