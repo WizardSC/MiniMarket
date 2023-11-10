@@ -18,12 +18,12 @@ namespace DAL
         // string strconn = @"Data Source=LAPTOP-AEI9M0MI\WIZARDSC;Initial Catalog = MiniMarket; Integrated Security = True";
 
 
-        string strconn = @"Data Source=LAPTOP-AEI9M0MI\WIZARDSC;Initial Catalog = MiniMarket; Integrated Security = True";
+        //string strconn = @"Data Source=LAPTOP-AEI9M0MI\WIZARDSC;Initial Catalog = MiniMarket; Integrated Security = True";
 
 
         //Minh Toàn/
         //TheVinh
-        //string strconn = @"Data Source=MSI\MSSQLSERVER_1;Initial Catalog = MiniMarket; Integrated Security = True";
+        string strconn = @"Data Source=MSI\MSSQLSERVER_1;Initial Catalog = MiniMarket; Integrated Security = True";
         //TheVinh
         //string strconn = @"Data Source=MSI;Initial Catalog = MiniMarket3110; Integrated Security = True";
 

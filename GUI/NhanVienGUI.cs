@@ -274,13 +274,12 @@ namespace GUI
             isTuoi = toggleDieuKien(isTuoi);
             txtTuoiStart.Enabled = isTuoi;
             txtTuoiEnd.Enabled = isTuoi;
-            lblErrTuoiFilter.Visible = !isTuoi;
 
             if (!isTuoi)
             {
                 txtTuoiStart.PlaceholderText = "Từ";
                 txtTuoiEnd.PlaceholderText = "Đến";
-
+                lblErrTuoiFilter.Visible = false;
             }
             if (isTuoi)
             {
@@ -295,8 +294,6 @@ namespace GUI
                     tuoiEnd = tuoiEndResult;
 
                 }
-
-
             }
             btnTimKiem_Click(sender, e);
         }
@@ -312,7 +309,6 @@ namespace GUI
                 tuoiStart = tuoiStartResult;
                 if(tuoiStart < 0)
                 {
-                    txtTuoiStart.Texts = "";
                     lblErrTuoiFilter.Text = "* Không được nhập tuổi là số âm";
                     lblErrTuoiFilter.Visible = true;
                     return;
@@ -343,14 +339,14 @@ namespace GUI
                 tuoiEnd = tuoiEndResult;
                 if(tuoiEnd < 0)
                 {
-                    txtTuoiEnd.Texts = "";
+                    
                     lblErrTuoiFilter.Text = "* Không được nhập tuổi là số âm";
                     lblErrTuoiFilter.Visible = true;
                     return;
                 }   
                 if(int.Parse(txtTuoiStart.Texts) >= tuoiEnd)
                 {
-                    txtTuoiEnd.Texts = "";
+                    
                     lblErrTuoiFilter.Text = "* .Bạn phải tuổi kết thúc lớn hơn tuổi bắt đầu";
                     lblErrTuoiFilter.Visible = true;
                     return;
@@ -469,6 +465,74 @@ namespace GUI
                     "Lỗi",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
+            }
+        }
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            string maNV = CheckAndSetColor(txtMaNV, lblErrMaNV);
+            string ho = CheckAndSetColorHo(txtHo, lblErrHo);
+            string ten = CheckAndSetColorTen(txtTen, lblErrTen);
+            string soDT = CheckAndSetColorSDT(txtSoDT, lblErrSoDT);
+            bool trueNgaySinh = true;
+
+            DateTime ngaySinh = dtpNgaySinh.Value;
+            if (ngaySinh > DateTime.Now)
+            {
+                trueNgaySinh = false;
+                lblErrNgaySinh.Visible = true;
+            }
+            else
+            {
+                trueNgaySinh = true;
+                lblErrNgaySinh.Visible = false;
+
+            }
+            string diaChi = CheckAndSetColor(txtDiaChi, lblErrDiaChi);
+            string trangThai = CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
+            int trangThaiValue = (trangThai == "Hoạt động" ? 1 : 0);
+            string chucVu = CheckAndSetColor(cbxChucVu, lblErrChucVu);
+            string valueChucVu = (chucVu == "Nhân viên bán hàng" ? "CV001" : "CV002");
+            //byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
+            //string maTK = null;
+            byte[] img = null;
+            string gioiTinh = "";
+            if (!(rdbNam.Checked || rdbNu.Checked))
+            {
+                lblErrGioiTinh.ForeColor = Color.FromArgb(230, 76, 89); // Đổi màu nếu cả hai CheckBox đều không được chọn
+                return;
+            }
+            else if (rdbNam.Checked)
+            {
+                gioiTinh = Convert.ToString(rdbNam.Text);
+                lblErrGioiTinh.ForeColor = Color.Transparent; // Đổi màu trong suốt nếu có một trong hai CheckBox được chọn
+            }
+            else if (rdbNu.Checked)
+            {
+                gioiTinh = Convert.ToString(rdbNu.Text);
+                lblErrGioiTinh.ForeColor = Color.Transparent; // Đổi màu trong suốt nếu có một trong hai CheckBox được chọn
+
+            }
+            if ((string.IsNullOrWhiteSpace(ho) || string.IsNullOrWhiteSpace(ten) || string.IsNullOrWhiteSpace(soDT) || string.IsNullOrWhiteSpace(diaChi) || string.IsNullOrWhiteSpace(trangThai) || string.IsNullOrWhiteSpace(chucVu) && trueNgaySinh == true))
+            {
+                return;
+            }
+
+            NhanVienDTO nv = new NhanVienDTO(maNV, ho, ten, ngaySinh, gioiTinh, soDT, diaChi, trangThaiValue, valueChucVu);
+            if (nvBLL.updateNhanVien(nv))
+            {
+                MessageBox.Show("Sửa thành công",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                reset();
+
+            }
+            else
+            {
+                MessageBox.Show("Sửa thất bại",
+                   "Lỗi",
+                   MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
             }
         }
         private void txtHo__TextChanged(object sender, EventArgs e)
@@ -615,40 +679,6 @@ namespace GUI
             loadMaNV();
 
         }
-
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            string maNV = txtMaNV.Texts;
-            string ho = txtHo.Texts;
-            string ten = txtTen.Texts;
-            DateTime ngaySinh = dtpNgaySinh.Value;
-            string gioiTinh = rdbNam.Checked ? rdbNam.Text : (rdbNu.Checked ? rdbNu.Text : "");
-            string soDT = txtSoDT.Texts;
-            string diaChi = txtDiaChi.Texts;
-            int trangThaiValue = (cbxTrangThai.SelectedItem == "Hoạt động") ? 1 : 0;
-            string valueChucVu = (cbxChucVu.SelectedItem == "Nhân viên bán hàng") ? "CV001" : "CV002";
-            byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
-
-            NhanVienDTO nv = new NhanVienDTO(maNV, ho, ten, ngaySinh, gioiTinh, soDT, diaChi, trangThaiValue, valueChucVu);
-            if (nvBLL.updateNhanVien(nv))
-            {
-                MessageBox.Show("Sửa thành công",
-                    "Thông báo",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-                load_Form();
-                reset();
-
-            }
-            else
-            {
-                MessageBox.Show("Sửa thất bại",
-                   "Lỗi",
-                   MessageBoxButtons.OK,
-                   MessageBoxIcon.Error);
-            }
-        }
-
         private void dgvNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
