@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NhapHangGUI));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.gradientPanel1 = new GUI.MyCustom.GradientPanel();
@@ -56,7 +56,20 @@
             this.txtTimKiem = new GUI.MyCustom.RJTextBox();
             this.btnTimKiem = new GUI.MyCustom.RJButton();
             this.btnFilter = new GUI.MyCustom.RJButton();
-            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnThongTinSP = new System.Windows.Forms.Panel();
+            this.btnChonSanPham = new GUI.MyCustom.RJButton();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.nudSoLuongMua = new GUI.MyCustom.CustomNumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtMaSP = new GUI.MyCustom.RJTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtTenSP = new GUI.MyCustom.RJTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtTonKho = new GUI.MyCustom.RJTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtDonGia = new GUI.MyCustom.RJTextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.dgvSanPham = new System.Windows.Forms.DataGridView();
             this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,19 +86,6 @@
             this.lblErrGiaFilter = new System.Windows.Forms.Label();
             this.chkTonKho = new GUI.MyCustom.BiggerCheckBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.pnThongTinSP = new System.Windows.Forms.Panel();
-            this.btnChonSanPham = new GUI.MyCustom.RJButton();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.nudSoLuongMua = new GUI.MyCustom.CustomNumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtMaSP = new GUI.MyCustom.RJTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtTenSP = new GUI.MyCustom.RJTextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtTonKho = new GUI.MyCustom.RJTextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtDonGia = new GUI.MyCustom.RJTextBox();
             this.txtTonKhoStart = new GUI.MyCustom.RJTextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtTonKhoEnd = new GUI.MyCustom.RJTextBox();
@@ -96,11 +96,11 @@
             this.gradientPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
-            this.flowLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
-            this.flpFilter.SuspendLayout();
             this.pnThongTinSP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSoLuongMua)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
+            this.flpFilter.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -362,7 +362,7 @@
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Controls.Add(this.flpNhaCungCap);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel4);
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel5);
+            this.flowLayoutPanel1.Controls.Add(this.panel2);
             this.flowLayoutPanel1.Controls.Add(this.pnThongTinSP);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 0);
@@ -482,301 +482,6 @@
             this.btnFilter.UseVisualStyleBackColor = false;
             this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
-            // flowLayoutPanel5
-            // 
-            this.flowLayoutPanel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel5.Controls.Add(this.flpFilter);
-            this.flowLayoutPanel5.Controls.Add(this.dgvSanPham);
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(0, 120);
-            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(778, 369);
-            this.flowLayoutPanel5.TabIndex = 7;
-            // 
-            // dgvSanPham
-            // 
-            this.dgvSanPham.AllowUserToAddRows = false;
-            this.dgvSanPham.AllowUserToDeleteRows = false;
-            this.dgvSanPham.AllowUserToResizeColumns = false;
-            this.dgvSanPham.AllowUserToResizeRows = false;
-            this.dgvSanPham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dgvSanPham.BackgroundColor = System.Drawing.Color.White;
-            this.dgvSanPham.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSanPham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
-            this.dgvSanPham.ColumnHeadersHeight = 28;
-            this.dgvSanPham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaSP,
-            this.TenSP,
-            this.SoLuong,
-            this.DonGiaNhap,
-            this.TenLoai,
-            this.TenNCC});
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSanPham.DefaultCellStyle = dataGridViewCellStyle16;
-            this.dgvSanPham.EnableHeadersVisualStyles = false;
-            this.dgvSanPham.GridColor = System.Drawing.Color.Black;
-            this.dgvSanPham.Location = new System.Drawing.Point(3, 136);
-            this.dgvSanPham.Name = "dgvSanPham";
-            this.dgvSanPham.ReadOnly = true;
-            this.dgvSanPham.RowHeadersVisible = false;
-            this.dgvSanPham.RowHeadersWidth = 51;
-            this.dgvSanPham.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvSanPham.RowTemplate.Height = 30;
-            this.dgvSanPham.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvSanPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSanPham.Size = new System.Drawing.Size(771, 320);
-            this.dgvSanPham.TabIndex = 2;
-            this.dgvSanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSanPham_CellClick);
-            this.dgvSanPham.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvSanPham_DataBindingComplete);
-            // 
-            // MaSP
-            // 
-            this.MaSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.MaSP.DataPropertyName = "MaSP";
-            this.MaSP.Frozen = true;
-            this.MaSP.HeaderText = "Mã SP";
-            this.MaSP.MinimumWidth = 6;
-            this.MaSP.Name = "MaSP";
-            this.MaSP.ReadOnly = true;
-            this.MaSP.Width = 70;
-            // 
-            // TenSP
-            // 
-            this.TenSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenSP.DataPropertyName = "TenSP";
-            this.TenSP.HeaderText = "Tên SP";
-            this.TenSP.MinimumWidth = 6;
-            this.TenSP.Name = "TenSP";
-            this.TenSP.ReadOnly = true;
-            // 
-            // SoLuong
-            // 
-            this.SoLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.SoLuong.DataPropertyName = "SoLuong";
-            this.SoLuong.HeaderText = "Tồn kho";
-            this.SoLuong.MinimumWidth = 6;
-            this.SoLuong.Name = "SoLuong";
-            this.SoLuong.ReadOnly = true;
-            this.SoLuong.Width = 83;
-            // 
-            // DonGiaNhap
-            // 
-            this.DonGiaNhap.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.DonGiaNhap.DataPropertyName = "DonGiaNhap";
-            this.DonGiaNhap.HeaderText = "Đơn giá";
-            this.DonGiaNhap.MinimumWidth = 6;
-            this.DonGiaNhap.Name = "DonGiaNhap";
-            this.DonGiaNhap.ReadOnly = true;
-            this.DonGiaNhap.Width = 80;
-            // 
-            // TenLoai
-            // 
-            this.TenLoai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.TenLoai.DataPropertyName = "TenLoai";
-            this.TenLoai.HeaderText = "Tên loại";
-            this.TenLoai.MinimumWidth = 6;
-            this.TenLoai.Name = "TenLoai";
-            this.TenLoai.ReadOnly = true;
-            this.TenLoai.Width = 81;
-            // 
-            // TenNCC
-            // 
-            this.TenNCC.DataPropertyName = "TenNCC";
-            this.TenNCC.HeaderText = "TenNCC";
-            this.TenNCC.Name = "TenNCC";
-            this.TenNCC.ReadOnly = true;
-            this.TenNCC.Visible = false;
-            this.TenNCC.Width = 82;
-            // 
-            // flpFilter
-            // 
-            this.flpFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.flpFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flpFilter.Controls.Add(this.chkGia);
-            this.flpFilter.Controls.Add(this.label23);
-            this.flpFilter.Controls.Add(this.txtGiaStart);
-            this.flpFilter.Controls.Add(this.label7);
-            this.flpFilter.Controls.Add(this.txtGiaEnd);
-            this.flpFilter.Controls.Add(this.lblErrGiaFilter);
-            this.flpFilter.Controls.Add(this.chkTonKho);
-            this.flpFilter.Controls.Add(this.label25);
-            this.flpFilter.Controls.Add(this.txtTonKhoStart);
-            this.flpFilter.Controls.Add(this.label12);
-            this.flpFilter.Controls.Add(this.txtTonKhoEnd);
-            this.flpFilter.Controls.Add(this.lblErrTonKhoFilter);
-            this.flowLayoutPanel5.SetFlowBreak(this.flpFilter, true);
-            this.flpFilter.Location = new System.Drawing.Point(3, 3);
-            this.flpFilter.Name = "flpFilter";
-            this.flpFilter.Size = new System.Drawing.Size(289, 127);
-            this.flpFilter.TabIndex = 5;
-            this.flpFilter.Visible = false;
-            // 
-            // chkGia
-            // 
-            this.chkGia.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chkGia.BoxBackColor = System.Drawing.Color.Transparent;
-            this.chkGia.BoxColor = System.Drawing.Color.Black;
-            this.chkGia.BoxLocationX = 5;
-            this.chkGia.BoxLocationY = 8;
-            this.chkGia.BoxSize = 14;
-            this.chkGia.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkGia.FlatAppearance.BorderSize = 0;
-            this.chkGia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkGia.Location = new System.Drawing.Point(3, 3);
-            this.chkGia.Name = "chkGia";
-            this.chkGia.Padding = new System.Windows.Forms.Padding(10);
-            this.chkGia.Size = new System.Drawing.Size(24, 29);
-            this.chkGia.TabIndex = 9;
-            this.chkGia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkGia.TextLocationX = 16;
-            this.chkGia.TextLocationY = 1;
-            this.chkGia.TickColor = System.Drawing.Color.Black;
-            this.chkGia.TickLeftPosition = 5F;
-            this.chkGia.TickSize = 11F;
-            this.chkGia.TickTopPosition = 8F;
-            this.chkGia.UseVisualStyleBackColor = true;
-            this.chkGia.CheckedChanged += new System.EventHandler(this.chkGia_CheckedChanged);
-            // 
-            // label23
-            // 
-            this.label23.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label23.Location = new System.Drawing.Point(33, 4);
-            this.label23.Margin = new System.Windows.Forms.Padding(3, 4, 4, 4);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(78, 28);
-            this.label23.TabIndex = 8;
-            this.label23.Text = "Giá:";
-            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtGiaStart
-            // 
-            this.txtGiaStart.BackColor = System.Drawing.SystemColors.Window;
-            this.txtGiaStart.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.txtGiaStart.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.txtGiaStart.BorderRadius = 0;
-            this.txtGiaStart.BorderSize = 2;
-            this.txtGiaStart.Enabled = false;
-            this.txtGiaStart.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGiaStart.ForeColor = System.Drawing.Color.Black;
-            this.txtGiaStart.Location = new System.Drawing.Point(119, 4);
-            this.txtGiaStart.Margin = new System.Windows.Forms.Padding(4);
-            this.txtGiaStart.MinimumSize = new System.Drawing.Size(0, 28);
-            this.txtGiaStart.Multiline = false;
-            this.txtGiaStart.Name = "txtGiaStart";
-            this.txtGiaStart.Padding = new System.Windows.Forms.Padding(8, 4, 2, 2);
-            this.txtGiaStart.PasswordChar = false;
-            this.txtGiaStart.PlaceholderColor = System.Drawing.Color.DimGray;
-            this.txtGiaStart.PlaceholderText = "Từ";
-            this.txtGiaStart.ReadOnly = false;
-            this.txtGiaStart.Size = new System.Drawing.Size(59, 28);
-            this.txtGiaStart.TabIndex = 10;
-            this.txtGiaStart.Texts = "";
-            this.txtGiaStart.UnderlinedStyle = false;
-            this.txtGiaStart._TextChanged += new System.EventHandler(this.txtGiaStart__TextChanged);
-            // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label7.Location = new System.Drawing.Point(185, 4);
-            this.label7.Margin = new System.Windows.Forms.Padding(3, 4, 4, 4);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(13, 28);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "-";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtGiaEnd
-            // 
-            this.txtGiaEnd.BackColor = System.Drawing.SystemColors.Window;
-            this.txtGiaEnd.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.txtGiaEnd.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.txtGiaEnd.BorderRadius = 0;
-            this.txtGiaEnd.BorderSize = 2;
-            this.txtGiaEnd.Enabled = false;
-            this.txtGiaEnd.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGiaEnd.ForeColor = System.Drawing.Color.Black;
-            this.txtGiaEnd.Location = new System.Drawing.Point(206, 4);
-            this.txtGiaEnd.Margin = new System.Windows.Forms.Padding(4);
-            this.txtGiaEnd.MinimumSize = new System.Drawing.Size(0, 28);
-            this.txtGiaEnd.Multiline = false;
-            this.txtGiaEnd.Name = "txtGiaEnd";
-            this.txtGiaEnd.Padding = new System.Windows.Forms.Padding(8, 4, 2, 2);
-            this.txtGiaEnd.PasswordChar = false;
-            this.txtGiaEnd.PlaceholderColor = System.Drawing.Color.DimGray;
-            this.txtGiaEnd.PlaceholderText = "Đến";
-            this.txtGiaEnd.ReadOnly = false;
-            this.txtGiaEnd.Size = new System.Drawing.Size(59, 28);
-            this.txtGiaEnd.TabIndex = 11;
-            this.txtGiaEnd.Texts = "";
-            this.txtGiaEnd.UnderlinedStyle = false;
-            this.txtGiaEnd._TextChanged += new System.EventHandler(this.txtGiaEnd__TextChanged);
-            // 
-            // lblErrGiaFilter
-            // 
-            this.lblErrGiaFilter.Font = new System.Drawing.Font("Cambria", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrGiaFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
-            this.lblErrGiaFilter.Location = new System.Drawing.Point(3, 36);
-            this.lblErrGiaFilter.Name = "lblErrGiaFilter";
-            this.lblErrGiaFilter.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.lblErrGiaFilter.Size = new System.Drawing.Size(262, 17);
-            this.lblErrGiaFilter.TabIndex = 28;
-            this.lblErrGiaFilter.Text = "* Bạn phải giá kết thúc lớn hơn giá bắt đầu ";
-            this.lblErrGiaFilter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblErrGiaFilter.Visible = false;
-            // 
-            // chkTonKho
-            // 
-            this.chkTonKho.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chkTonKho.BoxBackColor = System.Drawing.Color.Transparent;
-            this.chkTonKho.BoxColor = System.Drawing.Color.Black;
-            this.chkTonKho.BoxLocationX = 5;
-            this.chkTonKho.BoxLocationY = 8;
-            this.chkTonKho.BoxSize = 14;
-            this.chkTonKho.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkTonKho.FlatAppearance.BorderSize = 0;
-            this.chkTonKho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkTonKho.Location = new System.Drawing.Point(3, 56);
-            this.chkTonKho.Name = "chkTonKho";
-            this.chkTonKho.Padding = new System.Windows.Forms.Padding(10);
-            this.chkTonKho.Size = new System.Drawing.Size(24, 29);
-            this.chkTonKho.TabIndex = 14;
-            this.chkTonKho.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkTonKho.TextLocationX = 16;
-            this.chkTonKho.TextLocationY = 1;
-            this.chkTonKho.TickColor = System.Drawing.Color.Black;
-            this.chkTonKho.TickLeftPosition = 5F;
-            this.chkTonKho.TickSize = 11F;
-            this.chkTonKho.TickTopPosition = 8F;
-            this.chkTonKho.UseVisualStyleBackColor = true;
-            this.chkTonKho.CheckedChanged += new System.EventHandler(this.chkTonKho_CheckedChanged);
-            // 
-            // label25
-            // 
-            this.label25.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label25.Location = new System.Drawing.Point(33, 57);
-            this.label25.Margin = new System.Windows.Forms.Padding(3, 4, 4, 4);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(78, 28);
-            this.label25.TabIndex = 13;
-            this.label25.Text = "Tồn kho";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // pnThongTinSP
             // 
             this.pnThongTinSP.Controls.Add(this.btnChonSanPham);
@@ -791,7 +496,7 @@
             this.pnThongTinSP.Controls.Add(this.txtTonKho);
             this.pnThongTinSP.Controls.Add(this.label4);
             this.pnThongTinSP.Controls.Add(this.txtDonGia);
-            this.pnThongTinSP.Location = new System.Drawing.Point(3, 492);
+            this.pnThongTinSP.Location = new System.Drawing.Point(3, 563);
             this.pnThongTinSP.Name = "pnThongTinSP";
             this.pnThongTinSP.Size = new System.Drawing.Size(775, 164);
             this.pnThongTinSP.TabIndex = 8;
@@ -1000,6 +705,297 @@
             this.txtDonGia.Texts = "";
             this.txtDonGia.UnderlinedStyle = false;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dgvSanPham);
+            this.panel2.Controls.Add(this.flpFilter);
+            this.panel2.Location = new System.Drawing.Point(3, 123);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(775, 434);
+            this.panel2.TabIndex = 9;
+            // 
+            // dgvSanPham
+            // 
+            this.dgvSanPham.AllowUserToAddRows = false;
+            this.dgvSanPham.AllowUserToDeleteRows = false;
+            this.dgvSanPham.AllowUserToResizeColumns = false;
+            this.dgvSanPham.AllowUserToResizeRows = false;
+            this.dgvSanPham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvSanPham.BackgroundColor = System.Drawing.Color.White;
+            this.dgvSanPham.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSanPham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvSanPham.ColumnHeadersHeight = 28;
+            this.dgvSanPham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaSP,
+            this.TenSP,
+            this.SoLuong,
+            this.DonGiaNhap,
+            this.TenLoai,
+            this.TenNCC});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSanPham.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvSanPham.EnableHeadersVisualStyles = false;
+            this.dgvSanPham.GridColor = System.Drawing.Color.Black;
+            this.dgvSanPham.Location = new System.Drawing.Point(6, 8);
+            this.dgvSanPham.Name = "dgvSanPham";
+            this.dgvSanPham.ReadOnly = true;
+            this.dgvSanPham.RowHeadersVisible = false;
+            this.dgvSanPham.RowHeadersWidth = 51;
+            this.dgvSanPham.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvSanPham.RowTemplate.Height = 30;
+            this.dgvSanPham.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvSanPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSanPham.Size = new System.Drawing.Size(758, 413);
+            this.dgvSanPham.TabIndex = 10;
+            // 
+            // MaSP
+            // 
+            this.MaSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.MaSP.DataPropertyName = "MaSP";
+            this.MaSP.Frozen = true;
+            this.MaSP.HeaderText = "Mã SP";
+            this.MaSP.MinimumWidth = 6;
+            this.MaSP.Name = "MaSP";
+            this.MaSP.ReadOnly = true;
+            this.MaSP.Width = 70;
+            // 
+            // TenSP
+            // 
+            this.TenSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenSP.DataPropertyName = "TenSP";
+            this.TenSP.HeaderText = "Tên SP";
+            this.TenSP.MinimumWidth = 6;
+            this.TenSP.Name = "TenSP";
+            this.TenSP.ReadOnly = true;
+            // 
+            // SoLuong
+            // 
+            this.SoLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.SoLuong.DataPropertyName = "SoLuong";
+            this.SoLuong.HeaderText = "Tồn kho";
+            this.SoLuong.MinimumWidth = 6;
+            this.SoLuong.Name = "SoLuong";
+            this.SoLuong.ReadOnly = true;
+            this.SoLuong.Width = 83;
+            // 
+            // DonGiaNhap
+            // 
+            this.DonGiaNhap.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.DonGiaNhap.DataPropertyName = "DonGiaNhap";
+            this.DonGiaNhap.HeaderText = "Đơn giá";
+            this.DonGiaNhap.MinimumWidth = 6;
+            this.DonGiaNhap.Name = "DonGiaNhap";
+            this.DonGiaNhap.ReadOnly = true;
+            this.DonGiaNhap.Width = 80;
+            // 
+            // TenLoai
+            // 
+            this.TenLoai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.TenLoai.DataPropertyName = "TenLoai";
+            this.TenLoai.HeaderText = "Tên loại";
+            this.TenLoai.MinimumWidth = 6;
+            this.TenLoai.Name = "TenLoai";
+            this.TenLoai.ReadOnly = true;
+            this.TenLoai.Width = 81;
+            // 
+            // TenNCC
+            // 
+            this.TenNCC.DataPropertyName = "TenNCC";
+            this.TenNCC.HeaderText = "TenNCC";
+            this.TenNCC.Name = "TenNCC";
+            this.TenNCC.ReadOnly = true;
+            this.TenNCC.Visible = false;
+            this.TenNCC.Width = 82;
+            // 
+            // flpFilter
+            // 
+            this.flpFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.flpFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flpFilter.Controls.Add(this.chkGia);
+            this.flpFilter.Controls.Add(this.label23);
+            this.flpFilter.Controls.Add(this.txtGiaStart);
+            this.flpFilter.Controls.Add(this.label7);
+            this.flpFilter.Controls.Add(this.txtGiaEnd);
+            this.flpFilter.Controls.Add(this.lblErrGiaFilter);
+            this.flpFilter.Controls.Add(this.chkTonKho);
+            this.flpFilter.Controls.Add(this.label25);
+            this.flpFilter.Controls.Add(this.txtTonKhoStart);
+            this.flpFilter.Controls.Add(this.label12);
+            this.flpFilter.Controls.Add(this.txtTonKhoEnd);
+            this.flpFilter.Controls.Add(this.lblErrTonKhoFilter);
+            this.flpFilter.Location = new System.Drawing.Point(475, 3);
+            this.flpFilter.Name = "flpFilter";
+            this.flpFilter.Size = new System.Drawing.Size(289, 116);
+            this.flpFilter.TabIndex = 11;
+            this.flpFilter.Visible = false;
+            // 
+            // chkGia
+            // 
+            this.chkGia.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkGia.BoxBackColor = System.Drawing.Color.Transparent;
+            this.chkGia.BoxColor = System.Drawing.Color.Black;
+            this.chkGia.BoxLocationX = 5;
+            this.chkGia.BoxLocationY = 8;
+            this.chkGia.BoxSize = 14;
+            this.chkGia.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkGia.FlatAppearance.BorderSize = 0;
+            this.chkGia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkGia.Location = new System.Drawing.Point(3, 3);
+            this.chkGia.Name = "chkGia";
+            this.chkGia.Padding = new System.Windows.Forms.Padding(10);
+            this.chkGia.Size = new System.Drawing.Size(24, 29);
+            this.chkGia.TabIndex = 9;
+            this.chkGia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkGia.TextLocationX = 16;
+            this.chkGia.TextLocationY = 1;
+            this.chkGia.TickColor = System.Drawing.Color.Black;
+            this.chkGia.TickLeftPosition = 5F;
+            this.chkGia.TickSize = 11F;
+            this.chkGia.TickTopPosition = 8F;
+            this.chkGia.UseVisualStyleBackColor = true;
+            this.chkGia.CheckedChanged += new System.EventHandler(this.chkGia_CheckedChanged);
+            // 
+            // label23
+            // 
+            this.label23.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label23.Location = new System.Drawing.Point(33, 4);
+            this.label23.Margin = new System.Windows.Forms.Padding(3, 4, 4, 4);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(78, 28);
+            this.label23.TabIndex = 8;
+            this.label23.Text = "Giá:";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtGiaStart
+            // 
+            this.txtGiaStart.BackColor = System.Drawing.SystemColors.Window;
+            this.txtGiaStart.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.txtGiaStart.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.txtGiaStart.BorderRadius = 0;
+            this.txtGiaStart.BorderSize = 2;
+            this.txtGiaStart.Enabled = false;
+            this.txtGiaStart.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGiaStart.ForeColor = System.Drawing.Color.Black;
+            this.txtGiaStart.Location = new System.Drawing.Point(119, 4);
+            this.txtGiaStart.Margin = new System.Windows.Forms.Padding(4);
+            this.txtGiaStart.MinimumSize = new System.Drawing.Size(0, 28);
+            this.txtGiaStart.Multiline = false;
+            this.txtGiaStart.Name = "txtGiaStart";
+            this.txtGiaStart.Padding = new System.Windows.Forms.Padding(8, 4, 2, 2);
+            this.txtGiaStart.PasswordChar = false;
+            this.txtGiaStart.PlaceholderColor = System.Drawing.Color.DimGray;
+            this.txtGiaStart.PlaceholderText = "Từ";
+            this.txtGiaStart.ReadOnly = false;
+            this.txtGiaStart.Size = new System.Drawing.Size(59, 28);
+            this.txtGiaStart.TabIndex = 10;
+            this.txtGiaStart.Texts = "";
+            this.txtGiaStart.UnderlinedStyle = false;
+            this.txtGiaStart._TextChanged += new System.EventHandler(this.txtGiaStart__TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label7.Location = new System.Drawing.Point(185, 4);
+            this.label7.Margin = new System.Windows.Forms.Padding(3, 4, 4, 4);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(13, 28);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "-";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtGiaEnd
+            // 
+            this.txtGiaEnd.BackColor = System.Drawing.SystemColors.Window;
+            this.txtGiaEnd.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.txtGiaEnd.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.txtGiaEnd.BorderRadius = 0;
+            this.txtGiaEnd.BorderSize = 2;
+            this.txtGiaEnd.Enabled = false;
+            this.txtGiaEnd.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGiaEnd.ForeColor = System.Drawing.Color.Black;
+            this.txtGiaEnd.Location = new System.Drawing.Point(206, 4);
+            this.txtGiaEnd.Margin = new System.Windows.Forms.Padding(4);
+            this.txtGiaEnd.MinimumSize = new System.Drawing.Size(0, 28);
+            this.txtGiaEnd.Multiline = false;
+            this.txtGiaEnd.Name = "txtGiaEnd";
+            this.txtGiaEnd.Padding = new System.Windows.Forms.Padding(8, 4, 2, 2);
+            this.txtGiaEnd.PasswordChar = false;
+            this.txtGiaEnd.PlaceholderColor = System.Drawing.Color.DimGray;
+            this.txtGiaEnd.PlaceholderText = "Đến";
+            this.txtGiaEnd.ReadOnly = false;
+            this.txtGiaEnd.Size = new System.Drawing.Size(59, 28);
+            this.txtGiaEnd.TabIndex = 11;
+            this.txtGiaEnd.Texts = "";
+            this.txtGiaEnd.UnderlinedStyle = false;
+            this.txtGiaEnd._TextChanged += new System.EventHandler(this.txtGiaEnd__TextChanged);
+            // 
+            // lblErrGiaFilter
+            // 
+            this.lblErrGiaFilter.Font = new System.Drawing.Font("Cambria", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrGiaFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
+            this.lblErrGiaFilter.Location = new System.Drawing.Point(3, 36);
+            this.lblErrGiaFilter.Name = "lblErrGiaFilter";
+            this.lblErrGiaFilter.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblErrGiaFilter.Size = new System.Drawing.Size(262, 17);
+            this.lblErrGiaFilter.TabIndex = 28;
+            this.lblErrGiaFilter.Text = "* Bạn phải giá kết thúc lớn hơn giá bắt đầu ";
+            this.lblErrGiaFilter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblErrGiaFilter.Visible = false;
+            // 
+            // chkTonKho
+            // 
+            this.chkTonKho.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkTonKho.BoxBackColor = System.Drawing.Color.Transparent;
+            this.chkTonKho.BoxColor = System.Drawing.Color.Black;
+            this.chkTonKho.BoxLocationX = 5;
+            this.chkTonKho.BoxLocationY = 8;
+            this.chkTonKho.BoxSize = 14;
+            this.chkTonKho.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkTonKho.FlatAppearance.BorderSize = 0;
+            this.chkTonKho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkTonKho.Location = new System.Drawing.Point(3, 56);
+            this.chkTonKho.Name = "chkTonKho";
+            this.chkTonKho.Padding = new System.Windows.Forms.Padding(10);
+            this.chkTonKho.Size = new System.Drawing.Size(24, 29);
+            this.chkTonKho.TabIndex = 14;
+            this.chkTonKho.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkTonKho.TextLocationX = 16;
+            this.chkTonKho.TextLocationY = 1;
+            this.chkTonKho.TickColor = System.Drawing.Color.Black;
+            this.chkTonKho.TickLeftPosition = 5F;
+            this.chkTonKho.TickSize = 11F;
+            this.chkTonKho.TickTopPosition = 8F;
+            this.chkTonKho.UseVisualStyleBackColor = true;
+            this.chkTonKho.CheckedChanged += new System.EventHandler(this.chkTonKho_CheckedChanged);
+            this.chkTonKho.TextChanged += new System.EventHandler(this.chkTonKho_CheckedChanged);
+            // 
+            // label25
+            // 
+            this.label25.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label25.Location = new System.Drawing.Point(33, 57);
+            this.label25.Margin = new System.Windows.Forms.Padding(3, 4, 4, 4);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(78, 28);
+            this.label25.TabIndex = 13;
+            this.label25.Text = "Tồn kho";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // txtTonKhoStart
             // 
             this.txtTonKhoStart.BackColor = System.Drawing.SystemColors.Window;
@@ -1093,11 +1089,11 @@
             this.gradientPanel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
-            this.flowLayoutPanel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).EndInit();
-            this.flpFilter.ResumeLayout(false);
             this.pnThongTinSP.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudSoLuongMua)).EndInit();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).EndInit();
+            this.flpFilter.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1127,8 +1123,6 @@
         private MyCustom.RJTextBox txtTimKiem;
         private MyCustom.RJButton btnTimKiem;
         private MyCustom.RJButton btnFilter;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
-        private System.Windows.Forms.DataGridView dgvSanPham;
         private System.Windows.Forms.FlowLayoutPanel flpNhaCungCap;
         private System.Windows.Forms.Panel pnThongTinSP;
         private System.Windows.Forms.Label label1;
@@ -1143,13 +1137,15 @@
         private System.Windows.Forms.Label label6;
         private MyCustom.CustomNumericUpDown nudSoLuongMua;
         private MyCustom.RJButton btnChonSanPham;
+        private MyCustom.RJButton rjButton2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dgvSanPham;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn DonGiaNhap;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenLoai;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenNCC;
-        private MyCustom.RJButton rjButton2;
         private System.Windows.Forms.FlowLayoutPanel flpFilter;
         private MyCustom.BiggerCheckBox chkGia;
         private System.Windows.Forms.Label label23;
