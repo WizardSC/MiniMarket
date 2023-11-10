@@ -19,6 +19,7 @@ namespace GUI
         private DataTable dtDoanhThuThangSoVoiNam;
         private DataTable dtTopSPBanChay;
         private DataTable dtTopSpBanChayTheoThang;
+        private DataTable dtLuotMuaTheoGioiTinh;
         private ThongKeBLL tkBLL;
         private int currentMonth;
         private int currentYear;
@@ -144,6 +145,16 @@ namespace GUI
             chartSPTheoGioiTinh.Series["chartSPTheoGioiTinh"].Points.AddXY("Nữ", 80);
 
 
+        }
+        private void loadLuotMuaTheoGioiTinh(string tenSP)
+        {
+            dtLuotMuaTheoGioiTinh = tkBLL.thongKeSoLuotMuaTheoGioiTinh(tenSP);
+            chartSPTheoGioiTinh.Series["chartSPTheoGioiTinh"].Points.Clear();
+            for(int i = 0; i < dtLuotMuaTheoGioiTinh.Rows.Count; i++)
+            {
+                chartSPTheoGioiTinh.Series["chartSPTheoGioiTinh"].Points.AddXY(dtLuotMuaTheoGioiTinh.Rows[i]["Giới Tính"], dtLuotMuaTheoGioiTinh.Rows[i]["Số Lượt Mua"]);
+
+            }
         }
         private void loadDoanhThuThangSoVoiNam(int thang, int nam)
         {
@@ -351,6 +362,13 @@ namespace GUI
         private void label14_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvTopSPBanChay_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i = dgvTopSPBanChay.CurrentRow.Index;
+            string tenSP = dgvTopSPBanChay.Rows[i].Cells[0].Value.ToString();
+            loadLuotMuaTheoGioiTinh("Kẹo cứng Dynamite");
         }
     }
 }

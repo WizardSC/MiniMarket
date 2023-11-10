@@ -577,6 +577,32 @@ namespace DAL
 
             return tongDoanhThuQuy4;
         }
+        public DataTable thongKeSoLuotMuaTheoGioiTinh(string tenSP)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "sp_ThongKeSoLuotMuaTheoGioiTinh";
+                cmd.Parameters.Add("@TenSP", SqlDbType.NVarChar).Value = tenSP;
+
+                cmd.Connection = conn;
+                SqlDataAdapter adt = new SqlDataAdapter(cmd);
+                adt.Fill(dt);
+            }
+
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return dt;
+        }
 
     }
 }
