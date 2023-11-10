@@ -985,7 +985,6 @@
             this.pnThongKeContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.pnThongKeContainer.TextColor = System.Drawing.Color.Black;
             this.pnThongKeContainer.UseVisualStyleBackColor = false;
-            this.pnThongKeContainer.Click += new System.EventHandler(this.pnThongKeContainer_Click);
             // 
             // pnLeftBorderThongKe
             // 

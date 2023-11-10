@@ -61,6 +61,44 @@ namespace DAL
             }
             return dt;
         }
+        public int getUniqueKhachHang(int thang)
+        {
+            int tongSoKhachHang = 0;
+
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "sp_uniqueKhachHang";
+                cmd.Parameters.Add("@thang", SqlDbType.Int).Value = thang;
+
+                cmd.Connection = conn;
+
+                // Sử dụng ExecuteScalar để lấy giá trị trả về từ stored procedure
+                object result = cmd.ExecuteScalar();
+
+                // Kiểm tra giá trị null và kiểm tra xem có thể chuyển đổi sang kiểu int không
+                if (result != null && result != DBNull.Value)
+                {
+                    tongSoKhachHang = Convert.ToInt32(result);
+                }
+
+                Console.WriteLine("Ở đây: " + tongSoKhachHang);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi:" + ex.Message);
+            }
+            finally
+            {
+                Disconnect();
+            }
+
+            return tongSoKhachHang;
+        }
+
+
         public DataTable getTopSPBanChay()
         {
             DataTable dt = new DataTable();
