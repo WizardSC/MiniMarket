@@ -97,9 +97,9 @@ namespace BLL
             return tkDAL.getTongDoanhThuQuy4Nam(nam);
         }
 
-        public DataTable thongKeSoLuotMuaTheoGioiTinh(string tenSP)
+        public DataTable thongKeSoLuotMuaTheoGioiTinh(string maSP)
         {
-            return tkDAL.thongKeSoLuotMuaTheoGioiTinh(tenSP);
+            return tkDAL.thongKeSoLuotMuaTheoGioiTinh(maSP);
         }
     }
 }
