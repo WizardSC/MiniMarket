@@ -20,11 +20,6 @@ namespace BLL
         {
             return loaiDAL.getListLoai();
         }
-
-        public DataTable getListLoaiMini()
-        {
-            return loaiDAL.getListLoaiMini();
-        }
         public bool insert_LoaiSP(LoaiDTO LSP)
         {
             return loaiDAL.insertLoaiSP(LSP);
