@@ -80,8 +80,8 @@ namespace DAL
                 Connect();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from KhuyenMai where DieuKienKM = '' ";
-                ;
+                cmd.CommandText = "select * from KhuyenMai where DieuKienKM = 0 AND PhanTramKM = 0 ";
+
                 cmd.Connection = conn;
                 SqlDataAdapter adt = new SqlDataAdapter(cmd);
                 adt.Fill(dt);
