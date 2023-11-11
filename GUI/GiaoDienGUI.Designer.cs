@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GiaoDienGUI));
             this.pnSidebar = new System.Windows.Forms.Panel();
             this.pnMainMenu = new System.Windows.Forms.Panel();
+            this.pnTaiKhoan = new System.Windows.Forms.Panel();
+            this.pnTaiKhoanContainer = new GUI.MyCustom.RJButton();
+            this.pnLeftBorderTaiKhoan = new System.Windows.Forms.Panel();
             this.pnThongKe = new System.Windows.Forms.Panel();
             this.pnThongKeContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderThongKe = new System.Windows.Forms.Panel();
@@ -90,6 +93,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnSidebar.SuspendLayout();
             this.pnMainMenu.SuspendLayout();
+            this.pnTaiKhoan.SuspendLayout();
             this.pnThongKe.SuspendLayout();
             this.pnSubQuanLy.SuspendLayout();
             this.panel18.SuspendLayout();
@@ -130,6 +134,7 @@
             // 
             this.pnMainMenu.AutoScroll = true;
             this.pnMainMenu.AutoSize = true;
+            this.pnMainMenu.Controls.Add(this.pnTaiKhoan);
             this.pnMainMenu.Controls.Add(this.pnThongKe);
             this.pnMainMenu.Controls.Add(this.pnSubQuanLy);
             this.pnMainMenu.Controls.Add(this.pnQuanLy);
@@ -140,6 +145,52 @@
             this.pnMainMenu.Name = "pnMainMenu";
             this.pnMainMenu.Size = new System.Drawing.Size(182, 481);
             this.pnMainMenu.TabIndex = 5;
+            // 
+            // pnTaiKhoan
+            // 
+            this.pnTaiKhoan.Controls.Add(this.pnTaiKhoanContainer);
+            this.pnTaiKhoan.Controls.Add(this.pnLeftBorderTaiKhoan);
+            this.pnTaiKhoan.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnTaiKhoan.Location = new System.Drawing.Point(0, 701);
+            this.pnTaiKhoan.Name = "pnTaiKhoan";
+            this.pnTaiKhoan.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.pnTaiKhoan.Size = new System.Drawing.Size(165, 50);
+            this.pnTaiKhoan.TabIndex = 6;
+            // 
+            // pnTaiKhoanContainer
+            // 
+            this.pnTaiKhoanContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnTaiKhoanContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnTaiKhoanContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnTaiKhoanContainer.BorderRadius = 0;
+            this.pnTaiKhoanContainer.BorderSize = 0;
+            this.pnTaiKhoanContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnTaiKhoanContainer.FlatAppearance.BorderSize = 0;
+            this.pnTaiKhoanContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnTaiKhoanContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnTaiKhoanContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnTaiKhoanContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnTaiKhoanContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnTaiKhoanContainer.Image")));
+            this.pnTaiKhoanContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnTaiKhoanContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnTaiKhoanContainer.Name = "pnTaiKhoanContainer";
+            this.pnTaiKhoanContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnTaiKhoanContainer.Size = new System.Drawing.Size(157, 40);
+            this.pnTaiKhoanContainer.TabIndex = 2;
+            this.pnTaiKhoanContainer.Text = "         Tài khoản";
+            this.pnTaiKhoanContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnTaiKhoanContainer.TextColor = System.Drawing.Color.Black;
+            this.pnTaiKhoanContainer.UseVisualStyleBackColor = false;
+            this.pnTaiKhoanContainer.Click += new System.EventHandler(this.pnTaiKhoanContainer_Click);
+            // 
+            // pnLeftBorderTaiKhoan
+            // 
+            this.pnLeftBorderTaiKhoan.BackColor = System.Drawing.Color.Transparent;
+            this.pnLeftBorderTaiKhoan.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnLeftBorderTaiKhoan.Location = new System.Drawing.Point(0, 0);
+            this.pnLeftBorderTaiKhoan.Name = "pnLeftBorderTaiKhoan";
+            this.pnLeftBorderTaiKhoan.Size = new System.Drawing.Size(8, 40);
+            this.pnLeftBorderTaiKhoan.TabIndex = 0;
             // 
             // pnThongKe
             // 
@@ -1013,6 +1064,7 @@
             this.pnSidebar.PerformLayout();
             this.pnMainMenu.ResumeLayout(false);
             this.pnMainMenu.PerformLayout();
+            this.pnTaiKhoan.ResumeLayout(false);
             this.pnThongKe.ResumeLayout(false);
             this.pnSubQuanLy.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
@@ -1098,5 +1150,8 @@
         private System.Windows.Forms.Panel pnThongKe;
         private MyCustom.RJButton pnThongKeContainer;
         private System.Windows.Forms.Panel pnLeftBorderThongKe;
+        private System.Windows.Forms.Panel pnTaiKhoan;
+        private MyCustom.RJButton pnTaiKhoanContainer;
+        private System.Windows.Forms.Panel pnLeftBorderTaiKhoan;
     }
 }

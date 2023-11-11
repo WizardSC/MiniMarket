@@ -52,7 +52,28 @@ namespace GUI
         }
         private void loadMaNV()
         {
-          
+            //string lastMaNV = null;
+            //foreach (DataRow row in dt.Rows)
+            //{
+            //    lastMaNV = row["MaNV"].ToString();
+            //}
+            //if (lastMaNV == "")
+            //{
+            //    txtMaNV.Texts = "NV001";
+            //}
+            //int tempNum = int.Parse(lastMaNV.Substring(2));
+            //if ((tempNum + 1) >= 10)
+            //{
+            //    txtMaNV.Texts = "NV0" + (tempNum + 1).ToString();
+            //}
+            //else if (tempNum >= 1 && tempNum < 9)
+            //{
+            //    txtMaNV.Texts = "NV00" + (tempNum + 1).ToString();
+            //}
+            //MessageBox.Show(txtMaNV.Texts,
+            //  "Thông báo",
+            //  MessageBoxButtons.OK,
+            //  MessageBoxIcon.Information);
             string lastMaNV = dt.AsEnumerable()
                .Select(row => row.Field<string>("MaNV"))
                .LastOrDefault();
@@ -405,8 +426,9 @@ namespace GUI
             int trangThaiValue = (trangThai == "Hoạt động" ? 1 : 0);
             string chucVu = CheckAndSetColor(cbxChucVu, lblErrChucVu);
             string valueChucVu = (chucVu == "Nhân viên bán hàng" ? "CV001" : "CV002");
-            byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
+            //byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
             //string maTK = null;
+            byte[] img = null;
             string gioiTinh = "";
             if (!(rdbNam.Checked || rdbNu.Checked))
             {
@@ -424,11 +446,11 @@ namespace GUI
                 lblErrGioiTinh.ForeColor = Color.Transparent; // Đổi màu trong suốt nếu có một trong hai CheckBox được chọn
 
             }
-            if ((string.IsNullOrWhiteSpace(ho) || string.IsNullOrWhiteSpace(ten) || string.IsNullOrWhiteSpace(soDT) || string.IsNullOrWhiteSpace(diaChi) || string.IsNullOrWhiteSpace(trangThai) || string.IsNullOrWhiteSpace(chucVu) && trueNgaySinh == true && img == null ))
+            if ((string.IsNullOrWhiteSpace(ho) || string.IsNullOrWhiteSpace(ten) || string.IsNullOrWhiteSpace(soDT) || string.IsNullOrWhiteSpace(diaChi) || string.IsNullOrWhiteSpace(trangThai) || string.IsNullOrWhiteSpace(chucVu) && trueNgaySinh == true ))
             {
                 return;
             }
-            NhanVienDTO nv = new NhanVienDTO(maNV, ho, ten, ngaySinh, gioiTinh, soDT, diaChi, trangThaiValue,img, valueChucVu);
+            NhanVienDTO nv = new NhanVienDTO(maNV, ho, ten, ngaySinh, gioiTinh, soDT, diaChi, trangThaiValue, valueChucVu);
             if (nvBLL.insertNhanVien(nv))
             {
                 MessageBox.Show("Thêm thành công",
@@ -470,9 +492,9 @@ namespace GUI
             int trangThaiValue = (trangThai == "Hoạt động" ? 1 : 0);
             string chucVu = CheckAndSetColor(cbxChucVu, lblErrChucVu);
             string valueChucVu = (chucVu == "Nhân viên bán hàng" ? "CV001" : "CV002");
-            byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
+            //byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
             //string maTK = null;
-            //byte[] img = null;
+            byte[] img = null;
             string gioiTinh = "";
             if (!(rdbNam.Checked || rdbNu.Checked))
             {
@@ -490,12 +512,12 @@ namespace GUI
                 lblErrGioiTinh.ForeColor = Color.Transparent; // Đổi màu trong suốt nếu có một trong hai CheckBox được chọn
 
             }
-            if ((string.IsNullOrWhiteSpace(ho) || string.IsNullOrWhiteSpace(ten) || string.IsNullOrWhiteSpace(soDT) || string.IsNullOrWhiteSpace(diaChi) || string.IsNullOrWhiteSpace(trangThai) || string.IsNullOrWhiteSpace(chucVu) && trueNgaySinh == true && img == null))
+            if ((string.IsNullOrWhiteSpace(ho) || string.IsNullOrWhiteSpace(ten) || string.IsNullOrWhiteSpace(soDT) || string.IsNullOrWhiteSpace(diaChi) || string.IsNullOrWhiteSpace(trangThai) || string.IsNullOrWhiteSpace(chucVu) && trueNgaySinh == true))
             {
                 return;
             }
 
-            NhanVienDTO nv = new NhanVienDTO(maNV, ho, ten, ngaySinh, gioiTinh, soDT, diaChi, trangThaiValue,img, valueChucVu);
+            NhanVienDTO nv = new NhanVienDTO(maNV, ho, ten, ngaySinh, gioiTinh, soDT, diaChi, trangThaiValue, valueChucVu);
             if (nvBLL.updateNhanVien(nv))
             {
                 MessageBox.Show("Sửa thành công",
@@ -587,12 +609,7 @@ namespace GUI
 
             }
         }
-        private Image convertBinaryStringToImage(byte[] binaryString)
-        {
-            MemoryStream ms = new MemoryStream(binaryString);
-            Image img = Image.FromStream(ms);
-            return img;
-        }
+
         private void btnDeleteIMG_Click(object sender, EventArgs e)
         {
             pbImage.Image = pbImage.InitialImage;
@@ -613,10 +630,11 @@ namespace GUI
             txtDiaChi.Texts = dgvNhanVien.Rows[i].Cells[6].Value.ToString();
             int trangThai = int.Parse(dgvNhanVien.Rows[i].Cells[7].Value.ToString());
             string chucVu = dgvNhanVien.Rows[i].Cells[9].Value.ToString();
-            byte[] imagebytes = (byte[])dgvNhanVien.Rows[i].Cells[10].Value;
-            pbImage.Image = convertBinaryStringToImage(imagebytes);
-            pbImage.Tag = dgvNhanVien.Rows[i].Cells[0].Value.ToString();
+            //byte[] imageBytes = (byte[])dgvNhanVien.Rows[i].Cells[9].Value;
+            //pbImage.Image = convertBinaryStringToImage(imageBytes);
+            //pbImage.Tag = dgvNhanVien.Rows[i].Cells[0].Value.ToString();
             cbxTrangThai.SelectedItem = (trangThai == 1) ? "Hoạt động" : "Không hoạt động";
+
             cbxChucVu.SelectedItem = (chucVu == "CV001") ? "Nhân viên bán hàng" : "Nhân viên quản lý";
         }
         private byte[] convertImageToBinaryString(System.Drawing.Image img, string tag)
@@ -658,7 +676,6 @@ namespace GUI
             cbxTrangThai.SelectedIndex = -1;
             cbxTrangThai.Texts = "--Chọn trạng thái--";
             txtTimKiem.Texts = "";
-            btnDeleteIMG.PerformClick();
             loadMaNV();
 
         }
@@ -671,7 +688,7 @@ namespace GUI
             string maNV = txtMaNV.Texts;
             string stringTrangThai = cbxTrangThai.SelectedItem.ToString();
             int trangThai = (stringTrangThai == "Hoạt động") ? 1 : 0;
-            var choice = MessageBox.Show("Xóa nhân viên này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var choice = MessageBox.Show("Xóa sản phẩm này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (choice == DialogResult.Yes)
             {
                 bool isLoiKhoaNgoai;
@@ -682,7 +699,6 @@ namespace GUI
                       MessageBoxButtons.OK,
                       MessageBoxIcon.Information);
                     load_Form();
-                    reset();
 
                 }
                 else
@@ -977,16 +993,6 @@ namespace GUI
             combinedCondition = CombineConditions(combinedCondition, chucVuCondition);
             combinedCondition = ApplyOrRemoveTuoiCondition(combinedCondition, isTuoi);
             applySearchs(combinedCondition);
-        }
-
-        private void lblErrIMG_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pbImage_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

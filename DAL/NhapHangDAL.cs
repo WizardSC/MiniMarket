@@ -16,7 +16,7 @@ namespace DAL
             try
             {
                 Connect();
-                string sql = "select MaSP, TenSP, SoLuong, DonGiaNhap, TenLoai, TenNCC, SanPham.TrangThai from SanPham join LoaiSP on LoaiSP.MaLoai = SanPham.MaLoai join NhaCungCap on NhaCungCap.MaNCC = SanPham.MaNCC where SanPham.TrangThai = 1";
+                string sql = "select MaSP, TenSP, SoLuong, DonGiaNhap, TenLoai, TenNCC from SanPham join LoaiSP on LoaiSP.MaLoai = SanPham.MaLoai join NhaCungCap on NhaCungCap.MaNCC = SanPham.MaNCC";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataAdapter adt = new SqlDataAdapter(cmd);
                 adt.Fill(dt);
