@@ -462,7 +462,7 @@ namespace GUI
                 cbxTrangThai.SelectedIndex = 1;
             }
 
-            if (int.Parse(txtDkKM.Texts) == 0 && int.Parse(txtPhanTramKM.Texts) == 0)
+            if (txtDkKM.Texts == "")
             {
                 btnThongTinKM.Visible = true;
             }

@@ -36,6 +36,15 @@ namespace BLL
         {
             return CtKmDAL.Update_CTKhuyenMai(CTKM_DTO);
         }
-        
+        public bool deleteCTKhuyenMai(string maKM,string maSP, out bool isLoiKhoaNgoai)
+        {
+            return CtKmDAL.delete_CTkhuyenMai(maKM,maSP,out isLoiKhoaNgoai);
+        }
+
+        public bool updateTrangThai(int trangThai, string maKM,string maSP)
+        {
+            trangThai = (trangThai == 0) ? 1 : 0;
+            return CtKmDAL.update_TrangThai(trangThai, maKM, maSP);
+        }
     }
 }

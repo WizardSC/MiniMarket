@@ -6,14 +6,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using OfficeOpenXml;
-using Excel = Microsoft.Office.Interop.Excel;
+
 namespace GUI
 {
 
@@ -117,11 +115,11 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            String MaLoai = CheckAndSetColor(txtMaLoai, label13);
-            String TenLoai = CheckAndSetColor(txtTenLoai, label15);
-            string trangThai = CheckAndSetColor(cbxTrangThai, label3);
+            String MaLoai = CheckAndSetColor(txtMaLoai,label13);
+            String TenLoai = CheckAndSetColor(txtTenLoai,label15);
+            string trangThai = CheckAndSetColor(cbxTrangThai,label3);
             int trangThaiValue = (trangThai == "Hoạt động") ? 1 : 0;
-            if (!(MaLoai != "" && TenLoai != "" && trangThai != ""))
+            if (!(MaLoai != "" && TenLoai != "" && trangThai != "" ))
             {
                 return;
             }
@@ -129,7 +127,7 @@ namespace GUI
             int flag = loaibill.insert_LoaiSP(LSP) ? 1 : 0;
             if (flag == 1)
             {
-
+               
                 MessageBox.Show("Thêm loại thành công thành công.",
                     "Thông báo",
                     MessageBoxButtons.OK,
@@ -145,7 +143,7 @@ namespace GUI
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
-
+       
         }
 
         private void dgvLoai_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -166,14 +164,14 @@ namespace GUI
             cbxTrangThai.SelectedItem = (trangThaiValue == 0) ? "Không hoạt động" : "Hoạt động";
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
+       private void btnSua_Click(object sender, EventArgs e)
         {
-            LoaiDTO LSP = new LoaiDTO();
+           LoaiDTO LSP = new LoaiDTO();
             LSP.TenLoai = txtTenLoai.Texts;
             LSP.MaLoai = txtMaLoai.Texts;
             string trangThai = cbxTrangThai.SelectedItem.ToString();
             int trangThaiValue = (trangThai == "Hoạt động") ? 1 : 0;
-            LSP.TrangThaiLoai = trangThaiValue;
+            LSP.TrangThaiLoai = trangThaiValue; 
 
             int kq = loaibill.update_LoaiSP(LSP) ? 1 : 0;
             if (kq == 1)
@@ -183,7 +181,7 @@ namespace GUI
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
                 init();
-
+                
 
             }
             else
@@ -201,7 +199,7 @@ namespace GUI
 
         private void btnXoa_Click_1(object sender, EventArgs e)
         {
-
+            
             string MaLoai = txtMaLoai.Texts;
             string stringTrangThai = cbxTrangThai.SelectedItem.ToString();
             int trangThai = (stringTrangThai == "Hoạt động") ? 1 : 0;
@@ -301,7 +299,7 @@ namespace GUI
         {
             return text;
         }
-
+        
         private void cbxTimKiem_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             cbxItemsMacDinh = cbxTimKiem.SelectedItem.ToString();
@@ -319,18 +317,18 @@ namespace GUI
             }
         }
 
+        
 
-
-
-        private void applySearchs(string text)
-        {
-            // dt = loaibill.getListLoai();
-            currentSearch = text;
-            Console.WriteLine(currentSearch);
-            DataView dvLoai = loaibill.getListLoai().DefaultView;
-            dvLoai.RowFilter = currentSearch;
-            dgvLoai.DataSource = dvLoai.ToTable();
-        }
+       
+           private void applySearchs(string text)
+            {
+               // dt = loaibill.getListLoai();
+                currentSearch = text;
+                Console.WriteLine(currentSearch);
+                DataView dvLoai = loaibill.getListLoai().DefaultView;
+                dvLoai.RowFilter = currentSearch;
+                dgvLoai.DataSource = dvLoai.ToTable();
+            }
         private string CombineConditions(string condition1, string condition2)
         {
             if (!string.IsNullOrEmpty(condition1) && !string.IsNullOrEmpty(condition2))
@@ -464,350 +462,10 @@ namespace GUI
 
             statusCondition = string.Join(" OR ", statusConditions);
         }
-
-        private void btnExport_Click(object sender, EventArgs e)
-        {
-            /*DataObject copydata = dgvLoai.GetClipboardContent();
-            if (copydata != null) Clipboard.SetDataObject(copydata);
-            Microsoft.Office.Interop.Excel.Application xlapp = new Microsoft.Office.Interop.Excel.Application();
-            xlapp.Visible = true;
-            Microsoft.Office.Interop.Excel.Workbook xlWbook;
-            Microsoft.Office.Interop.Excel.Workbook xlsheet;
-            object miseddata = System.Reflection.Missing.Value;
-            xlWbook = xlapp.Workbooks.Add(miseddata);
-
-            xlsheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWbook.Worksheets.get_Item(1);
-            Microsoft.Office.Interop.Excel.Range xlr = (Microsoft.Office.Interop.Excel.Range)xlsheet.Cells[1, 1];
-            xlr.Select();
-            xlsheet.PasteSpecial(xlr, Type.Missing, , true);*/
-
-
-            /* Excel.Application excelApp = new Excel.Application();
-             Excel.Workbook excelWB = excelApp.Workbooks.Add("");
-             Excel._Worksheet excelWS = excelWB.ActiveSheet;
-             excelWS.Cells[1, 1] = "First Name";
-             excelWS.Cells[1, 2] = "Last Name";
-             excelWS.Cells[2, 1] = "Azhar";
-             excelWS.Cells[2, 2] = "Jamal";
-             excelWB.SaveCopyAs(@"C:\Users\Admin\Documents\GitHub\MiniMarket\GUI\resources\fileexcel\writeDataFile.xlsx");
-             excelWB.Close();
-             excelApp.Quit();*/
-            //  using Excel = Microsoft.Office.Interop.Excel;
-
-            // Khởi tạo danh sách loại (thay thế dòng này bằng danh sách thực tế của bạn)
-
-            /* List<LoaiDTO> loai = listLoai;
-             dt = loaibill.getListLoai();
-             // Khởi tạo ứng dụng Excel
-             Excel.Application excelApp = new Excel.Application();
-             Excel.Workbook excelWB = excelApp.Workbooks.Add("");
-             Excel._Worksheet excelWS = excelWB.ActiveSheet;
-
-             // Định dạng tiêu đề (nếu cần)
-             excelWS.Cells[1, 1] = "Mã Loại";
-             excelWS.Cells[1, 2] = "Tên Loại";
-             excelWS.Cells[1, 3] = "Trạng Thái";
-
-             // Bắt đầu từ hàng 2 để điền dữ liệu trong vòng lặp
-
-             // Vòng lặp để thêm dữ liệu
-             int currentRow = 2; // Bắt đầu từ hàng 2 để điền dữ liệu trong vòng lặp
-
-             foreach (DataRow row in dt.Rows)
-             {
-                 excelWS.Cells[currentRow, 1] = row["MaLoai"];
-                 excelWS.Cells[currentRow, 2] = row["TenLoai"];
-
-                 // Kiểm tra giá trị của cột "TrangThai" và hiển thị tương ứng
-                 if (row["TrangThai"].ToString() == "1")
-                 {
-                     excelWS.Cells[currentRow, 3] = "Hoạt Động";
-                 }
-                 else
-                 {
-                     excelWS.Cells[currentRow, 3] = "Không Hoạt Động";
-                 }
-
-                 // Tăng chỉ số hàng
-                 currentRow++;
-             }
-
-
-
-
-            // string filePath = @"C:\Users\Admin\Documents\GitHub\MiniMarket\GUI\resources\fileexcel\writeDataFile.xlsx";
-
-             // Lưu tệp Excel và đóng ứng dụng Excel
-             excelWB.SaveAs(filePath);
-             excelWB.Close();
-             excelApp.Quit();
-
-             // Giải phóng tài nguyên
-             System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
-             System.Runtime.InteropServices.Marshal.ReleaseComObject(excelWB);
-             System.Runtime.InteropServices.Marshal.ReleaseComObject(excelWS);
-
-             // Thông báo hoàn thành
-             MessageBox.Show("Dữ liệu đã được xuất ra tệp Excel.", "Hoàn thành", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-             */
-
-
-            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-           // folderBrowserDialog.Description = "Chọn thư mục đầu ra";
-           //folderBrowserDialog.RootFolder = Environment.SpecialFolder.MyComputer;
-
-
-            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
-            {
-                string selectedFolderPath = folderBrowserDialog.SelectedPath;
-
-                // Lấy tên tệp Excel từ textbox hoặc từ bất kỳ nguồn dữ liệu nào khác
-                string namefile = rjtFile.Texts; // Kiểm tra tên tệp từ textbox của bạn
-
-                // Kết hợp đường dẫn và tên tệp để tạo đường dẫn đầy đủ
-                string filePath = Path.Combine(selectedFolderPath, namefile + ".xlsx");
-
-                // Bắt đầu tạo tệp Excel
-                Excel.Application excelApp = new Excel.Application();
-                Excel.Workbook excelWB = excelApp.Workbooks.Add("");
-                Excel._Worksheet excelWS = excelWB.ActiveSheet;
-
-                // Định dạng tiêu đề
-                excelWS.Cells[1, 1] = "Mã Loại";
-                excelWS.Cells[1, 2] = "Tên Loại";
-                excelWS.Cells[1, 3] = "Trạng Thái";
-
-                // Bắt đầu từ hàng 2 để điền dữ liệu trong vòng lặp
-                int currentRow = 2;
-
-                // Export dữ liệu từ DataTable vào Excel
-                foreach (DataRow row in dt.Rows)
-                {
-                    excelWS.Cells[currentRow, 1] = row["MaLoai"];
-                    excelWS.Cells[currentRow, 2] = row["TenLoai"];
-                    excelWS.Cells[currentRow, 3] = row["TrangThai"];
-
-                    // Kiểm tra giá trị của cột "TrangThai" và hiển thị tương ứng
-                    /*  if (row["TrangThai"].ToString() == "1")
-                      {
-                          excelWS.Cells[currentRow, 3] = "Hoạt Động";
-                      }
-                      else
-                      {
-                          excelWS.Cells[currentRow, 3] = "Không Hoạt Động";
-                      }*/
-
-                    // Tăng chỉ số hàng
-                    currentRow++;
-                }
-
-                // Lưu tệp Excel với đường dẫn mới
-                excelWB.SaveAs(filePath);
-
-                // Đóng tệp Excel
-                excelWB.Close(false);
-                excelApp.Quit();
-
-                // Giải phóng tài nguyên
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(excelWB);
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(excelWS);
-
-                // Thông báo hoàn thành
-                MessageBox.Show("Dữ liệu đã được xuất ra tệp Excel.", "Hoàn thành", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                Console.WriteLine("Không có thư mục nào được chọn.");
-            }
-            /*System.Configuration.ConfigurationManager.AppSettings["ExcelPackage.LicenseContext"] = "NonCommercial";
-
-
-            try
-            {
-                List<LoaiDTO> loai = listLoai;
-
-                using (var package = new ExcelPackage())
-                {
-                    var worksheet = package.Workbook.Worksheets.Add("Loai");
-
-                    worksheet.Cells["A1"].Value = "Mã Loại";
-                    worksheet.Cells["B1"].Value = "Tên Loại";
-                    worksheet.Cells["C1"].Value = "Trạng Thái";
-
-                    int row = 2; // Bắt đầu từ hàng 2 để điền dữ liệu
-                    foreach (var docloai in loai)
-                    {
-                        worksheet.Cells["A" + row].Value = docloai.MaLoai;
-                        worksheet.Cells["B" + row].Value = docloai.TenLoai;
-                        worksheet.Cells["C" + row].Value = docloai.TrangThaiLoai;
-                        row++;
-                    }
-
-                    var filePath = @"C:\Users\Admin\Documents\GitHub\MiniMarket\GUI\resources\fileexcel\Loai.xlsx";
-                    package.SaveAs(filePath);
-
-                    MessageBox.Show("Xuất file than", "Thông báo");
-
-
-                }
-            }
-            catch (Exception ex)
-            {
-                // Xử lý ngoại lệ ở đây, ví dụ:
-                Console.WriteLine("Đã xảy ra lỗi: " + ex.Message);
-            }*/
-        }
-
-        private void btnFolder_Click(object sender, EventArgs e)
-        {
-            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-
-            folderBrowserDialog.Description = "Chọn một thư mục";
-            folderBrowserDialog.RootFolder = Environment.SpecialFolder.MyComputer; // Thư mục gốc
-            folderBrowserDialog.SelectedPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); // Thư mục mặc định
-
-            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
-            {
-                // Lấy đường dẫn đến thư mục được chọn
-                string selectedFolderPath = folderBrowserDialog.SelectedPath;
-
-                string namefile = rjtFile.Text; // Lấy tên file từ TextBox
-
-                // Tạo đường dẫn đến tệp trong thư mục được chọn
-                string filePath = Path.Combine(selectedFolderPath, namefile);
-
-                Console.WriteLine("Đường dẫn đến tệp đã chọn: " + filePath);
-            }
-            else
-            {
-                Console.WriteLine("Không có thư mục nào được chọn.");
-            }
-        }
-
-        private void btnImport_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Excel Files|*.xls;*.xlsx";
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                string filePath = openFileDialog.FileName;
-
-                Excel.Application excelApp = new Excel.Application();
-                Excel.Workbook excelWB = excelApp.Workbooks.Open(filePath);
-                Excel.Worksheet excelWS = excelWB.ActiveSheet;
-
-                // Xóa tất cả các hàng
-                /* dgvLoai.Rows.Clear();
-
-                 // Xóa tất cả các cột
-                 while (dgvLoai.Columns.Count > 0)
-                 {
-                     dgvLoai.Columns.RemoveAt(0);
-                 }*/
-                dgvLoai.Rows.Clear();
-
-                // Xóa tất cả các cột hiện có trong DataGridView
-                dgvLoai.Columns.Clear();
-
-                // Tạo một DataTable để chứa dữ liệu từ Excel
-                DataTable dt = new DataTable();
-
-                // Đọc tiêu đề từ Excel và thêm các cột vào DataGridView
-                /*   for (int col = 1; col <= excelWS.UsedRange.Columns.Count; col++)
-                   {
-                       string header = excelWS.Cells[1, col].Value;
-                       dgvLoai.Columns.Add(header, header);
-                   }
-
-                   // Đọc dữ liệu từ Excel và đổ vào DataGridView
-                   for (int row = 2; row <= excelWS.UsedRange.Rows.Count; row++)
-                   {
-                       dgvLoai.Rows.Add();
-                       for (int col = 1; col <= dgvLoai.Columns.Count; col++)
-                       {
-                           dgvLoai.Rows[row - 2].Cells[col - 1].Value = excelWS.Cells[row, col].Value;
-                       }
-                   }*/
-                for (int col = 1; col <= excelWS.UsedRange.Columns.Count; col++)
-                {
-                    string header = excelWS.Cells[1, col].Value;
-                    dt.Columns.Add(header, typeof(string));
-                }
-
-                // Đọc dữ liệu từ Excel và thêm vào DataTable
-                for (int row = 2; row <= excelWS.UsedRange.Rows.Count; row++)
-                {
-                    DataRow newRow = dt.NewRow();
-                    for (int col = 1; col <= dt.Columns.Count; col++)
-                    {
-                        newRow[col - 1] = excelWS.Cells[row, col].Value;
-                    }
-                    dt.Rows.Add(newRow);
-                }
-
-                // Đóng tệp Excel
-                excelWB.Close(false);
-                excelApp.Quit();
-            }
-
-              /*  OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.Filter = "Excel Files|*.xls;*.xlsx";
-
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    string filePath = openFileDialog.FileName;
-
-                    Excel.Application excelApp = new Excel.Application();
-                    Excel.Workbook excelWB = excelApp.Workbooks.Open(filePath);
-                    Excel.Worksheet excelWS = excelWB.ActiveSheet;
-
-                    int currentRow = dgvLoai.Rows.Count;
-
-                    // Đọc tiêu đề từ Excel và thêm các cột vào DataGridView nếu cột đó chưa tồn tại
-                    for (int col = 1; col <= excelWS.UsedRange.Columns.Count; col++)
-                    {
-                        string header = excelWS.Cells[1, col].Value;
-                        if (!dgvLoai.Columns.Cast<DataGridViewColumn>().Any(x => x.HeaderText == header))
-                        {
-                            dgvLoai.Columns.Add(header, header);
-                        }
-                    }
-
-                    // Đọc dữ liệu từ Excel và thêm vào DataGridView
-                    for (int row = 2; row <= excelWS.UsedRange.Rows.Count; row++)
-                    {
-                        dgvLoai.Rows.Add();
-                        for (int col = 1; col <= dgvLoai.Columns.Count; col++)
-                        {
-                            dgvLoai.Rows[currentRow].Cells[col - 1].Value = excelWS.Cells[row, col].Value;
-                        }
-                        currentRow++;
-                    }
-
-                    // Đóng tệp Excel
-                    excelWB.Close(false);
-                    excelApp.Quit();
-
-                    // Giải phóng tài nguyên
-                    System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
-                    System.Runtime.InteropServices.Marshal.ReleaseComObject(excelWB);
-                    System.Runtime.InteropServices.Marshal.ReleaseComObject(excelWS);
-                }*/
-        }
     }
 
+
+
+
+
 }
-        
-    
-
-
-
-
-
-
-    
-

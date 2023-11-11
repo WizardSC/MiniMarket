@@ -64,15 +64,6 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="EPPlus.Core, Version=1.5.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPPlus.Core.1.5.4\lib\net46\EPPlus.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="EPPlus.Interfaces, Version=6.1.1.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPPlus.Interfaces.6.1.1\lib\net462\EPPlus.Interfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="EPPlus.System.Drawing, Version=6.1.1.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPPlus.System.Drawing.6.1.1\lib\net462\EPPlus.System.Drawing.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
     </Reference>
@@ -82,9 +73,6 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
-    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -94,7 +82,6 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Threading.Tasks" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -120,12 +107,6 @@
     <Compile Include="ChiTietKhuyenMaiGUI.Designer.cs">
       <DependentUpon>ChiTietKhuyenMaiGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="DangNhapGUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DangNhapGUI.Designer.cs">
-      <DependentUpon>DangNhapGUI.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,12 +118,6 @@
     </Compile>
     <Compile Include="GiaoDienGUI.Designer.cs">
       <DependentUpon>GiaoDienGUI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="HoaDonGUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HoaDonGUI.Designer.cs">
-      <DependentUpon>HoaDonGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="KhachHangGUI.cs">
       <SubType>Form</SubType>
@@ -317,17 +292,11 @@
     <Compile Include="ThongTinSPKMGUI.Designer.cs">
       <DependentUpon>ThongTinSPKMGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="XemChiTietPhieuNhapGUI.cs">
+    <Compile Include="XemPhieuNhapGUItest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="XemChiTietPhieuNhapGUI.Designer.cs">
-      <DependentUpon>XemChiTietPhieuNhapGUI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="XemPhieuNhapGUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="XemPhieuNhapGUI.Designer.cs">
-      <DependentUpon>XemPhieuNhapGUI.cs</DependentUpon>
+    <Compile Include="XemPhieuNhapGUItest.Designer.cs">
+      <DependentUpon>XemPhieuNhapGUItest.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="BanHangGUI.resx">
       <DependentUpon>BanHangGUI.cs</DependentUpon>
@@ -335,15 +304,9 @@
     <EmbeddedResource Include="ChiTietKhuyenMaiGUI.resx">
       <DependentUpon>ChiTietKhuyenMaiGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DangNhapGUI.resx">
-      <DependentUpon>DangNhapGUI.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GiaoDienGUI.resx">
       <DependentUpon>GiaoDienGUI.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HoaDonGUI.resx">
-      <DependentUpon>HoaDonGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KhachHangGUI.resx">
       <DependentUpon>KhachHangGUI.cs</DependentUpon>
@@ -416,20 +379,14 @@
     <EmbeddedResource Include="SanPhamGUI.resx">
       <DependentUpon>SanPhamGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TaiKhoanGUI.resx">
-      <DependentUpon>TaiKhoanGUI.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ThongKeGUI.resx">
       <DependentUpon>ThongKeGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThongTinSPKMGUI.resx">
       <DependentUpon>ThongTinSPKMGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="XemChiTietPhieuNhapGUI.resx">
-      <DependentUpon>XemChiTietPhieuNhapGUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="XemPhieuNhapGUI.resx">
-      <DependentUpon>XemPhieuNhapGUI.cs</DependentUpon>
+    <EmbeddedResource Include="XemPhieuNhapGUItest.resx">
+      <DependentUpon>XemPhieuNhapGUItest.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

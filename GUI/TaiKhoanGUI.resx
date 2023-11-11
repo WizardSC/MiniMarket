@@ -117,16 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnRandomPassword.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAATpJREFUSEut1s0rBVEYx/HBwktJohQ7sfQ3KLG2tbS2I8rGQlnJSnYs5b+Q/4KU
-        t5WXFLIRKb6/mrmde+a5c1741adu5zzPebrTvTNTNGQAw5FUG51ZnOMnkXrm0Jgx3OMG154LbGEFJ+Wa
-        Sz0PmEDHDEFfdzJTP3TJzPThAF+wLkEM9e6jF7XswWrKsYu2dOEVVnGOF+jMVkZgFYY84hTfzlpFZ7Yy
-        Cr8g5BPjUFbh7+vMVnIGvEM/DGUJ/v6fB8gZtvHkrFX+ZUCT5AG3mMI07sq1JskDDlHlCFaNK3nAM+ax
-        UH62alzJA1IFB1xiGcfOWorggEUoPXiDvx8SHLADZQbWrSCkbYDu4VbRFT68tVi154KeRlZhDp1Vyyas
-        4hwbqKUb64j5l3ai3jXorMYMonoliaUeL0XxC181gAqZ6h6uAAAAAElFTkSuQmCC
-</value>
-  </data>
 </root>
