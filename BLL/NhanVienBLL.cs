@@ -25,6 +25,10 @@ namespace BLL
         {
             return nvDAL.getListNhanVien();
         }
+        public DataTable getListNVHasTaiKhoan()
+        {
+            return nvDAL.getListNhanVienHasTK();
+        }
         public bool insertNhanVien(NhanVienDTO nv)
         {
             return nvDAL.insertNhanVien(nv);
