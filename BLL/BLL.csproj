@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChiTietKhuyenMaiBLL.cs" />
+    <Compile Include="ChucVuBLL.cs" />
     <Compile Include="CTHoaDonBLL.cs" />
     <Compile Include="CTPhieuNhapBLL.cs" />
     <Compile Include="HoaDonBLL.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="PhieuNhapT_BLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SanPhamBLL.cs" />
+    <Compile Include="TaiKhoanBLL.cs" />
     <Compile Include="ThongKeBLL.cs" />
   </ItemGroup>
   <ItemGroup>
