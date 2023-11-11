@@ -18,7 +18,7 @@ namespace GUI
 {
     public partial class ChiTietKhuyenMaiGUI : Form
     {
-         DataTable data = new DataTable();
+        DataTable data = new DataTable();
         ChiTietKhuyenMaiBLL CTKhuyenMaiBLL = new ChiTietKhuyenMaiBLL();
         KhuyenMaiBLL KmBLL = new KhuyenMaiBLL();
         SanPhamBLL SpBLL = new SanPhamBLL();
@@ -133,7 +133,6 @@ namespace GUI
             cbxTrangThai.SelectedIndex = 0;
             btnThemCTKM.Enabled = true;
             btnUpdateKM.Enabled = false;
-            btnXoaKM.Enabled = false;
         }
 
         private void ChiTietKhuyenMaiGUI_Load(object sender, EventArgs e)
@@ -141,7 +140,6 @@ namespace GUI
             init();
             btnThemCTKM.Enabled = true;
             btnUpdateKM.Enabled = false;
-            btnXoaKM.Enabled = false;
         }
 
        
@@ -325,95 +323,8 @@ namespace GUI
                 MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
             }
 
-        }
-
-        private void btnXoaKM_Click(object sender, EventArgs e)
-        {
-            string stringTrangThai = cbxTrangThai.SelectedItem.ToString();
-            int trangThai = (stringTrangThai == "Hoạt động") ? 1 : 0;
-            string tenKM = comboBoxTenKM.Text;
-
-            string tenSp = comboBoxTenSP.Text;
-            // Lấy ID khuyen mai từ tên khuyenmai
-            string idKm = ""; // Giá trị mặc định nếu không tìm thấy
-
-            DataTable data1 = KmBLL.getListMaKmNoDK();
-            foreach (DataRow row in data1.Rows)
-            {
-                if (row["TenKM"].ToString() == tenKM)
-                {
-                    idKm = row["MaKM"].ToString();
-                    break; // Thoát vòng lặp khi tìm thấy ID
-                }
-            }
-            string idSp = "";
-            data = SpBLL.getListSanPham();
-            foreach (DataRow row in data.Rows)
-            {
-                if (row["TenSP"].ToString() == tenSp)
-                {
-                    idSp = row["MaSP"].ToString();
-                    break; // Thoát vòng lặp khi tìm thấy ID
-                }
-            }
-
-            var choice = MessageBox.Show("Xóa khuyến mãi này??", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (choice == DialogResult.Yes)
-            {
-                bool isLoiKhoaNgoai;
-                bool kq = CTKhuyenMaiBLL.deleteCTKhuyenMai(idKm,idSp, out isLoiKhoaNgoai);
-                if (kq)
-                {
-                    MessageBox.Show("Xóa thành công",
-                      "Thông báo",
-                      MessageBoxButtons.OK,
-                      MessageBoxIcon.Information);
-                    init();
-                    clearForm();
-
-                }
-                else
-                {
-                    if (isLoiKhoaNgoai)
-                    {
-                        MessageBoxButtons buttons = MessageBoxButtons.OK;
-                        var result = MessageBox.Show("Không thể xóa sản phẩm này vì có dữ liệu liên quan đến sản phẩm trong hệ thống. " +
-                            "Vui lòng xóa các dữ liệu liên quan trước khi tiếp tục", "Lỗi", buttons, MessageBoxIcon.Error);
-                        if (result == DialogResult.OK)
-                        {
-                            if (trangThai == 1)
-                            {
-                                var result1 = MessageBox.Show("Bạn có muốn thay đổi trạng thái của sản phẩm này?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                                if (result1 == DialogResult.OK)
-                                {
-                                    int flag = CTKhuyenMaiBLL.updateTrangThai(trangThai, idKm,idSp) ? 1 : 0;
-                                    if (flag == 1)
-                                    {
-                                        MessageBox.Show("Thay đổi trạng thái thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                   
-                                        init();
-                                        clearForm();
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Thay đổi trạng thái thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                    }
-                                }
-                                else if (result1 == DialogResult.Cancel)
-                                {
-                                    return;
-                                }
-                            }
-                            else return;
-
-                        }
-
-                    }
-                
-
-                }
-            }
+        
+       
         }
 
         private void btnRS_Click(object sender, EventArgs e)
@@ -422,7 +333,6 @@ namespace GUI
             cbxTrangThai.SelectedIndex = 0;
             btnThemCTKM.Enabled = true;
             btnUpdateKM.Enabled = false;
-            btnXoaKM.Enabled = false;
         }
 
         private void dgvChiTietKM_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -461,7 +371,6 @@ namespace GUI
             }
             btnThemCTKM.Enabled = false;
             btnUpdateKM.Enabled = true;
-            btnXoaKM.Enabled = true;
         }
 
         private void dgvChiTietKM_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

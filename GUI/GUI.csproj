@@ -64,6 +64,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="EPPlus.Core, Version=1.5.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.Core.1.5.4\lib\net46\EPPlus.Core.dll</HintPath>
+    </Reference>
     <Reference Include="EPPlus.Interfaces, Version=6.1.1.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.Interfaces.6.1.1\lib\net462\EPPlus.Interfaces.dll</HintPath>
     </Reference>
@@ -91,6 +94,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -133,6 +137,12 @@
     </Compile>
     <Compile Include="GiaoDienGUI.Designer.cs">
       <DependentUpon>GiaoDienGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HoaDonGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HoaDonGUI.Designer.cs">
+      <DependentUpon>HoaDonGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="KhachHangGUI.cs">
       <SubType>Form</SubType>
@@ -307,11 +317,17 @@
     <Compile Include="ThongTinSPKMGUI.Designer.cs">
       <DependentUpon>ThongTinSPKMGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="XemPhieuNhapGUItest.cs">
+    <Compile Include="XemChiTietPhieuNhapGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="XemPhieuNhapGUItest.Designer.cs">
-      <DependentUpon>XemPhieuNhapGUItest.cs</DependentUpon>
+    <Compile Include="XemChiTietPhieuNhapGUI.Designer.cs">
+      <DependentUpon>XemChiTietPhieuNhapGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XemPhieuNhapGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XemPhieuNhapGUI.Designer.cs">
+      <DependentUpon>XemPhieuNhapGUI.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="BanHangGUI.resx">
       <DependentUpon>BanHangGUI.cs</DependentUpon>
@@ -325,6 +341,9 @@
     <EmbeddedResource Include="GiaoDienGUI.resx">
       <DependentUpon>GiaoDienGUI.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HoaDonGUI.resx">
+      <DependentUpon>HoaDonGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KhachHangGUI.resx">
       <DependentUpon>KhachHangGUI.cs</DependentUpon>
@@ -406,8 +425,11 @@
     <EmbeddedResource Include="ThongTinSPKMGUI.resx">
       <DependentUpon>ThongTinSPKMGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="XemPhieuNhapGUItest.resx">
-      <DependentUpon>XemPhieuNhapGUItest.cs</DependentUpon>
+    <EmbeddedResource Include="XemChiTietPhieuNhapGUI.resx">
+      <DependentUpon>XemChiTietPhieuNhapGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XemPhieuNhapGUI.resx">
+      <DependentUpon>XemPhieuNhapGUI.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
