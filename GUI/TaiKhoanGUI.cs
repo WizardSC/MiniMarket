@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DevExpress.Internal.WinApi.Windows.UI.Notifications;
+using DTO;
 using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,9 @@ namespace GUI
         private ChucVuBLL cvBLL;
         private DataTable dtNhanVien;
         private DataTable dtChucVu;
+        private DataTable dtTaiKhoan;
+        private string maCV;
+        private string maNV;
         public TaiKhoanGUI()
         {
             InitializeComponent();
@@ -28,8 +32,22 @@ namespace GUI
             cvBLL = new ChucVuBLL();
             dtNhanVien = nvBLL.getListNVHasTaiKhoan();
             dtChucVu = cvBLL.getListChucVu();
+            dtTaiKhoan = tkBLL.getListTaiKhoan();
             dgvNhanVien.DataSource = dtNhanVien;
             dtpNgayLap.Value = DateTime.Now;
+            loadMaTK();
+        }
+        private void loadMaTK()
+        {
+            string maTK = tkBLL.getLastMaTK();
+            if (string.IsNullOrWhiteSpace(maTK))
+            {
+                txtMaTK.Texts = "TK001";
+            }
+            else
+            {
+                txtMaTK.Texts = maTK;
+            }
         }
         private string searchTenCVbyMaCV(string maCV)
         {
@@ -39,6 +57,17 @@ namespace GUI
                 .FirstOrDefault();
             return tenCV;
         }
+        private void resetField() {
+            dgvNhanVien.DataSource= nvBLL.getListNVHasTaiKhoan();
+            loadMaTK();
+            cbxTrangThai.SelectedIndex = 0;
+            txtMatKhau.Texts = string.Empty;
+            txtTenDangNhap.Texts = string.Empty;
+            txtNhanVien.Texts = string.Empty;
+            txtQuyen.Texts = string.Empty;
+
+        }
+
         private void btnRandomPassword_Click(object sender, EventArgs e)
         {
             string matKhau = tkBLL.GenerateRandomPassword();
@@ -74,6 +103,40 @@ namespace GUI
             int i = dgvNhanVien.CurrentRow.Index;
             txtNhanVien.Texts = dgvNhanVien.Rows[i].Cells[1].Value.ToString() + " " + dgvNhanVien.Rows[i].Cells[2].Value.ToString();
             txtQuyen.Texts = searchTenCVbyMaCV(dgvNhanVien.Rows[i].Cells[4].Value.ToString());
+            maNV = dgvNhanVien.Rows[i].Cells[0].Value.ToString();
+            maCV = dgvNhanVien.Rows[i].Cells[4].Value.ToString();
+
+        }
+
+        private void btnTaoTaiKhoan_Click(object sender, EventArgs e)
+        {
+            TaiKhoanDTO tk = new TaiKhoanDTO();
+            tk.MaTK = txtMaTK.Texts;
+            tk.TenDangNhap = txtTenDangNhap.Texts;
+            tk.MatKhau = txtMatKhau.Texts;
+            tk.NgayLap = dtpNgayLap.Value;
+            tk.MaNV = maNV;
+            tk.Quyen = txtQuyen.Texts;
+            string trangThai = cbxTrangThai.SelectedItem.ToString();
+            tk.TrangThai = (trangThai == "Hoạt động") ? 1 : 0;
+
+            int flag = tkBLL.insertTaiKhoan(tk) ? 1 : 0;
+            if (flag == 1)
+            {
+                MessageBox.Show("Tạo tài khoản thành công",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Thêm thất bại",
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            resetField();
+
         }
     }
 }
