@@ -65,7 +65,8 @@ namespace DAO
         {
             try
                 {
-                    MSSQLConnect dbConnect = new MSSQLConnect();
+                Console.WriteLine("test");
+                MSSQLConnect dbConnect = new MSSQLConnect();
                     dbConnect.Connect();
                     // string query = "INSERT INTO KhuyenMai(MaKM,TenKM,NgayBatDau,NgayKetThuc,PhanTramKM,DieuKienKM,TrangThaiKM) VALUES(@MaKM,@TenKM,@NgayBatDau,@NgayKetThuc,@PhanTramKM,@DieuKienKM,@TrangThaiKM)";
                     string query = "INSERT INTO LoaiSP(MaLoai,TenLoai,TrangThai) VALUES(@MaLoai,@TenLoai,@TrangThai)";
