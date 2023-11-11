@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DevExpress.Internal.WinApi.Windows.UI.Notifications;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,17 +17,28 @@ namespace GUI
     {
         private TaiKhoanBLL tkBLL;
         private NhanVienBLL nvBLL;
+        private ChucVuBLL cvBLL;
         private DataTable dtNhanVien;
+        private DataTable dtChucVu;
         public TaiKhoanGUI()
         {
             InitializeComponent();
             tkBLL = new TaiKhoanBLL();
             nvBLL = new NhanVienBLL();
+            cvBLL = new ChucVuBLL();
             dtNhanVien = nvBLL.getListNVHasTaiKhoan();
+            dtChucVu = cvBLL.getListChucVu();
             dgvNhanVien.DataSource = dtNhanVien;
             dtpNgayLap.Value = DateTime.Now;
         }
-
+        private string searchTenCVbyMaCV(string maCV)
+        {
+            string tenCV = dtChucVu.AsEnumerable()
+                .Where(row => (row.Field<string>("MaCV") == maCV))
+                .Select(row => row.Field<string>("TenCV"))
+                .FirstOrDefault();
+            return tenCV;
+        }
         private void btnRandomPassword_Click(object sender, EventArgs e)
         {
             string matKhau = tkBLL.GenerateRandomPassword();
@@ -60,8 +72,8 @@ namespace GUI
         private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int i = dgvNhanVien.CurrentRow.Index;
-            txtNhanVien.Texts = dgvNhanVien.Rows[i].Cells[1].Value.ToString() + dgvNhanVien.Rows[i].Cells[2].Value.ToString();
-            txtQuyen.Texts = dgvNhanVien.Rows[i].Cells[4].Value.ToString();
+            txtNhanVien.Texts = dgvNhanVien.Rows[i].Cells[1].Value.ToString() + " " + dgvNhanVien.Rows[i].Cells[2].Value.ToString();
+            txtQuyen.Texts = searchTenCVbyMaCV(dgvNhanVien.Rows[i].Cells[4].Value.ToString());
         }
     }
 }
