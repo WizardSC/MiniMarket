@@ -97,7 +97,7 @@ namespace DAL
                 Connect();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT MaNV, Ho, Ten, MaTK, MaCV from nhanvien where TrangThai = 1 and (MaTK IS NOT NULL)";
+                cmd.CommandText = "SELECT MaNV, Ho, Ten, MaTK, MaCV from nhanvien where TrangThai = 1 and (MaTK IS NOT NULL and LEN(MaTK) > 0)";
                 cmd.Connection = conn;
                 SqlDataAdapter adt = new SqlDataAdapter(cmd);
                 adt.Fill(dt);

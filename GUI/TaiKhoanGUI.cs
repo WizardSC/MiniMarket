@@ -63,7 +63,8 @@ namespace GUI
             return tenCV;
         }
         private void resetField() {
-            dgvNhanVien.DataSource= nvBLL.getListNVNoHasTaiKhoan();
+            if(isFuncTaoTK) dgvNhanVien.DataSource = nvBLL.getListNVNoHasTaiKhoan();
+            if(isFuncThayDoiMK) dgvNhanVien.DataSource = nvBLL.getListNVHasTaiKhoan();
             loadMaTK();
             cbxTrangThai.SelectedIndex = -1;
             txtMatKhau.Texts = string.Empty;
@@ -93,8 +94,10 @@ namespace GUI
                 lblTitleDGV.Text = "DANH SÁCH NHÂN VIÊN CHƯA CÓ TÀI KHOẢN";
                 lblTitleFunction.Text = "TẠO TÀI KHOẢN MỚI";
                 btnThucHienChucNang.Text = "TẠO TÀI KHOẢN";
+                dgvNhanVien.DataSource = nvBLL.getListNVNoHasTaiKhoan();
+
             }
-            
+
 
         }
 

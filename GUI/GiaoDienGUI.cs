@@ -573,6 +573,10 @@ namespace GUI
                 // Mở form con tương ứng (KhachHangGUI)
                 openChildForm(new ThongKeGUI());
             }
+            hideSubMenu(pnSubQuanLy, sender);
+
+            hideSubMenu(pnSubHangHoa, sender);
+
         }
 
         private void pnTaiKhoanContainer_Click(object sender, EventArgs e)
@@ -604,6 +608,10 @@ namespace GUI
                 pnLeftBorderTaiKhoan.BackColor = Color.FromArgb(58, 191, 186);
                 openChildForm(new TaiKhoanGUI());
             }
+            hideSubMenu(pnSubQuanLy, sender);
+
+            hideSubMenu(pnSubHangHoa, sender);
+
         }
     }
 }
