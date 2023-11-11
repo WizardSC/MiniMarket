@@ -24,13 +24,18 @@ namespace GUI
         private DataTable dtTaiKhoan;
         private string maCV;
         private string maNV;
+
+        private bool isFuncTaoTK = true;
+        private bool isFuncThayDoiMK = false;
+        private bool isFuncThayDoiTT = false;
+        private bool isFuncXemDSTK = false;
         public TaiKhoanGUI()
         {
             InitializeComponent();
             tkBLL = new TaiKhoanBLL();
             nvBLL = new NhanVienBLL();
             cvBLL = new ChucVuBLL();
-            dtNhanVien = nvBLL.getListNVHasTaiKhoan();
+            dtNhanVien = nvBLL.getListNVNoHasTaiKhoan();
             dtChucVu = cvBLL.getListChucVu();
             dtTaiKhoan = tkBLL.getListTaiKhoan();
             dgvNhanVien.DataSource = dtNhanVien;
@@ -63,10 +68,11 @@ namespace GUI
         //    dgvNhanVien.DataSource = nvBLL.getListNVHasTaiKhoan();
         //}
         private void resetField() {
-            dgvNhanVien.DataSource= nvBLL.getListNVHasTaiKhoan();
+
+            dgvNhanVien.DataSource= nvBLL.getListNVNoHasTaiKhoan();
 
             loadMaTK();
-            cbxTrangThai.SelectedIndex = 0;
+            cbxTrangThai.SelectedIndex = -1;
             txtMatKhau.Texts = string.Empty;
             txtTenDangNhap.Texts = string.Empty;
             txtNhanVien.Texts = string.Empty;
@@ -82,17 +88,40 @@ namespace GUI
 
         private void btnTaoTK_Click(object sender, EventArgs e)
         {
-            btnTaoTK.BackColor = Color.FromArgb(224, 252, 237);
-            btnThayDoiMK.BackColor = Color.Transparent;
-            btnThayDoiTrangThai.BackColor = Color.Transparent;
+            isFuncTaoTK = true;
+            isFuncThayDoiMK = false;
+            isFuncThayDoiTT = false;
+            isFuncXemDSTK = false;
+            if (isFuncTaoTK)
+            {
+                btnTaoTK.BackColor = Color.FromArgb(224, 252, 237);
+                btnThayDoiMK.BackColor = Color.Transparent;
+                btnThayDoiTrangThai.BackColor = Color.Transparent;
+                lblTitleDGV.Text = "DANH SÁCH NHÂN VIÊN CHƯA CÓ TÀI KHOẢN";
+                lblTitleFunction.Text = "TẠO TÀI KHOẢN MỚI";
+                btnThucHienChucNang.Text = "TẠO TÀI KHOẢN";
+            }
+            
 
         }
 
         private void btnThayDoiMK_Click(object sender, EventArgs e)
         {
-            btnThayDoiMK.BackColor = Color.FromArgb(224, 252, 237);
-            btnThayDoiTrangThai.BackColor = Color.Transparent;
-            btnTaoTK.BackColor = Color.Transparent;
+            isFuncTaoTK = false;
+            isFuncThayDoiMK = true;
+            isFuncThayDoiTT = false;
+            isFuncXemDSTK = false;
+            if (isFuncThayDoiMK)
+            {
+                btnThayDoiMK.BackColor = Color.FromArgb(224, 252, 237);
+                btnThayDoiTrangThai.BackColor = Color.Transparent;
+                btnTaoTK.BackColor = Color.Transparent;
+                lblTitleDGV.Text = "DANH SÁCH TÀI KHOẢN";
+                lblTitleFunction.Text = "CHỈNH SỬA MẬT KHẨU";
+                btnThucHienChucNang.Text = "SỬA MẬT KHẨU";
+                dgvNhanVien.DataSource = nvBLL.getListNVHasTaiKhoan();
+            }
+
 
         }
 
@@ -114,35 +143,42 @@ namespace GUI
 
         }
 
-        private void btnTaoTaiKhoan_Click(object sender, EventArgs e)
+        private void btnThucHienChucNang_Click(object sender, EventArgs e)
         {
-            TaiKhoanDTO tk = new TaiKhoanDTO();
-            tk.MaTK = txtMaTK.Texts;
-            tk.TenDangNhap = txtTenDangNhap.Texts;
-            tk.MatKhau = txtMatKhau.Texts;
-            tk.NgayLap = dtpNgayLap.Value;
-            tk.MaNV = maNV;
-            tk.Quyen = txtQuyen.Texts;
-            string trangThai = cbxTrangThai.SelectedItem.ToString();
-            tk.TrangThai = (trangThai == "Hoạt động") ? 1 : 0;
-
-            int flag = tkBLL.insertTaiKhoan(tk) ? 1 : 0;
-            if (flag == 1)
+            if (isFuncTaoTK)
             {
-                MessageBox.Show("Tạo tài khoản thành công",
-                    "Thông báo",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Thêm thất bại",
-                    "Lỗi",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
-            resetField();
+                TaiKhoanDTO tk = new TaiKhoanDTO();
+                tk.MaTK = txtMaTK.Texts;
+                tk.TenDangNhap = txtTenDangNhap.Texts;
+                tk.MatKhau = txtMatKhau.Texts;
+                tk.NgayLap = dtpNgayLap.Value;
+                tk.MaNV = maNV;
+                tk.Quyen = txtQuyen.Texts;
+                string trangThai = cbxTrangThai.SelectedItem.ToString();
+                tk.TrangThai = (trangThai == "Hoạt động") ? 1 : 0;
 
+                int flag = tkBLL.insertTaiKhoan(tk) ? 1 : 0;
+                if (flag == 1)
+                {
+                    MessageBox.Show("Tạo tài khoản thành công",
+                        "Thông báo",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại",
+                        "Lỗi",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                resetField();
+                return;
+            }
+            if (isFuncThayDoiMK)
+            {
+
+            }
         }
     }
 }
