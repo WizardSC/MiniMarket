@@ -20,8 +20,8 @@ namespace GUI
             Application.SetCompatibleTextRenderingDefault(false);
 
 
-            // Application.Run(new GiaoDienGUI());
-            Application.Run(new DangNhapGUI());
+            Application.Run(new GiaoDienGUI());
+            //Application.Run(new DangNhapGUI());
 
 
         }

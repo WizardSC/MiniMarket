@@ -39,18 +39,15 @@
             this.btnClose = new GUI.MyCustom.RJButton();
             this.label3 = new System.Windows.Forms.Label();
             this.rjButton1 = new GUI.MyCustom.RJButton();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.gradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // gradientPanel1
             // 
             this.gradientPanel1.BackColor = System.Drawing.Color.White;
             this.gradientPanel1.BottomColor = System.Drawing.Color.White;
-            this.gradientPanel1.Controls.Add(this.pictureBox3);
             this.gradientPanel1.Controls.Add(this.rjButton1);
             this.gradientPanel1.Controls.Add(this.label3);
             this.gradientPanel1.Controls.Add(this.btnClose);
@@ -212,16 +209,6 @@
             this.rjButton1.TextColor = System.Drawing.Color.Black;
             this.rjButton1.UseVisualStyleBackColor = false;
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(665, 168);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(35, 32);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox3.TabIndex = 9;
-            this.pictureBox3.TabStop = false;
-            // 
             // DangNhapGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,7 +222,6 @@
             this.gradientPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -252,6 +238,5 @@
         private MyCustom.RJButton btnClose;
         private System.Windows.Forms.Label label3;
         private MyCustom.RJButton rjButton1;
-        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
