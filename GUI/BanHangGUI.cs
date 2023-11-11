@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
+using DevExpress.Office.Utils;
 using DTO;
 using GUI.MyCustom;
 
@@ -94,7 +95,7 @@ namespace GUI
             loadNgayThang();
 
             loadMaHD();
-            Console.WriteLine(searchMaKHbyTenKH("Jung Ilhoon"));
+            btnInHoaDon.Enabled = false;
 
         }
         private void BanHangGUI_Load(object sender, EventArgs e)
@@ -700,23 +701,6 @@ namespace GUI
             {
                 MessageBox.Show("Có lỗi xảy ra khi thêm chi tiết hóa đơn");
             }
-            Console.WriteLine("Thuc hien khi tao hoa don:" + lblKhachHang.Text);
-            Console.WriteLine(searchMaKHbyTenKH(lblKhachHang.Text));
-            Reports.HoaDonCreator hdCreator = new Reports.HoaDonCreator();
-            //hdCreator.DtThongTinCTPN = ctpnBLL.getListPhieuNhapbyMaPN(pn.MaPN);
-            hdCreator.DtThongTinCTHD = cthdBLL.getListCTHDbyMaHD(lblMaHD.Text.Substring(1));
-            hdCreator.MaHD = lblMaHD.Text;
-            hdCreator.NgayLap = DateTime.ParseExact(lblNgayLap.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture).ToString();
-            hdCreator.TenNV = lblNhanVien.Text;
-            hdCreator.TenKH = lblKhachHang.Text;
-            hdCreator.MaKH = searchMaKHbyTenKH(lblKhachHang.Text);
-            hdCreator.DiemTLHienTai = searchDiemTLbyTenKH(lblKhachHang.Text);
-            hdCreator.DiemTLNhanDuoc = hd.DiemNhanDuoc;
-            hdCreator.DiemTLSuDung = hd.DiemSuDung;
-            hdCreator.MaKM = hd.MaKM;
-            hdCreator.TongTien = hd.TongTien;
-            hdCreator.TongTienTT = hd.TongTienTT;
-            hdCreator.showHoaDonRP();
             int resultDiemTL = khBLL.updateDiemTL(hd.MaKH, -hd.DiemSuDung) ? 1 : 0;
             if (resultDiemTL == 1)
             {
@@ -729,9 +713,38 @@ namespace GUI
             {
                 MessageBox.Show($"Khách hàng sẽ nhận được {hd.DiemNhanDuoc} điểm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            btnInHoaDon.Enabled = true;
+
+
+        }
+        private void btnInHoaDon_Click(object sender, EventArgs e)
+        {
+            Reports.HoaDonCreator hdCreator = new Reports.HoaDonCreator();
+            hdCreator.DtThongTinCTHD = cthdBLL.getListCTHDbyMaHD(lblMaHD.Text.Substring(1));
+            hdCreator.MaHD = lblMaHD.Text;
+            hdCreator.NgayLap = DateTime.ParseExact(lblNgayLap.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture).ToString();
+            hdCreator.TenNV = lblNhanVien.Text;
+            hdCreator.TenKH = lblKhachHang.Text;
+            hdCreator.MaKH = searchMaKHbyTenKH(lblKhachHang.Text);
+           
+            hdCreator.DiemTLHienTai = searchDiemTLbyTenKH(lblKhachHang.Text);
+            hdCreator.DiemTLNhanDuoc = (int)(ConvertVNDToFloat(lblTongTien.Text) / 10000.0f); ;
+            hdCreator.DiemTLSuDung = int.Parse(lblDiemTL.Text);
+            hdCreator.MaKM = (lblKhuyenMai.Text == "Không KM") ? null : lblKhuyenMai.Text;
+            hdCreator.TongTien = ConvertVNDToFloat(lblTongTien.Text);
+            hdCreator.TongTienTT = ConvertVNDToInt(lblTongTienTT.Text);
+            hdCreator.showHoaDonRP();
+            List<Tuple<string, string, string>> listKH = ConvertDataTableToList(dtThongTinKhachHang);
+
+            string maKH = listKH
+                .Where(tuple => (tuple.Item2 + " " + tuple.Item3).Equals(lblKhachHang.Text))
+                .Select(tuple => tuple.Item1)
+                .FirstOrDefault();
+            
             listSP = spBLL.getListSP();
 
             clearThongTinSauKhiTaoHD();
+            btnInHoaDon.Enabled = false;
 
         }
         //Làm mới thông tin hóa đơn sau khi thêm hóa đơn thành công
@@ -999,6 +1012,8 @@ namespace GUI
             Console.WriteLine(lblKhachHang.Text);
             Console.WriteLine(searchMaKHbyTenKH(lblKhachHang.Text));
         }
+
+        
     }
 
 }

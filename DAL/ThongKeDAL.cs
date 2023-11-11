@@ -577,7 +577,7 @@ namespace DAL
 
             return tongDoanhThuQuy4;
         }
-        public DataTable thongKeSoLuotMuaTheoGioiTinh(string tenSP)
+        public DataTable thongKeSoLuotMuaTheoGioiTinh(string maSP)
         {
             DataTable dt = new DataTable();
             try
@@ -586,7 +586,7 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "sp_ThongKeSoLuotMuaTheoGioiTinh";
-                cmd.Parameters.Add("@TenSP", SqlDbType.NVarChar).Value = tenSP;
+                cmd.Parameters.Add("@MaSP", SqlDbType.NVarChar).Value = maSP;
 
                 cmd.Connection = conn;
                 SqlDataAdapter adt = new SqlDataAdapter(cmd);

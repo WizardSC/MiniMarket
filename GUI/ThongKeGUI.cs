@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DevExpress.Utils.Extensions;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,11 +22,12 @@ namespace GUI
         private DataTable dtTopSpBanChayTheoThang;
         private DataTable dtLuotMuaTheoGioiTinh;
         private ThongKeBLL tkBLL;
+        private SanPhamBLL spBLL;
         private int currentMonth;
         private int currentYear;
         private int currentDay;
         private int soSPHienThi = 5;
-
+        private List<SanPhamDTO> listSP;
         private bool isThang = true;
         private bool isNam = false;
 
@@ -36,7 +38,7 @@ namespace GUI
             currentYear = DateTime.Now.Year;
             currentDay = DateTime.Now.Day;
             tkBLL = new ThongKeBLL();
-
+            spBLL = new SanPhamBLL();
 
 
 
@@ -49,6 +51,16 @@ namespace GUI
             cbxChonNam.SelectedItem = currentYear;
             rdbTheoThang.Checked = true;
             checkIsThangIsNam(true,false);
+        }
+        private string searchMaSPbyTenSP(string tenSP)
+        {
+            listSP = spBLL.getListSP();
+            var product = listSP.FirstOrDefault(sp => sp.TenSP == tenSP);
+            if(product != null)
+            {
+                return product.MaSP;
+            }
+            return null;
         }
         public string ConvertIntToVND(int amount)
         {
@@ -146,12 +158,17 @@ namespace GUI
 
 
         }
-        private void loadLuotMuaTheoGioiTinh(string tenSP)
+        private void loadLuotMuaTheoGioiTinh(string maSP)
         {
-            dtLuotMuaTheoGioiTinh = tkBLL.thongKeSoLuotMuaTheoGioiTinh(tenSP);
+            dtLuotMuaTheoGioiTinh = tkBLL.thongKeSoLuotMuaTheoGioiTinh(maSP);
             chartSPTheoGioiTinh.Series["chartSPTheoGioiTinh"].Points.Clear();
-            for(int i = 0; i < dtLuotMuaTheoGioiTinh.Rows.Count; i++)
+            
+
+            for (int i = 0; i < dtLuotMuaTheoGioiTinh.Rows.Count; i++)
             {
+                Console.WriteLine(dtLuotMuaTheoGioiTinh.Rows[i]["Số Lượt Mua"]);
+                Console.WriteLine(dtLuotMuaTheoGioiTinh.Rows[i]["Giới tính"]);
+
                 chartSPTheoGioiTinh.Series["chartSPTheoGioiTinh"].Points.AddXY(dtLuotMuaTheoGioiTinh.Rows[i]["Giới Tính"], dtLuotMuaTheoGioiTinh.Rows[i]["Số Lượt Mua"]);
 
             }
@@ -280,6 +297,7 @@ namespace GUI
             loadDoanhThuTheoNgay(currentMonth);
 
             loadDoanhThuThangSoVoiNam(currentMonth, currentYear);
+            chartSPTheoGioiTinh.Series["chartSPTheoGioiTinh"].Points.Clear();
 
         }
 
@@ -298,6 +316,7 @@ namespace GUI
             loadDoanhThuQuy3(currentYear);
             loadDoanhThuQuy4(currentYear);
 
+            chartSPTheoGioiTinh.Series["chartSPTheoGioiTinh"].Points.Clear();
 
         }
 
@@ -318,8 +337,15 @@ namespace GUI
             {
 
             }
-
+            if(!isNam && isThang)
+            {
             loadDataTopSPBanChayTheoThang(currentMonth, soSPHienThi);
+
+            } else if(isNam && !isThang)
+            {
+                loadDataTopSPBanChayTheoNam(currentYear, soSPHienThi);
+
+            }
 
         }
 
@@ -349,6 +375,8 @@ namespace GUI
             isThang = true;
             isNam = false;
             checkIsThangIsNam(isThang, isNam);
+            chartSPTheoGioiTinh.Series["chartSPTheoGioiTinh"].Points.Clear();
+
         }
 
         private void rdbTheoNam_CheckedChanged(object sender, EventArgs e)
@@ -356,6 +384,8 @@ namespace GUI
             isThang = false;
             isNam = true;
             checkIsThangIsNam(isThang, isNam);
+            chartSPTheoGioiTinh.Series["chartSPTheoGioiTinh"].Points.Clear();
+
 
         }
 
@@ -367,8 +397,11 @@ namespace GUI
         private void dgvTopSPBanChay_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int i = dgvTopSPBanChay.CurrentRow.Index;
+            
             string tenSP = dgvTopSPBanChay.Rows[i].Cells[0].Value.ToString();
-            loadLuotMuaTheoGioiTinh("Kẹo cứng Dynamite");
+            string maSP = searchMaSPbyTenSP(tenSP);
+            loadLuotMuaTheoGioiTinh(maSP);
+            //Console.WriteLine(searchMaSPbyTenSP(tenSP));
         }
     }
 }

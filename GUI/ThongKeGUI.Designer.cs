@@ -62,6 +62,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.chartDoanhThuThangSoVoiNam = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartSPTheoGioiTinh = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.txtHienThi = new GUI.MyCustom.RJTextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.chartDoanhThu = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dgvTopSPBanChay = new System.Windows.Forms.DataGridView();
@@ -87,12 +88,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnSelectThangNam = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtHienThi = new GUI.MyCustom.RJTextBox();
             this.rdbTheoNam = new GUI.MyCustom.RJRadioButton();
             this.rdbTheoThang = new GUI.MyCustom.RJRadioButton();
+            this.label12 = new System.Windows.Forms.Label();
             this.cbxChonNam = new GUI.MyCustom.RJComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.cbxChonThang = new GUI.MyCustom.RJComboBox();
             this.panel1.SuspendLayout();
             this.pnMain.SuspendLayout();
@@ -355,8 +355,8 @@
             this.chartSPTheoGioiTinh.Name = "chartSPTheoGioiTinh";
             this.chartSPTheoGioiTinh.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chartSPTheoGioiTinh.PaletteCustomColors = new System.Drawing.Color[] {
-        System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(255)))), ((int)(((byte)(225))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(191)))), ((int)(((byte)(187))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(255)))), ((int)(((byte)(225))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))))};
             series2.ChartArea = "chartSPTheoGioiTinh";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
@@ -370,6 +370,33 @@
             title2.Name = "Title1";
             title2.Text = "Phân loại theo giới tính mua hàng";
             this.chartSPTheoGioiTinh.Titles.Add(title2);
+            // 
+            // txtHienThi
+            // 
+            this.txtHienThi.BackColor = System.Drawing.SystemColors.Window;
+            this.txtHienThi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.txtHienThi.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.txtHienThi.BorderRadius = 0;
+            this.txtHienThi.BorderSize = 2;
+            this.txtHienThi.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHienThi.ForeColor = System.Drawing.Color.Black;
+            this.txtHienThi.Location = new System.Drawing.Point(1115, 3);
+            this.txtHienThi.Margin = new System.Windows.Forms.Padding(4);
+            this.txtHienThi.MaximumSize = new System.Drawing.Size(1000, 26);
+            this.txtHienThi.MinimumSize = new System.Drawing.Size(0, 26);
+            this.txtHienThi.Multiline = false;
+            this.txtHienThi.Name = "txtHienThi";
+            this.txtHienThi.Padding = new System.Windows.Forms.Padding(2, 4, 2, 2);
+            this.txtHienThi.PasswordChar = false;
+            this.txtHienThi.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtHienThi.PlaceholderText = "";
+            this.txtHienThi.ReadOnly = false;
+            this.txtHienThi.Size = new System.Drawing.Size(52, 26);
+            this.txtHienThi.TabIndex = 9;
+            this.txtHienThi.Texts = "";
+            this.txtHienThi.UnderlinedStyle = false;
+            this.txtHienThi._TextChanged += new System.EventHandler(this.txtHienThi__TextChanged);
+            this.txtHienThi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHienThi_KeyPress);
             // 
             // label13
             // 
@@ -703,61 +730,6 @@
             this.pnSelectThangNam.Size = new System.Drawing.Size(1180, 35);
             this.pnSelectThangNam.TabIndex = 4;
             // 
-            // label12
-            // 
-            this.label12.BackColor = System.Drawing.Color.White;
-            this.label12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label12.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.label12.Location = new System.Drawing.Point(205, 5);
-            this.label12.Margin = new System.Windows.Forms.Padding(0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(60, 24);
-            this.label12.TabIndex = 8;
-            this.label12.Text = "Năm:";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label11
-            // 
-            this.label11.BackColor = System.Drawing.Color.White;
-            this.label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label11.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.label11.Location = new System.Drawing.Point(0, 5);
-            this.label11.Margin = new System.Windows.Forms.Padding(0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(60, 24);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "Tháng:";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtHienThi
-            // 
-            this.txtHienThi.BackColor = System.Drawing.SystemColors.Window;
-            this.txtHienThi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.txtHienThi.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.txtHienThi.BorderRadius = 0;
-            this.txtHienThi.BorderSize = 2;
-            this.txtHienThi.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHienThi.ForeColor = System.Drawing.Color.Black;
-            this.txtHienThi.Location = new System.Drawing.Point(1115, 3);
-            this.txtHienThi.Margin = new System.Windows.Forms.Padding(4);
-            this.txtHienThi.MaximumSize = new System.Drawing.Size(1000, 26);
-            this.txtHienThi.MinimumSize = new System.Drawing.Size(0, 26);
-            this.txtHienThi.Multiline = false;
-            this.txtHienThi.Name = "txtHienThi";
-            this.txtHienThi.Padding = new System.Windows.Forms.Padding(2, 4, 2, 2);
-            this.txtHienThi.PasswordChar = false;
-            this.txtHienThi.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtHienThi.PlaceholderText = "";
-            this.txtHienThi.ReadOnly = false;
-            this.txtHienThi.Size = new System.Drawing.Size(52, 26);
-            this.txtHienThi.TabIndex = 9;
-            this.txtHienThi.Texts = "";
-            this.txtHienThi.UnderlinedStyle = false;
-            this.txtHienThi._TextChanged += new System.EventHandler(this.txtHienThi__TextChanged);
-            this.txtHienThi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHienThi_KeyPress);
-            // 
             // rdbTheoNam
             // 
             this.rdbTheoNam.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
@@ -796,6 +768,20 @@
             this.rdbTheoThang.UseVisualStyleBackColor = true;
             this.rdbTheoThang.CheckedChanged += new System.EventHandler(this.rdbTheoThang_CheckedChanged);
             // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.Color.White;
+            this.label12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label12.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.label12.Location = new System.Drawing.Point(205, 5);
+            this.label12.Margin = new System.Windows.Forms.Padding(0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(60, 24);
+            this.label12.TabIndex = 8;
+            this.label12.Text = "Năm:";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // cbxChonNam
             // 
             this.cbxChonNam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
@@ -816,6 +802,20 @@
             this.cbxChonNam.TabIndex = 7;
             this.cbxChonNam.Texts = "--Chọn--";
             this.cbxChonNam.OnSelectedIndexChanged += new System.EventHandler(this.cbxChonNam_OnSelectedIndexChanged);
+            // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.Color.White;
+            this.label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label11.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.label11.Location = new System.Drawing.Point(0, 5);
+            this.label11.Margin = new System.Windows.Forms.Padding(0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(60, 24);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "Tháng:";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cbxChonThang
             // 

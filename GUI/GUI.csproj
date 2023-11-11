@@ -120,6 +120,12 @@
     <Compile Include="ChiTietKhuyenMaiGUI.Designer.cs">
       <DependentUpon>ChiTietKhuyenMaiGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="DangNhapGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DangNhapGUI.Designer.cs">
+      <DependentUpon>DangNhapGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -322,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChiTietKhuyenMaiGUI.resx">
       <DependentUpon>ChiTietKhuyenMaiGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DangNhapGUI.resx">
+      <DependentUpon>DangNhapGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoDienGUI.resx">
       <DependentUpon>GiaoDienGUI.cs</DependentUpon>

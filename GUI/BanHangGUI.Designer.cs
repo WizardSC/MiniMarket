@@ -343,6 +343,7 @@ namespace GUI
             this.btnInHoaDon.Text = "         IN HÓA ĐƠN";
             this.btnInHoaDon.TextColor = System.Drawing.Color.Black;
             this.btnInHoaDon.UseVisualStyleBackColor = false;
+            this.btnInHoaDon.Click += new System.EventHandler(this.btnInHoaDon_Click);
             // 
             // lblTongTien
             // 
@@ -518,7 +519,7 @@ namespace GUI
             this.cbxTimKiem.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
             this.cbxTimKiem.MinimumSize = new System.Drawing.Size(100, 30);
             this.cbxTimKiem.Name = "cbxTimKiem";
-            this.cbxTimKiem.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxTimKiem.Padding = new System.Windows.Forms.Padding(2);
             this.cbxTimKiem.Size = new System.Drawing.Size(108, 30);
             this.cbxTimKiem.TabIndex = 4;
             this.cbxTimKiem.Texts = "Mã KH";
@@ -538,7 +539,7 @@ namespace GUI
             this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
             this.txtTimKiem.Multiline = false;
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.txtTimKiem.Padding = new System.Windows.Forms.Padding(7);
             this.txtTimKiem.PasswordChar = false;
             this.txtTimKiem.PlaceholderColor = System.Drawing.Color.DimGray;
             this.txtTimKiem.PlaceholderText = "Nhập thông tin tìm kiếm";
