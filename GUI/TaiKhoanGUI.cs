@@ -1,7 +1,7 @@
 ﻿using BLL;
 using DevExpress.Internal.WinApi.Windows.UI.Notifications;
 using DTO;
-using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -57,8 +57,14 @@ namespace GUI
                 .FirstOrDefault();
             return tenCV;
         }
+
+        //private void resetField()
+        //{
+        //    dgvNhanVien.DataSource = nvBLL.getListNVHasTaiKhoan();
+        //}
         private void resetField() {
             dgvNhanVien.DataSource= nvBLL.getListNVHasTaiKhoan();
+
             loadMaTK();
             cbxTrangThai.SelectedIndex = 0;
             txtMatKhau.Texts = string.Empty;

@@ -13,7 +13,6 @@ namespace DAO
 {
     public class LoaiDAL : MSSQLConnect
     {
-        private List<LoaiDTO> listLoai;
         public DataTable getListLoai()
         {
             DataTable dt = new DataTable();
@@ -65,8 +64,7 @@ namespace DAO
         {
             try
                 {
-                Console.WriteLine("test");
-                MSSQLConnect dbConnect = new MSSQLConnect();
+                    MSSQLConnect dbConnect = new MSSQLConnect();
                     dbConnect.Connect();
                     // string query = "INSERT INTO KhuyenMai(MaKM,TenKM,NgayBatDau,NgayKetThuc,PhanTramKM,DieuKienKM,TrangThaiKM) VALUES(@MaKM,@TenKM,@NgayBatDau,@NgayKetThuc,@PhanTramKM,@DieuKienKM,@TrangThaiKM)";
                     string query = "INSERT INTO LoaiSP(MaLoai,TenLoai,TrangThai) VALUES(@MaLoai,@TenLoai,@TrangThai)";
@@ -186,13 +184,6 @@ namespace DAO
             {
                 Disconnect();
             }
-        }
-
-        public void Export(String file)
-        {
-           
-            List<LoaiDTO> loai = listLoai;
-
         }
     }
 }

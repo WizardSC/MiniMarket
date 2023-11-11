@@ -23,15 +23,14 @@ namespace GUI
         private DataTable dtCTKM;
         private string maKM1;
         private int phanTramKM1;
-        // Khai báo biến để lưu trữ RowIndex
-        private int rowIndexForValidation = -1;
+
         public List<ChiTietKhuyenMaiDTO> listCTKMinFormMini { get; set; }
         public List<string> MaKMinCTKMList { get; set; }
         public List<string> MaSPinCTKMList { get; set; }
         public List<int> PhantramKMinCTKMList { get; set; }
         public List<int> TrangThaiinCTKMList { get; set; }
 
-
+        
         public string MaKM1 { get => maKM1; set => maKM1 = value; }
         public int PhanTramKM1 { get => phanTramKM1; set => phanTramKM1 = value; }
 
@@ -71,15 +70,12 @@ namespace GUI
             {
                 int trangThai = Convert.ToInt32(e.Value); // Chuyển đổi giá trị ô thành số nguyên
 
-                // Lấy giá trị cột "NgayKetThuc"
-                DateTime ngayKetThuc = Convert.ToDateTime(dgvKhuyenMai.Rows[e.RowIndex].Cells["NgayKetThuc"].Value);
-
-                // Định dạng giá trị dựa trên giá trị của cột "TrangThai" và ngày kết thúc
-                if (trangThai == 1 && ngayKetThuc >= DateTime.Now)
+                // Định dạng giá trị dựa trên giá trị của cột "TrangThai"
+                if (trangThai == 1)
                 {
                     e.Value = "Hoạt động";
                 }
-                else
+                else if (trangThai == 0)
                 {
                     e.Value = "Không hoạt động";
                 }
@@ -87,9 +83,7 @@ namespace GUI
                 // Đánh dấu rằng đã xử lý định dạng và không cần DataGridView thực hiện định dạng mặc định
                 e.FormattingApplied = true;
             }
-            rowIndexForValidation = e.RowIndex;
         }
-    
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -112,8 +106,7 @@ namespace GUI
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            if (rowIndexForValidation != -1 ||
-        (trangThaiKM == 0 || dgvKhuyenMai.Rows[rowIndexForValidation].Cells["TrangThai"].Value.ToString() == "Không hoạt động"))
+            if (trangThaiKM == 0)
             {
                 MessageBox.Show("Khuyến mãi không khả dụng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

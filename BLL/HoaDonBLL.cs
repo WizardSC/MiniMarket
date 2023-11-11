@@ -24,10 +24,5 @@ namespace BLL
         {
             return hdDAL.insertHoaDon(hd);
         }
-
-        public DataTable getListXemHoaDon()
-        {
-            return hdDAL.getListXemHoaDon();
-        }
     }
 }
