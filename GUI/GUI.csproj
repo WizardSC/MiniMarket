@@ -289,6 +289,12 @@
     <Compile Include="SanPhamGUI.Designer.cs">
       <DependentUpon>SanPhamGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="TaiKhoanGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaiKhoanGUI.Designer.cs">
+      <DependentUpon>TaiKhoanGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThongKeGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -390,6 +396,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SanPhamGUI.resx">
       <DependentUpon>SanPhamGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaiKhoanGUI.resx">
+      <DependentUpon>TaiKhoanGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThongKeGUI.resx">
       <DependentUpon>ThongKeGUI.cs</DependentUpon>
