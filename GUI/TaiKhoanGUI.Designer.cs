@@ -30,11 +30,15 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaiKhoanGUI));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
+            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ho = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaTK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaCV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rjButton1 = new GUI.MyCustom.RJButton();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -58,11 +62,6 @@
             this.btnThayDoiMK = new GUI.MyCustom.RJButton();
             this.btnTaoTK = new GUI.MyCustom.RJButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ho = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaTK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaCV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
@@ -172,6 +171,54 @@
             this.dgvNhanVien.TabIndex = 46;
             this.dgvNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellClick);
             // 
+            // MaNV
+            // 
+            this.MaNV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.MaNV.DataPropertyName = "MaNV";
+            this.MaNV.Frozen = true;
+            this.MaNV.HeaderText = "Mã NV";
+            this.MaNV.MinimumWidth = 6;
+            this.MaNV.Name = "MaNV";
+            this.MaNV.ReadOnly = true;
+            this.MaNV.Width = 73;
+            // 
+            // Ho
+            // 
+            this.Ho.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ho.DataPropertyName = "Ho";
+            this.Ho.HeaderText = "Họ";
+            this.Ho.MinimumWidth = 6;
+            this.Ho.Name = "Ho";
+            this.Ho.ReadOnly = true;
+            // 
+            // Ten
+            // 
+            this.Ten.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ten.DataPropertyName = "Ten";
+            this.Ten.HeaderText = "Tên";
+            this.Ten.MinimumWidth = 6;
+            this.Ten.Name = "Ten";
+            this.Ten.ReadOnly = true;
+            // 
+            // MaTK
+            // 
+            this.MaTK.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.MaTK.DataPropertyName = "MaTK";
+            this.MaTK.HeaderText = "Mã TK";
+            this.MaTK.Name = "MaTK";
+            this.MaTK.ReadOnly = true;
+            this.MaTK.Width = 72;
+            // 
+            // MaCV
+            // 
+            this.MaCV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.MaCV.DataPropertyName = "MaCV";
+            this.MaCV.HeaderText = "Chức vụ";
+            this.MaCV.MinimumWidth = 6;
+            this.MaCV.Name = "MaCV";
+            this.MaCV.ReadOnly = true;
+            this.MaCV.Width = 83;
+            // 
             // rjButton1
             // 
             this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
@@ -190,6 +237,7 @@
             this.rjButton1.Text = "ĐĂNG NHẬP";
             this.rjButton1.TextColor = System.Drawing.Color.Black;
             this.rjButton1.UseVisualStyleBackColor = false;
+           
             // 
             // label9
             // 
@@ -354,7 +402,6 @@
             this.btnRandomPassword.FlatAppearance.BorderSize = 0;
             this.btnRandomPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRandomPassword.ForeColor = System.Drawing.Color.White;
-            this.btnRandomPassword.Image = ((System.Drawing.Image)(resources.GetObject("btnRandomPassword.Image")));
             this.btnRandomPassword.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnRandomPassword.Location = new System.Drawing.Point(371, 160);
             this.btnRandomPassword.Name = "btnRandomPassword";
@@ -577,54 +624,6 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "CHỌN CHỨC NĂNG:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // MaNV
-            // 
-            this.MaNV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.MaNV.DataPropertyName = "MaNV";
-            this.MaNV.Frozen = true;
-            this.MaNV.HeaderText = "Mã NV";
-            this.MaNV.MinimumWidth = 6;
-            this.MaNV.Name = "MaNV";
-            this.MaNV.ReadOnly = true;
-            this.MaNV.Width = 73;
-            // 
-            // Ho
-            // 
-            this.Ho.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ho.DataPropertyName = "Ho";
-            this.Ho.HeaderText = "Họ";
-            this.Ho.MinimumWidth = 6;
-            this.Ho.Name = "Ho";
-            this.Ho.ReadOnly = true;
-            // 
-            // Ten
-            // 
-            this.Ten.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ten.DataPropertyName = "Ten";
-            this.Ten.HeaderText = "Tên";
-            this.Ten.MinimumWidth = 6;
-            this.Ten.Name = "Ten";
-            this.Ten.ReadOnly = true;
-            // 
-            // MaTK
-            // 
-            this.MaTK.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.MaTK.DataPropertyName = "MaTK";
-            this.MaTK.HeaderText = "Mã TK";
-            this.MaTK.Name = "MaTK";
-            this.MaTK.ReadOnly = true;
-            this.MaTK.Width = 72;
-            // 
-            // MaCV
-            // 
-            this.MaCV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.MaCV.DataPropertyName = "MaCV";
-            this.MaCV.HeaderText = "Chức vụ";
-            this.MaCV.MinimumWidth = 6;
-            this.MaCV.Name = "MaCV";
-            this.MaCV.ReadOnly = true;
-            this.MaCV.Width = 83;
             // 
             // TaiKhoanGUI
             // 

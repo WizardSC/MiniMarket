@@ -1,4 +1,8 @@
-﻿using System;
+﻿using DAL;
+using DTO;
+using System;
+using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -6,7 +10,36 @@ namespace BLL
 {
     public class TaiKhoanBLL
     {
+        private TaiKhoanDAL tkDAL;
         private readonly Random random = new Random();
+        public TaiKhoanBLL()
+        {
+            tkDAL = new TaiKhoanDAL();
+        }
+        public DataTable getListTaiKhoan()
+        {
+            return tkDAL.getListTaiKhoan();
+        }
+        public bool insertTaiKhoan(TaiKhoanDTO tk)
+        {
+            return tkDAL.insertTaiKhoan(tk);
+        }
+        public string getLastMaTK()
+        {
+            string lastMaTK = tkDAL.getLastMaTK();
+            if (!string.IsNullOrEmpty(lastMaTK))
+            {
+                string tempLastNumber = lastMaTK.Substring(2);
+                if (int.TryParse(tempLastNumber, out int lastNumber))
+                {
+                    lastNumber++;
+                    string nextNumber = lastNumber.ToString("D3");
+                    string nextMaTK = "TK" + nextNumber;
+                    return nextMaTK;
+                }
+            }
+            return null;
+        }
 
         public string GenerateRandomPassword()
         {
