@@ -21,6 +21,10 @@ namespace BLL
         {
             return nsxDAL.getListNhaSanXuat();
         }
+        public DataTable getListNSXMini()
+        {
+            return nsxDAL.getListNhaSanXuatMini();
+        }
         public bool insertNhaSanXuat(NhaSanXuatDTO nsx)
         {
             return nsxDAL.insertNhaSanXuat(nsx);

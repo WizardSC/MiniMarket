@@ -40,7 +40,7 @@ namespace BLL
             }
             return null;
         }
-        
+
         public string GenerateRandomPassword()
         {
             const string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";

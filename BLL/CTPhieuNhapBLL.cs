@@ -25,10 +25,5 @@ namespace BLL
         {
             return ctpnDAL.getListPhieuNhapbyMaPN(maPN);
         }
-
-        public DataTable getListChiTietPhieuNhap(string maPN)
-        {
-            return ctpnDAL.getListChiTietPhieuNhap(maPN);
-        }
     }
 }

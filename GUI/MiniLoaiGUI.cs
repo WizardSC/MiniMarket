@@ -20,7 +20,7 @@ namespace GUI
         {
             InitializeComponent();
             loaiBLL = new LoaiBLL();
-            dt = loaiBLL.getListLoai();
+            dt = loaiBLL.getListLoaiMini();
         }
 
         

@@ -140,16 +140,10 @@
   <metadata name="MaNCC.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="DiaChi.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="SoDT.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="label3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAAPVJREFUSEvt1r0OAUEUBeBVKRSioVHqNBpvIB5AqKhVtAS1xLMQvcQLqGkJvcQr
+        DwAACw8BkvkDpQAAAPVJREFUSEvt1r0OAUEUBeBVKRSioVHqNBpvIB5AqKhVtAS1xLMQvcQLqGkJvcQr
         cE4yczN2p9rcncTPSb5kZ7bY7N07OxP9k1XyUDJynMg6J3gaYyjADFZKltAEyQ3sAxcwdMZajiA5g70x
         gSqsYa9kB32Q1KFlFDnxdenC1KhxIuu4TTOHBlzhoeQO7FRJvEv5ge1YywEkW7gYLC8XPxuop6QDZfih
         uCVlCVjStrnWwJJWQBJvmoEz1vLWNL5lwbf1tXgaiWURfOEHT/Cft2972oBvq0mD2xMbURJ8A+bA3hgB

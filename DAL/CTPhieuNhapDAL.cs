@@ -66,30 +66,5 @@ namespace DAL
                 Disconnect();
             }
         }
-
-
-        //thai
-        public DataTable getListChiTietPhieuNhap(string MaPN)
-        {
-            DataTable dt = new DataTable();
-            try
-            {
-                Connect();
-                SqlCommand cmd = new SqlCommand("Select * from ChiTietPhieuNhap where MaPN = @MaPN", conn);
-                cmd.Parameters.AddWithValue("@MaPN", MaPN).SqlDbType = SqlDbType.Char;
-
-                SqlDataAdapter adt = new SqlDataAdapter(cmd);
-                adt.Fill(dt);
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-            finally
-            {
-                Disconnect();
-            }
-            return dt;
-        }
     }
 }
