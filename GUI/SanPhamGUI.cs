@@ -457,6 +457,11 @@ namespace GUI
 
         private void btnReset_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -22,7 +22,7 @@ namespace GUI
         {
             InitializeComponent();
             nsxBLL = new NhaSanXuatBLL();
-            dt = nsxBLL.getListNSX();
+            dt = nsxBLL.getListNSXMini();
 
         }
 

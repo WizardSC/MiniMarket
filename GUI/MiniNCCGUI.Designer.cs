@@ -32,6 +32,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pnHeader = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.gradientPanel1 = new GUI.MyCustom.GradientPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnXacNhan = new GUI.MyCustom.RJButton();
@@ -42,22 +45,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtMaNCC = new GUI.MyCustom.RJTextBox();
             this.dgvNhaCungCap = new System.Windows.Forms.DataGridView();
-            this.pnHeader = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnMinimize = new GUI.MyCustom.RJButton();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.btnClose = new GUI.MyCustom.RJButton();
             this.MaNSX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
+            this.pnHeader.SuspendLayout();
             this.gradientPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhaCungCap)).BeginInit();
-            this.pnHeader.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -67,9 +64,45 @@
             this.panel3.Controls.Add(this.pnHeader);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(666, 450);
+            this.panel3.Size = new System.Drawing.Size(888, 554);
             this.panel3.TabIndex = 5;
+            // 
+            // pnHeader
+            // 
+            this.pnHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
+            this.pnHeader.Controls.Add(this.label3);
+            this.pnHeader.Controls.Add(this.btnMinimize);
+            this.pnHeader.Controls.Add(this.panel4);
+            this.pnHeader.Controls.Add(this.btnClose);
+            this.pnHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnHeader.Name = "pnHeader";
+            this.pnHeader.Size = new System.Drawing.Size(886, 43);
+            this.pnHeader.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label3.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(316, 43);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "CHỌN NHÀ CUNG CẤP";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel4
+            // 
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel4.Location = new System.Drawing.Point(821, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(8, 43);
+            this.panel4.TabIndex = 3;
             // 
             // gradientPanel1
             // 
@@ -78,9 +111,10 @@
             this.gradientPanel1.Controls.Add(this.panel1);
             this.gradientPanel1.Controls.Add(this.dgvNhaCungCap);
             this.gradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gradientPanel1.Location = new System.Drawing.Point(0, 35);
+            this.gradientPanel1.Location = new System.Drawing.Point(0, 43);
+            this.gradientPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.gradientPanel1.Name = "gradientPanel1";
-            this.gradientPanel1.Size = new System.Drawing.Size(664, 413);
+            this.gradientPanel1.Size = new System.Drawing.Size(886, 509);
             this.gradientPanel1.TabIndex = 0;
             this.gradientPanel1.TopColor = System.Drawing.Color.White;
             // 
@@ -89,9 +123,10 @@
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.btnXacNhan);
             this.panel2.Controls.Add(this.btnHuyBo);
-            this.panel2.Location = new System.Drawing.Point(508, 262);
+            this.panel2.Location = new System.Drawing.Point(677, 322);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(146, 138);
+            this.panel2.Size = new System.Drawing.Size(195, 170);
             this.panel2.TabIndex = 4;
             // 
             // btnXacNhan
@@ -107,10 +142,10 @@
             this.btnXacNhan.ForeColor = System.Drawing.Color.Black;
             this.btnXacNhan.Image = ((System.Drawing.Image)(resources.GetObject("btnXacNhan.Image")));
             this.btnXacNhan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXacNhan.Location = new System.Drawing.Point(10, 17);
-            this.btnXacNhan.Margin = new System.Windows.Forms.Padding(23, 3, 10, 3);
+            this.btnXacNhan.Location = new System.Drawing.Point(13, 21);
+            this.btnXacNhan.Margin = new System.Windows.Forms.Padding(31, 4, 13, 4);
             this.btnXacNhan.Name = "btnXacNhan";
-            this.btnXacNhan.Size = new System.Drawing.Size(120, 40);
+            this.btnXacNhan.Size = new System.Drawing.Size(160, 49);
             this.btnXacNhan.TabIndex = 2;
             this.btnXacNhan.Text = "        Xác nhận";
             this.btnXacNhan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -131,10 +166,10 @@
             this.btnHuyBo.ForeColor = System.Drawing.Color.Black;
             this.btnHuyBo.Image = ((System.Drawing.Image)(resources.GetObject("btnHuyBo.Image")));
             this.btnHuyBo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHuyBo.Location = new System.Drawing.Point(10, 72);
-            this.btnHuyBo.Margin = new System.Windows.Forms.Padding(23, 3, 10, 3);
+            this.btnHuyBo.Location = new System.Drawing.Point(13, 89);
+            this.btnHuyBo.Margin = new System.Windows.Forms.Padding(31, 4, 13, 4);
             this.btnHuyBo.Name = "btnHuyBo";
-            this.btnHuyBo.Size = new System.Drawing.Size(120, 40);
+            this.btnHuyBo.Size = new System.Drawing.Size(160, 49);
             this.btnHuyBo.TabIndex = 1;
             this.btnHuyBo.Text = "       Hủy bỏ";
             this.btnHuyBo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -148,19 +183,20 @@
             this.panel1.Controls.Add(this.txtTenNCC);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtMaNCC);
-            this.panel1.Location = new System.Drawing.Point(12, 262);
+            this.panel1.Location = new System.Drawing.Point(16, 322);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(490, 138);
+            this.panel1.Size = new System.Drawing.Size(653, 170);
             this.panel1.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label1.Location = new System.Drawing.Point(12, 72);
-            this.label1.Margin = new System.Windows.Forms.Padding(4);
+            this.label1.Location = new System.Drawing.Point(16, 89);
+            this.label1.Margin = new System.Windows.Forms.Padding(5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 28);
+            this.label1.Size = new System.Drawing.Size(125, 34);
             this.label1.TabIndex = 4;
             this.label1.Text = "Tên NCC";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -174,17 +210,18 @@
             this.txtTenNCC.BorderSize = 2;
             this.txtTenNCC.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenNCC.ForeColor = System.Drawing.Color.Black;
-            this.txtTenNCC.Location = new System.Drawing.Point(114, 72);
-            this.txtTenNCC.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTenNCC.MaximumSize = new System.Drawing.Size(300, 28);
-            this.txtTenNCC.MinimumSize = new System.Drawing.Size(150, 28);
+            this.txtTenNCC.Location = new System.Drawing.Point(152, 89);
+            this.txtTenNCC.Margin = new System.Windows.Forms.Padding(5);
+            this.txtTenNCC.MaximumSize = new System.Drawing.Size(400, 34);
+            this.txtTenNCC.MinimumSize = new System.Drawing.Size(200, 34);
             this.txtTenNCC.Multiline = false;
             this.txtTenNCC.Name = "txtTenNCC";
-            this.txtTenNCC.Padding = new System.Windows.Forms.Padding(4, 4, 2, 2);
+            this.txtTenNCC.Padding = new System.Windows.Forms.Padding(5, 5, 3, 2);
             this.txtTenNCC.PasswordChar = false;
             this.txtTenNCC.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtTenNCC.PlaceholderText = "";
-            this.txtTenNCC.Size = new System.Drawing.Size(300, 28);
+            this.txtTenNCC.ReadOnly = false;
+            this.txtTenNCC.Size = new System.Drawing.Size(400, 34);
             this.txtTenNCC.TabIndex = 5;
             this.txtTenNCC.Texts = "";
             this.txtTenNCC.UnderlinedStyle = false;
@@ -193,10 +230,10 @@
             // 
             this.label2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label2.Location = new System.Drawing.Point(12, 17);
-            this.label2.Margin = new System.Windows.Forms.Padding(4);
+            this.label2.Location = new System.Drawing.Point(16, 21);
+            this.label2.Margin = new System.Windows.Forms.Padding(5);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 28);
+            this.label2.Size = new System.Drawing.Size(125, 34);
             this.label2.TabIndex = 2;
             this.label2.Text = "Mã NCC";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -210,17 +247,18 @@
             this.txtMaNCC.BorderSize = 2;
             this.txtMaNCC.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaNCC.ForeColor = System.Drawing.Color.Black;
-            this.txtMaNCC.Location = new System.Drawing.Point(114, 17);
-            this.txtMaNCC.Margin = new System.Windows.Forms.Padding(4);
-            this.txtMaNCC.MaximumSize = new System.Drawing.Size(300, 28);
-            this.txtMaNCC.MinimumSize = new System.Drawing.Size(150, 28);
+            this.txtMaNCC.Location = new System.Drawing.Point(152, 21);
+            this.txtMaNCC.Margin = new System.Windows.Forms.Padding(5);
+            this.txtMaNCC.MaximumSize = new System.Drawing.Size(400, 34);
+            this.txtMaNCC.MinimumSize = new System.Drawing.Size(200, 34);
             this.txtMaNCC.Multiline = false;
             this.txtMaNCC.Name = "txtMaNCC";
-            this.txtMaNCC.Padding = new System.Windows.Forms.Padding(4, 4, 2, 2);
+            this.txtMaNCC.Padding = new System.Windows.Forms.Padding(5, 5, 3, 2);
             this.txtMaNCC.PasswordChar = false;
             this.txtMaNCC.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtMaNCC.PlaceholderText = "";
-            this.txtMaNCC.Size = new System.Drawing.Size(300, 28);
+            this.txtMaNCC.ReadOnly = false;
+            this.txtMaNCC.Size = new System.Drawing.Size(400, 34);
             this.txtMaNCC.TabIndex = 3;
             this.txtMaNCC.Texts = "";
             this.txtMaNCC.UnderlinedStyle = false;
@@ -245,10 +283,7 @@
             this.dgvNhaCungCap.ColumnHeadersHeight = 28;
             this.dgvNhaCungCap.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaNSX,
-            this.MaNCC,
-            this.Column1,
-            this.Column2,
-            this.Column3});
+            this.TenNCC});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -259,7 +294,8 @@
             this.dgvNhaCungCap.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvNhaCungCap.EnableHeadersVisualStyles = false;
             this.dgvNhaCungCap.GridColor = System.Drawing.Color.Black;
-            this.dgvNhaCungCap.Location = new System.Drawing.Point(12, 12);
+            this.dgvNhaCungCap.Location = new System.Drawing.Point(16, 15);
+            this.dgvNhaCungCap.Margin = new System.Windows.Forms.Padding(4);
             this.dgvNhaCungCap.Name = "dgvNhaCungCap";
             this.dgvNhaCungCap.ReadOnly = true;
             this.dgvNhaCungCap.RowHeadersVisible = false;
@@ -268,33 +304,9 @@
             this.dgvNhaCungCap.RowTemplate.Height = 30;
             this.dgvNhaCungCap.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvNhaCungCap.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvNhaCungCap.Size = new System.Drawing.Size(642, 243);
+            this.dgvNhaCungCap.Size = new System.Drawing.Size(856, 299);
             this.dgvNhaCungCap.TabIndex = 2;
             this.dgvNhaCungCap.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhaCungCap_CellClick);
-            // 
-            // pnHeader
-            // 
-            this.pnHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            this.pnHeader.Controls.Add(this.label3);
-            this.pnHeader.Controls.Add(this.btnMinimize);
-            this.pnHeader.Controls.Add(this.panel4);
-            this.pnHeader.Controls.Add(this.btnClose);
-            this.pnHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnHeader.Name = "pnHeader";
-            this.pnHeader.Size = new System.Drawing.Size(664, 35);
-            this.pnHeader.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label3.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(237, 35);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "CHỌN NHÀ CUNG CẤP";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnMinimize
             // 
@@ -309,21 +321,13 @@
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.ForeColor = System.Drawing.Color.White;
             this.btnMinimize.Image = global::GUI.Properties.Resources.icons8_minimize_32__1_;
-            this.btnMinimize.Location = new System.Drawing.Point(572, 0);
-            this.btnMinimize.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMinimize.Location = new System.Drawing.Point(764, 0);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(43, 35);
+            this.btnMinimize.Size = new System.Drawing.Size(57, 43);
             this.btnMinimize.TabIndex = 2;
             this.btnMinimize.TextColor = System.Drawing.Color.White;
             this.btnMinimize.UseVisualStyleBackColor = false;
-            // 
-            // panel4
-            // 
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(615, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(6, 35);
-            this.panel4.TabIndex = 3;
             // 
             // btnClose
             // 
@@ -338,10 +342,10 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Image = global::GUI.Properties.Resources.icons8_close_32;
-            this.btnClose.Location = new System.Drawing.Point(621, 0);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClose.Location = new System.Drawing.Point(829, 0);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(43, 35);
+            this.btnClose.Size = new System.Drawing.Size(57, 43);
             this.btnClose.TabIndex = 1;
             this.btnClose.TextColor = System.Drawing.Color.White;
             this.btnClose.UseVisualStyleBackColor = false;
@@ -357,58 +361,32 @@
             this.MaNSX.ReadOnly = true;
             this.MaNSX.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // MaNCC
+            // TenNCC
             // 
-            this.MaNCC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MaNCC.DataPropertyName = "TenNCC";
-            this.MaNCC.HeaderText = "Tên NCC";
-            this.MaNCC.MinimumWidth = 6;
-            this.MaNCC.Name = "MaNCC";
-            this.MaNCC.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "DiaChi";
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            this.Column1.Width = 88;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "SoDT";
-            this.Column2.HeaderText = "Column2";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Visible = false;
-            this.Column2.Width = 88;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "SoFAX";
-            this.Column3.HeaderText = "Column3";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Visible = false;
-            this.Column3.Width = 88;
+            this.TenNCC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenNCC.DataPropertyName = "TenNCC";
+            this.TenNCC.HeaderText = "Tên NCC";
+            this.TenNCC.MinimumWidth = 6;
+            this.TenNCC.Name = "TenNCC";
+            this.TenNCC.ReadOnly = true;
             // 
             // MiniNCCGUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(666, 450);
+            this.ClientSize = new System.Drawing.Size(888, 554);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MiniNCCGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MiniNCCGUI";
             this.panel3.ResumeLayout(false);
+            this.pnHeader.ResumeLayout(false);
             this.gradientPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhaCungCap)).EndInit();
-            this.pnHeader.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -432,9 +410,6 @@
         private MyCustom.RJButton btnClose;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNSX;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaNCC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenNCC;
     }
 }
