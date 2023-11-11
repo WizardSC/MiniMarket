@@ -39,32 +39,6 @@ namespace DAL
             return dt;
         }
 
-        public DataTable getListNhaSanXuatMini()
-        {
-            DataTable dt = new DataTable();
-            try
-            {
-                Connect();
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select MaNSX, TenNSX from nhasanxuat where TrangThai = 1";
-                // cmd.CommandText = "select * from Khachhang";
-                cmd.Connection = conn;
-                SqlDataAdapter adt = new SqlDataAdapter(cmd);
-                adt.Fill(dt);
-
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-            finally
-            {
-                Disconnect();
-            }
-            return dt;
-        }
-
         public bool insertNhaSanXuat(NhaSanXuatDTO nsx)
         {
             try

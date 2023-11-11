@@ -48,7 +48,7 @@ namespace DTO
         //    this.maCV = maCV;
         //}
         // Chưa thêm hình , mã tk
-        public NhanVienDTO(string maNV, string ho, string ten, DateTime ngaySinh, string gioiTinh, string soDT, string diaChi, int trangThai, byte[] img, string maCV)
+        public NhanVienDTO(string maNV, string ho, string ten, DateTime ngaySinh, string gioiTinh, string soDT, string diaChi, int trangThai, string maCV)
         {
             this.maNV = maNV;
             this.ho = ho;
@@ -58,9 +58,7 @@ namespace DTO
             this.soDT = soDT;
             this.diaChi = diaChi;
             this.trangThai = trangThai;
-            this.img = img;
             this.maCV = maCV;
-            
         }
 
 

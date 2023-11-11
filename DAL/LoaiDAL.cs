@@ -13,6 +13,7 @@ namespace DAO
 {
     public class LoaiDAL : MSSQLConnect
     {
+        private List<LoaiDTO> listLoai;
         public DataTable getListLoai()
         {
             DataTable dt = new DataTable();
@@ -36,35 +37,12 @@ namespace DAO
             }
             return dt;
         }
-
-        public DataTable getListLoaiMini()
-        {
-            DataTable dt = new DataTable();
-            try
-            {
-                Connect();
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select MaLoai, TenLoai from LoaiSP where TrangThai = 1";
-                cmd.Connection = conn;
-                SqlDataAdapter adt = new SqlDataAdapter(cmd);
-                adt.Fill(dt);
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-            finally
-            {
-                Disconnect();
-            }
-            return dt;
-        }
         public bool insertLoaiSP(LoaiDTO LSP)
         {
             try
                 {
-                    MSSQLConnect dbConnect = new MSSQLConnect();
+                Console.WriteLine("test");
+                MSSQLConnect dbConnect = new MSSQLConnect();
                     dbConnect.Connect();
                     // string query = "INSERT INTO KhuyenMai(MaKM,TenKM,NgayBatDau,NgayKetThuc,PhanTramKM,DieuKienKM,TrangThaiKM) VALUES(@MaKM,@TenKM,@NgayBatDau,@NgayKetThuc,@PhanTramKM,@DieuKienKM,@TrangThaiKM)";
                     string query = "INSERT INTO LoaiSP(MaLoai,TenLoai,TrangThai) VALUES(@MaLoai,@TenLoai,@TrangThai)";
@@ -184,6 +162,13 @@ namespace DAO
             {
                 Disconnect();
             }
+        }
+
+        public void Export(String file)
+        {
+           
+            List<LoaiDTO> loai = listLoai;
+
         }
     }
 }
