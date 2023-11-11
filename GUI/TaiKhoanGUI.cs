@@ -57,9 +57,14 @@ namespace GUI
                 .FirstOrDefault();
             return tenCV;
         }
-        private void resetField()
-        {
-            dgvNhanVien.DataSource = nvBLL.getListNVHasTaiKhoan();
+
+        //private void resetField()
+        //{
+        //    dgvNhanVien.DataSource = nvBLL.getListNVHasTaiKhoan();
+        //}
+        private void resetField() {
+            dgvNhanVien.DataSource= nvBLL.getListNVHasTaiKhoan();
+
             loadMaTK();
             cbxTrangThai.SelectedIndex = 0;
             txtMatKhau.Texts = string.Empty;
