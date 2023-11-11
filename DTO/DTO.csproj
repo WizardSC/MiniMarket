@@ -71,6 +71,7 @@
     <Compile Include="PhieuNhapDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SanPhamDTO.cs" />
+    <Compile Include="TaiKhoanDTO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

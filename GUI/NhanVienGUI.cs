@@ -994,6 +994,5 @@ namespace GUI
             combinedCondition = ApplyOrRemoveTuoiCondition(combinedCondition, isTuoi);
             applySearchs(combinedCondition);
         }
-
     }
 }
