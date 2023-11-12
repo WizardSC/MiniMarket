@@ -22,6 +22,7 @@ namespace GUI
         private string currentSearch;
         private string textSearchCondition = ""; // Biến để lưu trữ điều kiện từ textbox tìm kiếm
         private string cbxItemsMacDinh;
+        private DateTime NgayTaoHD;
         public HoaDonGUI()
         {
             HdBLL = new HoaDonBLL();
@@ -178,6 +179,15 @@ namespace GUI
         private void HoaDonGUI_Load(object sender, EventArgs e)
         {
             init();
+        }
+
+        private void dgvXemThongTinHoaDon_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i = dgvXemThongTinHoaDon.CurrentRow.Index;
+            MaHoaDon = dgvXemThongTinHoaDon.Rows[i].Cells[0].Value.ToString();
+            NgayTaoHD = DateTime.Parse(dgvXemThongTinHoaDon.Rows[i].Cells[1].Value.ToString());
+            ChiTietHoaDonGUI ChiTietHD = new ChiTietHoaDonGUI(MaHoaDon,NgayTaoHD);
+            ChiTietHD.ShowDialog();
         }
     }
 }

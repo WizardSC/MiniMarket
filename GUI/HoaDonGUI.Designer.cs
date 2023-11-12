@@ -223,6 +223,7 @@
             this.dgvXemThongTinHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvXemThongTinHoaDon.Size = new System.Drawing.Size(1169, 702);
             this.dgvXemThongTinHoaDon.TabIndex = 1;
+            this.dgvXemThongTinHoaDon.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvXemThongTinHoaDon_CellDoubleClick);
             this.dgvXemThongTinHoaDon.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvXemThongTinHoaDon_CellFormatting);
             // 
             // MaHD
