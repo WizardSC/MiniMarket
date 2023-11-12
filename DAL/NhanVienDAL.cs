@@ -73,7 +73,7 @@ namespace DAL
                 Connect();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT MaNV, Ho, Ten, MaTK, MaCV from nhanvien where TrangThai = 1 and (MaTK IS NULL or MaTK = '')";
+                cmd.CommandText = "SELECT MaNV, Ho, Ten, MaTK, MaCV from nhanvien where TrangThai = 1 and (MaTK IS NULL or MaTK = '') and MaTK != 'TK001'";
                 cmd.Connection = conn;
                 SqlDataAdapter adt = new SqlDataAdapter(cmd);
                 adt.Fill(dt);
@@ -97,7 +97,7 @@ namespace DAL
                 Connect();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT MaNV, Ho, Ten, MaTK, MaCV from nhanvien where TrangThai = 1 and (MaTK IS NOT NULL and LEN(MaTK) > 0)";
+                cmd.CommandText = "SELECT MaNV, Ho, Ten, MaTK, MaCV from nhanvien where TrangThai = 1 and (MaTK IS NOT NULL and LEN(MaTK) > 0) and MaTK != 'TK001'";
                 cmd.Connection = conn;
                 SqlDataAdapter adt = new SqlDataAdapter(cmd);
                 adt.Fill(dt);
@@ -113,6 +113,7 @@ namespace DAL
             }
             return dt;
         }
+
         public bool insertNhanVien(NhanVienDTO nv)
         {
             try
@@ -244,5 +245,31 @@ namespace DAL
                 Disconnect();
             }
         }
+        public bool updateTaiKhoan(string maTK, string maNV)
+        {
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "update nhanvien set MaTK = @MaTK where MaNV = @MaNV";
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@MaTK", maTK).SqlDbType = SqlDbType.Char;
+                cmd.Parameters.AddWithValue("@MaNV", maNV).SqlDbType = SqlDbType.Char;
+                cmd.ExecuteNonQuery();
+                return true;
+
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Disconnect();
+            }
+        }
     }
 }
+

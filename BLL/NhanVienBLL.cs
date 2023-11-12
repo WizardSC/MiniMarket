@@ -52,5 +52,9 @@ namespace BLL
             trangThai = (trangThai == 0) ? 1 : 0;
             return nvDAL.updateTrangThai(trangThai, maNV);
         }
+        public bool updateTaiKhoan(string maTK, string maNV)
+        {
+            return nvDAL.updateTaiKhoan(maTK,maNV);
+        }
     }
 }

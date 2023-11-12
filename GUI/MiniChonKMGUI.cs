@@ -89,7 +89,7 @@ namespace GUI
             }
             rowIndexForValidation = e.RowIndex;
         }
-    
+
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -112,8 +112,8 @@ namespace GUI
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            if (rowIndexForValidation != -1 ||
-        (trangThaiKM == 0 || dgvKhuyenMai.Rows[rowIndexForValidation].Cells["TrangThai"].Value.ToString() == "Không hoạt động"))
+            if (
+        trangThaiKM == 0 || dgvKhuyenMai.Rows[rowIndexForValidation].Cells["TrangThai"].Value.ToString() == "Không hoạt động")
             {
                 MessageBox.Show("Khuyến mãi không khả dụng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
