@@ -24,6 +24,16 @@ namespace BLL
         {
             return tkDAL.insertTaiKhoan(tk);
         }
+
+        public bool updateTTCN(string maNV, string tenDangNhap, string matKhau)
+        {
+            return tkDAL.updateThongTinCaNhan(maNV, tenDangNhap, matKhau); 
+        }
+
+        public bool updateTrangThai(string maNV, int trangThai)
+        {
+            return tkDAL.updateTrangThai(maNV, trangThai);
+        }
         public string getLastMaTK()
         {
             string lastMaTK = tkDAL.getLastMaTK();
