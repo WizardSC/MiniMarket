@@ -558,7 +558,7 @@ namespace GUI
             // dt = loaibill.getListLoai();
             currentSearch = text;
             Console.WriteLine(currentSearch);
-            DataView dvSP = spBLL.getListSanPham().DefaultView; ;
+            DataView dvSP = dt.DefaultView; ;
             dvSP.RowFilter = currentSearch;
             dgvSanPham.DataSource = dvSP.ToTable();
         }

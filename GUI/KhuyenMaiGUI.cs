@@ -103,7 +103,7 @@ namespace GUI
         {
             currentSearch = text;
             Console.WriteLine(currentSearch);
-            DataView dvKhuyenMai = kmBLL.getListDsKm().DefaultView;
+            DataView dvKhuyenMai = dt.DefaultView;
             dvKhuyenMai.RowFilter = currentSearch;
             dgvKhuyenMai.DataSource = dvKhuyenMai.ToTable();
         }
@@ -163,7 +163,7 @@ namespace GUI
         //load form DataTable
         public void init()
         {
-            dgvKhuyenMai.DataSource = kmBLL.getListDsKm();
+            dgvKhuyenMai.DataSource = dt;
 
             cbxTrangThai.SelectedIndex = 0;
         }

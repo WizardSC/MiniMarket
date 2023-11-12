@@ -19,8 +19,8 @@ namespace GUI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-           /// Application.Run(new GiaoDienGUI());
-            Application.Run(new SanPhamGUI());
+            Application.Run(new GiaoDienGUI());
+            //Application.Run(new SanPhamGUI());
             
 
 
