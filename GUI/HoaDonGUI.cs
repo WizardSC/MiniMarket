@@ -1,6 +1,7 @@
 ﻿using BLL;
 using GUI.MyCustom;
 using OfficeOpenXml;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.Information;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,12 +23,17 @@ namespace GUI
         private string currentSearch;
         private string textSearchCondition = ""; // Biến để lưu trữ điều kiện từ textbox tìm kiếm
         private string cbxItemsMacDinh;
+        private DateTime NgayTaoHD;
+
+
+        private bool isFormFilter = false;
         public HoaDonGUI()
         {
             HdBLL = new HoaDonBLL();
             InitializeComponent();
            
             loadDataToCBX(cbxTimKiem);
+
         }
         private void loadDataToCBX(RJComboBox cbx)
         {
@@ -81,6 +87,7 @@ namespace GUI
                 return "";
             }
         }
+
 
         private void btnExport_Click(object sender, EventArgs e)
         {
@@ -137,10 +144,39 @@ namespace GUI
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            string textTimKiem = txtTimKiem.Texts;
-            textSearchCondition = GetTextSearchCondition(textTimKiem);
-            string combinedCondition = CombineConditions(textSearchCondition);
-            applySearchs(combinedCondition);
+            //string textTimKiem = txtTimKiem.Texts;
+            //textSearchCondition = GetTextSearchCondition(textTimKiem);
+            //string combinedCondition = CombineConditions(textSearchCondition);
+            //applySearchs(combinedCondition);
+
+            //// Kiểm tra xem có chọn ngày hay không
+            if (chkNgay.Checked)
+            {
+                // Gọi hàm tìm kiếm theo ngày
+                string dateCondition = GetDateSearchDate();
+
+                // Nếu có lỗi, không tiếp tục tìm kiếm
+                if (string.IsNullOrEmpty(dateCondition))
+                {
+                    return;
+                }
+
+                // Thực hiện tìm kiếm với điều kiện ngày
+                string textTimKiem = txtTimKiem.Texts;
+                string textSearchCondition = GetTextSearchCondition(textTimKiem);
+                string combinedCondition = CombineConditions($"{textSearchCondition} AND {dateCondition}");
+                applySearchs(combinedCondition);
+            }
+            else
+            {
+                // Thực hiện tìm kiếm thông thường nếu không chọn ngày
+                string textTimKiem = txtTimKiem.Texts;
+                string textSearchCondition = GetTextSearchCondition(textTimKiem);
+                string combinedCondition = CombineConditions(textSearchCondition);
+                applySearchs(combinedCondition);
+            }
+
+            
         }
 
         private void cbxTimKiem_OnSelectedIndexChanged(object sender, EventArgs e)
@@ -178,6 +214,80 @@ namespace GUI
         private void HoaDonGUI_Load(object sender, EventArgs e)
         {
             init();
+        }
+
+        private void dgvXemThongTinHoaDon_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i = dgvXemThongTinHoaDon.CurrentRow.Index;
+            MaHoaDon = dgvXemThongTinHoaDon.Rows[i].Cells[0].Value.ToString();
+            NgayTaoHD = DateTime.Parse(dgvXemThongTinHoaDon.Rows[i].Cells[1].Value.ToString());
+            ChiTietHoaDonGUI ChiTietHD = new ChiTietHoaDonGUI(MaHoaDon,NgayTaoHD);
+            ChiTietHD.ShowDialog();
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            isFormFilter = !isFormFilter;
+            if (isFormFilter)
+            {
+                btnFilter.BackColor = Color.FromArgb(224, 224, 224);
+                flpFilter.Visible = true;
+                flpFilter.BringToFront();
+
+            }
+            else
+            {
+                btnFilter.BackColor = Color.FromArgb(224, 252, 237);
+                flpFilter.Visible = false;
+                flpFilter.SendToBack();
+            }
+        }
+
+
+        private string GetDateSearchDate()
+        {
+            DateTime startDate = dtpNgayStart.Value;
+            DateTime endDate = dtpNgayEnd.Value;
+
+            // Tạo điều kiện ngày
+            return $"NgayLapHD >= '{startDate.ToString("yyyy-MM-dd")}' AND NgayLapHD <= '{endDate.ToString("yyyy-MM-dd")}'";
+
+        }
+
+        private void chkNgay_CheckedChanged(object sender, EventArgs e)
+        {
+            // Kiểm tra xem checkbox đã được chọn hay chưa
+            if (chkNgay.Checked)
+            {
+                // Nếu đã chọn, hiển thị DateTimePicker cho ngày bắt đầu và kết thúc
+                dtpNgayStart.Enabled = true;
+                dtpNgayEnd.Enabled = true;
+            }
+            else
+            {
+                // Nếu không chọn, ẩn DateTimePicker
+                dtpNgayStart.Enabled = false;
+                dtpNgayEnd.Enabled = false;
+                // Đặt lại giá trị của ngày để tránh lưu giữ giá trị trước đó
+                dtpNgayStart.Value = DateTime.Now;
+                dtpNgayEnd.Value = DateTime.Now;
+            }
+        }
+
+        private void dtpNgayEnd_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime startDate = dtpNgayStart.Value;
+            DateTime endDate = dtpNgayEnd.Value;
+            if(startDate > endDate)
+            {
+                lblErrTuoiFilter.Visible = true;
+            }
+            else
+            {
+                lblErrTuoiFilter.Visible = false;
+                lblErrTuoiFilter.Visible = false;
+                btnTimKiem_Click(sender, e);
+            }
         }
     }
 }
