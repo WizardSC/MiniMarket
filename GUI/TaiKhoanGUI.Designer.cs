@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaiKhoanGUI));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnXemDanhSachTK = new GUI.MyCustom.RJButton();
@@ -61,7 +61,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtMaTK = new GUI.MyCustom.RJTextBox();
             this.btnThayDoiTrangThai = new GUI.MyCustom.RJButton();
-            this.btnThayDoiMK = new GUI.MyCustom.RJButton();
+            this.btnThayDoiTTCN = new GUI.MyCustom.RJButton();
             this.btnTaoTK = new GUI.MyCustom.RJButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -75,7 +75,7 @@
             this.panel1.Controls.Add(this.btnXemDanhSachTK);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.btnThayDoiTrangThai);
-            this.panel1.Controls.Add(this.btnThayDoiMK);
+            this.panel1.Controls.Add(this.btnThayDoiTTCN);
             this.panel1.Controls.Add(this.btnTaoTK);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -96,7 +96,7 @@
             this.btnXemDanhSachTK.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXemDanhSachTK.ForeColor = System.Drawing.Color.Black;
             this.btnXemDanhSachTK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXemDanhSachTK.Location = new System.Drawing.Point(727, 9);
+            this.btnXemDanhSachTK.Location = new System.Drawing.Point(775, 9);
             this.btnXemDanhSachTK.Margin = new System.Windows.Forms.Padding(23, 3, 10, 3);
             this.btnXemDanhSachTK.Name = "btnXemDanhSachTK";
             this.btnXemDanhSachTK.Size = new System.Drawing.Size(208, 40);
@@ -104,6 +104,7 @@
             this.btnXemDanhSachTK.Text = "Xem danh sách tài khoản";
             this.btnXemDanhSachTK.TextColor = System.Drawing.Color.Black;
             this.btnXemDanhSachTK.UseVisualStyleBackColor = false;
+            this.btnXemDanhSachTK.Click += new System.EventHandler(this.btnXemDanhSachTK_Click);
             // 
             // panel2
             // 
@@ -156,14 +157,14 @@
             this.dgvNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvNhanVien.BackgroundColor = System.Drawing.Color.White;
             this.dgvNhanVien.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvNhanVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvNhanVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvNhanVien.ColumnHeadersHeight = 28;
             this.dgvNhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaNV,
@@ -171,14 +172,14 @@
             this.Ten,
             this.MaTK,
             this.MaCV});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvNhanVien.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvNhanVien.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvNhanVien.EnableHeadersVisualStyles = false;
             this.dgvNhanVien.GridColor = System.Drawing.Color.Black;
             this.dgvNhanVien.Location = new System.Drawing.Point(417, 35);
@@ -589,34 +590,34 @@
             this.btnThayDoiTrangThai.Location = new System.Drawing.Point(548, 9);
             this.btnThayDoiTrangThai.Margin = new System.Windows.Forms.Padding(23, 3, 10, 3);
             this.btnThayDoiTrangThai.Name = "btnThayDoiTrangThai";
-            this.btnThayDoiTrangThai.Size = new System.Drawing.Size(160, 40);
+            this.btnThayDoiTrangThai.Size = new System.Drawing.Size(212, 40);
             this.btnThayDoiTrangThai.TabIndex = 7;
-            this.btnThayDoiTrangThai.Text = "Thay đổi trạng thái";
+            this.btnThayDoiTrangThai.Text = "Khóa/Mở khóa tài khoản";
             this.btnThayDoiTrangThai.TextColor = System.Drawing.Color.Black;
             this.btnThayDoiTrangThai.UseVisualStyleBackColor = false;
             this.btnThayDoiTrangThai.Click += new System.EventHandler(this.btnThayDoiTrangThai_Click);
             // 
-            // btnThayDoiMK
+            // btnThayDoiTTCN
             // 
-            this.btnThayDoiMK.BackColor = System.Drawing.Color.Transparent;
-            this.btnThayDoiMK.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnThayDoiMK.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.btnThayDoiMK.BorderRadius = 20;
-            this.btnThayDoiMK.BorderSize = 2;
-            this.btnThayDoiMK.FlatAppearance.BorderSize = 0;
-            this.btnThayDoiMK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThayDoiMK.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThayDoiMK.ForeColor = System.Drawing.Color.Black;
-            this.btnThayDoiMK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThayDoiMK.Location = new System.Drawing.Point(366, 9);
-            this.btnThayDoiMK.Margin = new System.Windows.Forms.Padding(23, 3, 10, 3);
-            this.btnThayDoiMK.Name = "btnThayDoiMK";
-            this.btnThayDoiMK.Size = new System.Drawing.Size(160, 40);
-            this.btnThayDoiMK.TabIndex = 6;
-            this.btnThayDoiMK.Text = "Thay đổi mật khẩu";
-            this.btnThayDoiMK.TextColor = System.Drawing.Color.Black;
-            this.btnThayDoiMK.UseVisualStyleBackColor = false;
-            this.btnThayDoiMK.Click += new System.EventHandler(this.btnThayDoiMK_Click);
+            this.btnThayDoiTTCN.BackColor = System.Drawing.Color.Transparent;
+            this.btnThayDoiTTCN.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnThayDoiTTCN.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.btnThayDoiTTCN.BorderRadius = 20;
+            this.btnThayDoiTTCN.BorderSize = 2;
+            this.btnThayDoiTTCN.FlatAppearance.BorderSize = 0;
+            this.btnThayDoiTTCN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThayDoiTTCN.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThayDoiTTCN.ForeColor = System.Drawing.Color.Black;
+            this.btnThayDoiTTCN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThayDoiTTCN.Location = new System.Drawing.Point(366, 9);
+            this.btnThayDoiTTCN.Margin = new System.Windows.Forms.Padding(23, 3, 10, 3);
+            this.btnThayDoiTTCN.Name = "btnThayDoiTTCN";
+            this.btnThayDoiTTCN.Size = new System.Drawing.Size(160, 40);
+            this.btnThayDoiTTCN.TabIndex = 6;
+            this.btnThayDoiTTCN.Text = "Thay đổi thông tin";
+            this.btnThayDoiTTCN.TextColor = System.Drawing.Color.Black;
+            this.btnThayDoiTTCN.UseVisualStyleBackColor = false;
+            this.btnThayDoiTTCN.Click += new System.EventHandler(this.btnThayDoiTTCN_Click);
             // 
             // btnTaoTK
             // 
@@ -673,7 +674,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private MyCustom.RJButton btnThayDoiTrangThai;
-        private MyCustom.RJButton btnThayDoiMK;
+        private MyCustom.RJButton btnThayDoiTTCN;
         private MyCustom.RJButton btnTaoTK;
         private System.Windows.Forms.Label label2;
         private MyCustom.RJTextBox txtMaTK;

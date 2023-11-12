@@ -89,5 +89,59 @@ namespace DAL
             }
 
         }
+        public bool updateThongTinCaNhan(string maNV, string tenDangNhap, string matKhau)
+        {
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "update taikhoan set TenDangNhap = @TenDangNhap, MatKhau = @MatKhau where MaNV = @MaNV";
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@TenDangNhap", tenDangNhap).SqlDbType = SqlDbType.NVarChar;
+                cmd.Parameters.AddWithValue("@MatKhau", matKhau).SqlDbType = SqlDbType.NVarChar;
+                cmd.Parameters.AddWithValue("@MaNV", maNV).SqlDbType = SqlDbType.Char;
+
+                cmd.ExecuteNonQuery();
+                return true;
+
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Disconnect();
+            }
+        }
+
+        public bool updateTrangThai(string maNV, int trangThai)
+        {
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "update taikhoan set TrangThai = @TrangThai where MaNV = @MaNV";
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@TrangThai", trangThai).SqlDbType = SqlDbType.Int;
+                cmd.Parameters.AddWithValue("@MaNV", maNV).SqlDbType = SqlDbType.Char;
+
+                cmd.ExecuteNonQuery();
+                return true;
+
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Disconnect();
+            }
+        }
     }
 }
