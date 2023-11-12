@@ -21,7 +21,7 @@ namespace GUI
         {
             InitializeComponent();
             nccBLL = new NhaCungCapBLL();
-            dt = nccBLL.getListNCC();
+            dt = nccBLL.getListNCCMini();
             dgvNhaCungCap.DataSource = dt;
         }
 

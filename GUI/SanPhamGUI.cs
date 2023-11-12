@@ -1,6 +1,7 @@
 ﻿using BLL;
 using DTO;
 using GUI.MyCustom;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.Information;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,34 @@ namespace GUI
 {
     public partial class SanPhamGUI : Form
     {
+        private bool isFormFilter = false;
+        private string cbxItemsMacDinh;
+        private string statusCondition = "";
+        private string textSearchCondition = ""; // Biến để lưu trữ điều kiện từ textbox tìm kiếm
+        private string genderCondition = ""; // Biến để lưu trữ điều kiện từ checkbox "Giới Tính"
+        private string currentSearch;
+        private bool isTrangThai = false;
+        private bool isHoatDong = false;
+        private bool isKoHD = false;
+        // Don Gia Nhap  ------------------------
+        private bool isDonNhap = false;
+        private int DonGiaTu = 0;
+        private int DonGiaDen = 0;
+
+
+        // Don Gia Ban  ------------------------
+        private bool isDonBan = false;
+        private int DonGiaBanTu = 0;
+        private int DonGiaBanDen = 0;
+
+
+        // Don Gia Ban  ------------------------
+        private bool isSoLuong = false;
+        private int SoLuongTu = 0;
+        private int SoLuongDen = 0;
+
+        private bool isGioiTinh = false;
+        private bool isTuoi = false;
         private SanPhamBLL spBLL;
         private DataTable dt;
         public SanPhamGUI()
@@ -34,8 +63,25 @@ namespace GUI
 
         private void SanPhamGUI_Load(object sender, EventArgs e)
         {
+            loadDataToCBX(cbxTimKiem);
             dgvSanPham.DataSource = dt;
 
+        }
+
+        private void clearForm()
+        {
+            loadMaSP();
+            txtMaSP.Texts = "";
+            txtTenSP.Texts = "";
+            txtTonKho.Texts = 0.ToString();
+            txtGiaNhap.Texts = 0.ToString();
+            pbImage.Image = GUI.Properties.Resources.placeholder_image;
+            txtGiaBan.Texts = 0.ToString();
+            cbxDonViTinh.Texts = "--Chọn đơn vị--";
+            cbxTrangThai.Text = "--Chọn trạng thái--";
+            txtMaLoai.Texts = "";
+            txtMaNCC.Texts = "";
+            txtMaNSX.Texts = "";
         }
 
         private void dgvSanPham_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -249,6 +295,7 @@ namespace GUI
                     "Thông báo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+                clearForm();
             }
             else
             {
@@ -334,7 +381,8 @@ namespace GUI
                       "Thông báo",
                       MessageBoxButtons.OK,
                       MessageBoxIcon.Information);
-                    
+                    clearForm();
+
 
 
                 }
@@ -356,6 +404,7 @@ namespace GUI
                                     if (flag == 1)
                                     {
                                         MessageBox.Show("Thay đổi trạng thái thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        clearForm();
                                     }
                                     else
                                     {
@@ -438,6 +487,7 @@ namespace GUI
                     "Thông báo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+                clearForm();
 
             }
             else
@@ -457,7 +507,459 @@ namespace GUI
 
         private void btnReset_Click(object sender, EventArgs e)
         {
+            clearForm();
+        }
 
+        
+
+        private void cbxTimKiem_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbxItemsMacDinh = cbxTimKiem.SelectedItem.ToString();
+        }
+        private void loadDataToCBX(RJComboBox cbx)
+        {
+            cbx.Items.Add("Mã SP");
+            cbx.Items.Add("Tên SP");
+            cbx.Items.Add("Đơn vị tính");
+            cbx.Items.Add("Mã Loại");
+            cbx.Items.Add("Mã NSX");
+            cbx.Items.Add("Mã NCC");
+            cbxItemsMacDinh = cbx.Items[0].ToString();
+        }
+        private string returnDieuKien(string text)
+        {
+            return text;
+        }
+
+        private string GetTextSearchCondition(string searchText)
+        {
+            switch (cbxItemsMacDinh)
+            {
+                case "Mã SP":
+                    return returnDieuKien($"MaSP like '%{searchText}%'");
+                case "Tên SP":
+                    return returnDieuKien($"TenSP like '%{searchText}%'");
+                case "Đơn vị tính":
+                    return returnDieuKien($"DonViTinh like '%{searchText}%'");
+                case "Mã Loại":
+                    return returnDieuKien($"MaLoai like '%{searchText}%'");
+                case "Mã NSX":
+                    return returnDieuKien($"MaNSX like '%{searchText}%'");
+                case "Mã NCC":
+                    return returnDieuKien($"TenNCC like '%{searchText}%'");
+                default:
+                    return "";
+            }
+
+        }
+
+        private void applySearchs(string text)
+        {
+            // dt = loaibill.getListLoai();
+            currentSearch = text;
+            Console.WriteLine(currentSearch);
+            DataView dvSP = spBLL.getListSanPham().DefaultView; ;
+            dvSP.RowFilter = currentSearch;
+            dgvSanPham.DataSource = dvSP.ToTable();
+        }
+        private string CombineConditions(string condition1, string condition2)
+        {
+            if (!string.IsNullOrEmpty(condition1) && !string.IsNullOrEmpty(condition2))
+            {
+                return $"({condition1}) AND ({condition2})";
+            }
+            else if (!string.IsNullOrEmpty(condition1))
+            {
+                return condition1;
+            }
+            else if (!string.IsNullOrEmpty(condition2))
+            {
+                return condition2;
+            }
+            else
+            {
+                return "";
+            }
+
+
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            string textTimKiem = txtTimKiem.Texts;
+            textSearchCondition = GetTextSearchCondition(textTimKiem);
+            string combinedCondition = CombineConditions(textSearchCondition, genderCondition);
+            combinedCondition = CombineConditions(combinedCondition, statusCondition);
+            combinedCondition = ApplyOrRemoveDonGiaNhapCondition(combinedCondition, isDonNhap);
+            combinedCondition = ApplyOrRemoveDonGiaBanCondition(combinedCondition, isDonBan);
+            combinedCondition = ApplyOrRemoveSoLuongCondition(combinedCondition, isSoLuong);
+            applySearchs(combinedCondition);
+        }
+
+        private void txtTimKiem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnTimKiem.PerformClick();
+                btnTimKiem_Click(sender, e);
+                e.Handled = true;
+            }
+        }
+
+        private bool toggleDieuKien(bool value)
+        {
+            return !value;
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            isFormFilter = !isFormFilter;
+            if (isFormFilter)
+            {
+                btnFilter.BackColor = Color.FromArgb(224, 224, 224);
+                flpFilter.Visible = true;
+                flpFilter.BringToFront();
+
+            }
+            else
+            {
+                btnFilter.BackColor = Color.FromArgb(224, 252, 237);
+                flpFilter.Visible = false;
+                flpFilter.SendToBack();
+            }
+        }
+
+        private void chkTrangThai_CheckedChanged(object sender, EventArgs e)
+        {
+            isTrangThai = toggleDieuKien(isTrangThai);
+            chkHoatDong.Enabled = isTrangThai;
+            chkKoHD.Enabled = isTrangThai;
+            if (isTrangThai)
+            {
+
+                if (isHoatDong)
+                {
+
+                    chkHoatDong_CheckedChanged(sender, e);
+                }
+
+                if (isKoHD)
+                {
+                    chkKoHD_CheckedChanged(sender, e);
+                }
+            }
+            else
+            {
+                // Nếu chkGioiTinh không được kiểm tra, tắt chkNam và chkNu và xóa check
+                chkHoatDong.Checked = false;
+                chkKoHD.Checked = false;
+                chkHoatDong.Enabled = isGioiTinh;
+                chkKoHD.Enabled = isGioiTinh;
+            }
+        }
+
+        private void chkHoatDong_CheckedChanged(object sender, EventArgs e)
+        {
+            isHoatDong = toggleDieuKien(isHoatDong);
+            UpdateStatusCondition();
+            btnTimKiem.PerformClick();
+        }
+
+        private void chkKoHD_CheckedChanged(object sender, EventArgs e)
+        {
+            isKoHD = toggleDieuKien(isKoHD);
+            UpdateStatusCondition();
+            btnTimKiem.PerformClick();
+        }
+
+        private void UpdateStatusCondition()
+        {
+            List<string> statusConditions = new List<string>();
+
+            if (isHoatDong)
+            {
+                statusConditions.Add("TrangThai = 1");
+            }
+
+            if (isKoHD)
+            {
+                statusConditions.Add("TrangThai = 0");
+            }
+
+            statusCondition = string.Join(" OR ", statusConditions);
+        }
+
+
+
+        private void chkGiaNhap_CheckedChanged(object sender, EventArgs e)
+        {
+            isDonNhap = toggleDieuKien(isDonNhap);
+            Console.WriteLine(isDonNhap);
+            txtGiaNhapTu.Enabled = isDonNhap;
+            txtGiaNhapDen.Enabled = isDonNhap;
+            if (!isDonNhap)
+            {
+                DonGiaTu = 0;
+                DonGiaDen = 0;
+            }
+            if (isDonNhap)
+            {
+                if (int.TryParse(txtGiaNhapTu.Texts, out int result))
+                {
+                    DonGiaTu = result;
+                }
+                if (int.TryParse(txtGiaNhapDen.Texts, out int result1))
+                {
+                    DonGiaDen = result1;
+                }
+            }
+            btnTimKiem_Click(sender, e);
+        }
+
+        private void txtGiaNhapTu__TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtGiaNhapTu.Texts))
+            {
+                DonGiaTu = 0;
+            }
+            if (int.TryParse(txtGiaNhapTu.Texts, out int result))
+            {
+                DonGiaTu = result;
+                btnTimKiem_Click(sender, e);
+
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void txtGiaNhapDen__TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtGiaNhapDen.Texts))
+            {
+                DonGiaDen = 0;
+            }
+            if (int.TryParse(txtGiaNhapDen.Texts, out int result))
+            {
+                DonGiaDen = result;
+                btnTimKiem_Click(sender, e);
+
+            }
+            else
+            {
+                return;
+            }
+        }
+        private string ApplyOrRemoveDonGiaNhapCondition(string condition, bool isDonNhap)
+        {
+            // Tạo một biến mới để lưu trữ điều kiện `DiemTL`
+            string DonGiaNhap = $"DonGiaNhap >= {DonGiaTu} AND DonGiaNhap <= {DonGiaDen}";
+
+            if (isDonNhap)
+            {
+                if (DonGiaTu >= 0 && DonGiaDen > 0 && DonGiaTu <= DonGiaDen)
+                {
+                    // Thêm điều kiện `DiemTL` vào chuỗi điều kiện nếu có
+                    if (!string.IsNullOrEmpty(condition))
+                    {
+                        condition = CombineConditions(condition, DonGiaNhap);
+                    }
+                    else
+                    {
+                        condition = DonGiaNhap;
+                    }
+                }
+            }
+            else
+            {
+                // Nếu không có checkbox DiemTL được chọn, xóa điều kiện `DiemTL` khỏi chuỗi điều kiện
+                condition = condition.Replace(DonGiaNhap, "");
+            }
+
+            return condition;
+        }
+
+        private void chkGiaBan_CheckedChanged(object sender, EventArgs e)
+        {
+            isDonBan = toggleDieuKien(isDonBan);
+            Console.WriteLine(isDonBan);
+            txtGiaBanTu.Enabled = isDonBan;
+            txtGiaBanDen.Enabled = isDonBan;
+            if (!isDonBan)
+            {
+                DonGiaBanTu = 0;
+                DonGiaBanDen = 0;
+            }
+            if (isDonBan)
+            {
+                if (int.TryParse(txtGiaBanTu.Texts, out int result))
+                {
+                    DonGiaBanTu = result;
+                }
+                if (int.TryParse(txtGiaBanDen.Texts, out int result1))
+                {
+                    DonGiaBanDen = result1;
+                }
+            }
+            btnTimKiem_Click(sender, e);
+        }
+
+        private void txtGiaBanTu__TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtGiaBanTu.Texts))
+            {
+                DonGiaBanTu = 0;
+            }
+            if (int.TryParse(txtGiaBanTu.Texts, out int result))
+            {
+                DonGiaBanTu = result;
+                btnTimKiem_Click(sender, e);
+
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void txtGiaBanDen__TextChanged(object sender, EventArgs e)
+        {
+
+            if (string.IsNullOrEmpty(txtGiaBanDen.Texts))
+            {
+                DonGiaBanDen = 0;
+            }
+            if (int.TryParse(txtGiaBanDen.Texts, out int result))
+            {
+                DonGiaBanDen = result;
+                btnTimKiem_Click(sender, e);
+
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private string ApplyOrRemoveDonGiaBanCondition(string condition, bool isDonBan)
+        {
+            // Tạo một biến mới để lưu trữ điều kiện `DiemTL`
+            string DonGiaBan = $"DonGiaBan >= {DonGiaBanTu} AND DonGiaBan <= {DonGiaBanDen}";
+
+            if (isDonBan)
+            {
+                if (DonGiaBanTu >= 0 && DonGiaBanDen > 0 && DonGiaBanTu <= DonGiaBanDen)
+                {
+                    // Thêm điều kiện `DiemTL` vào chuỗi điều kiện nếu có
+                    if (!string.IsNullOrEmpty(condition))
+                    {
+                        condition = CombineConditions(condition, DonGiaBan);
+                    }
+                    else
+                    {
+                        condition = DonGiaBan;
+                    }
+                }
+            }
+            else
+            {
+                // Nếu không có checkbox DiemTL được chọn, xóa điều kiện `DiemTL` khỏi chuỗi điều kiện
+                condition = condition.Replace(DonGiaBan, "");
+            }
+
+            return condition;
+        }
+
+        private void chkSoLuong_CheckedChanged(object sender, EventArgs e)
+        {
+            isSoLuong = toggleDieuKien(isSoLuong);
+            Console.WriteLine(isSoLuong);
+            txtSoLuongTu.Enabled = isSoLuong;
+            txtSoLuongDen.Enabled = isSoLuong;
+            if (!isSoLuong)
+            {
+                SoLuongTu = 0;
+                SoLuongDen = 0;
+            }
+            if (isSoLuong)
+            {
+                if (int.TryParse(txtSoLuongTu.Texts, out int result))
+                {
+                    SoLuongTu = result;
+                }
+                if (int.TryParse(txtSoLuongDen.Texts, out int result1))
+                {
+                    SoLuongDen = result1;
+                }
+            }
+            btnTimKiem_Click(sender, e);
+        }
+
+        private void txtSoLuongTu__TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtSoLuongTu.Texts))
+            {
+                SoLuongTu = 0;
+            }
+            if (int.TryParse(txtSoLuongTu.Texts, out int result))
+            {
+                SoLuongTu = result;
+                btnTimKiem_Click(sender, e);
+
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void txtSoLuongDen__TextChanged(object sender, EventArgs e)
+        {
+
+            if (string.IsNullOrEmpty(txtSoLuongDen.Texts))
+            {
+                SoLuongDen = 0;
+            }
+            if (int.TryParse(txtSoLuongDen.Texts, out int result))
+            {
+                SoLuongDen = result;
+                btnTimKiem_Click(sender, e);
+
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private string ApplyOrRemoveSoLuongCondition(string condition, bool isSoLuong)
+        {
+            // Tạo một biến mới để lưu trữ điều kiện `DiemTL`
+            string SoLuong = $"SoLuong >= {SoLuongTu} AND SoLuong <= {SoLuongDen}";
+
+            if (isSoLuong)
+            {
+                if (SoLuongTu >= 0 && SoLuongDen > 0 && SoLuongTu <= SoLuongDen)
+                {
+                    // Thêm điều kiện `DiemTL` vào chuỗi điều kiện nếu có
+                    if (!string.IsNullOrEmpty(condition))
+                    {
+                        condition = CombineConditions(condition, SoLuong);
+                    }
+                    else
+                    {
+                        condition = SoLuong;
+                    }
+                }
+            }
+            else
+            {
+                // Nếu không có checkbox DiemTL được chọn, xóa điều kiện `DiemTL` khỏi chuỗi điều kiện
+                condition = condition.Replace(SoLuong, "");
+            }
+
+            return condition;
         }
     }
 

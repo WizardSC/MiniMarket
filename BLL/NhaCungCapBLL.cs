@@ -20,6 +20,12 @@ namespace BLL
         {
             return nccDAL.getListNhaCC();
         }
+
+        public DataTable getListNCCMini()
+        {
+            return nccDAL.getListNhaCCMini();
+        }
+
         public bool insertNhaCungCap(NhaCungCapDTO ncc)
         {
             return nccDAL.insertNhaCC(ncc);
