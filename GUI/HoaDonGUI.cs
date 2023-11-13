@@ -25,15 +25,23 @@ namespace GUI
         private string cbxItemsMacDinh;
         private DateTime NgayTaoHD;
 
-
+        private int quyenHoaDon;
         private bool isFormFilter = false;
-        public HoaDonGUI()
+        public HoaDonGUI(int isHoaDon)
         {
             HdBLL = new HoaDonBLL();
             InitializeComponent();
            
             loadDataToCBX(cbxTimKiem);
-
+            quyenHoaDon = isHoaDon;
+            checkQuyen(isHoaDon);
+        }
+        private void checkQuyen(int quyen)
+        {
+            if (quyen == 1)
+            {
+                btnExport.Enabled = false;
+            }
         }
         private void loadDataToCBX(RJComboBox cbx)
         {

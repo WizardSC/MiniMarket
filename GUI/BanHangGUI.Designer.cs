@@ -34,7 +34,6 @@ namespace GUI
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.gradientPanel1 = new GUI.MyCustom.GradientPanel();
-            this.rjButton1 = new GUI.MyCustom.RJButton();
             this.lblMaHD = new System.Windows.Forms.Label();
             this.btnChonKH = new System.Windows.Forms.Label();
             this.lblKhachHang = new System.Windows.Forms.Label();
@@ -111,9 +110,8 @@ namespace GUI
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1556, 884);
+            this.panel1.Size = new System.Drawing.Size(1167, 718);
             this.panel1.TabIndex = 0;
             // 
             // flowLayoutPanel3
@@ -123,16 +121,14 @@ namespace GUI
             this.flowLayoutPanel3.Controls.Add(this.flpGioHang);
             this.flowLayoutPanel3.Controls.Add(this.gradientPanel2);
             this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(1053, 0);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(790, 0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(509, 932);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(382, 758);
             this.flowLayoutPanel3.TabIndex = 5;
             // 
             // gradientPanel1
             // 
             this.gradientPanel1.BottomColor = System.Drawing.Color.Empty;
-            this.gradientPanel1.Controls.Add(this.rjButton1);
             this.gradientPanel1.Controls.Add(this.lblMaHD);
             this.gradientPanel1.Controls.Add(this.btnChonKH);
             this.gradientPanel1.Controls.Add(this.lblKhachHang);
@@ -142,41 +138,21 @@ namespace GUI
             this.gradientPanel1.Controls.Add(this.label10);
             this.gradientPanel1.Controls.Add(this.label9);
             this.gradientPanel1.Controls.Add(this.label8);
-            this.gradientPanel1.Location = new System.Drawing.Point(4, 4);
-            this.gradientPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 0);
+            this.gradientPanel1.Location = new System.Drawing.Point(3, 3);
+            this.gradientPanel1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.gradientPanel1.Name = "gradientPanel1";
-            this.gradientPanel1.Size = new System.Drawing.Size(499, 177);
+            this.gradientPanel1.Size = new System.Drawing.Size(374, 144);
             this.gradientPanel1.TabIndex = 3;
             this.gradientPanel1.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
-            // 
-            // rjButton1
-            // 
-            this.rjButton1.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjButton1.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton1.BorderRadius = 0;
-            this.rjButton1.BorderSize = 0;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(325, 64);
-            this.rjButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(109, 49);
-            this.rjButton1.TabIndex = 11;
-            this.rjButton1.Text = "rjButton1";
-            this.rjButton1.TextColor = System.Drawing.Color.White;
-            this.rjButton1.UseVisualStyleBackColor = false;
-            this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click);
             // 
             // lblMaHD
             // 
             this.lblMaHD.BackColor = System.Drawing.Color.Transparent;
             this.lblMaHD.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaHD.Location = new System.Drawing.Point(185, 0);
-            this.lblMaHD.Margin = new System.Windows.Forms.Padding(20, 12, 4, 0);
+            this.lblMaHD.Location = new System.Drawing.Point(139, 0);
+            this.lblMaHD.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.lblMaHD.Name = "lblMaHD";
-            this.lblMaHD.Size = new System.Drawing.Size(101, 39);
+            this.lblMaHD.Size = new System.Drawing.Size(76, 32);
             this.lblMaHD.TabIndex = 10;
             this.lblMaHD.Text = "#HD001";
             this.lblMaHD.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -185,11 +161,11 @@ namespace GUI
             // 
             this.btnChonKH.BackColor = System.Drawing.Color.Transparent;
             this.btnChonKH.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChonKH.Location = new System.Drawing.Point(387, 130);
-            this.btnChonKH.Margin = new System.Windows.Forms.Padding(20, 12, 4, 0);
+            this.btnChonKH.Location = new System.Drawing.Point(290, 106);
+            this.btnChonKH.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.btnChonKH.Name = "btnChonKH";
-            this.btnChonKH.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.btnChonKH.Size = new System.Drawing.Size(36, 39);
+            this.btnChonKH.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.btnChonKH.Size = new System.Drawing.Size(27, 32);
             this.btnChonKH.TabIndex = 9;
             this.btnChonKH.Text = "...";
             this.btnChonKH.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -199,10 +175,10 @@ namespace GUI
             // 
             this.lblKhachHang.BackColor = System.Drawing.Color.Transparent;
             this.lblKhachHang.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKhachHang.Location = new System.Drawing.Point(167, 130);
-            this.lblKhachHang.Margin = new System.Windows.Forms.Padding(20, 12, 4, 0);
+            this.lblKhachHang.Location = new System.Drawing.Point(125, 106);
+            this.lblKhachHang.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.lblKhachHang.Name = "lblKhachHang";
-            this.lblKhachHang.Size = new System.Drawing.Size(215, 39);
+            this.lblKhachHang.Size = new System.Drawing.Size(161, 32);
             this.lblKhachHang.TabIndex = 8;
             this.lblKhachHang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -210,10 +186,10 @@ namespace GUI
             // 
             this.lblNhanVien.BackColor = System.Drawing.Color.Transparent;
             this.lblNhanVien.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNhanVien.Location = new System.Drawing.Point(167, 85);
-            this.lblNhanVien.Margin = new System.Windows.Forms.Padding(20, 12, 4, 0);
+            this.lblNhanVien.Location = new System.Drawing.Point(125, 69);
+            this.lblNhanVien.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.lblNhanVien.Name = "lblNhanVien";
-            this.lblNhanVien.Size = new System.Drawing.Size(215, 39);
+            this.lblNhanVien.Size = new System.Drawing.Size(161, 32);
             this.lblNhanVien.TabIndex = 7;
             this.lblNhanVien.Text = "Lee Changsub";
             this.lblNhanVien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -222,10 +198,10 @@ namespace GUI
             // 
             this.lblNgayLap.BackColor = System.Drawing.Color.Transparent;
             this.lblNgayLap.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNgayLap.Location = new System.Drawing.Point(167, 39);
-            this.lblNgayLap.Margin = new System.Windows.Forms.Padding(20, 12, 4, 0);
+            this.lblNgayLap.Location = new System.Drawing.Point(125, 32);
+            this.lblNgayLap.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.lblNgayLap.Name = "lblNgayLap";
-            this.lblNgayLap.Size = new System.Drawing.Size(215, 39);
+            this.lblNgayLap.Size = new System.Drawing.Size(161, 32);
             this.lblNgayLap.TabIndex = 6;
             this.lblNgayLap.Text = "12/10/2023";
             this.lblNgayLap.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -234,10 +210,10 @@ namespace GUI
             // 
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(11, 130);
-            this.label11.Margin = new System.Windows.Forms.Padding(20, 12, 4, 0);
+            this.label11.Location = new System.Drawing.Point(8, 106);
+            this.label11.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(144, 39);
+            this.label11.Size = new System.Drawing.Size(108, 32);
             this.label11.TabIndex = 5;
             this.label11.Text = "Khách hàng: ";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -246,10 +222,10 @@ namespace GUI
             // 
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(11, 85);
-            this.label10.Margin = new System.Windows.Forms.Padding(20, 12, 4, 0);
+            this.label10.Location = new System.Drawing.Point(8, 69);
+            this.label10.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(144, 39);
+            this.label10.Size = new System.Drawing.Size(108, 32);
             this.label10.TabIndex = 4;
             this.label10.Text = "Nhân viên: ";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -258,10 +234,10 @@ namespace GUI
             // 
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(11, 39);
-            this.label9.Margin = new System.Windows.Forms.Padding(20, 12, 4, 0);
+            this.label9.Location = new System.Drawing.Point(8, 32);
+            this.label9.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(144, 39);
+            this.label9.Size = new System.Drawing.Size(108, 32);
             this.label9.TabIndex = 3;
             this.label9.Text = "Ngày lập: ";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -270,10 +246,10 @@ namespace GUI
             // 
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(12, 0);
-            this.label8.Margin = new System.Windows.Forms.Padding(20, 12, 4, 0);
+            this.label8.Location = new System.Drawing.Point(9, 0);
+            this.label8.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(177, 39);
+            this.label8.Size = new System.Drawing.Size(133, 32);
             this.label8.TabIndex = 2;
             this.label8.Text = "ĐƠN HÀNG MỚI ";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -281,10 +257,10 @@ namespace GUI
             // flpGioHang
             // 
             this.flpGioHang.AutoScroll = true;
-            this.flpGioHang.Location = new System.Drawing.Point(0, 181);
-            this.flpGioHang.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.flpGioHang.Location = new System.Drawing.Point(0, 147);
+            this.flpGioHang.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.flpGioHang.Name = "flpGioHang";
-            this.flpGioHang.Size = new System.Drawing.Size(503, 443);
+            this.flpGioHang.Size = new System.Drawing.Size(377, 360);
             this.flpGioHang.TabIndex = 8;
             // 
             // gradientPanel2
@@ -302,10 +278,10 @@ namespace GUI
             this.gradientPanel2.Controls.Add(this.lblTongTienTT);
             this.gradientPanel2.Controls.Add(this.label14);
             this.gradientPanel2.Controls.Add(this.btnThanhToan);
-            this.gradientPanel2.Location = new System.Drawing.Point(4, 632);
-            this.gradientPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 0);
+            this.gradientPanel2.Location = new System.Drawing.Point(3, 513);
+            this.gradientPanel2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.gradientPanel2.Name = "gradientPanel2";
-            this.gradientPanel2.Size = new System.Drawing.Size(499, 271);
+            this.gradientPanel2.Size = new System.Drawing.Size(374, 220);
             this.gradientPanel2.TabIndex = 7;
             this.gradientPanel2.TopColor = System.Drawing.Color.Empty;
             // 
@@ -313,11 +289,11 @@ namespace GUI
             // 
             this.btnChonDTL.BackColor = System.Drawing.Color.Transparent;
             this.btnChonDTL.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChonDTL.Location = new System.Drawing.Point(399, 114);
-            this.btnChonDTL.Margin = new System.Windows.Forms.Padding(20, 12, 4, 0);
+            this.btnChonDTL.Location = new System.Drawing.Point(299, 93);
+            this.btnChonDTL.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.btnChonDTL.Name = "btnChonDTL";
-            this.btnChonDTL.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.btnChonDTL.Size = new System.Drawing.Size(36, 39);
+            this.btnChonDTL.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.btnChonDTL.Size = new System.Drawing.Size(27, 32);
             this.btnChonDTL.TabIndex = 17;
             this.btnChonDTL.Text = "...";
             this.btnChonDTL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -339,10 +315,9 @@ namespace GUI
             this.btnInHoaDon.ForeColor = System.Drawing.Color.Black;
             this.btnInHoaDon.Image = global::GUI.Properties.Resources.icons8_print_28;
             this.btnInHoaDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInHoaDon.Location = new System.Drawing.Point(31, 213);
-            this.btnInHoaDon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnInHoaDon.Location = new System.Drawing.Point(23, 173);
             this.btnInHoaDon.Name = "btnInHoaDon";
-            this.btnInHoaDon.Size = new System.Drawing.Size(200, 50);
+            this.btnInHoaDon.Size = new System.Drawing.Size(150, 41);
             this.btnInHoaDon.TabIndex = 16;
             this.btnInHoaDon.Text = "         IN HÓA ĐƠN";
             this.btnInHoaDon.TextColor = System.Drawing.Color.Black;
@@ -353,10 +328,10 @@ namespace GUI
             // 
             this.lblTongTien.BackColor = System.Drawing.Color.Transparent;
             this.lblTongTien.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTongTien.Location = new System.Drawing.Point(252, 166);
-            this.lblTongTien.Margin = new System.Windows.Forms.Padding(20, 12, 4, 0);
+            this.lblTongTien.Location = new System.Drawing.Point(189, 135);
+            this.lblTongTien.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.lblTongTien.Name = "lblTongTien";
-            this.lblTongTien.Size = new System.Drawing.Size(183, 26);
+            this.lblTongTien.Size = new System.Drawing.Size(137, 21);
             this.lblTongTien.TabIndex = 15;
             this.lblTongTien.Text = "0đ";
             this.lblTongTien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -365,10 +340,10 @@ namespace GUI
             // 
             this.label24.BackColor = System.Drawing.Color.Transparent;
             this.label24.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(20, 166);
-            this.label24.Margin = new System.Windows.Forms.Padding(20, 12, 4, 0);
+            this.label24.Location = new System.Drawing.Point(15, 135);
+            this.label24.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(211, 26);
+            this.label24.Size = new System.Drawing.Size(158, 21);
             this.label24.TabIndex = 14;
             this.label24.Text = "Tổng tiền:";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -377,10 +352,10 @@ namespace GUI
             // 
             this.lblDiemTL.BackColor = System.Drawing.Color.Transparent;
             this.lblDiemTL.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiemTL.Location = new System.Drawing.Point(252, 116);
-            this.lblDiemTL.Margin = new System.Windows.Forms.Padding(20, 12, 4, 0);
+            this.lblDiemTL.Location = new System.Drawing.Point(189, 94);
+            this.lblDiemTL.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.lblDiemTL.Name = "lblDiemTL";
-            this.lblDiemTL.Size = new System.Drawing.Size(111, 26);
+            this.lblDiemTL.Size = new System.Drawing.Size(83, 21);
             this.lblDiemTL.TabIndex = 13;
             this.lblDiemTL.Text = "0";
             this.lblDiemTL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -389,10 +364,10 @@ namespace GUI
             // 
             this.label22.BackColor = System.Drawing.Color.Transparent;
             this.label22.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(20, 116);
-            this.label22.Margin = new System.Windows.Forms.Padding(20, 12, 4, 0);
+            this.label22.Location = new System.Drawing.Point(15, 94);
+            this.label22.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(211, 26);
+            this.label22.Size = new System.Drawing.Size(158, 21);
             this.label22.TabIndex = 12;
             this.label22.Text = "Điểm TL sử dụng: ";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -401,11 +376,11 @@ namespace GUI
             // 
             this.btnChonKM.BackColor = System.Drawing.Color.Transparent;
             this.btnChonKM.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChonKM.Location = new System.Drawing.Point(399, 53);
-            this.btnChonKM.Margin = new System.Windows.Forms.Padding(20, 12, 4, 0);
+            this.btnChonKM.Location = new System.Drawing.Point(299, 43);
+            this.btnChonKM.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.btnChonKM.Name = "btnChonKM";
-            this.btnChonKM.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.btnChonKM.Size = new System.Drawing.Size(36, 39);
+            this.btnChonKM.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.btnChonKM.Size = new System.Drawing.Size(27, 32);
             this.btnChonKM.TabIndex = 11;
             this.btnChonKM.Text = "...";
             this.btnChonKM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -415,10 +390,10 @@ namespace GUI
             // 
             this.lblKhuyenMai.BackColor = System.Drawing.Color.Transparent;
             this.lblKhuyenMai.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKhuyenMai.Location = new System.Drawing.Point(252, 65);
-            this.lblKhuyenMai.Margin = new System.Windows.Forms.Padding(20, 12, 4, 0);
+            this.lblKhuyenMai.Location = new System.Drawing.Point(189, 53);
+            this.lblKhuyenMai.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.lblKhuyenMai.Name = "lblKhuyenMai";
-            this.lblKhuyenMai.Size = new System.Drawing.Size(111, 26);
+            this.lblKhuyenMai.Size = new System.Drawing.Size(83, 21);
             this.lblKhuyenMai.TabIndex = 10;
             this.lblKhuyenMai.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -426,10 +401,10 @@ namespace GUI
             // 
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(20, 65);
-            this.label16.Margin = new System.Windows.Forms.Padding(20, 12, 4, 0);
+            this.label16.Location = new System.Drawing.Point(15, 53);
+            this.label16.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(211, 26);
+            this.label16.Size = new System.Drawing.Size(158, 21);
             this.label16.TabIndex = 9;
             this.label16.Text = "Khuyến mãi:";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -438,10 +413,10 @@ namespace GUI
             // 
             this.lblTongTienTT.BackColor = System.Drawing.Color.Transparent;
             this.lblTongTienTT.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTongTienTT.Location = new System.Drawing.Point(252, 15);
-            this.lblTongTienTT.Margin = new System.Windows.Forms.Padding(20, 12, 4, 0);
+            this.lblTongTienTT.Location = new System.Drawing.Point(189, 12);
+            this.lblTongTienTT.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.lblTongTienTT.Name = "lblTongTienTT";
-            this.lblTongTienTT.Size = new System.Drawing.Size(215, 26);
+            this.lblTongTienTT.Size = new System.Drawing.Size(161, 21);
             this.lblTongTienTT.TabIndex = 8;
             this.lblTongTienTT.Text = "0đ";
             this.lblTongTienTT.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -450,10 +425,10 @@ namespace GUI
             // 
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(20, 15);
-            this.label14.Margin = new System.Windows.Forms.Padding(20, 12, 4, 0);
+            this.label14.Location = new System.Drawing.Point(15, 12);
+            this.label14.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(211, 26);
+            this.label14.Size = new System.Drawing.Size(158, 21);
             this.label14.TabIndex = 7;
             this.label14.Text = "Tổng tiền (tạm tính):";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -474,10 +449,9 @@ namespace GUI
             this.btnThanhToan.ForeColor = System.Drawing.Color.Black;
             this.btnThanhToan.Image = global::GUI.Properties.Resources.icons8_checkout_28;
             this.btnThanhToan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThanhToan.Location = new System.Drawing.Point(267, 213);
-            this.btnThanhToan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThanhToan.Location = new System.Drawing.Point(200, 173);
             this.btnThanhToan.Name = "btnThanhToan";
-            this.btnThanhToan.Size = new System.Drawing.Size(200, 50);
+            this.btnThanhToan.Size = new System.Drawing.Size(150, 41);
             this.btnThanhToan.TabIndex = 1;
             this.btnThanhToan.Text = "         THANH TOÁN";
             this.btnThanhToan.TextColor = System.Drawing.Color.Black;
@@ -491,10 +465,9 @@ namespace GUI
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel5);
             this.flowLayoutPanel1.Controls.Add(this.flpThongTinSP);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1048, 1447);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(786, 1176);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // flowLayoutPanel4
@@ -504,10 +477,10 @@ namespace GUI
             this.flowLayoutPanel4.Controls.Add(this.txtTimKiem);
             this.flowLayoutPanel4.Controls.Add(this.btnTimKiem);
             this.flowLayoutPanel4.Controls.Add(this.btnFilter);
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(4, 4);
-            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 0);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(1037, 61);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(778, 50);
             this.flowLayoutPanel4.TabIndex = 3;
             // 
             // cbxTimKiem
@@ -521,12 +494,12 @@ namespace GUI
             this.cbxTimKiem.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
             this.cbxTimKiem.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
             this.cbxTimKiem.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.cbxTimKiem.Location = new System.Drawing.Point(5, 10);
-            this.cbxTimKiem.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
-            this.cbxTimKiem.MinimumSize = new System.Drawing.Size(133, 37);
+            this.cbxTimKiem.Location = new System.Drawing.Point(4, 8);
+            this.cbxTimKiem.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
+            this.cbxTimKiem.MinimumSize = new System.Drawing.Size(100, 30);
             this.cbxTimKiem.Name = "cbxTimKiem";
-            this.cbxTimKiem.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbxTimKiem.Size = new System.Drawing.Size(144, 37);
+            this.cbxTimKiem.Padding = new System.Windows.Forms.Padding(2);
+            this.cbxTimKiem.Size = new System.Drawing.Size(108, 30);
             this.cbxTimKiem.TabIndex = 4;
             this.cbxTimKiem.Texts = "Mã KH";
             // 
@@ -541,16 +514,16 @@ namespace GUI
             this.txtTimKiem.BorderSize = 2;
             this.txtTimKiem.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTimKiem.ForeColor = System.Drawing.Color.DimGray;
-            this.txtTimKiem.Location = new System.Drawing.Point(159, 10);
-            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
+            this.txtTimKiem.Location = new System.Drawing.Point(120, 8);
+            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
             this.txtTimKiem.Multiline = false;
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Padding = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.txtTimKiem.Padding = new System.Windows.Forms.Padding(7);
             this.txtTimKiem.PasswordChar = false;
             this.txtTimKiem.PlaceholderColor = System.Drawing.Color.DimGray;
             this.txtTimKiem.PlaceholderText = "Nhập thông tin tìm kiếm";
             this.txtTimKiem.ReadOnly = false;
-            this.txtTimKiem.Size = new System.Drawing.Size(763, 41);
+            this.txtTimKiem.Size = new System.Drawing.Size(572, 32);
             this.txtTimKiem.TabIndex = 1;
             this.txtTimKiem.Texts = "";
             this.txtTimKiem.UnderlinedStyle = true;
@@ -566,10 +539,10 @@ namespace GUI
             this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimKiem.ForeColor = System.Drawing.Color.White;
             this.btnTimKiem.Image = global::GUI.Properties.Resources.icons8_search_32;
-            this.btnTimKiem.Location = new System.Drawing.Point(931, 10);
-            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(4, 10, 4, 4);
+            this.btnTimKiem.Location = new System.Drawing.Point(699, 8);
+            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(39, 39);
+            this.btnTimKiem.Size = new System.Drawing.Size(29, 32);
             this.btnTimKiem.TabIndex = 2;
             this.btnTimKiem.TextColor = System.Drawing.Color.White;
             this.btnTimKiem.UseVisualStyleBackColor = false;
@@ -588,10 +561,10 @@ namespace GUI
             this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFilter.ForeColor = System.Drawing.Color.White;
             this.btnFilter.Image = global::GUI.Properties.Resources.icons8_filter_32;
-            this.btnFilter.Location = new System.Drawing.Point(20, 66);
-            this.btnFilter.Margin = new System.Windows.Forms.Padding(20, 10, 13, 0);
+            this.btnFilter.Location = new System.Drawing.Point(15, 52);
+            this.btnFilter.Margin = new System.Windows.Forms.Padding(15, 8, 10, 0);
             this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(59, 0);
+            this.btnFilter.Size = new System.Drawing.Size(44, 0);
             this.btnFilter.TabIndex = 4;
             this.btnFilter.TextColor = System.Drawing.Color.White;
             this.btnFilter.UseVisualStyleBackColor = false;
@@ -601,19 +574,19 @@ namespace GUI
             this.flowLayoutPanel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel5.Controls.Add(this.flpDanhSachSanPham);
             this.flowLayoutPanel5.Controls.Add(this.pnPagination);
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(4, 69);
-            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 0);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 56);
+            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(1037, 529);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(778, 430);
             this.flowLayoutPanel5.TabIndex = 7;
             // 
             // flpDanhSachSanPham
             // 
             this.flpDanhSachSanPham.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.flpDanhSachSanPham.Location = new System.Drawing.Point(4, 6);
-            this.flpDanhSachSanPham.Margin = new System.Windows.Forms.Padding(4, 6, 4, 4);
+            this.flpDanhSachSanPham.Location = new System.Drawing.Point(3, 5);
+            this.flpDanhSachSanPham.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.flpDanhSachSanPham.Name = "flpDanhSachSanPham";
-            this.flpDanhSachSanPham.Size = new System.Drawing.Size(1020, 432);
+            this.flpDanhSachSanPham.Size = new System.Drawing.Size(765, 351);
             this.flpDanhSachSanPham.TabIndex = 0;
             // 
             // pnPagination
@@ -621,19 +594,18 @@ namespace GUI
             this.pnPagination.Controls.Add(this.lblPagination);
             this.pnPagination.Controls.Add(this.btnNext);
             this.pnPagination.Controls.Add(this.btnPrevious);
-            this.pnPagination.Location = new System.Drawing.Point(4, 442);
-            this.pnPagination.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.pnPagination.Location = new System.Drawing.Point(3, 359);
+            this.pnPagination.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.pnPagination.Name = "pnPagination";
-            this.pnPagination.Size = new System.Drawing.Size(1020, 48);
+            this.pnPagination.Size = new System.Drawing.Size(765, 39);
             this.pnPagination.TabIndex = 5;
             // 
             // lblPagination
             // 
             this.lblPagination.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPagination.Location = new System.Drawing.Point(504, 2);
-            this.lblPagination.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPagination.Location = new System.Drawing.Point(378, 2);
             this.lblPagination.Name = "lblPagination";
-            this.lblPagination.Size = new System.Drawing.Size(72, 43);
+            this.lblPagination.Size = new System.Drawing.Size(54, 35);
             this.lblPagination.TabIndex = 6;
             this.lblPagination.Text = "label1";
             this.lblPagination.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -649,10 +621,9 @@ namespace GUI
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.ForeColor = System.Drawing.Color.White;
             this.btnNext.Image = ((System.Drawing.Image)(resources.GetObject("btnNext.Image")));
-            this.btnNext.Location = new System.Drawing.Point(595, 2);
-            this.btnNext.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNext.Location = new System.Drawing.Point(446, 2);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(47, 43);
+            this.btnNext.Size = new System.Drawing.Size(35, 35);
             this.btnNext.TabIndex = 5;
             this.btnNext.TextColor = System.Drawing.Color.White;
             this.btnNext.UseVisualStyleBackColor = false;
@@ -669,10 +640,9 @@ namespace GUI
             this.btnPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrevious.ForeColor = System.Drawing.Color.White;
             this.btnPrevious.Image = ((System.Drawing.Image)(resources.GetObject("btnPrevious.Image")));
-            this.btnPrevious.Location = new System.Drawing.Point(440, 2);
-            this.btnPrevious.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPrevious.Location = new System.Drawing.Point(330, 2);
             this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(47, 43);
+            this.btnPrevious.Size = new System.Drawing.Size(35, 35);
             this.btnPrevious.TabIndex = 4;
             this.btnPrevious.TextColor = System.Drawing.Color.White;
             this.btnPrevious.UseVisualStyleBackColor = false;
@@ -686,10 +656,10 @@ namespace GUI
             this.flpThongTinSP.Controls.Add(this.panel3);
             this.flpThongTinSP.Controls.Add(this.panel5);
             this.flpThongTinSP.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpThongTinSP.Location = new System.Drawing.Point(4, 600);
-            this.flpThongTinSP.Margin = new System.Windows.Forms.Padding(4, 2, 4, 0);
+            this.flpThongTinSP.Location = new System.Drawing.Point(3, 488);
+            this.flpThongTinSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
             this.flpThongTinSP.Name = "flpThongTinSP";
-            this.flpThongTinSP.Size = new System.Drawing.Size(1037, 302);
+            this.flpThongTinSP.Size = new System.Drawing.Size(778, 246);
             this.flpThongTinSP.TabIndex = 6;
             // 
             // flowLayoutPanel2
@@ -705,19 +675,18 @@ namespace GUI
             this.flowLayoutPanel2.Controls.Add(this.label5);
             this.flowLayoutPanel2.Controls.Add(this.label6);
             this.flowLayoutPanel2.Controls.Add(this.nudSoLuongMua);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(4, 4);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(697, 293);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(523, 238);
             this.flowLayoutPanel2.TabIndex = 9;
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(53, 25);
-            this.label1.Margin = new System.Windows.Forms.Padding(53, 25, 4, 12);
+            this.label1.Location = new System.Drawing.Point(40, 20);
+            this.label1.Margin = new System.Windows.Forms.Padding(40, 20, 3, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 34);
+            this.label1.Size = new System.Drawing.Size(114, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã SP";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -731,18 +700,18 @@ namespace GUI
             this.txtMaSP.BorderSize = 2;
             this.txtMaSP.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaSP.ForeColor = System.Drawing.Color.Black;
-            this.txtMaSP.Location = new System.Drawing.Point(214, 25);
-            this.txtMaSP.Margin = new System.Windows.Forms.Padding(5, 25, 5, 12);
-            this.txtMaSP.MaximumSize = new System.Drawing.Size(667, 34);
-            this.txtMaSP.MinimumSize = new System.Drawing.Size(200, 34);
+            this.txtMaSP.Location = new System.Drawing.Point(161, 20);
+            this.txtMaSP.Margin = new System.Windows.Forms.Padding(4, 20, 4, 10);
+            this.txtMaSP.MaximumSize = new System.Drawing.Size(500, 28);
+            this.txtMaSP.MinimumSize = new System.Drawing.Size(150, 28);
             this.txtMaSP.Multiline = false;
             this.txtMaSP.Name = "txtMaSP";
-            this.txtMaSP.Padding = new System.Windows.Forms.Padding(3, 5, 3, 2);
+            this.txtMaSP.Padding = new System.Windows.Forms.Padding(2, 4, 2, 2);
             this.txtMaSP.PasswordChar = false;
             this.txtMaSP.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtMaSP.PlaceholderText = "";
             this.txtMaSP.ReadOnly = false;
-            this.txtMaSP.Size = new System.Drawing.Size(423, 34);
+            this.txtMaSP.Size = new System.Drawing.Size(317, 28);
             this.txtMaSP.TabIndex = 2;
             this.txtMaSP.Texts = "";
             this.txtMaSP.UnderlinedStyle = false;
@@ -750,10 +719,10 @@ namespace GUI
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(53, 76);
-            this.label2.Margin = new System.Windows.Forms.Padding(53, 5, 4, 12);
+            this.label2.Location = new System.Drawing.Point(40, 62);
+            this.label2.Margin = new System.Windows.Forms.Padding(40, 4, 3, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(152, 34);
+            this.label2.Size = new System.Drawing.Size(114, 28);
             this.label2.TabIndex = 3;
             this.label2.Text = "Tên SP";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -767,18 +736,18 @@ namespace GUI
             this.txtTenSP.BorderSize = 2;
             this.txtTenSP.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenSP.ForeColor = System.Drawing.Color.Black;
-            this.txtTenSP.Location = new System.Drawing.Point(214, 76);
-            this.txtTenSP.Margin = new System.Windows.Forms.Padding(5, 5, 5, 12);
-            this.txtTenSP.MaximumSize = new System.Drawing.Size(667, 34);
-            this.txtTenSP.MinimumSize = new System.Drawing.Size(200, 34);
+            this.txtTenSP.Location = new System.Drawing.Point(161, 62);
+            this.txtTenSP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 10);
+            this.txtTenSP.MaximumSize = new System.Drawing.Size(500, 28);
+            this.txtTenSP.MinimumSize = new System.Drawing.Size(150, 28);
             this.txtTenSP.Multiline = false;
             this.txtTenSP.Name = "txtTenSP";
-            this.txtTenSP.Padding = new System.Windows.Forms.Padding(3, 5, 3, 2);
+            this.txtTenSP.Padding = new System.Windows.Forms.Padding(2, 4, 2, 2);
             this.txtTenSP.PasswordChar = false;
             this.txtTenSP.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtTenSP.PlaceholderText = "";
             this.txtTenSP.ReadOnly = false;
-            this.txtTenSP.Size = new System.Drawing.Size(423, 34);
+            this.txtTenSP.Size = new System.Drawing.Size(317, 28);
             this.txtTenSP.TabIndex = 8;
             this.txtTenSP.Texts = "";
             this.txtTenSP.UnderlinedStyle = false;
@@ -786,10 +755,10 @@ namespace GUI
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(53, 127);
-            this.label3.Margin = new System.Windows.Forms.Padding(53, 5, 4, 12);
+            this.label3.Location = new System.Drawing.Point(40, 104);
+            this.label3.Margin = new System.Windows.Forms.Padding(40, 4, 3, 10);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(152, 34);
+            this.label3.Size = new System.Drawing.Size(114, 28);
             this.label3.TabIndex = 5;
             this.label3.Text = "Tồn kho";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -803,18 +772,18 @@ namespace GUI
             this.txtTonKho.BorderSize = 2;
             this.txtTonKho.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTonKho.ForeColor = System.Drawing.Color.Black;
-            this.txtTonKho.Location = new System.Drawing.Point(214, 127);
-            this.txtTonKho.Margin = new System.Windows.Forms.Padding(5, 5, 5, 12);
-            this.txtTonKho.MaximumSize = new System.Drawing.Size(667, 34);
-            this.txtTonKho.MinimumSize = new System.Drawing.Size(200, 34);
+            this.txtTonKho.Location = new System.Drawing.Point(161, 104);
+            this.txtTonKho.Margin = new System.Windows.Forms.Padding(4, 4, 4, 10);
+            this.txtTonKho.MaximumSize = new System.Drawing.Size(500, 28);
+            this.txtTonKho.MinimumSize = new System.Drawing.Size(150, 28);
             this.txtTonKho.Multiline = false;
             this.txtTonKho.Name = "txtTonKho";
-            this.txtTonKho.Padding = new System.Windows.Forms.Padding(3, 5, 3, 2);
+            this.txtTonKho.Padding = new System.Windows.Forms.Padding(2, 4, 2, 2);
             this.txtTonKho.PasswordChar = false;
             this.txtTonKho.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtTonKho.PlaceholderText = "";
             this.txtTonKho.ReadOnly = false;
-            this.txtTonKho.Size = new System.Drawing.Size(423, 34);
+            this.txtTonKho.Size = new System.Drawing.Size(317, 28);
             this.txtTonKho.TabIndex = 9;
             this.txtTonKho.Texts = "";
             this.txtTonKho.UnderlinedStyle = false;
@@ -822,10 +791,10 @@ namespace GUI
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(53, 178);
-            this.label4.Margin = new System.Windows.Forms.Padding(53, 5, 4, 12);
+            this.label4.Location = new System.Drawing.Point(40, 146);
+            this.label4.Margin = new System.Windows.Forms.Padding(40, 4, 3, 10);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(152, 34);
+            this.label4.Size = new System.Drawing.Size(114, 28);
             this.label4.TabIndex = 7;
             this.label4.Text = "Đơn giá";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -839,18 +808,18 @@ namespace GUI
             this.txtDonGia.BorderSize = 2;
             this.txtDonGia.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDonGia.ForeColor = System.Drawing.Color.Black;
-            this.txtDonGia.Location = new System.Drawing.Point(214, 178);
-            this.txtDonGia.Margin = new System.Windows.Forms.Padding(5, 5, 60, 12);
-            this.txtDonGia.MaximumSize = new System.Drawing.Size(667, 34);
-            this.txtDonGia.MinimumSize = new System.Drawing.Size(200, 34);
+            this.txtDonGia.Location = new System.Drawing.Point(161, 146);
+            this.txtDonGia.Margin = new System.Windows.Forms.Padding(4, 4, 45, 10);
+            this.txtDonGia.MaximumSize = new System.Drawing.Size(500, 28);
+            this.txtDonGia.MinimumSize = new System.Drawing.Size(150, 28);
             this.txtDonGia.Multiline = false;
             this.txtDonGia.Name = "txtDonGia";
-            this.txtDonGia.Padding = new System.Windows.Forms.Padding(3, 5, 3, 2);
+            this.txtDonGia.Padding = new System.Windows.Forms.Padding(2, 4, 2, 2);
             this.txtDonGia.PasswordChar = false;
             this.txtDonGia.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtDonGia.PlaceholderText = "";
             this.txtDonGia.ReadOnly = false;
-            this.txtDonGia.Size = new System.Drawing.Size(423, 34);
+            this.txtDonGia.Size = new System.Drawing.Size(317, 28);
             this.txtDonGia.TabIndex = 10;
             this.txtDonGia.Texts = "";
             this.txtDonGia.UnderlinedStyle = false;
@@ -859,19 +828,19 @@ namespace GUI
             // 
             this.label5.BackColor = System.Drawing.Color.Black;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.Location = new System.Drawing.Point(53, 230);
-            this.label5.Margin = new System.Windows.Forms.Padding(53, 6, 4, 10);
+            this.label5.Location = new System.Drawing.Point(40, 189);
+            this.label5.Margin = new System.Windows.Forms.Padding(40, 5, 3, 8);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(590, 2);
+            this.label5.Size = new System.Drawing.Size(443, 2);
             this.label5.TabIndex = 11;
             // 
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(40, 247);
-            this.label6.Margin = new System.Windows.Forms.Padding(40, 5, 4, 12);
+            this.label6.Location = new System.Drawing.Point(30, 203);
+            this.label6.Margin = new System.Windows.Forms.Padding(30, 4, 3, 10);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(165, 34);
+            this.label6.Size = new System.Drawing.Size(124, 28);
             this.label6.TabIndex = 12;
             this.label6.Text = "Nhập số lượng:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -884,30 +853,28 @@ namespace GUI
             this.nudSoLuongMua.CustomHeight = 28;
             this.nudSoLuongMua.CustomPadding = new System.Windows.Forms.Padding(4);
             this.nudSoLuongMua.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudSoLuongMua.Location = new System.Drawing.Point(213, 246);
-            this.nudSoLuongMua.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nudSoLuongMua.Location = new System.Drawing.Point(160, 202);
             this.nudSoLuongMua.Name = "nudSoLuongMua";
-            this.nudSoLuongMua.Size = new System.Drawing.Size(424, 32);
+            this.nudSoLuongMua.Size = new System.Drawing.Size(318, 27);
             this.nudSoLuongMua.TabIndex = 14;
             // 
             // label7
             // 
             this.label7.BackColor = System.Drawing.Color.Black;
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label7.Location = new System.Drawing.Point(709, 6);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 6, 4, 0);
+            this.label7.Location = new System.Drawing.Point(532, 5);
+            this.label7.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(2, 289);
+            this.label7.Size = new System.Drawing.Size(2, 235);
             this.label7.TabIndex = 10;
             this.label7.Text = "label7";
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.pbImage);
-            this.panel3.Location = new System.Drawing.Point(719, 4);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Location = new System.Drawing.Point(540, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(300, 228);
+            this.panel3.Size = new System.Drawing.Size(225, 185);
             this.panel3.TabIndex = 0;
             // 
             // pbImage
@@ -917,9 +884,9 @@ namespace GUI
             this.pbImage.Image = global::GUI.Properties.Resources.placeholder_image;
             this.pbImage.InitialImage = global::GUI.Properties.Resources.placeholder_image;
             this.pbImage.Location = new System.Drawing.Point(0, 0);
-            this.pbImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 0);
+            this.pbImage.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(300, 228);
+            this.pbImage.Size = new System.Drawing.Size(225, 185);
             this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbImage.TabIndex = 0;
             this.pbImage.TabStop = false;
@@ -927,10 +894,10 @@ namespace GUI
             // panel5
             // 
             this.panel5.Controls.Add(this.btnThemVaoGio);
-            this.panel5.Location = new System.Drawing.Point(719, 237);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 1, 4, 0);
+            this.panel5.Location = new System.Drawing.Point(540, 192);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 1, 3, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(300, 60);
+            this.panel5.Size = new System.Drawing.Size(225, 49);
             this.panel5.TabIndex = 8;
             // 
             // btnThemVaoGio
@@ -949,10 +916,9 @@ namespace GUI
             this.btnThemVaoGio.ForeColor = System.Drawing.Color.Black;
             this.btnThemVaoGio.Image = ((System.Drawing.Image)(resources.GetObject("btnThemVaoGio.Image")));
             this.btnThemVaoGio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThemVaoGio.Location = new System.Drawing.Point(55, 2);
-            this.btnThemVaoGio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThemVaoGio.Location = new System.Drawing.Point(41, 2);
             this.btnThemVaoGio.Name = "btnThemVaoGio";
-            this.btnThemVaoGio.Size = new System.Drawing.Size(200, 50);
+            this.btnThemVaoGio.Size = new System.Drawing.Size(150, 41);
             this.btnThemVaoGio.TabIndex = 0;
             this.btnThemVaoGio.Text = "         THÊM VÀO GIỎ";
             this.btnThemVaoGio.TextColor = System.Drawing.Color.Black;
@@ -961,12 +927,11 @@ namespace GUI
             // 
             // BanHangGUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1556, 884);
+            this.ClientSize = new System.Drawing.Size(1167, 718);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "BanHangGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
@@ -1048,6 +1013,5 @@ namespace GUI
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label lblMaHD;
         private System.Windows.Forms.Label btnChonDTL;
-        private MyCustom.RJButton rjButton1;
     }
 }

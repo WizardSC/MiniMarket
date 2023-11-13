@@ -32,7 +32,7 @@ namespace GUI
         private bool isHoatDong = false;
         private bool isKhongHoatDong = false;
         private bool isTrangThai = false;
-        public NhaCCGUI()
+        public NhaCCGUI(int isNCC)
         {
             InitializeComponent();
             nccBLL = new NhaCungCapBLL();
@@ -40,8 +40,23 @@ namespace GUI
             loadMaNCC();
             loadCbxTimKiem();
             unhideError();
+            checkQuyen(isNCC);
         }
-
+        private void checkQuyen(int quyen)
+        {
+            if (quyen == 1)
+            {
+                btnDeleteIMG.Enabled = false;
+                btnThem.Enabled = false;
+                btnSua.Enabled = false;
+                btnXoa.Enabled = false;
+                cbxTrangThai.Enabled = false;
+                btnImport.Enabled = false;
+                btnFolder.Enabled = false;
+                btnUploadIMG.Enabled = false;
+                btnDeleteIMG.Enabled = false;
+            }
+        }
         private void unhideError()
         {
             lblErrMaNCC.ForeColor = Color.Transparent;

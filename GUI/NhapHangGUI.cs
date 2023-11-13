@@ -63,7 +63,7 @@ namespace GUI
 
 
         }
-        public NhapHangGUI()
+        public NhapHangGUI(string tenNV)
         {
             InitializeComponent();
             ctpnBLL = new CTPhieuNhapBLL();
@@ -80,7 +80,7 @@ namespace GUI
             loadNgayThang();
             loadMaPN();
             loadCbxTimKiem();
-
+            lblNhanVien.Text = tenNV;
             btnInPhieuNhap.Enabled = false;
 
         }

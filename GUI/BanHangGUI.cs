@@ -73,7 +73,7 @@ namespace GUI
 
 
         }
-        public BanHangGUI()
+        public BanHangGUI(string tenNV)
         {
             InitializeComponent();
             spBLL = new SanPhamBLL();
@@ -83,7 +83,7 @@ namespace GUI
             cthdBLL = new CTHoaDonBLL();
             dtSanPham = spBLL.getListSanPham();
             dtHoaDon = hdBLL.getListHoaDon();
-
+            lblNhanVien.Text = tenNV;
             dtThongTinKhachHang = khBLL.getMiniListKhachHang();
             listNV = nvBLL.getListNV();
             listSP = spBLL.getListSP();
@@ -679,7 +679,7 @@ namespace GUI
                 cthd.DonGiaBanDau = product.DonGiaBanDau;
                 cthd.DonGiaDaGiam = product.DonGiaDaGiam;
                 cthd.PhanTramKM = product.PhanTramKM;
-                cthd.ThanhTien = (int)product.DonGiaDaGiam * (int)product.SoLuong ;
+                cthd.ThanhTien = (int)product.DonGiaDaGiam * (int)product.SoLuong;
                 //Cập nhật lại sản phẩm trên DB
                 int resultSP = spBLL.updateTonKho(product.MaSP, -product.SoLuong) ? 1 : 0;
 
@@ -726,7 +726,7 @@ namespace GUI
             hdCreator.TenNV = lblNhanVien.Text;
             hdCreator.TenKH = lblKhachHang.Text;
             hdCreator.MaKH = searchMaKHbyTenKH(lblKhachHang.Text);
-           
+
             hdCreator.DiemTLHienTai = searchDiemTLbyTenKH(lblKhachHang.Text);
             hdCreator.DiemTLNhanDuoc = (int)(ConvertVNDToFloat(lblTongTien.Text) / 10000.0f); ;
             hdCreator.DiemTLSuDung = int.Parse(lblDiemTL.Text);
@@ -740,7 +740,7 @@ namespace GUI
                 .Where(tuple => (tuple.Item2 + " " + tuple.Item3).Equals(lblKhachHang.Text))
                 .Select(tuple => tuple.Item1)
                 .FirstOrDefault();
-            
+
             listSP = spBLL.getListSP();
 
             clearThongTinSauKhiTaoHD();
@@ -784,15 +784,13 @@ namespace GUI
                 MessageBox.Show("Không thể thay đổi thông tin khách hàng khi giỏ hàng vẫn còn sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            MiniKhachHangGUI khGUI = new MiniKhachHangGUI();
-            khGUI.Show();
-            khGUI.FormClosed += (s, args) =>
+            using (MiniKhachHangGUI khGUI = new MiniKhachHangGUI())
             {
+                khGUI.ShowDialog();
                 string hoTenKH = khGUI.hoTenKH;
                 diemTLCuaKhachHang = khGUI.diemTL;
                 lblKhachHang.Text = hoTenKH;
-
-            };
+            }
         }
 
         private void btnChonKM_Click(object sender, EventArgs e)
@@ -802,14 +800,12 @@ namespace GUI
                 MessageBox.Show("Giỏ hàng đang trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            MiniChonKMGUI chonKMGUI = new MiniChonKMGUI(ConvertVNDToInt(lblTongTienTT.Text));
-            chonKMGUI.Show();
-            chonKMGUI.FormClosed += (s, args) =>
+            using (MiniChonKMGUI chonKMGUI = new MiniChonKMGUI(ConvertVNDToInt(lblTongTienTT.Text)))
             {
+                chonKMGUI.ShowDialog();
+
                 string maKM = chonKMGUI.MaKM1;
                 phanTramKM = chonKMGUI.PhanTramKM1;
-
-
 
                 //Lưu danh sách CTKM từ form mini chọn CTKM
                 listCTKM = chonKMGUI.listCTKMinFormMini;
@@ -818,16 +814,14 @@ namespace GUI
                 if (result == 1)
                 {
                     lblKhuyenMai.Text = maKM;
-
                 }
                 else
                 {
                     lblKhuyenMai.Text = string.Empty;
-
                 }
 
 
-            };
+            }
 
 
 
@@ -993,16 +987,14 @@ namespace GUI
             float tongTien = phanTramKM != 0 ? giaTienLanDauLucCoKM : ConvertVNDToInt(lblTongTienTT.Text);
             diemTLCoTheSD = (int)(tongTien / 1000);
 
-            MiniChonDTLGUI chonDTLGUI = new MiniChonDTLGUI(diemTLCuaKhachHang, diemTLCoTheSD);
-
-            chonDTLGUI.Show();
-            chonDTLGUI.FormClosed += (s, args) =>
+            using (MiniChonDTLGUI chonDTLGUI = new MiniChonDTLGUI(diemTLCuaKhachHang, diemTLCoTheSD))
             {
+                chonDTLGUI.ShowDialog();
+
                 lblDiemTL.Text = chonDTLGUI.diemTLSuDung.ToString();
                 tinhTongTien(true);
 
-
-            };
+            }
 
             //Tính tiền sau khi sử dụng ĐTL: 1đ = giảm 10k
         }
@@ -1013,7 +1005,7 @@ namespace GUI
             Console.WriteLine(searchMaKHbyTenKH(lblKhachHang.Text));
         }
 
-        
+
     }
 
 }

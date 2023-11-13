@@ -24,7 +24,6 @@ namespace GUI
         private string maKM1;
         private int phanTramKM1;
         // Khai báo biến để lưu trữ RowIndex
-        private int rowIndexForValidation = -1;
         public List<ChiTietKhuyenMaiDTO> listCTKMinFormMini { get; set; }
         public List<string> MaKMinCTKMList { get; set; }
         public List<string> MaSPinCTKMList { get; set; }
@@ -73,7 +72,7 @@ namespace GUI
 
                 // Lấy giá trị cột "NgayKetThuc"
                 DateTime ngayKetThuc = Convert.ToDateTime(dgvKhuyenMai.Rows[e.RowIndex].Cells["NgayKetThuc"].Value);
-
+               
                 // Định dạng giá trị dựa trên giá trị của cột "TrangThai" và ngày kết thúc
                 if (trangThai == 1 && ngayKetThuc >= DateTime.Now)
                 {
@@ -81,13 +80,14 @@ namespace GUI
                 }
                 else
                 {
+                    
                     e.Value = "Không hoạt động";
                 }
 
-                // Đánh dấu rằng đã xử lý định dạng và không cần DataGridView thực hiện định dạng mặc định
-                e.FormattingApplied = true;
+
+                
             }
-            rowIndexForValidation = e.RowIndex;
+            
         }
 
 
@@ -112,9 +112,12 @@ namespace GUI
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            if (
-        trangThaiKM == 0 || dgvKhuyenMai.Rows[rowIndexForValidation].Cells["TrangThai"].Value.ToString() == "Không hoạt động")
+            int i = dgvKhuyenMai.CurrentRow.Index;
+            Console.WriteLine(dgvKhuyenMai.Rows[i].Cells[6].Value.ToString());
+            Console.WriteLine(trangThaiKM);
+            if (trangThaiKM == 0 || dgvKhuyenMai.Rows[i].Cells[6].Value.ToString() == "Không hoạt động")
             {
+                Console.WriteLine("Đâu có đủ đâu");
                 MessageBox.Show("Khuyến mãi không khả dụng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -162,9 +165,21 @@ namespace GUI
             int i = dgvKhuyenMai.CurrentRow.Index;
             txtMaKM.Texts = dgvKhuyenMai.Rows[i].Cells[0].Value.ToString();
             txtTenKM.Texts = dgvKhuyenMai.Rows[i].Cells[1].Value.ToString();
-            trangThaiKM = int.Parse(dgvKhuyenMai.Rows[i].Cells[6].Value.ToString());
+            // Lấy giá trị đã định dạng từ sự kiện CellFormatting
+
+            string formattedTrangThai = dgvKhuyenMai.Rows[i].Cells[6].FormattedValue.ToString();
+            if (formattedTrangThai == "Không hoạt động")
+            {
+                trangThaiKM = 0;
+            }
+            else
+            {
+                // Nếu giá trị đã định dạng không là "Không hoạt động", lấy giá trị từ cột "TrangThai" trong dữ liệu
+                trangThaiKM = int.Parse(dgvKhuyenMai.Rows[i].Cells[6].Value.ToString());
+            }
             dieuKienKM = int.Parse(dgvKhuyenMai.Rows[i].Cells[5].Value.ToString());
             phanTramKM1 = int.Parse(dgvKhuyenMai.Rows[i].Cells[4].Value.ToString());
+            
         }
 
         private void btnKhongApDungKM_Click(object sender, EventArgs e)

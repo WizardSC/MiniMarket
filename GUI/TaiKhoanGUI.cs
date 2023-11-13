@@ -29,7 +29,7 @@ namespace GUI
         private bool isFuncThayDoiTTCN = false;
         private bool isFuncThayDoiTT = false;
         private bool isFuncXemDSTK = false;
-        public TaiKhoanGUI()
+        public TaiKhoanGUI(int isTaiKhoan)
         {
             InitializeComponent();
             tkBLL = new TaiKhoanBLL();
@@ -41,6 +41,18 @@ namespace GUI
             dgvNhanVien.DataSource = dtNhanVien;
             dtpNgayLap.Value = DateTime.Now;
             loadMaTK();
+            checkQuyen(isTaiKhoan);
+        }
+        private void checkQuyen(int quyen)
+        {
+            if (quyen == 1)
+            {
+               btnTaoTK.Enabled = false;
+                btnThayDoiTrangThai.Enabled = false;
+                
+                cbxTrangThai.Enabled = false;
+                btnThayDoiTTCN_Click(this, EventArgs.Empty);
+            }
         }
         private void loadMaTK()
         {
