@@ -11,10 +11,13 @@ using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AForge.Video.DirectShow;
 using BLL;
 using DevExpress.Office.Utils;
+using DevExpress.XtraReports.UI;
 using DTO;
 using GUI.MyCustom;
+using ZXing;
 
 namespace GUI
 {
@@ -247,7 +250,7 @@ namespace GUI
 
                 byte[] imageBytes = (byte[])dt.Rows[i]["IMG"];
                 item.pbxIMG.Image = convertBinaryStringToImage(imageBytes);
-                item.Margin = new Padding(4); // 4 pixels cho mỗi hướng
+                item.Margin = new Padding(4,6,4,6); // 4 pixels cho mỗi hướng
                 item.ItemClicked += Item_ItemClicked; // Gán sự kiện ở đây
 
                 this.flpDanhSachSanPham.Controls.Add(item);
@@ -1004,8 +1007,116 @@ namespace GUI
             Console.WriteLine(lblKhachHang.Text);
             Console.WriteLine(searchMaKHbyTenKH(lblKhachHang.Text));
         }
+        #region barcode
+        private bool isBarcode = true;
+        private VideoCaptureDevice videoCaptureDevice;
 
+        private void btnQuetBarcode_Click(object sender, EventArgs e)
+        {
+            FilterInfoCollection filterInfoCollection;
 
+            if (isBarcode)
+            {
+                flpDanhSachSanPham.SendToBack();
+                btnPrevious.Visible = false;
+                btnNext.Visible = false;
+                lblPagination.Visible = false;
+                filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+
+                // Kiểm tra nếu có ít nhất một thiết bị
+                if (filterInfoCollection.Count > 0)
+                {
+                    // Lấy ngay MonikerString của thiết bị đầu tiên
+                    string monikerString = filterInfoCollection[0].MonikerString;
+
+                    // Sử dụng MonikerString trực tiếp
+                    videoCaptureDevice = new VideoCaptureDevice(monikerString);
+                    videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
+                    videoCaptureDevice.Start();
+                }
+                else
+                {
+                    // Hiển thị thông báo nếu không có thiết bị
+                    MessageBox.Show("Không tìm thấy thiết bị camera.");
+                }
+
+                // Đánh dấu là đã click lần đầu
+                isBarcode = false;
+            }
+            else
+            {
+                btnPrevious.Visible = true;
+                btnNext.Visible = true;
+                lblPagination.Visible = true;
+                if (videoCaptureDevice != null && videoCaptureDevice.IsRunning)
+                {
+                    videoCaptureDevice.Stop();
+                    flpDanhSachSanPham.BringToFront();
+                }
+                isBarcode = true;
+
+            }
+        }
+        private void VideoCaptureDevice_NewFrame(object sender, AForge.Video.NewFrameEventArgs eventArgs)
+        {
+            Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
+            BarcodeReader reader = new BarcodeReader();
+            var result = reader.Decode(bitmap);
+            if (result != null)
+            {
+                txtMaSP.Invoke(new MethodInvoker(delegate ()
+                {
+
+                    txtMaSP.Texts = result.ToString();
+                    string maSPCanTim = txtMaSP.Texts;
+                    PlayBeepSound();
+
+                    foreach (Control control in flpDanhSachSanPham.Controls)
+                    {
+                        if (control is MyCustom.MyProductItem)
+                        {
+                            MyCustom.MyProductItem productItem = (MyCustom.MyProductItem)control;
+
+                            // Kiểm tra giá trị mã SP của control với mã SP cần tìm
+                            if (productItem.lblMaSP.Text == maSPCanTim)
+                            {
+                                Item_ItemClicked(productItem, EventArgs.Empty);
+                                break; // Kết thúc vòng lặp sau khi tìm thấy
+                            }
+                        }
+                    }
+                }));
+            }
+            pbShowCamera.Image = bitmap;
+        }
+        private void PlayBeepSound()
+        {
+            try
+            {
+                string appDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+                string folderPath = Path.Combine(appDirectory, "resources", "sound");
+                
+                // Thêm tên tệp tin âm thanh vào đường dẫn
+                string soundFilePath = Path.Combine(folderPath, "barcode_reader.wav");
+
+                // Kiểm tra xem tệp tin âm thanh có tồn tại không trước khi phát
+                if (File.Exists(soundFilePath))
+                {
+                    System.Media.SoundPlayer player = new System.Media.SoundPlayer(soundFilePath);
+                    player.Play();
+                }
+                else
+                {
+                    Console.WriteLine("Tệp tin âm thanh không tồn tại: " + soundFilePath);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Xử lý nếu có lỗi khi phát âm thanh
+                Console.WriteLine("Lỗi khi phát âm thanh: " + ex.Message);
+            }
+        }
+        #endregion
     }
 
 }
