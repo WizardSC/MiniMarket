@@ -24,12 +24,12 @@ namespace GUI
         private DataTable dtTaiKhoan;
         private string maCV;
         private string maNV;
-
+        private string maNVHienTai;
         private bool isFuncTaoTK = true;
         private bool isFuncThayDoiTTCN = false;
         private bool isFuncThayDoiTT = false;
         private bool isFuncXemDSTK = false;
-        public TaiKhoanGUI(int isTaiKhoan)
+        public TaiKhoanGUI(int isTaiKhoan, string maNVHienTai)
         {
             InitializeComponent();
             tkBLL = new TaiKhoanBLL();
@@ -40,18 +40,22 @@ namespace GUI
             dtTaiKhoan = tkBLL.getListTaiKhoan();
             dgvNhanVien.DataSource = dtNhanVien;
             dtpNgayLap.Value = DateTime.Now;
+            
+
             loadMaTK();
-            checkQuyen(isTaiKhoan);
+            checkQuyen(isTaiKhoan,maNVHienTai);
         }
-        private void checkQuyen(int quyen)
+        private void checkQuyen(int quyen, string maNV)
         {
             if (quyen == 1)
             {
-               btnTaoTK.Enabled = false;
+                btnTaoTK.Enabled = false;
                 btnThayDoiTrangThai.Enabled = false;
                 
                 cbxTrangThai.Enabled = false;
                 btnThayDoiTTCN_Click(this, EventArgs.Empty);
+                dgvNhanVien.DataSource = nvBLL.getCurrentNVHasTK(maNV);
+
             }
         }
         private void loadMaTK()
