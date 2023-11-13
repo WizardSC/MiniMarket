@@ -89,6 +89,34 @@ namespace DAL
             }
             return dt;
         }
+
+        public DataTable getCurrentNVHasTK(string maNV)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT MaNV, Ho, Ten, MaTK, MaCV from nhanvien where MaNV = @MaNV";
+                cmd.Parameters.AddWithValue("@MaNV",maNV).SqlDbType = SqlDbType.Char;
+
+                cmd.Connection = conn;
+                SqlDataAdapter adt = new SqlDataAdapter(cmd);
+                adt.Fill(dt);
+            }
+
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return dt;
+        }
+
         public DataTable getListNhanVienHasTK()
         {
             DataTable dt = new DataTable();

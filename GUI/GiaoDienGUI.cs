@@ -707,7 +707,7 @@ namespace GUI
                 }
                 clickedButton.BackColor = Color.White;
                 pnLeftBorderTaiKhoan.BackColor = Color.FromArgb(58, 191, 186);
-                openChildForm(new TaiKhoanGUI(pq.IsTaiKhoan));
+                openChildForm(new TaiKhoanGUI(pq.IsTaiKhoan, maNV));
             }
             hideSubMenu(pnSubQuanLy, sender);
 
