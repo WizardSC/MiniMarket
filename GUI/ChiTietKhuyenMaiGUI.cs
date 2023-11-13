@@ -19,6 +19,8 @@ namespace GUI
     public partial class ChiTietKhuyenMaiGUI : Form
     {
         DataTable data = new DataTable();
+        DataTable dataListMaKmNoDK = new DataTable();
+        DataTable datagetListSanPham = new DataTable();
         ChiTietKhuyenMaiBLL CTKhuyenMaiBLL = new ChiTietKhuyenMaiBLL();
         KhuyenMaiBLL KmBLL = new KhuyenMaiBLL();
         SanPhamBLL SpBLL = new SanPhamBLL();
@@ -29,17 +31,20 @@ namespace GUI
         public ChiTietKhuyenMaiGUI()
         {
             InitializeComponent();
+          
+            loadDataToCBX(cbxTimKiem);
+            dataListMaKmNoDK = KmBLL.getListMaKmNoDK();
+            datagetListSanPham = SpBLL.getListSanPham();
+            data = CTKhuyenMaiBLL.getListDsCTKm();
             loadsItemTenKM();
             loadsItemTenSp();
-            loadDataToCBX(cbxTimKiem);
 
 
         }
         //load tenkm
         public void loadsItemTenKM()
         {
-            data = KmBLL.getListMaKmNoDK();
-            comboBoxTenKM.DataSource = data;
+            comboBoxTenKM.DataSource = dataListMaKmNoDK;
             comboBoxTenKM.DisplayMember = "TenKM";
             comboBoxTenKM.SelectedIndex = -1;
 
@@ -47,8 +52,7 @@ namespace GUI
         //load tensp
         public void loadsItemTenSp()
         {
-            data = SpBLL.getListSanPham();
-            comboBoxTenSP.DataSource = data;
+            comboBoxTenSP.DataSource = datagetListSanPham;
             comboBoxTenSP.DisplayMember = "TenSP";
             comboBoxTenSP.SelectedIndex = -1;
 
@@ -110,7 +114,7 @@ namespace GUI
         {
             currentSearch = text;
             Console.WriteLine(currentSearch);
-            DataView dvCTKhuyenMai = CTKhuyenMaiBLL.getListDsCTKm().DefaultView;
+            DataView dvCTKhuyenMai = data.DefaultView;
             dvCTKhuyenMai.RowFilter = currentSearch;
             dgvChiTietKM.DataSource = dvCTKhuyenMai.ToTable();
         }
@@ -225,8 +229,8 @@ namespace GUI
             // Lấy ID khuyen mai từ tên khuyenmai
             string idKm = "KM000"; // Giá trị mặc định nếu không tìm thấy
            
-            data = KmBLL.getListDsKm();
-            foreach (DataRow row in data.Rows)
+           
+            foreach (DataRow row in dataListMaKmNoDK.Rows)
             {
                 if (row["TenKM"].ToString() == tenKM)
                 {
@@ -235,8 +239,8 @@ namespace GUI
                 }
             }
             string idSp = "SP000";
-            data = SpBLL.getListSanPham();
-            foreach (DataRow row in data.Rows)
+           
+            foreach (DataRow row in datagetListSanPham.Rows)
             {
                 if (row["TenSP"].ToString() == tenSp)
                 {
@@ -283,8 +287,7 @@ namespace GUI
             // Lấy ID khuyen mai từ tên khuyenmai
             string idKm = ""; // Giá trị mặc định nếu không tìm thấy
 
-            DataTable data1 = KmBLL.getListMaKmNoDK();
-            foreach (DataRow row in data1.Rows)
+            foreach (DataRow row in dataListMaKmNoDK.Rows)
             {
                 if (row["TenKM"].ToString() == tenKM)
                 {
@@ -293,8 +296,7 @@ namespace GUI
                 }
             }
             string idSp = "";
-            data = SpBLL.getListSanPham();
-            foreach (DataRow row in data.Rows)
+            foreach (DataRow row in datagetListSanPham.Rows)
             {
                 if (row["TenSP"].ToString() == tenSp)
                 {

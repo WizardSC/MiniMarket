@@ -19,7 +19,7 @@ namespace GUI
         private KhuyenMaiBLL kmBLL;
         private ChiTietKhuyenMaiGUI CTKhuyenMai;
         private ThongTinSPKMGUI ThongTinSPKM;
-        private DataTable dt;
+        private DataTable dt = new DataTable();
         private bool isFormFilter = false;
         private string cbxItemsMacDinh;
          private string currentSearch;
@@ -163,7 +163,7 @@ namespace GUI
         //load form DataTable
         public void init()
         {
-            dgvKhuyenMai.DataSource = dt;
+            dgvKhuyenMai.DataSource = kmBLL.getListDsKm();
 
             cbxTrangThai.SelectedIndex = 0;
         }
@@ -300,9 +300,16 @@ namespace GUI
             KM_DTO.NgayBd = Ngaybd;
             KM_DTO.NgayKt = ngaykt;
             KM_DTO.PhanTramKm = int.Parse(phantramkm);
-            KM_DTO.DieuKiemKm = txtDkKM.Texts;
+            if (string.IsNullOrWhiteSpace(txtDkKM.Texts))
+            {
+                KM_DTO.DieuKiemKm = "0";
+            }
+            else
+            {
+                KM_DTO.DieuKiemKm = txtDkKM.Texts;
+            }
             KM_DTO.TrangThai = trangthai;
-            
+
             bool result = kmBLL.insertKhuyenMai(KM_DTO);
 
             if (result)
@@ -339,7 +346,14 @@ namespace GUI
             KM_DTO.NgayBd = Ngaybd;
             KM_DTO.NgayKt = ngaykt;
             KM_DTO.PhanTramKm = int.Parse(phantram);
-            KM_DTO.DieuKiemKm = dieukien;
+            if (string.IsNullOrWhiteSpace(txtDkKM.Texts))
+            {
+                KM_DTO.DieuKiemKm = "0";
+            }
+            else
+            {
+                KM_DTO.DieuKiemKm = txtDkKM.Texts;
+            }
             KM_DTO.TrangThai = trangthai;
             KM_DTO.Makm = txtMaKM.Texts;
 

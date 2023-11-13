@@ -114,6 +114,12 @@
     <Compile Include="BanHangGUI.Designer.cs">
       <DependentUpon>BanHangGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChiTietHoaDonGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChiTietHoaDonGUI.Designer.cs">
+      <DependentUpon>ChiTietHoaDonGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChiTietKhuyenMaiGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -331,6 +337,9 @@
     </Compile>
     <EmbeddedResource Include="BanHangGUI.resx">
       <DependentUpon>BanHangGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChiTietHoaDonGUI.resx">
+      <DependentUpon>ChiTietHoaDonGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChiTietKhuyenMaiGUI.resx">
       <DependentUpon>ChiTietKhuyenMaiGUI.cs</DependentUpon>
