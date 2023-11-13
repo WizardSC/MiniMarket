@@ -80,6 +80,9 @@
             this.pnLeftBorderHangHoa = new System.Windows.Forms.Panel();
             this.pnMenu = new System.Windows.Forms.Panel();
             this.pnThongTinTK = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblChucVu = new System.Windows.Forms.Label();
             this.lblHoTenNV = new System.Windows.Forms.Label();
             this.rjButton2 = new GUI.MyCustom.RJButton();
             this.pnImage = new System.Windows.Forms.Panel();
@@ -92,9 +95,6 @@
             this.btnClose = new GUI.MyCustom.RJButton();
             this.pnForm = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lblChucVu = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.pnSidebar.SuspendLayout();
             this.pnMainMenu.SuspendLayout();
             this.pnTaiKhoan.SuspendLayout();
@@ -895,6 +895,36 @@
             this.pnThongTinTK.Size = new System.Drawing.Size(182, 45);
             this.pnThongTinTK.TabIndex = 5;
             // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(2, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(39, 19);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "CV:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(2, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(39, 19);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "NV:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblChucVu
+            // 
+            this.lblChucVu.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChucVu.Location = new System.Drawing.Point(43, 26);
+            this.lblChucVu.Name = "lblChucVu";
+            this.lblChucVu.Size = new System.Drawing.Size(140, 19);
+            this.lblChucVu.TabIndex = 2;
+            this.lblChucVu.Text = "Nhân viên bán hàng";
+            this.lblChucVu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // lblHoTenNV
             // 
             this.lblHoTenNV.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1068,36 +1098,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1366, 775);
             this.panel3.TabIndex = 0;
-            // 
-            // lblChucVu
-            // 
-            this.lblChucVu.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChucVu.Location = new System.Drawing.Point(43, 26);
-            this.lblChucVu.Name = "lblChucVu";
-            this.lblChucVu.Size = new System.Drawing.Size(140, 19);
-            this.lblChucVu.TabIndex = 2;
-            this.lblChucVu.Text = "Nhân viên bán hàng";
-            this.lblChucVu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(2, 3);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 19);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "NV:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(2, 26);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 19);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "CV:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // GiaoDienGUI
             // 

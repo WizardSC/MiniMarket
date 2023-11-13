@@ -1,4 +1,6 @@
-﻿using BLL;
+﻿using AForge.Video.DirectShow;
+using BLL;
+using DevExpress.XtraReports.UI;
 using DTO;
 using GUI.MyCustom;
 using System;
@@ -98,7 +100,7 @@ namespace GUI
                 {
                     panel.Visible = false;
                 }
-                
+
                 else if (panel == pnKhuyenMai && pq.IsKhuyenMai == 0)
                 {
                     panel.Visible = false;
@@ -121,7 +123,8 @@ namespace GUI
         private string getHoTenByMaNV(string maNV)
         {
             var nhanVien = listNhanVien.FirstOrDefault(nv => nv.MaNV == maNV);
-            if(nhanVien != null) {
+            if (nhanVien != null)
+            {
                 string hoTen = $"{nhanVien.Ho} {nhanVien.Ten}";
                 return hoTen;
             }
@@ -169,7 +172,7 @@ namespace GUI
         private void addAllPnSubPanels()
         {
             allSubPanels.Add(pnSubHangHoa);
-            
+
             allSubPanels.Add(pnSubQuanLy);
         }
 
@@ -183,23 +186,23 @@ namespace GUI
         private void GiaoDienGUI_Load(object sender, EventArgs e)
         {
             pnSubQuanLy.Visible = false;
-            
+
 
         }
         private void hideSubMenu(Panel pn, object rjBtn)
         {
-            foreach(Panel tempPn in allSubPanels)
+            foreach (Panel tempPn in allSubPanels)
             {
 
                 if (tempPn != pn)
                 {
-                    
+
                     tempPn.Visible = false;
                 }
             }
-            if(rjBtn is RJButton)
+            if (rjBtn is RJButton)
             {
-                
+
                 RJButton clickedButton = (RJButton)rjBtn;
                 foreach (RJButton button in allBtns)
                 {
@@ -228,7 +231,7 @@ namespace GUI
         //}
         private void showSubMenu(Panel subMenu)
         {
-            
+
             if (subMenu.Visible == false)
             {
                 subMenu.Visible = true;
@@ -254,15 +257,19 @@ namespace GUI
             childForm.BringToFront();
             childForm.Show();
         }
-
+        
         private void btnClose_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+           
+            
+            Application.Exit();
+           
+
         }
 
         private void pnQuanLyContainer_Click(object sender, EventArgs e)
         {
-          
+
             if (sender is RJButton)
             {
                 RJButton clickedButton = (RJButton)sender;
@@ -365,8 +372,8 @@ namespace GUI
                     }
                 }
                 foreach (RJButton button in allBtns)
-                {                
-                        button.BackColor = Color.Transparent; // hoặc màu nền mặc định của bạn
+                {
+                    button.BackColor = Color.Transparent; // hoặc màu nền mặc định của bạn
                 }
                 // Đặt màu của RJButton được nhấn
                 clickedButton.BackColor = Color.White;
@@ -715,7 +722,7 @@ namespace GUI
 
         }
 
-        
+
 
         private void pnPhieuNhapContainer_Click(object sender, EventArgs e)
         {
