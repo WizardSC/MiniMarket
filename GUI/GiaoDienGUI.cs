@@ -28,12 +28,13 @@ namespace GUI
         private string tenPQ;
         private NhanVienBLL nvBLL = new NhanVienBLL();
         private List<NhanVienDTO> listNhanVien;
-        
+        private PhanQuyenDTO pq;
         private PhanQuyenBLL pqBLL;
         public GiaoDienGUI(string maNV, string tenPQ)
         {
             InitializeComponent();
             pqBLL = new PhanQuyenBLL();
+
             this.maNV = maNV;
             this.tenPQ = tenPQ;
             Console.WriteLine(tenPQ);
@@ -50,7 +51,7 @@ namespace GUI
 
         private void getDetailPhanQuyen()
         {
-            PhanQuyenDTO pq = pqBLL.getPhanQuyen(tenPQ);
+            pq = pqBLL.getPhanQuyen(tenPQ);
 
             List<Panel> pnToCheck = new List<Panel>
     {
@@ -227,6 +228,7 @@ namespace GUI
         //}
         private void showSubMenu(Panel subMenu)
         {
+            
             if (subMenu.Visible == false)
             {
                 subMenu.Visible = true;
@@ -370,7 +372,7 @@ namespace GUI
                 clickedButton.BackColor = Color.White;
                 pnLeftBorderKhachHang.BackColor = Color.FromArgb(58, 191, 186);
                 // Mở form con tương ứng (KhachHangGUI)
-                openChildForm(new KhachHangGUI());
+                openChildForm(new KhachHangGUI(pq.IsKhachHang));
             }
         }
 
@@ -468,7 +470,7 @@ namespace GUI
                 clickedButton.BackColor = Color.White;
                 pnLeftBorderSanPham.BackColor = Color.FromArgb(58, 191, 186);
                 // Mở form con tương ứng (KhachHangGUI)
-                openChildForm(new SanPhamGUI());
+                openChildForm(new SanPhamGUI(pq.IsSanPham));
             }
         }
 
@@ -572,7 +574,7 @@ namespace GUI
                 clickedButton.BackColor = Color.White;
                 pnLeftBorderKhuyenMai.BackColor = Color.FromArgb(58, 191, 186);
                 // Mở form con tương ứng (KhachHangGUI)
-                openChildForm(new KhuyenMaiGUI());
+                openChildForm(new KhuyenMaiGUI(pq.IsKhuyenMai));
             }
         }
         private void pnNhaCCContainer_Click(object sender, EventArgs e)
@@ -604,7 +606,7 @@ namespace GUI
                 clickedButton.BackColor = Color.White;
                 pnLeftBorderNhaCC.BackColor = Color.FromArgb(58, 191, 186);
                 // Mở form con tương ứng (KhachHangGUI)
-                openChildForm(new NhaCCGUI());
+                openChildForm(new NhaCCGUI(pq.IsNhaCungCap));
             }
         }
 
@@ -705,7 +707,7 @@ namespace GUI
                 }
                 clickedButton.BackColor = Color.White;
                 pnLeftBorderTaiKhoan.BackColor = Color.FromArgb(58, 191, 186);
-                openChildForm(new TaiKhoanGUI());
+                openChildForm(new TaiKhoanGUI(pq.IsTaiKhoan));
             }
             hideSubMenu(pnSubQuanLy, sender);
 
@@ -777,7 +779,7 @@ namespace GUI
                 clickedButton.BackColor = Color.White;
                 pnLeftBorderHoaDon.BackColor = Color.FromArgb(58, 191, 186);
                 // Mở form con tương ứng (KhachHangGUI)
-                openChildForm(new HoaDonGUI());
+                openChildForm(new HoaDonGUI(pq.IsHoaDon));
             }
         }
     }

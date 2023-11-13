@@ -52,13 +52,14 @@ namespace GUI
         private bool isTuoi = false;
         private SanPhamBLL spBLL;
         private DataTable dt;
-        public SanPhamGUI()
+        public SanPhamGUI(int isSanPham)
         {
             spBLL = new SanPhamBLL();
             dt = spBLL.getListSanPham();
             InitializeComponent();
             loadMaSP();
             unhideError();
+            checkQuyen(isSanPham);
         }
 
         private void SanPhamGUI_Load(object sender, EventArgs e)
@@ -67,7 +68,23 @@ namespace GUI
             dgvSanPham.DataSource = dt;
 
         }
-
+        private void checkQuyen(int quyen)
+        {
+            if (quyen == 1)
+            {
+                btnDeleteIMG.Enabled = false;
+                btnThem.Enabled = false;
+                btnSua.Enabled = false;
+                btnXoa.Enabled = false;
+                cbxDonViTinh.Enabled = false;
+                cbxTrangThai.Enabled = false;
+                btnMaLoai.Enabled = false;
+                btnMaNCC.Enabled = false;
+                btnMaNSX.Enabled = false;
+                btnUploadAnh.Enabled = false;
+                btnDeleteIMG.Enabled = false;
+            }
+        }
         private void clearForm()
         {
             loadMaSP();

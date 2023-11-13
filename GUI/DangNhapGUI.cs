@@ -73,5 +73,25 @@ namespace GUI
             this.Close();
 
         }
+
+        
+
+        private void txtUsername_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true; // Ngăn chặn ký tự Enter hiển thị trong TextBox
+                txtPassword.Focus();
+            }
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true; // Ngăn chặn âm thanh "beep" khi nhấn Enter
+                btnDangNhap_Click(sender, e); // Gọi phương thức btnDangNhap_Click khi nhấn Enter
+            }
+        }
     }
 }
