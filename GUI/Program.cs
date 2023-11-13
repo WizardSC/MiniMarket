@@ -25,7 +25,8 @@ namespace GUI
             {
                 // Chỉ khi đăng nhập thành công, hãy hiển thị form chính
                 string maNV = loginForm.maNV;
-                Application.Run(new GiaoDienGUI(maNV));
+                string tenPQ = loginForm.tenPQ;
+                Application.Run(new GiaoDienGUI(maNV,tenPQ));
             }
 
 

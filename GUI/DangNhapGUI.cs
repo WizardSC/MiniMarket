@@ -16,6 +16,7 @@ namespace GUI
         private TaiKhoanBLL tkBLL;
         private DataTable dtTaiKhoan;
         public string maNV { get; set; }
+        public string tenPQ { get; set; }
         public DangNhapGUI()
         {
             InitializeComponent();
@@ -23,7 +24,7 @@ namespace GUI
             dtTaiKhoan = tkBLL.getListTaiKhoan();
         }
 
-        private (string MaNV, string TenDangNhap, string MatKhau, byte TrangThai) getTaiKhoan(string tenDangNhap, string matKhau)
+        private (string MaNV, string TenDangNhap, string MatKhau, string Quyen, byte TrangThai) getTaiKhoan(string tenDangNhap, string matKhau)
         {
 
             var query = from row in dtTaiKhoan.AsEnumerable()
@@ -33,16 +34,17 @@ namespace GUI
                             TenDangNhap = row.Field<string>("TenDangNhap"),
                             MatKhau = row.Field<string>("MatKhau"),
                             TrangThai = row.Field<byte>("TrangThai"),
-                            MaNV = row.Field<string>("MaNV")
+                            MaNV = row.Field<string>("MaNV"),
+                            Quyen = row.Field<string>("Quyen")
                         };
             var result = query.FirstOrDefault(); 
             if (result != null)
             {
-                return (result.MaNV, result.TenDangNhap, result.MatKhau, result.TrangThai);
+                return (result.MaNV, result.TenDangNhap, result.MatKhau, result.Quyen, result.TrangThai);
             }
 
             // Trả về một giá trị mặc định hoặc throw exception nếu cần
-            return (string.Empty, string.Empty, string.Empty, 0);
+            return (string.Empty, string.Empty, string.Empty, string.Empty, 0);
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -54,7 +56,7 @@ namespace GUI
             string tenDangNhap = txtUsername.Texts;
             string matKhau = txtPassword.Texts;
 
-            (string MaNV, string TenDangNhap, string MatKhau, byte TrangThai) = getTaiKhoan(tenDangNhap, matKhau);
+            (string MaNV, string TenDangNhap, string MatKhau, string Quyen, byte TrangThai) = getTaiKhoan(tenDangNhap, matKhau);
             if (TenDangNhap == string.Empty || MatKhau == string.Empty)
             {
                 MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -66,6 +68,7 @@ namespace GUI
                 return;
             }
             maNV = MaNV;
+            tenPQ = Quyen;
             this.DialogResult = DialogResult.OK;
             this.Close();
 
