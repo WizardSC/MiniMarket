@@ -1,4 +1,6 @@
-﻿using GUI.MyCustom;
+﻿using BLL;
+using DTO;
+using GUI.MyCustom;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,16 +24,30 @@ namespace GUI
         List<Panel> allPnLeftBorders = new List<Panel>();
         List<Panel> allSubPanels = new List<Panel>();
         List<RJButton> allBtns = new List<RJButton>();
-        public GiaoDienGUI()
+        private string maNV;
+        private NhanVienBLL nvBLL = new NhanVienBLL();
+        private List<NhanVienDTO> listNhanVien;
+        public GiaoDienGUI(string maNV)
         {
             InitializeComponent();
-
+            this.maNV = maNV;
+            nvBLL = new NhanVienBLL();
+            listNhanVien = nvBLL.getListNV();
             addAllPnContainer();
             addAllPnLeftBorders();
             addAllPnSubPanels();
             addAllBtns();
-            Console.WriteLine(123);
+            lblHoTenNV.Text = getHoTenByMaNV(maNV);
 
+        }
+        private string getHoTenByMaNV(string maNV)
+        {
+            var nhanVien = listNhanVien.FirstOrDefault(nv => nv.MaNV == maNV);
+            if(nhanVien != null) {
+                string hoTen = $"{nhanVien.Ho} {nhanVien.Ten}";
+                return hoTen;
+            }
+            return string.Empty;
         }
         private void addAllPnContainer()
         {

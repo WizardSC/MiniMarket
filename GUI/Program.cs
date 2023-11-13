@@ -19,7 +19,14 @@ namespace GUI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new GiaoDienGUI());
+            //Application.Run(new GiaoDienGUI());
+            DangNhapGUI loginForm = new DangNhapGUI();
+            if (loginForm.ShowDialog() == DialogResult.OK)
+            {
+                // Chỉ khi đăng nhập thành công, hãy hiển thị form chính
+                string maNV = loginForm.maNV;
+                Application.Run(new GiaoDienGUI(maNV));
+            }
 
 
 

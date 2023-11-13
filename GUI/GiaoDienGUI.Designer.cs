@@ -79,7 +79,7 @@
             this.pnHangHoaContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderHangHoa = new System.Windows.Forms.Panel();
             this.pnMenu = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.pnThongTinTK = new System.Windows.Forms.Panel();
             this.rjButton2 = new GUI.MyCustom.RJButton();
             this.pnImage = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -91,6 +91,8 @@
             this.btnClose = new GUI.MyCustom.RJButton();
             this.pnForm = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblThongTinTK = new System.Windows.Forms.Label();
+            this.lblHoTenNV = new System.Windows.Forms.Label();
             this.pnSidebar.SuspendLayout();
             this.pnMainMenu.SuspendLayout();
             this.pnTaiKhoan.SuspendLayout();
@@ -111,6 +113,7 @@
             this.panel7.SuspendLayout();
             this.pnHangHoa.SuspendLayout();
             this.pnMenu.SuspendLayout();
+            this.pnThongTinTK.SuspendLayout();
             this.pnImage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnHeader.SuspendLayout();
@@ -869,7 +872,7 @@
             // pnMenu
             // 
             this.pnMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.pnMenu.Controls.Add(this.panel6);
+            this.pnMenu.Controls.Add(this.pnThongTinTK);
             this.pnMenu.Controls.Add(this.rjButton2);
             this.pnMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnMenu.Location = new System.Drawing.Point(0, 645);
@@ -877,13 +880,15 @@
             this.pnMenu.Size = new System.Drawing.Size(182, 91);
             this.pnMenu.TabIndex = 4;
             // 
-            // panel6
+            // pnThongTinTK
             // 
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(182, 41);
-            this.panel6.TabIndex = 5;
+            this.pnThongTinTK.Controls.Add(this.lblHoTenNV);
+            this.pnThongTinTK.Controls.Add(this.lblThongTinTK);
+            this.pnThongTinTK.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnThongTinTK.Location = new System.Drawing.Point(0, 0);
+            this.pnThongTinTK.Name = "pnThongTinTK";
+            this.pnThongTinTK.Size = new System.Drawing.Size(182, 45);
+            this.pnThongTinTK.TabIndex = 5;
             // 
             // rjButton2
             // 
@@ -900,10 +905,10 @@
             this.rjButton2.ForeColor = System.Drawing.Color.Black;
             this.rjButton2.Image = global::GUI.Properties.Resources.icons8_logout_32;
             this.rjButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton2.Location = new System.Drawing.Point(0, 48);
+            this.rjButton2.Location = new System.Drawing.Point(0, 51);
             this.rjButton2.Name = "rjButton2";
             this.rjButton2.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rjButton2.Size = new System.Drawing.Size(182, 43);
+            this.rjButton2.Size = new System.Drawing.Size(182, 40);
             this.rjButton2.TabIndex = 4;
             this.rjButton2.Text = "Đăng xuất";
             this.rjButton2.TextColor = System.Drawing.Color.Black;
@@ -1049,6 +1054,26 @@
             this.panel3.Size = new System.Drawing.Size(1366, 775);
             this.panel3.TabIndex = 0;
             // 
+            // lblThongTinTK
+            // 
+            this.lblThongTinTK.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblThongTinTK.Location = new System.Drawing.Point(5, 3);
+            this.lblThongTinTK.Name = "lblThongTinTK";
+            this.lblThongTinTK.Size = new System.Drawing.Size(178, 19);
+            this.lblThongTinTK.TabIndex = 0;
+            this.lblThongTinTK.Text = "Xin chào";
+            this.lblThongTinTK.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblHoTenNV
+            // 
+            this.lblHoTenNV.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHoTenNV.Location = new System.Drawing.Point(3, 26);
+            this.lblHoTenNV.Name = "lblHoTenNV";
+            this.lblHoTenNV.Size = new System.Drawing.Size(178, 19);
+            this.lblHoTenNV.TabIndex = 1;
+            this.lblHoTenNV.Text = "Huỳnh Phúc Toàn";
+            this.lblHoTenNV.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // GiaoDienGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1084,6 +1109,7 @@
             this.panel7.ResumeLayout(false);
             this.pnHangHoa.ResumeLayout(false);
             this.pnMenu.ResumeLayout(false);
+            this.pnThongTinTK.ResumeLayout(false);
             this.pnImage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnHeader.ResumeLayout(false);
@@ -1123,7 +1149,7 @@
         private System.Windows.Forms.Panel pnMenu;
         private System.Windows.Forms.Panel pnMainMenu;
         private GUI.MyCustom.RJButton rjButton2;
-        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel pnThongTinTK;
         private System.Windows.Forms.Panel pnSubHangHoa;
         private System.Windows.Forms.Panel panel9;
         private MyCustom.RJButton rjButton4;
@@ -1155,5 +1181,7 @@
         private System.Windows.Forms.Panel pnTaiKhoan;
         private MyCustom.RJButton pnTaiKhoanContainer;
         private System.Windows.Forms.Panel pnLeftBorderTaiKhoan;
+        private System.Windows.Forms.Label lblThongTinTK;
+        private System.Windows.Forms.Label lblHoTenNV;
     }
 }
