@@ -87,7 +87,6 @@ namespace GUI
             }
         }
 
-
         private void btnExport_Click(object sender, EventArgs e)
         {
             // Tạo một bảng ExcelPackage
@@ -107,7 +106,8 @@ namespace GUI
                 for (int j = 1; j <= colCount; j++)
                 {
                     // Đặt giá trị của cột hiện tại là tên cột
-                    worksheet.Cells[1, j].Value = dataTable.Columns[j - 1].ColumnName;
+                    //worksheet.Cells[1, j].Value = dataTable.Columns[j - 1].ColumnName;
+                    worksheet.Cells[1, j].Value = dgvXemThongTinHoaDon.Columns[j - 1].HeaderText;
                 }
 
                 // Đổ dữ liệu từ DataTable vào Excel
@@ -261,6 +261,7 @@ namespace GUI
                 // Nếu đã chọn, hiển thị DateTimePicker cho ngày bắt đầu và kết thúc
                 dtpNgayStart.Enabled = true;
                 dtpNgayEnd.Enabled = true;
+                btnTimKiem_Click(sender, e);
             }
             else
             {
@@ -277,7 +278,7 @@ namespace GUI
         {
             DateTime startDate = dtpNgayStart.Value;
             DateTime endDate = dtpNgayEnd.Value;
-            if(startDate > endDate)
+            if(startDate > endDate )
             {
                 lblErrTuoiFilter.Visible = true;
                 btnTimKiem_Click(sender, e);
