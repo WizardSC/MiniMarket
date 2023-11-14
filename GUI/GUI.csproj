@@ -326,12 +326,6 @@
     <Compile Include="TaiKhoanGUI.Designer.cs">
       <DependentUpon>TaiKhoanGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="TestCameraQR.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TestCameraQR.Designer.cs">
-      <DependentUpon>TestCameraQR.cs</DependentUpon>
-    </Compile>
     <Compile Include="ThongKeGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -448,9 +442,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TaiKhoanGUI.resx">
       <DependentUpon>TaiKhoanGUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TestCameraQR.resx">
-      <DependentUpon>TestCameraQR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThongKeGUI.resx">
       <DependentUpon>ThongKeGUI.cs</DependentUpon>

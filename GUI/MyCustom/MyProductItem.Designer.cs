@@ -50,27 +50,28 @@ namespace GUI.MyCustom
             this.pnItem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnItem.Location = new System.Drawing.Point(0, 0);
             this.pnItem.Name = "pnItem";
-            this.pnItem.Size = new System.Drawing.Size(245, 96);
+            this.pnItem.Size = new System.Drawing.Size(245, 108);
             this.pnItem.TabIndex = 0;
             // 
             // lblMaSP
             // 
             this.lblMaSP.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaSP.Location = new System.Drawing.Point(13, 2);
+            this.lblMaSP.Location = new System.Drawing.Point(8, 4);
             this.lblMaSP.Name = "lblMaSP";
             this.lblMaSP.Size = new System.Drawing.Size(57, 23);
             this.lblMaSP.TabIndex = 8;
             this.lblMaSP.Text = "SP001";
+            this.lblMaSP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblDonGia
             // 
             this.lblDonGia.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDonGia.Location = new System.Drawing.Point(153, 2);
+            this.lblDonGia.Location = new System.Drawing.Point(154, 7);
             this.lblDonGia.Name = "lblDonGia";
             this.lblDonGia.Size = new System.Drawing.Size(84, 23);
             this.lblDonGia.TabIndex = 9;
             this.lblDonGia.Text = "45000đ";
-            this.lblDonGia.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblDonGia.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTenSP
             // 
@@ -78,16 +79,17 @@ namespace GUI.MyCustom
             this.lblTenSP.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTenSP.Location = new System.Drawing.Point(96, 31);
             this.lblTenSP.Name = "lblTenSP";
-            this.lblTenSP.Size = new System.Drawing.Size(142, 52);
+            this.lblTenSP.Size = new System.Drawing.Size(142, 64);
             this.lblTenSP.TabIndex = 10;
             this.lblTenSP.Text = "Bánh quy Cosy MarieBánh quy Cosy Marie";
+            this.lblTenSP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pbxIMG
             // 
             this.pbxIMG.Image = global::GUI.Properties.Resources.placeholder_image;
             this.pbxIMG.Location = new System.Drawing.Point(11, 30);
             this.pbxIMG.Name = "pbxIMG";
-            this.pbxIMG.Size = new System.Drawing.Size(77, 52);
+            this.pbxIMG.Size = new System.Drawing.Size(77, 65);
             this.pbxIMG.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxIMG.TabIndex = 11;
             this.pbxIMG.TabStop = false;
@@ -99,7 +101,7 @@ namespace GUI.MyCustom
             this.Controls.Add(this.pnItem);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "MyProductItem";
-            this.Size = new System.Drawing.Size(245, 96);
+            this.Size = new System.Drawing.Size(245, 108);
             this.pnItem.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxIMG)).EndInit();
             this.ResumeLayout(false);
