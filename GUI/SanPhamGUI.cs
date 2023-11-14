@@ -52,13 +52,14 @@ namespace GUI
         private bool isTuoi = false;
         private SanPhamBLL spBLL;
         private DataTable dt;
-        public SanPhamGUI()
+        public SanPhamGUI(int isSanPham)
         {
             spBLL = new SanPhamBLL();
             dt = spBLL.getListSanPham();
             InitializeComponent();
             loadMaSP();
             unhideError();
+            checkQuyen(isSanPham);
         }
 
         private void SanPhamGUI_Load(object sender, EventArgs e)
@@ -67,7 +68,23 @@ namespace GUI
             dgvSanPham.DataSource = dt;
 
         }
-
+        private void checkQuyen(int quyen)
+        {
+            if (quyen == 1)
+            {
+                btnDeleteIMG.Enabled = false;
+                btnThem.Enabled = false;
+                btnSua.Enabled = false;
+                btnXoa.Enabled = false;
+                cbxDonViTinh.Enabled = false;
+                cbxTrangThai.Enabled = false;
+                btnMaLoai.Enabled = false;
+                btnMaNCC.Enabled = false;
+                btnMaNSX.Enabled = false;
+                btnUploadAnh.Enabled = false;
+                btnDeleteIMG.Enabled = false;
+            }
+        }
         private void clearForm()
         {
             loadMaSP();
@@ -310,7 +327,7 @@ namespace GUI
         private void btnMaNCC_Click(object sender, EventArgs e)
         {
             MiniNCCGUI nccGUI = new MiniNCCGUI();
-            nccGUI.Show();
+            nccGUI.ShowDialog();
             nccGUI.FormClosed += (s, args) =>
             {
                 string maNCC = nccGUI.maNCC;
@@ -322,7 +339,7 @@ namespace GUI
         private void btnMaNSX_Click(object sender, EventArgs e)
         {
             MiniNSXGUI nsxGUI = new MiniNSXGUI();
-            nsxGUI.Show();
+            nsxGUI.ShowDialog();
             nsxGUI.FormClosed += (s, args) =>
             {
                 string maNSX = nsxGUI.maNSX;
@@ -336,7 +353,7 @@ namespace GUI
         private void btnMaLoai_Click(object sender, EventArgs e)
         {
             MiniLoaiGUI maLoaiGUI = new MiniLoaiGUI();
-            maLoaiGUI.Show();
+            maLoaiGUI.ShowDialog();
 
             maLoaiGUI.FormClosed += (s, args) =>
             {

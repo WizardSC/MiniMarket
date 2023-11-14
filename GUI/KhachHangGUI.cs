@@ -43,7 +43,9 @@ namespace GUI
         private bool isHoatDong = false;
         private bool isKoHD = false;
         private DataTable dt;
-        public KhachHangGUI()
+
+        private int quyenKhachHang;
+        public KhachHangGUI(int isKhachHang)
         {
             InitializeComponent();
             khBLL = new KhachHangBLL();
@@ -53,7 +55,23 @@ namespace GUI
             unhideError(); //set màu trong suốt cho các label lỗi
             loadMaKH();
             txtMaKH.Enabled = false;
+                //Check phân quyền
+            quyenKhachHang = isKhachHang;
+            checkQuyen(isKhachHang);
 
+        }
+        private void checkQuyen(int quyenKhachHang)
+        {
+            if(quyenKhachHang == 1)
+            {
+                btnDeleteIMG.Enabled = false;
+                btnThem.Enabled = false;
+                btnSua.Enabled = false;
+                btnXoa.Enabled = false;
+                cbxTrangThai.Enabled = false;
+                dtpNgaySinh.Enabled = false;
+                btnUploadIMG.Enabled = false;
+            }
         }
         private void KhachHangGUI_Load(object sender, EventArgs e)
         {

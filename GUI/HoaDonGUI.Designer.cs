@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HoaDonGUI));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.flpFilter = new System.Windows.Forms.FlowLayoutPanel();
             this.chkNgay = new GUI.MyCustom.BiggerCheckBox();
@@ -39,7 +39,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dtpNgayEnd = new GUI.MyCustom.RJDatePicker();
             this.lblErrTuoiFilter = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.btnExport = new GUI.MyCustom.RJButton();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.cbxTimKiem = new GUI.MyCustom.RJComboBox();
@@ -62,15 +61,15 @@
             // 
             // panel3
             // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.flpFilter);
-            this.panel3.Controls.Add(this.label5);
+            this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.btnExport);
             this.panel3.Controls.Add(this.flowLayoutPanel4);
             this.panel3.Controls.Add(this.dgvXemThongTinHoaDon);
-            this.panel3.Location = new System.Drawing.Point(2, -18);
+            this.panel3.Controls.Add(this.flpFilter);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1172, 782);
+            this.panel3.Size = new System.Drawing.Size(1176, 763);
             this.panel3.TabIndex = 7;
             // 
             // flpFilter
@@ -135,7 +134,6 @@
             this.dtpNgayStart.CalendarForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dtpNgayStart.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
             this.dtpNgayStart.CustomFormat = "dd/MM/yyyy";
-            this.dtpNgayStart.Enabled = false;
             this.dtpNgayStart.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpNgayStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpNgayStart.Location = new System.Drawing.Point(129, 20);
@@ -170,7 +168,6 @@
             this.dtpNgayEnd.CalendarForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dtpNgayEnd.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
             this.dtpNgayEnd.CustomFormat = "dd/MM/yyyy";
-            this.dtpNgayEnd.Enabled = false;
             this.dtpNgayEnd.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpNgayEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpNgayEnd.Location = new System.Drawing.Point(317, 20);
@@ -199,38 +196,29 @@
             this.lblErrTuoiFilter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblErrTuoiFilter.Visible = false;
             // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(972, 26);
-            this.label5.Margin = new System.Windows.Forms.Padding(0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(133, 37);
-            this.label5.TabIndex = 33;
-            this.label5.Text = "Export Excel";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // btnExport
             // 
             this.btnExport.AutoSize = true;
             this.btnExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
             this.btnExport.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
             this.btnExport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.btnExport.BorderRadius = 0;
+            this.btnExport.BorderRadius = 4;
             this.btnExport.BorderSize = 2;
             this.btnExport.FlatAppearance.BorderSize = 0;
             this.btnExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
             this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExport.ForeColor = System.Drawing.Color.White;
+            this.btnExport.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.ForeColor = System.Drawing.Color.Black;
             this.btnExport.Image = ((System.Drawing.Image)(resources.GetObject("btnExport.Image")));
-            this.btnExport.Location = new System.Drawing.Point(918, 25);
+            this.btnExport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExport.Location = new System.Drawing.Point(972, 19);
             this.btnExport.Margin = new System.Windows.Forms.Padding(120, 8, 10, 0);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(44, 38);
+            this.btnExport.Size = new System.Drawing.Size(168, 42);
             this.btnExport.TabIndex = 32;
-            this.btnExport.TextColor = System.Drawing.Color.White;
+            this.btnExport.Text = "         Export Excel";
+            this.btnExport.TextColor = System.Drawing.Color.Black;
             this.btnExport.UseVisualStyleBackColor = false;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
@@ -243,7 +231,7 @@
             this.flowLayoutPanel4.Controls.Add(this.btnFilter);
             this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(897, 54);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(952, 54);
             this.flowLayoutPanel4.TabIndex = 2;
             // 
             // cbxTimKiem
@@ -262,7 +250,7 @@
             this.cbxTimKiem.MinimumSize = new System.Drawing.Size(100, 30);
             this.cbxTimKiem.Name = "cbxTimKiem";
             this.cbxTimKiem.Padding = new System.Windows.Forms.Padding(2);
-            this.cbxTimKiem.Size = new System.Drawing.Size(172, 30);
+            this.cbxTimKiem.Size = new System.Drawing.Size(172, 33);
             this.cbxTimKiem.TabIndex = 4;
             this.cbxTimKiem.Texts = "";
             this.cbxTimKiem.OnSelectedIndexChanged += new System.EventHandler(this.cbxTimKiem_OnSelectedIndexChanged);
@@ -287,7 +275,7 @@
             this.txtTimKiem.PlaceholderColor = System.Drawing.Color.DimGray;
             this.txtTimKiem.PlaceholderText = "Nhập thông tin tìm kiếm";
             this.txtTimKiem.ReadOnly = false;
-            this.txtTimKiem.Size = new System.Drawing.Size(606, 32);
+            this.txtTimKiem.Size = new System.Drawing.Size(650, 32);
             this.txtTimKiem.TabIndex = 1;
             this.txtTimKiem.Texts = "";
             this.txtTimKiem.UnderlinedStyle = true;
@@ -304,7 +292,7 @@
             this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimKiem.ForeColor = System.Drawing.Color.White;
             this.btnTimKiem.Image = global::GUI.Properties.Resources.icons8_search_32;
-            this.btnTimKiem.Location = new System.Drawing.Point(797, 8);
+            this.btnTimKiem.Location = new System.Drawing.Point(841, 8);
             this.btnTimKiem.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(29, 32);
@@ -327,10 +315,10 @@
             this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFilter.ForeColor = System.Drawing.Color.White;
             this.btnFilter.Image = global::GUI.Properties.Resources.icons8_filter_32;
-            this.btnFilter.Location = new System.Drawing.Point(844, 8);
+            this.btnFilter.Location = new System.Drawing.Point(888, 8);
             this.btnFilter.Margin = new System.Windows.Forms.Padding(15, 8, 0, 0);
             this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(44, 36);
+            this.btnFilter.Size = new System.Drawing.Size(44, 37);
             this.btnFilter.TabIndex = 5;
             this.btnFilter.TextColor = System.Drawing.Color.White;
             this.btnFilter.UseVisualStyleBackColor = false;
@@ -345,14 +333,14 @@
             this.dgvXemThongTinHoaDon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvXemThongTinHoaDon.BackgroundColor = System.Drawing.Color.White;
             this.dgvXemThongTinHoaDon.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvXemThongTinHoaDon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvXemThongTinHoaDon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvXemThongTinHoaDon.ColumnHeadersHeight = 28;
             this.dgvXemThongTinHoaDon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaHD,
@@ -362,14 +350,14 @@
             this.TongTien,
             this.DiemNhanDuoc,
             this.TenNV});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvXemThongTinHoaDon.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvXemThongTinHoaDon.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvXemThongTinHoaDon.EnableHeadersVisualStyles = false;
             this.dgvXemThongTinHoaDon.GridColor = System.Drawing.Color.Black;
             this.dgvXemThongTinHoaDon.Location = new System.Drawing.Point(3, 72);
@@ -381,7 +369,7 @@
             this.dgvXemThongTinHoaDon.RowTemplate.Height = 30;
             this.dgvXemThongTinHoaDon.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvXemThongTinHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvXemThongTinHoaDon.Size = new System.Drawing.Size(1176, 705);
+            this.dgvXemThongTinHoaDon.Size = new System.Drawing.Size(1161, 705);
             this.dgvXemThongTinHoaDon.TabIndex = 1;
             this.dgvXemThongTinHoaDon.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvXemThongTinHoaDon_CellDoubleClick);
             this.dgvXemThongTinHoaDon.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvXemThongTinHoaDon_CellFormatting);
@@ -469,7 +457,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label5;
         private MyCustom.RJButton btnExport;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private MyCustom.RJComboBox cbxTimKiem;

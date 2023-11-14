@@ -1,4 +1,8 @@
-﻿using GUI.MyCustom;
+﻿using AForge.Video.DirectShow;
+using BLL;
+using DevExpress.XtraReports.UI;
+using DTO;
+using GUI.MyCustom;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,16 +26,109 @@ namespace GUI
         List<Panel> allPnLeftBorders = new List<Panel>();
         List<Panel> allSubPanels = new List<Panel>();
         List<RJButton> allBtns = new List<RJButton>();
-        public GiaoDienGUI()
+        private string maNV;
+        private string tenPQ;
+        private NhanVienBLL nvBLL = new NhanVienBLL();
+        private List<NhanVienDTO> listNhanVien;
+        private PhanQuyenDTO pq;
+        private PhanQuyenBLL pqBLL;
+        public GiaoDienGUI(string maNV, string tenPQ)
         {
             InitializeComponent();
+            pqBLL = new PhanQuyenBLL();
 
+            this.maNV = maNV;
+            this.tenPQ = tenPQ;
+            Console.WriteLine(tenPQ);
+            getDetailPhanQuyen();
+            nvBLL = new NhanVienBLL();
+            listNhanVien = nvBLL.getListNV();
             addAllPnContainer();
             addAllPnLeftBorders();
             addAllPnSubPanels();
             addAllBtns();
-            Console.WriteLine(123);
+            lblHoTenNV.Text = getHoTenByMaNV(maNV);
+            lblChucVu.Text = tenPQ;
+        }
 
+        private void getDetailPhanQuyen()
+        {
+            pq = pqBLL.getPhanQuyen(tenPQ);
+
+            List<Panel> pnToCheck = new List<Panel>
+    {
+        pnBanHang, pnHoaDon, pnNhapHang, pnPhieuNhap, pnKhachHang,
+        pnNhanVien, pnSanPham, pnDanhMuc, pnNhaSanXuat,
+        pnKhuyenMai, pnNhaCungCap, pnThongKe, pnTaiKhoan
+    };
+
+            foreach (Panel panel in pnToCheck)
+            {
+                if (panel == pnBanHang && pq.IsBanHang == 0)
+                {
+                    panel.Visible = false;
+                }
+                else if (panel == pnHoaDon && pq.IsHoaDon == 0)
+                {
+                    panel.Visible = false;
+                }
+                else if (panel == pnNhapHang && pq.IsNhapHang == 0)
+                {
+                    panel.Visible = false;
+                }
+                else if (panel == pnPhieuNhap && pq.IsPhieuNhap == 0)
+                {
+                    panel.Visible = false;
+                }
+                else if (panel == pnKhachHang && pq.IsKhachHang == 0)
+                {
+                    panel.Visible = false;
+                }
+                else if (panel == pnNhanVien && pq.IsNhanVien == 0)
+                {
+                    panel.Visible = false;
+                }
+                else if (panel == pnSanPham && pq.IsSanPham == 0)
+                {
+                    panel.Visible = false;
+                }
+                else if (panel == pnDanhMuc && pq.IsLoai == 0)
+                {
+                    panel.Visible = false;
+                }
+                else if (panel == pnNhaSanXuat && pq.IsNhaSanXuat == 0)
+                {
+                    panel.Visible = false;
+                }
+
+                else if (panel == pnKhuyenMai && pq.IsKhuyenMai == 0)
+                {
+                    panel.Visible = false;
+                }
+                else if (panel == pnNhaCungCap && pq.IsNhaCungCap == 0)
+                {
+                    panel.Visible = false;
+                }
+                else if (panel == pnThongKe && pq.IsThongKe == 0)
+                {
+                    panel.Visible = false;
+                }
+                else if (panel == pnTaiKhoan && pq.IsTaiKhoan == 0)
+                {
+                    panel.Visible = false;
+                }
+            }
+        }
+
+        private string getHoTenByMaNV(string maNV)
+        {
+            var nhanVien = listNhanVien.FirstOrDefault(nv => nv.MaNV == maNV);
+            if (nhanVien != null)
+            {
+                string hoTen = $"{nhanVien.Ho} {nhanVien.Ten}";
+                return hoTen;
+            }
+            return string.Empty;
         }
         private void addAllPnContainer()
         {
@@ -48,6 +145,9 @@ namespace GUI
             allPanels.Add(pnNhapHangContainer);
             allPanels.Add(pnThongKeContainer);
             allPanels.Add(pnTaiKhoanContainer);
+            allPanels.Add(pnPhieuNhapContainer);
+            allPanels.Add(pnHoaDonContainer);
+
         }
         private void addAllPnLeftBorders()
         {
@@ -64,12 +164,15 @@ namespace GUI
             allPnLeftBorders.Add(pnLeftBorderKhuyenMai);
             allPnLeftBorders.Add(pnLeftBorderThongKe);
             allPnLeftBorders.Add(pnLeftBorderTaiKhoan);
+            allPnLeftBorders.Add(pnLeftBorderPhieuNhap);
+            allPnLeftBorders.Add(pnLeftBorderHoaDon);
+
         }
 
         private void addAllPnSubPanels()
         {
             allSubPanels.Add(pnSubHangHoa);
-            
+
             allSubPanels.Add(pnSubQuanLy);
         }
 
@@ -83,23 +186,23 @@ namespace GUI
         private void GiaoDienGUI_Load(object sender, EventArgs e)
         {
             pnSubQuanLy.Visible = false;
-            
+
 
         }
         private void hideSubMenu(Panel pn, object rjBtn)
         {
-            foreach(Panel tempPn in allSubPanels)
+            foreach (Panel tempPn in allSubPanels)
             {
 
                 if (tempPn != pn)
                 {
-                    
+
                     tempPn.Visible = false;
                 }
             }
-            if(rjBtn is RJButton)
+            if (rjBtn is RJButton)
             {
-                
+
                 RJButton clickedButton = (RJButton)rjBtn;
                 foreach (RJButton button in allBtns)
                 {
@@ -128,6 +231,7 @@ namespace GUI
         //}
         private void showSubMenu(Panel subMenu)
         {
+
             if (subMenu.Visible == false)
             {
                 subMenu.Visible = true;
@@ -153,15 +257,19 @@ namespace GUI
             childForm.BringToFront();
             childForm.Show();
         }
-
+        
         private void btnClose_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+           
+            
+            Application.Exit();
+           
+
         }
 
         private void pnQuanLyContainer_Click(object sender, EventArgs e)
         {
-          
+
             if (sender is RJButton)
             {
                 RJButton clickedButton = (RJButton)sender;
@@ -264,14 +372,14 @@ namespace GUI
                     }
                 }
                 foreach (RJButton button in allBtns)
-                {                
-                        button.BackColor = Color.Transparent; // hoặc màu nền mặc định của bạn
+                {
+                    button.BackColor = Color.Transparent; // hoặc màu nền mặc định của bạn
                 }
                 // Đặt màu của RJButton được nhấn
                 clickedButton.BackColor = Color.White;
                 pnLeftBorderKhachHang.BackColor = Color.FromArgb(58, 191, 186);
                 // Mở form con tương ứng (KhachHangGUI)
-                openChildForm(new KhachHangGUI());
+                openChildForm(new KhachHangGUI(pq.IsKhachHang));
             }
         }
 
@@ -336,7 +444,7 @@ namespace GUI
                 clickedButton.BackColor = Color.White;
                 pnLeftBorderBanHang.BackColor = Color.FromArgb(58, 191, 186);
                 // Mở form con tương ứng (KhachHangGUI)
-                openChildForm(new BanHangGUI());
+                openChildForm(new BanHangGUI(lblHoTenNV.Text));
             }
         }
 
@@ -369,7 +477,7 @@ namespace GUI
                 clickedButton.BackColor = Color.White;
                 pnLeftBorderSanPham.BackColor = Color.FromArgb(58, 191, 186);
                 // Mở form con tương ứng (KhachHangGUI)
-                openChildForm(new SanPhamGUI());
+                openChildForm(new SanPhamGUI(pq.IsSanPham));
             }
         }
 
@@ -473,7 +581,7 @@ namespace GUI
                 clickedButton.BackColor = Color.White;
                 pnLeftBorderKhuyenMai.BackColor = Color.FromArgb(58, 191, 186);
                 // Mở form con tương ứng (KhachHangGUI)
-                openChildForm(new KhuyenMaiGUI());
+                openChildForm(new KhuyenMaiGUI(pq.IsKhuyenMai));
             }
         }
         private void pnNhaCCContainer_Click(object sender, EventArgs e)
@@ -505,7 +613,7 @@ namespace GUI
                 clickedButton.BackColor = Color.White;
                 pnLeftBorderNhaCC.BackColor = Color.FromArgb(58, 191, 186);
                 // Mở form con tương ứng (KhachHangGUI)
-                openChildForm(new NhaCCGUI());
+                openChildForm(new NhaCCGUI(pq.IsNhaCungCap));
             }
         }
 
@@ -538,7 +646,7 @@ namespace GUI
                 clickedButton.BackColor = Color.White;
                 pnLeftBorderNhapHang.BackColor = Color.FromArgb(58, 191, 186);
                 // Mở form con tương ứng (KhachHangGUI)
-                openChildForm(new NhapHangGUI());
+                openChildForm(new NhapHangGUI(lblHoTenNV.Text));
             }
         }
 
@@ -606,7 +714,7 @@ namespace GUI
                 }
                 clickedButton.BackColor = Color.White;
                 pnLeftBorderTaiKhoan.BackColor = Color.FromArgb(58, 191, 186);
-                openChildForm(new TaiKhoanGUI());
+                openChildForm(new TaiKhoanGUI(pq.IsTaiKhoan, maNV));
             }
             hideSubMenu(pnSubQuanLy, sender);
 
@@ -614,7 +722,9 @@ namespace GUI
 
         }
 
-        private void rjButton4_Click(object sender, EventArgs e)
+
+
+        private void pnPhieuNhapContainer_Click(object sender, EventArgs e)
         {
             if (sender is RJButton)
             {
@@ -630,7 +740,7 @@ namespace GUI
                 }
                 foreach (Panel pn in allPnLeftBorders)
                 {
-                    if (pn != pnLeftBorderNhapHang)
+                    if (pn != pnLeftBorderPhieuNhap)
                     {
                         pn.BackColor = Color.Transparent;
                     }
@@ -641,13 +751,13 @@ namespace GUI
                 }
                 // Đặt màu của RJButton được nhấn
                 clickedButton.BackColor = Color.White;
-                pnLeftBorderNhapHang.BackColor = Color.FromArgb(58, 191, 186);
+                pnLeftBorderPhieuNhap.BackColor = Color.FromArgb(58, 191, 186);
                 // Mở form con tương ứng (KhachHangGUI)
-                openChildForm(new HoaDonGUI());
+                openChildForm(new XemPhieuNhapGUI());
             }
         }
 
-        private void rjButton6_Click(object sender, EventArgs e)
+        private void pnHoaDonContainer_Click(object sender, EventArgs e)
         {
             if (sender is RJButton)
             {
@@ -663,7 +773,7 @@ namespace GUI
                 }
                 foreach (Panel pn in allPnLeftBorders)
                 {
-                    if (pn != pnLeftBorderNhapHang)
+                    if (pn != pnLeftBorderHoaDon)
                     {
                         pn.BackColor = Color.Transparent;
                     }
@@ -674,9 +784,9 @@ namespace GUI
                 }
                 // Đặt màu của RJButton được nhấn
                 clickedButton.BackColor = Color.White;
-                pnLeftBorderNhapHang.BackColor = Color.FromArgb(58, 191, 186);
+                pnLeftBorderHoaDon.BackColor = Color.FromArgb(58, 191, 186);
                 // Mở form con tương ứng (KhachHangGUI)
-                openChildForm(new XemPhieuNhapGUI());
+                openChildForm(new HoaDonGUI(pq.IsHoaDon));
             }
         }
     }

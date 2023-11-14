@@ -29,7 +29,7 @@ namespace GUI
         private bool isKoHD = false;
         private string statusCondition = "";
 
-        public KhuyenMaiGUI()
+        public KhuyenMaiGUI(int isKhuyenMai)
         {
             
             InitializeComponent();
@@ -39,7 +39,21 @@ namespace GUI
             dt = kmBLL.getListDsKm();
             loadMaKM();
             loadDataToCBX(cbxTimKiem);
-
+            checkQuyen(isKhuyenMai);
+        }
+        private void checkQuyen(int quyen)
+        {
+            if (quyen == 1)
+            {
+                
+                btnThem.Enabled = false;
+                btnSua.Enabled = false;
+                btnXoa.Enabled = false;
+                cbxTrangThai.Enabled = false;
+                dtpNgayBD.Enabled = false;
+                dtpNgayKT.Enabled   = false;
+                
+            }
         }
 
         private void loadMaKM()

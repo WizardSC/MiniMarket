@@ -35,6 +35,11 @@ namespace BLL
 
             return nvDAL.getListNhanVienHasTK();
         }
+
+        public DataTable getCurrentNVHasTK(string maNV)
+        {
+            return nvDAL.getCurrentNVHasTK(maNV);
+        }
         public bool insertNhanVien(NhanVienDTO nv)
         {
             return nvDAL.insertNhanVien(nv);
