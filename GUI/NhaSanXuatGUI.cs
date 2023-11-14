@@ -56,11 +56,11 @@ namespace GUI
             String TenNSX = CheckAndSetColor(txtTenNSX, label14);
             String DiaChi = CheckAndSetColor(txtDiaChi, label15);
             String SoDT = CheckAndSetColor(txtSoDT, label18);
-            //String trangThai = CheckAndSetColor(cbxTrangThai, label6);
-            string trangThai = cbxTrangThai.SelectedItem.ToString();
+            String trangThai = CheckAndSetColor(cbxTrangThai, label6);
+           // string trangThai = cbxTrangThai.SelectedItem.ToString();
             int trangThaiValue = (trangThai == "Hoạt động") ? 1 : 0;
 
-            if (!(MaNSX != "" && TenNSX != "" && DiaChi != "" && SoDT != "" && trangThai != "`--Chọn trạng thái--`"))
+            if (!(MaNSX != "" && TenNSX != "" && DiaChi != "" && SoDT != "" && trangThai != ""))
             {
                 return;
             }
@@ -102,7 +102,7 @@ namespace GUI
                 label.ForeColor = string.IsNullOrWhiteSpace(text) ? Color.FromArgb(230, 76, 89) : Color.Transparent;
                 return text;
             }
-            else if (control is RJComboBox comboBox)
+            else if (control is ComboBox comboBox)
             {
                 string selectedValue = comboBox.SelectedItem?.ToString();
                 if (string.IsNullOrWhiteSpace(selectedValue))
@@ -146,7 +146,7 @@ namespace GUI
             txtTenNSX.Texts = "";
             txtDiaChi.Texts = "";
             txtSoDT.Texts = "";
-            cbxTrangThai.Text = "--Chọn trạng thái--";
+            cbxTrangThai.Text = "Hoạt động";
         }
 
         private void NhaSanXuatGUI_Load(object sender, EventArgs e)
@@ -510,6 +510,18 @@ namespace GUI
             }
 
             statusCondition = string.Join(" OR ", statusConditions);
+        }
+
+       
+
+        private void rjComboBox1_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            CheckAndSetColor(cbxTrangThai, label6);
+        }
+
+        private void cbxTrangThai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 
