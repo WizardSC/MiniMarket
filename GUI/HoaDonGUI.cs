@@ -31,7 +31,6 @@ namespace GUI
         {
             HdBLL = new HoaDonBLL();
             InitializeComponent();
-           
             loadDataToCBX(cbxTimKiem);
 
         }
@@ -281,6 +280,7 @@ namespace GUI
             if(startDate > endDate)
             {
                 lblErrTuoiFilter.Visible = true;
+                btnTimKiem_Click(sender, e);
             }
             else
             {
