@@ -290,5 +290,61 @@ namespace GUI
                 btnTimKiem_Click(sender, e);
             }
         }
+
+        private void rjButton1_Click(object sender, EventArgs e)
+        {
+            // Tạo một bảng ExcelPackage
+            using (ExcelPackage excelPackage = new ExcelPackage())
+            {
+                // Tạo một worksheet mới
+                ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Dữ liệu");
+
+                // Lấy dữ liệu từ DataTable
+                DataTable dataTable = (DataTable)dgvThongTinPhieuNhap.DataSource; // Hãy  lấy dữ liệu thực tế
+
+
+                // Số hàng và cột
+                int rowCount = dataTable.Rows.Count;
+                int colCount = dataTable.Columns.Count;
+
+                // Đổ tên cột vào Excel
+                for (int j = 1; j <= colCount; j++)
+                {
+                    // Đặt giá trị của cột hiện tại là tên cột
+                    //  worksheet.Cells[1, j].Value = dataTable.Columns[j - 1].ColumnName;
+                    worksheet.Cells[1, j].Value = dgvThongTinPhieuNhap.Columns[j - 1].HeaderText;
+
+                }
+
+                // Đổ dữ liệu từ DataTable vào Excel
+                for (int i = 1; i <= rowCount; i++)
+                {
+                    for (int j = 1; j <= colCount; j++)
+                    {
+                        //worksheet.Cells[i + 1, j].Value = dataTable.Rows[i - 1][j - 1];
+                        if (dataTable.Columns[j - 1].DataType == typeof(DateTime))
+                        {
+                            // Nếu cột là kiểu dữ liệu DateTime, định dạng ngày thích hợp trước khi ghi vào Excel
+                            worksheet.Cells[i + 1, j].Value = ((DateTime)dataTable.Rows[i - 1][j - 1]).ToString("dd/MM/yyyy"); ;
+                        }
+                        else
+                        {
+                            // Các kiểu dữ liệu khác thì ghi trực tiếp
+                            worksheet.Cells[i + 1, j].Value = dataTable.Rows[i - 1][j - 1];
+                        }
+                    }
+                }
+                // Lưu tệp Excel
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Excel Files|*.xlsx";
+                saveFileDialog.Title = "Lưu tệp Excel";
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    FileInfo file = new FileInfo(saveFileDialog.FileName);
+                    excelPackage.SaveAs(file);
+                    MessageBox.Show("Xuất Excel thành công!");
+                }
+            }
+        }
     }
 }
