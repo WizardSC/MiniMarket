@@ -56,8 +56,8 @@ namespace GUI
             String TenNSX = CheckAndSetColor(txtTenNSX, label14);
             String DiaChi = CheckAndSetColor(txtDiaChi, label15);
             String SoDT = CheckAndSetColor(txtSoDT, label18);
-            String trangThai = CheckAndSetColor(cbxTrangThai, label6);
-            //string trangThai = cbxTrangThai.SelectedItem.ToString();
+            //String trangThai = CheckAndSetColor(cbxTrangThai, label6);
+            string trangThai = cbxTrangThai.SelectedItem.ToString();
             int trangThaiValue = (trangThai == "Hoạt động") ? 1 : 0;
 
             if (!(MaNSX != "" && TenNSX != "" && DiaChi != "" && SoDT != "" && trangThai != "`--Chọn trạng thái--`"))
