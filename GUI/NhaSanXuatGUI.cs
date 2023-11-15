@@ -57,10 +57,10 @@ namespace GUI
             String DiaChi = CheckAndSetColor(txtDiaChi, label15);
             String SoDT = CheckAndSetColor(txtSoDT, label18);
             String trangThai = CheckAndSetColor(cbxTrangThai, label6);
-            //string trangThai = cbxTrangThai.SelectedItem.ToString();
+           // string trangThai = cbxTrangThai.SelectedItem.ToString();
             int trangThaiValue = (trangThai == "Hoạt động") ? 1 : 0;
 
-            if (!(MaNSX != "" && TenNSX != "" && DiaChi != "" && SoDT != "" && trangThai != "`--Chọn trạng thái--`"))
+            if (!(MaNSX != "" && TenNSX != "" && DiaChi != "" && SoDT != "" && trangThai != ""))
             {
                 return;
             }
@@ -73,7 +73,8 @@ namespace GUI
                     "Thông báo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
-                    dgvNSX.DataSource = nsxBLL.getListNSX();
+                init();
+                clearForm();
 
             }
             else
@@ -102,7 +103,7 @@ namespace GUI
                 label.ForeColor = string.IsNullOrWhiteSpace(text) ? Color.FromArgb(230, 76, 89) : Color.Transparent;
                 return text;
             }
-            else if (control is RJComboBox comboBox)
+            else if (control is ComboBox comboBox)
             {
                 string selectedValue = comboBox.SelectedItem?.ToString();
                 if (string.IsNullOrWhiteSpace(selectedValue))
@@ -120,16 +121,14 @@ namespace GUI
         }
         private void loadMaNSX()
         {
-            string lastMaNSX = null;
-            foreach (DataRow row in dt.Rows)
-            {
-                lastMaNSX = row["MaNSX"].ToString();
-            }
-            if (lastMaNSX == "")
+            string mansx;
+            nsxBLL = new NhaSanXuatBLL();
+            mansx = nsxBLL.getMaxMaNhaSX();
+            if (mansx == "")
             {
                 txtMaNSX.Texts = "NSX001";
             }
-            int tempNum = int.Parse(lastMaNSX.Substring(3));
+            int tempNum = int.Parse(mansx.Substring(3));
             if ((tempNum + 1) >= 10)
             {
                 txtMaNSX.Texts = "NSX0" + (tempNum + 1).ToString();
@@ -146,7 +145,7 @@ namespace GUI
             txtTenNSX.Texts = "";
             txtDiaChi.Texts = "";
             txtSoDT.Texts = "";
-            cbxTrangThai.Text = "--Chọn trạng thái--";
+            cbxTrangThai.Text = "Hoạt động";
         }
 
         private void NhaSanXuatGUI_Load(object sender, EventArgs e)
@@ -175,7 +174,6 @@ namespace GUI
                     "Thông báo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
-                loadMaNSX();
                 init();
                 clearForm();
 
@@ -207,12 +205,14 @@ namespace GUI
 
         public void init()
         {
+            loadMaNSX();
             dgvNSX.DataSource = nsxBLL.getListNSX();
 
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
+            init();
             clearForm();
         }
 
@@ -244,8 +244,35 @@ namespace GUI
             int trangThai = (stringTrangThai == "Hoạt động") ? 1 : 0;
             if (trangThai == 0)
             {
-                var choice1 = MessageBox.Show("Đã chuyển về không hoạt động", "Thông báo");
-                clearForm();
+                bool isLoiKhoaNgoai;
+                var choice2 = MessageBox.Show("Xóa loại này này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (choice2 == DialogResult.Yes)
+                {
+                    if (nsxBLL.delete_nhasanxuat(MaNSX, out isLoiKhoaNgoai))
+                    {
+                        MessageBox.Show("Xóa thành công",
+                          "Thông báo",
+                          MessageBoxButtons.OK,
+                          MessageBoxIcon.Information);
+                        init();
+                        clearForm();
+
+
+
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể xóa nhà sản xuất này vì có tồn tại khóa ngoại",
+                          "Thông báo",
+                          MessageBoxButtons.OK,
+                          MessageBoxIcon.Information);
+                        init();
+                        clearForm();
+                    }
+                }
+
+
 
             }
             else
@@ -510,6 +537,18 @@ namespace GUI
             }
 
             statusCondition = string.Join(" OR ", statusConditions);
+        }
+
+       
+
+        private void rjComboBox1_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            CheckAndSetColor(cbxTrangThai, label6);
+        }
+
+        private void cbxTrangThai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

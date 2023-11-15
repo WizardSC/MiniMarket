@@ -37,7 +37,29 @@ namespace DAO
             }
             return dt;
         }
-
+            
+        public string getMaxMaLoai()
+        {
+            string result = "";
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT MAX(MaLoai) FROM LoaiSP";
+                cmd.Connection = conn;
+                result = cmd.ExecuteScalar()?.ToString();
+            }
+            catch (Exception ex)
+            {
+                return ""; // hoặc có thể xử lý exception theo nhu cầu của bạn
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return result;
+        }
         public DataTable getListLoaiMini()
         {
             DataTable dt = new DataTable();

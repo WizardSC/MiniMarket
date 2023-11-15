@@ -39,6 +39,8 @@ namespace DAL
             return dt;
         }
 
+
+
         public DataTable getListNhaSanXuatMini()
         {
             DataTable dt = new DataTable();
@@ -65,6 +67,28 @@ namespace DAL
             return dt;
         }
 
+        public string getMaxMaNhaSX()
+        {
+            string result = "";
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT MAX(MaNSX) FROM NhaSanXuat";
+                cmd.Connection = conn;
+                result = cmd.ExecuteScalar()?.ToString();
+            }
+            catch (Exception ex)
+            {
+                return ""; // hoặc có thể xử lý exception theo nhu cầu của bạn
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return result;
+        }
         public bool insertNhaSanXuat(NhaSanXuatDTO nsx)
         {
             try

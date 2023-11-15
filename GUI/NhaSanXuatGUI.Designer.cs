@@ -54,7 +54,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.cbxTrangThai = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
@@ -73,6 +72,7 @@
             this.txtTimKiem = new GUI.MyCustom.RJTextBox();
             this.btnTimKiem = new GUI.MyCustom.RJButton();
             this.btnFilter = new GUI.MyCustom.RJButton();
+            this.cbxTrangThai = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.flpFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNSX)).BeginInit();
@@ -398,7 +398,7 @@
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Padding = new System.Windows.Forms.Padding(0, 0, 27, 0);
-            this.label18.Size = new System.Drawing.Size(315, 25);
+            this.label18.Size = new System.Drawing.Size(364, 25);
             this.label18.TabIndex = 25;
             this.label18.Text = "* Bạn phải nhập số ĐT";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -415,21 +415,6 @@
             this.label5.Text = "Trạng Thái";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // cbxTrangThai
-            // 
-            this.cbxTrangThai.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxTrangThai.FormattingEnabled = true;
-            this.cbxTrangThai.Items.AddRange(new object[] {
-            "Hoạt động",
-            "Không hoạt động"});
-            this.cbxTrangThai.Location = new System.Drawing.Point(139, 268);
-            this.cbxTrangThai.Margin = new System.Windows.Forms.Padding(4);
-            this.cbxTrangThai.MinimumSize = new System.Drawing.Size(132, 0);
-            this.cbxTrangThai.Name = "cbxTrangThai";
-            this.cbxTrangThai.Size = new System.Drawing.Size(228, 31);
-            this.cbxTrangThai.TabIndex = 27;
-            this.cbxTrangThai.Text = "--Chọn trạng thái--";
-            // 
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -438,7 +423,7 @@
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Padding = new System.Windows.Forms.Padding(0, 0, 27, 0);
-            this.label6.Size = new System.Drawing.Size(351, 25);
+            this.label6.Size = new System.Drawing.Size(365, 30);
             this.label6.TabIndex = 28;
             this.label6.Text = "* Bạn phải nhập trạng thái";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -826,6 +811,21 @@
             this.btnFilter.UseVisualStyleBackColor = false;
             this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
+            // cbxTrangThai
+            // 
+            this.cbxTrangThai.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxTrangThai.FormattingEnabled = true;
+            this.cbxTrangThai.Items.AddRange(new object[] {
+            "Hoạt động",
+            "Không hoạt động"});
+            this.cbxTrangThai.Location = new System.Drawing.Point(139, 268);
+            this.cbxTrangThai.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxTrangThai.MinimumSize = new System.Drawing.Size(132, 0);
+            this.cbxTrangThai.Name = "cbxTrangThai";
+            this.cbxTrangThai.Size = new System.Drawing.Size(230, 31);
+            this.cbxTrangThai.TabIndex = 29;
+            this.cbxTrangThai.Text = "Hoạt động";
+            // 
             // NhaSanXuatGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -880,7 +880,6 @@
         private MyCustom.RJButton btnFilter;
         private System.Windows.Forms.DataGridView dgvNSX;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cbxTrangThai;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.FlowLayoutPanel flpFilter;
         private MyCustom.BiggerCheckBox chkTrangThai;
@@ -894,5 +893,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
+        private System.Windows.Forms.ComboBox cbxTrangThai;
     }
 }

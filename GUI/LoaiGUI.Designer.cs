@@ -590,7 +590,8 @@
             this.cbxTrangThai.Name = "cbxTrangThai";
             this.cbxTrangThai.Size = new System.Drawing.Size(228, 31);
             this.cbxTrangThai.TabIndex = 28;
-            this.cbxTrangThai.Text = "--Chọn trạng thái--";
+            this.cbxTrangThai.Text = "Hoạt Động";
+            this.cbxTrangThai.SelectedIndexChanged += new System.EventHandler(this.cbxTrangThai_SelectedIndexChanged);
             // 
             // label3
             // 
