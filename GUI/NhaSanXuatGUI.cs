@@ -73,7 +73,8 @@ namespace GUI
                     "Thông báo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
-                    dgvNSX.DataSource = nsxBLL.getListNSX();
+                init();
+                clearForm();
 
             }
             else
@@ -120,16 +121,14 @@ namespace GUI
         }
         private void loadMaNSX()
         {
-            string lastMaNSX = null;
-            foreach (DataRow row in dt.Rows)
-            {
-                lastMaNSX = row["MaNSX"].ToString();
-            }
-            if (lastMaNSX == "")
+            string mansx;
+            nsxBLL = new NhaSanXuatBLL();
+            mansx = nsxBLL.getMaxMaNhaSX();
+            if (mansx == "")
             {
                 txtMaNSX.Texts = "NSX001";
             }
-            int tempNum = int.Parse(lastMaNSX.Substring(3));
+            int tempNum = int.Parse(mansx.Substring(3));
             if ((tempNum + 1) >= 10)
             {
                 txtMaNSX.Texts = "NSX0" + (tempNum + 1).ToString();
@@ -175,7 +174,6 @@ namespace GUI
                     "Thông báo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
-                loadMaNSX();
                 init();
                 clearForm();
 
@@ -207,12 +205,14 @@ namespace GUI
 
         public void init()
         {
+            loadMaNSX();
             dgvNSX.DataSource = nsxBLL.getListNSX();
 
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
+            init();
             clearForm();
         }
 

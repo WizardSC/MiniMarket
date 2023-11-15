@@ -77,45 +77,18 @@ namespace GUI
 
             return null; // Nếu kiểu dữ liệu không hợp lệ.
         }
+     
         private void loadMaLoai()
         {
+            string maLoai;
 
-            string newMaLoai;
-            string lastMaLoai = null;
-
-            foreach (DataRow row in dt.Rows)
-            {
-                lastMaLoai = row["MaLoai"].ToString();
-            }
-
-            int nextNumber = 1;
-
-            if (!string.IsNullOrEmpty(lastMaLoai))
-            {
-                // Nếu có dữ liệu, tìm giá trị lớn nhất và tăng lên 1
-                int tempNum = int.Parse(lastMaLoai.Substring(1)) + 1;
-                nextNumber = tempNum;
-            }
-
-            // Kiểm tra xem mã mới đã tồn tại hay chưa
-            while (dt.AsEnumerable().Any(row => row["MaLoai"].ToString() == "L" + nextNumber.ToString("D3")))
-            {
-                nextNumber++;
-            }
-
-            newMaLoai = "L" + nextNumber.ToString("D3");
-            txtMaLoai.Texts = newMaLoai;
-
-            /*string lastMaLoai = null;
-            foreach (DataRow row in dt.Rows)
-            {
-                lastMaLoai = row["MaLoai"].ToString();
-            }
-            if (lastMaLoai == "")
+            loaibill = new LoaiBLL();
+            maLoai = loaibill.getMaxMaLoai();
+            if (maLoai == "")
             {
                 txtMaLoai.Texts = "L001";
             }
-            int tempNum = int.Parse(lastMaLoai.Substring(2));
+            int tempNum = int.Parse(maLoai.Substring(2));
             if ((tempNum + 1) >= 10)
             {
                 txtMaLoai.Texts = "L0" + (tempNum + 1).ToString();
@@ -123,39 +96,13 @@ namespace GUI
             else if (tempNum >= 1 && tempNum < 9)
             {
                 txtMaLoai.Texts = "L00" + (tempNum + 1).ToString();
-            }*/
-        }
-
-        private void loadMaLoai12()
-        {
-
-            string lastMaLoai = txtMaLoai.Texts;
-
-            // Kiểm tra xem lastMaLoai đã tồn tại trong danh sách hay chưa
-            if (dt.AsEnumerable().Any(row => row["MaLoai"].ToString() == lastMaLoai))
-            {
-                int nextNumber = 1;
-
-                // Nếu có dữ liệu, tìm giá trị lớn nhất và tăng lên 1
-                if (dt.Rows.Count > 0)
-                {
-                    int tempNum = int.Parse(dt.AsEnumerable().Max(row => row["MaLoai"].ToString()).Substring(1)) + 1;
-                    nextNumber = tempNum;
-                }
-
-                // Kiểm tra xem mã mới đã tồn tại hay chưa
-                while (dt.AsEnumerable().Any(row => row["MaLoai"].ToString() == "L" + nextNumber.ToString("D3")))
-                {
-                    nextNumber++;
-                }
-
-                string newMaLoai = "L" + nextNumber.ToString("D3");
-                txtMaLoai.Texts = newMaLoai;
             }
         }
-            public void clearForm()
+
+        public void clearForm()
         {
-            loadMaLoai12();
+
+            loadMaLoai();
             init();
             txtTenLoai.Texts = "";
             cbxTrangThai.Text = "Hoạt Động";
@@ -165,9 +112,11 @@ namespace GUI
         {
             loadDataToCBX(cbxTimKiem);
             init();
+            
         }
         public void init()
         {
+            loadMaLoai();
             dgvLoai.DataSource = loaibill.getListLoai();
         }
 
@@ -190,8 +139,7 @@ namespace GUI
                     "Thông báo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
-                loadMaLoai12();
-                dgvLoai.DataSource = loaibill.getListLoai();
+                init();
                 clearForm();
 
             }
@@ -201,6 +149,7 @@ namespace GUI
                     "Lỗi",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
+                init();
             }
 
         }
@@ -239,6 +188,7 @@ namespace GUI
                     "Thông báo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+
                 init();
 
 
