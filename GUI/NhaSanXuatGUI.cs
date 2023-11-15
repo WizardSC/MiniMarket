@@ -244,8 +244,26 @@ namespace GUI
             int trangThai = (stringTrangThai == "Hoạt động") ? 1 : 0;
             if (trangThai == 0)
             {
-                var choice1 = MessageBox.Show("Đã chuyển về không hoạt động", "Thông báo");
-                clearForm();
+                bool isLoiKhoaNgoai;
+                var choice2 = MessageBox.Show("Xóa loại này này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (choice2 == DialogResult.Yes)
+                {
+                    if (nsxBLL.delete_nhasanxuat(MaNSX, out isLoiKhoaNgoai))
+                    {
+                        MessageBox.Show("Xóa thành công",
+                          "Thông báo",
+                          MessageBoxButtons.OK,
+                          MessageBoxIcon.Information);
+                        init();
+                        clearForm();
+
+
+
+
+                    }
+                }
+
+
 
             }
             else

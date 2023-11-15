@@ -262,13 +262,32 @@ namespace GUI
             string MaLoai = txtMaLoai.Texts;
             string stringTrangThai = cbxTrangThai.SelectedItem.ToString();
             int trangThai = (stringTrangThai == "Hoạt động") ? 1 : 0;
-            if (trangThai == 0)
-            {
-                var choice1 = MessageBox.Show("Đã chuyển về không hoạt động", "Thông báo");
-                clearForm();
+       
+                if (trangThai == 0)
+                {
+                var choice2 = MessageBox.Show("Xóa loại này này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (choice2 == DialogResult.Yes)
+                {
+                    bool isLoiKhoaNgoai;
+                    if (loaibill.delete_LoaiSP(MaLoai, out isLoiKhoaNgoai))
+                    {
+                        MessageBox.Show("Xóa thành công",
+                          "Thông báo",
+                          MessageBoxButtons.OK,
+                          MessageBoxIcon.Information);
+                        init();
+                        clearForm();
 
-            }
-            else
+
+
+
+                    }
+                }
+                    
+
+
+                }
+                else
             {
                 var choice = MessageBox.Show("Xóa loại này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (choice == DialogResult.Yes)
