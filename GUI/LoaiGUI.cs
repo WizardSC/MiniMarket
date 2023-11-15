@@ -271,6 +271,7 @@ namespace GUI
                     bool isLoiKhoaNgoai;
                     if (loaibill.delete_LoaiSP(MaLoai, out isLoiKhoaNgoai))
                     {
+
                         MessageBox.Show("Xóa thành công",
                           "Thông báo",
                           MessageBoxButtons.OK,
@@ -281,6 +282,15 @@ namespace GUI
 
 
 
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể xóa loại sản phẩm này vì có tồn tại khóa ngoại",
+                          "Thông báo",
+                          MessageBoxButtons.OK,
+                          MessageBoxIcon.Information);
+                        init();
+                        clearForm();
                     }
                 }
                     

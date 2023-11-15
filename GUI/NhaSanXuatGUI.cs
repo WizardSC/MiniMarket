@@ -261,6 +261,15 @@ namespace GUI
 
 
                     }
+                    else
+                    {
+                        MessageBox.Show("Không thể xóa nhà sản xuất này vì có tồn tại khóa ngoại",
+                          "Thông báo",
+                          MessageBoxButtons.OK,
+                          MessageBoxIcon.Information);
+                        init();
+                        clearForm();
+                    }
                 }
 
 
