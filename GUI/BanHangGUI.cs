@@ -717,7 +717,7 @@ namespace GUI
                 MessageBox.Show($"Khách hàng sẽ nhận được {hd.DiemNhanDuoc} điểm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             btnInHoaDon.Enabled = true;
-
+            btnThanhToan.Enabled = false;
 
         }
         private void btnInHoaDon_Click(object sender, EventArgs e)
@@ -748,6 +748,8 @@ namespace GUI
 
             clearThongTinSauKhiTaoHD();
             btnInHoaDon.Enabled = false;
+            btnThanhToan.Enabled = true;
+
 
         }
         //Làm mới thông tin hóa đơn sau khi thêm hóa đơn thành công
