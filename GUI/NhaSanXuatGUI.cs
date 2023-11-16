@@ -51,12 +51,12 @@ namespace GUI
         private void btnThem_Click(object sender, EventArgs e)
         {
 
-            //  String MaNSX = txtMaNSX.Texts;
-            String MaNSX = CheckAndSetColor(txtMaNSX, label13);
-            String TenNSX = CheckAndSetColor(txtTenNSX, label14);
-            String DiaChi = CheckAndSetColor(txtDiaChi, label15);
-            String SoDT = CheckAndSetColor(txtSoDT, label18);
-            String trangThai = CheckAndSetColor(cbxTrangThai, label6);
+            //  string MaNSX = txtMaNSX.Texts;
+            string MaNSX = CheckAndSetColor(txtMaNSX, label13);
+            string TenNSX = CheckAndSetColor(txtTenNSX, label14);
+            string DiaChi = CheckAndSetColor(txtDiaChi, label15);
+            string SoDT = CheckAndSetColor(txtSoDT, label18);
+            string trangThai = CheckAndSetColor(cbxTrangThai, label6);
            // string trangThai = cbxTrangThai.SelectedItem.ToString();
             int trangThaiValue = (trangThai == "Hoạt động") ? 1 : 0;
 

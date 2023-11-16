@@ -122,8 +122,8 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            String MaLoai = CheckAndSetColor(txtMaLoai, label13);
-            String TenLoai = CheckAndSetColor(txtTenLoai, label15);
+            string MaLoai = CheckAndSetColor(txtMaLoai, label13);
+            string TenLoai = CheckAndSetColor(txtTenLoai, label15);
             string trangThai = CheckAndSetColor(cbxTrangThai, label3);
             int trangThaiValue = (trangThai == "Hoạt động") ? 1 : 0;
             if (!(MaLoai != "" && TenLoai != "" && trangThai != ""))
