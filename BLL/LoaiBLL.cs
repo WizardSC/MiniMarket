@@ -21,6 +21,11 @@ namespace BLL
             return loaiDAL.getListLoai();
         }
 
+      
+        public string getMaxMaLoai()
+        {
+            return loaiDAL.getMaxMaLoai();
+        }
         public DataTable getListLoaiMini()
         {
             return loaiDAL.getListLoaiMini();

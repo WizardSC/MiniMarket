@@ -21,6 +21,10 @@ namespace BLL
         {
             return nsxDAL.getListNhaSanXuat();
         }
+        public string getMaxMaNhaSX()
+        {
+            return nsxDAL.getMaxMaNhaSX();
+        }
         public DataTable getListNSXMini()
         {
             return nsxDAL.getListNhaSanXuatMini();

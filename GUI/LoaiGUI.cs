@@ -61,7 +61,7 @@ namespace GUI
                 label.ForeColor = string.IsNullOrWhiteSpace(text) ? Color.FromArgb(230, 76, 89) : Color.Transparent;
                 return text;
             }
-            else if (control is RJComboBox comboBox)
+            else if (control is ComboBox comboBox)
             {
                 string selectedValue = comboBox.SelectedItem?.ToString();
                 if (string.IsNullOrWhiteSpace(selectedValue))
@@ -77,18 +77,18 @@ namespace GUI
 
             return null; // Nếu kiểu dữ liệu không hợp lệ.
         }
+     
         private void loadMaLoai()
         {
-            string lastMaLoai = null;
-            foreach (DataRow row in dt.Rows)
-            {
-                lastMaLoai = row["MaLoai"].ToString();
-            }
-            if (lastMaLoai == "")
+            string maLoai;
+
+            loaibill = new LoaiBLL();
+            maLoai = loaibill.getMaxMaLoai();
+            if (maLoai == "")
             {
                 txtMaLoai.Texts = "L001";
             }
-            int tempNum = int.Parse(lastMaLoai.Substring(2));
+            int tempNum = int.Parse(maLoai.Substring(2));
             if ((tempNum + 1) >= 10)
             {
                 txtMaLoai.Texts = "L0" + (tempNum + 1).ToString();
@@ -98,20 +98,25 @@ namespace GUI
                 txtMaLoai.Texts = "L00" + (tempNum + 1).ToString();
             }
         }
+
         public void clearForm()
         {
+
             loadMaLoai();
+            init();
             txtTenLoai.Texts = "";
-            cbxTrangThai.Text = "--Chọn trạng thái--";
+            cbxTrangThai.Text = "Hoạt Động";
         }
 
         private void LoaiGUI_Load(object sender, EventArgs e)
         {
             loadDataToCBX(cbxTimKiem);
             init();
+            
         }
         public void init()
         {
+            loadMaLoai();
             dgvLoai.DataSource = loaibill.getListLoai();
         }
 
@@ -134,7 +139,7 @@ namespace GUI
                     "Thông báo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
-                dgvLoai.DataSource = loaibill.getListLoai();
+                init();
                 clearForm();
 
             }
@@ -144,6 +149,7 @@ namespace GUI
                     "Lỗi",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
+                init();
             }
 
         }
@@ -182,6 +188,7 @@ namespace GUI
                     "Thông báo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+
                 init();
 
 
@@ -205,13 +212,42 @@ namespace GUI
             string MaLoai = txtMaLoai.Texts;
             string stringTrangThai = cbxTrangThai.SelectedItem.ToString();
             int trangThai = (stringTrangThai == "Hoạt động") ? 1 : 0;
-            if (trangThai == 0)
-            {
-                var choice1 = MessageBox.Show("Đã chuyển về không hoạt động", "Thông báo");
-                clearForm();
+       
+                if (trangThai == 0)
+                {
+                var choice2 = MessageBox.Show("Xóa loại này này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (choice2 == DialogResult.Yes)
+                {
+                    bool isLoiKhoaNgoai;
+                    if (loaibill.delete_LoaiSP(MaLoai, out isLoiKhoaNgoai))
+                    {
 
-            }
-            else
+                        MessageBox.Show("Xóa thành công",
+                          "Thông báo",
+                          MessageBoxButtons.OK,
+                          MessageBoxIcon.Information);
+                        init();
+                        clearForm();
+
+
+
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể xóa loại sản phẩm này vì có tồn tại khóa ngoại",
+                          "Thông báo",
+                          MessageBoxButtons.OK,
+                          MessageBoxIcon.Information);
+                        init();
+                        clearForm();
+                    }
+                }
+                    
+
+
+                }
+                else
             {
                 var choice = MessageBox.Show("Xóa loại này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (choice == DialogResult.Yes)
@@ -555,8 +591,8 @@ namespace GUI
 
 
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-           // folderBrowserDialog.Description = "Chọn thư mục đầu ra";
-           //folderBrowserDialog.RootFolder = Environment.SpecialFolder.MyComputer;
+            // folderBrowserDialog.Description = "Chọn thư mục đầu ra";
+            //folderBrowserDialog.RootFolder = Environment.SpecialFolder.MyComputer;
 
 
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
@@ -754,60 +790,75 @@ namespace GUI
                 excelApp.Quit();
             }
 
-              /*  OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.Filter = "Excel Files|*.xls;*.xlsx";
+            /*  OpenFileDialog openFileDialog = new OpenFileDialog();
+              openFileDialog.Filter = "Excel Files|*.xls;*.xlsx";
 
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    string filePath = openFileDialog.FileName;
+              if (openFileDialog.ShowDialog() == DialogResult.OK)
+              {
+                  string filePath = openFileDialog.FileName;
 
-                    Excel.Application excelApp = new Excel.Application();
-                    Excel.Workbook excelWB = excelApp.Workbooks.Open(filePath);
-                    Excel.Worksheet excelWS = excelWB.ActiveSheet;
+                  Excel.Application excelApp = new Excel.Application();
+                  Excel.Workbook excelWB = excelApp.Workbooks.Open(filePath);
+                  Excel.Worksheet excelWS = excelWB.ActiveSheet;
 
-                    int currentRow = dgvLoai.Rows.Count;
+                  int currentRow = dgvLoai.Rows.Count;
 
-                    // Đọc tiêu đề từ Excel và thêm các cột vào DataGridView nếu cột đó chưa tồn tại
-                    for (int col = 1; col <= excelWS.UsedRange.Columns.Count; col++)
-                    {
-                        string header = excelWS.Cells[1, col].Value;
-                        if (!dgvLoai.Columns.Cast<DataGridViewColumn>().Any(x => x.HeaderText == header))
-                        {
-                            dgvLoai.Columns.Add(header, header);
-                        }
-                    }
+                  // Đọc tiêu đề từ Excel và thêm các cột vào DataGridView nếu cột đó chưa tồn tại
+                  for (int col = 1; col <= excelWS.UsedRange.Columns.Count; col++)
+                  {
+                      string header = excelWS.Cells[1, col].Value;
+                      if (!dgvLoai.Columns.Cast<DataGridViewColumn>().Any(x => x.HeaderText == header))
+                      {
+                          dgvLoai.Columns.Add(header, header);
+                      }
+                  }
 
-                    // Đọc dữ liệu từ Excel và thêm vào DataGridView
-                    for (int row = 2; row <= excelWS.UsedRange.Rows.Count; row++)
-                    {
-                        dgvLoai.Rows.Add();
-                        for (int col = 1; col <= dgvLoai.Columns.Count; col++)
-                        {
-                            dgvLoai.Rows[currentRow].Cells[col - 1].Value = excelWS.Cells[row, col].Value;
-                        }
-                        currentRow++;
-                    }
+                  // Đọc dữ liệu từ Excel và thêm vào DataGridView
+                  for (int row = 2; row <= excelWS.UsedRange.Rows.Count; row++)
+                  {
+                      dgvLoai.Rows.Add();
+                      for (int col = 1; col <= dgvLoai.Columns.Count; col++)
+                      {
+                          dgvLoai.Rows[currentRow].Cells[col - 1].Value = excelWS.Cells[row, col].Value;
+                      }
+                      currentRow++;
+                  }
 
-                    // Đóng tệp Excel
-                    excelWB.Close(false);
-                    excelApp.Quit();
+                  // Đóng tệp Excel
+                  excelWB.Close(false);
+                  excelApp.Quit();
 
-                    // Giải phóng tài nguyên
-                    System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
-                    System.Runtime.InteropServices.Marshal.ReleaseComObject(excelWB);
-                    System.Runtime.InteropServices.Marshal.ReleaseComObject(excelWS);
-                }*/
+                  // Giải phóng tài nguyên
+                  System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+                  System.Runtime.InteropServices.Marshal.ReleaseComObject(excelWB);
+                  System.Runtime.InteropServices.Marshal.ReleaseComObject(excelWS);
+              }*/
+        }
+        private void cbxTrangThai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CheckAndSetColor(cbxTrangThai, label3);
         }
     }
 
 }
-        
-    
 
 
 
 
 
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
