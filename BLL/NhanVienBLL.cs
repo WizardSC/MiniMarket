@@ -35,6 +35,10 @@ namespace BLL
 
             return nvDAL.getListNhanVienHasTK();
         }
+        public string getMaxMaNhanVien()
+        {
+            return nvDAL.getMaxMaNhanVien();
+        }
 
         public DataTable getCurrentNVHasTK(string maNV)
         {

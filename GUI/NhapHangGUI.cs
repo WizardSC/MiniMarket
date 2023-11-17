@@ -75,7 +75,7 @@ namespace GUI
             listNV = nvBLL.getListNV();
             dtSanPham = nhBLL.getListNhapHang();
             dtNhaCungCap = nccBLL.getListNCC();
-            dgvSanPham.DataSource = dtSanPham;
+            //dgvSanPham.DataSource = dtSanPham;
             loadToFlpNhaCungCap();
             loadNgayThang();
             loadMaPN();
@@ -222,6 +222,15 @@ namespace GUI
                 .FirstOrDefault();
             return maNCC;
         }
+        private int searchTrangThaibyTenNCC(string tenNCC)
+        {
+            int trangthai = dtNhaCungCap.AsEnumerable()
+                .Where(row => row.Field<string>("TenNCC") == tenNCC)
+                .Select(row => row.Field<int>("TrangThai"))
+                .FirstOrDefault();
+            return trangthai;
+        }
+
         private void refreshAfterInsertCTPN()
         {
             gioHangNhap.Clear();
@@ -279,16 +288,21 @@ namespace GUI
         }
         #region Các hàm thực hiện xử lý sự kiện ở MySupplier
         private void Item_ItemClicked(object sender, EventArgs e)
-
         {
-
             if (gioHangNhap.Any())
             {
                 MessageBox.Show("Không thể thay đổi nhà cung cấp khi giỏ hàng nhập còn dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            
             MySuppiler item = (MySuppiler)sender;
             string tenNCC = item.lblNhaCungCap.Text;
+            int trangThai = searchTrangThaibyTenNCC(tenNCC);
+            if (trangThai ==  0)
+            {
+                MessageBox.Show("Nhà cung cấp không hoạt động", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             var listNCC = searchWithTenNCC(tenNCC);
             dgvSanPham.DataSource = listNCC;
 
