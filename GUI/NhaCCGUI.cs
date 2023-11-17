@@ -629,61 +629,7 @@ namespace GUI
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            ExportToExcel(dgvNhaCC, "C:\\Users\\MINH TOAN\\git\\SourceCode_GuiSV\\MiniMarket\\GUI\\resources\\fileexcel\\demo.xlsx");
-        }
-        public void ExportToExcel(DataGridView dataGridView, string filePath)
-        {
-            using (ExcelPackage package = new ExcelPackage())
-            {
-                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Sheet1");
-
-                // Xuất tiêu đề cột
-                for (int i = 1; i <= dataGridView.Columns.Count; i++)
-                {
-                    worksheet.Cells[1, i].Value = dataGridView.Columns[i - 1].HeaderText;
-                }
-
-                // Xuất dữ liệu từ DataGridView
-                for (int i = 0; i < dataGridView.Rows.Count; i++)
-                {
-                    for (int j = 0; j < dataGridView.Columns.Count; j++)
-                    {
-                        object cellValue = dataGridView[j, i].Value;
-
-                        if (cellValue != null)
-                        {
-                            if (dataGridView.Columns[j] is DataGridViewImageColumn)
-                            {
-                                // Nếu là cột hình ảnh, xử lý một cách đặc biệt
-                                if (cellValue is Image)
-                                {
-                                    string tempImageDirectory = Path.Combine(Path.GetTempPath(), "TempImages");
-                                    Directory.CreateDirectory(tempImageDirectory);
-
-                                    // Lưu hình ảnh vào tệp tạm thời
-                                    string tempImagePath = Path.Combine(tempImageDirectory, $"Image_{i}_{j}.png");
-                                    ((Image)cellValue).Save(tempImagePath, ImageFormat.Png);
-
-                                    // Thêm hình ảnh vào Excel từ tệp tạm thời
-                                    ExcelPicture picture = worksheet.Drawings.AddPicture($"Image_{i}_{j}", new FileInfo(tempImagePath));
-                                    picture.SetPosition(i + 2, 0, j + 1, 0);
-                                    
-                                }
-                            }
-                            else
-                            {
-                                // Nếu là các cột khác, thì đặt giá trị vào ô
-                                worksheet.Cells[i + 2, j + 1].Value = cellValue.ToString();
-                            }
-                        }
-                    }
-                }
-
-                // Lưu file Excel
-                package.SaveAs(new FileInfo(filePath));
-            }
-
-            MessageBox.Show("Xuất Excel thành công!");
+            
         }
     }
 }
