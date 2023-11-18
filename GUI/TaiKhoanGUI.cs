@@ -28,7 +28,6 @@ namespace GUI
         private bool isFuncTaoTK = true;
         private bool isFuncThayDoiTTCN = false;
         private bool isFuncThayDoiTT = false;
-        private bool isFuncXemDSTK = false;
         public TaiKhoanGUI(int isTaiKhoan, string maNVHienTai)
         {
             InitializeComponent();
@@ -49,6 +48,7 @@ namespace GUI
         {
             if (quyen == 1)
             {
+                isFuncThayDoiTTCN = true;
                 btnTaoTK.Enabled = false;
                 btnThayDoiTrangThai.Enabled = false;
                 btnThayDoiTTCN.Enabled = false;
@@ -127,7 +127,6 @@ namespace GUI
             isFuncTaoTK = true;
             isFuncThayDoiTTCN = false;
             isFuncThayDoiTT = false;
-            isFuncXemDSTK = false;
             if (isFuncTaoTK)
             {
                 resetField();
@@ -150,7 +149,6 @@ namespace GUI
             isFuncTaoTK = false;
             isFuncThayDoiTTCN = true;
             isFuncThayDoiTT = false;
-            isFuncXemDSTK = false;
             if (isFuncThayDoiTTCN)
             {
                 resetField();
@@ -171,7 +169,6 @@ namespace GUI
             isFuncTaoTK = false;
             isFuncThayDoiTTCN = true;
             isFuncThayDoiTT = false;
-            isFuncXemDSTK = false;
             if (isFuncThayDoiTTCN)
             {
                 resetField();
@@ -191,7 +188,6 @@ namespace GUI
             isFuncTaoTK = false;
             isFuncThayDoiTTCN = false;
             isFuncThayDoiTT = true;
-            isFuncXemDSTK = false;
             if (isFuncThayDoiTT)
             {
                 resetField();
@@ -291,7 +287,8 @@ namespace GUI
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                 }
-                resetField();
+                resetField();            
+                dgvNhanVien.DataSource = nvBLL.getCurrentNVHasTK(maNV);
                 return;
             }
             if (isFuncThayDoiTT)
