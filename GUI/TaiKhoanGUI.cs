@@ -28,7 +28,6 @@ namespace GUI
         private bool isFuncTaoTK = true;
         private bool isFuncThayDoiTTCN = false;
         private bool isFuncThayDoiTT = false;
-        private bool isFuncXemDSTK = false;
         public TaiKhoanGUI(int isTaiKhoan, string maNVHienTai)
         {
             InitializeComponent();
@@ -49,6 +48,7 @@ namespace GUI
         {
             if (quyen == 1)
             {
+                isFuncThayDoiTTCN = true;
                 btnTaoTK.Enabled = false;
                 btnThayDoiTrangThai.Enabled = false;
                 btnThayDoiTTCN.Enabled = false;
@@ -127,7 +127,6 @@ namespace GUI
             isFuncTaoTK = true;
             isFuncThayDoiTTCN = false;
             isFuncThayDoiTT = false;
-            isFuncXemDSTK = false;
             if (isFuncTaoTK)
             {
                 resetField();
@@ -150,7 +149,6 @@ namespace GUI
             isFuncTaoTK = false;
             isFuncThayDoiTTCN = true;
             isFuncThayDoiTT = false;
-            isFuncXemDSTK = false;
             if (isFuncThayDoiTTCN)
             {
                 resetField();
@@ -171,7 +169,6 @@ namespace GUI
             isFuncTaoTK = false;
             isFuncThayDoiTTCN = true;
             isFuncThayDoiTT = false;
-            isFuncXemDSTK = false;
             if (isFuncThayDoiTTCN)
             {
                 resetField();
@@ -191,7 +188,6 @@ namespace GUI
             isFuncTaoTK = false;
             isFuncThayDoiTTCN = false;
             isFuncThayDoiTT = true;
-            isFuncXemDSTK = false;
             if (isFuncThayDoiTT)
             {
                 resetField();
@@ -212,18 +208,23 @@ namespace GUI
         {
             int i = dgvNhanVien.CurrentRow.Index;
             txtNhanVien.Texts = dgvNhanVien.Rows[i].Cells[1].Value.ToString() + " " + dgvNhanVien.Rows[i].Cells[2].Value.ToString();
+                dtpNgayLap.Value = DateTime.Parse(dgvNhanVien.Rows[i].Cells[5].Value.ToString());
             txtQuyen.Texts = searchTenCVbyMaCV(dgvNhanVien.Rows[i].Cells[4].Value.ToString());
             maNV = dgvNhanVien.Rows[i].Cells[0].Value.ToString();
             maCV = dgvNhanVien.Rows[i].Cells[4].Value.ToString();
             if (isFuncThayDoiTTCN)
             {
                 (string TenDangNhap, string MatKhau, int TrangThai) result = GetTenDNandMK(maNV, dtTaiKhoan);
+                txtMaTK.Texts = dgvNhanVien.Rows[i].Cells[3].Value.ToString();
+
                 txtTenDangNhap.Texts = result.TenDangNhap;
                 txtMatKhau.Texts = result.MatKhau;
             }
             if (isFuncThayDoiTT)
             {
                 (string TenDangNhap, string MatKhau, int TrangThai) result = GetTenDNandMK(maNV, dtTaiKhoan);
+                txtMaTK.Texts = dgvNhanVien.Rows[i].Cells[3].Value.ToString();
+
                 cbxTrangThai.SelectedItem = (result.TrangThai == 1) ? "Hoạt động" : "Không hoạt động";
                 if(result.TrangThai == 1)
                 {
@@ -291,7 +292,8 @@ namespace GUI
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                 }
-                resetField();
+                resetField();            
+                dgvNhanVien.DataSource = nvBLL.getCurrentNVHasTK(maNV);
                 return;
             }
             if (isFuncThayDoiTT)
