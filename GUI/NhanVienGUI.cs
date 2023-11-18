@@ -641,8 +641,15 @@ namespace GUI
             txtDiaChi.Texts = dgvNhanVien.Rows[i].Cells[6].Value.ToString();
             int trangThai = int.Parse(dgvNhanVien.Rows[i].Cells[7].Value.ToString());
             string chucVu = dgvNhanVien.Rows[i].Cells[9].Value.ToString();
-            byte[] imageBytes = (byte[])dgvNhanVien.Rows[i].Cells[10].Value;
-            pbImage.Image = convertBinaryStringToImage(imageBytes);
+            if (dgvNhanVien.Rows[i].Cells[10].Value != null)
+            {
+                byte[] imageBytes = (byte[])dgvNhanVien.Rows[i].Cells[10].Value;
+                pbImage.Image = convertBinaryStringToImage(imageBytes);
+            }
+            else
+            {
+                pbImage.Image = pbImage.InitialImage;
+            }
             pbImage.Tag = dgvNhanVien.Rows[i].Cells[0].Value.ToString();
             cbxTrangThai.SelectedItem = (trangThai == 1) ? "Hoạt động" : "Không hoạt động";
 
