@@ -17,6 +17,7 @@ using DevExpress.Office.Utils;
 using DevExpress.XtraReports.UI;
 using DTO;
 using GUI.MyCustom;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
 using ZXing;
 
 namespace GUI
@@ -48,6 +49,10 @@ namespace GUI
         private List<SanPhamDTO> listSP;
         private List<NhanVienDTO> listNV;
         Dictionary<string, ProductInfo> gioHang = new Dictionary<string, ProductInfo>();
+        private List<MyCustom.MyProductItem> allProductItems = new List<MyCustom.MyProductItem>(); //List chứa tất cả các item trong flpDanhSachSanPham
+        private List<string> maSPSearchList = new List<string>();
+        private List<DataRow> resultRows;
+        private string searchValue;
         //Lưu trữ giỏ hàng tạm thời
         public struct ProductInfo
         {
@@ -92,21 +97,28 @@ namespace GUI
             listSP = spBLL.getListSP();
             listCTKM = new List<ChiTietKhuyenMaiDTO>();
             // Gọi hàm tính toán số trang
-            CalculateTotalPages(listSP);
+            searchValue = txtTimKiem.Texts;
+            resultRows = GetDataRowsFromSearchTextBox(searchValue);
 
+            CalculateTotalPages(listSP);
+            UpdateCurrentPage(resultRows);
+            
             // Hiển thị trang hiện tại
             loadNgayThang();
 
             loadMaHD();
-            btnInHoaDon.Enabled = false;
-
-        }
-        private void BanHangGUI_Load(object sender, EventArgs e)
-        {
-            UpdateCurrentPage(dtSanPham);
-
+            init();
         }
         // Các hàm khác ở đây
+        public void init()
+        {
+            btnInHoaDon.Enabled = false;
+            txtMaSP.Enabled = false;
+            txtTenSP.Enabled = false;
+            txtTonKho.Enabled = false;
+            txtDonGia.Enabled = false;
+
+        }
         private List<Tuple<string, string, string>> ConvertDataTableToList(DataTable dt)
         {
             List<Tuple<string, string, string>> listKH = new List<Tuple<string, string, string>>();
@@ -137,6 +149,14 @@ namespace GUI
                 .Select(row => row.Field<int>("DiemTichLuy"))
                 .FirstOrDefault();
             return diemTL;
+        }
+        private string searchLoaibyMaSP(string maSP)
+        {
+            string maLoai = dtSanPham.AsEnumerable()
+                .Where(row => row.Field<string>("MaSP").ToLower() == maSP.ToLower())
+                .Select(row => row.Field<string>("MaLoai"))
+                .FirstOrDefault();
+            return maLoai;
         }
         private void loadMaHD()
         {
@@ -172,15 +192,119 @@ namespace GUI
             TotalPages = (int)Math.Ceiling((double)productList.Count / ProductsPerPage);
         }
 
-        private byte[] convertImageToBinaryString(Image img)
+        private void CalculateTotalPagesMini(List<string> productList)
         {
-            MemoryStream ms = new MemoryStream();
-            img.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+            TotalPages = (int)Math.Ceiling((double)productList.Count / ProductsPerPage);
+        }
+        
+        private void UpdateCurrentPage(List<DataRow> rows)
+        {
+            int startIndex = (CurrentPage - 1) * ProductsPerPage;
+            int endIndex = Math.Min(startIndex + ProductsPerPage, rows.Count);
 
-            return ms.ToArray();
+            this.flpDanhSachSanPham.Controls.Clear();
 
+            for (int i = startIndex; i < endIndex; i++)
+            {
+                MyCustom.MyProductItem item = new MyCustom.MyProductItem();
+                DataRow row = rows[i];
+
+                item.lblMaSP.Text = row.Field<string>("MaSP");
+                item.lblTenSP.Text = row.Field<string>("TenSP");
+                item.lblDonGia.Text = ConvertIntToVND(row.Field<int>("DonGiaBan"));
+                item.maLoai = row.Field<string>("MaLoai");
+                byte[] imageBytes = row.Field<byte[]>("IMG");
+                item.pbxIMG.Image = convertBinaryStringToImage(imageBytes);
+
+                item.Margin = new Padding(4, 6, 4, 6);
+                item.ItemClicked += Item_ItemClicked;
+
+                this.flpDanhSachSanPham.Controls.Add(item);
+            }
+
+            // Cập nhật thông tin phân trang
+            lblPagination.Text = $"{CurrentPage}/{TotalPages}";
         }
 
+        private List<DataRow> GetDataRowsFromSearchTextBox(string textValue)
+        {
+            string columnName;
+
+            if (cbxTimKiem.SelectedItem != null)
+            {
+                if (cbxTimKiem.SelectedItem.ToString() == "Mã SP")
+                {
+                    columnName = "MaSP";
+                }
+                else if (cbxTimKiem.SelectedItem.ToString() == "Tên SP")
+                {
+                    columnName = "TenSP";
+                }
+                else
+                {
+                    columnName = "MaSP";
+                }
+            }
+            else
+            {
+                columnName = "MaSP";
+            }
+            var query = from DataRow row in dtSanPham.AsEnumerable()
+                        where row.Field<string>(columnName).ToLower().Contains(textValue.ToLower())
+                        select row;
+            List<DataRow> resultRows = query.ToList();
+            foreach (DataRow row in resultRows)
+            {
+                maSPSearchList.Add(row.Field<string>("MaSP"));
+            }
+
+            return resultRows;
+        }
+        // Các sự kiện nút "Previous" và "Next" ở đây
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if (CurrentPage > 1)
+            {
+                CurrentPage--;
+                UpdateCurrentPage(resultRows);
+            }
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (CurrentPage < TotalPages)
+            {
+                CurrentPage++;
+                UpdateCurrentPage(resultRows);
+            }
+        }
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            PerformSearch();
+        }
+
+        private void PerformSearch()
+        {
+            string searchValue = txtTimKiem.Texts;
+            CurrentPage = 1;
+            maSPSearchList.Clear();
+            List<DataRow> resultRows = GetDataRowsFromSearchTextBox(searchValue);
+
+            this.flpDanhSachSanPham.Controls.Clear();
+            UpdateCurrentPage(resultRows);
+            foreach(DataRow row in resultRows)
+            {
+                string loai = searchLoaibyMaSP(row.Field<string>("MaSP"));
+                Console.WriteLine(loai);
+            }
+            CalculateTotalPagesMini(maSPSearchList);
+            if (TotalPages == 0)
+            {
+                CurrentPage = 0;
+            }
+            lblPagination.Text = $"{CurrentPage}/{TotalPages}";
+        }
         //chuyển đổi một dạng biểu diễn nhị phân thành một hình ảnh 
         private Image convertBinaryStringToImage(byte[] binaryString)
         {
@@ -233,53 +357,9 @@ namespace GUI
                 throw new ArgumentException("Không thể chuyển đổi chuỗi thành số float.");
             }
         }
-        private void UpdateCurrentPage(DataTable dt)
-        {
-            int startIndex = (CurrentPage - 1) * ProductsPerPage;
-            int endIndex = Math.Min(startIndex + ProductsPerPage, dt.Rows.Count);
+        
 
-            this.flpDanhSachSanPham.Controls.Clear();
-
-            for (int i = startIndex; i < endIndex; i++)
-            {
-                MyCustom.MyProductItem item = new MyCustom.MyProductItem();
-
-                item.lblMaSP.Text = dt.Rows[i]["MaSP"].ToString();
-                item.lblTenSP.Text = dt.Rows[i]["TenSP"].ToString();
-                item.lblDonGia.Text = ConvertIntToVND(int.Parse(dt.Rows[i]["DonGiaNhap"].ToString()));
-
-                byte[] imageBytes = (byte[])dt.Rows[i]["IMG"];
-                item.pbxIMG.Image = convertBinaryStringToImage(imageBytes);
-                item.Margin = new Padding(4,6,4,6); // 4 pixels cho mỗi hướng
-                item.ItemClicked += Item_ItemClicked; // Gán sự kiện ở đây
-
-                this.flpDanhSachSanPham.Controls.Add(item);
-            }
-
-            // Cập nhật thông tin phân trang
-            lblPagination.Text = $"{CurrentPage}/{TotalPages}";
-        }
-
-        // Các sự kiện nút "Previous" và "Next" ở đây
-
-        private void btnPrevious_Click(object sender, EventArgs e)
-        {
-            if (CurrentPage > 1)
-            {
-                CurrentPage--;
-                UpdateCurrentPage(dtSanPham);
-            }
-        }
-
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-            if (CurrentPage < TotalPages)
-            {
-                CurrentPage++;
-                UpdateCurrentPage(dtSanPham);
-                Console.WriteLine("a");
-            }
-        }
+        
         private void Item_ItemClicked(object sender, EventArgs e)
         {
             // Đây là nơi bạn có thể xử lý khi item được click
@@ -333,9 +413,41 @@ namespace GUI
             }
 
         }
-
-        private void btnThemVaoGio_Click(object sender, EventArgs e)
+        private void ThemSanPhamVaoGio(int soLuongMua)
         {
+            string maSP = txtMaSP.Texts;
+            int soLuong = 0;
+            foreach (SanPhamDTO sp in listSP)
+            {
+                if (sp.MaSP == maSP)
+                {
+                    soLuong = sp.SoLuong;
+                    soLuongTrongKhoLucBanDau = sp.SoLuong;
+                    txtTonKho.Texts = soLuong.ToString();
+                    break;
+                }
+            }
+            if (gioHang.ContainsKey(maSP))
+            {
+                ProductInfo existingProduct = gioHang[maSP];
+                int soLuongTrongGio = existingProduct.SoLuong;
+
+                soLuong -= soLuongTrongGio;
+            }
+            
+            if (soLuong == 0)
+            {
+                btnThemVaoGio.Enabled = false;
+                btnThemVaoGio.BackColor = Color.FromArgb(153, 160, 159);
+                MessageBox.Show("Sản phẩm đã hết hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
+            else
+            {
+                btnThemVaoGio.Enabled = true;
+                btnThemVaoGio.BackColor = Color.FromArgb(58, 191, 186);
+            }
             string tenKH = lblKhachHang.Text;
             if (string.IsNullOrWhiteSpace(tenKH))
             {
@@ -352,11 +464,10 @@ namespace GUI
                 MessageBox.Show("Vui lòng bỏ áp dụng điểm tích lũy trước khi thay đổi số lượng sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            string maSP = txtMaSP.Texts;
             string tenSP = txtTenSP.Texts;
             int soLuongTonKho = int.Parse(txtTonKho.Texts);
             int donGia = int.Parse(txtDonGia.Texts);
-            int soLuongMua = Convert.ToInt32(Math.Round(nudSoLuongMua.Value, 0));
+            //soLuongMua = Convert.ToInt32(Math.Round(nudSoLuongMua.Value, 0));
             if (soLuongMua == 0)
 
             {
@@ -435,6 +546,11 @@ namespace GUI
             }
             tinhTongTien(false);
             refreshThongTin();
+
+        }
+        private void btnThemVaoGio_Click(object sender, EventArgs e)
+        {
+            ThemSanPhamVaoGio(Convert.ToInt32(Math.Round(nudSoLuongMua.Value, 0)));
         }
 
         private void MyProductInCart_TangButtonClicked(object sender, EventArgs e)
@@ -1004,14 +1120,11 @@ namespace GUI
             //Tính tiền sau khi sử dụng ĐTL: 1đ = giảm 10k
         }
 
-        private void rjButton1_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine(lblKhachHang.Text);
-            Console.WriteLine(searchMaKHbyTenKH(lblKhachHang.Text));
-        }
+
         #region barcode
         private bool isBarcode = true;
         private VideoCaptureDevice videoCaptureDevice;
+        private bool isScanning = false;
 
         private void btnQuetBarcode_Click(object sender, EventArgs e)
         {
@@ -1056,11 +1169,18 @@ namespace GUI
                     flpDanhSachSanPham.BringToFront();
                 }
                 isBarcode = true;
-
             }
         }
+
         private void VideoCaptureDevice_NewFrame(object sender, AForge.Video.NewFrameEventArgs eventArgs)
         {
+            if (isScanning)
+            {
+                return; // Nếu đang quét thì không làm gì
+            }
+
+            isScanning = true;
+
             Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
             BarcodeReader reader = new BarcodeReader();
             var result = reader.Decode(bitmap);
@@ -1068,7 +1188,6 @@ namespace GUI
             {
                 txtMaSP.Invoke(new MethodInvoker(delegate ()
                 {
-
                     txtMaSP.Texts = result.ToString();
                     string maSPCanTim = txtMaSP.Texts;
                     PlayBeepSound();
@@ -1083,6 +1202,11 @@ namespace GUI
                             if (productItem.lblMaSP.Text == maSPCanTim)
                             {
                                 Item_ItemClicked(productItem, EventArgs.Empty);
+                                //ThemSanPhamVaoGio(1);
+
+
+                                // Reset lại camera
+
                                 break; // Kết thúc vòng lặp sau khi tìm thấy
                             }
                         }
@@ -1090,6 +1214,8 @@ namespace GUI
                 }));
             }
             pbShowCamera.Image = bitmap;
+
+            isScanning = false; // Cho phép quét tiếp theo
         }
         private void PlayBeepSound()
         {
@@ -1097,7 +1223,7 @@ namespace GUI
             {
                 string appDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
                 string folderPath = Path.Combine(appDirectory, "resources", "sound");
-                
+
                 // Thêm tên tệp tin âm thanh vào đường dẫn
                 string soundFilePath = Path.Combine(folderPath, "barcode_reader.wav");
 
@@ -1118,7 +1244,26 @@ namespace GUI
                 Console.WriteLine("Lỗi khi phát âm thanh: " + ex.Message);
             }
         }
-        #endregion
-    }
 
+        #endregion
+
+        private void txtTimKiem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                // Ngăn chặn ký tự Enter từ việc xuất hiện trong TextBox
+                e.Handled = true;
+                PerformSearch();
+                refreshThongTin();
+
+            }
+        }
+
+        private void cbxTimKiem_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtTimKiem.Texts = string.Empty;
+            PerformSearch();
+            refreshThongTin();
+        }
+    }
 }

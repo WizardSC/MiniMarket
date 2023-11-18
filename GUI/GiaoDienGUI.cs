@@ -7,12 +7,14 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.Remoting.Channels;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI;
 using System.Windows.Forms;
 
 namespace GUI
@@ -50,7 +52,7 @@ namespace GUI
             lblHoTenNV.Text = getHoTenByMaNV(maNV);
             lblChucVu.Text = tenPQ;
         }
-
+        
         private void getDetailPhanQuyen()
         {
             pq = pqBLL.getPhanQuyen(tenPQ);
@@ -257,15 +259,8 @@ namespace GUI
             childForm.BringToFront();
             childForm.Show();
         }
-        
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-           
-            
-            Application.Exit();
-           
 
-        }
+
 
         private void pnQuanLyContainer_Click(object sender, EventArgs e)
         {
@@ -386,33 +381,6 @@ namespace GUI
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void btnMaximize_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine(isMaximized);
-
-            if (isMaximized)
-            {
-                isMaximized = false;
-
-                this.WindowState = FormWindowState.Normal;
-            }
-            else
-            {
-                isMaximized = true;
-
-                this.WindowState = FormWindowState.Maximized;
-
-                pnForm.Dock = DockStyle.Fill;
-            }
-        }
-
-
-
-        private void rjButton3_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void pnBanHangContainer_Click(object sender, EventArgs e)
@@ -787,6 +755,30 @@ namespace GUI
                 pnLeftBorderHoaDon.BackColor = Color.FromArgb(58, 191, 186);
                 // Mở form con tương ứng (KhachHangGUI)
                 openChildForm(new HoaDonGUI(pq.IsHoaDon));
+            }
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Bạn có muốn đăng xuất không?", "THÔNG BÁO", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                this.Hide();
+                DangNhapGUI dnGUI = new DangNhapGUI();
+                dnGUI.ShowDialog();
+                this.Dispose();
+            }
+
+        }
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Bạn có muốn đăng xuất không?", "THÔNG BÁO", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                this.Hide();
+                DangNhapGUI dnGUI = new DangNhapGUI();
+                dnGUI.ShowDialog();
+                this.Dispose();
             }
         }
     }

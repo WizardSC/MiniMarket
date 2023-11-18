@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DevExpress.XtraWaitForm;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,7 +38,7 @@ namespace GUI
                             MaNV = row.Field<string>("MaNV"),
                             Quyen = row.Field<string>("Quyen")
                         };
-            var result = query.FirstOrDefault(); 
+            var result = query.FirstOrDefault();
             if (result != null)
             {
                 return (result.MaNV, result.TenDangNhap, result.MatKhau, result.Quyen, result.TrangThai);
@@ -69,12 +70,15 @@ namespace GUI
             }
             maNV = MaNV;
             tenPQ = Quyen;
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            GiaoDienGUI mainForm = new GiaoDienGUI(maNV, tenPQ);
+
+            this.Hide();
+            mainForm.ShowDialog();
+            this.Dispose();
 
         }
 
-        
+
 
         private void txtUsername_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -93,5 +97,6 @@ namespace GUI
                 btnDangNhap_Click(sender, e); // Gọi phương thức btnDangNhap_Click khi nhấn Enter
             }
         }
+
     }
 }

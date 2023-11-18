@@ -34,7 +34,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.gradientPanel1 = new GUI.MyCustom.GradientPanel();
-            this.rjButton2 = new GUI.MyCustom.RJButton();
             this.lblMaPN = new System.Windows.Forms.Label();
             this.lblNhaCungCap = new System.Windows.Forms.Label();
             this.lblNhanVien = new System.Windows.Forms.Label();
@@ -129,7 +128,6 @@
             // gradientPanel1
             // 
             this.gradientPanel1.BottomColor = System.Drawing.Color.Empty;
-            this.gradientPanel1.Controls.Add(this.rjButton2);
             this.gradientPanel1.Controls.Add(this.lblMaPN);
             this.gradientPanel1.Controls.Add(this.lblNhaCungCap);
             this.gradientPanel1.Controls.Add(this.lblNhanVien);
@@ -145,30 +143,11 @@
             this.gradientPanel1.TabIndex = 3;
             this.gradientPanel1.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
             // 
-            // rjButton2
-            // 
-            this.rjButton2.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjButton2.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton2.BorderRadius = 0;
-            this.rjButton2.BorderSize = 0;
-            this.rjButton2.FlatAppearance.BorderSize = 0;
-            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton2.ForeColor = System.Drawing.Color.White;
-            this.rjButton2.Location = new System.Drawing.Point(250, 87);
-            this.rjButton2.Name = "rjButton2";
-            this.rjButton2.Size = new System.Drawing.Size(60, 31);
-            this.rjButton2.TabIndex = 12;
-            this.rjButton2.Text = "rjButton2";
-            this.rjButton2.TextColor = System.Drawing.Color.White;
-            this.rjButton2.UseVisualStyleBackColor = false;
-            this.rjButton2.Click += new System.EventHandler(this.rjButton2_Click);
-            // 
             // lblMaPN
             // 
             this.lblMaPN.BackColor = System.Drawing.Color.Transparent;
             this.lblMaPN.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaPN.Location = new System.Drawing.Point(125, 0);
+            this.lblMaPN.Location = new System.Drawing.Point(207, 0);
             this.lblMaPN.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.lblMaPN.Name = "lblMaPN";
             this.lblMaPN.Size = new System.Drawing.Size(76, 32);
@@ -251,7 +230,7 @@
             // 
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(9, 0);
+            this.label8.Location = new System.Drawing.Point(91, 0);
             this.label8.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(112, 32);
@@ -413,6 +392,7 @@
             this.cbxTimKiem.Size = new System.Drawing.Size(108, 30);
             this.cbxTimKiem.TabIndex = 4;
             this.cbxTimKiem.Texts = "Mã SP";
+            this.cbxTimKiem.OnSelectedIndexChanged += new System.EventHandler(this.cbxTimKiem_OnSelectedIndexChanged);
             // 
             // txtTimKiem
             // 
@@ -438,6 +418,7 @@
             this.txtTimKiem.TabIndex = 1;
             this.txtTimKiem.Texts = "";
             this.txtTimKiem.UnderlinedStyle = true;
+            this.txtTimKiem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTimKiem_KeyPress);
             // 
             // btnTimKiem
             // 
@@ -1138,7 +1119,6 @@
         private System.Windows.Forms.Label label6;
         private MyCustom.CustomNumericUpDown nudSoLuongMua;
         private MyCustom.RJButton btnChonSanPham;
-        private MyCustom.RJButton rjButton2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgvSanPham;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
