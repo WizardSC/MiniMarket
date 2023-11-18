@@ -51,8 +51,9 @@ namespace GUI
             {
                 btnTaoTK.Enabled = false;
                 btnThayDoiTrangThai.Enabled = false;
-                
+                btnThayDoiTTCN.Enabled = false;
                 cbxTrangThai.Enabled = false;
+
                 btnThayDoiTTCN_Click(this, EventArgs.Empty);
                 dgvNhanVien.DataSource = nvBLL.getCurrentNVHasTK(maNV);
 
@@ -157,7 +158,6 @@ namespace GUI
                 btnThayDoiTTCN.BackColor = Color.FromArgb(224, 252, 237);
                 btnThayDoiTrangThai.BackColor = Color.Transparent;
                 btnTaoTK.BackColor = Color.Transparent;
-                btnXemDanhSachTK.BackColor = Color.Transparent;
                 lblTitleDGV.Text = "DANH SÁCH TÀI KHOẢN";
                 lblTitleFunction.Text = "CHỈNH SỬA THÔNG TIN";
                 btnThucHienChucNang.Text = "SỬA THÔNG TIN";
@@ -179,7 +179,6 @@ namespace GUI
                 btnThayDoiTTCN.BackColor = Color.FromArgb(224, 252, 237);
                 btnThayDoiTrangThai.BackColor = Color.Transparent;
                 btnTaoTK.BackColor = Color.Transparent;
-                btnXemDanhSachTK.BackColor = Color.Transparent;
 
                 lblTitleDGV.Text = "DANH SÁCH TÀI KHOẢN";
                 lblTitleFunction.Text = "CHỈNH SỬA MẬT KHẨU";
@@ -199,7 +198,6 @@ namespace GUI
                 btnThayDoiTrangThai.BackColor = Color.FromArgb(224, 252, 237);
                 btnThayDoiTTCN.BackColor = Color.Transparent;
                 btnTaoTK.BackColor = Color.Transparent;
-                btnXemDanhSachTK.BackColor = Color.Transparent;
                 lblTitleDGV.Text = "DANH SÁCH TÀI KHOẢN";
                 lblTitleFunction.Text = "KHÓA/MỞ KHÓA TÀI KHOẢN";
                 btnThucHienChucNang.Text = "KHÓA TÀI KHOẢN";
@@ -320,22 +318,5 @@ namespace GUI
             }
         }
 
-        private void btnXemDanhSachTK_Click(object sender, EventArgs e)
-        {
-            isFuncTaoTK = false;
-            isFuncThayDoiTTCN = false;
-            isFuncThayDoiTT = false;
-            isFuncXemDSTK = true;
-            if (isFuncXemDSTK)
-            {
-                resetField();
-                btnThayDoiTrangThai.BackColor = Color.Transparent;
-                btnThayDoiTTCN.BackColor = Color.Transparent;
-                btnTaoTK.BackColor = Color.Transparent;
-                btnXemDanhSachTK.BackColor = Color.FromArgb(224, 252, 237);
-
-
-            }
-        }
     }
 }

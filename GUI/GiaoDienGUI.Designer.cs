@@ -84,14 +84,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblChucVu = new System.Windows.Forms.Label();
             this.lblHoTenNV = new System.Windows.Forms.Label();
-            this.rjButton2 = new GUI.MyCustom.RJButton();
+            this.btnDangXuat = new GUI.MyCustom.RJButton();
             this.pnImage = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnHeader = new System.Windows.Forms.Panel();
             this.btnMinimize = new GUI.MyCustom.RJButton();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnMaximize = new GUI.MyCustom.RJButton();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.btnClose = new GUI.MyCustom.RJButton();
             this.pnForm = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -876,7 +874,7 @@
             // 
             this.pnMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
             this.pnMenu.Controls.Add(this.pnThongTinTK);
-            this.pnMenu.Controls.Add(this.rjButton2);
+            this.pnMenu.Controls.Add(this.btnDangXuat);
             this.pnMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnMenu.Location = new System.Drawing.Point(0, 645);
             this.pnMenu.Name = "pnMenu";
@@ -935,29 +933,30 @@
             this.lblHoTenNV.Text = "Huỳnh Phúc Toàn";
             this.lblHoTenNV.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // rjButton2
+            // btnDangXuat
             // 
-            this.rjButton2.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton2.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rjButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton2.BorderRadius = 0;
-            this.rjButton2.BorderSize = 0;
-            this.rjButton2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.rjButton2.FlatAppearance.BorderSize = 0;
-            this.rjButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton2.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton2.ForeColor = System.Drawing.Color.Black;
-            this.rjButton2.Image = global::GUI.Properties.Resources.icons8_logout_32;
-            this.rjButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton2.Location = new System.Drawing.Point(0, 51);
-            this.rjButton2.Name = "rjButton2";
-            this.rjButton2.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.rjButton2.Size = new System.Drawing.Size(182, 40);
-            this.rjButton2.TabIndex = 4;
-            this.rjButton2.Text = "Đăng xuất";
-            this.rjButton2.TextColor = System.Drawing.Color.Black;
-            this.rjButton2.UseVisualStyleBackColor = false;
+            this.btnDangXuat.BackColor = System.Drawing.Color.Transparent;
+            this.btnDangXuat.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnDangXuat.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnDangXuat.BorderRadius = 0;
+            this.btnDangXuat.BorderSize = 0;
+            this.btnDangXuat.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnDangXuat.FlatAppearance.BorderSize = 0;
+            this.btnDangXuat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDangXuat.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangXuat.ForeColor = System.Drawing.Color.Black;
+            this.btnDangXuat.Image = global::GUI.Properties.Resources.icons8_logout_32;
+            this.btnDangXuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDangXuat.Location = new System.Drawing.Point(0, 51);
+            this.btnDangXuat.Name = "btnDangXuat";
+            this.btnDangXuat.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.btnDangXuat.Size = new System.Drawing.Size(182, 40);
+            this.btnDangXuat.TabIndex = 4;
+            this.btnDangXuat.Text = "Đăng xuất";
+            this.btnDangXuat.TextColor = System.Drawing.Color.Black;
+            this.btnDangXuat.UseVisualStyleBackColor = false;
+            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
             // 
             // pnImage
             // 
@@ -984,8 +983,6 @@
             this.pnHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
             this.pnHeader.Controls.Add(this.btnMinimize);
             this.pnHeader.Controls.Add(this.panel2);
-            this.pnHeader.Controls.Add(this.btnMaximize);
-            this.pnHeader.Controls.Add(this.panel1);
             this.pnHeader.Controls.Add(this.btnClose);
             this.pnHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnHeader.Location = new System.Drawing.Point(0, 0);
@@ -1006,7 +1003,7 @@
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.ForeColor = System.Drawing.Color.White;
             this.btnMinimize.Image = global::GUI.Properties.Resources.icons8_minimize_32__1_;
-            this.btnMinimize.Location = new System.Drawing.Point(1223, 0);
+            this.btnMinimize.Location = new System.Drawing.Point(1272, 0);
             this.btnMinimize.Margin = new System.Windows.Forms.Padding(2);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(43, 35);
@@ -1018,40 +1015,10 @@
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(1266, 0);
+            this.panel2.Location = new System.Drawing.Point(1315, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(6, 35);
             this.panel2.TabIndex = 4;
-            // 
-            // btnMaximize
-            // 
-            this.btnMaximize.BackColor = System.Drawing.Color.Transparent;
-            this.btnMaximize.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnMaximize.BorderColor = System.Drawing.Color.Transparent;
-            this.btnMaximize.BorderRadius = 0;
-            this.btnMaximize.BorderSize = 0;
-            this.btnMaximize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnMaximize.FlatAppearance.BorderSize = 0;
-            this.btnMaximize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaximize.ForeColor = System.Drawing.Color.White;
-            this.btnMaximize.Image = global::GUI.Properties.Resources.icons8_toggle_full_screen_32;
-            this.btnMaximize.Location = new System.Drawing.Point(1272, 0);
-            this.btnMaximize.Margin = new System.Windows.Forms.Padding(2);
-            this.btnMaximize.Name = "btnMaximize";
-            this.btnMaximize.Size = new System.Drawing.Size(43, 35);
-            this.btnMaximize.TabIndex = 5;
-            this.btnMaximize.TextColor = System.Drawing.Color.White;
-            this.btnMaximize.UseVisualStyleBackColor = false;
-            this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(1315, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(6, 35);
-            this.panel1.TabIndex = 3;
             // 
             // btnClose
             // 
@@ -1150,7 +1117,6 @@
         private System.Windows.Forms.Panel panel3;
         private GUI.MyCustom.RJButton btnClose;
         private GUI.MyCustom.RJButton btnMinimize;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnImage;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pnHangHoa;
@@ -1169,11 +1135,10 @@
         private GUI.MyCustom.RJButton pnKhachHangContainer;
         private GUI.MyCustom.RJButton pnNhanVienContainer;
         private GUI.MyCustom.RJButton pnHangHoaContainer;
-        private GUI.MyCustom.RJButton btnMaximize;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel pnMenu;
         private System.Windows.Forms.Panel pnMainMenu;
-        private GUI.MyCustom.RJButton rjButton2;
+        private GUI.MyCustom.RJButton btnDangXuat;
         private System.Windows.Forms.Panel pnThongTinTK;
         private System.Windows.Forms.Panel pnSubHangHoa;
         private System.Windows.Forms.Panel pnHoaDon;
