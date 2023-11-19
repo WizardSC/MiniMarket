@@ -1,17 +1,24 @@
 ﻿using BLL;
+using ClosedXML.Excel;
 using DTO;
 using GUI.MyCustom;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Diagnostics;
+using ClosedXML.Excel;
+using System.Data.SqlClient;
 
 namespace GUI
 {
@@ -73,6 +80,7 @@ namespace GUI
                     "Thông báo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+                loadMaNSX();
                 init();
                 clearForm();
 
@@ -175,7 +183,7 @@ namespace GUI
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
                 init();
-                clearForm();
+                
 
             }
             else
@@ -205,14 +213,26 @@ namespace GUI
 
         public void init()
         {
-            loadMaNSX();
+            
             dgvNSX.DataSource = nsxBLL.getListNSX();
 
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
+            btnThem.Enabled = true;
+            btnThem.BackgroundColor = Color.White;
+            btnThem.BackColor = Color.White;
+
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
+            btnSua.BackgroundColor = Color.DimGray;
+            btnSua.BackColor = Color.DimGray;
+
+            btnXoa.BackgroundColor = Color.DimGray;
+            btnXoa.BackColor = Color.DimGray;
             init();
+            loadMaNSX();
             clearForm();
         }
 
@@ -228,6 +248,21 @@ namespace GUI
 
         private void dgvNSX_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
+
+
+            btnSua.Enabled = true;
+            btnSua.BackgroundColor = Color.White;
+            btnSua.BackColor = Color.White;
+
+            btnXoa.Enabled = true;
+            btnXoa.BackgroundColor = Color.White;
+            btnXoa.BackColor = Color.White;
+
+            btnThem.Enabled = false;
+            btnThem.BackgroundColor = Color.DimGray;
+            btnThem.BackColor = Color.DimGray;
+
             int i = dgvNSX.CurrentRow.Index;
             txtMaNSX.Texts = dgvNSX.Rows[i].Cells[0].Value.ToString();
             txtTenNSX.Texts = dgvNSX.Rows[i].Cells[1].Value.ToString();
@@ -254,7 +289,19 @@ namespace GUI
                           "Thông báo",
                           MessageBoxButtons.OK,
                           MessageBoxIcon.Information);
+                        btnThem.Enabled = true;
+                        btnThem.BackgroundColor = Color.White;
+                        btnThem.BackColor = Color.White;
+
+                        btnSua.Enabled = false;
+                        btnXoa.Enabled = false;
+                        btnSua.BackgroundColor = Color.DimGray;
+                        btnSua.BackColor = Color.DimGray;
+
+                        btnXoa.BackgroundColor = Color.DimGray;
+                        btnXoa.BackColor = Color.DimGray;
                         init();
+                        loadMaNSX();
                         clearForm();
 
 
@@ -267,8 +314,9 @@ namespace GUI
                           "Thông báo",
                           MessageBoxButtons.OK,
                           MessageBoxIcon.Information);
+
                         init();
-                        clearForm();
+                      
                     }
                 }
 
@@ -288,7 +336,19 @@ namespace GUI
                           "Thông báo",
                           MessageBoxButtons.OK,
                           MessageBoxIcon.Information);
+                        btnThem.Enabled = true;
+                        btnThem.BackgroundColor = Color.White;
+                        btnThem.BackColor = Color.White;
+
+                        btnSua.Enabled = false;
+                        btnXoa.Enabled = false;
+                        btnSua.BackgroundColor = Color.DimGray;
+                        btnSua.BackColor = Color.DimGray;
+
+                        btnXoa.BackgroundColor = Color.DimGray;
+                        btnXoa.BackColor = Color.DimGray;
                         init();
+                        loadMaNSX();
                         clearForm();
 
                     }
@@ -311,7 +371,7 @@ namespace GUI
                                         {
                                             MessageBox.Show("Thay đổi trạng thái thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                             init() ;
-                                            clearForm();
+                                            
                                         }
                                         else
                                         {
@@ -550,7 +610,412 @@ namespace GUI
         {
 
         }
+
+        private void txtSoDT__TextChanged(object sender, EventArgs e)
+        {
+            CheckAndSetColorSDT(txtSoDT,label18);
+           // CheckAndSetColorSDT1(txtSoDT, label18);
+        }
+        /* private string CheckAndSetColorSDT(object control, Label label)
+         {
+             if (control is RJTextBox textBox)
+             {
+                 string text = textBox.Texts.Trim();
+
+                 if (string.IsNullOrWhiteSpace(text))
+                 {
+                     label.ForeColor = Color.FromArgb(230, 76, 89);
+                     label.Text = "*Bạn phải nhập số ĐT";
+                     return null;
+                 }
+                 else if (int.TryParse(text, out int result) && text.Length < 10)
+                 {
+                     label.Text = "* Số điện thoại phải đủ 10 số";
+                 }
+                 else if (int.TryParse(text, out int result1) && text.Length >= 11)
+                 {
+                     label.Text = "*Số điện thoại đã quá 10 số";
+                 }
+                 else if (ContainsLetter(text))
+                 {
+                     label.ForeColor = Color.FromArgb(230, 76, 89);
+                     label.Text = "*Số ĐT không thể chứa chữ";
+                     return null;
+                 }
+
+                 else
+                 {
+                     label.ForeColor = Color.Transparent;
+                     label.Text = "";
+                 }
+                 return text;
+             }
+             return null;
+         }*/
+        private string CheckAndSetColorSDT(RJTextBox textBox, Label label)
+        {
+            string text = textBox.Texts.Trim();
+
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                SetValidationMessage(label, "* Bạn phải nhập số ĐT");
+                return null;
+            }
+
+            if (!IsValidPhoneNumber(text))
+            {
+                SetValidationMessage(label, "* Số điện thoại bẳng 10 hoặc 12 số");
+                return null;
+            }
+
+            ClearValidationMessage(label);
+            return text;
+        }
+
+        private bool IsValidPhoneNumber(string phoneNumber)
+        {
+            if (phoneNumber.Length < 10 || phoneNumber.Length > 12 || !phoneNumber.All(char.IsDigit))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private void SetValidationMessage(Label label, string message)
+        {
+            label.ForeColor = Color.FromArgb(230, 76, 89);
+            label.Text = message;
+        }
+
+        private void ClearValidationMessage(Label label)
+        {
+            label.ForeColor = Color.Transparent;
+            label.Text = "";
+        }
+
+
+        private bool ContainsLetter(string text)
+        {
+            foreach (char c in text)
+            {
+                if (char.IsLetter(c))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private string CheckAndSetColorDC(object control, Label label)
+        {
+            if (control is RJTextBox textBox)
+            {
+                string text = textBox.Texts.Trim();
+                if (string.IsNullOrWhiteSpace(text))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "*Bạn phải nhập địa chỉ";
+                    return null;
+                }
+                else if (int.TryParse(text, out int result))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "*Địa chỉ không thể chứa chữ số";
+                    return null;
+                }
+                else
+                {
+                    label.ForeColor = Color.Transparent;
+                    label.Text = "";
+
+                }
+                return text;
+            }
+            return null;
+        }
+        private void txtDiaChi__TextChanged(object sender, EventArgs e)
+        {
+            CheckAndSetColorDC(txtDiaChi, label15);
+        }
+
+        private void txtTenNSX__TextChanged(object sender, EventArgs e)
+        {
+            CheckAndSetColorTen(txtTenNSX, label14);
+        }
+        private string CheckAndSetColorTen(object control, Label label)
+        {
+            if (control is RJTextBox textBox)
+            {
+                string text = textBox.Texts.Trim();
+                if (string.IsNullOrWhiteSpace(text))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "*Bạn phải nhập tên";
+                    return null;
+                }
+                else if (text.Any(char.IsDigit))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "*tên không thể chứa chữ số";
+                    return null;
+                }
+                else
+                {
+                    label.ForeColor = Color.Transparent;
+                    label.Text = "";
+
+                }
+                return text;
+            }
+            return null;
+        }
+
+
+        private void InitializeDataGridView()
+        {
+            dt = new DataTable();
+            dgvNSX.DataSource = dt;
+
+            // Add columns to the DataGridView
+            // Set the header text (display name) and DataPropertyName for each column
+            dgvNSX.Columns.Add("Mã NSX", "Mã NSX");
+            dgvNSX.Columns["Mã NSX"].DataPropertyName = "MaNSX"; // Map to DataTable column
+
+            dgvNSX.Columns.Add("Tên NSX", "Tên NSX");
+            dgvNSX.Columns["Tên NSX"].DataPropertyName = "TenNSX"; // Map to DataTable column
+
+            dgvNSX.Columns.Add("Số điện thoại", "Số điện thoại");
+            dgvNSX.Columns["Số điện thoại"].DataPropertyName = "SoDT"; // Map to DataTable column
+
+            dgvNSX.Columns.Add("Địa Chỉ", "Địa Chỉ");
+            dgvNSX.Columns["Địa Chỉ"].DataPropertyName = "DiaChi"; // Map to DataTable column
+
+            dgvNSX.Columns.Add("Trạng Thái", "Trạng Thái");
+            dgvNSX.Columns["Trạng Thái"].DataPropertyName = "TrangThai"; // Map to DataTable column
+
+            // Set additional properties for each column
+            dgvNSX.Columns["Mã NSX"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvNSX.Columns["Tên NSX"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvNSX.Columns["Địa Chỉ"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvNSX.Columns["Số điện thoại"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dgvNSX.Columns["Trạng Thái"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+        }
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            dt.Clear();
+
+            OpenFileDialog open = new OpenFileDialog
+            {
+                Filter = "Excel Files|*.xlsx;*.xls",
+                RestoreDirectory = true
+            };
+
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                // Get the selected Excel file path
+                string filePath = open.FileName;
+
+                // Read data from the Excel file and add it to the DataTable
+                ImportDataFromExcel(filePath);
+
+                // Update the DataGridView's DataSource
+                dgvNSX.DataSource = null;
+                dgvNSX.DataSource = dt;
+
+                // Set HeaderText for the existing column "Mã LOẠI"
+                dgvNSX.Columns["MaNSX"].HeaderText = "Mã NSX";
+                dgvNSX.Columns["TenNSX"].HeaderText = "Tên NSX";
+                dgvNSX.Columns["DiaChi"].HeaderText = "Địa Chỉ";
+                dgvNSX.Columns["SoDT"].HeaderText = "Số điện thoại";
+                dgvNSX.Columns["TrangThai"].HeaderText = "Trạng Thái";
+            }
+
+            // Reset AutoSizeMode for each column after importing data
+            dgvNSX.Columns["MaNSX"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvNSX.Columns["TenNSX"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvNSX.Columns["DiaChi"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvNSX.Columns["SoDT"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dgvNSX.Columns["TrangThai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            // Reset AutoSizeMode for each column after importing data
+            MessageBox.Show("Dữ liệu đã được nhập vào từ tệp Excel.", "Hoàn thành", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            SaveDataToDatabase();
+        }
+
+        private void ImportDataFromExcel(string filePath)
+        {
+
+            // Open the Excel file using ClosedXML
+            using (var workbook = new XLWorkbook(filePath))
+            {
+                var worksheet = workbook.Worksheets.Worksheet(1);
+
+                // Read data from the Excel file and add it to the DataTable
+                for (int row = 2; row <= worksheet.RowsUsed().Count(); row++)
+                {
+                    DataRow dataRow = dt.NewRow();
+                    dataRow["MaNSX"] = worksheet.Cell(row, 1).Value.ToString();
+                    dataRow["TenNSX"] = worksheet.Cell(row, 2).Value.ToString();
+                    dataRow["DiaChi"] = worksheet.Cell(row, 3).Value.ToString();
+                    dataRow["SoDT"] = worksheet.Cell(row, 4).Value.ToString();
+                    dataRow["TrangThai"] = worksheet.Cell(row, 5).Value.ToString();
+                    dt.Rows.Add(dataRow);
+                }
+            }
+
+
+        }
+
+        private void SaveDataToDatabase()
+        {
+            string strconn = @"Data Source=MSI;Initial Catalog=MiniMarket1511;Integrated Security=True";
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(strconn))
+                {
+                    connection.Open();
+
+                    using (SqlTransaction transaction = connection.BeginTransaction())
+                    {
+                        using (SqlBulkCopy bulkCopy = new SqlBulkCopy(connection, SqlBulkCopyOptions.Default, transaction))
+                        {
+                            bulkCopy.DestinationTableName = "NhaSanXuat"; // Đặt tên bảng cần lưu dữ liệu
+
+                            // Ánh xạ cột DataTable với cột trong Database
+                            foreach (DataColumn column in dt.Columns)
+                            {
+                                bulkCopy.ColumnMappings.Add(column.ColumnName, column.ColumnName);
+                            }
+
+                            // Lấy danh sách mã loại hiện tại trong cơ sở dữ liệu
+                            List<string> existingMaLoaiList = GetExistingMaNSXList(connection, transaction);
+
+                            // Chỉ lưu dữ liệu có mã loại chưa tồn tại trong cơ sở dữ liệu
+                            DataTable newData = dt.AsEnumerable()
+                                .Where(row => !existingMaLoaiList.Contains(row.Field<string>("MaNSX")))
+                                .CopyToDataTable();
+
+                            if (newData.Rows.Count > 0)
+                            {
+                                bulkCopy.WriteToServer(newData);
+                            }
+                        }
+
+                        // Hoàn thành và commit giao dịch
+                        transaction.Commit();
+                    }
+                }
+
+                MessageBox.Show("Dữ liệu đã được lưu vào cơ sở dữ liệu.", "Hoàn thành", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi lưu dữ liệu vào cơ sở dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private List<string> GetExistingMaNSXList(SqlConnection connection, SqlTransaction transaction)
+        {
+            List<string> existingMaLoaiList = new List<string>();
+
+            using (SqlCommand command = new SqlCommand("SELECT MaNSX FROM NhaSanXuat", connection, transaction))
+            {
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        existingMaLoaiList.Add(reader["MaNSX"].ToString());
+                    }
+                }
+            }
+
+            return existingMaLoaiList;
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            ExportToExcel();
+        }
+
+        private void ExportToExcel()
+        {
+            // Đường dẫn thư mục mặc định cho tệp Excel
+            // Đường dẫn thư mục mặc định cho tệp Excel
+            string appDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            string folderPath = Path.Combine(appDirectory, "resources", "excel");
+
+            // Hiển thị hộp thoại chọn hoặc nhập tên tệp Excel mới
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                InitialDirectory = folderPath,
+                Filter = "Excel Files|*.xlsx",
+                RestoreDirectory = true
+            };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Đường dẫn tệp Excel mới được chọn hoặc nhập
+                string filePath = saveFileDialog.FileName;
+
+                // Khởi tạo ứng dụng Excel
+                Excel.Application excelApp = new Excel.Application();
+                Excel.Workbook excelWB = excelApp.Workbooks.Add("");
+                Excel._Worksheet excelWS = excelWB.ActiveSheet;
+
+                // Lấy dữ liệu từ DataTable (dt là DataTable của bạn)
+                DataTable dt = GetData(); // Hàm GetData() là hàm lấy dữ liệu của bạn
+
+                // Định dạng tiêu đề
+                excelWS.Cells[1, 1] = "MaNSX";
+                excelWS.Cells[1, 2] = "TenNSX";
+                excelWS.Cells[1, 3] = "DiaChi";
+                excelWS.Cells[1, 4] = "SoDT";
+                excelWS.Cells[1, 5] = "TrangThai";
+
+                // Bắt đầu từ hàng 2 để điền dữ liệu trong vòng lặp
+                int currentRow = 2;
+
+                // Export dữ liệu từ DataTable vào Excel
+                foreach (DataRow row in dt.Rows)
+                {
+                    excelWS.Cells[currentRow, 1] = row["MaNSX"];
+                    excelWS.Cells[currentRow, 2] = row["TenNSX"];
+                    excelWS.Cells[currentRow, 3] = row["DiaChi"];
+                    excelWS.Cells[currentRow, 4] = row["SoDT"];
+                    excelWS.Cells[currentRow, 5] = row["TrangThai"];
+
+                    currentRow++;
+                }
+
+                // Lưu tệp Excel với đường dẫn mới
+                excelWB.SaveAs(filePath);
+
+                // Đóng tệp Excel
+                excelWB.Close(false);
+                excelApp.Quit();
+
+                // Giải phóng tài nguyên
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(excelWB);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(excelWS);
+
+                // Thông báo hoàn thành
+                MessageBox.Show("Dữ liệu đã được xuất ra tệp Excel.", "Hoàn thành", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+
+            }
+        }
+        private DataTable GetData()
+        {
+            // Code để lấy dữ liệu từ nguồn nào đó và trả về DataTable
+            // Ví dụ: 
+            dt = nsxBLL.getListNSX();
+            // ... (code để điền dữ liệu vào DataTable)
+            return dt;
+        }
     }
+
 
 
 
