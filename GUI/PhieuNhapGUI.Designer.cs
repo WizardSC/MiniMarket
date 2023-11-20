@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class XemPhieuNhapGUI
+    partial class PhieuNhapGUI
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PhieuNhapGUI));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XemPhieuNhapGUI));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.rjButton1 = new GUI.MyCustom.RJButton();
             this.flpFilter = new System.Windows.Forms.FlowLayoutPanel();
             this.chkNgay = new GUI.MyCustom.BiggerCheckBox();
             this.label23 = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.TongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rjButton1 = new GUI.MyCustom.RJButton();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.flpFilter.SuspendLayout();
@@ -67,7 +67,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1175, 763);
+            this.panel1.Size = new System.Drawing.Size(1175, 740);
             this.panel1.TabIndex = 1;
             // 
             // panel3
@@ -79,8 +79,34 @@
             this.panel3.Controls.Add(this.dgvThongTinPhieuNhap);
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1169, 757);
+            this.panel3.Size = new System.Drawing.Size(1169, 737);
             this.panel3.TabIndex = 4;
+            // 
+            // rjButton1
+            // 
+            this.rjButton1.AutoSize = true;
+            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.rjButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.rjButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.rjButton1.BorderRadius = 4;
+            this.rjButton1.BorderSize = 2;
+            this.rjButton1.FlatAppearance.BorderSize = 0;
+            this.rjButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.rjButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton1.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton1.ForeColor = System.Drawing.Color.Black;
+            this.rjButton1.Image = ((System.Drawing.Image)(resources.GetObject("rjButton1.Image")));
+            this.rjButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rjButton1.Location = new System.Drawing.Point(973, 9);
+            this.rjButton1.Margin = new System.Windows.Forms.Padding(120, 8, 10, 0);
+            this.rjButton1.Name = "rjButton1";
+            this.rjButton1.Size = new System.Drawing.Size(170, 42);
+            this.rjButton1.TabIndex = 36;
+            this.rjButton1.Text = "         Export Excel";
+            this.rjButton1.TextColor = System.Drawing.Color.Black;
+            this.rjButton1.UseVisualStyleBackColor = false;
+            this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click);
             // 
             // flpFilter
             // 
@@ -344,7 +370,7 @@
             this.dgvThongTinPhieuNhap.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvThongTinPhieuNhap.EnableHeadersVisualStyles = false;
             this.dgvThongTinPhieuNhap.GridColor = System.Drawing.Color.Black;
-            this.dgvThongTinPhieuNhap.Location = new System.Drawing.Point(-4, 62);
+            this.dgvThongTinPhieuNhap.Location = new System.Drawing.Point(-1, 62);
             this.dgvThongTinPhieuNhap.Name = "dgvThongTinPhieuNhap";
             this.dgvThongTinPhieuNhap.ReadOnly = true;
             this.dgvThongTinPhieuNhap.RowHeadersVisible = false;
@@ -353,7 +379,7 @@
             this.dgvThongTinPhieuNhap.RowTemplate.Height = 30;
             this.dgvThongTinPhieuNhap.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvThongTinPhieuNhap.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvThongTinPhieuNhap.Size = new System.Drawing.Size(1173, 694);
+            this.dgvThongTinPhieuNhap.Size = new System.Drawing.Size(1161, 670);
             this.dgvThongTinPhieuNhap.TabIndex = 1;
             this.dgvThongTinPhieuNhap.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvThongTinPhieuNhap_CellDoubleClick);
             this.dgvThongTinPhieuNhap.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvThongTinPhieuNhap_CellFormatting);
@@ -403,40 +429,14 @@
             this.TenNCC.ReadOnly = true;
             this.TenNCC.Width = 275;
             // 
-            // rjButton1
-            // 
-            this.rjButton1.AutoSize = true;
-            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.rjButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.rjButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.rjButton1.BorderRadius = 4;
-            this.rjButton1.BorderSize = 2;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.rjButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton1.ForeColor = System.Drawing.Color.Black;
-            this.rjButton1.Image = ((System.Drawing.Image)(resources.GetObject("rjButton1.Image")));
-            this.rjButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rjButton1.Location = new System.Drawing.Point(973, 9);
-            this.rjButton1.Margin = new System.Windows.Forms.Padding(120, 8, 10, 0);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(170, 42);
-            this.rjButton1.TabIndex = 36;
-            this.rjButton1.Text = "         Export Excel";
-            this.rjButton1.TextColor = System.Drawing.Color.Black;
-            this.rjButton1.UseVisualStyleBackColor = false;
-            this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click);
-            // 
-            // XemPhieuNhapGUI
+            // PhieuNhapGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1176, 763);
+            this.ClientSize = new System.Drawing.Size(1176, 742);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "XemPhieuNhapGUI";
+            this.Name = "PhieuNhapGUI";
             this.Text = "XemPhieuNhap";
             this.Load += new System.EventHandler(this.XemPhieuNhapGUI_Load);
             this.panel1.ResumeLayout(false);

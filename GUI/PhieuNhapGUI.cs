@@ -14,10 +14,10 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class XemPhieuNhapGUI : Form
+    public partial class PhieuNhapGUI : Form
     {
         private PhieuNhapT_BLL PnBLL;
-        private XemChiTietPhieuNhapGUI ChiTietPN;
+        private ChiTietPhieuNhapGUI ChiTietPN;
         private string currentSearch;
         private string textSearchCondition = ""; // Biến để lưu trữ điều kiện từ textbox tìm kiếm
         private string cbxItemsMacDinh;
@@ -27,7 +27,7 @@ namespace GUI
 
 
         private bool isFormFilter = false;
-        public XemPhieuNhapGUI()
+        public PhieuNhapGUI()
         {
             InitializeComponent();
             PnBLL = new PhieuNhapT_BLL();
@@ -221,7 +221,7 @@ namespace GUI
             MaPhieuNhap = dgvThongTinPhieuNhap.Rows[i].Cells[0].Value.ToString();
             NgayTaoPN = DateTime.Parse(dgvThongTinPhieuNhap.Rows[i].Cells[1].Value.ToString());
             TenNhaCungCap = dgvThongTinPhieuNhap.Rows[i].Cells[4].Value.ToString();
-            XemChiTietPhieuNhapGUI ChiTietPN = new XemChiTietPhieuNhapGUI(MaPhieuNhap, NgayTaoPN, TenNhaCungCap);
+            ChiTietPhieuNhapGUI ChiTietPN = new ChiTietPhieuNhapGUI(MaPhieuNhap, NgayTaoPN, TenNhaCungCap);
             ChiTietPN.ShowDialog();
         }
 

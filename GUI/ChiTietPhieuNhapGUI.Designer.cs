@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class XemChiTietPhieuNhapGUI
+    partial class ChiTietPhieuNhapGUI
     {
         /// <summary>
         /// Required designer variable.
@@ -39,8 +39,6 @@
             this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnExport = new GUI.MyCustom.RJButton();
-            this.label5 = new System.Windows.Forms.Label();
             this.dtpNgayNhap = new GUI.MyCustom.RJDatePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -170,8 +168,6 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnExport);
-            this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.dtpNgayNhap);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
@@ -182,40 +178,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(947, 126);
             this.panel2.TabIndex = 2;
-            // 
-            // btnExport
-            // 
-            this.btnExport.AutoSize = true;
-            this.btnExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnExport.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnExport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.btnExport.BorderRadius = 0;
-            this.btnExport.BorderSize = 2;
-            this.btnExport.FlatAppearance.BorderSize = 0;
-            this.btnExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExport.ForeColor = System.Drawing.Color.White;
-            this.btnExport.Image = global::GUI.Properties.Resources.icons8_print_28;
-            this.btnExport.Location = new System.Drawing.Point(847, 37);
-            this.btnExport.Margin = new System.Windows.Forms.Padding(120, 8, 10, 0);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(50, 49);
-            this.btnExport.TabIndex = 33;
-            this.btnExport.TextColor = System.Drawing.Color.White;
-            this.btnExport.UseVisualStyleBackColor = false;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label5.Location = new System.Drawing.Point(788, 49);
-            this.label5.Margin = new System.Windows.Forms.Padding(4);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 28);
-            this.label5.TabIndex = 31;
-            this.label5.Text = "Print:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dtpNgayNhap
             // 
@@ -338,19 +300,18 @@
             this.label1.Text = "THÔNG TIN PHIẾU NHẬP";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // XemChiTietPhieuNhapGUI
+            // ChiTietPhieuNhapGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(961, 534);
             this.Controls.Add(this.panel1);
-            this.Name = "XemChiTietPhieuNhapGUI";
+            this.Name = "ChiTietPhieuNhapGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "XemChiTietPhieuNhapGUI";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvXemChiTietPN)).EndInit();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -366,8 +327,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ThanhTien;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
-        private MyCustom.RJButton btnExport;
-        private System.Windows.Forms.Label label5;
         private MyCustom.RJDatePicker dtpNgayNhap;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;

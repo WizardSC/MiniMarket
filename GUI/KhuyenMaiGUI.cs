@@ -58,16 +58,15 @@ namespace GUI
 
         private void loadMaKM()
         {
-            string lastMaKM = null;
-            foreach (DataRow row in dt.Rows)
-            {
-                lastMaKM = row["MaKM"].ToString();
-            }
-            if (lastMaKM == "")
+
+            string MaKM;
+
+            MaKM = kmBLL.getMaxMaKM();
+            if (MaKM == "")
             {
                 txtMaKM.Texts = "KM001";
             }
-            int tempNum = int.Parse(lastMaKM.Substring(2));
+            int tempNum = int.Parse(MaKM.Substring(2));
             if ((tempNum + 1) >= 10)
             {
                 txtMaKM.Texts = "KM0" + (tempNum + 1).ToString();
@@ -82,7 +81,6 @@ namespace GUI
         {
             cbx.Items.Add("Mã KM");
             cbx.Items.Add("Tên KM");
-            cbx.Items.Add("Phần Trăm KM");
             cbxTimKiem.SelectedIndex = 0;
         }
 
@@ -98,16 +96,6 @@ namespace GUI
                     return returnDieuKien($"MaKM like '%{searchText}%'");
                 case "Tên KM":
                     return returnDieuKien($"TenKM like '%{searchText}%'");
-                case "Phần Trăm KM":
-                    int phanTramKM;
-                    if (int.TryParse(searchText, out phanTramKM))
-                    {
-                        return returnDieuKien($"PhanTramKM = {phanTramKM}");
-                    }
-                    else
-                    {
-                        return "";
-                    }
                 default:
                     return "";
             }
@@ -180,6 +168,7 @@ namespace GUI
             dgvKhuyenMai.DataSource = kmBLL.getListDsKm();
 
             cbxTrangThai.SelectedIndex = 0;
+            loadMaKM();
         }
         private void KhuyenMaiGUI_Load(object sender, EventArgs e)
         {
@@ -238,11 +227,11 @@ namespace GUI
         }
         private DateTime CheckAndSetColorDate(DateTime dateTime, Label label)
         {
-            DateTime currentDate = dtpNgayBD.Value; // Lấy ngày hiện tại
+            DateTime currentDate = DateTime.Now; // Lấy ngày hiện tại
 
             if (dateTime != default(DateTime))
             {
-                if (dateTime < currentDate)
+                if (dateTime <= currentDate)
                 {
                     label.ForeColor = Color.FromArgb(230, 76, 89);
                 }
@@ -275,6 +264,7 @@ namespace GUI
                     label.ForeColor = Color.FromArgb(230, 76, 89);
                     label.Text = "* Bạn phải nhập số nguyên";
                 }
+               
                 else
                 {
                     label.ForeColor = Color.Transparent;
@@ -284,7 +274,31 @@ namespace GUI
             }
             return null; // Nếu kiểu dữ liệu không hợp lệ.
         }
-
+        private string CheckAndSetColorDieuKienKM(object control, Label label)
+        {
+            if (control is RJTextBox textBox)
+            {
+                string text = textBox.Texts.Trim();
+                if (string.IsNullOrWhiteSpace(text))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "* Bạn phải nhập DKKM";
+                }
+                else if (!int.TryParse(text, out int result))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "* Bạn phải nhập số nguyên";
+                }
+                
+                else
+                {
+                    label.ForeColor = Color.Transparent;
+                    label.Text = "";
+                }
+                return text;
+            }
+            return null; // Nếu kiểu dữ liệu không hợp lệ.
+        }
         private bool IsInteger(string text)
         {
             int result;
@@ -295,13 +309,14 @@ namespace GUI
         {
             string tenKM = CheckAndSetColor(txtTenKm, label4);
             string phantramkm = CheckAndSetColorPhanTramKM(txtPhanTramKM, label10);
+            string dieukienkm = CheckAndSetColorDieuKienKM(txtDkKM, label12);
             DateTime ngaykt = CheckAndSetColorDate(dtpNgayKT.Value, label8);
-            DateTime Ngaybd = dtpNgayBD.Value;
+            DateTime Ngaybd = DateTime.Now;
             //DateTime Ngaykt = dtpNgayKT.Value;
             string CheckTrangThai = cbxTrangThai.Texts.ToString();
             int trangthai = (CheckTrangThai == "Hoạt động") ? 1 : 0;
 
-            if (string.IsNullOrWhiteSpace(tenKM) || ngaykt < Ngaybd || string.IsNullOrWhiteSpace(phantramkm) || !IsInteger(phantramkm))
+            if (string.IsNullOrWhiteSpace(tenKM) || ngaykt <= Ngaybd  || !IsInteger(phantramkm) || !IsInteger(dieukienkm))
             {
                 return;
             }
@@ -314,14 +329,9 @@ namespace GUI
             KM_DTO.NgayBd = Ngaybd;
             KM_DTO.NgayKt = ngaykt;
             KM_DTO.PhanTramKm = int.Parse(phantramkm);
-            if (string.IsNullOrWhiteSpace(txtDkKM.Texts))
-            {
-                KM_DTO.DieuKiemKm = "0";
-            }
-            else
-            {
-                KM_DTO.DieuKiemKm = txtDkKM.Texts;
-            }
+            KM_DTO.DieuKiemKm = dieukienkm;
+
+
             KM_DTO.TrangThai = trangthai;
 
             bool result = kmBLL.insertKhuyenMai(KM_DTO);
@@ -330,7 +340,6 @@ namespace GUI
             {
                 MessageBox.Show("Thêm khuyến mãi thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 init();
-                loadMaKM();
                 clearForm();
             }
             else
@@ -341,35 +350,30 @@ namespace GUI
 
         private void btnSua_Click(object sender, EventArgs e)
             {
-            string tenkm = txtTenKm.Texts;
-            string phantram = txtPhanTramKM.Texts;
-            string dieukien = txtDkKM.Texts;
-            DateTime ngaykt = dtpNgayKT.Value;
-            DateTime Ngaybd = dtpNgayBD.Value;
+            string tenKM = CheckAndSetColor(txtTenKm, label4);
+            string phantramkm = CheckAndSetColorPhanTramKM(txtPhanTramKM, label10);
+            string dieukienkm = CheckAndSetColorDieuKienKM(txtDkKM, label12);
+            DateTime ngaykt = CheckAndSetColorDate(dtpNgayKT.Value, label8);
+            DateTime Ngaybd = DateTime.Now;
+            //DateTime Ngaykt = dtpNgayKT.Value;
             string CheckTrangThai = cbxTrangThai.Texts.ToString();
             int trangthai = (CheckTrangThai == "Hoạt động") ? 1 : 0;
 
-            if (string.IsNullOrWhiteSpace(tenkm) || ngaykt < Ngaybd || string.IsNullOrWhiteSpace(phantram) || !IsInteger(phantram))
+            if (string.IsNullOrWhiteSpace(tenKM) || ngaykt <= Ngaybd || !IsInteger(phantramkm) || !IsInteger(dieukienkm))
             {
                 return;
             }
 
-            KhuyenMaiDTO KM_DTO = new KhuyenMaiDTO();
+            // Tiếp tục xử lý dữ liệu nếu tất cả điều kiện đều đúng.
 
-            KM_DTO.TenKm = tenkm;
+            KhuyenMaiDTO KM_DTO = new KhuyenMaiDTO();
+            KM_DTO.Makm = txtMaKM.Texts;
+            KM_DTO.TenKm = tenKM;
             KM_DTO.NgayBd = Ngaybd;
             KM_DTO.NgayKt = ngaykt;
-            KM_DTO.PhanTramKm = int.Parse(phantram);
-            if (string.IsNullOrWhiteSpace(txtDkKM.Texts))
-            {
-                KM_DTO.DieuKiemKm = "0";
-            }
-            else
-            {
-                KM_DTO.DieuKiemKm = txtDkKM.Texts;
-            }
+            KM_DTO.PhanTramKm = int.Parse(phantramkm);
+            KM_DTO.DieuKiemKm = dieukienkm;
             KM_DTO.TrangThai = trangthai;
-            KM_DTO.Makm = txtMaKM.Texts;
 
             bool result = kmBLL.UpdateKhuyenMai(KM_DTO);
 
@@ -377,7 +381,6 @@ namespace GUI
             {
                 MessageBox.Show("Sửa khuyến mãi thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 init();
-                loadMaKM();
                 clearForm();
             }
             else
@@ -627,7 +630,7 @@ namespace GUI
 
         private void txtDkKM__TextChanged(object sender, EventArgs e)
         {
-             CheckAndSetColor(txtDkKM, label12);
+            CheckAndSetColorDieuKienKM(txtDkKM, label12);
         }
 
         private void dtpNgayKT_ValueChanged(object sender, EventArgs e)
