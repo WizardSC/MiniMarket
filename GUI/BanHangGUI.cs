@@ -913,6 +913,7 @@ namespace GUI
                 lblKhachHang.Text = hoTenKH;
             }
         }
+        private bool miniChonKMOpened = false;
 
         private void btnChonKM_Click(object sender, EventArgs e)
         {
@@ -921,27 +922,34 @@ namespace GUI
                 MessageBox.Show("Giỏ hàng đang trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            using (MiniChonKMGUI chonKMGUI = new MiniChonKMGUI(ConvertVNDToInt(lblTongTienTT.Text)))
+            if (!miniChonKMOpened)
             {
-                chonKMGUI.ShowDialog();
+                // Đặt biến cờ thành true để biết rằng form đã được mở
+                miniChonKMOpened = true;
 
-                string maKM = chonKMGUI.MaKM1;
-                phanTramKM = chonKMGUI.PhanTramKM1;
-
-                //Lưu danh sách CTKM từ form mini chọn CTKM
-                listCTKM = chonKMGUI.listCTKMinFormMini;
-
-                int result = capNhatGioHangKhiChonCTKM() ? 1 : 0;
-                if (result == 1)
+                MiniChonKMGUI chonKMGUI = new MiniChonKMGUI(ConvertVNDToInt(lblTongTienTT.Text));
+                chonKMGUI.Show();
+                chonKMGUI.FormClosed += (s, args) =>
                 {
-                    lblKhuyenMai.Text = maKM;
-                }
-                else
-                {
-                    lblKhuyenMai.Text = string.Empty;
-                }
+                    // Đặt biến cờ lại thành false khi form được đóng
+                    miniChonKMOpened = false;
 
+                    string maKM = chonKMGUI.MaKM1;
+                    phanTramKM = chonKMGUI.PhanTramKM1;
 
+                    // Lưu danh sách CTKM từ form mini chọn CTKM
+                    listCTKM = chonKMGUI.listCTKMinFormMini;
+
+                    int result = capNhatGioHangKhiChonCTKM() ? 1 : 0;
+                    if (result == 1)
+                    {
+                        lblKhuyenMai.Text = maKM;
+                    }
+                    else
+                    {
+                        lblKhuyenMai.Text = string.Empty;
+                    }
+                };
             }
 
 

@@ -38,7 +38,7 @@ namespace GUI
         private bool isHoatDong = false;
         private bool isKhongHoatDong = false;
         private bool isTrangThai = false;
-
+        private string fileName;
         private string ma;
 
         public NhaCCGUI(int isNCC)
@@ -295,7 +295,7 @@ namespace GUI
             string soFax = CheckAndSetColorSoFax(txtSoFax, lblErrSoFax);
             string trangThai = CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
             int trangThaiValue = (trangThai == "Hoạt động" ? 1 : 0);
-            byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
+            string img = fileName;
             if ((string.IsNullOrWhiteSpace(ten) || string.IsNullOrWhiteSpace(diaChi) || string.IsNullOrWhiteSpace(soDT) || string.IsNullOrWhiteSpace(trangThai) || img == null))
             {
                 return;
@@ -331,7 +331,7 @@ namespace GUI
             string soFax = CheckAndSetColorSoFax(txtSoFax, lblErrSoFax);
             string trangThai = CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
             int trangThaiValue = (trangThai == "Hoạt động" ? 1 : 0);
-            byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
+            string img = fileName;
             if ((string.IsNullOrWhiteSpace(ten) || string.IsNullOrWhiteSpace(diaChi) || string.IsNullOrWhiteSpace(soDT) || string.IsNullOrWhiteSpace(trangThai) || img == null))
             {
                 return;
@@ -423,9 +423,21 @@ namespace GUI
             txtSoFax.Texts = dgvNhaCC.Rows[i].Cells[4].Value.ToString();
             int trangThai = int.Parse(dgvNhaCC.Rows[i].Cells[5].Value.ToString());
             cbxTrangThai.SelectedItem = (trangThai == 1) ? "Hoạt động" : "Không hoạt động";
-            byte[] imageBytes = (byte[])dgvNhaCC.Rows[i].Cells[6].Value;
-            pbImage.Image = convertBinaryStringToImage(imageBytes);
-            pbImage.Tag = dgvNhaCC.Rows[i].Cells[0].Value.ToString();
+            string img = dgvNhaCC.Rows[i].Cells[6].Value.ToString();
+            string appDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            string folderPath = Path.Combine(appDirectory, "resources", "image", "NhaCungCap", img);
+            if (File.Exists(folderPath))
+            {
+                pbImage.Image = Image.FromFile(folderPath);
+                pbImage.Tag = dgvNhaCC.Rows[i].Cells[0].Value.ToString();
+
+            } else
+            {
+                pbImage.Image = pbImage.InitialImage;
+
+            }
+            
+            //pbImage.Image = convertBinaryStringToImage(imageBytes);
 
         }
 
@@ -612,7 +624,7 @@ namespace GUI
                 this.Text = open.FileName;
 
                 pbImage.Tag = txtMaNCC.Texts;
-                Console.WriteLine(pbImage.Tag);
+                fileName = Path.GetFileName(open.FileName);
 
             }
         }

@@ -653,7 +653,7 @@ namespace GUI
             txtDiaChi.Texts = dgvNhanVien.Rows[i].Cells[6].Value.ToString();
             int trangThai = int.Parse(dgvNhanVien.Rows[i].Cells[7].Value.ToString());
             string chucVu = dgvNhanVien.Rows[i].Cells[9].Value.ToString();
-            if (dgvNhanVien.Rows[i].Cells[10].Value != null)
+            if (dgvNhanVien.Rows[i].Cells[10].Value != DBNull.Value)
             {
                 byte[] imageBytes = (byte[])dgvNhanVien.Rows[i].Cells[10].Value;
                 pbImage.Image = convertBinaryStringToImage(imageBytes);
