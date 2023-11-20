@@ -292,7 +292,7 @@
             this.dgvKhachHang.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvKhachHang.EnableHeadersVisualStyles = false;
             this.dgvKhachHang.GridColor = System.Drawing.Color.Black;
-            this.dgvKhachHang.Location = new System.Drawing.Point(5, 62);
+            this.dgvKhachHang.Location = new System.Drawing.Point(5, 63);
             this.dgvKhachHang.Name = "dgvKhachHang";
             this.dgvKhachHang.ReadOnly = true;
             this.dgvKhachHang.RowHeadersVisible = false;
@@ -301,7 +301,7 @@
             this.dgvKhachHang.RowTemplate.Height = 30;
             this.dgvKhachHang.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKhachHang.Size = new System.Drawing.Size(845, 660);
+            this.dgvKhachHang.Size = new System.Drawing.Size(852, 659);
             this.dgvKhachHang.TabIndex = 1;
             this.dgvKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhachHang_CellClick);
             this.dgvKhachHang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhachHang_CellContentClick);
@@ -1501,6 +1501,7 @@
             this.btnSua.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
             this.btnSua.BorderRadius = 20;
             this.btnSua.BorderSize = 2;
+            this.btnSua.Enabled = false;
             this.btnSua.FlatAppearance.BorderSize = 0;
             this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSua.ForeColor = System.Drawing.Color.White;
@@ -1521,6 +1522,7 @@
             this.btnXoa.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
             this.btnXoa.BorderRadius = 20;
             this.btnXoa.BorderSize = 2;
+            this.btnXoa.Enabled = false;
             this.btnXoa.FlatAppearance.BorderSize = 0;
             this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoa.ForeColor = System.Drawing.Color.White;

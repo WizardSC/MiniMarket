@@ -51,7 +51,8 @@ namespace GUI
             khBLL = new KhachHangBLL();
             dt = khBLL.getListKhachHang();
             DateTime currentDate = DateTime.Now;
-            dtpNgaySinh.MaxDate = currentDate; //không cho chọn ngày lớn hơn ngày hiện tại
+            dtpNgaySinh.MaxDate = DateTime.Now.Date.AddYears(-18); // Không được chọn ngày lớn hơn 18
+            //dtpNgaySinh.MaxDate = currentDate; //không cho chọn ngày lớn hơn ngày hiện tại
             unhideError(); //set màu trong suốt cho các label lỗi
             loadMaKH();
             txtMaKH.Enabled = false;
@@ -82,6 +83,15 @@ namespace GUI
             chkNam.Enabled = isGioiTinh;
             chkNu.Enabled = isGioiTinh;
 
+        }
+        private void loadForm()
+        {
+            dgvKhachHang.DataSource = dt;
+
+            cbxTimKiem.Refresh();
+            loadDataToCBX(cbxTimKiem);
+            chkNam.Enabled = isGioiTinh;
+            chkNu.Enabled = isGioiTinh;
         }
         //Xóa bỏ tự chọn dòng đầu tiên của DataGridView khi load form
 
@@ -181,7 +191,102 @@ namespace GUI
 
             return null; // Nếu kiểu dữ liệu không hợp lệ.
         }
+        private bool ContainsLetter(string text)
+        {
+            foreach (char c in text)
+            {
+                if (char.IsLetter(c))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        private string CheckAndSetColorSDT(object control, Label label)
+        {
+            if (control is RJTextBox textBox)
+            {
+                string text = textBox.Texts.Trim();
+                if (string.IsNullOrWhiteSpace(text))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "*Bạn phải nhập so DT";
+                    return null;
+                }
+                else if (ContainsLetter(text))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "    *Số DT không thể chứa chữ";
+                    return null;
+                }
+                else if (text.ToString().Length > 10)
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "    *Số DT không được quá 10 số";
+                    return null;
+                }
+                else
+                {
+                    label.ForeColor = Color.Transparent;
+                    label.Text = "";
+                }
+                return text;
+            }
+            return null;
+        }
+        private string CheckAndSetColorHo(object control, Label label)
+        {
+            if (control is RJTextBox textBox)
+            {
+                string text = textBox.Texts.Trim();
+                if (string.IsNullOrWhiteSpace(text))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "*Bạn phải nhập họ";
+                    return null;
+                }
+                else if (int.TryParse(text, out int result))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "    *Họ không thể chứa chữ số";
+                    return null;
+                }
+                else
+                {
+                    label.ForeColor = Color.Transparent;
+                    label.Text = "";
 
+                }
+                return text;
+            }
+            return null;
+        }
+        private string CheckAndSetColorTen(object control, Label label)
+        {
+            if (control is RJTextBox textBox)
+            {
+                string text = textBox.Texts.Trim();
+                if (string.IsNullOrWhiteSpace(text))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "*Bạn phải nhập tên";
+                    return null;
+                }
+                else if (int.TryParse(text, out int result))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "    *Tên không thể chứa chữ số";
+                    return null;
+                }
+                else
+                {
+                    label.ForeColor = Color.Transparent;
+                    label.Text = "";
+                }
+                return text;
+            }
+            return null;
+        }
         private int ConvertToInt(RJTextBox textBox, Label label = null)
         //Nếu không có lbl Lỗi thì mặc định giá trị là null
         {
@@ -623,9 +728,9 @@ namespace GUI
         private void btnThem_Click(object sender, EventArgs e)
         {
             string maKH = CheckAndSetColor(txtMaKH, lblErrMaKH);
-            string ho = CheckAndSetColor(txtHo, lblErrHo);
-            string ten = CheckAndSetColor(txtTen, lblErrTen);
-            string soDT = CheckAndSetColor(txtSoDT, lblErrSoDT);
+            string ho = CheckAndSetColorHo(txtHo, lblErrHo);
+            string ten = CheckAndSetColorTen(txtTen, lblErrTen);
+            string soDT = CheckAndSetColorSDT(txtSoDT, lblErrSoDT);
             DateTime ngaySinh = dtpNgaySinh.Value;
             string diaChi = CheckAndSetColor(txtDiaChi, lblErrDiaChi);
             string trangThai = CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
@@ -662,6 +767,7 @@ namespace GUI
                   "Thông báo",
                   MessageBoxButtons.OK,
                   MessageBoxIcon.Information);
+                reset();
             }
             else
             {
@@ -675,6 +781,9 @@ namespace GUI
 
         private void dgvKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            btnThem.Enabled = false;
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
             int i = dgvKhachHang.CurrentRow.Index;
             txtMaKH.Texts = dgvKhachHang.Rows[i].Cells[0].Value.ToString();
             txtHo.Texts = dgvKhachHang.Rows[i].Cells[1].Value.ToString();
@@ -696,17 +805,17 @@ namespace GUI
         #region validate Dữ liệu
         private void txtHo__TextChanged(object sender, EventArgs e)
         {
-            CheckAndSetColor(txtHo, lblErrHo);
+            CheckAndSetColorHo(txtHo, lblErrHo);
         }
 
         private void txtTen__TextChanged(object sender, EventArgs e)
         {
-            CheckAndSetColor(txtTen, lblErrTen);
+            CheckAndSetColorTen(txtTen, lblErrTen);
         }
 
         private void txtSoDT__TextChanged(object sender, EventArgs e)
         {
-            CheckAndSetColor(txtSoDT, lblErrSoDT);
+            CheckAndSetColorSDT(txtSoDT, lblErrSoDT);
         }
 
         private void txtDiaChi__TextChanged(object sender, EventArgs e)
@@ -793,7 +902,7 @@ namespace GUI
                     "Thông báo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
-
+                reset();
             }
             else
             {
@@ -807,9 +916,28 @@ namespace GUI
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-
+            reset();
         }
+        private void reset()
+        {
+            btnThem.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
 
+            loadMaKH();
+            txtHo.Texts = "";
+            txtTen.Texts = "";
+            txtSoDT.Texts = "";
+            txtDiaChi.Texts = "";
+            rdbNam.Checked = false;
+            rdbNu.Checked = false;
+            cbxTrangThai.SelectedIndex = -1;
+            cbxTrangThai.Texts = "--Chọn trạng thái--";
+            txtTimKiem.Texts = "";
+            btnDeleteIMG.PerformClick();
+            loadForm();
+            unhideError();
+        }
         private void dgvKhachHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

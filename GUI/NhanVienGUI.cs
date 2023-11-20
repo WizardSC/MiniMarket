@@ -29,6 +29,8 @@ namespace GUI
         private bool isNu = false;
         private bool isQuanLy = false;
         private bool isBanHang = false;
+        private bool isKho = false;
+        private bool isAdmin = false;
         private bool isHoatDong = false;
         private bool isKhongHoatDong = false;
         private string genderCondition = "";
@@ -85,7 +87,8 @@ namespace GUI
             dgvNhanVien.DataSource = nvBLL.getListNhanVien();
             dtpNgaySinh.Format = DateTimePickerFormat.Custom;
             dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
- 
+            dtpNgaySinh.MaxDate = DateTime.Now.Date.AddYears(-18);
+
         }
 
         private bool ContainsLetter(string text)
@@ -114,6 +117,12 @@ namespace GUI
                 {
                     label.ForeColor = Color.FromArgb(230, 76, 89);
                     label.Text = "    *Số DT không thể chứa chữ";
+                    return null;
+                }
+                else if (text.ToString().Length > 10)
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "    *Số DT không được quá 10 số";
                     return null;
                 }
                 else
@@ -629,6 +638,9 @@ namespace GUI
 
         private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            btnThem.Enabled = false;
+            btnSua.Enabled = true; 
+            btnXoa.Enabled = true;
             int i = dgvNhanVien.CurrentRow.Index;
             txtMaNV.Texts = dgvNhanVien.Rows[i].Cells[0].Value.ToString();
             txtHo.Texts = dgvNhanVien.Rows[i].Cells[1].Value.ToString();
@@ -691,7 +703,9 @@ namespace GUI
         }
         private void reset()
         {
-
+            btnThem.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
             loadMaNV();
             txtHo.Texts = "";
             txtTen.Texts = "";
@@ -856,6 +870,15 @@ namespace GUI
             {
                 chucVuConditions.Add("MaCV = 'CV002'");
             }
+            if (isKho)
+            {
+                chucVuConditions.Add("MaCV = 'CV003'");
+            }
+            // Admin
+            //if (isAdmin)
+            //{
+            //    chucVuConditions.Add("MaCV = 'CV002'");
+            //}
 
             chucVuCondition = string.Join(" OR ", chucVuConditions);
         }
@@ -930,9 +953,11 @@ namespace GUI
         {
             isChucVu = toggleDieuKien(isChucVu);
 
-            // Bật hoặc tắt chkNam và chkNu dựa trên trạng thái của chkGioiTinh
-            chkNam.Enabled = isChucVu;
-            chkNu.Enabled = isChucVu;
+            
+            chkQuanLy.Enabled = isChucVu;
+            chkBanHang.Enabled = isChucVu;
+            chkKho.Enabled = isChucVu;
+            chkAdmin.Enabled = isChucVu;
             if (isChucVu)
             {
 
@@ -947,13 +972,31 @@ namespace GUI
 
                     chkQuanLy_CheckedChanged(sender, e);
                 }
+                if (isKho)
+                {
+
+                    chkKho_CheckedChanged(sender, e);
+                }
+
+                if (isAdmin)
+                {
+
+                    chkAdmin_CheckedChanged(sender, e);
+                }
             }
             else
             {
                 chkBanHang.Checked = false;
                 chkQuanLy.Checked = false;
+                chkKho.Checked = false;
+                chkAdmin.Checked = false;
+
+
+
                 chkBanHang.Enabled = isChucVu;
-                chkQuanLy.Enabled = isChucVu;
+                chkQuanLy.Enabled = isChucVu;        
+                chkKho.Enabled = isChucVu;
+                chkAdmin.Enabled = isChucVu;
             }
         }
         private void chkBanHang_CheckedChanged(object sender, EventArgs e)
@@ -969,7 +1012,19 @@ namespace GUI
             UpdateChucVuCondition();
             btnTimKiem.PerformClick();
         }
+        private void chkKho_CheckedChanged(object sender, EventArgs e)
+        {
+            isKho = toggleDieuKien(isKho);
+            UpdateChucVuCondition();
+            btnTimKiem.PerformClick();
+        }
 
+        private void chkAdmin_CheckedChanged(object sender, EventArgs e)
+        {
+            isAdmin = toggleDieuKien(isAdmin);
+            UpdateChucVuCondition();
+            btnTimKiem.PerformClick();
+        }
 
 
         private void chkTrangThai_CheckedChanged(object sender, EventArgs e)
@@ -1023,6 +1078,14 @@ namespace GUI
             combinedCondition = CombineConditions(combinedCondition, chucVuCondition);
             combinedCondition = ApplyOrRemoveTuoiCondition(combinedCondition, isTuoi);
             applySearchs(combinedCondition);
+        }
+        private void txtTimKiem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnTimKiem_Click(sender, e);
+                e.Handled = true; 
+            }
         }
     }
 }

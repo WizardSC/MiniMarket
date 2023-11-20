@@ -22,6 +22,7 @@ using DevExpress.XtraExport.Xls;
 using OfficeOpenXml;
 using OfficeOpenXml.Drawing;
 using System.Drawing.Imaging;
+using DevExpress.XtraReports.UI;
 
 namespace GUI
 {
@@ -222,6 +223,12 @@ namespace GUI
                     label.Text = "    *Số DT không thể chứa chữ";
                     return null;
                 }
+                else if (text.ToString().Length > 10 )
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "    *Số DT không quá 10 số";
+                    return null;
+                }
                 else
                 {
                     label.ForeColor = Color.Transparent;
@@ -405,6 +412,8 @@ namespace GUI
 
         private void dgvNhaCC_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            btnThem.Enabled = false;
+            btnXoa.Enabled = true;
             btnSua.Enabled = true;
             int i = dgvNhaCC.CurrentRow.Index;
             txtMaNCC.Texts = dgvNhaCC.Rows[i].Cells[0].Value.ToString();
@@ -614,6 +623,9 @@ namespace GUI
         }
         private void reset()
         {
+            btnThem.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
             loadMaNCC();
             txtTimKiem.Texts = "";
             txtTen.Texts = "";
@@ -630,6 +642,15 @@ namespace GUI
         private void btnExport_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void txtTimKiem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnTimKiem_Click(sender, e);
+                e.Handled = true;
+            }
         }
     }
 }
