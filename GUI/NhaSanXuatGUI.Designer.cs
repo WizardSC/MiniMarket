@@ -54,9 +54,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.cbxTrangThai = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.chkTrangThai = new GUI.MyCustom.BiggerCheckBox();
             this.chkHoatDong = new GUI.MyCustom.BiggerCheckBox();
             this.chkKoHD = new GUI.MyCustom.BiggerCheckBox();
@@ -64,6 +67,8 @@
             this.txtTenNSX = new GUI.MyCustom.RJTextBox();
             this.txtDiaChi = new GUI.MyCustom.RJTextBox();
             this.txtSoDT = new GUI.MyCustom.RJTextBox();
+            this.btnImport = new GUI.MyCustom.RJButton();
+            this.btnExport = new GUI.MyCustom.RJButton();
             this.btnThem = new GUI.MyCustom.RJButton();
             this.btnSua = new GUI.MyCustom.RJButton();
             this.btnXoa = new GUI.MyCustom.RJButton();
@@ -72,7 +77,6 @@
             this.txtTimKiem = new GUI.MyCustom.RJTextBox();
             this.btnTimKiem = new GUI.MyCustom.RJButton();
             this.btnFilter = new GUI.MyCustom.RJButton();
-            this.cbxTrangThai = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.flpFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNSX)).BeginInit();
@@ -297,10 +301,14 @@
             this.flowLayoutPanel2.Controls.Add(this.label5);
             this.flowLayoutPanel2.Controls.Add(this.cbxTrangThai);
             this.flowLayoutPanel2.Controls.Add(this.label6);
+            this.flowLayoutPanel2.Controls.Add(this.label20);
+            this.flowLayoutPanel2.Controls.Add(this.btnImport);
+            this.flowLayoutPanel2.Controls.Add(this.label8);
+            this.flowLayoutPanel2.Controls.Add(this.btnExport);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(4, 47);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(391, 363);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(391, 621);
             this.flowLayoutPanel2.TabIndex = 2;
             // 
             // label2
@@ -323,7 +331,7 @@
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Padding = new System.Windows.Forms.Padding(0, 0, 27, 0);
-            this.label13.Size = new System.Drawing.Size(341, 21);
+            this.label13.Size = new System.Drawing.Size(383, 21);
             this.label13.TabIndex = 21;
             this.label13.Text = "* Bạn phải nhập Mã NSX";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -348,7 +356,7 @@
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Padding = new System.Windows.Forms.Padding(0, 0, 27, 0);
-            this.label14.Size = new System.Drawing.Size(341, 21);
+            this.label14.Size = new System.Drawing.Size(383, 21);
             this.label14.TabIndex = 22;
             this.label14.Text = "* Bạn phải nhập Tên NSX";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -373,7 +381,7 @@
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Padding = new System.Windows.Forms.Padding(0, 0, 27, 0);
-            this.label15.Size = new System.Drawing.Size(365, 21);
+            this.label15.Size = new System.Drawing.Size(383, 21);
             this.label15.TabIndex = 22;
             this.label15.Text = "* Bạn phải nhập địa chỉ NSX";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -398,7 +406,7 @@
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Padding = new System.Windows.Forms.Padding(0, 0, 27, 0);
-            this.label18.Size = new System.Drawing.Size(364, 25);
+            this.label18.Size = new System.Drawing.Size(383, 25);
             this.label18.TabIndex = 25;
             this.label18.Text = "* Bạn phải nhập số ĐT";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -415,6 +423,21 @@
             this.label5.Text = "Trạng Thái";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // cbxTrangThai
+            // 
+            this.cbxTrangThai.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxTrangThai.FormattingEnabled = true;
+            this.cbxTrangThai.Items.AddRange(new object[] {
+            "Hoạt động",
+            "Không hoạt động"});
+            this.cbxTrangThai.Location = new System.Drawing.Point(139, 268);
+            this.cbxTrangThai.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxTrangThai.MinimumSize = new System.Drawing.Size(132, 0);
+            this.cbxTrangThai.Name = "cbxTrangThai";
+            this.cbxTrangThai.Size = new System.Drawing.Size(230, 31);
+            this.cbxTrangThai.TabIndex = 29;
+            this.cbxTrangThai.Text = "Hoạt động";
+            // 
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -423,7 +446,7 @@
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Padding = new System.Windows.Forms.Padding(0, 0, 27, 0);
-            this.label6.Size = new System.Drawing.Size(365, 30);
+            this.label6.Size = new System.Drawing.Size(383, 30);
             this.label6.TabIndex = 28;
             this.label6.Text = "* Bạn phải nhập trạng thái";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -434,7 +457,7 @@
             this.flowLayoutPanel3.Controls.Add(this.btnSua);
             this.flowLayoutPanel3.Controls.Add(this.btnXoa);
             this.flowLayoutPanel3.Controls.Add(this.btnReset);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(4, 420);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(4, 678);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 4);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(387, 55);
@@ -452,6 +475,32 @@
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(1127, 70);
             this.flowLayoutPanel4.TabIndex = 3;
+            // 
+            // label20
+            // 
+            this.label20.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.Black;
+            this.label20.Location = new System.Drawing.Point(4, 338);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Name = "label20";
+            this.label20.Padding = new System.Windows.Forms.Padding(0, 0, 27, 0);
+            this.label20.Size = new System.Drawing.Size(383, 39);
+            this.label20.TabIndex = 40;
+            this.label20.Text = "Import File Excel";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(4, 439);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Padding = new System.Windows.Forms.Padding(0, 0, 27, 0);
+            this.label8.Size = new System.Drawing.Size(383, 32);
+            this.label8.TabIndex = 44;
+            this.label8.Text = "Export File Excel";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // chkTrangThai
             // 
@@ -586,6 +635,7 @@
             this.txtTenNSX.TabIndex = 3;
             this.txtTenNSX.Texts = "";
             this.txtTenNSX.UnderlinedStyle = false;
+            this.txtTenNSX._TextChanged += new System.EventHandler(this.txtTenNSX__TextChanged);
             // 
             // txtDiaChi
             // 
@@ -611,6 +661,7 @@
             this.txtDiaChi.TabIndex = 5;
             this.txtDiaChi.Texts = "";
             this.txtDiaChi.UnderlinedStyle = false;
+            this.txtDiaChi._TextChanged += new System.EventHandler(this.txtDiaChi__TextChanged);
             // 
             // txtSoDT
             // 
@@ -636,6 +687,55 @@
             this.txtSoDT.TabIndex = 11;
             this.txtSoDT.Texts = "";
             this.txtSoDT.UnderlinedStyle = false;
+            this.txtSoDT._TextChanged += new System.EventHandler(this.txtSoDT__TextChanged);
+            // 
+            // btnImport
+            // 
+            this.btnImport.AutoSize = true;
+            this.btnImport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnImport.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnImport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.btnImport.BorderRadius = 0;
+            this.btnImport.BorderSize = 2;
+            this.btnImport.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnImport.FlatAppearance.BorderSize = 0;
+            this.btnImport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnImport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImport.ForeColor = System.Drawing.Color.White;
+            this.btnImport.Image = ((System.Drawing.Image)(resources.GetObject("btnImport.Image")));
+            this.btnImport.Location = new System.Drawing.Point(160, 387);
+            this.btnImport.Margin = new System.Windows.Forms.Padding(160, 10, 13, 0);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(59, 52);
+            this.btnImport.TabIndex = 43;
+            this.btnImport.TextColor = System.Drawing.Color.White;
+            this.btnImport.UseVisualStyleBackColor = false;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            // 
+            // btnExport
+            // 
+            this.btnExport.AutoSize = true;
+            this.btnExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnExport.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnExport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.btnExport.BorderRadius = 0;
+            this.btnExport.BorderSize = 2;
+            this.btnExport.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnExport.FlatAppearance.BorderSize = 0;
+            this.btnExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExport.ForeColor = System.Drawing.Color.White;
+            this.btnExport.Image = ((System.Drawing.Image)(resources.GetObject("btnExport.Image")));
+            this.btnExport.Location = new System.Drawing.Point(160, 481);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(160, 10, 13, 0);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(59, 52);
+            this.btnExport.TabIndex = 45;
+            this.btnExport.TextColor = System.Drawing.Color.White;
+            this.btnExport.UseVisualStyleBackColor = false;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // btnThem
             // 
@@ -659,11 +759,12 @@
             // 
             // btnSua
             // 
-            this.btnSua.BackColor = System.Drawing.Color.Transparent;
-            this.btnSua.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnSua.BackColor = System.Drawing.Color.DimGray;
+            this.btnSua.BackgroundColor = System.Drawing.Color.DimGray;
             this.btnSua.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
             this.btnSua.BorderRadius = 20;
             this.btnSua.BorderSize = 2;
+            this.btnSua.Enabled = false;
             this.btnSua.FlatAppearance.BorderSize = 0;
             this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSua.ForeColor = System.Drawing.Color.White;
@@ -679,11 +780,12 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.BackColor = System.Drawing.Color.Transparent;
-            this.btnXoa.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnXoa.BackColor = System.Drawing.Color.DimGray;
+            this.btnXoa.BackgroundColor = System.Drawing.Color.DimGray;
             this.btnXoa.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
             this.btnXoa.BorderRadius = 20;
             this.btnXoa.BorderSize = 2;
+            this.btnXoa.Enabled = false;
             this.btnXoa.FlatAppearance.BorderSize = 0;
             this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoa.ForeColor = System.Drawing.Color.White;
@@ -811,21 +913,6 @@
             this.btnFilter.UseVisualStyleBackColor = false;
             this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
-            // cbxTrangThai
-            // 
-            this.cbxTrangThai.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxTrangThai.FormattingEnabled = true;
-            this.cbxTrangThai.Items.AddRange(new object[] {
-            "Hoạt động",
-            "Không hoạt động"});
-            this.cbxTrangThai.Location = new System.Drawing.Point(139, 268);
-            this.cbxTrangThai.Margin = new System.Windows.Forms.Padding(4);
-            this.cbxTrangThai.MinimumSize = new System.Drawing.Size(132, 0);
-            this.cbxTrangThai.Name = "cbxTrangThai";
-            this.cbxTrangThai.Size = new System.Drawing.Size(230, 31);
-            this.cbxTrangThai.TabIndex = 29;
-            this.cbxTrangThai.Text = "Hoạt động";
-            // 
             // NhaSanXuatGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -844,6 +931,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvNSX)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -894,5 +982,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SoDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
         private System.Windows.Forms.ComboBox cbxTrangThai;
+        private System.Windows.Forms.Label label20;
+        private MyCustom.RJButton btnImport;
+        private System.Windows.Forms.Label label8;
+        private MyCustom.RJButton btnExport;
     }
 }

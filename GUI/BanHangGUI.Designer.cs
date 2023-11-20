@@ -62,7 +62,6 @@ namespace GUI
             this.cbxTimKiem = new GUI.MyCustom.RJComboBox();
             this.txtTimKiem = new GUI.MyCustom.RJTextBox();
             this.btnTimKiem = new GUI.MyCustom.RJButton();
-            this.btnFilter = new GUI.MyCustom.RJButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pnPagination = new System.Windows.Forms.Panel();
             this.btnQuetBarcode = new GUI.MyCustom.RJButton();
@@ -114,7 +113,7 @@ namespace GUI
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1180, 738);
+            this.panel1.Size = new System.Drawing.Size(1167, 718);
             this.panel1.TabIndex = 0;
             // 
             // flowLayoutPanel3
@@ -152,7 +151,7 @@ namespace GUI
             // 
             this.lblMaHD.BackColor = System.Drawing.Color.Transparent;
             this.lblMaHD.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaHD.Location = new System.Drawing.Point(139, 0);
+            this.lblMaHD.Location = new System.Drawing.Point(214, 0);
             this.lblMaHD.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.lblMaHD.Name = "lblMaHD";
             this.lblMaHD.Size = new System.Drawing.Size(76, 32);
@@ -249,7 +248,7 @@ namespace GUI
             // 
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(9, 0);
+            this.label8.Location = new System.Drawing.Point(84, 0);
             this.label8.Margin = new System.Windows.Forms.Padding(15, 10, 3, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(133, 32);
@@ -479,7 +478,6 @@ namespace GUI
             this.flowLayoutPanel4.Controls.Add(this.cbxTimKiem);
             this.flowLayoutPanel4.Controls.Add(this.txtTimKiem);
             this.flowLayoutPanel4.Controls.Add(this.btnTimKiem);
-            this.flowLayoutPanel4.Controls.Add(this.btnFilter);
             this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
@@ -495,16 +493,20 @@ namespace GUI
             this.cbxTimKiem.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxTimKiem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.cbxTimKiem.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.cbxTimKiem.Items.AddRange(new object[] {
+            "Mã SP",
+            "Tên SP"});
             this.cbxTimKiem.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
             this.cbxTimKiem.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.cbxTimKiem.Location = new System.Drawing.Point(4, 8);
             this.cbxTimKiem.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
             this.cbxTimKiem.MinimumSize = new System.Drawing.Size(100, 30);
             this.cbxTimKiem.Name = "cbxTimKiem";
-            this.cbxTimKiem.Padding = new System.Windows.Forms.Padding(2);
+            this.cbxTimKiem.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbxTimKiem.Size = new System.Drawing.Size(108, 30);
             this.cbxTimKiem.TabIndex = 4;
-            this.cbxTimKiem.Texts = "Mã KH";
+            this.cbxTimKiem.Texts = "Mã SP";
+            this.cbxTimKiem.OnSelectedIndexChanged += new System.EventHandler(this.cbxTimKiem_OnSelectedIndexChanged);
             // 
             // txtTimKiem
             // 
@@ -521,15 +523,16 @@ namespace GUI
             this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
             this.txtTimKiem.Multiline = false;
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Padding = new System.Windows.Forms.Padding(7);
+            this.txtTimKiem.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.txtTimKiem.PasswordChar = false;
             this.txtTimKiem.PlaceholderColor = System.Drawing.Color.DimGray;
             this.txtTimKiem.PlaceholderText = "Nhập thông tin tìm kiếm";
             this.txtTimKiem.ReadOnly = false;
-            this.txtTimKiem.Size = new System.Drawing.Size(572, 32);
+            this.txtTimKiem.Size = new System.Drawing.Size(611, 32);
             this.txtTimKiem.TabIndex = 1;
             this.txtTimKiem.Texts = "";
             this.txtTimKiem.UnderlinedStyle = true;
+            this.txtTimKiem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTimKiem_KeyPress);
             // 
             // btnTimKiem
             // 
@@ -542,35 +545,14 @@ namespace GUI
             this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimKiem.ForeColor = System.Drawing.Color.White;
             this.btnTimKiem.Image = global::GUI.Properties.Resources.icons8_search_32;
-            this.btnTimKiem.Location = new System.Drawing.Point(699, 8);
+            this.btnTimKiem.Location = new System.Drawing.Point(738, 8);
             this.btnTimKiem.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(29, 32);
             this.btnTimKiem.TabIndex = 2;
             this.btnTimKiem.TextColor = System.Drawing.Color.White;
             this.btnTimKiem.UseVisualStyleBackColor = false;
-            // 
-            // btnFilter
-            // 
-            this.btnFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnFilter.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnFilter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.btnFilter.BorderRadius = 0;
-            this.btnFilter.BorderSize = 2;
-            this.btnFilter.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnFilter.FlatAppearance.BorderSize = 0;
-            this.btnFilter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnFilter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFilter.ForeColor = System.Drawing.Color.White;
-            this.btnFilter.Image = global::GUI.Properties.Resources.icons8_filter_32;
-            this.btnFilter.Location = new System.Drawing.Point(15, 52);
-            this.btnFilter.Margin = new System.Windows.Forms.Padding(15, 8, 10, 0);
-            this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(44, 0);
-            this.btnFilter.TabIndex = 4;
-            this.btnFilter.TextColor = System.Drawing.Color.White;
-            this.btnFilter.UseVisualStyleBackColor = false;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // panel4
             // 
@@ -967,13 +949,12 @@ namespace GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1180, 738);
+            this.ClientSize = new System.Drawing.Size(1167, 718);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BanHangGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
-            this.Load += new System.EventHandler(this.BanHangGUI_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
@@ -1001,7 +982,6 @@ namespace GUI
         private MyCustom.RJComboBox cbxTimKiem;
         private MyCustom.RJTextBox txtTimKiem;
         private MyCustom.RJButton btnTimKiem;
-        private MyCustom.RJButton btnFilter;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flpThongTinSP;
         private System.Windows.Forms.Panel panel3;

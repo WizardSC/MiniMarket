@@ -72,8 +72,8 @@ namespace DAL
             {
                 Connect();
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT MaNV, Ho, Ten, MaTK, MaCV from nhanvien where TrangThai = 1 and (MaTK IS NULL or MaTK = '') and MaTK != 'TK001'";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "sp_getNVKhongCoTaiKhoan"; 
                 cmd.Connection = conn;
                 SqlDataAdapter adt = new SqlDataAdapter(cmd);
                 adt.Fill(dt);
@@ -98,7 +98,7 @@ namespace DAL
                 Connect();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT MaNV, Ho, Ten, MaTK, MaCV from nhanvien where MaNV = @MaNV";
+                cmd.CommandText = "SELECT NhanVien.MaNV, Ho, Ten, NhanVien.MaTK, MaCV, NgayLap from nhanvien join TaiKhoan on NhanVien.MaNV = TaiKhoan.MaNV where NhanVien.MaNV = @MaNV";
                 cmd.Parameters.AddWithValue("@MaNV",maNV).SqlDbType = SqlDbType.Char;
 
                 cmd.Connection = conn;
@@ -124,8 +124,8 @@ namespace DAL
             {
                 Connect();
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT MaNV, Ho, Ten, MaTK, MaCV from nhanvien where TrangThai = 1 and (MaTK IS NOT NULL and LEN(MaTK) > 0) and MaTK != 'TK001'";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "sp_getNVCoTaiKhoan";
                 cmd.Connection = conn;
                 SqlDataAdapter adt = new SqlDataAdapter(cmd);
                 adt.Fill(dt);
@@ -298,6 +298,28 @@ namespace DAL
             {
                 Disconnect();
             }
+        }
+        public string getMaxMaNhanVien()
+        {
+            string result = "";
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT MAX(MaNV) FROM NhanVien";
+                cmd.Connection = conn;
+                result = cmd.ExecuteScalar()?.ToString();
+            }
+            catch (Exception ex)
+            {
+                return ""; // hoặc có thể xử lý exception theo nhu cầu của bạn
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return result;
         }
     }
 }
