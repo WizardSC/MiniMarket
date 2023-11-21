@@ -144,6 +144,7 @@ namespace GUI
             init();
             btnThemCTKM.Enabled = true;
             btnUpdateKM.Enabled = false;
+           
         }
 
        
