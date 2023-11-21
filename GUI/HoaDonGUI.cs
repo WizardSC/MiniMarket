@@ -137,9 +137,15 @@ namespace GUI
                     }
                 }
                 // Lưu tệp Excel
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Filter = "Excel Files|*.xlsx";
-                saveFileDialog.Title = "Lưu tệp Excel";
+                string appDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+                string folderPath = Path.Combine(appDirectory, "resources", "excel");
+
+                SaveFileDialog saveFileDialog = new SaveFileDialog
+                {
+                    InitialDirectory = folderPath,
+                    Filter = "Excel Files|*.xlsx",
+                    RestoreDirectory = true
+                };
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     FileInfo file = new FileInfo(saveFileDialog.FileName);
@@ -287,6 +293,23 @@ namespace GUI
             DateTime startDate = dtpNgayStart.Value;
             DateTime endDate = dtpNgayEnd.Value;
             if(startDate > endDate )
+            {
+                lblErrTuoiFilter.Visible = true;
+                btnTimKiem_Click(sender, e);
+            }
+            else
+            {
+                lblErrTuoiFilter.Visible = false;
+                lblErrTuoiFilter.Visible = false;
+                btnTimKiem_Click(sender, e);
+            }
+        }
+
+        private void dtpNgayStart_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime startDate = dtpNgayStart.Value;
+            DateTime endDate = dtpNgayEnd.Value;
+            if (startDate > endDate)
             {
                 lblErrTuoiFilter.Visible = true;
                 btnTimKiem_Click(sender, e);

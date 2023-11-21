@@ -721,7 +721,7 @@ namespace GUI
                 clickedButton.BackColor = Color.White;
                 pnLeftBorderPhieuNhap.BackColor = Color.FromArgb(58, 191, 186);
                 // Mở form con tương ứng (KhachHangGUI)
-                openChildForm(new XemPhieuNhapGUI());
+                openChildForm(new PhieuNhapGUI());
             }
         }
 

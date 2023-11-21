@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class XemPhieuNhapGUI
+    partial class PhieuNhapGUI
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XemPhieuNhapGUI));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PhieuNhapGUI));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -67,7 +67,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1175, 763);
+            this.panel1.Size = new System.Drawing.Size(1175, 740);
             this.panel1.TabIndex = 1;
             // 
             // panel3
@@ -79,7 +79,7 @@
             this.panel3.Controls.Add(this.dgvThongTinPhieuNhap);
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1169, 757);
+            this.panel3.Size = new System.Drawing.Size(1169, 737);
             this.panel3.TabIndex = 4;
             // 
             // rjButton1
@@ -184,6 +184,7 @@
             this.dtpNgayStart.TabIndex = 29;
             this.dtpNgayStart.TextColor = System.Drawing.Color.Black;
             this.dtpNgayStart.Value = new System.DateTime(2023, 11, 12, 21, 49, 47, 0);
+            this.dtpNgayStart.ValueChanged += new System.EventHandler(this.dtpNgayStart_ValueChanged);
             // 
             // label1
             // 
@@ -370,7 +371,7 @@
             this.dgvThongTinPhieuNhap.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvThongTinPhieuNhap.EnableHeadersVisualStyles = false;
             this.dgvThongTinPhieuNhap.GridColor = System.Drawing.Color.Black;
-            this.dgvThongTinPhieuNhap.Location = new System.Drawing.Point(-4, 62);
+            this.dgvThongTinPhieuNhap.Location = new System.Drawing.Point(-1, 62);
             this.dgvThongTinPhieuNhap.Name = "dgvThongTinPhieuNhap";
             this.dgvThongTinPhieuNhap.ReadOnly = true;
             this.dgvThongTinPhieuNhap.RowHeadersVisible = false;
@@ -379,7 +380,7 @@
             this.dgvThongTinPhieuNhap.RowTemplate.Height = 30;
             this.dgvThongTinPhieuNhap.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvThongTinPhieuNhap.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvThongTinPhieuNhap.Size = new System.Drawing.Size(1173, 685);
+            this.dgvThongTinPhieuNhap.Size = new System.Drawing.Size(1161, 670);
             this.dgvThongTinPhieuNhap.TabIndex = 1;
             this.dgvThongTinPhieuNhap.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvThongTinPhieuNhap_CellDoubleClick);
             this.dgvThongTinPhieuNhap.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvThongTinPhieuNhap_CellFormatting);
@@ -429,14 +430,14 @@
             this.TenNCC.ReadOnly = true;
             this.TenNCC.Width = 275;
             // 
-            // XemPhieuNhapGUI
+            // PhieuNhapGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1176, 763);
+            this.ClientSize = new System.Drawing.Size(1176, 742);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "XemPhieuNhapGUI";
+            this.Name = "PhieuNhapGUI";
             this.Text = "XemPhieuNhap";
             this.Load += new System.EventHandler(this.XemPhieuNhapGUI_Load);
             this.panel1.ResumeLayout(false);

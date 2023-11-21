@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KhuyenMaiGUI));
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -211,6 +211,7 @@
             this.label12.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.label12.Size = new System.Drawing.Size(243, 19);
             this.label12.TabIndex = 36;
+            this.label12.Text = "* Bạn phải nhập DKKM";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label14
@@ -248,14 +249,14 @@
             this.dgvKhuyenMai.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvKhuyenMai.BackgroundColor = System.Drawing.Color.White;
             this.dgvKhuyenMai.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvKhuyenMai.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvKhuyenMai.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvKhuyenMai.ColumnHeadersHeight = 28;
             this.dgvKhuyenMai.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaKM,
@@ -265,17 +266,17 @@
             this.PhanTramKm,
             this.DieuKienKM,
             this.TrangThai});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvKhuyenMai.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvKhuyenMai.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvKhuyenMai.EnableHeadersVisualStyles = false;
             this.dgvKhuyenMai.GridColor = System.Drawing.Color.Black;
-            this.dgvKhuyenMai.Location = new System.Drawing.Point(5, 60);
+            this.dgvKhuyenMai.Location = new System.Drawing.Point(-1, 60);
             this.dgvKhuyenMai.Name = "dgvKhuyenMai";
             this.dgvKhuyenMai.ReadOnly = true;
             this.dgvKhuyenMai.RowHeadersVisible = false;
@@ -284,7 +285,7 @@
             this.dgvKhuyenMai.RowTemplate.Height = 30;
             this.dgvKhuyenMai.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvKhuyenMai.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKhuyenMai.Size = new System.Drawing.Size(813, 687);
+            this.dgvKhuyenMai.Size = new System.Drawing.Size(819, 667);
             this.dgvKhuyenMai.TabIndex = 1;
             this.dgvKhuyenMai.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhuyenMai_CellClick);
             this.dgvKhuyenMai.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvKhuyenMai_CellFormatting);
@@ -485,7 +486,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1174, 763);
+            this.panel1.Size = new System.Drawing.Size(1174, 759);
             this.panel1.TabIndex = 2;
             // 
             // btnXemChiTietKM
@@ -519,7 +520,7 @@
             this.panel3.Controls.Add(this.dgvKhuyenMai);
             this.panel3.Location = new System.Drawing.Point(345, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(823, 754);
+            this.panel3.Size = new System.Drawing.Size(823, 728);
             this.panel3.TabIndex = 4;
             // 
             // flpFilter
@@ -883,6 +884,8 @@
             this.dtpNgayBD.SkinColor = System.Drawing.Color.White;
             this.dtpNgayBD.TabIndex = 26;
             this.dtpNgayBD.TextColor = System.Drawing.Color.Black;
+            this.dtpNgayBD.Value = new System.DateTime(2023, 11, 21, 0, 0, 0, 0);
+            this.dtpNgayBD.ValueChanged += new System.EventHandler(this.dtpNgayBD_ValueChanged);
             // 
             // label6
             // 
@@ -993,7 +996,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1176, 763);
+            this.ClientSize = new System.Drawing.Size(1176, 761);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "KhuyenMaiGUI";

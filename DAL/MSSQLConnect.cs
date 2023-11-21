@@ -12,7 +12,7 @@ namespace DAL
     {
         public SqlConnection conn = null;
         //Thái
-        //string strconn = @"Data Source=DESKTOP-G0C5JTO\LEHONGTHAI;Initial Catalog = MiniMarket; Integrated Security = True";
+        //string strconn = @"Data Source=DESKTOP-G0C5JTO\SQLEXPRESS;Initial Catalog = MiniMarket; Integrated Security = True";
 
         //Toàn đẹp try wizard
         //string strconn = @"Data Source=LAPTOP-AEI9M0MI\WIZARDSC;Initial Catalog = MiniMarket; Integrated Security = True";
