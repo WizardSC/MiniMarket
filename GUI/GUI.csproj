@@ -412,17 +412,17 @@
     <Compile Include="ThongTinSPKMGUI.Designer.cs">
       <DependentUpon>ThongTinSPKMGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="XemChiTietPhieuNhapGUI.cs">
+    <Compile Include="ChiTietPhieuNhapGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="XemChiTietPhieuNhapGUI.Designer.cs">
-      <DependentUpon>XemChiTietPhieuNhapGUI.cs</DependentUpon>
+    <Compile Include="ChiTietPhieuNhapGUI.Designer.cs">
+      <DependentUpon>ChiTietPhieuNhapGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="XemPhieuNhapGUI.cs">
+    <Compile Include="PhieuNhapGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="XemPhieuNhapGUI.Designer.cs">
-      <DependentUpon>XemPhieuNhapGUI.cs</DependentUpon>
+    <Compile Include="PhieuNhapGUI.Designer.cs">
+      <DependentUpon>PhieuNhapGUI.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="BanHangGUI.resx">
       <DependentUpon>BanHangGUI.cs</DependentUpon>
@@ -523,11 +523,11 @@
     <EmbeddedResource Include="ThongTinSPKMGUI.resx">
       <DependentUpon>ThongTinSPKMGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="XemChiTietPhieuNhapGUI.resx">
-      <DependentUpon>XemChiTietPhieuNhapGUI.cs</DependentUpon>
+    <EmbeddedResource Include="ChiTietPhieuNhapGUI.resx">
+      <DependentUpon>ChiTietPhieuNhapGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="XemPhieuNhapGUI.resx">
-      <DependentUpon>XemPhieuNhapGUI.cs</DependentUpon>
+    <EmbeddedResource Include="PhieuNhapGUI.resx">
+      <DependentUpon>PhieuNhapGUI.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

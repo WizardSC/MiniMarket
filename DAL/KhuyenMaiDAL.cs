@@ -97,6 +97,29 @@ namespace DAL
             }
             return dt;
         }
+
+        public string getMaxMaKM()
+        {
+            string result = "";
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT MAX(MaKM) FROM KhuyenMai";
+                cmd.Connection = conn;
+                result = cmd.ExecuteScalar()?.ToString();
+            }
+            catch (Exception ex)
+            {
+                return ""; // hoặc có thể xử lý exception theo nhu cầu của bạn
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return result;
+        }
         // insert khuyen mai
         public bool insert_KhuyenMai(KhuyenMaiDTO KM_DTO)
         {

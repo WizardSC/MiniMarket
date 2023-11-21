@@ -11,13 +11,13 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class XemChiTietPhieuNhapGUI : Form
+    public partial class ChiTietPhieuNhapGUI : Form
     {
         private CTPhieuNhapBLL ChiTietPN_BLL;
         private string MaPhieuNhap;
         private DateTime NgayTaoPN;
         private string TenNhaCungCap;
-        public XemChiTietPhieuNhapGUI(string MaPhieuNhap, DateTime NgayTaoPN, string TenNhaCungCap)
+        public ChiTietPhieuNhapGUI(string MaPhieuNhap, DateTime NgayTaoPN, string TenNhaCungCap)
         {
             InitializeComponent();
             ChiTietPN_BLL = new CTPhieuNhapBLL();

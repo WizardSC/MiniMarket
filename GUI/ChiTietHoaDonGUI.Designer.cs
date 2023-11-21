@@ -32,21 +32,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvXemChiTietHD = new System.Windows.Forms.DataGridView();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.labelMaHD = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DonGiaBanDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DonGiaDaGiam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnExport = new GUI.MyCustom.RJButton();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.labelMaHD = new System.Windows.Forms.Label();
             this.dtpNgayNhap = new GUI.MyCustom.RJDatePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvXemChiTietHD)).BeginInit();
             this.panel2.SuspendLayout();
@@ -110,88 +108,6 @@
             this.dgvXemChiTietHD.Size = new System.Drawing.Size(1058, 487);
             this.dgvXemChiTietHD.TabIndex = 2;
             // 
-            // panel3
-            // 
-            this.panel3.Location = new System.Drawing.Point(4, 172);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(947, 355);
-            this.panel3.TabIndex = 3;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.labelMaHD);
-            this.panel2.Controls.Add(this.btnExport);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.dtpNgayNhap);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(4, 39);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1058, 74);
-            this.panel2.TabIndex = 2;
-            // 
-            // labelMaHD
-            // 
-            this.labelMaHD.Font = new System.Drawing.Font("Cambria", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMaHD.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.labelMaHD.Location = new System.Drawing.Point(137, 21);
-            this.labelMaHD.Margin = new System.Windows.Forms.Padding(4);
-            this.labelMaHD.Name = "labelMaHD";
-            this.labelMaHD.Size = new System.Drawing.Size(82, 28);
-            this.labelMaHD.TabIndex = 34;
-            this.labelMaHD.Text = "5555";
-            this.labelMaHD.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label5.Location = new System.Drawing.Point(778, 20);
-            this.label5.Margin = new System.Windows.Forms.Padding(4);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 28);
-            this.label5.TabIndex = 31;
-            this.label5.Text = "Print:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label4.Location = new System.Drawing.Point(412, 19);
-            this.label4.Margin = new System.Windows.Forms.Padding(4);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 28);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Ngày lập:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label2.Location = new System.Drawing.Point(17, 19);
-            this.label2.Margin = new System.Windows.Forms.Padding(4);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 28);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Mã hóa đơn:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.label1.Location = new System.Drawing.Point(1, 1);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1061, 35);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "THÔNG TIN PHIẾU NHẬP";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // MaSP
             // 
             this.MaSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -251,27 +167,35 @@
             this.ThanhTien.ReadOnly = true;
             this.ThanhTien.Width = 180;
             // 
-            // btnExport
+            // panel3
             // 
-            this.btnExport.AutoSize = true;
-            this.btnExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnExport.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnExport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.btnExport.BorderRadius = 0;
-            this.btnExport.BorderSize = 2;
-            this.btnExport.FlatAppearance.BorderSize = 0;
-            this.btnExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExport.ForeColor = System.Drawing.Color.White;
-            this.btnExport.Image = global::GUI.Properties.Resources.icons8_print_28;
-            this.btnExport.Location = new System.Drawing.Point(853, 16);
-            this.btnExport.Margin = new System.Windows.Forms.Padding(120, 8, 10, 0);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(50, 36);
-            this.btnExport.TabIndex = 33;
-            this.btnExport.TextColor = System.Drawing.Color.White;
-            this.btnExport.UseVisualStyleBackColor = false;
+            this.panel3.Location = new System.Drawing.Point(4, 172);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(947, 355);
+            this.panel3.TabIndex = 3;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.labelMaHD);
+            this.panel2.Controls.Add(this.dtpNgayNhap);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Location = new System.Drawing.Point(4, 39);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1058, 74);
+            this.panel2.TabIndex = 2;
+            // 
+            // labelMaHD
+            // 
+            this.labelMaHD.Font = new System.Drawing.Font("Cambria", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMaHD.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.labelMaHD.Location = new System.Drawing.Point(177, 22);
+            this.labelMaHD.Margin = new System.Windows.Forms.Padding(4);
+            this.labelMaHD.Name = "labelMaHD";
+            this.labelMaHD.Size = new System.Drawing.Size(82, 28);
+            this.labelMaHD.TabIndex = 34;
+            this.labelMaHD.Text = "5555";
+            this.labelMaHD.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dtpNgayNhap
             // 
@@ -283,7 +207,7 @@
             this.dtpNgayNhap.Enabled = false;
             this.dtpNgayNhap.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpNgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayNhap.Location = new System.Drawing.Point(515, 19);
+            this.dtpNgayNhap.Location = new System.Drawing.Point(781, 19);
             this.dtpNgayNhap.Margin = new System.Windows.Forms.Padding(4);
             this.dtpNgayNhap.MaximumSize = new System.Drawing.Size(250, 28);
             this.dtpNgayNhap.MinimumSize = new System.Drawing.Size(4, 28);
@@ -292,6 +216,44 @@
             this.dtpNgayNhap.SkinColor = System.Drawing.Color.White;
             this.dtpNgayNhap.TabIndex = 30;
             this.dtpNgayNhap.TextColor = System.Drawing.Color.Black;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label4.Location = new System.Drawing.Point(691, 21);
+            this.label4.Margin = new System.Windows.Forms.Padding(4);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(82, 28);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Ngày lập:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label2.Location = new System.Drawing.Point(57, 21);
+            this.label2.Margin = new System.Windows.Forms.Padding(4);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 28);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Mã hóa đơn:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.label1.Location = new System.Drawing.Point(1, 1);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(1061, 35);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "THÔNG TIN PHIẾU NHẬP";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ChiTietHoaDonGUI
             // 
@@ -305,7 +267,6 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvXemChiTietHD)).EndInit();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -316,8 +277,6 @@
         private System.Windows.Forms.DataGridView dgvXemChiTietHD;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
-        private MyCustom.RJButton btnExport;
-        private System.Windows.Forms.Label label5;
         private MyCustom.RJDatePicker dtpNgayNhap;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
