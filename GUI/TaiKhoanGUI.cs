@@ -283,8 +283,16 @@ namespace GUI
                 }
                 tk.TenDangNhap = tenDangNhap;
                 tk.MatKhau = matKhau;
-                tk.TrangThai = (trangThai == "Hoạt động") ? 1 : 0;
-
+                if(trangThai == "Hoạt động")
+                {
+                    tk.TrangThai = 1;
+                } else if (trangThai == "Không hoạt động")
+                {
+                    tk.TrangThai = 0;
+                } else
+                {
+                    return;
+                }
                 int flag = tkBLL.insertTaiKhoan(tk) ? 1 : 0;
                 if (flag == 1)
                 {
