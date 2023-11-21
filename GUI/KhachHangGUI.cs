@@ -51,8 +51,8 @@ namespace GUI
             khBLL = new KhachHangBLL();
             dt = khBLL.getListKhachHang();
             DateTime currentDate = DateTime.Now;
-            dtpNgaySinh.MaxDate = DateTime.Now.Date.AddYears(-18); // Không được chọn ngày lớn hơn 18
-            //dtpNgaySinh.MaxDate = currentDate; //không cho chọn ngày lớn hơn ngày hiện tại
+            //dtpNgaySinh.MaxDate = DateTime.Now.Date.AddYears(-18); // Không được chọn ngày lớn hơn 18
+            dtpNgaySinh.MaxDate = currentDate; //không cho chọn ngày lớn hơn ngày hiện tại
             unhideError(); //set màu trong suốt cho các label lỗi
             loadMaKH();
             txtMaKH.Enabled = false;
