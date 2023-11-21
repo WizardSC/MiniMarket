@@ -13,6 +13,10 @@ namespace GUI
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /// 
+        private static GiaoDienGUI mainForm;
+        private static bool mainFormClosed = false;
+
         [STAThread]
         static void Main()
         {
@@ -23,14 +27,20 @@ namespace GUI
             DangNhapGUI loginForm = new DangNhapGUI();
             if (loginForm.ShowDialog() == DialogResult.OK)
             {
-                // Chỉ khi đăng nhập thành công, hãy hiển thị form chính
                 string maNV = loginForm.maNV;
                 string tenPQ = loginForm.tenPQ;
-                Application.Run(new GiaoDienGUI(maNV, tenPQ));
+
+                mainForm = new GiaoDienGUI(maNV, tenPQ);
+                loginForm.Hide();             
+                mainForm.ShowDialog();
+                loginForm.Dispose();
+               
             }
 
 
 
         }
+    
+      
     }
 }

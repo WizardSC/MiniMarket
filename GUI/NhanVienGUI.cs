@@ -40,53 +40,42 @@ namespace GUI
         private bool isTuoi = false;
         private bool isChucVu = false;
         private bool isTrangThai = false;
+
+        private string maNV;
         public NhanVienGUI()
         {
             InitializeComponent();
             nvBLL = new NhanVienBLL();
             dt = nvBLL.getListNhanVien();
             unhideError();
+            load_Form();
             loadCbxTimKiem();
             lblErrNgaySinh.Visible = false;
+            
             loadMaNV();
         }
+
         private void loadMaNV()
         {
-            //string lastMaNV = null;
-            //foreach (DataRow row in dt.Rows)
-            //{
-            //    lastMaNV = row["MaNV"].ToString();
-            //}
-            //if (lastMaNV == "")
-            //{
-            //    txtMaNV.Texts = "NV001";
-            //}
-            //int tempNum = int.Parse(lastMaNV.Substring(2));
-            //if ((tempNum + 1) >= 10)
-            //{
-            //    txtMaNV.Texts = "NV0" + (tempNum + 1).ToString();
-            //}
-            //else if (tempNum >= 1 && tempNum < 9)
-            //{
-            //    txtMaNV.Texts = "NV00" + (tempNum + 1).ToString();
-            //}
-            //MessageBox.Show(txtMaNV.Texts,
-            //  "Thông báo",
-            //  MessageBoxButtons.OK,
-            //  MessageBoxIcon.Information);
-            string lastMaNV = dt.AsEnumerable()
-               .Select(row => row.Field<string>("MaNV"))
-               .LastOrDefault();
-
-            int nextNum = 1;
-            if (!string.IsNullOrEmpty(lastMaNV) && lastMaNV.Length >= 5)
+            nvBLL = new NhanVienBLL();
+            maNV = nvBLL.getMaxMaNhanVien();
+            string lastMaNV = maNV;
+            if (lastMaNV == "")
             {
-                int.TryParse(lastMaNV.Substring(2), out nextNum);
-                nextNum++;
+                txtMaNV.Texts = "NV001";
             }
-            txtMaNV.Texts = "NV" + nextNum.ToString("D3");
-
+            int tempNum = int.Parse(lastMaNV.Substring(2));
+            if ((tempNum + 1) >= 10)
+            {
+                txtMaNV.Texts = "NV0" + (tempNum + 1).ToString();
+            }
+            else if (tempNum >= 1 && tempNum < 9)
+            {
+                txtMaNV.Texts = "NV00" + (tempNum + 1).ToString();
+            }
+          
         }
+
         private void load_Form()
         {
             dgvNhanVien.DataSource = nvBLL.getListNhanVien();
@@ -425,9 +414,16 @@ namespace GUI
             string trangThai = CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
             int trangThaiValue = (trangThai == "Hoạt động" ? 1 : 0);
             string chucVu = CheckAndSetColor(cbxChucVu, lblErrChucVu);
-            string valueChucVu = (chucVu == "Nhân viên bán hàng" ? "CV001" : "CV002");
+            string valueChucVu = "CV001";
+            if(chucVu == "Nhân viên quản lý")
+            {
+                valueChucVu = "CV002";
+            }
+            if(chucVu == "Nhân viên kho")
+            {
+                valueChucVu = "CV003";
+            }
             byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
-            //string maTK = null;
             
             string gioiTinh = "";
             if (!(rdbNam.Checked || rdbNu.Checked))
@@ -457,6 +453,7 @@ namespace GUI
                   "Thông báo",
                   MessageBoxButtons.OK,
                   MessageBoxIcon.Information);
+                
                 reset();
             }
             else
@@ -491,7 +488,15 @@ namespace GUI
             string trangThai = CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
             int trangThaiValue = (trangThai == "Hoạt động" ? 1 : 0);
             string chucVu = CheckAndSetColor(cbxChucVu, lblErrChucVu);
-            string valueChucVu = (chucVu == "Nhân viên bán hàng" ? "CV001" : "CV002");
+            string valueChucVu = "CV001";
+            if (chucVu == "Nhân viên quản lý")
+            {
+                valueChucVu = "CV002";
+            }
+            if (chucVu == "Nhân viên kho")
+            {
+                valueChucVu = "CV003";
+            }
             byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
             //string maTK = null;
             //byte[] img = null;
@@ -537,17 +542,17 @@ namespace GUI
         }
         private void txtHo__TextChanged(object sender, EventArgs e)
         {
-            CheckAndSetColor(txtHo, lblErrHo);
+            CheckAndSetColorHo(txtHo, lblErrHo);
         }
 
         private void txtTen__TextChanged(object sender, EventArgs e)
         {
-            CheckAndSetColor(txtTen, lblErrTen);
+            CheckAndSetColorTen(txtTen, lblErrTen);
         }
 
         private void txtSoDT__TextChanged(object sender, EventArgs e)
         {
-            CheckAndSetColor(txtSoDT, lblErrSoDT);
+            CheckAndSetColorSDT(txtSoDT, lblErrSoDT);
         }
 
         private void txtDiaChi__TextChanged(object sender, EventArgs e)
@@ -636,12 +641,28 @@ namespace GUI
             txtDiaChi.Texts = dgvNhanVien.Rows[i].Cells[6].Value.ToString();
             int trangThai = int.Parse(dgvNhanVien.Rows[i].Cells[7].Value.ToString());
             string chucVu = dgvNhanVien.Rows[i].Cells[9].Value.ToString();
-            byte[] imageBytes = (byte[])dgvNhanVien.Rows[i].Cells[10].Value;
-            pbImage.Image = convertBinaryStringToImage(imageBytes);
+            if (dgvNhanVien.Rows[i].Cells[10].Value != DBNull.Value)
+            {
+                byte[] imageBytes = (byte[])dgvNhanVien.Rows[i].Cells[10].Value;
+                pbImage.Image = convertBinaryStringToImage(imageBytes);
+            }
+            else
+            {
+                pbImage.Image = pbImage.InitialImage;
+            }
             pbImage.Tag = dgvNhanVien.Rows[i].Cells[0].Value.ToString();
             cbxTrangThai.SelectedItem = (trangThai == 1) ? "Hoạt động" : "Không hoạt động";
 
-            cbxChucVu.SelectedItem = (chucVu == "CV001") ? "Nhân viên bán hàng" : "Nhân viên quản lý";
+            cbxChucVu.SelectedItem = "Nhân viên bán hàng";
+            if (chucVu == "CV001")
+            {
+                cbxChucVu.SelectedItem = "Nhân viên quản lý";
+            }
+            if (chucVu == "CV003")
+            {
+                cbxChucVu.SelectedItem = "Nhân viên kho";
+            }
+
         }
         private byte[] convertImageToBinaryString(System.Drawing.Image img, string tag)
         {
@@ -670,7 +691,8 @@ namespace GUI
         }
         private void reset()
         {
-            load_Form();
+
+            loadMaNV();
             txtHo.Texts = "";
             txtTen.Texts = "";
             txtSoDT.Texts = "";
@@ -683,7 +705,8 @@ namespace GUI
             cbxTrangThai.Texts = "--Chọn trạng thái--";
             txtTimKiem.Texts = "";
             btnDeleteIMG.PerformClick();
-            loadMaNV();
+            load_Form();
+            unhideError();
 
         }
         private void dgvNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -705,7 +728,7 @@ namespace GUI
                       "Thông báo",
                       MessageBoxButtons.OK,
                       MessageBoxIcon.Information);
-                    load_Form();
+                    reset();
 
                 }
                 else
@@ -725,7 +748,7 @@ namespace GUI
                                     if (nvBLL.updateTrangThai(trangThai, maNV))
                                     {
                                         MessageBox.Show("Thay đổi trạng thái thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                        load_Form();
+                                        reset();
                                     }
                                     else
                                     {

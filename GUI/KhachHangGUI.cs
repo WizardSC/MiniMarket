@@ -819,6 +819,11 @@ namespace GUI
         {
 
         }
+
+        private void txtTimKiem__TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

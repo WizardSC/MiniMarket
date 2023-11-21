@@ -13,6 +13,7 @@ namespace GUI.MyCustom
     public partial class MyProductItem : UserControl
     {
         public event EventHandler ItemClicked;
+        public string maLoai;
         public MyProductItem()
         {
             InitializeComponent();

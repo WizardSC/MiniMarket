@@ -28,7 +28,6 @@ namespace GUI
         private bool isFuncTaoTK = true;
         private bool isFuncThayDoiTTCN = false;
         private bool isFuncThayDoiTT = false;
-        private bool isFuncXemDSTK = false;
         public TaiKhoanGUI(int isTaiKhoan, string maNVHienTai)
         {
             InitializeComponent();
@@ -49,10 +48,12 @@ namespace GUI
         {
             if (quyen == 1)
             {
+                isFuncThayDoiTTCN = true;
                 btnTaoTK.Enabled = false;
                 btnThayDoiTrangThai.Enabled = false;
-                
+                btnThayDoiTTCN.Enabled = false;
                 cbxTrangThai.Enabled = false;
+
                 btnThayDoiTTCN_Click(this, EventArgs.Empty);
                 dgvNhanVien.DataSource = nvBLL.getCurrentNVHasTK(maNV);
 
@@ -126,7 +127,6 @@ namespace GUI
             isFuncTaoTK = true;
             isFuncThayDoiTTCN = false;
             isFuncThayDoiTT = false;
-            isFuncXemDSTK = false;
             if (isFuncTaoTK)
             {
                 resetField();
@@ -149,7 +149,6 @@ namespace GUI
             isFuncTaoTK = false;
             isFuncThayDoiTTCN = true;
             isFuncThayDoiTT = false;
-            isFuncXemDSTK = false;
             if (isFuncThayDoiTTCN)
             {
                 resetField();
@@ -157,7 +156,6 @@ namespace GUI
                 btnThayDoiTTCN.BackColor = Color.FromArgb(224, 252, 237);
                 btnThayDoiTrangThai.BackColor = Color.Transparent;
                 btnTaoTK.BackColor = Color.Transparent;
-                btnXemDanhSachTK.BackColor = Color.Transparent;
                 lblTitleDGV.Text = "DANH SÁCH TÀI KHOẢN";
                 lblTitleFunction.Text = "CHỈNH SỬA THÔNG TIN";
                 btnThucHienChucNang.Text = "SỬA THÔNG TIN";
@@ -171,7 +169,6 @@ namespace GUI
             isFuncTaoTK = false;
             isFuncThayDoiTTCN = true;
             isFuncThayDoiTT = false;
-            isFuncXemDSTK = false;
             if (isFuncThayDoiTTCN)
             {
                 resetField();
@@ -179,7 +176,6 @@ namespace GUI
                 btnThayDoiTTCN.BackColor = Color.FromArgb(224, 252, 237);
                 btnThayDoiTrangThai.BackColor = Color.Transparent;
                 btnTaoTK.BackColor = Color.Transparent;
-                btnXemDanhSachTK.BackColor = Color.Transparent;
 
                 lblTitleDGV.Text = "DANH SÁCH TÀI KHOẢN";
                 lblTitleFunction.Text = "CHỈNH SỬA MẬT KHẨU";
@@ -192,14 +188,12 @@ namespace GUI
             isFuncTaoTK = false;
             isFuncThayDoiTTCN = false;
             isFuncThayDoiTT = true;
-            isFuncXemDSTK = false;
             if (isFuncThayDoiTT)
             {
                 resetField();
                 btnThayDoiTrangThai.BackColor = Color.FromArgb(224, 252, 237);
                 btnThayDoiTTCN.BackColor = Color.Transparent;
                 btnTaoTK.BackColor = Color.Transparent;
-                btnXemDanhSachTK.BackColor = Color.Transparent;
                 lblTitleDGV.Text = "DANH SÁCH TÀI KHOẢN";
                 lblTitleFunction.Text = "KHÓA/MỞ KHÓA TÀI KHOẢN";
                 btnThucHienChucNang.Text = "KHÓA TÀI KHOẢN";
@@ -214,18 +208,23 @@ namespace GUI
         {
             int i = dgvNhanVien.CurrentRow.Index;
             txtNhanVien.Texts = dgvNhanVien.Rows[i].Cells[1].Value.ToString() + " " + dgvNhanVien.Rows[i].Cells[2].Value.ToString();
+                dtpNgayLap.Value = DateTime.Parse(dgvNhanVien.Rows[i].Cells[5].Value.ToString());
             txtQuyen.Texts = searchTenCVbyMaCV(dgvNhanVien.Rows[i].Cells[4].Value.ToString());
             maNV = dgvNhanVien.Rows[i].Cells[0].Value.ToString();
             maCV = dgvNhanVien.Rows[i].Cells[4].Value.ToString();
             if (isFuncThayDoiTTCN)
             {
                 (string TenDangNhap, string MatKhau, int TrangThai) result = GetTenDNandMK(maNV, dtTaiKhoan);
+                txtMaTK.Texts = dgvNhanVien.Rows[i].Cells[3].Value.ToString();
+
                 txtTenDangNhap.Texts = result.TenDangNhap;
                 txtMatKhau.Texts = result.MatKhau;
             }
             if (isFuncThayDoiTT)
             {
                 (string TenDangNhap, string MatKhau, int TrangThai) result = GetTenDNandMK(maNV, dtTaiKhoan);
+                txtMaTK.Texts = dgvNhanVien.Rows[i].Cells[3].Value.ToString();
+
                 cbxTrangThai.SelectedItem = (result.TrangThai == 1) ? "Hoạt động" : "Không hoạt động";
                 if(result.TrangThai == 1)
                 {
@@ -293,7 +292,8 @@ namespace GUI
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                 }
-                resetField();
+                resetField();            
+                dgvNhanVien.DataSource = nvBLL.getCurrentNVHasTK(maNV);
                 return;
             }
             if (isFuncThayDoiTT)
@@ -320,22 +320,5 @@ namespace GUI
             }
         }
 
-        private void btnXemDanhSachTK_Click(object sender, EventArgs e)
-        {
-            isFuncTaoTK = false;
-            isFuncThayDoiTTCN = false;
-            isFuncThayDoiTT = false;
-            isFuncXemDSTK = true;
-            if (isFuncXemDSTK)
-            {
-                resetField();
-                btnThayDoiTrangThai.BackColor = Color.Transparent;
-                btnThayDoiTTCN.BackColor = Color.Transparent;
-                btnTaoTK.BackColor = Color.Transparent;
-                btnXemDanhSachTK.BackColor = Color.FromArgb(224, 252, 237);
-
-
-            }
-        }
     }
 }
