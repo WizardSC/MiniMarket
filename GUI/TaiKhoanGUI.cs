@@ -282,7 +282,7 @@ namespace GUI
                     return;
                 }
                 tk.TenDangNhap = tenDangNhap;
-                tk.MatKhau = matKhau;
+                tk.MatKhau = matKhau; 
                 tk.TrangThai = (trangThai == "Hoạt động") ? 1 : 0;
 
                 int flag = tkBLL.insertTaiKhoan(tk) ? 1 : 0;
