@@ -48,5 +48,9 @@ namespace BLL
         {
             return nccDAL.getNhaCungCapbyMaNCC(maNCC);
         }
+        public string getMaxMaNhaCC()
+        {
+            return nccDAL.getMaxMaNhaCC();
+        }
     }
 }
