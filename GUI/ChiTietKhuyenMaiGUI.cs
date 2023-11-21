@@ -192,6 +192,7 @@ namespace GUI
         }
 
         // check phantramkm nhập int
+        private const int MaxPercentage = 99;
         private string CheckAndSetColorPhanTramKM(object control, Label label)
         {
             if (control is RJTextBox textBox)
@@ -206,6 +207,11 @@ namespace GUI
                 {
                     label.ForeColor = Color.FromArgb(230, 76, 89);
                     label.Text = "* Bạn phải nhập số nguyên";
+                }
+                else if (!int.TryParse(text, out int percentage) || percentage > MaxPercentage)
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "* Bạn phải nhập bé hơn 100";
                 }
                 else
                 {
@@ -253,7 +259,7 @@ namespace GUI
             string phantram = CheckAndSetColorPhanTramKM(txtPhanTramKM, label10);
             string CheckTrangThai = cbxTrangThai.Texts.ToString();
             int trangthai = (CheckTrangThai == "Hoạt động") ? 1 : 0;
-            if ( string.IsNullOrWhiteSpace(phantram) || !IsInteger(phantram) || string.IsNullOrWhiteSpace(tenKM) || string.IsNullOrWhiteSpace(tenSp))
+            if ( string.IsNullOrWhiteSpace(phantram) || !IsInteger(phantram) || string.IsNullOrWhiteSpace(tenKM) || string.IsNullOrWhiteSpace(tenSp) || int.Parse(phantram) > 99)
             {
                 return;
             }
@@ -305,13 +311,17 @@ namespace GUI
                     break; // Thoát vòng lặp khi tìm thấy ID
                 }
             }
+            string phantram = CheckAndSetColorPhanTramKM(txtPhanTramKM, label10);
             string CheckTrangThai = cbxTrangThai.Texts.ToString();
             int trangthai = (CheckTrangThai == "Hoạt động") ? 1 : 0;
-
+            if (string.IsNullOrWhiteSpace(phantram) || !IsInteger(phantram) || string.IsNullOrWhiteSpace(tenKM) || string.IsNullOrWhiteSpace(tenSp) || int.Parse(phantram) > 99)
+            {
+                return;
+            }
             ChiTietKhuyenMaiDTO CTKM_DTO = new ChiTietKhuyenMaiDTO();
             CTKM_DTO.Makm = idKm;
             CTKM_DTO.Masp = idSp;
-            CTKM_DTO.PhanTramKm = int.Parse(txtPhanTramKM.Texts);
+            CTKM_DTO.PhanTramKm = int.Parse(phantram);
             CTKM_DTO.TrangThai = trangthai;
             
             try

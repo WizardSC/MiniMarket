@@ -252,7 +252,7 @@ namespace GUI
         }
 
         // check phantramkm nhập int
-        private const int MaxPercentage = 100;
+        private const int MaxPercentage = 99;
         private string CheckAndSetColorPhanTramKM(object control, Label label)
         {
             if (control is RJTextBox textBox)
@@ -323,7 +323,7 @@ namespace GUI
             string CheckTrangThai = cbxTrangThai.Texts.ToString();
             int trangthai = (CheckTrangThai == "Hoạt động") ? 1 : 0;
 
-            if (string.IsNullOrWhiteSpace(tenKM) || ngaykt <= Ngaybd  || !IsInteger(phantramkm) || !IsInteger(dieukienkm) || int.Parse(phantramkm)>100)
+            if (string.IsNullOrWhiteSpace(tenKM) || ngaykt <= Ngaybd  || !IsInteger(phantramkm) || !IsInteger(dieukienkm) || int.Parse(phantramkm)>99)
             {
                 return;
             }
@@ -366,7 +366,7 @@ namespace GUI
             string CheckTrangThai = cbxTrangThai.Texts.ToString();
             int trangthai = (CheckTrangThai == "Hoạt động") ? 1 : 0;
 
-            if (string.IsNullOrWhiteSpace(tenKM) || ngaykt <= Ngaybd || !IsInteger(phantramkm) || !IsInteger(dieukienkm) || int.Parse(phantramkm) > 100)
+            if (string.IsNullOrWhiteSpace(tenKM) || ngaykt <= Ngaybd || !IsInteger(phantramkm) || !IsInteger(dieukienkm) || int.Parse(phantramkm) > 99)
             {
                 return;
             }
