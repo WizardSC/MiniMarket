@@ -616,42 +616,7 @@ namespace GUI
             CheckAndSetColorSDT(txtSoDT,label18);
            // CheckAndSetColorSDT1(txtSoDT, label18);
         }
-        /* private string CheckAndSetColorSDT(object control, Label label)
-         {
-             if (control is RJTextBox textBox)
-             {
-                 string text = textBox.Texts.Trim();
-
-                 if (string.IsNullOrWhiteSpace(text))
-                 {
-                     label.ForeColor = Color.FromArgb(230, 76, 89);
-                     label.Text = "*Bạn phải nhập số ĐT";
-                     return null;
-                 }
-                 else if (int.TryParse(text, out int result) && text.Length < 10)
-                 {
-                     label.Text = "* Số điện thoại phải đủ 10 số";
-                 }
-                 else if (int.TryParse(text, out int result1) && text.Length >= 11)
-                 {
-                     label.Text = "*Số điện thoại đã quá 10 số";
-                 }
-                 else if (ContainsLetter(text))
-                 {
-                     label.ForeColor = Color.FromArgb(230, 76, 89);
-                     label.Text = "*Số ĐT không thể chứa chữ";
-                     return null;
-                 }
-
-                 else
-                 {
-                     label.ForeColor = Color.Transparent;
-                     label.Text = "";
-                 }
-                 return text;
-             }
-             return null;
-         }*/
+      
         private string CheckAndSetColorSDT(RJTextBox textBox, Label label)
         {
             string text = textBox.Texts.Trim();
@@ -665,6 +630,11 @@ namespace GUI
             if (!IsValidPhoneNumber(text))
             {
                 SetValidationMessage(label, "* Số điện thoại bẳng 10 hoặc 12 số");
+                return null;
+            }
+            if (!text.StartsWith("0"))
+            {
+                SetValidationMessage(label, "* Số điện thoại phải có số 0 ở đầu");
                 return null;
             }
 
@@ -804,6 +774,7 @@ namespace GUI
         private void btnImport_Click(object sender, EventArgs e)
         {
             dt.Clear();
+            bool importError = false;
 
             OpenFileDialog open = new OpenFileDialog
             {
@@ -817,7 +788,7 @@ namespace GUI
                 string filePath = open.FileName;
 
                 // Read data from the Excel file and add it to the DataTable
-                ImportDataFromExcel(filePath);
+                importError = ImportDataFromExcel(filePath);
 
                 // Update the DataGridView's DataSource
                 dgvNSX.DataSource = null;
@@ -837,33 +808,115 @@ namespace GUI
             dgvNSX.Columns["DiaChi"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvNSX.Columns["SoDT"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             dgvNSX.Columns["TrangThai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+
             // Reset AutoSizeMode for each column after importing data
-            MessageBox.Show("Dữ liệu đã được nhập vào từ tệp Excel.", "Hoàn thành", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            SaveDataToDatabase();
+
+            if (importError)
+            {
+                MessageBox.Show("Dữ liệu nhập từ tệp Excel có lỗi. Vui lòng kiểm tra và thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Dữ liệu đã được nhập vào từ tệp Excel.", "Hoàn thành", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SaveDataToDatabase();
+            }
         }
 
-        private void ImportDataFromExcel(string filePath)
+        private bool IsMaNSXExists(string maNSX)
         {
-
-            // Open the Excel file using ClosedXML
-            using (var workbook = new XLWorkbook(filePath))
+            // Lặp qua các dòng trong DataTable để kiểm tra xem mã đã tồn tại hay chưa
+            foreach (DataRow row in dt.Rows)
             {
-                var worksheet = workbook.Worksheets.Worksheet(1);
-
-                // Read data from the Excel file and add it to the DataTable
-                for (int row = 2; row <= worksheet.RowsUsed().Count(); row++)
+                if (row["MaNSX"].ToString() == maNSX)
                 {
-                    DataRow dataRow = dt.NewRow();
-                    dataRow["MaNSX"] = worksheet.Cell(row, 1).Value.ToString();
-                    dataRow["TenNSX"] = worksheet.Cell(row, 2).Value.ToString();
-                    dataRow["DiaChi"] = worksheet.Cell(row, 3).Value.ToString();
-                    dataRow["SoDT"] = worksheet.Cell(row, 4).Value.ToString();
-                    dataRow["TrangThai"] = worksheet.Cell(row, 5).Value.ToString();
-                    dt.Rows.Add(dataRow);
+                    return true; // Mã đã tồn tại
                 }
             }
+            return false; // Mã không tồn tại
+        }
 
+        private bool ImportDataFromExcel(string filePath)
+        {
+            // Open the Excel file using ClosedXML
+            bool importError = false;
 
+            try
+            {
+                using (var workbook = new XLWorkbook(filePath))
+                {
+                    var worksheet = workbook.Worksheets.Worksheet(1);
+
+                    // Read data from the Excel file and add it to the DataTable
+                    for (int row = 2; row <= worksheet.RowsUsed().Count(); row++)
+                    {
+                        DataRow dataRow = dt.NewRow();
+
+                        // Kiểm tra xem có trường trống không trong dòng
+                        bool hasEmptyField = false;
+
+                        for (int col = 1; col <= worksheet.ColumnsUsed().Count(); col++)
+                        {
+                            string cellValue = worksheet.Cell(row, col).Value.ToString().Trim();
+
+                            if (string.IsNullOrWhiteSpace(cellValue))
+                            {
+                                // Thông báo hoặc xử lý theo ý muốn của bạn nếu có trường trống
+                                MessageBox.Show($"Dòng {row} trong tệp Excel có trường trống ở cột {col}.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                hasEmptyField = true;
+                                break;  // Dừng quá trình nhập liệu nếu có lỗi
+                            }
+
+                            // Kiểm tra xem cột "MaNSX" có chuỗi "NSX" ở đầu không
+                            if (col == 1)
+                            {
+                                string maNSX = cellValue;
+
+                                if (!maNSX.StartsWith("NSX"))
+                                {
+                                    // Thông báo hoặc xử lý theo ý muốn của bạn nếu điều kiện không được đáp ứng
+                                    MessageBox.Show($"Dòng {row} trong tệp Excel không có chuỗi 'NSX' ở đầu trong cột 'MaNSX'.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    hasEmptyField = true;
+                                    break;  // Dừng quá trình nhập liệu nếu có lỗi
+                                }
+                            }
+
+                            // Kiểm tra số điện thoại có từ 10-12 số và có số 0 ở đầu không
+                            if (col == 4)
+                            {
+                                string soDT = cellValue;
+
+                                if (!IsValidPhoneNumber(soDT))
+                                {
+                                    // Thông báo hoặc xử lý theo ý muốn của bạn nếu điều kiện không được đáp ứng
+                                    MessageBox.Show($"Dòng {row} trong tệp Excel có số điện thoại không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    hasEmptyField = true;
+                                    break;  // Dừng quá trình nhập liệu nếu có lỗi
+                                }
+                            }
+
+                            dataRow[dt.Columns[col - 1].ColumnName] = cellValue;
+                        }
+
+                        if (!hasEmptyField)
+                        {
+                            dt.Rows.Add(dataRow);
+                        }
+                        else
+                        {
+                            importError = true;
+                            break;  // Dừng quá trình nhập liệu nếu có lỗi
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi khi mở tệp Excel
+                MessageBox.Show($"Đã xảy ra lỗi khi mở tệp Excel: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                importError = true;
+            }
+
+            return importError;
         }
 
         private void SaveDataToDatabase()
@@ -982,7 +1035,8 @@ namespace GUI
                     excelWS.Cells[currentRow, 1] = row["MaNSX"];
                     excelWS.Cells[currentRow, 2] = row["TenNSX"];
                     excelWS.Cells[currentRow, 3] = row["DiaChi"];
-                    excelWS.Cells[currentRow, 4] = row["SoDT"];
+                    excelWS.Cells[currentRow, 4].NumberFormat = "@";
+                    excelWS.Cells[currentRow, 4] = row["SoDT"].ToString();
                     excelWS.Cells[currentRow, 5] = row["TrangThai"];
 
                     currentRow++;

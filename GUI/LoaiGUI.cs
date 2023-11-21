@@ -685,32 +685,38 @@ namespace GUI
                 string filePath = open.FileName;
 
                 // Read data from the Excel file and add it to the DataTable
-                ImportDataFromExcel(filePath);
+                bool importError = ImportDataFromExcel(filePath);
 
-                // Update the DataGridView's DataSource
-                dgvLoai.DataSource = null;
-                dgvLoai.DataSource = dt;
+                // Update the DataGridView's DataSource only if there is no import error
+                if (!importError)
+                {
+                    dgvLoai.DataSource = null;
+                    dgvLoai.DataSource = dt;
 
-                // Set HeaderText for the existing column "Mã LOẠI"
-                dgvLoai.Columns["MaLoai"].HeaderText = "Mã LOẠI";
-                dgvLoai.Columns["TenLoai"].HeaderText = "TÊN LOẠI";
-                dgvLoai.Columns["TrangThai"].HeaderText = "Trạng Thái";
+                    // Set HeaderText for the existing column "Mã LOẠI"
+                    dgvLoai.Columns["MaLoai"].HeaderText = "Mã LOẠI";
+                    dgvLoai.Columns["TenLoai"].HeaderText = "TÊN LOẠI";
+                    dgvLoai.Columns["TrangThai"].HeaderText = "Trạng Thái";
+
+                    // Reset AutoSizeMode for each column after importing data
+                    dgvLoai.Columns["MaLoai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                    dgvLoai.Columns["TenLoai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dgvLoai.Columns["TrangThai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+
+                    MessageBox.Show("Dữ liệu đã được nhập vào từ tệp Excel.", "Hoàn thành", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Save data to the database
+                    SaveDataToDatabase();
+                }
             }
-
-            // Reset AutoSizeMode for each column after importing data
-            dgvLoai.Columns["MaLoai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dgvLoai.Columns["TenLoai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvLoai.Columns["TrangThai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            // Reset AutoSizeMode for each column after importing data
-            MessageBox.Show("Dữ liệu đã được nhập vào từ tệp Excel.", "Hoàn thành", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            SaveDataToDatabase();
-
         }
 
-
-        private void ImportDataFromExcel(string filePath)
+        private bool ImportDataFromExcel(string filePath)
         {
-          
+            bool importError = false;
+
+            try
+            {
                 // Open the Excel file using ClosedXML
                 using (var workbook = new XLWorkbook(filePath))
                 {
@@ -723,11 +729,42 @@ namespace GUI
                         dataRow["MaLoai"] = worksheet.Cell(row, 1).Value.ToString();
                         dataRow["TenLoai"] = worksheet.Cell(row, 2).Value.ToString();
                         dataRow["TrangThai"] = worksheet.Cell(row, 3).Value.ToString();
+
+                        // Check if MaLoai already exists in the DataTable
+                        string maLoai = dataRow["MaLoai"].ToString();
+                        if (IsMaLoaiExists(maLoai))
+                        {
+                            MessageBox.Show($"Dòng {row} trong tệp Excel có 'MaLoai' đã tồn tại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            importError = true;
+                            break;  // Stop the import process if there is an error
+                        }
+
                         dt.Rows.Add(dataRow);
                     }
                 }
-            
-           
+            }
+            catch (Exception ex)
+            {
+                // Handle the error when opening the Excel file
+                MessageBox.Show($"Đã xảy ra lỗi khi mở tệp Excel: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                importError = true;
+            }
+
+            return importError;
+        }
+
+        private bool IsMaLoaiExists(string maLoai)
+        {
+            // Check if MaLoai already exists in the DataTable
+            foreach (DataRow row in dt.Rows)
+            {
+                if (row["MaLoai"].ToString() == maLoai)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
         private void SaveDataToDatabase()
         {
