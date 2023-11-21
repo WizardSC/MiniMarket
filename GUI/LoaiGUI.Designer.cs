@@ -40,9 +40,6 @@
             this.chkKoHD = new GUI.MyCustom.BiggerCheckBox();
             this.label29 = new System.Windows.Forms.Label();
             this.dgvLoai = new System.Windows.Forms.DataGridView();
-            this.MaLoai1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.cbxTimKiem = new GUI.MyCustom.RJComboBox();
             this.txtTimKiem = new GUI.MyCustom.RJTextBox();
@@ -61,8 +58,6 @@
             this.cbxTrangThai = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.btnFolder = new GUI.MyCustom.RJButton();
-            this.rjtFile = new GUI.MyCustom.RJTextBox();
             this.btnImport = new GUI.MyCustom.RJButton();
             this.label6 = new System.Windows.Forms.Label();
             this.btnExport = new GUI.MyCustom.RJButton();
@@ -71,6 +66,9 @@
             this.btnSua = new GUI.MyCustom.RJButton();
             this.btnXoa = new GUI.MyCustom.RJButton();
             this.btnReset = new GUI.MyCustom.RJButton();
+            this.MaLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.flpFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoai)).BeginInit();
@@ -247,7 +245,7 @@
             this.dgvLoai.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvLoai.ColumnHeadersHeight = 28;
             this.dgvLoai.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaLoai1,
+            this.MaLoai,
             this.TenLoai,
             this.TrangThai});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -276,36 +274,6 @@
             this.dgvLoai.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoai_CellContentClick);
             this.dgvLoai.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvLoai_CellFormatting);
             this.dgvLoai.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvLoai_DataBindingComplete);
-            // 
-            // MaLoai1
-            // 
-            this.MaLoai1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.MaLoai1.DataPropertyName = "MaLoai";
-            this.MaLoai1.Frozen = true;
-            this.MaLoai1.HeaderText = "Mã LOẠI";
-            this.MaLoai1.MinimumWidth = 6;
-            this.MaLoai1.Name = "MaLoai1";
-            this.MaLoai1.ReadOnly = true;
-            this.MaLoai1.Width = 106;
-            // 
-            // TenLoai
-            // 
-            this.TenLoai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenLoai.DataPropertyName = "TenLoai";
-            this.TenLoai.HeaderText = "TÊN LOẠI";
-            this.TenLoai.MinimumWidth = 6;
-            this.TenLoai.Name = "TenLoai";
-            this.TenLoai.ReadOnly = true;
-            // 
-            // TrangThai
-            // 
-            this.TrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.TrangThai.DataPropertyName = "TrangThai";
-            this.TrangThai.HeaderText = "Trạng Thái";
-            this.TrangThai.MinimumWidth = 6;
-            this.TrangThai.Name = "TrangThai";
-            this.TrangThai.ReadOnly = true;
-            this.TrangThai.Width = 124;
             // 
             // flowLayoutPanel4
             // 
@@ -453,8 +421,6 @@
             this.flowLayoutPanel2.Controls.Add(this.cbxTrangThai);
             this.flowLayoutPanel2.Controls.Add(this.label3);
             this.flowLayoutPanel2.Controls.Add(this.label20);
-            this.flowLayoutPanel2.Controls.Add(this.btnFolder);
-            this.flowLayoutPanel2.Controls.Add(this.rjtFile);
             this.flowLayoutPanel2.Controls.Add(this.btnImport);
             this.flowLayoutPanel2.Controls.Add(this.label6);
             this.flowLayoutPanel2.Controls.Add(this.btnExport);
@@ -551,6 +517,7 @@
             this.txtTenLoai.TabIndex = 5;
             this.txtTenLoai.Texts = "";
             this.txtTenLoai.UnderlinedStyle = false;
+            this.txtTenLoai._TextChanged += new System.EventHandler(this.txtTenLoai__TextChanged);
             // 
             // label15
             // 
@@ -590,7 +557,7 @@
             this.cbxTrangThai.Name = "cbxTrangThai";
             this.cbxTrangThai.Size = new System.Drawing.Size(228, 31);
             this.cbxTrangThai.TabIndex = 28;
-            this.cbxTrangThai.Text = "Hoạt Động";
+            this.cbxTrangThai.Text = "Hoạt động";
             this.cbxTrangThai.SelectedIndexChanged += new System.EventHandler(this.cbxTrangThai_SelectedIndexChanged);
             // 
             // label3
@@ -614,60 +581,10 @@
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
             this.label20.Padding = new System.Windows.Forms.Padding(0, 0, 27, 0);
-            this.label20.Size = new System.Drawing.Size(341, 39);
+            this.label20.Size = new System.Drawing.Size(383, 39);
             this.label20.TabIndex = 39;
             this.label20.Text = "Import File Excel";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // btnFolder
-            // 
-            this.btnFolder.AutoSize = true;
-            this.btnFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnFolder.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnFolder.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.btnFolder.BorderRadius = 0;
-            this.btnFolder.BorderSize = 2;
-            this.btnFolder.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnFolder.FlatAppearance.BorderSize = 0;
-            this.btnFolder.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnFolder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFolder.ForeColor = System.Drawing.Color.White;
-            this.btnFolder.Image = ((System.Drawing.Image)(resources.GetObject("btnFolder.Image")));
-            this.btnFolder.Location = new System.Drawing.Point(20, 254);
-            this.btnFolder.Margin = new System.Windows.Forms.Padding(20, 10, 13, 0);
-            this.btnFolder.Name = "btnFolder";
-            this.btnFolder.Size = new System.Drawing.Size(59, 52);
-            this.btnFolder.TabIndex = 40;
-            this.btnFolder.TextColor = System.Drawing.Color.White;
-            this.btnFolder.UseVisualStyleBackColor = false;
-            this.btnFolder.Click += new System.EventHandler(this.btnFolder_Click);
-            // 
-            // rjtFile
-            // 
-            this.rjtFile.AutoSize = true;
-            this.rjtFile.BackColor = System.Drawing.SystemColors.Window;
-            this.rjtFile.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.rjtFile.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.rjtFile.BorderRadius = 0;
-            this.rjtFile.BorderSize = 2;
-            this.rjtFile.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjtFile.ForeColor = System.Drawing.Color.DimGray;
-            this.rjtFile.Location = new System.Drawing.Point(97, 254);
-            this.rjtFile.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
-            this.rjtFile.MaximumSize = new System.Drawing.Size(253, 47);
-            this.rjtFile.MinimumSize = new System.Drawing.Size(187, 47);
-            this.rjtFile.Multiline = false;
-            this.rjtFile.Name = "rjtFile";
-            this.rjtFile.Padding = new System.Windows.Forms.Padding(9);
-            this.rjtFile.PasswordChar = false;
-            this.rjtFile.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjtFile.PlaceholderText = "";
-            this.rjtFile.ReadOnly = false;
-            this.rjtFile.Size = new System.Drawing.Size(187, 47);
-            this.rjtFile.TabIndex = 41;
-            this.rjtFile.Texts = "";
-            this.rjtFile.UnderlinedStyle = false;
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnImport
             // 
@@ -684,8 +601,8 @@
             this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImport.ForeColor = System.Drawing.Color.White;
             this.btnImport.Image = ((System.Drawing.Image)(resources.GetObject("btnImport.Image")));
-            this.btnImport.Location = new System.Drawing.Point(309, 254);
-            this.btnImport.Margin = new System.Windows.Forms.Padding(20, 10, 13, 0);
+            this.btnImport.Location = new System.Drawing.Point(160, 254);
+            this.btnImport.Margin = new System.Windows.Forms.Padding(160, 10, 13, 0);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(59, 52);
             this.btnImport.TabIndex = 42;
@@ -701,10 +618,10 @@
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Padding = new System.Windows.Forms.Padding(0, 0, 27, 0);
-            this.label6.Size = new System.Drawing.Size(341, 32);
+            this.label6.Size = new System.Drawing.Size(383, 32);
             this.label6.TabIndex = 43;
             this.label6.Text = "Export File Excel";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnExport
             // 
@@ -764,31 +681,33 @@
             // 
             // btnSua
             // 
-            this.btnSua.BackColor = System.Drawing.Color.Transparent;
-            this.btnSua.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnSua.BackColor = System.Drawing.Color.DimGray;
+            this.btnSua.BackgroundColor = System.Drawing.Color.DimGray;
             this.btnSua.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
             this.btnSua.BorderRadius = 20;
             this.btnSua.BorderSize = 2;
+            this.btnSua.Enabled = false;
             this.btnSua.FlatAppearance.BorderSize = 0;
             this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSua.ForeColor = System.Drawing.Color.White;
+            this.btnSua.ForeColor = System.Drawing.Color.DarkGray;
             this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
             this.btnSua.Location = new System.Drawing.Point(116, 4);
             this.btnSua.Margin = new System.Windows.Forms.Padding(13, 4, 13, 4);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(59, 49);
             this.btnSua.TabIndex = 1;
-            this.btnSua.TextColor = System.Drawing.Color.White;
+            this.btnSua.TextColor = System.Drawing.Color.DarkGray;
             this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
-            this.btnXoa.BackColor = System.Drawing.Color.Transparent;
-            this.btnXoa.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnXoa.BackColor = System.Drawing.Color.DimGray;
+            this.btnXoa.BackgroundColor = System.Drawing.Color.DimGray;
             this.btnXoa.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
             this.btnXoa.BorderRadius = 20;
             this.btnXoa.BorderSize = 2;
+            this.btnXoa.Enabled = false;
             this.btnXoa.FlatAppearance.BorderSize = 0;
             this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoa.ForeColor = System.Drawing.Color.White;
@@ -821,6 +740,36 @@
             this.btnReset.TextColor = System.Drawing.Color.White;
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // MaLoai
+            // 
+            this.MaLoai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.MaLoai.DataPropertyName = "MaLoai";
+            this.MaLoai.Frozen = true;
+            this.MaLoai.HeaderText = "Mã LOẠI";
+            this.MaLoai.MinimumWidth = 6;
+            this.MaLoai.Name = "MaLoai";
+            this.MaLoai.ReadOnly = true;
+            this.MaLoai.Width = 106;
+            // 
+            // TenLoai
+            // 
+            this.TenLoai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenLoai.DataPropertyName = "TenLoai";
+            this.TenLoai.HeaderText = "TÊN LOẠI";
+            this.TenLoai.MinimumWidth = 6;
+            this.TenLoai.Name = "TenLoai";
+            this.TenLoai.ReadOnly = true;
+            // 
+            // TrangThai
+            // 
+            this.TrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.TrangThai.DataPropertyName = "TrangThai";
+            this.TrangThai.HeaderText = "Trạng Thái";
+            this.TrangThai.MinimumWidth = 6;
+            this.TrangThai.Name = "TrangThai";
+            this.TrangThai.ReadOnly = true;
+            this.TrangThai.Width = 124;
             // 
             // LoaiGUI
             // 
@@ -878,15 +827,13 @@
         private System.Windows.Forms.Label label28;
         private MyCustom.BiggerCheckBox chkKoHD;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaLoai1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenLoai;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
         private MyCustom.RJButton btnThem;
         private System.Windows.Forms.Label label20;
-        private MyCustom.RJButton btnFolder;
-        private MyCustom.RJTextBox rjtFile;
         private MyCustom.RJButton btnImport;
         private System.Windows.Forms.Label label6;
         private MyCustom.RJButton btnExport;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaLoai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenLoai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
     }
 }
