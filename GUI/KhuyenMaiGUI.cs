@@ -152,7 +152,7 @@ namespace GUI
             cbxTrangThai.SelectedIndex = 0;
             txtTenKm.Texts = "";
             txtDkKM.Texts = "";
-            dtpNgayBD.Value = DateTime.Now;
+            //dtpNgayBD.Value = DateTime.Now;
             dtpNgayKT.Value = DateTime.Now;
             txtPhanTramKM.Texts = "";
             cbxTrangThai.SelectedIndex = 0;
@@ -178,6 +178,7 @@ namespace GUI
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
             btnThem.Enabled = true;
+            dtpNgayBD.MinDate = DateTime.Now;
         }
 
         private void btnXem_Click(object sender, EventArgs e)
@@ -311,6 +312,7 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+           
             string tenKM = CheckAndSetColor(txtTenKm, label4);
             string phantramkm = CheckAndSetColorPhanTramKM(txtPhanTramKM, label10);
             string dieukienkm = CheckAndSetColorDieuKienKM(txtDkKM, label12);
@@ -478,6 +480,7 @@ namespace GUI
 
         private void dgvKhuyenMai_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            dtpNgayBD.MinDate = DateTime.Parse("1 / 1 / 1753");
             int i = dgvKhuyenMai.CurrentRow.Index;
             txtMaKM.Texts = dgvKhuyenMai.Rows[i].Cells[0].Value.ToString();
             DateTime NgayBd = DateTime.Parse(dgvKhuyenMai.Rows[i].Cells[2].Value.ToString());
