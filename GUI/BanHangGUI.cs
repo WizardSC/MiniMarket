@@ -1200,31 +1200,70 @@ namespace GUI
                     string maSPCanTim = txtMaSP.Texts;
                     PlayBeepSound();
 
+
+
+                    //foreach (Control control in flpDanhSachSanPham.Controls)
+                    //{
+                    //    if (control is MyCustom.MyProductItem)
+                    //    {
+                    //        MyCustom.MyProductItem productItem = (MyCustom.MyProductItem)control;
+
+                    //        // Kiểm tra giá trị mã SP của control với mã SP cần tìm
+                    //        if (productItem.lblMaSP.Text == maSPCanTim)
+                    //        {
+                    //            Item_ItemClicked(productItem, EventArgs.Empty);
+                    //            //ThemSanPhamVaoGio(1);
+
+
+                    //            // Reset lại camera
+
+                    //            break; // Kết thúc vòng lặp sau khi tìm thấy
+                    //        }
+                    //    }
+                    //}
+                    bool needToMoveToNextPage = true; 
+                    bool alreadyMovedToFirstPage = false;
+                    bool alreadyRolledBack = false;
+
                     foreach (Control control in flpDanhSachSanPham.Controls)
                     {
                         if (control is MyCustom.MyProductItem)
                         {
                             MyCustom.MyProductItem productItem = (MyCustom.MyProductItem)control;
 
-                            // Kiểm tra giá trị mã SP của control với mã SP cần tìm
+                          
                             if (productItem.lblMaSP.Text == maSPCanTim)
                             {
                                 Item_ItemClicked(productItem, EventArgs.Empty);
-                                //ThemSanPhamVaoGio(1);
-
-
-                                // Reset lại camera
-
-                                break; // Kết thúc vòng lặp sau khi tìm thấy
+                            
+                                needToMoveToNextPage = false; 
+                                break; 
                             }
                         }
                     }
+
+                    if (needToMoveToNextPage && CurrentPage < TotalPages)
+                    {
+                        CurrentPage++;
+                    }
+                    else if (needToMoveToNextPage && CurrentPage == TotalPages && !alreadyMovedToFirstPage)
+                    {
+                       CurrentPage = 1;
+                        alreadyMovedToFirstPage = true;
+                    }
+                    else if (needToMoveToNextPage && alreadyMovedToFirstPage && !alreadyRolledBack)
+                    {
+                        CurrentPage--;
+                        alreadyRolledBack = true;
+                    }
+                    UpdateCurrentPage(resultRows);
                 }));
             }
             pbShowCamera.Image = bitmap;
 
             isScanning = false; // Cho phép quét tiếp theo
         }
+
         private void PlayBeepSound()
         {
             try
