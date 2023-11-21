@@ -20,6 +20,7 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand("select * from hoadon", conn);
                 SqlDataAdapter adt = new SqlDataAdapter(cmd);
                 adt.Fill(dt);
+                Console.WriteLine("Hello");
             }
             catch(Exception ex) {
                 return null;

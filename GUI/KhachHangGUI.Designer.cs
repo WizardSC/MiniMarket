@@ -1459,7 +1459,7 @@
             this.lblDiemTL.Name = "lblDiemTL";
             this.lblDiemTL.Size = new System.Drawing.Size(102, 25);
             this.lblDiemTL.TabIndex = 19;
-            this.lblDiemTL.Text = "160";
+            this.lblDiemTL.Text = "0";
             this.lblDiemTL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flowLayoutPanel3
