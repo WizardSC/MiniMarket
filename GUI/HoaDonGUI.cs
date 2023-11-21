@@ -137,9 +137,15 @@ namespace GUI
                     }
                 }
                 // Lưu tệp Excel
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Filter = "Excel Files|*.xlsx";
-                saveFileDialog.Title = "Lưu tệp Excel";
+                string appDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+                string folderPath = Path.Combine(appDirectory, "resources", "excel");
+
+                SaveFileDialog saveFileDialog = new SaveFileDialog
+                {
+                    InitialDirectory = folderPath,
+                    Filter = "Excel Files|*.xlsx",
+                    RestoreDirectory = true
+                };
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     FileInfo file = new FileInfo(saveFileDialog.FileName);
