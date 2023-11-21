@@ -24,14 +24,15 @@ namespace DAL
                 adt.Fill(dt);
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return null;
-            } finally
+            }
+            finally
             {
                 Disconnect();
             }
-            return dt; 
+            return dt;
         }
         public DataTable getMiniListKhachHang()
         {
@@ -78,7 +79,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@DiemTichLuy", kh.DiemTichLuy).SqlDbType = SqlDbType.Int;
 
                 cmd.ExecuteNonQuery();
-                return true; 
+                return true;
             }
             catch (Exception ex)
             {
@@ -89,9 +90,9 @@ namespace DAL
             {
                 Disconnect();
             }
-           
+
         }
-        public bool updateDiemTichLuy (string maKH, int diemTL)
+        public bool updateDiemTichLuy(string maKH, int diemTL)
         {
             try
             {
@@ -134,7 +135,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@MaKH", kh.MaKH).SqlDbType = SqlDbType.Char;
 
                 cmd.Connection = conn;
-                
+
                 cmd.ExecuteNonQuery();
                 return true;
 
@@ -150,5 +151,62 @@ namespace DAL
             }
 
         }
-    }
+
+        public bool deleteKhachHang(string maKH, out bool isLoiKhoaNgoai)
+        {
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "delete from khachhang where MaKH = @MaKH";
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@MaKH", maKH).SqlDbType = SqlDbType.Char;
+                cmd.ExecuteNonQuery();
+                isLoiKhoaNgoai = false;
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 547)
+                {
+                    isLoiKhoaNgoai = true;
+                }
+                else
+                {
+                    Console.WriteLine("Lỗi: " + ex.Message);
+                    isLoiKhoaNgoai = false;
+
+                }
+                return false;
+            }
+            finally
+            {
+                Disconnect();
+            }
+        }
+        public string getMaxMaKhachHang()
+        {
+            string result = "";
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT MAX(MaKH) FROM khachhang";
+                cmd.Connection = conn;
+                result = cmd.ExecuteScalar()?.ToString();
+            }
+            catch (Exception ex)
+            {
+                return ""; // hoặc có thể xử lý exception theo nhu cầu của bạn
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return result;
+        }
+
+    } 
 }

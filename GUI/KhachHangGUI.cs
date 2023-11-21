@@ -43,6 +43,7 @@ namespace GUI
         private bool isHoatDong = false;
         private bool isKoHD = false;
         private DataTable dt;
+        private string maKH;
 
         private int quyenKhachHang;
         public KhachHangGUI(int isKhachHang)
@@ -51,8 +52,8 @@ namespace GUI
             khBLL = new KhachHangBLL();
             dt = khBLL.getListKhachHang();
             DateTime currentDate = DateTime.Now;
-            //dtpNgaySinh.MaxDate = DateTime.Now.Date.AddYears(-18); // Không được chọn ngày lớn hơn 18
-            dtpNgaySinh.MaxDate = currentDate; //không cho chọn ngày lớn hơn ngày hiện tại
+            dtpNgaySinh.MaxDate = DateTime.Now.Date.AddYears(-18); 
+            //dtpNgaySinh.MaxDate = currentDate; //không cho chọn ngày lớn hơn ngày hiện tại
             unhideError(); //set màu trong suốt cho các label lỗi
             loadMaKH();
             txtMaKH.Enabled = false;
@@ -86,8 +87,7 @@ namespace GUI
         }
         private void loadForm()
         {
-            dgvKhachHang.DataSource = dt;
-
+            dgvKhachHang.DataSource = khBLL.getListKhachHang();
             cbxTimKiem.Refresh();
             loadDataToCBX(cbxTimKiem);
             chkNam.Enabled = isGioiTinh;
@@ -129,17 +129,22 @@ namespace GUI
         //Load mã khách hàng cuối cùng lên form
         private void loadMaKH()
         {
-            string lastMaKH = dt.AsEnumerable()
-                .Select(row => row.Field<string>("MaKH"))
-                .LastOrDefault();
-
-            int nextNum = 1;
-            if (!string.IsNullOrEmpty(lastMaKH) && lastMaKH.Length >= 5)
+            khBLL = new KhachHangBLL();
+            maKH = khBLL.getMaxMaKhachHang();
+            string lastMaNV = maKH;
+            if (lastMaNV == "")
             {
-                int.TryParse(lastMaKH.Substring(2), out nextNum);
-                nextNum++;
+                txtMaKH.Texts = "KH001";
             }
-            txtMaKH.Texts = "KH" + nextNum.ToString("D3");
+            int tempNum = int.Parse(lastMaNV.Substring(2));
+            if ((tempNum + 1) >= 10)
+            {
+                txtMaKH.Texts = "KH0" + (tempNum + 1).ToString();
+            }
+            else if (tempNum >= 1 && tempNum < 9)
+            {
+                txtMaKH.Texts = "KH00" + (tempNum + 1).ToString();
+            }
         }
         private void unhideError()
         {
@@ -489,9 +494,9 @@ namespace GUI
 
             if (!isTuoi)
             {
-                tuoiStart = 0;
-                tuoiEnd = 0;
-
+                txtTuoiStart.PlaceholderText = "Từ";
+                txtTuoiEnd.PlaceholderText = "Đến";
+                lblErrTuoiFilter.Visible = false;
             }
             if (isTuoi)
             {
@@ -506,8 +511,6 @@ namespace GUI
                     tuoiEnd = tuoiEndResult;
 
                 }
-
-
             }
             btnTimKiem_Click(sender, e);
         }
@@ -519,17 +522,26 @@ namespace GUI
             }
             if (int.TryParse(txtTuoiStart.Texts, out int tuoiStartResult))
             {
-                // Chuyển đổi thành công, giá trị tuoiStartResult là số nguyên từ chuỗi
                 tuoiStart = tuoiStartResult;
-                btnTimKiem_Click(sender, e);
+                if (tuoiStart < 0)
+                {
+                    lblErrTuoiFilter.Text = "* Không được nhập tuổi là số âm";
+                    lblErrTuoiFilter.Visible = true;
+                    return;
+                }
+                else
+                {
+                    lblErrTuoiFilter.Visible = false;
+                    tuoiStart = tuoiStartResult;
+                    btnTimKiem_Click(sender, e);
+                }
+                lblErrTuoiFilter.Visible = false;
             }
+
             else
             {
-                // Chuỗi không hợp lệ, bạn có thể xử lý lỗi hoặc thông báo cho người dùng
                 return;
             }
-
-
         }
 
         private void txtTuoiEnd__TextChanged(object sender, EventArgs e)
@@ -540,13 +552,30 @@ namespace GUI
             }
             if (int.TryParse(txtTuoiEnd.Texts, out int tuoiEndResult))
             {
-                // Chuyển đổi thành công, giá trị tuoiStartResult là số nguyên từ chuỗi
                 tuoiEnd = tuoiEndResult;
-                btnTimKiem_Click(sender, e);
+                if (tuoiEnd < 0)
+                {
+
+                    lblErrTuoiFilter.Text = "* Không được nhập tuổi là số âm";
+                    lblErrTuoiFilter.Visible = true;
+                    return;
+                }
+                if (int.Parse(txtTuoiStart.Texts) >= tuoiEnd)
+                {
+
+                    lblErrTuoiFilter.Text = "* .Bạn phải tuổi kết thúc lớn hơn tuổi bắt đầu";
+                    lblErrTuoiFilter.Visible = true;
+                    return;
+                }
+                else
+                {
+                    lblErrTuoiFilter.Visible = false;
+                    btnTimKiem_Click(sender, e);
+                }
+
             }
             else
             {
-                // Chuỗi không hợp lệ, bạn có thể xử lý lỗi hoặc thông báo cho người dùng
                 return;
             }
 
@@ -636,23 +665,25 @@ namespace GUI
         private void chkDiemTL_CheckedChanged(object sender, EventArgs e)
         {
             isDiemTL = toggleDieuKien(isDiemTL);
-            Console.WriteLine(isDiemTL);
-            txtDiemTLEnd.Enabled = isDiemTL;
             txtDiemTLStart.Enabled = isDiemTL;
+            txtDiemTLEnd.Enabled = isDiemTL;
+
             if (!isDiemTL)
             {
-                diemTLEnd = 0;
-                diemTLStart = 0;
+                txtDiemTLStart.PlaceholderText = "Từ";
+                txtDiemTLEnd.PlaceholderText = "Đến";
+                label11.Visible = false;
             }
-            if (isDiemTL)
+            if (isTuoi)
             {
-                if (int.TryParse(txtDiemTLStart.Texts, out int result))
+                if (int.TryParse(txtDiemTLStart.Texts, out int diemTLStartResult))
                 {
-                    diemTLStart = result;
+                    diemTLStart = diemTLStartResult;
                 }
-                if (int.TryParse(txtDiemTLEnd.Texts, out int result1))
+                if (int.TryParse(txtDiemTLEnd.Texts, out int diemTLEndResult))
                 {
-                    diemTLEnd = result1;
+                    diemTLEnd = diemTLEndResult;
+
                 }
             }
             btnTimKiem_Click(sender, e);
@@ -663,11 +694,22 @@ namespace GUI
             {
                 diemTLStart = 0;
             }
-            if (int.TryParse(txtDiemTLStart.Texts, out int result))
+            if (int.TryParse(txtDiemTLStart.Texts, out int diemTLStartResult))
             {
-                diemTLStart = result;
-                btnTimKiem_Click(sender, e);
-
+                diemTLStart = diemTLStartResult;
+                if (diemTLStart < 0)
+                {
+                    label11.Text = "* Không được nhập điểm là số âm";
+                    label11.Visible = true;
+                    return;
+                }
+                else
+                {
+                    label11.Visible = false;
+                    diemTLStart = diemTLStartResult;
+                    btnTimKiem_Click(sender, e);
+                }
+                label11.Visible = false;
             }
             else
             {
@@ -683,10 +725,28 @@ namespace GUI
             {
                 diemTLEnd = 0;
             }
-            if (int.TryParse(txtDiemTLEnd.Texts, out int result))
+            if (int.TryParse(txtDiemTLEnd.Texts, out int diemTLEndResult))
             {
-                diemTLEnd = result;
-                btnTimKiem_Click(sender, e);
+                diemTLEnd = diemTLEndResult;
+                if (diemTLEnd < 0)
+                {
+
+                    label11.Text = "* Không được nhập tuổi là số âm";
+                    label11.Visible = true;
+                    return;
+                }
+                if (int.Parse(txtDiemTLStart.Texts) >= diemTLEnd)
+                {
+
+                    label11.Text = "* .Bạn phải tuổi kết thúc lớn hơn tuổi bắt đầu";
+                    label11.Visible = true;
+                    return;
+                }
+                else
+                {
+                    label11.Visible = false;
+                    btnTimKiem_Click(sender, e);
+                }
 
             }
             else
@@ -925,17 +985,7 @@ namespace GUI
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            dgvKhachHang.DataSource = khBLL.getListKhachHang();
-            txtMaKH.Texts = string.Empty;
-            txtHo.Texts = string.Empty;
-            txtTen.Texts = string.Empty;
-            //dtpNgaySinh.Value = DateTime.Now;
-            rdbNam.Checked = false;
-            rdbNu.Checked = false;
-            txtSoDT.Texts = string.Empty;
-            txtDiaChi.Texts = string.Empty;
-            cbxTrangThai.SelectedItem = -1;
-            lblDiemTL.Text = "0";
+            reset(); 
         }
         private void reset()
         {
@@ -964,7 +1014,28 @@ namespace GUI
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            string maKH = txtMaKH.Texts;
+            var choice = MessageBox.Show("Xóa khách hàng này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (choice == DialogResult.Yes)
+            {
+                bool isLoiKhoaNgoai;
+                if (khBLL.deleteKhachHang(maKH, out isLoiKhoaNgoai))
+                {
+                    MessageBox.Show("Xóa thành công",
+                      "Thông báo",
+                      MessageBoxButtons.OK,
+                      MessageBoxIcon.Information);
+                    reset();
 
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại",
+                      "Thông báo",
+                      MessageBoxButtons.OK,
+                      MessageBoxIcon.Information);
+                }
+            }
         }
 
         private void txtTimKiem__TextChanged(object sender, EventArgs e)
