@@ -686,8 +686,17 @@ namespace GUI
             txtSoDT.Texts = dgvKhachHang.Rows[i].Cells[5].Value.ToString();
             txtDiaChi.Texts = dgvKhachHang.Rows[i].Cells[6].Value.ToString();
             int trangThai = int.Parse(dgvKhachHang.Rows[i].Cells[7].Value.ToString());
-            byte[] imageBytes = (byte[])dgvKhachHang.Rows[i].Cells[9].Value;
-            pbImage.Image = convertBinaryStringToImage(imageBytes);
+            if (dgvKhachHang.Rows[i].Cells[9].Value != DBNull.Value)
+            {
+                byte[] imageBytes = (byte[])dgvKhachHang.Rows[i].Cells[9].Value;
+                pbImage.Image = convertBinaryStringToImage(imageBytes);
+            }
+            else
+            {
+                pbImage.Image = pbImage.InitialImage;
+            }
+            //byte[] imageBytes = (byte[])dgvKhachHang.Rows[i].Cells[9].Value;
+            //pbImage.Image = convertBinaryStringToImage(imageBytes);
             pbImage.Tag = dgvKhachHang.Rows[i].Cells[0].Value.ToString();
             cbxTrangThai.SelectedItem = (trangThai == 1) ? "Hoạt động" : "Không hoạt động";
 
@@ -807,7 +816,17 @@ namespace GUI
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-
+            dgvKhachHang.DataSource = khBLL.getListKhachHang();
+            txtMaKH.Texts = string.Empty;
+            txtHo.Texts = string.Empty;
+            txtTen.Texts = string.Empty;
+            //dtpNgaySinh.Value = DateTime.Now;
+            rdbNam.Checked = false;
+            rdbNu.Checked = false;
+            txtSoDT.Texts = string.Empty;
+            txtDiaChi.Texts = string.Empty;
+            cbxTrangThai.SelectedItem = -1;
+            lblDiemTL.Text = "0";
         }
 
         private void dgvKhachHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
