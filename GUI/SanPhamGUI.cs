@@ -327,7 +327,7 @@ namespace GUI
         private void btnMaNCC_Click(object sender, EventArgs e)
         {
             MiniNCCGUI nccGUI = new MiniNCCGUI();
-            nccGUI.ShowDialog();
+            nccGUI.Show();
             nccGUI.FormClosed += (s, args) =>
             {
                 string maNCC = nccGUI.maNCC;
@@ -339,7 +339,7 @@ namespace GUI
         private void btnMaNSX_Click(object sender, EventArgs e)
         {
             MiniNSXGUI nsxGUI = new MiniNSXGUI();
-            nsxGUI.ShowDialog();
+            nsxGUI.Show();
             nsxGUI.FormClosed += (s, args) =>
             {
                 string maNSX = nsxGUI.maNSX;
@@ -353,7 +353,7 @@ namespace GUI
         private void btnMaLoai_Click(object sender, EventArgs e)
         {
             MiniLoaiGUI maLoaiGUI = new MiniLoaiGUI();
-            maLoaiGUI.ShowDialog();
+            maLoaiGUI.Show();
 
             maLoaiGUI.FormClosed += (s, args) =>
             {

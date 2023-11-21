@@ -1,6 +1,7 @@
 ﻿using BLL;
 using DevExpress.Internal.WinApi.Windows.UI.Notifications;
 using DTO;
+using GUI.MyCustom;
 using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
 using System;
 using System.Collections.Generic;
@@ -34,7 +35,6 @@ namespace GUI
             tkBLL = new TaiKhoanBLL();
             nvBLL = new NhanVienBLL();
             cvBLL = new ChucVuBLL();
-            dtNhanVien = nvBLL.getListNVNoHasTaiKhoan();
             dtChucVu = cvBLL.getListChucVu();
             dtTaiKhoan = tkBLL.getListTaiKhoan();
             dgvNhanVien.DataSource = dtNhanVien;
@@ -42,6 +42,10 @@ namespace GUI
             
 
             loadMaTK();
+            resetField();
+            unHideError();
+            
+            dgvNhanVien.DataSource = nvBLL.getListNVNoHasTaiKhoan();
             checkQuyen(isTaiKhoan,maNVHienTai);
         }
         private void checkQuyen(int quyen, string maNV)
@@ -115,7 +119,38 @@ namespace GUI
             txtQuyen.Texts = string.Empty;
 
         }
+        #region Các hàm bổ trợ
+        private void unHideError()
+        {
+            lblErrTrangThai.ForeColor = Color.Transparent;
+            lblErrUsername.ForeColor = Color.Transparent;
+            lblErrPassword.ForeColor = Color.Transparent;
+        }
+        private string CheckAndSetColor(object control, Label label)
+        {
+            if (control is RJTextBox textBox)
+            {
+                string text = textBox.Texts.Trim();
+                label.ForeColor = string.IsNullOrWhiteSpace(text) ? Color.FromArgb(230, 76, 89) : Color.Transparent;
+                return text;
+            }
+            else if (control is RJComboBox comboBox)
+            {
+                string selectedValue = comboBox.SelectedItem?.ToString();
+                if (string.IsNullOrWhiteSpace(selectedValue))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                }
+                else
+                {
+                    label.ForeColor = Color.Transparent;
+                }
+                return selectedValue;
+            }
 
+            return null; // Nếu kiểu dữ liệu không hợp lệ.
+        }
+        #endregion
         private void btnRandomPassword_Click(object sender, EventArgs e)
         {
             string matKhau = tkBLL.GenerateRandomPassword();
@@ -144,26 +179,6 @@ namespace GUI
 
         }
 
-        private void btnThayDoiMK_Click(object sender, EventArgs e)
-        {
-            isFuncTaoTK = false;
-            isFuncThayDoiTTCN = true;
-            isFuncThayDoiTT = false;
-            if (isFuncThayDoiTTCN)
-            {
-                resetField();
-
-                btnThayDoiTTCN.BackColor = Color.FromArgb(224, 252, 237);
-                btnThayDoiTrangThai.BackColor = Color.Transparent;
-                btnTaoTK.BackColor = Color.Transparent;
-                lblTitleDGV.Text = "DANH SÁCH TÀI KHOẢN";
-                lblTitleFunction.Text = "CHỈNH SỬA THÔNG TIN";
-                btnThucHienChucNang.Text = "SỬA THÔNG TIN";
-                dgvNhanVien.DataSource = nvBLL.getListNVHasTaiKhoan();
-            }
-
-
-        }
         private void btnThayDoiTTCN_Click(object sender, EventArgs e)
         {
             isFuncTaoTK = false;
@@ -207,24 +222,36 @@ namespace GUI
         private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int i = dgvNhanVien.CurrentRow.Index;
-            txtNhanVien.Texts = dgvNhanVien.Rows[i].Cells[1].Value.ToString() + " " + dgvNhanVien.Rows[i].Cells[2].Value.ToString();
-                dtpNgayLap.Value = DateTime.Parse(dgvNhanVien.Rows[i].Cells[5].Value.ToString());
-            txtQuyen.Texts = searchTenCVbyMaCV(dgvNhanVien.Rows[i].Cells[4].Value.ToString());
-            maNV = dgvNhanVien.Rows[i].Cells[0].Value.ToString();
-            maCV = dgvNhanVien.Rows[i].Cells[4].Value.ToString();
+
+            if (isFuncTaoTK)
+            {
+                maNV = dgvNhanVien.Rows[i].Cells[1].Value.ToString();
+                txtNhanVien.Texts = dgvNhanVien.Rows[i].Cells[2].Value.ToString() + " " + dgvNhanVien.Rows[i].Cells[3].Value.ToString();
+                txtQuyen.Texts = searchTenCVbyMaCV(dgvNhanVien.Rows[i].Cells[5].Value.ToString());
+                maCV = dgvNhanVien.Rows[i].Cells[5].Value.ToString();
+            }
+         
             if (isFuncThayDoiTTCN)
             {
+                txtNhanVien.Texts = dgvNhanVien.Rows[i].Cells[1].Value.ToString() + " " + dgvNhanVien.Rows[i].Cells[2].Value.ToString();
+                txtQuyen.Texts = searchTenCVbyMaCV(dgvNhanVien.Rows[i].Cells[4].Value.ToString());
+                maNV = dgvNhanVien.Rows[i].Cells[0].Value.ToString();
+                maCV = dgvNhanVien.Rows[i].Cells[4].Value.ToString();
                 (string TenDangNhap, string MatKhau, int TrangThai) result = GetTenDNandMK(maNV, dtTaiKhoan);
                 txtMaTK.Texts = dgvNhanVien.Rows[i].Cells[3].Value.ToString();
-
+                dtpNgayLap.Value = DateTime.Parse(dgvNhanVien.Rows[i].Cells[5].Value.ToString());
                 txtTenDangNhap.Texts = result.TenDangNhap;
                 txtMatKhau.Texts = result.MatKhau;
             }
             if (isFuncThayDoiTT)
             {
+                txtNhanVien.Texts = dgvNhanVien.Rows[i].Cells[1].Value.ToString() + " " + dgvNhanVien.Rows[i].Cells[2].Value.ToString();
+                txtQuyen.Texts = searchTenCVbyMaCV(dgvNhanVien.Rows[i].Cells[4].Value.ToString());
+                maNV = dgvNhanVien.Rows[i].Cells[0].Value.ToString();
+                maCV = dgvNhanVien.Rows[i].Cells[4].Value.ToString();
                 (string TenDangNhap, string MatKhau, int TrangThai) result = GetTenDNandMK(maNV, dtTaiKhoan);
                 txtMaTK.Texts = dgvNhanVien.Rows[i].Cells[3].Value.ToString();
-
+                dtpNgayLap.Value = DateTime.Parse(dgvNhanVien.Rows[i].Cells[5].Value.ToString());
                 cbxTrangThai.SelectedItem = (result.TrangThai == 1) ? "Hoạt động" : "Không hoạt động";
                 if(result.TrangThai == 1)
                 {
@@ -244,12 +271,18 @@ namespace GUI
             {
                 TaiKhoanDTO tk = new TaiKhoanDTO();
                 tk.MaTK = txtMaTK.Texts;
-                tk.TenDangNhap = txtTenDangNhap.Texts;
-                tk.MatKhau = txtMatKhau.Texts;
+                string tenDangNhap = CheckAndSetColor(txtTenDangNhap, lblErrUsername);
+                string matKhau = CheckAndSetColor(txtMatKhau, lblErrPassword);
                 tk.NgayLap = dtpNgayLap.Value;
                 tk.MaNV = maNV;
                 tk.Quyen = txtQuyen.Texts;
-                string trangThai = cbxTrangThai.SelectedItem.ToString();
+                string trangThai = CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
+                if(!(tenDangNhap != "" && matKhau != "" && trangThai != ""))
+                {
+                    return;
+                }
+                tk.TenDangNhap = tenDangNhap;
+                tk.MatKhau = matKhau;
                 tk.TrangThai = (trangThai == "Hoạt động") ? 1 : 0;
 
                 int flag = tkBLL.insertTaiKhoan(tk) ? 1 : 0;
@@ -268,7 +301,7 @@ namespace GUI
                         MessageBoxIcon.Error);
                 }
                 nvBLL.updateTaiKhoan(tk.MaTK, maNV);
-               
+
                 resetField();
                 return;
             }
@@ -320,5 +353,19 @@ namespace GUI
             }
         }
 
+        private void txtTenDangNhap__TextChanged(object sender, EventArgs e)
+        {
+            CheckAndSetColor(txtTenDangNhap, lblErrUsername);
+        }
+
+        private void txtMatKhau__TextChanged(object sender, EventArgs e)
+        {
+            CheckAndSetColor(txtMatKhau, lblErrPassword);
+        }
+
+        private void cbxTrangThai_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
+        }
     }
 }

@@ -61,6 +61,7 @@
             // pbNhaCungCap
             // 
             this.pbNhaCungCap.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbNhaCungCap.InitialImage = global::GUI.Properties.Resources.placeholder_image;
             this.pbNhaCungCap.Location = new System.Drawing.Point(4, 4);
             this.pbNhaCungCap.Name = "pbNhaCungCap";
             this.pbNhaCungCap.Size = new System.Drawing.Size(45, 41);

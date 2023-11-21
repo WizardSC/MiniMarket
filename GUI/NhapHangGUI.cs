@@ -30,7 +30,6 @@ namespace GUI
         private bool isTonKho = false;
         private string genderCondition = "";
 
-
         private bool isFormFilter = false;
         private int currentScrollPosition = 0;
         private CTPhieuNhapBLL ctpnBLL;
@@ -45,6 +44,7 @@ namespace GUI
         private List<NhanVienDTO> listNV;
         private Dictionary<string, thongTinSanPham> gioHangNhap = new Dictionary<string, thongTinSanPham>();
         private DataTable currentListNCC;
+        private string fileName;
 
         public struct thongTinSanPham
         {
@@ -94,12 +94,7 @@ namespace GUI
             txtDonGia.Enabled = false;
 
         }
-        private System.Drawing.Image convertBinaryStringToImage(byte[] binaryString)
-        {
-            MemoryStream ms = new MemoryStream(binaryString);
-            System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
-            return img;
-        }
+        
         private void loadNgayThang()
         {
             lblNgayLap.Text = DateTime.Now.ToString("dd/MM/yyyy");
@@ -123,8 +118,20 @@ namespace GUI
             {
                 MyCustom.MySuppiler item = new MyCustom.MySuppiler();
                 item.lblNhaCungCap.Text = dtNhaCungCap.Rows[i]["TenNCC"].ToString();
-                byte[] imageBytes = (byte[])dtNhaCungCap.Rows[i]["IMG"];
-                item.pbNhaCungCap.Image = convertBinaryStringToImage(imageBytes);
+
+                string image = dtNhaCungCap.Rows[i]["IMG"].ToString();
+                string appDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+                string folderPath = Path.Combine(appDirectory, "resources", "image", "NhaCungCap", image);
+                Console.WriteLine(folderPath);
+                if (File.Exists(folderPath))
+                {
+                    item.pbNhaCungCap.Image = System.Drawing.Image.FromFile(folderPath);
+                }
+                else
+                {
+                    item.pbNhaCungCap.Image = item.pbNhaCungCap.InitialImage;
+
+                }
                 item.Margin = new Padding(6, 0, 6, 0);
                 item.ItemClicked += Item_ItemClicked;
                 this.flpNhaCungCap.Controls.Add(item);
