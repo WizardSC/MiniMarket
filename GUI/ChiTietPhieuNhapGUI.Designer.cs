@@ -188,7 +188,7 @@
             this.dtpNgayNhap.CustomFormat = "dd/MM/yyyy";
             this.dtpNgayNhap.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpNgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayNhap.Location = new System.Drawing.Point(503, 47);
+            this.dtpNgayNhap.Location = new System.Drawing.Point(644, 47);
             this.dtpNgayNhap.Margin = new System.Windows.Forms.Padding(4);
             this.dtpNgayNhap.MaximumSize = new System.Drawing.Size(250, 28);
             this.dtpNgayNhap.MinimumSize = new System.Drawing.Size(4, 28);
@@ -202,7 +202,7 @@
             // 
             this.label4.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label4.Location = new System.Drawing.Point(400, 49);
+            this.label4.Location = new System.Drawing.Point(541, 47);
             this.label4.Margin = new System.Windows.Forms.Padding(4);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(95, 28);
@@ -214,7 +214,7 @@
             // 
             this.label3.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label3.Location = new System.Drawing.Point(17, 73);
+            this.label3.Location = new System.Drawing.Point(148, 73);
             this.label3.Margin = new System.Windows.Forms.Padding(4);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(146, 28);
@@ -232,7 +232,7 @@
             this.txtTenNCC.Enabled = false;
             this.txtTenNCC.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenNCC.ForeColor = System.Drawing.Color.Black;
-            this.txtTenNCC.Location = new System.Drawing.Point(171, 73);
+            this.txtTenNCC.Location = new System.Drawing.Point(302, 73);
             this.txtTenNCC.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenNCC.MaximumSize = new System.Drawing.Size(250, 28);
             this.txtTenNCC.MinimumSize = new System.Drawing.Size(150, 28);
@@ -252,7 +252,7 @@
             // 
             this.label2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label2.Location = new System.Drawing.Point(17, 19);
+            this.label2.Location = new System.Drawing.Point(148, 19);
             this.label2.Margin = new System.Windows.Forms.Padding(4);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(146, 28);
@@ -270,7 +270,7 @@
             this.txtMaPN.Enabled = false;
             this.txtMaPN.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaPN.ForeColor = System.Drawing.Color.Black;
-            this.txtMaPN.Location = new System.Drawing.Point(171, 19);
+            this.txtMaPN.Location = new System.Drawing.Point(302, 19);
             this.txtMaPN.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaPN.MaximumSize = new System.Drawing.Size(250, 28);
             this.txtMaPN.MinimumSize = new System.Drawing.Size(150, 28);

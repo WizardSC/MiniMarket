@@ -304,5 +304,22 @@ namespace GUI
                 btnTimKiem_Click(sender, e);
             }
         }
+
+        private void dtpNgayStart_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime startDate = dtpNgayStart.Value;
+            DateTime endDate = dtpNgayEnd.Value;
+            if (startDate > endDate)
+            {
+                lblErrTuoiFilter.Visible = true;
+                btnTimKiem_Click(sender, e);
+            }
+            else
+            {
+                lblErrTuoiFilter.Visible = false;
+                lblErrTuoiFilter.Visible = false;
+                btnTimKiem_Click(sender, e);
+            }
+        }
     }
 }

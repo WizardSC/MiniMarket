@@ -184,6 +184,7 @@
             this.dtpNgayStart.TabIndex = 29;
             this.dtpNgayStart.TextColor = System.Drawing.Color.Black;
             this.dtpNgayStart.Value = new System.DateTime(2023, 11, 12, 21, 49, 47, 0);
+            this.dtpNgayStart.ValueChanged += new System.EventHandler(this.dtpNgayStart_ValueChanged);
             // 
             // label1
             // 

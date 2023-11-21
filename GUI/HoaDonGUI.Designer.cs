@@ -87,7 +87,7 @@
             this.btnExport.ForeColor = System.Drawing.Color.Black;
             this.btnExport.Image = ((System.Drawing.Image)(resources.GetObject("btnExport.Image")));
             this.btnExport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExport.Location = new System.Drawing.Point(972, 19);
+            this.btnExport.Location = new System.Drawing.Point(972, 8);
             this.btnExport.Margin = new System.Windows.Forms.Padding(120, 8, 10, 0);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(168, 42);
@@ -104,9 +104,9 @@
             this.flowLayoutPanel4.Controls.Add(this.txtTimKiem);
             this.flowLayoutPanel4.Controls.Add(this.btnTimKiem);
             this.flowLayoutPanel4.Controls.Add(this.btnFilter);
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 16);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(952, 54);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(952, 55);
             this.flowLayoutPanel4.TabIndex = 2;
             // 
             // cbxTimKiem
@@ -235,7 +235,7 @@
             this.dgvXemThongTinHoaDon.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvXemThongTinHoaDon.EnableHeadersVisualStyles = false;
             this.dgvXemThongTinHoaDon.GridColor = System.Drawing.Color.Black;
-            this.dgvXemThongTinHoaDon.Location = new System.Drawing.Point(3, 72);
+            this.dgvXemThongTinHoaDon.Location = new System.Drawing.Point(3, 64);
             this.dgvXemThongTinHoaDon.Name = "dgvXemThongTinHoaDon";
             this.dgvXemThongTinHoaDon.ReadOnly = true;
             this.dgvXemThongTinHoaDon.RowHeadersVisible = false;
@@ -244,7 +244,7 @@
             this.dgvXemThongTinHoaDon.RowTemplate.Height = 30;
             this.dgvXemThongTinHoaDon.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvXemThongTinHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvXemThongTinHoaDon.Size = new System.Drawing.Size(1170, 669);
+            this.dgvXemThongTinHoaDon.Size = new System.Drawing.Size(1170, 677);
             this.dgvXemThongTinHoaDon.TabIndex = 1;
             this.dgvXemThongTinHoaDon.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvXemThongTinHoaDon_CellDoubleClick);
             this.dgvXemThongTinHoaDon.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvXemThongTinHoaDon_CellFormatting);
@@ -385,6 +385,7 @@
             this.dtpNgayStart.TabIndex = 29;
             this.dtpNgayStart.TextColor = System.Drawing.Color.Black;
             this.dtpNgayStart.Value = new System.DateTime(2023, 11, 12, 21, 49, 47, 0);
+            this.dtpNgayStart.ValueChanged += new System.EventHandler(this.dtpNgayStart_ValueChanged);
             // 
             // label1
             // 
