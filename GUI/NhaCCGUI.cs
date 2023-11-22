@@ -429,7 +429,7 @@ namespace GUI
             {
                 pbImage.Image = Image.FromFile(folderPath);
                 pbImage.Tag = dgvNhaCC.Rows[i].Cells[0].Value.ToString();
-
+                fileName = Path.GetFileName(folderPath);
             } else
             {
                 pbImage.Image = pbImage.InitialImage;
