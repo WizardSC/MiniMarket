@@ -223,7 +223,14 @@ namespace GUI
                 else
                 {
                     item.pbxIMG.Image = item.pbxIMG.InitialImage;
+                }
 
+                // Kiểm tra giá trị của cột TrangThai
+                if (row.Field<int>("TrangThai") == 0)
+                {
+                    // Nếu TrangThai == 0, thay đổi màu của item
+                    item.BackColor = Color.Gray; // Hoặc bất kỳ màu nào bạn muốn
+                    item.Enabled = false;
                 }
 
                 item.Margin = new Padding(4, 6, 4, 6);

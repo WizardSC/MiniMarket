@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BanHangDAL.cs" />
     <Compile Include="ChiTietKhuyenMaiDAL.cs" />
     <Compile Include="ChucVuDAL.cs" />
     <Compile Include="CTHoaDonDAL.cs" />

@@ -40,6 +40,7 @@ namespace GUI
             loadMaKM();
             loadDataToCBX(cbxTimKiem);
             checkQuyen(isKhuyenMai);
+            hideError();
         }
         private void checkQuyen(int quyen)
         {
@@ -56,6 +57,13 @@ namespace GUI
             }
         }
 
+        private void hideError()
+        {
+            lblErrDieuKienKM.ForeColor = Color.Transparent;
+            lblErrNgayKT.ForeColor = Color.Transparent;
+            lblErrPhanTramKM.ForeColor = Color.Transparent;
+            lblErrTenKM.ForeColor = Color.Transparent;
+        }
         private void loadMaKM()
         {
 
@@ -160,6 +168,9 @@ namespace GUI
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
             btnThem.Enabled = true;
+
+            hideError();
+
         }
         //load form DataTable
         public void init()
@@ -315,10 +326,10 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            string tenKM = CheckAndSetColor(txtTenKm, label4);
-            string phantramkm = CheckAndSetColorPhanTramKM(txtPhanTramKM, label10);
-            string dieukienkm = CheckAndSetColorDieuKienKM(txtDkKM, label12);
-            DateTime ngaykt = CheckAndSetColorDate(dtpNgayKT.Value, label8);
+            string tenKM = CheckAndSetColor(txtTenKm, lblErrTenKM);
+            string phantramkm = CheckAndSetColorPhanTramKM(txtPhanTramKM, lblErrPhanTramKM);
+            string dieukienkm = CheckAndSetColorDieuKienKM(txtDkKM, lblErrDieuKienKM);
+            DateTime ngaykt = CheckAndSetColorDate(dtpNgayKT.Value, lblErrNgayKT);
             DateTime Ngaybd = dtpNgayBD.Value;
             string CheckTrangThai = cbxTrangThai.Texts.ToString();
             int trangthai = (CheckTrangThai == "Hoạt động") ? 1 : 0;
@@ -358,10 +369,10 @@ namespace GUI
 
         private void btnSua_Click(object sender, EventArgs e)
             {
-            string tenKM = CheckAndSetColor(txtTenKm, label4);
-            string phantramkm = CheckAndSetColorPhanTramKM(txtPhanTramKM, label10);
-            string dieukienkm = CheckAndSetColorDieuKienKM(txtDkKM, label12);
-            DateTime ngaykt = CheckAndSetColorDate(dtpNgayKT.Value, label8);
+            string tenKM = CheckAndSetColor(txtTenKm, lblErrTenKM);
+            string phantramkm = CheckAndSetColorPhanTramKM(txtPhanTramKM, lblErrPhanTramKM);
+            string dieukienkm = CheckAndSetColorDieuKienKM(txtDkKM, lblErrDieuKienKM);
+            DateTime ngaykt = CheckAndSetColorDate(dtpNgayKT.Value, lblErrNgayKT);
             DateTime Ngaybd = dtpNgayBD.Value;
             string CheckTrangThai = cbxTrangThai.Texts.ToString();
             int trangthai = (CheckTrangThai == "Hoạt động") ? 1 : 0;
@@ -630,27 +641,27 @@ namespace GUI
 
         private void txtTenKm__TextChanged(object sender, EventArgs e)
         {
-          CheckAndSetColor(txtTenKm, label4);
+          CheckAndSetColor(txtTenKm, lblErrTenKM);
         }
 
         private void txtPhanTramKM__TextChanged(object sender, EventArgs e)
         {
-            CheckAndSetColorPhanTramKM(txtPhanTramKM, label10);
+            CheckAndSetColorPhanTramKM(txtPhanTramKM, lblErrPhanTramKM);
         }
 
         private void txtDkKM__TextChanged(object sender, EventArgs e)
         {
-            CheckAndSetColorDieuKienKM(txtDkKM, label12);
+            CheckAndSetColorDieuKienKM(txtDkKM, lblErrDieuKienKM);
         }
 
         private void dtpNgayKT_ValueChanged(object sender, EventArgs e)
         {
-            CheckAndSetColorDate(dtpNgayKT.Value, label8);
+            CheckAndSetColorDate(dtpNgayKT.Value, lblErrNgayKT);
         }
 
         private void dtpNgayBD_ValueChanged(object sender, EventArgs e)
         {
-            CheckAndSetColorDate(dtpNgayKT.Value, label8);
+            CheckAndSetColorDate(dtpNgayKT.Value, lblErrNgayKT);
         }
     }
 }
