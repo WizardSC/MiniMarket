@@ -338,6 +338,12 @@
     <Compile Include="MyCustom\RJTextBox.Designer.cs">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="NhaCCGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhaCCGUI.Designer.cs">
+      <DependentUpon>NhaCCGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="NhanVienGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -475,6 +481,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyCustom\RJTextBox.resx">
       <DependentUpon>RJTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhaCCGUI.resx">
+      <DependentUpon>NhaCCGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NhanVienGUI.resx">
       <DependentUpon>NhanVienGUI.cs</DependentUpon>
