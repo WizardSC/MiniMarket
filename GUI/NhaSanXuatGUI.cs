@@ -154,6 +154,11 @@ namespace GUI
             txtDiaChi.Texts = "";
             txtSoDT.Texts = "";
             cbxTrangThai.Text = "Hoạt động";
+
+            label13.Text = "";
+            label14.Text = "";
+            label15.Text = "";
+            label18.Text = "";
         }
 
         private void NhaSanXuatGUI_Load(object sender, EventArgs e)
@@ -162,28 +167,51 @@ namespace GUI
             loadDataToCBX(cbxTimKiem);
             init();
         }
-
-       private void btnSua_Click(object sender, EventArgs e)
+        private bool ContainsNumber(string input)
         {
-            NhaSanXuatDTO nsx = new NhaSanXuatDTO();
-            nsx.TenNSX = txtTenNSX.Texts;
-            nsx.DiaChi = txtDiaChi.Texts;
-            nsx.SoDT = txtSoDT.Texts;
-            nsx.MaNSX = txtMaNSX.Texts;
-            string trangThai = cbxTrangThai.SelectedItem.ToString();
-            int trangThaiValue = (trangThai == "Hoạt động") ? 1 : 0;
-            nsx.TrangThaiNSX = trangThaiValue;
+            foreach (char c in input)
+            {
+                if (char.IsDigit(c))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        private void btnSua_Click(object sender, EventArgs e)
+        {
 
-            //nsx.Trangthai = cbxTrangThai.Texts;
-            int kq = nsxBLL.update_nhasanxuat(nsx) ? 1 : 0;
-            if (kq == 1)
+            string MaNSX = CheckAndSetColor(txtMaNSX, label13);
+            string TenNSX = CheckAndSetColor(txtTenNSX, label14);
+            string DiaChi = CheckAndSetColor(txtDiaChi, label15);
+            string SoDT = CheckAndSetColor(txtSoDT, label18);
+
+
+
+            string trangThai = CheckAndSetColor(cbxTrangThai, label6);
+            int trangThaiValue = (trangThai == "Hoạt động" ? 1 : 0);
+            if (ContainsNumber(TenNSX))
+            {
+                MessageBox.Show("Tên NSX không được chứa số!",
+                                "Lỗi",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
+            if ((string.IsNullOrWhiteSpace(MaNSX) || string.IsNullOrWhiteSpace(TenNSX) || string.IsNullOrWhiteSpace(SoDT) || string.IsNullOrWhiteSpace(DiaChi) || string.IsNullOrWhiteSpace(trangThai)))
+            {
+                return;
+            }
+
+            NhaSanXuatDTO nsx = new NhaSanXuatDTO(MaNSX, TenNSX, DiaChi, SoDT, trangThaiValue);
+            if (nsxBLL.update_nhasanxuat(nsx))
             {
                 MessageBox.Show("Sửa thành công",
                     "Thông báo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+                loadMaNSX();
                 init();
-                
 
             }
             else
@@ -193,9 +221,10 @@ namespace GUI
                    MessageBoxButtons.OK,
                    MessageBoxIcon.Error);
             }
-         
-            
+
            
+
+
 
 
         }
@@ -795,6 +824,8 @@ namespace GUI
             dgvNSX.Columns["SoDT"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             dgvNSX.Columns["TrangThai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
 
+           
+
             // Reset AutoSizeMode for each column after importing data
 
             if (importError)
@@ -803,8 +834,11 @@ namespace GUI
             }
             else
             {
+
                 MessageBox.Show("Dữ liệu đã được nhập vào từ tệp Excel.", "Hoàn thành", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 SaveDataToDatabase();
+                init();
+                loadMaNSX();
             }
         }
 
@@ -866,6 +900,18 @@ namespace GUI
                                 }
                             }
 
+                            if (col == 2) // Check 'TenNSX'
+                            {
+                                string tenNSX = cellValue;
+
+                                if (ContainsNumber(tenNSX))
+                                {
+                                    MessageBox.Show($"Dòng {row} trong tệp Excel có 'Tên NSX' chứa số.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    hasEmptyField = true;
+                                    break;
+                                }
+                            }
+
                             // Kiểm tra số điện thoại có từ 10-12 số và có số 0 ở đầu không
                             if (col == 4)
                             {
@@ -877,6 +923,18 @@ namespace GUI
                                     MessageBox.Show($"Dòng {row} trong tệp Excel có số điện thoại không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     hasEmptyField = true;
                                     break;  // Dừng quá trình nhập liệu nếu có lỗi
+                                }
+                            }
+
+                           if (col == 5) // Check 'TrangThai'
+                            {
+                                string trangThai = cellValue;
+
+                                if (trangThai != "0" && trangThai != "1")
+                                {
+                                    MessageBox.Show($"Dòng {row} trong tệp Excel 'Trạng Thái' không hợp lệ (chỉ chấp nhận giá trị 0 hoặc 1).", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    hasEmptyField = true;
+                                    break;
                                 }
                             }
 
@@ -907,8 +965,8 @@ namespace GUI
 
         private void SaveDataToDatabase()
         {
-            //string strconn = @"Data Source=MSI;Initial Catalog=MiniMarket1511;Integrated Security=True";
-            string strconn = @"Data Source=LAPTOP-AEI9M0MI\WIZARDSC;Initial Catalog = MiniMarket; Integrated Security = True";
+            string strconn = @"Data Source=MSI;Initial Catalog=MiniMarket1511;Integrated Security=True";
+             // string strconn = @"Data Source=LAPTOP-AEI9M0MI\WIZARDSC;Initial Catalog = MiniMarket; Integrated Security = True";
             try
             {
                 using (SqlConnection connection = new SqlConnection(strconn))
