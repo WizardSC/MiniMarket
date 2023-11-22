@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GiaoDienGUI));
             this.pnSidebar = new System.Windows.Forms.Panel();
             this.pnMainMenu = new System.Windows.Forms.Panel();
+            this.pnChucVu = new System.Windows.Forms.Panel();
+            this.pnChucVuContainer = new GUI.MyCustom.RJButton();
+            this.pnLeftBorderChucVu = new System.Windows.Forms.Panel();
             this.pnTaiKhoan = new System.Windows.Forms.Panel();
             this.pnTaiKhoanContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderTaiKhoan = new System.Windows.Forms.Panel();
@@ -95,6 +98,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnSidebar.SuspendLayout();
             this.pnMainMenu.SuspendLayout();
+            this.pnChucVu.SuspendLayout();
             this.pnTaiKhoan.SuspendLayout();
             this.pnThongKe.SuspendLayout();
             this.pnSubQuanLy.SuspendLayout();
@@ -137,6 +141,7 @@
             // 
             this.pnMainMenu.AutoScroll = true;
             this.pnMainMenu.AutoSize = true;
+            this.pnMainMenu.Controls.Add(this.pnChucVu);
             this.pnMainMenu.Controls.Add(this.pnTaiKhoan);
             this.pnMainMenu.Controls.Add(this.pnThongKe);
             this.pnMainMenu.Controls.Add(this.pnSubQuanLy);
@@ -148,6 +153,52 @@
             this.pnMainMenu.Name = "pnMainMenu";
             this.pnMainMenu.Size = new System.Drawing.Size(182, 481);
             this.pnMainMenu.TabIndex = 5;
+            // 
+            // pnChucVu
+            // 
+            this.pnChucVu.Controls.Add(this.pnChucVuContainer);
+            this.pnChucVu.Controls.Add(this.pnLeftBorderChucVu);
+            this.pnChucVu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnChucVu.Location = new System.Drawing.Point(0, 750);
+            this.pnChucVu.Name = "pnChucVu";
+            this.pnChucVu.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.pnChucVu.Size = new System.Drawing.Size(165, 50);
+            this.pnChucVu.TabIndex = 7;
+            // 
+            // pnChucVuContainer
+            // 
+            this.pnChucVuContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnChucVuContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnChucVuContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnChucVuContainer.BorderRadius = 0;
+            this.pnChucVuContainer.BorderSize = 0;
+            this.pnChucVuContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnChucVuContainer.FlatAppearance.BorderSize = 0;
+            this.pnChucVuContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnChucVuContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnChucVuContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnChucVuContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnChucVuContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnChucVuContainer.Image")));
+            this.pnChucVuContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnChucVuContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnChucVuContainer.Name = "pnChucVuContainer";
+            this.pnChucVuContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnChucVuContainer.Size = new System.Drawing.Size(157, 40);
+            this.pnChucVuContainer.TabIndex = 2;
+            this.pnChucVuContainer.Text = "         Chức Vụ";
+            this.pnChucVuContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnChucVuContainer.TextColor = System.Drawing.Color.Black;
+            this.pnChucVuContainer.UseVisualStyleBackColor = false;
+            this.pnChucVuContainer.Click += new System.EventHandler(this.pnChucVuContainer_Click);
+            // 
+            // pnLeftBorderChucVu
+            // 
+            this.pnLeftBorderChucVu.BackColor = System.Drawing.Color.Transparent;
+            this.pnLeftBorderChucVu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnLeftBorderChucVu.Location = new System.Drawing.Point(0, 0);
+            this.pnLeftBorderChucVu.Name = "pnLeftBorderChucVu";
+            this.pnLeftBorderChucVu.Size = new System.Drawing.Size(8, 40);
+            this.pnLeftBorderChucVu.TabIndex = 0;
             // 
             // pnTaiKhoan
             // 
@@ -890,7 +941,7 @@
             this.pnThongTinTK.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnThongTinTK.Location = new System.Drawing.Point(0, 0);
             this.pnThongTinTK.Name = "pnThongTinTK";
-            this.pnThongTinTK.Size = new System.Drawing.Size(182, 45);
+            this.pnThongTinTK.Size = new System.Drawing.Size(182, 55);
             this.pnThongTinTK.TabIndex = 5;
             // 
             // label3
@@ -1083,6 +1134,7 @@
             this.pnSidebar.PerformLayout();
             this.pnMainMenu.ResumeLayout(false);
             this.pnMainMenu.PerformLayout();
+            this.pnChucVu.ResumeLayout(false);
             this.pnTaiKhoan.ResumeLayout(false);
             this.pnThongKe.ResumeLayout(false);
             this.pnSubQuanLy.ResumeLayout(false);
@@ -1175,5 +1227,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblChucVu;
+        private System.Windows.Forms.Panel pnChucVu;
+        private MyCustom.RJButton pnChucVuContainer;
+        private System.Windows.Forms.Panel pnLeftBorderChucVu;
     }
 }

@@ -54,9 +54,12 @@ namespace GUI
             load_Form();
             loadCbxTimKiem();
             lblErrNgaySinh.Visible = false;
-            
+ 
             loadMaNV();
             loadBtn();
+            dtpNgaySinh.Format = DateTimePickerFormat.Custom;
+            dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
+            dtpNgaySinh.MaxDate = DateTime.Now.Date.AddYears(-18);
         }
 
         private void loadMaNV()
@@ -93,9 +96,7 @@ namespace GUI
         private void NhanViennGUI_Load(object sender, EventArgs e)
         {
             dgvNhanVien.DataSource = nvBLL.getListNhanVien();
-            dtpNgaySinh.Format = DateTimePickerFormat.Custom;
-            dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
-            dtpNgaySinh.MaxDate = DateTime.Now.Date.AddYears(-18);
+            
 
         }
 
@@ -127,10 +128,16 @@ namespace GUI
                     label.Text = "    *Số DT không thể chứa chữ";
                     return null;
                 }
-                else if (text.ToString().Length > 10)
+                else if (text.ToString().Length <  10)
                 {
                     label.ForeColor = Color.FromArgb(230, 76, 89);
-                    label.Text = "    *Số DT không được quá 10 số";
+                    label.Text = "    *Số DT tối thiểu phải 10 số";
+                    return null;
+                }
+                else if (text.ToString().Length > 12)
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "    *Số DT không được quá 12 số";
                     return null;
                 }
                 else
@@ -750,6 +757,7 @@ namespace GUI
             txtTen.Texts = "";
             txtSoDT.Texts = "";
             txtDiaChi.Texts = "";
+            dtpNgaySinh.Value = DateTime.Now.Date.AddYears(-18);
             rdbNam.Checked = false;
             rdbNu.Checked = false;
             cbxChucVu.SelectedIndex = -1;
@@ -902,7 +910,7 @@ namespace GUI
 
             if (isBanHang)
             {
-                chucVuConditions.Add("MaCV = 'CV001'");
+                chucVuConditions.Add("MaCV = 'CV004'");
             }
 
             if (isQuanLy)
@@ -913,11 +921,10 @@ namespace GUI
             {
                 chucVuConditions.Add("MaCV = 'CV003'");
             }
-            // Admin
-            //if (isAdmin)
-            //{
-            //    chucVuConditions.Add("MaCV = 'CV002'");
-            //}
+            if (isAdmin)
+            {
+                chucVuConditions.Add("MaCV = 'CV001'");
+            }
 
             chucVuCondition = string.Join(" OR ", chucVuConditions);
         }
@@ -1020,7 +1027,7 @@ namespace GUI
                 if (isAdmin)
                 {
 
-                    chkAdmin_CheckedChanged(sender, e);
+                    chkAdmin_CheckedChanged_1(sender, e);
                 }
             }
             else
@@ -1058,7 +1065,7 @@ namespace GUI
             btnTimKiem.PerformClick();
         }
 
-        private void chkAdmin_CheckedChanged(object sender, EventArgs e)
+        private void chkAdmin_CheckedChanged_1(object sender, EventArgs e)
         {
             isAdmin = toggleDieuKien(isAdmin);
             UpdateChucVuCondition();
