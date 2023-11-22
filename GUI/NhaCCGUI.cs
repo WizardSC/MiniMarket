@@ -51,7 +51,7 @@ namespace GUI
             unhideError();
             checkQuyen(isNCC);
             loadMaNCC();
-
+            loadBtn();
         }
         private void checkQuyen(int quyen)
         {
@@ -66,6 +66,12 @@ namespace GUI
                 btnUploadIMG.Enabled = false;
                 btnDeleteIMG.Enabled = false;
             }
+        }
+        private void loadBtn()
+        {
+            btnThem.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
         }
         private void unhideError()
         {
@@ -295,6 +301,15 @@ namespace GUI
             string trangThai = CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
             int trangThaiValue = (trangThai == "Hoạt động" ? 1 : 0);
             string img = fileName;
+            if(img == null)
+            {
+                lblErrIMG.ForeColor = Color.FromArgb(230, 76, 89);
+                return;
+            } else
+            {
+                lblErrIMG.ForeColor = Color.Transparent;
+
+            }
             if ((string.IsNullOrWhiteSpace(ten) || string.IsNullOrWhiteSpace(diaChi) || string.IsNullOrWhiteSpace(soDT) || string.IsNullOrWhiteSpace(trangThai) || img == null))
             {
                 return;
@@ -411,9 +426,11 @@ namespace GUI
 
         private void dgvNhaCC_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
             btnThem.Enabled = false;
-            btnXoa.Enabled = true;
             btnSua.Enabled = true;
+            btnXoa.Enabled = true;
+
             int i = dgvNhaCC.CurrentRow.Index;
             txtMaNCC.Texts = dgvNhaCC.Rows[i].Cells[0].Value.ToString();
             txtTen.Texts = dgvNhaCC.Rows[i].Cells[1].Value.ToString();
@@ -429,8 +446,11 @@ namespace GUI
             {
                 pbImage.Image = Image.FromFile(folderPath);
                 pbImage.Tag = dgvNhaCC.Rows[i].Cells[0].Value.ToString();
+                fileName = Path.GetFileName(folderPath);
 
-            } else
+
+            }
+            else
             {
                 pbImage.Image = pbImage.InitialImage;
 
@@ -638,6 +658,11 @@ namespace GUI
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
             loadMaNCC();
+
+            btnThem.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
+
             txtTimKiem.Texts = "";
             txtTen.Texts = "";
             txtDiaChi.Texts = "";

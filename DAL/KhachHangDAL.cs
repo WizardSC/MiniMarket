@@ -75,7 +75,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@SoDT", kh.SoDT).SqlDbType = SqlDbType.NVarChar;
                 cmd.Parameters.AddWithValue("@DiaChi", kh.DiaChi).SqlDbType = SqlDbType.NVarChar;
                 cmd.Parameters.AddWithValue("@TrangThai", kh.TrangThai).SqlDbType = SqlDbType.Int;
-                cmd.Parameters.AddWithValue("@IMG", kh.Img).SqlDbType = SqlDbType.Image;
+                cmd.Parameters.AddWithValue("@IMG", kh.Img).SqlDbType = SqlDbType.NVarChar;
                 cmd.Parameters.AddWithValue("@DiemTichLuy", kh.DiemTichLuy).SqlDbType = SqlDbType.Int;
 
                 cmd.ExecuteNonQuery();
@@ -131,7 +131,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@TrangThai", kh.TrangThai).SqlDbType = SqlDbType.Int;
                 cmd.Parameters.AddWithValue("@DiemTichLuy", kh.DiemTichLuy).SqlDbType = SqlDbType.Int;
 
-                cmd.Parameters.AddWithValue("@IMG", kh.Img).SqlDbType = SqlDbType.Image;
+                cmd.Parameters.AddWithValue("@IMG", kh.Img).SqlDbType = SqlDbType.NVarChar;
                 cmd.Parameters.AddWithValue("@MaKH", kh.MaKH).SqlDbType = SqlDbType.Char;
 
                 cmd.Connection = conn;

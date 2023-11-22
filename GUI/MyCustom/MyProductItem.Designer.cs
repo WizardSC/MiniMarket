@@ -30,6 +30,7 @@ namespace GUI.MyCustom
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MyProductItem));
             this.pnItem = new System.Windows.Forms.Panel();
             this.lblMaSP = new System.Windows.Forms.Label();
             this.lblDonGia = new System.Windows.Forms.Label();
@@ -87,6 +88,7 @@ namespace GUI.MyCustom
             // pbxIMG
             // 
             this.pbxIMG.Image = global::GUI.Properties.Resources.placeholder_image;
+            this.pbxIMG.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbxIMG.InitialImage")));
             this.pbxIMG.Location = new System.Drawing.Point(11, 30);
             this.pbxIMG.Name = "pbxIMG";
             this.pbxIMG.Size = new System.Drawing.Size(77, 65);

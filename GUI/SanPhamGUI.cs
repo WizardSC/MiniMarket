@@ -51,21 +51,33 @@ namespace GUI
         private bool isGioiTinh = false;
         private bool isTuoi = false;
         private SanPhamBLL spBLL;
-        private DataTable dt;
+        private DataTable dtSanPham;
+
+        private string fileName;
         public SanPhamGUI(int isSanPham)
         {
             spBLL = new SanPhamBLL();
-            dt = spBLL.getListSanPham();
+            dtSanPham = spBLL.getListSanPham();
             InitializeComponent();
             loadMaSP();
             unhideError();
             checkQuyen(isSanPham);
+
+            loadBtn();
         }
 
+        private void loadBtn()
+        {
+            btnThem.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
+            txtTonKho.Enabled = false;
+            txtMaSP.Enabled = false;
+        }
         private void SanPhamGUI_Load(object sender, EventArgs e)
         {
             loadDataToCBX(cbxTimKiem);
-            dgvSanPham.DataSource = dt;
+            dgvSanPham.DataSource = dtSanPham;
 
         }
         private void checkQuyen(int quyen)
@@ -87,8 +99,15 @@ namespace GUI
         }
         private void clearForm()
         {
-            loadMaSP();
+
+            btnThem.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
+
+            txtTonKho.Enabled = false;
+            txtMaSP.Enabled = false;
             txtMaSP.Texts = "";
+            loadMaSP();
             txtTenSP.Texts = "";
             txtTonKho.Texts = 0.ToString();
             txtGiaNhap.Texts = 0.ToString();
@@ -99,6 +118,9 @@ namespace GUI
             txtMaLoai.Texts = "";
             txtMaNCC.Texts = "";
             txtMaNSX.Texts = "";
+            dtSanPham = spBLL.getListSanPham();
+            dgvSanPham.DataSource = dtSanPham;
+            unhideError();
         }
 
         private void dgvSanPham_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -124,7 +146,7 @@ namespace GUI
         private void loadMaSP()
         {
             string lastMaSP = null;
-            foreach (DataRow row in dt.Rows)
+            foreach (DataRow row in dtSanPham.Rows)
             {
                 lastMaSP = row["MaSP"].ToString();
             }
@@ -275,9 +297,13 @@ namespace GUI
                 this.Text = open.FileName;
 
                 pbImage.Tag = txtMaSP.Texts;
-                Console.WriteLine(pbImage.Tag);
+                fileName = Path.GetFileName(open.FileName);
+
+                lblErrIMG.ForeColor = Color.Transparent;
 
             }
+
+
         }
 
 
@@ -294,7 +320,15 @@ namespace GUI
             int soLuongTonKho = ConvertToInt(txtTonKho);
             int donGiaNhap = ConvertToInt(txtGiaNhap, lblErrGiaNhap);
             int donGiaBan = ConvertToInt(txtGiaBan);
-            byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
+            string img = fileName;
+            if(img == null)
+            {
+                lblErrIMG.ForeColor = Color.FromArgb(230, 76, 89);
+            } else
+            {
+                lblErrIMG.ForeColor = Color.Transparent;
+
+            }
             int trangThaiValue = (trangThai == "Hoạt động") ? 1 : 0;
             //Có thể k cần truyền vào lbl Lỗi
 
@@ -446,8 +480,13 @@ namespace GUI
 
         private void dgvSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            btnThem.Enabled = false;
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
+
             int i = dgvSanPham.CurrentRow.Index;
-            txtMaSP.Enabled = true;
+            txtMaSP.Enabled = false;
+            txtTonKho.Enabled = false;
             txtMaSP.Texts = dgvSanPham.Rows[i].Cells[0].Value.ToString();
             txtTenSP.Texts = dgvSanPham.Rows[i].Cells[1].Value.ToString();
             txtTonKho.Texts = dgvSanPham.Rows[i].Cells[2].Value.ToString();
@@ -458,9 +497,21 @@ namespace GUI
             txtMaLoai.Texts = dgvSanPham.Rows[i].Cells[7].Value.ToString();
             txtMaNSX.Texts = dgvSanPham.Rows[i].Cells[8].Value.ToString();
             txtMaNCC.Texts = dgvSanPham.Rows[i].Cells[9].Value.ToString();
-            byte[] imageBytes = (byte[])dgvSanPham.Rows[i].Cells[10].Value;
-            pbImage.Image = convertBinaryStringToImage(imageBytes);
-            pbImage.Tag = dgvSanPham.Rows[i].Cells[0].Value.ToString();
+            string img = dgvSanPham.Rows[i].Cells[10].Value.ToString();
+            string appDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            string folderPath = Path.Combine(appDirectory, "resources", "image", "SanPham", img);
+            if (File.Exists(folderPath))
+            {
+                pbImage.Image = Image.FromFile(folderPath);
+                pbImage.Tag = dgvSanPham.Rows[i].Cells[10].Value.ToString();
+                fileName = Path.GetFileName(folderPath);
+            }
+            else
+            {
+                pbImage.Image = pbImage.InitialImage;
+
+            }
+           
             int trangThaiValue = Convert.ToInt32(dgvSanPham.Rows[i].Cells[6].Value);
             cbxTrangThai.SelectedItem = (trangThaiValue == 0) ? "Không hoạt động" : "Hoạt động";
         }
@@ -494,7 +545,7 @@ namespace GUI
             string maLoai = txtMaLoai.Texts;
             string maNSX = txtMaNSX.Texts;
             string maNCC = txtMaNCC.Texts;
-            byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
+            string img = fileName;
 
             SanPhamDTO sp = new SanPhamDTO(maSP, tenSP, soLuong, donGiaNhap, donGiaBan, donViTinh, trangThaiValue, maLoai, maNSX, maNCC, img);
             int kq = spBLL.updateSanPham(sp) ? 1 : 0;
@@ -572,10 +623,10 @@ namespace GUI
 
         private void applySearchs(string text)
         {
-            // dt = loaibill.getListLoai();
+            // dtSanPham = loaibill.getListLoai();
             currentSearch = text;
             Console.WriteLine(currentSearch);
-            DataView dvSP = dt.DefaultView; ;
+            DataView dvSP = dtSanPham.DefaultView; ;
             dvSP.RowFilter = currentSearch;
             dgvSanPham.DataSource = dvSP.ToTable();
         }
