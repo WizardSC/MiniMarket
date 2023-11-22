@@ -16,6 +16,8 @@ using static System.Net.Mime.MediaTypeNames;
 using System.Runtime.InteropServices;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 using System.IO;
+using System.Runtime.InteropServices.ComTypes;
+
 namespace GUI
 {
 
@@ -45,6 +47,8 @@ namespace GUI
         private DataTable dt;
 
         private int quyenKhachHang;
+
+        private string fileName;
         public KhachHangGUI(int isKhachHang)
         {
             InitializeComponent();
@@ -55,14 +59,14 @@ namespace GUI
             unhideError(); //set màu trong suốt cho các label lỗi
             loadMaKH();
             txtMaKH.Enabled = false;
-                //Check phân quyền
+            //Check phân quyền
             quyenKhachHang = isKhachHang;
             checkQuyen(isKhachHang);
-
+            loadBtn();
         }
         private void checkQuyen(int quyenKhachHang)
         {
-            if(quyenKhachHang == 1)
+            if (quyenKhachHang == 1)
             {
                 btnDeleteIMG.Enabled = false;
                 btnThem.Enabled = false;
@@ -86,6 +90,10 @@ namespace GUI
         //Xóa bỏ tự chọn dòng đầu tiên của DataGridView khi load form
 
         #region các hàm bổ trợ
+        private void loadBtn()
+        {
+            btnThem.Enabled = true; btnSua.Enabled = false; btnXoa.Enabled = false;
+        }
         //chuyển đổi một hình ảnh thành một dạng biểu diễn nhị phân 
         private byte[] convertImageToBinaryString(System.Drawing.Image img, string tag)
         {
@@ -631,7 +639,16 @@ namespace GUI
             string trangThai = CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
             int trangThaiValue = (trangThai == "Hoạt động" ? 1 : 0);
             int diemTichLuy = int.Parse(lblDiemTL.Text);
-            byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
+            string img = fileName;
+            if (img == null)
+            {
+                lblErrIMG.ForeColor = Color.FromArgb(230, 76, 89);
+                return;
+            }
+            else
+            {
+                lblErrIMG.ForeColor = Color.Transparent;
+            }
             string gioiTinh = "";
             if (!(rdbNam.Checked || rdbNu.Checked))
             {
@@ -686,15 +703,29 @@ namespace GUI
             txtSoDT.Texts = dgvKhachHang.Rows[i].Cells[5].Value.ToString();
             txtDiaChi.Texts = dgvKhachHang.Rows[i].Cells[6].Value.ToString();
             int trangThai = int.Parse(dgvKhachHang.Rows[i].Cells[7].Value.ToString());
-            if (dgvKhachHang.Rows[i].Cells[9].Value != DBNull.Value)
+            string img = dgvKhachHang.Rows[i].Cells[9].Value.ToString();
+            string appDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            string folderPath = Path.Combine(appDirectory, "resources", "image", "KhachHang", img);
+            if (File.Exists(folderPath))
             {
-                byte[] imageBytes = (byte[])dgvKhachHang.Rows[i].Cells[9].Value;
-                pbImage.Image = convertBinaryStringToImage(imageBytes);
+                pbImage.Image = System.Drawing.Image.FromFile(folderPath);
+                pbImage.Tag = dgvKhachHang.Rows[i].Cells[9].Value.ToString();
+                fileName = Path.GetFileName(folderPath);
             }
             else
             {
                 pbImage.Image = pbImage.InitialImage;
+
             }
+            //if (dgvKhachHang.Rows[i].Cells[9].Value != DBNull.Value)
+            //{
+            //    byte[] imageBytes = (byte[])dgvKhachHang.Rows[i].Cells[9].Value;
+            //    pbImage.Image = convertBinaryStringToImage(imageBytes);
+            //}
+            //else
+            //{
+            //    pbImage.Image = pbImage.InitialImage;
+            //}
             //byte[] imageBytes = (byte[])dgvKhachHang.Rows[i].Cells[9].Value;
             //pbImage.Image = convertBinaryStringToImage(imageBytes);
             pbImage.Tag = dgvKhachHang.Rows[i].Cells[0].Value.ToString();
@@ -770,8 +801,7 @@ namespace GUI
                 this.Text = open.FileName;
 
                 pbImage.Tag = txtMaKH.Texts;
-                Console.WriteLine(pbImage.Tag);
-
+                fileName = open.FileName;
             }
         }
 
@@ -792,8 +822,15 @@ namespace GUI
             string diaChi = txtDiaChi.Texts;
             int trangThaiValue = (cbxTrangThai.SelectedItem == "Hoạt động") ? 1 : 0;
             int diemTL = int.Parse(lblDiemTL.Text);
-            byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
-
+            string img = fileName;
+            if(img == null)
+            {
+                lblErrIMG.ForeColor = Color.FromArgb(230, 76, 89);
+                return;
+            } else
+            {
+                lblErrIMG.ForeColor = Color.Transparent;
+            }
             KhachHangDTO kh = new KhachHangDTO(maKH, ho, ten, ngaySinh, gioiTinh, soDT, diaChi, trangThaiValue, img, diemTL);
             int result = khBLL.updateKhachHang(kh) ? 1 : 0;
             if (result == 1)

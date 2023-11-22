@@ -142,7 +142,6 @@ namespace DAL
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "update sanpham set TenSP = @TenSP, SoLuong = @SoLuong, DonGiaNhap = @DonGiaNhap, DonGiaBan = @DonGiaBan, DonViTinh = @DonViTinh, TrangThai = @TrangThai, MaLoai = @MaLoai, MaNSX = @MaNSX, MaNCC = @MaNCC, IMG = @IMG where MaSP = @MaSP";
                 cmd.Connection = conn;
-                cmd.Parameters.AddWithValue("@MaSP", sp.MaSP).SqlDbType = SqlDbType.Char;
                 cmd.Parameters.AddWithValue("@TenSP", sp.TenSP).SqlDbType = SqlDbType.NVarChar;
                 cmd.Parameters.AddWithValue("@SoLuong", sp.SoLuong).SqlDbType = SqlDbType.Int;
                 cmd.Parameters.AddWithValue("@DonGiaNhap", sp.DonGiaNhap).SqlDbType = SqlDbType.Int;
@@ -153,6 +152,8 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@MaNSX", sp.MaNSX).SqlDbType = SqlDbType.NVarChar;
                 cmd.Parameters.AddWithValue("@MaNCC", sp.MaNCC).SqlDbType = SqlDbType.NVarChar;
                 cmd.Parameters.AddWithValue("@IMG", sp.Img).SqlDbType = SqlDbType.NVarChar;
+                cmd.Parameters.AddWithValue("@MaSP", sp.MaSP).SqlDbType = SqlDbType.Char;
+
                 cmd.ExecuteNonQuery();
                 return true;
             }

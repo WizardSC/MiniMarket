@@ -51,23 +51,33 @@ namespace GUI
         private bool isGioiTinh = false;
         private bool isTuoi = false;
         private SanPhamBLL spBLL;
-        private DataTable dt;
+        private DataTable dtSanPham;
 
         private string fileName;
         public SanPhamGUI(int isSanPham)
         {
             spBLL = new SanPhamBLL();
-            dt = spBLL.getListSanPham();
+            dtSanPham = spBLL.getListSanPham();
             InitializeComponent();
             loadMaSP();
             unhideError();
             checkQuyen(isSanPham);
+
+            loadBtn();
         }
 
+        private void loadBtn()
+        {
+            btnThem.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
+            txtTonKho.Enabled = false;
+            txtMaSP.Enabled = false;
+        }
         private void SanPhamGUI_Load(object sender, EventArgs e)
         {
             loadDataToCBX(cbxTimKiem);
-            dgvSanPham.DataSource = dt;
+            dgvSanPham.DataSource = dtSanPham;
 
         }
         private void checkQuyen(int quyen)
@@ -89,6 +99,13 @@ namespace GUI
         }
         private void clearForm()
         {
+
+            btnThem.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
+
+            txtTonKho.Enabled = false;
+            txtMaSP.Enabled = false;
             txtMaSP.Texts = "";
             loadMaSP();
             txtTenSP.Texts = "";
@@ -101,8 +118,8 @@ namespace GUI
             txtMaLoai.Texts = "";
             txtMaNCC.Texts = "";
             txtMaNSX.Texts = "";
-
-            dgvSanPham.DataSource = spBLL.getListSanPham();
+            dtSanPham = spBLL.getListSanPham();
+            dgvSanPham.DataSource = dtSanPham;
             unhideError();
         }
 
@@ -129,7 +146,7 @@ namespace GUI
         private void loadMaSP()
         {
             string lastMaSP = null;
-            foreach (DataRow row in dt.Rows)
+            foreach (DataRow row in dtSanPham.Rows)
             {
                 lastMaSP = row["MaSP"].ToString();
             }
@@ -282,7 +299,11 @@ namespace GUI
                 pbImage.Tag = txtMaSP.Texts;
                 fileName = Path.GetFileName(open.FileName);
 
+                lblErrIMG.ForeColor = Color.Transparent;
+
             }
+
+
         }
 
 
@@ -300,6 +321,14 @@ namespace GUI
             int donGiaNhap = ConvertToInt(txtGiaNhap, lblErrGiaNhap);
             int donGiaBan = ConvertToInt(txtGiaBan);
             string img = fileName;
+            if(img == null)
+            {
+                lblErrIMG.ForeColor = Color.FromArgb(230, 76, 89);
+            } else
+            {
+                lblErrIMG.ForeColor = Color.Transparent;
+
+            }
             int trangThaiValue = (trangThai == "Hoạt động") ? 1 : 0;
             //Có thể k cần truyền vào lbl Lỗi
 
@@ -451,8 +480,13 @@ namespace GUI
 
         private void dgvSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            btnThem.Enabled = false;
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
+
             int i = dgvSanPham.CurrentRow.Index;
-            txtMaSP.Enabled = true;
+            txtMaSP.Enabled = false;
+            txtTonKho.Enabled = false;
             txtMaSP.Texts = dgvSanPham.Rows[i].Cells[0].Value.ToString();
             txtTenSP.Texts = dgvSanPham.Rows[i].Cells[1].Value.ToString();
             txtTonKho.Texts = dgvSanPham.Rows[i].Cells[2].Value.ToString();
@@ -470,7 +504,7 @@ namespace GUI
             {
                 pbImage.Image = Image.FromFile(folderPath);
                 pbImage.Tag = dgvSanPham.Rows[i].Cells[10].Value.ToString();
-
+                fileName = Path.GetFileName(folderPath);
             }
             else
             {
@@ -589,10 +623,10 @@ namespace GUI
 
         private void applySearchs(string text)
         {
-            // dt = loaibill.getListLoai();
+            // dtSanPham = loaibill.getListLoai();
             currentSearch = text;
             Console.WriteLine(currentSearch);
-            DataView dvSP = dt.DefaultView; ;
+            DataView dvSP = dtSanPham.DefaultView; ;
             dvSP.RowFilter = currentSearch;
             dgvSanPham.DataSource = dvSP.ToTable();
         }

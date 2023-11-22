@@ -16,10 +16,10 @@ namespace DTO
         private string soDT;
         private string diaChi;
         private int trangThai;
-        private byte[] img;
+        private string img;
         private int diemTichLuy;
 
-        public KhachHangDTO(string maKH, string ho, string ten, DateTime ngaySinh, string gioiTinh, string soDT, string diaChi, int trangThai, byte[] img, int diemTichLuy)
+        public KhachHangDTO(string maKH, string ho, string ten, DateTime ngaySinh, string gioiTinh, string soDT, string diaChi, int trangThai, string img, int diemTichLuy)
         {
             this.maKH = maKH;
             this.ho = ho;
@@ -41,7 +41,7 @@ namespace DTO
         public string SoDT { get => soDT; set => soDT = value; }
         public string DiaChi { get => diaChi; set => diaChi = value; }
         public int TrangThai { get => trangThai; set => trangThai = value; }
-        public byte[] Img { get => img; set => img = value; }
+        public string Img { get => img; set => img = value; }
         public int DiemTichLuy { get => diemTichLuy; set => diemTichLuy = value; }
     }
 }
