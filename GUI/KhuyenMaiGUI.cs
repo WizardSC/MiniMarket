@@ -160,8 +160,10 @@ namespace GUI
             cbxTrangThai.SelectedIndex = 0;
             txtTenKm.Texts = "";
             txtDkKM.Texts = "";
+            dtpNgayBD.MinDate = DateTime.Now;
             dtpNgayBD.Value = DateTime.Now;
-            dtpNgayKT.Value = DateTime.Now;
+            dtpNgayKT.Value = DateTime.Now.AddDays(1);
+            dtpNgayKT.MinDate = DateTime.Now.AddDays(1);
             txtPhanTramKM.Texts = "";
             cbxTrangThai.SelectedIndex = 0;
             btnThongTinKM.Visible = false;
@@ -190,6 +192,7 @@ namespace GUI
             btnXoa.Enabled = false;
             btnThem.Enabled = true;
             dtpNgayBD.MinDate = DateTime.Now;
+            dtpNgayKT.MinDate = DateTime.Now.AddDays(1);
         }
 
         private void btnXem_Click(object sender, EventArgs e)
