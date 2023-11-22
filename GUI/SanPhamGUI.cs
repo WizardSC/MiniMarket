@@ -52,6 +52,8 @@ namespace GUI
         private bool isTuoi = false;
         private SanPhamBLL spBLL;
         private DataTable dt;
+
+        private string fileName;
         public SanPhamGUI(int isSanPham)
         {
             spBLL = new SanPhamBLL();
@@ -87,8 +89,8 @@ namespace GUI
         }
         private void clearForm()
         {
-            loadMaSP();
             txtMaSP.Texts = "";
+            loadMaSP();
             txtTenSP.Texts = "";
             txtTonKho.Texts = 0.ToString();
             txtGiaNhap.Texts = 0.ToString();
@@ -99,6 +101,9 @@ namespace GUI
             txtMaLoai.Texts = "";
             txtMaNCC.Texts = "";
             txtMaNSX.Texts = "";
+
+            dgvSanPham.DataSource = spBLL.getListSanPham();
+            unhideError();
         }
 
         private void dgvSanPham_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -275,7 +280,7 @@ namespace GUI
                 this.Text = open.FileName;
 
                 pbImage.Tag = txtMaSP.Texts;
-                Console.WriteLine(pbImage.Tag);
+                fileName = Path.GetFileName(open.FileName);
 
             }
         }
@@ -294,7 +299,7 @@ namespace GUI
             int soLuongTonKho = ConvertToInt(txtTonKho);
             int donGiaNhap = ConvertToInt(txtGiaNhap, lblErrGiaNhap);
             int donGiaBan = ConvertToInt(txtGiaBan);
-            byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
+            string img = fileName;
             int trangThaiValue = (trangThai == "Hoạt động") ? 1 : 0;
             //Có thể k cần truyền vào lbl Lỗi
 
@@ -458,9 +463,21 @@ namespace GUI
             txtMaLoai.Texts = dgvSanPham.Rows[i].Cells[7].Value.ToString();
             txtMaNSX.Texts = dgvSanPham.Rows[i].Cells[8].Value.ToString();
             txtMaNCC.Texts = dgvSanPham.Rows[i].Cells[9].Value.ToString();
-            byte[] imageBytes = (byte[])dgvSanPham.Rows[i].Cells[10].Value;
-            pbImage.Image = convertBinaryStringToImage(imageBytes);
-            pbImage.Tag = dgvSanPham.Rows[i].Cells[0].Value.ToString();
+            string img = dgvSanPham.Rows[i].Cells[10].Value.ToString();
+            string appDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            string folderPath = Path.Combine(appDirectory, "resources", "image", "SanPham", img);
+            if (File.Exists(folderPath))
+            {
+                pbImage.Image = Image.FromFile(folderPath);
+                pbImage.Tag = dgvSanPham.Rows[i].Cells[10].Value.ToString();
+
+            }
+            else
+            {
+                pbImage.Image = pbImage.InitialImage;
+
+            }
+           
             int trangThaiValue = Convert.ToInt32(dgvSanPham.Rows[i].Cells[6].Value);
             cbxTrangThai.SelectedItem = (trangThaiValue == 0) ? "Không hoạt động" : "Hoạt động";
         }
@@ -494,7 +511,7 @@ namespace GUI
             string maLoai = txtMaLoai.Texts;
             string maNSX = txtMaNSX.Texts;
             string maNCC = txtMaNCC.Texts;
-            byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
+            string img = fileName;
 
             SanPhamDTO sp = new SanPhamDTO(maSP, tenSP, soLuong, donGiaNhap, donGiaBan, donViTinh, trangThaiValue, maLoai, maNSX, maNCC, img);
             int kq = spBLL.updateSanPham(sp) ? 1 : 0;

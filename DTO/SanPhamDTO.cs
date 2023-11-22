@@ -18,7 +18,7 @@ namespace DTO
         private string maLoai;
         private string maNSX;
         private string maNCC;
-        private byte[] img;
+        private string img;
 
         public SanPhamDTO(string maSP, string tenSP, int soLuong, int donGiaNhap, int donGiaBan, string donViTinh, int trangThaiSP, string maLoai, string maNSX, string maNCC)
         {
@@ -34,7 +34,7 @@ namespace DTO
             this.maNCC = maNCC;
         }
 
-        public SanPhamDTO(string maSP, string tenSP, int soLuong, int donGiaNhap, int donGiaBan, string donViTinh, int trangThaiSP, string maLoai, string maNSX, string maNCC, byte[] img)
+        public SanPhamDTO(string maSP, string tenSP, int soLuong, int donGiaNhap, int donGiaBan, string donViTinh, int trangThaiSP, string maLoai, string maNSX, string maNCC, string img)
         {
             this.maSP = maSP;
             this.tenSP = tenSP;
@@ -59,7 +59,7 @@ namespace DTO
         public string MaLoai { get => maLoai; set => maLoai = value; }
         public string MaNSX { get => maNSX; set => maNSX = value; }
         public string MaNCC { get => maNCC; set => maNCC = value; }
-        public byte[] Img { get => img; set => img = value; }
+        public string Img { get => img; set => img = value; }
     }
 
 

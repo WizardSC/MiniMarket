@@ -213,8 +213,18 @@ namespace GUI
                 item.lblTenSP.Text = row.Field<string>("TenSP");
                 item.lblDonGia.Text = ConvertIntToVND(row.Field<int>("DonGiaBan"));
                 item.maLoai = row.Field<string>("MaLoai");
-                byte[] imageBytes = row.Field<byte[]>("IMG");
-                item.pbxIMG.Image = convertBinaryStringToImage(imageBytes);
+                string image = row.Field<string>("IMG");
+                string appDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+                string folderPath = Path.Combine(appDirectory, "resources", "image", "SanPham", image);
+                if (File.Exists(folderPath))
+                {
+                    item.pbxIMG.Image = Image.FromFile(folderPath);
+                }
+                else
+                {
+                    item.pbxIMG.Image = item.pbxIMG.InitialImage;
+
+                }
 
                 item.Margin = new Padding(4, 6, 4, 6);
                 item.ItemClicked += Item_ItemClicked;
