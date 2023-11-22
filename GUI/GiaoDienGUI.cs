@@ -581,7 +581,7 @@ namespace GUI
                 clickedButton.BackColor = Color.White;
                 pnLeftBorderNhaCC.BackColor = Color.FromArgb(58, 191, 186);
                 // Mở form con tương ứng (KhachHangGUI)
-                openChildForm(new NhaCCGUI(pq.IsNhaCungCap));
+               // openChildForm(new NhaCCGUI(pq.IsNhaCungCap));
             }
         }
 

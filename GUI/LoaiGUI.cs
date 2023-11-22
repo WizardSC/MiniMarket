@@ -109,7 +109,11 @@ namespace GUI
             loadMaLoai();
             init();
             txtTenLoai.Texts = "";
-            cbxTrangThai.Text = "Hoạt Động";
+            cbxTrangThai.Text = "Hoạt động";
+
+            label13.Text = "";
+            label15.Text = "";
+            label3.Text = "";
         }
 
         private void LoaiGUI_Load(object sender, EventArgs e)
@@ -189,38 +193,58 @@ namespace GUI
             int trangThaiValue = Convert.ToInt32(dgvLoai.Rows[i].Cells[2].Value);
             cbxTrangThai.SelectedItem = (trangThaiValue == 0) ? "Không hoạt động" : "Hoạt động";
         }
-
+        private bool ContainsNumber(string input)
+        {
+            foreach (char c in input)
+            {
+                if (char.IsDigit(c))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         private void btnSua_Click(object sender, EventArgs e)
         {
-            LoaiDTO LSP = new LoaiDTO();
-            LSP.TenLoai = txtTenLoai.Texts;
-            LSP.MaLoai = txtMaLoai.Texts;
-            string trangThai = cbxTrangThai.SelectedItem.ToString();
-            int trangThaiValue = (trangThai == "Hoạt động") ? 1 : 0;
-            LSP.TrangThaiLoai = trangThaiValue;
 
-            int kq = loaibill.update_LoaiSP(LSP) ? 1 : 0;
-            if (kq == 1)
+
+            string MaLoai = CheckAndSetColor(txtMaLoai, label13);
+            string TenLoai = CheckAndSetColor(txtTenLoai, label15);
+            string trangThai = CheckAndSetColor(cbxTrangThai, label3);
+
+            
+            int trangThaiValue = (trangThai == "Hoạt động" ? 1 : 0);
+            if (ContainsNumber(TenLoai))
             {
-                init();
+                MessageBox.Show("Tên NSX không được chứa số!",
+                                "Lỗi",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
+            if ((string.IsNullOrWhiteSpace(MaLoai) || string.IsNullOrWhiteSpace(TenLoai) || string.IsNullOrWhiteSpace(trangThai)))
+            {
+                return;
+            }
+
+            LoaiDTO loai = new LoaiDTO(MaLoai, TenLoai, trangThaiValue);
+            if (loaibill.update_LoaiSP(loai))
+            {
                 MessageBox.Show("Sửa thành công",
                     "Thông báo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
-               
-
+                loadMaLoai();
+                init();
 
             }
             else
             {
-                init();
                 MessageBox.Show("Sửa thất bại",
                    "Lỗi",
                    MessageBoxButtons.OK,
                    MessageBoxIcon.Error);
             }
-            //nsx.Trangthai = cbxTrangThai.Texts;
-
 
 
         }
@@ -367,6 +391,10 @@ namespace GUI
             btnThem.Enabled = true;
             btnThem.BackgroundColor = Color.White;
             btnThem.BackColor = Color.White;
+
+
+
+
 
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
@@ -690,10 +718,22 @@ namespace GUI
                     dgvLoai.Columns["TenLoai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                     dgvLoai.Columns["TrangThai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
 
-                    MessageBox.Show("Dữ liệu đã được nhập vào từ tệp Excel.", "Hoàn thành", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                 
 
                     // Save data to the database
-                    SaveDataToDatabase();
+
+                    if (importError)
+                    {
+                        MessageBox.Show("Dữ liệu nhập từ tệp Excel có lỗi. Vui lòng kiểm tra và thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Dữ liệu đã được nhập vào từ tệp Excel.", "Hoàn thành", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        SaveDataToDatabase();
+                        init();
+                        loadMaLoai();
+                    }
                 }
             }
         }
@@ -724,7 +764,25 @@ namespace GUI
                         }
 
                         dataRow["MaLoai"] = maLoai;
-                        dataRow["TenLoai"] = worksheet.Cell(row, 2).Value.ToString();
+                        string tenLoai = worksheet.Cell(row, 2).Value.ToString();
+
+                        // Check if TenLoai contains number
+                        if (ContainsNumber(tenLoai))
+                        {
+                            MessageBox.Show($"Dòng {row} trong tệp Excel có 'Tên Loại' chứa số.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            importError = true;
+                            break;  // Stop the import process if there is an error
+                        }
+                        dataRow["TenLoai"] = tenLoai;
+                        string trangThai = worksheet.Cell(row, 3).Value.ToString();
+
+                        // Check if TrangThai is neither 1 nor 0
+                        if (trangThai != "1" && trangThai != "0")
+                        {
+                            MessageBox.Show($"Dòng {row} trong tệp Excel 'Trạng Thái' không hợp lệ (chỉ chấp nhận giá trị 0 hoặc 1).", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            importError = true;
+                            break;  // Stop the import process if there is an error
+                        }
                         dataRow["TrangThai"] = worksheet.Cell(row, 3).Value.ToString();
 
                         // Check if MaLoai already exists in the DataTable
@@ -765,8 +823,8 @@ namespace GUI
         }
         private void SaveDataToDatabase()
         {
-         //   string strconn = @"Data Source=MSI;Initial Catalog=MiniMarket1511;Integrated Security=True";
-            string strconn = @"Data Source=LAPTOP-AEI9M0MI\WIZARDSC;Initial Catalog = MiniMarket; Integrated Security = True";
+              string strconn = @"Data Source=MSI;Initial Catalog=MiniMarket1511;Integrated Security=True";
+            //string strconn = @"Data Source=LAPTOP-AEI9M0MI\WIZARDSC;Initial Catalog = MiniMarket; Integrated Security = True";
             try
             {
                 using (SqlConnection connection = new SqlConnection(strconn))
