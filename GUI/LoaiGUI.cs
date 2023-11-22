@@ -726,12 +726,21 @@ namespace GUI
                     for (int row = 2; row <= worksheet.RowsUsed().Count(); row++)
                     {
                         DataRow dataRow = dt.NewRow();
-                        dataRow["MaLoai"] = worksheet.Cell(row, 1).Value.ToString();
+                        string maLoai = worksheet.Cell(row, 1).Value.ToString();
+
+                        // Check if MaLoai starts with "L"
+                        if (!maLoai.StartsWith("L"))
+                        {
+                            MessageBox.Show($"Dòng {row} trong tệp Excel 'MaLoai' phải bắt đầu bằng chữ 'L'.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            importError = true;
+                            break;  // Stop the import process if there is an error
+                        }
+
+                        dataRow["MaLoai"] = maLoai;
                         dataRow["TenLoai"] = worksheet.Cell(row, 2).Value.ToString();
                         dataRow["TrangThai"] = worksheet.Cell(row, 3).Value.ToString();
 
                         // Check if MaLoai already exists in the DataTable
-                        string maLoai = dataRow["MaLoai"].ToString();
                         if (IsMaLoaiExists(maLoai))
                         {
                             MessageBox.Show($"Dòng {row} trong tệp Excel có 'MaLoai' đã tồn tại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -753,6 +762,7 @@ namespace GUI
             return importError;
         }
 
+
         private bool IsMaLoaiExists(string maLoai)
         {
             // Check if MaLoai already exists in the DataTable
@@ -768,8 +778,8 @@ namespace GUI
         }
         private void SaveDataToDatabase()
         {
-            //string strconn = @"Data Source=MSI;Initial Catalog=MiniMarket1511;Integrated Security=True";
-            string strconn = @"Data Source=LAPTOP-AEI9M0MI\WIZARDSC;Initial Catalog = MiniMarket; Integrated Security = True";
+            string strconn = @"Data Source=MSI;Initial Catalog=MiniMarket1511;Integrated Security=True";
+           /// string strconn = @"Data Source=LAPTOP-AEI9M0MI\WIZARDSC;Initial Catalog = MiniMarket; Integrated Security = True";
             try
             {
                 using (SqlConnection connection = new SqlConnection(strconn))

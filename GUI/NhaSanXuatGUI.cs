@@ -921,8 +921,8 @@ namespace GUI
 
         private void SaveDataToDatabase()
         {
-            //string strconn = @"Data Source=MSI;Initial Catalog=MiniMarket1511;Integrated Security=True";
-            string strconn = @"Data Source=LAPTOP-AEI9M0MI\WIZARDSC;Initial Catalog = MiniMarket; Integrated Security = True";
+            string strconn = @"Data Source=MSI;Initial Catalog=MiniMarket1511;Integrated Security=True";
+         ///   string strconn = @"Data Source=LAPTOP-AEI9M0MI\WIZARDSC;Initial Catalog = MiniMarket; Integrated Security = True";
             try
             {
                 using (SqlConnection connection = new SqlConnection(strconn))
