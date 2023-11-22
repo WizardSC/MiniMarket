@@ -20,7 +20,7 @@ namespace DAL
         //Minh Toàn/
         //TheVinh
 
-        //string strconn = @"Data Source=MSI\MSSQLSERVER_1;Initial Catalog = MiniMarket1411; Integrated Security = True";
+        string strconn = @"Data Source=MSI\MSSQLSERVER_1;Initial Catalog = MiniMarket1411; Integrated Security = True";
 
         //TheVinh
         //string strconn = @"Data Source=MSI;Initial Catalog = MiniMarket1511; Integrated Security = True";

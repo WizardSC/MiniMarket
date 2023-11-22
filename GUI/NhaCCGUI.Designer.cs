@@ -83,11 +83,11 @@
             this.cbxTrangThai = new GUI.MyCustom.RJComboBox();
             this.lblErrTrangThai = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.btnFolder = new GUI.MyCustom.RJButton();
-            this.rjTextBox1 = new GUI.MyCustom.RJTextBox();
             this.btnImport = new GUI.MyCustom.RJButton();
             this.label5 = new System.Windows.Forms.Label();
             this.btnExport = new GUI.MyCustom.RJButton();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnAddToData = new GUI.MyCustom.RJButton();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnThem = new GUI.MyCustom.RJButton();
             this.btnSua = new GUI.MyCustom.RJButton();
@@ -154,7 +154,7 @@
             this.cbxTimKiem.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
             this.cbxTimKiem.MinimumSize = new System.Drawing.Size(100, 30);
             this.cbxTimKiem.Name = "cbxTimKiem";
-            this.cbxTimKiem.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxTimKiem.Padding = new System.Windows.Forms.Padding(2);
             this.cbxTimKiem.Size = new System.Drawing.Size(108, 30);
             this.cbxTimKiem.TabIndex = 4;
             this.cbxTimKiem.Texts = "Mã NCC";
@@ -174,7 +174,7 @@
             this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
             this.txtTimKiem.Multiline = false;
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.txtTimKiem.Padding = new System.Windows.Forms.Padding(7);
             this.txtTimKiem.PasswordChar = false;
             this.txtTimKiem.PlaceholderColor = System.Drawing.Color.DimGray;
             this.txtTimKiem.PlaceholderText = "Nhập thông tin tìm kiếm";
@@ -183,6 +183,7 @@
             this.txtTimKiem.TabIndex = 1;
             this.txtTimKiem.Texts = "";
             this.txtTimKiem.UnderlinedStyle = true;
+            this.txtTimKiem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTimKiem_KeyPress);
             // 
             // btnTimKiem
             // 
@@ -378,7 +379,7 @@
             this.chkTrangThai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkTrangThai.Location = new System.Drawing.Point(3, 3);
             this.chkTrangThai.Name = "chkTrangThai";
-            this.chkTrangThai.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.chkTrangThai.Padding = new System.Windows.Forms.Padding(10);
             this.chkTrangThai.Size = new System.Drawing.Size(24, 29);
             this.chkTrangThai.TabIndex = 19;
             this.chkTrangThai.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -418,7 +419,7 @@
             this.chkHoatDong.Location = new System.Drawing.Point(100, 3);
             this.chkHoatDong.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.chkHoatDong.Name = "chkHoatDong";
-            this.chkHoatDong.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.chkHoatDong.Padding = new System.Windows.Forms.Padding(10);
             this.chkHoatDong.Size = new System.Drawing.Size(24, 29);
             this.chkHoatDong.TabIndex = 20;
             this.chkHoatDong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -436,7 +437,7 @@
             this.label28.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.label28.Location = new System.Drawing.Point(128, 4);
-            this.label28.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label28.Margin = new System.Windows.Forms.Padding(4);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(119, 28);
             this.label28.TabIndex = 22;
@@ -458,7 +459,7 @@
             this.chkKoHD.Location = new System.Drawing.Point(100, 39);
             this.chkKoHD.Margin = new System.Windows.Forms.Padding(100, 3, 0, 3);
             this.chkKoHD.Name = "chkKoHD";
-            this.chkKoHD.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.chkKoHD.Padding = new System.Windows.Forms.Padding(10);
             this.chkKoHD.Size = new System.Drawing.Size(24, 29);
             this.chkKoHD.TabIndex = 21;
             this.chkKoHD.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -476,7 +477,7 @@
             this.label29.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.label29.Location = new System.Drawing.Point(128, 40);
-            this.label29.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label29.Margin = new System.Windows.Forms.Padding(4);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(147, 28);
             this.label29.TabIndex = 23;
@@ -491,7 +492,7 @@
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1167, 718);
             this.panel1.TabIndex = 2;
@@ -642,11 +643,11 @@
             this.flowLayoutPanel2.Controls.Add(this.cbxTrangThai);
             this.flowLayoutPanel2.Controls.Add(this.lblErrTrangThai);
             this.flowLayoutPanel2.Controls.Add(this.label20);
-            this.flowLayoutPanel2.Controls.Add(this.btnFolder);
-            this.flowLayoutPanel2.Controls.Add(this.rjTextBox1);
             this.flowLayoutPanel2.Controls.Add(this.btnImport);
             this.flowLayoutPanel2.Controls.Add(this.label5);
             this.flowLayoutPanel2.Controls.Add(this.btnExport);
+            this.flowLayoutPanel2.Controls.Add(this.label6);
+            this.flowLayoutPanel2.Controls.Add(this.btnAddToData);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(8, 188);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(298, 478);
@@ -657,7 +658,7 @@
             this.label2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.label2.Location = new System.Drawing.Point(4, 4);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label2.Margin = new System.Windows.Forms.Padding(4);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(94, 28);
             this.label2.TabIndex = 0;
@@ -675,7 +676,7 @@
             this.txtMaNCC.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaNCC.ForeColor = System.Drawing.Color.Black;
             this.txtMaNCC.Location = new System.Drawing.Point(106, 4);
-            this.txtMaNCC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMaNCC.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaNCC.MaximumSize = new System.Drawing.Size(171, 28);
             this.txtMaNCC.MinimumSize = new System.Drawing.Size(150, 28);
             this.txtMaNCC.Multiline = false;
@@ -707,7 +708,7 @@
             this.label3.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.label3.Location = new System.Drawing.Point(4, 57);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label3.Margin = new System.Windows.Forms.Padding(4);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 28);
             this.label3.TabIndex = 2;
@@ -724,12 +725,12 @@
             this.txtTen.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTen.ForeColor = System.Drawing.Color.Black;
             this.txtTen.Location = new System.Drawing.Point(106, 57);
-            this.txtTen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTen.Margin = new System.Windows.Forms.Padding(4);
             this.txtTen.MaximumSize = new System.Drawing.Size(171, 28);
             this.txtTen.MinimumSize = new System.Drawing.Size(150, 28);
             this.txtTen.Multiline = false;
             this.txtTen.Name = "txtTen";
-            this.txtTen.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.txtTen.Padding = new System.Windows.Forms.Padding(7);
             this.txtTen.PasswordChar = false;
             this.txtTen.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtTen.PlaceholderText = "";
@@ -757,7 +758,7 @@
             this.label4.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.label4.Location = new System.Drawing.Point(4, 110);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label4.Margin = new System.Windows.Forms.Padding(4);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 28);
             this.label4.TabIndex = 4;
@@ -774,12 +775,12 @@
             this.txtDiaChi.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiaChi.ForeColor = System.Drawing.Color.Black;
             this.txtDiaChi.Location = new System.Drawing.Point(106, 110);
-            this.txtDiaChi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDiaChi.Margin = new System.Windows.Forms.Padding(4);
             this.txtDiaChi.MaximumSize = new System.Drawing.Size(171, 28);
             this.txtDiaChi.MinimumSize = new System.Drawing.Size(150, 28);
             this.txtDiaChi.Multiline = false;
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.txtDiaChi.Padding = new System.Windows.Forms.Padding(7);
             this.txtDiaChi.PasswordChar = false;
             this.txtDiaChi.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtDiaChi.PlaceholderText = "";
@@ -807,7 +808,7 @@
             this.label7.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.label7.Location = new System.Drawing.Point(4, 163);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label7.Margin = new System.Windows.Forms.Padding(4);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(94, 28);
             this.label7.TabIndex = 10;
@@ -824,12 +825,12 @@
             this.txtSoDT.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSoDT.ForeColor = System.Drawing.Color.Black;
             this.txtSoDT.Location = new System.Drawing.Point(106, 163);
-            this.txtSoDT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSoDT.Margin = new System.Windows.Forms.Padding(4);
             this.txtSoDT.MaximumSize = new System.Drawing.Size(171, 28);
             this.txtSoDT.MinimumSize = new System.Drawing.Size(150, 28);
             this.txtSoDT.Multiline = false;
             this.txtSoDT.Name = "txtSoDT";
-            this.txtSoDT.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.txtSoDT.Padding = new System.Windows.Forms.Padding(7);
             this.txtSoDT.PasswordChar = false;
             this.txtSoDT.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtSoDT.PlaceholderText = "";
@@ -857,7 +858,7 @@
             this.label8.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.label8.Location = new System.Drawing.Point(4, 216);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label8.Margin = new System.Windows.Forms.Padding(4);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(94, 28);
             this.label8.TabIndex = 12;
@@ -874,12 +875,12 @@
             this.txtSoFax.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSoFax.ForeColor = System.Drawing.Color.Black;
             this.txtSoFax.Location = new System.Drawing.Point(106, 216);
-            this.txtSoFax.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSoFax.Margin = new System.Windows.Forms.Padding(4);
             this.txtSoFax.MaximumSize = new System.Drawing.Size(171, 28);
             this.txtSoFax.MinimumSize = new System.Drawing.Size(150, 28);
             this.txtSoFax.Multiline = false;
             this.txtSoFax.Name = "txtSoFax";
-            this.txtSoFax.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.txtSoFax.Padding = new System.Windows.Forms.Padding(7);
             this.txtSoFax.PasswordChar = false;
             this.txtSoFax.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtSoFax.PlaceholderText = "";
@@ -907,7 +908,7 @@
             this.label9.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.label9.Location = new System.Drawing.Point(4, 269);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label9.Margin = new System.Windows.Forms.Padding(4);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(94, 28);
             this.label9.TabIndex = 35;
@@ -931,7 +932,7 @@
             this.cbxTrangThai.Location = new System.Drawing.Point(105, 268);
             this.cbxTrangThai.MinimumSize = new System.Drawing.Size(100, 5);
             this.cbxTrangThai.Name = "cbxTrangThai";
-            this.cbxTrangThai.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxTrangThai.Padding = new System.Windows.Forms.Padding(2);
             this.cbxTrangThai.Size = new System.Drawing.Size(172, 28);
             this.cbxTrangThai.TabIndex = 37;
             this.cbxTrangThai.Texts = "--Chọn trạng thái--";
@@ -951,64 +952,16 @@
             // 
             // label20
             // 
-            this.label20.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(3, 318);
+            this.label20.Location = new System.Drawing.Point(3, 343);
+            this.label20.Margin = new System.Windows.Forms.Padding(3, 25, 3, 0);
             this.label20.Name = "label20";
             this.label20.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.label20.Size = new System.Drawing.Size(238, 20);
+            this.label20.Size = new System.Drawing.Size(192, 20);
             this.label20.TabIndex = 38;
             this.label20.Text = "Import File Excel";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // btnFolder
-            // 
-            this.btnFolder.AutoSize = true;
-            this.btnFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnFolder.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnFolder.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.btnFolder.BorderRadius = 0;
-            this.btnFolder.BorderSize = 2;
-            this.btnFolder.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnFolder.FlatAppearance.BorderSize = 0;
-            this.btnFolder.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnFolder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.btnFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFolder.ForeColor = System.Drawing.Color.White;
-            this.btnFolder.Image = ((System.Drawing.Image)(resources.GetObject("btnFolder.Image")));
-            this.btnFolder.Location = new System.Drawing.Point(15, 346);
-            this.btnFolder.Margin = new System.Windows.Forms.Padding(15, 8, 10, 0);
-            this.btnFolder.Name = "btnFolder";
-            this.btnFolder.Size = new System.Drawing.Size(44, 42);
-            this.btnFolder.TabIndex = 39;
-            this.btnFolder.TextColor = System.Drawing.Color.White;
-            this.btnFolder.UseVisualStyleBackColor = false;
-            // 
-            // rjTextBox1
-            // 
-            this.rjTextBox1.AutoSize = true;
-            this.rjTextBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.rjTextBox1.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.rjTextBox1.BorderRadius = 0;
-            this.rjTextBox1.BorderSize = 2;
-            this.rjTextBox1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.rjTextBox1.Location = new System.Drawing.Point(73, 346);
-            this.rjTextBox1.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
-            this.rjTextBox1.MaximumSize = new System.Drawing.Size(190, 38);
-            this.rjTextBox1.MinimumSize = new System.Drawing.Size(140, 38);
-            this.rjTextBox1.Multiline = false;
-            this.rjTextBox1.Name = "rjTextBox1";
-            this.rjTextBox1.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
-            this.rjTextBox1.PasswordChar = false;
-            this.rjTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox1.PlaceholderText = "";
-            this.rjTextBox1.ReadOnly = false;
-            this.rjTextBox1.Size = new System.Drawing.Size(140, 38);
-            this.rjTextBox1.TabIndex = 40;
-            this.rjTextBox1.Texts = "";
-            this.rjTextBox1.UnderlinedStyle = false;
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnImport
             // 
@@ -1025,25 +978,27 @@
             this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImport.ForeColor = System.Drawing.Color.White;
             this.btnImport.Image = ((System.Drawing.Image)(resources.GetObject("btnImport.Image")));
-            this.btnImport.Location = new System.Drawing.Point(232, 346);
+            this.btnImport.Location = new System.Drawing.Point(213, 326);
             this.btnImport.Margin = new System.Windows.Forms.Padding(15, 8, 10, 0);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(44, 42);
             this.btnImport.TabIndex = 41;
             this.btnImport.TextColor = System.Drawing.Color.White;
             this.btnImport.UseVisualStyleBackColor = false;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // label5
             // 
-            this.label5.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(3, 388);
+            this.label5.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.label5.Size = new System.Drawing.Size(229, 26);
+            this.label5.Size = new System.Drawing.Size(192, 26);
             this.label5.TabIndex = 42;
             this.label5.Text = "Export File Excel";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnExport
             // 
@@ -1060,14 +1015,51 @@
             this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExport.ForeColor = System.Drawing.Color.White;
             this.btnExport.Image = ((System.Drawing.Image)(resources.GetObject("btnExport.Image")));
-            this.btnExport.Location = new System.Drawing.Point(120, 422);
-            this.btnExport.Margin = new System.Windows.Forms.Padding(120, 8, 10, 0);
+            this.btnExport.Location = new System.Drawing.Point(213, 380);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(15, 12, 10, 0);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(44, 42);
+            this.btnExport.Size = new System.Drawing.Size(44, 43);
             this.btnExport.TabIndex = 43;
             this.btnExport.TextColor = System.Drawing.Color.White;
             this.btnExport.UseVisualStyleBackColor = false;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(3, 443);
+            this.label6.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
+            this.label6.Name = "label6";
+            this.label6.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.label6.Size = new System.Drawing.Size(192, 20);
+            this.label6.TabIndex = 44;
+            this.label6.Text = "Thêm dữ liệu vào DB";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnAddToData
+            // 
+            this.btnAddToData.AutoSize = true;
+            this.btnAddToData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnAddToData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnAddToData.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
+            this.btnAddToData.BorderRadius = 0;
+            this.btnAddToData.BorderSize = 2;
+            this.btnAddToData.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAddToData.FlatAppearance.BorderSize = 0;
+            this.btnAddToData.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnAddToData.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.btnAddToData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddToData.ForeColor = System.Drawing.Color.White;
+            this.btnAddToData.Image = ((System.Drawing.Image)(resources.GetObject("btnAddToData.Image")));
+            this.btnAddToData.Location = new System.Drawing.Point(213, 431);
+            this.btnAddToData.Margin = new System.Windows.Forms.Padding(15, 8, 10, 0);
+            this.btnAddToData.Name = "btnAddToData";
+            this.btnAddToData.Size = new System.Drawing.Size(44, 42);
+            this.btnAddToData.TabIndex = 45;
+            this.btnAddToData.TextColor = System.Drawing.Color.White;
+            this.btnAddToData.UseVisualStyleBackColor = false;
+            this.btnAddToData.Click += new System.EventHandler(this.btnAddToData_Click);
             // 
             // flowLayoutPanel3
             // 
@@ -1129,6 +1121,7 @@
             this.btnXoa.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
             this.btnXoa.BorderRadius = 20;
             this.btnXoa.BorderSize = 2;
+            this.btnXoa.Enabled = false;
             this.btnXoa.FlatAppearance.BorderSize = 0;
             this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoa.ForeColor = System.Drawing.Color.White;
@@ -1235,8 +1228,6 @@
         private MyCustom.RJComboBox cbxTrangThai;
         private System.Windows.Forms.Label lblErrTrangThai;
         private System.Windows.Forms.Label label20;
-        private MyCustom.RJButton btnFolder;
-        private MyCustom.RJTextBox rjTextBox1;
         private MyCustom.RJButton btnImport;
         private System.Windows.Forms.Label label5;
         private MyCustom.RJButton btnExport;
@@ -1252,5 +1243,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SoFax;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
         private System.Windows.Forms.DataGridViewImageColumn IMG;
+        private System.Windows.Forms.Label label6;
+        private MyCustom.RJButton btnAddToData;
     }
 }
