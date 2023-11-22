@@ -88,6 +88,7 @@ namespace GUI
             this.pbImage = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnThemVaoGio = new GUI.MyCustom.RJButton();
+            this.btnResetThongTinSP = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.gradientPanel1.SuspendLayout();
@@ -695,6 +696,7 @@ namespace GUI
             this.flowLayoutPanel2.Controls.Add(this.label5);
             this.flowLayoutPanel2.Controls.Add(this.label6);
             this.flowLayoutPanel2.Controls.Add(this.nudSoLuongMua);
+            this.flowLayoutPanel2.Controls.Add(this.btnResetThongTinSP);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(523, 238);
@@ -945,6 +947,18 @@ namespace GUI
             this.btnThemVaoGio.UseVisualStyleBackColor = false;
             this.btnThemVaoGio.Click += new System.EventHandler(this.btnThemVaoGio_Click);
             // 
+            // btnResetThongTinSP
+            // 
+            this.btnResetThongTinSP.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnResetThongTinSP.Image = ((System.Drawing.Image)(resources.GetObject("btnResetThongTinSP.Image")));
+            this.btnResetThongTinSP.Location = new System.Drawing.Point(481, 199);
+            this.btnResetThongTinSP.Margin = new System.Windows.Forms.Padding(0);
+            this.btnResetThongTinSP.Name = "btnResetThongTinSP";
+            this.btnResetThongTinSP.Size = new System.Drawing.Size(37, 33);
+            this.btnResetThongTinSP.TabIndex = 15;
+            this.btnResetThongTinSP.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnResetThongTinSP.Click += new System.EventHandler(this.btnResetThongTinSP_Click);
+            // 
             // BanHangGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1034,5 +1048,6 @@ namespace GUI
         private MyCustom.RJButton btnPrevious;
         private System.Windows.Forms.FlowLayoutPanel flpDanhSachSanPham;
         private System.Windows.Forms.PictureBox pbShowCamera;
+        private System.Windows.Forms.Label btnResetThongTinSP;
     }
 }

@@ -231,6 +231,7 @@ namespace GUI
                     // Nếu TrangThai == 0, thay đổi màu của item
                     item.BackColor = Color.Gray; // Hoặc bất kỳ màu nào bạn muốn
                     item.Enabled = false;
+                    
                 }
 
                 item.Margin = new Padding(4, 6, 4, 6);
@@ -1247,12 +1248,17 @@ namespace GUI
                         if (control is MyCustom.MyProductItem)
                         {
                             MyCustom.MyProductItem productItem = (MyCustom.MyProductItem)control;
-
-
+                            Console.WriteLine($"{productItem.lblMaSP.Text}: Enabled = {productItem.Enabled}");
+                            
                             if (productItem.lblMaSP.Text == maSPCanTim)
                             {
+                                if (productItem.Enabled == false)
+                                {
+                                    txtMaSP.Texts = string.Empty;
+                                    MessageBox.Show("Sản phẩm không hoạt động", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    break;
+                                }
                                 Item_ItemClicked(productItem, EventArgs.Empty);
-
                                 needToMoveToNextPage = false;
                                 break;
                             }
@@ -1328,6 +1334,19 @@ namespace GUI
             txtTimKiem.Texts = string.Empty;
             PerformSearch();
             refreshThongTin();
+        }
+
+        private void btnResetThongTinSP_Click(object sender, EventArgs e)
+        {
+            txtMaSP.Texts = string.Empty;
+            txtTenSP.Texts = string.Empty;
+            txtDonGia.Texts = string.Empty;
+            txtTonKho.Texts = string.Empty;
+            nudSoLuongMua.Value = 0;
+            pbImage.Image = pbImage.InitialImage;
+            btnThemVaoGio.Enabled = true;
+            btnThemVaoGio.BackColor = Color.FromArgb(58, 191, 186);
+
         }
     }
 }

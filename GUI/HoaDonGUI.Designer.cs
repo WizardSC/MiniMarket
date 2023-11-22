@@ -66,9 +66,10 @@
             this.panel3.Controls.Add(this.flowLayoutPanel4);
             this.panel3.Controls.Add(this.dgvXemThongTinHoaDon);
             this.panel3.Controls.Add(this.flpFilter);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1176, 742);
+            this.panel3.Size = new System.Drawing.Size(1180, 738);
             this.panel3.TabIndex = 7;
             // 
             // btnExport
@@ -87,7 +88,7 @@
             this.btnExport.ForeColor = System.Drawing.Color.Black;
             this.btnExport.Image = ((System.Drawing.Image)(resources.GetObject("btnExport.Image")));
             this.btnExport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExport.Location = new System.Drawing.Point(972, 8);
+            this.btnExport.Location = new System.Drawing.Point(977, 12);
             this.btnExport.Margin = new System.Windows.Forms.Padding(120, 8, 10, 0);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(168, 42);
@@ -235,7 +236,7 @@
             this.dgvXemThongTinHoaDon.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvXemThongTinHoaDon.EnableHeadersVisualStyles = false;
             this.dgvXemThongTinHoaDon.GridColor = System.Drawing.Color.Black;
-            this.dgvXemThongTinHoaDon.Location = new System.Drawing.Point(3, 64);
+            this.dgvXemThongTinHoaDon.Location = new System.Drawing.Point(8, 64);
             this.dgvXemThongTinHoaDon.Name = "dgvXemThongTinHoaDon";
             this.dgvXemThongTinHoaDon.ReadOnly = true;
             this.dgvXemThongTinHoaDon.RowHeadersVisible = false;
@@ -244,7 +245,7 @@
             this.dgvXemThongTinHoaDon.RowTemplate.Height = 30;
             this.dgvXemThongTinHoaDon.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvXemThongTinHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvXemThongTinHoaDon.Size = new System.Drawing.Size(1170, 677);
+            this.dgvXemThongTinHoaDon.Size = new System.Drawing.Size(1160, 662);
             this.dgvXemThongTinHoaDon.TabIndex = 1;
             this.dgvXemThongTinHoaDon.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvXemThongTinHoaDon_CellDoubleClick);
             this.dgvXemThongTinHoaDon.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvXemThongTinHoaDon_CellFormatting);
@@ -439,7 +440,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1176, 744);
+            this.ClientSize = new System.Drawing.Size(1180, 738);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "HoaDonGUI";

@@ -132,4 +132,15 @@
   <metadata name="ThanhTien.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAPVJREFUSEvt1r0OAUEUBeBVKRSioVHqNBpvIB5AqKhVtAS1xLMQvcQLqGkJvcQr
+        cE4yczN2p9rcncTPSb5kZ7bY7N07OxP9k1XyUDJynMg6J3gaYyjADFZKltAEyQ3sAxcwdMZajiA5g70x
+        gSqsYa9kB32Q1KFlFDnxdenC1KhxIuu4TTOHBlzhoeQO7FRJvEv5ge1YywEkW7gYLC8XPxuop6QDZfih
+        uCVlCVjStrnWwJJWQBJvmoEz1vLWNL5lwbf1tXgaiWURfOEHT/Cft2972oBvq0mD2xMbURJ8A+bA3hgB
+        jxhsIN9xIY3EEcM9RP3zSYmiFwHr5w/Ih1i1AAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>

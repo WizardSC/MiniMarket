@@ -27,5 +27,10 @@ namespace GUI
             labelMaHD.Text = MaHoaDon;
             dtpNgayNhap.Value = NgayTaoHD;
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

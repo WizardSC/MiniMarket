@@ -64,10 +64,11 @@
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.panel3);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1175, 740);
+            this.panel1.Size = new System.Drawing.Size(1180, 738);
             this.panel1.TabIndex = 1;
             // 
             // panel3
@@ -77,9 +78,10 @@
             this.panel3.Controls.Add(this.flpFilter);
             this.panel3.Controls.Add(this.flowLayoutPanel4);
             this.panel3.Controls.Add(this.dgvThongTinPhieuNhap);
-            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1169, 737);
+            this.panel3.Size = new System.Drawing.Size(1180, 738);
             this.panel3.TabIndex = 4;
             // 
             // rjButton1
@@ -118,7 +120,7 @@
             this.flpFilter.Controls.Add(this.label1);
             this.flpFilter.Controls.Add(this.dtpNgayEnd);
             this.flpFilter.Controls.Add(this.lblErrTuoiFilter);
-            this.flpFilter.Location = new System.Drawing.Point(483, 54);
+            this.flpFilter.Location = new System.Drawing.Point(484, 54);
             this.flpFilter.Name = "flpFilter";
             this.flpFilter.Size = new System.Drawing.Size(455, 88);
             this.flpFilter.TabIndex = 35;
@@ -371,7 +373,7 @@
             this.dgvThongTinPhieuNhap.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvThongTinPhieuNhap.EnableHeadersVisualStyles = false;
             this.dgvThongTinPhieuNhap.GridColor = System.Drawing.Color.Black;
-            this.dgvThongTinPhieuNhap.Location = new System.Drawing.Point(-1, 62);
+            this.dgvThongTinPhieuNhap.Location = new System.Drawing.Point(5, 62);
             this.dgvThongTinPhieuNhap.Name = "dgvThongTinPhieuNhap";
             this.dgvThongTinPhieuNhap.ReadOnly = true;
             this.dgvThongTinPhieuNhap.RowHeadersVisible = false;
@@ -380,7 +382,7 @@
             this.dgvThongTinPhieuNhap.RowTemplate.Height = 30;
             this.dgvThongTinPhieuNhap.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvThongTinPhieuNhap.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvThongTinPhieuNhap.Size = new System.Drawing.Size(1161, 670);
+            this.dgvThongTinPhieuNhap.Size = new System.Drawing.Size(1162, 663);
             this.dgvThongTinPhieuNhap.TabIndex = 1;
             this.dgvThongTinPhieuNhap.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvThongTinPhieuNhap_CellDoubleClick);
             this.dgvThongTinPhieuNhap.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvThongTinPhieuNhap_CellFormatting);
@@ -434,7 +436,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1176, 742);
+            this.ClientSize = new System.Drawing.Size(1180, 738);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PhieuNhapGUI";
