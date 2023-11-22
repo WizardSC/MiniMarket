@@ -44,7 +44,7 @@ namespace GUI
 
             loadMaTK();
             resetField();
-            unHideError();
+            hideError();
 
             dgvNhanVien.DataSource = nvBLL.getListNVNoHasTaiKhoan();
             checkQuyen(isTaiKhoan, maNVHienTai);
@@ -108,6 +108,8 @@ namespace GUI
         }
         private void resetField()
         {
+            btnThucHienChucNang.Enabled = true;
+
             if (isFuncTaoTK) dgvNhanVien.DataSource = nvBLL.getListNVNoHasTaiKhoan();
             if (isFuncThayDoiTTCN) dgvNhanVien.DataSource = nvBLL.getListNVHasTaiKhoan();
             if (isFuncThayDoiTT) dgvNhanVien.DataSource = nvBLL.getListNVHasTaiKhoan();
@@ -122,7 +124,7 @@ namespace GUI
 
         }
         #region Các hàm bổ trợ
-        private void unHideError()
+        private void hideError()
         {
             lblErrTrangThai.ForeColor = Color.Transparent;
             lblErrUsername.ForeColor = Color.Transparent;
@@ -142,10 +144,13 @@ namespace GUI
                         if (label.Name == "lblErrUsername") // Kiểm tra label của tên đăng nhập
                         {
                             label.Text = "* Vui lòng điền tên đăng nhập";
+                            return null;
                         }
                         else if (label.Name == "lblErrPassword") // Kiểm tra label của mật khẩu
                         {
                             label.Text = "* Vui lòng điền mật khẩu";
+                            return null;
+
                         }
                     }
                     else if (text.Length < minLength)
@@ -153,10 +158,14 @@ namespace GUI
                         if (label.Name == "lblErrUsername")
                         {
                             label.Text = $"* Tên đăng nhập tối thiểu {minLength} ký tự";
+                            return null;
+
                         }
                         else if(label.Name == "lblErrPassword")
                         {
                             label.Text = $"* Mật khẩu tối thiểu {minLength} ký tự";
+                            return null;
+
                         }
                     }
                 }
@@ -175,6 +184,8 @@ namespace GUI
                 {
                     label.ForeColor = Color.FromArgb(230, 76, 89);
                     label.Text = "* Vui lòng chọn trạng thái";
+                    return null;
+
                 }
                 else
                 {
@@ -197,7 +208,7 @@ namespace GUI
             isFuncTaoTK = true;
             isFuncThayDoiTTCN = false;
             isFuncThayDoiTT = false;
-            unHideError();
+            hideError();
             if (isFuncTaoTK)
             {
                 resetField();
@@ -220,7 +231,7 @@ namespace GUI
             isFuncTaoTK = false;
             isFuncThayDoiTTCN = true;
             isFuncThayDoiTT = false;
-            unHideError();
+            hideError();
 
             if (isFuncThayDoiTTCN)
             {
@@ -241,11 +252,12 @@ namespace GUI
             isFuncTaoTK = false;
             isFuncThayDoiTTCN = false;
             isFuncThayDoiTT = true;
-            unHideError();
+            hideError();
 
             if (isFuncThayDoiTT)
             {
                 resetField();
+                btnThucHienChucNang.Enabled = false;
                 btnThayDoiTrangThai.BackColor = Color.FromArgb(224, 252, 237);
                 btnThayDoiTTCN.BackColor = Color.Transparent;
                 btnTaoTK.BackColor = Color.Transparent;
@@ -266,7 +278,7 @@ namespace GUI
             if (isFuncTaoTK)
 
             {
-
+                hideError();
                 maNV = dgvNhanVien.Rows[i].Cells["MaNV1"].Value.ToString();
                 txtNhanVien.Texts = dgvNhanVien.Rows[i].Cells["Ho"].Value.ToString() + " " + dgvNhanVien.Rows[i].Cells["Ten"].Value.ToString();
                 txtQuyen.Texts = searchTenCVbyMaCV(dgvNhanVien.Rows[i].Cells["MaCV1"].Value.ToString());
@@ -275,6 +287,8 @@ namespace GUI
 
             if (isFuncThayDoiTTCN)
             {
+                hideError();
+
                 txtNhanVien.Texts = dgvNhanVien.Rows[i].Cells["Ho"].Value.ToString() + " " + dgvNhanVien.Rows[i].Cells["Ten"].Value.ToString();
                 txtQuyen.Texts = searchTenCVbyMaCV(dgvNhanVien.Rows[i].Cells["MaCV1"].Value.ToString());
                 maNV = dgvNhanVien.Rows[i].Cells["MaNV1"].Value.ToString();
@@ -287,6 +301,9 @@ namespace GUI
             }
             if (isFuncThayDoiTT)
             {
+                btnThucHienChucNang.Enabled = true;
+                hideError();
+
                 txtNhanVien.Texts = dgvNhanVien.Rows[i].Cells["Ho"].Value.ToString() + " " + dgvNhanVien.Rows[i].Cells["Ten"].Value.ToString();
                 txtQuyen.Texts = searchTenCVbyMaCV(dgvNhanVien.Rows[i].Cells["MaCV1"].Value.ToString());
                 maNV = dgvNhanVien.Rows[i].Cells["MaNV1"].Value.ToString();
@@ -361,7 +378,7 @@ namespace GUI
             }
             if (isFuncThayDoiTTCN)
             {
-                unHideError();
+                hideError();
 
                 string tenDangNhap = CheckAndSetColor(txtTenDangNhap, lblErrUsername, 6);
                 string matKhau = CheckAndSetColor(txtMatKhau, lblErrPassword, 6);
@@ -395,8 +412,9 @@ namespace GUI
             }
             if (isFuncThayDoiTT)
             {
-                
-                    unHideError();
+                btnThucHienChucNang.Enabled = false;
+
+                hideError();
                 int trangThai = (cbxTrangThai.SelectedItem.ToString() == "Hoạt động") ? 0 : 1;
                 Console.WriteLine(trangThai);
                 int flag = tkBLL.updateTrangThai(maNV, trangThai) ? 1 : 0;
@@ -417,6 +435,7 @@ namespace GUI
                 
                 resetField();
                 dgvNhanVien.DataSource = nvBLL.getListNVHasTaiKhoan();
+                btnThucHienChucNang.Enabled = false;
 
 
             }

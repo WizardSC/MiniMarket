@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChiTietHoaDonGUI));
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvXemChiTietHD = new System.Windows.Forms.DataGridView();
             this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,20 +46,28 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pnHeader = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnClose = new GUI.MyCustom.RJButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvXemChiTietHD)).BeginInit();
             this.panel2.SuspendLayout();
+            this.pnHeader.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.dgvXemChiTietHD);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(1, 1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1065, 609);
+            this.panel1.Size = new System.Drawing.Size(1065, 614);
             this.panel1.TabIndex = 4;
             // 
             // dgvXemChiTietHD
@@ -105,7 +114,7 @@
             this.dgvXemChiTietHD.RowTemplate.Height = 30;
             this.dgvXemChiTietHD.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvXemChiTietHD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvXemChiTietHD.Size = new System.Drawing.Size(1058, 487);
+            this.dgvXemChiTietHD.Size = new System.Drawing.Size(1056, 487);
             this.dgvXemChiTietHD.TabIndex = 2;
             // 
             // MaSP
@@ -176,6 +185,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.labelMaHD);
             this.panel2.Controls.Add(this.dtpNgayNhap);
             this.panel2.Controls.Add(this.label4);
@@ -255,18 +265,79 @@
             this.label1.Text = "THÔNG TIN PHIẾU NHẬP";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pnHeader
+            // 
+            this.pnHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
+            this.pnHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnHeader.Controls.Add(this.label3);
+            this.pnHeader.Controls.Add(this.panel4);
+            this.pnHeader.Controls.Add(this.btnClose);
+            this.pnHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnHeader.Name = "pnHeader";
+            this.pnHeader.Size = new System.Drawing.Size(1065, 35);
+            this.pnHeader.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label3.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Image = ((System.Drawing.Image)(resources.GetObject("label3.Image")));
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label3.Size = new System.Drawing.Size(403, 33);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "       THÔNG TIN CHI TIẾT HÓA ĐƠN";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel4
+            // 
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel4.Location = new System.Drawing.Point(1014, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(6, 33);
+            this.panel4.TabIndex = 3;
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnClose.BorderColor = System.Drawing.Color.Transparent;
+            this.btnClose.BorderRadius = 0;
+            this.btnClose.BorderSize = 0;
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Image = global::GUI.Properties.Resources.icons8_close_32;
+            this.btnClose.Location = new System.Drawing.Point(1020, 0);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(43, 33);
+            this.btnClose.TabIndex = 1;
+            this.btnClose.TextColor = System.Drawing.Color.White;
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // ChiTietHoaDonGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1065, 614);
+            this.Controls.Add(this.pnHeader);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ChiTietHoaDonGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChiTietHoaDonGUI";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvXemChiTietHD)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.pnHeader.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -288,5 +359,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DonGiaBanDau;
         private System.Windows.Forms.DataGridViewTextBoxColumn DonGiaDaGiam;
         private System.Windows.Forms.DataGridViewTextBoxColumn ThanhTien;
+        private System.Windows.Forms.Panel pnHeader;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel4;
+        private MyCustom.RJButton btnClose;
     }
 }

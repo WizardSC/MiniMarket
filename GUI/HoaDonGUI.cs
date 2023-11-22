@@ -138,7 +138,7 @@ namespace GUI
                 }
                 // Lưu tệp Excel
                 string appDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-                string folderPath = Path.Combine(appDirectory, "resources", "excel");
+                string folderPath = Path.Combine(appDirectory, "resources", "fileexcel");
 
                 SaveFileDialog saveFileDialog = new SaveFileDialog
                 {
