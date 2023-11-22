@@ -152,7 +152,7 @@ namespace GUI
             cbxTrangThai.SelectedIndex = 0;
             txtTenKm.Texts = "";
             txtDkKM.Texts = "";
-            //dtpNgayBD.Value = DateTime.Now;
+            dtpNgayBD.Value = DateTime.Now;
             dtpNgayKT.Value = DateTime.Now;
             txtPhanTramKM.Texts = "";
             cbxTrangThai.SelectedIndex = 0;
@@ -183,7 +183,9 @@ namespace GUI
 
         private void btnXem_Click(object sender, EventArgs e)
         {
-           CTKhuyenMai.ShowDialog();
+            CTKhuyenMai = new ChiTietKhuyenMaiGUI();
+            CTKhuyenMai.Show();
+            
         }
 
        
@@ -234,6 +236,7 @@ namespace GUI
                 if (dateTime <= currentDate)
                 {
                     label.ForeColor = Color.FromArgb(230, 76, 89);
+                   
                 }
                 else
                 {
@@ -249,7 +252,7 @@ namespace GUI
         }
 
         // check phantramkm nhập int
-        private const int MaxPercentage = 100;
+        private const int MaxPercentage = 99;
         private string CheckAndSetColorPhanTramKM(object control, Label label)
         {
             if (control is RJTextBox textBox)
@@ -312,16 +315,15 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-           
             string tenKM = CheckAndSetColor(txtTenKm, label4);
             string phantramkm = CheckAndSetColorPhanTramKM(txtPhanTramKM, label10);
             string dieukienkm = CheckAndSetColorDieuKienKM(txtDkKM, label12);
             DateTime ngaykt = CheckAndSetColorDate(dtpNgayKT.Value, label8);
-            DateTime Ngaybd = CheckAndSetColorDate(dtpNgayBD.Value, label8);
+            DateTime Ngaybd = dtpNgayBD.Value;
             string CheckTrangThai = cbxTrangThai.Texts.ToString();
             int trangthai = (CheckTrangThai == "Hoạt động") ? 1 : 0;
 
-            if (string.IsNullOrWhiteSpace(tenKM) || ngaykt <= Ngaybd  || !IsInteger(phantramkm) || !IsInteger(dieukienkm) || int.Parse(phantramkm)>100)
+            if (string.IsNullOrWhiteSpace(tenKM) || ngaykt <= Ngaybd  || !IsInteger(phantramkm) || !IsInteger(dieukienkm) || int.Parse(phantramkm)>99)
             {
                 return;
             }
@@ -360,12 +362,11 @@ namespace GUI
             string phantramkm = CheckAndSetColorPhanTramKM(txtPhanTramKM, label10);
             string dieukienkm = CheckAndSetColorDieuKienKM(txtDkKM, label12);
             DateTime ngaykt = CheckAndSetColorDate(dtpNgayKT.Value, label8);
-            DateTime Ngaybd = CheckAndSetColorDate(dtpNgayBD.Value, label8);
-            //DateTime Ngaykt = dtpNgayKT.Value;
+            DateTime Ngaybd = dtpNgayBD.Value;
             string CheckTrangThai = cbxTrangThai.Texts.ToString();
             int trangthai = (CheckTrangThai == "Hoạt động") ? 1 : 0;
 
-            if (string.IsNullOrWhiteSpace(tenKM) || ngaykt <= Ngaybd || !IsInteger(phantramkm) || !IsInteger(dieukienkm) || int.Parse(phantramkm) > 100)
+            if (string.IsNullOrWhiteSpace(tenKM) || ngaykt <= Ngaybd || !IsInteger(phantramkm) || !IsInteger(dieukienkm) || int.Parse(phantramkm) > 99)
             {
                 return;
             }
@@ -480,7 +481,9 @@ namespace GUI
 
         private void dgvKhuyenMai_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            dtpNgayBD.MinDate = DateTime.Parse("1 / 1 / 1753");
+            dtpNgayBD.MinDate = DateTime.Parse("1 / 1 / 2023");
+            dtpNgayKT.MinDate = DateTime.Parse("1 / 1 / 2023");
+            
             int i = dgvKhuyenMai.CurrentRow.Index;
             txtMaKM.Texts = dgvKhuyenMai.Rows[i].Cells[0].Value.ToString();
             DateTime NgayBd = DateTime.Parse(dgvKhuyenMai.Rows[i].Cells[2].Value.ToString());
@@ -647,7 +650,7 @@ namespace GUI
 
         private void dtpNgayBD_ValueChanged(object sender, EventArgs e)
         {
-            CheckAndSetColorDate(dtpNgayBD.Value, label8);
+            CheckAndSetColorDate(dtpNgayKT.Value, label8);
         }
     }
 }

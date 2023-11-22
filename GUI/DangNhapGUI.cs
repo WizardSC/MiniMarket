@@ -23,6 +23,7 @@ namespace GUI
             InitializeComponent();
             tkBLL = new TaiKhoanBLL();
             dtTaiKhoan = tkBLL.getListTaiKhoan();
+            Console.WriteLine(1);
         }
 
         private (string MaNV, string TenDangNhap, string MatKhau, string Quyen, byte TrangThai) getTaiKhoan(string tenDangNhap, string matKhau)
