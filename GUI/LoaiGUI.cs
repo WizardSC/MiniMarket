@@ -181,8 +181,7 @@ namespace GUI
             btnXoa.BackColor = Color.White;
 
             btnThem.Enabled = false;
-            btnThem.BackgroundColor = Color.DimGray;
-            btnThem.BackColor = Color.DimGray;
+            
 
             int i = dgvLoai.CurrentRow.Index;
             txtMaLoai.Texts = dgvLoai.Rows[i].Cells[0].Value.ToString();
@@ -253,11 +252,7 @@ namespace GUI
 
                         btnSua.Enabled = false;
                         btnXoa.Enabled = false;
-                        btnSua.BackgroundColor = Color.DimGray;
-                        btnSua.BackColor = Color.DimGray;
-
-                        btnXoa.BackgroundColor = Color.DimGray;
-                        btnXoa.BackColor = Color.DimGray;
+                        
                         init();
                         loadMaLoai();
                         clearForm();
@@ -300,11 +295,7 @@ namespace GUI
 
                         btnSua.Enabled = false;
                         btnXoa.Enabled = false;
-                        btnSua.BackgroundColor = Color.DimGray;
-                        btnSua.BackColor = Color.DimGray;
-
-                        btnXoa.BackgroundColor = Color.DimGray;
-                        btnXoa.BackColor = Color.DimGray;
+                        
                         init();
                         loadMaLoai();
                         clearForm();
@@ -379,11 +370,7 @@ namespace GUI
 
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
-            btnSua.BackgroundColor = Color.DimGray;
-            btnSua.BackColor = Color.DimGray;
-
-            btnXoa.BackgroundColor = Color.DimGray;
-            btnXoa.BackColor = Color.DimGray;
+            
             loadMaLoai();
             clearForm();
         }
@@ -420,7 +407,7 @@ namespace GUI
 
         private void applySearchs(string text)
         {
-            // dt = loaibill.getListLoai();
+            // dtSanPham = loaibill.getListLoai();
             currentSearch = text;
             Console.WriteLine(currentSearch);
             DataView dvLoai = loaibill.getListLoai().DefaultView;
@@ -595,7 +582,7 @@ namespace GUI
                 Excel.Workbook excelWB = excelApp.Workbooks.Add("");
                 Excel._Worksheet excelWS = excelWB.ActiveSheet;
 
-                // Lấy dữ liệu từ DataTable (dt là DataTable của bạn)
+                // Lấy dữ liệu từ DataTable (dtSanPham là DataTable của bạn)
                 DataTable dt = GetData(); // Hàm GetData() là hàm lấy dữ liệu của bạn
 
                 // Định dạng tiêu đề
@@ -778,8 +765,8 @@ namespace GUI
         }
         private void SaveDataToDatabase()
         {
-            string strconn = @"Data Source=MSI;Initial Catalog=MiniMarket1511;Integrated Security=True";
-           /// string strconn = @"Data Source=LAPTOP-AEI9M0MI\WIZARDSC;Initial Catalog = MiniMarket; Integrated Security = True";
+         //   string strconn = @"Data Source=MSI;Initial Catalog=MiniMarket1511;Integrated Security=True";
+            string strconn = @"Data Source=LAPTOP-AEI9M0MI\WIZARDSC;Initial Catalog = MiniMarket; Integrated Security = True";
             try
             {
                 using (SqlConnection connection = new SqlConnection(strconn))

@@ -102,7 +102,7 @@ namespace GUI
 
             CalculateTotalPages(listSP);
             UpdateCurrentPage(resultRows);
-            
+
             // Hiển thị trang hiện tại
             loadNgayThang();
 
@@ -196,7 +196,7 @@ namespace GUI
         {
             TotalPages = (int)Math.Ceiling((double)productList.Count / ProductsPerPage);
         }
-        
+
         private void UpdateCurrentPage(List<DataRow> rows)
         {
             int startIndex = (CurrentPage - 1) * ProductsPerPage;
@@ -213,8 +213,18 @@ namespace GUI
                 item.lblTenSP.Text = row.Field<string>("TenSP");
                 item.lblDonGia.Text = ConvertIntToVND(row.Field<int>("DonGiaBan"));
                 item.maLoai = row.Field<string>("MaLoai");
-                byte[] imageBytes = row.Field<byte[]>("IMG");
-                item.pbxIMG.Image = convertBinaryStringToImage(imageBytes);
+                string image = row.Field<string>("IMG");
+                string appDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+                string folderPath = Path.Combine(appDirectory, "resources", "image", "SanPham", image);
+                if (File.Exists(folderPath))
+                {
+                    item.pbxIMG.Image = Image.FromFile(folderPath);
+                }
+                else
+                {
+                    item.pbxIMG.Image = item.pbxIMG.InitialImage;
+
+                }
 
                 item.Margin = new Padding(4, 6, 4, 6);
                 item.ItemClicked += Item_ItemClicked;
@@ -293,7 +303,7 @@ namespace GUI
 
             this.flpDanhSachSanPham.Controls.Clear();
             UpdateCurrentPage(resultRows);
-            foreach(DataRow row in resultRows)
+            foreach (DataRow row in resultRows)
             {
                 string loai = searchLoaibyMaSP(row.Field<string>("MaSP"));
                 Console.WriteLine(loai);
@@ -357,9 +367,9 @@ namespace GUI
                 throw new ArgumentException("Không thể chuyển đổi chuỗi thành số float.");
             }
         }
-        
 
-        
+
+
         private void Item_ItemClicked(object sender, EventArgs e)
         {
             // Đây là nơi bạn có thể xử lý khi item được click
@@ -434,7 +444,7 @@ namespace GUI
 
                 soLuong -= soLuongTrongGio;
             }
-            
+
             if (soLuong == 0)
             {
                 btnThemVaoGio.Enabled = false;
@@ -1200,31 +1210,70 @@ namespace GUI
                     string maSPCanTim = txtMaSP.Texts;
                     PlayBeepSound();
 
+
+
+                    //foreach (Control control in flpDanhSachSanPham.Controls)
+                    //{
+                    //    if (control is MyCustom.MyProductItem)
+                    //    {
+                    //        MyCustom.MyProductItem productItem = (MyCustom.MyProductItem)control;
+
+                    //        // Kiểm tra giá trị mã SP của control với mã SP cần tìm
+                    //        if (productItem.lblMaSP.Text == maSPCanTim)
+                    //        {
+                    //            Item_ItemClicked(productItem, EventArgs.Empty);
+                    //            //ThemSanPhamVaoGio(1);
+
+
+                    //            // Reset lại camera
+
+                    //            break; // Kết thúc vòng lặp sau khi tìm thấy
+                    //        }
+                    //    }
+                    //}
+                    bool needToMoveToNextPage = true;
+                    bool alreadyMovedToFirstPage = false;
+                    bool alreadyRolledBack = false;
+
                     foreach (Control control in flpDanhSachSanPham.Controls)
                     {
                         if (control is MyCustom.MyProductItem)
                         {
                             MyCustom.MyProductItem productItem = (MyCustom.MyProductItem)control;
 
-                            // Kiểm tra giá trị mã SP của control với mã SP cần tìm
+
                             if (productItem.lblMaSP.Text == maSPCanTim)
                             {
                                 Item_ItemClicked(productItem, EventArgs.Empty);
-                                //ThemSanPhamVaoGio(1);
 
-
-                                // Reset lại camera
-
-                                break; // Kết thúc vòng lặp sau khi tìm thấy
+                                needToMoveToNextPage = false;
+                                break;
                             }
                         }
                     }
+
+                    if (needToMoveToNextPage && CurrentPage < TotalPages)
+                    {
+                        CurrentPage++;
+                    }
+                    else if (needToMoveToNextPage && CurrentPage == TotalPages && !alreadyMovedToFirstPage)
+                    {
+                        CurrentPage = 1;
+                        alreadyMovedToFirstPage = true;
+                    }
+                    else if (needToMoveToNextPage && alreadyMovedToFirstPage && !alreadyRolledBack)
+                    {
+                        CurrentPage--;
+                        alreadyRolledBack = true;
+                    }
+                    UpdateCurrentPage(resultRows);
                 }));
             }
             pbShowCamera.Image = bitmap;
 
             isScanning = false; // Cho phép quét tiếp theo
         }
+
         private void PlayBeepSound()
         {
             try

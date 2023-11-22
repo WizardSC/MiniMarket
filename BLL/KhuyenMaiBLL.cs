@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DAO;
 using DTO;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,10 @@ namespace BLL
         public DataTable getListMaKmNoDK()
         {
             return kmDAL.getMaKmNoDK();
+        }
+        public string getMaxMaKM()
+        {
+            return kmDAL.getMaxMaKM();
         }
         public bool insertKhuyenMai(KhuyenMaiDTO KM_DTO)
         {

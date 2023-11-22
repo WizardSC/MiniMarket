@@ -16,6 +16,8 @@ using static System.Net.Mime.MediaTypeNames;
 using System.Runtime.InteropServices;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 using System.IO;
+using System.Runtime.InteropServices.ComTypes;
+
 namespace GUI
 {
 
@@ -43,26 +45,30 @@ namespace GUI
         private bool isHoatDong = false;
         private bool isKoHD = false;
         private DataTable dt;
+        private string maKH;
 
         private int quyenKhachHang;
+
+        private string fileName;
         public KhachHangGUI(int isKhachHang)
         {
             InitializeComponent();
             khBLL = new KhachHangBLL();
             dt = khBLL.getListKhachHang();
             DateTime currentDate = DateTime.Now;
-            dtpNgaySinh.MaxDate = currentDate; //không cho chọn ngày lớn hơn ngày hiện tại
+            dtpNgaySinh.MaxDate = DateTime.Now.Date.AddYears(-18); 
+            //dtpNgaySinh.MaxDate = currentDate; //không cho chọn ngày lớn hơn ngày hiện tại
             unhideError(); //set màu trong suốt cho các label lỗi
             loadMaKH();
             txtMaKH.Enabled = false;
-                //Check phân quyền
+            //Check phân quyền
             quyenKhachHang = isKhachHang;
             checkQuyen(isKhachHang);
-
+            loadBtn();
         }
         private void checkQuyen(int quyenKhachHang)
         {
-            if(quyenKhachHang == 1)
+            if (quyenKhachHang == 1)
             {
                 btnDeleteIMG.Enabled = false;
                 btnThem.Enabled = false;
@@ -83,9 +89,21 @@ namespace GUI
             chkNu.Enabled = isGioiTinh;
 
         }
+        private void loadForm()
+        {
+            dgvKhachHang.DataSource = khBLL.getListKhachHang();
+            cbxTimKiem.Refresh();
+            loadDataToCBX(cbxTimKiem);
+            chkNam.Enabled = isGioiTinh;
+            chkNu.Enabled = isGioiTinh;
+        }
         //Xóa bỏ tự chọn dòng đầu tiên của DataGridView khi load form
 
         #region các hàm bổ trợ
+        private void loadBtn()
+        {
+            btnThem.Enabled = true; btnSua.Enabled = false; btnXoa.Enabled = false;
+        }
         //chuyển đổi một hình ảnh thành một dạng biểu diễn nhị phân 
         private byte[] convertImageToBinaryString(System.Drawing.Image img, string tag)
         {
@@ -119,17 +137,22 @@ namespace GUI
         //Load mã khách hàng cuối cùng lên form
         private void loadMaKH()
         {
-            string lastMaKH = dt.AsEnumerable()
-                .Select(row => row.Field<string>("MaKH"))
-                .LastOrDefault();
-
-            int nextNum = 1;
-            if (!string.IsNullOrEmpty(lastMaKH) && lastMaKH.Length >= 5)
+            khBLL = new KhachHangBLL();
+            maKH = khBLL.getMaxMaKhachHang();
+            string lastMaNV = maKH;
+            if (lastMaNV == "")
             {
-                int.TryParse(lastMaKH.Substring(2), out nextNum);
-                nextNum++;
+                txtMaKH.Texts = "KH001";
             }
-            txtMaKH.Texts = "KH" + nextNum.ToString("D3");
+            int tempNum = int.Parse(lastMaNV.Substring(2));
+            if ((tempNum + 1) >= 10)
+            {
+                txtMaKH.Texts = "KH0" + (tempNum + 1).ToString();
+            }
+            else if (tempNum >= 1 && tempNum < 9)
+            {
+                txtMaKH.Texts = "KH00" + (tempNum + 1).ToString();
+            }
         }
         private void unhideError()
         {
@@ -181,7 +204,102 @@ namespace GUI
 
             return null; // Nếu kiểu dữ liệu không hợp lệ.
         }
+        private bool ContainsLetter(string text)
+        {
+            foreach (char c in text)
+            {
+                if (char.IsLetter(c))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        private string CheckAndSetColorSDT(object control, Label label)
+        {
+            if (control is RJTextBox textBox)
+            {
+                string text = textBox.Texts.Trim();
+                if (string.IsNullOrWhiteSpace(text))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "*Bạn phải nhập so DT";
+                    return null;
+                }
+                else if (ContainsLetter(text))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "    *Số DT không thể chứa chữ";
+                    return null;
+                }
+                else if (text.ToString().Length > 10)
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "    *Số DT không được quá 10 số";
+                    return null;
+                }
+                else
+                {
+                    label.ForeColor = Color.Transparent;
+                    label.Text = "";
+                }
+                return text;
+            }
+            return null;
+        }
+        private string CheckAndSetColorHo(object control, Label label)
+        {
+            if (control is RJTextBox textBox)
+            {
+                string text = textBox.Texts.Trim();
+                if (string.IsNullOrWhiteSpace(text))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "*Bạn phải nhập họ";
+                    return null;
+                }
+                else if (int.TryParse(text, out int result))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "    *Họ không thể chứa chữ số";
+                    return null;
+                }
+                else
+                {
+                    label.ForeColor = Color.Transparent;
+                    label.Text = "";
 
+                }
+                return text;
+            }
+            return null;
+        }
+        private string CheckAndSetColorTen(object control, Label label)
+        {
+            if (control is RJTextBox textBox)
+            {
+                string text = textBox.Texts.Trim();
+                if (string.IsNullOrWhiteSpace(text))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "*Bạn phải nhập tên";
+                    return null;
+                }
+                else if (int.TryParse(text, out int result))
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "    *Tên không thể chứa chữ số";
+                    return null;
+                }
+                else
+                {
+                    label.ForeColor = Color.Transparent;
+                    label.Text = "";
+                }
+                return text;
+            }
+            return null;
+        }
         private int ConvertToInt(RJTextBox textBox, Label label = null)
         //Nếu không có lbl Lỗi thì mặc định giá trị là null
         {
@@ -384,9 +502,9 @@ namespace GUI
 
             if (!isTuoi)
             {
-                tuoiStart = 0;
-                tuoiEnd = 0;
-
+                txtTuoiStart.PlaceholderText = "Từ";
+                txtTuoiEnd.PlaceholderText = "Đến";
+                lblErrTuoiFilter.Visible = false;
             }
             if (isTuoi)
             {
@@ -401,8 +519,6 @@ namespace GUI
                     tuoiEnd = tuoiEndResult;
 
                 }
-
-
             }
             btnTimKiem_Click(sender, e);
         }
@@ -414,17 +530,26 @@ namespace GUI
             }
             if (int.TryParse(txtTuoiStart.Texts, out int tuoiStartResult))
             {
-                // Chuyển đổi thành công, giá trị tuoiStartResult là số nguyên từ chuỗi
                 tuoiStart = tuoiStartResult;
-                btnTimKiem_Click(sender, e);
+                if (tuoiStart < 0)
+                {
+                    lblErrTuoiFilter.Text = "* Không được nhập tuổi là số âm";
+                    lblErrTuoiFilter.Visible = true;
+                    return;
+                }
+                else
+                {
+                    lblErrTuoiFilter.Visible = false;
+                    tuoiStart = tuoiStartResult;
+                    btnTimKiem_Click(sender, e);
+                }
+                lblErrTuoiFilter.Visible = false;
             }
+
             else
             {
-                // Chuỗi không hợp lệ, bạn có thể xử lý lỗi hoặc thông báo cho người dùng
                 return;
             }
-
-
         }
 
         private void txtTuoiEnd__TextChanged(object sender, EventArgs e)
@@ -435,13 +560,30 @@ namespace GUI
             }
             if (int.TryParse(txtTuoiEnd.Texts, out int tuoiEndResult))
             {
-                // Chuyển đổi thành công, giá trị tuoiStartResult là số nguyên từ chuỗi
                 tuoiEnd = tuoiEndResult;
-                btnTimKiem_Click(sender, e);
+                if (tuoiEnd < 0)
+                {
+
+                    lblErrTuoiFilter.Text = "* Không được nhập tuổi là số âm";
+                    lblErrTuoiFilter.Visible = true;
+                    return;
+                }
+                if (int.Parse(txtTuoiStart.Texts) >= tuoiEnd)
+                {
+
+                    lblErrTuoiFilter.Text = "* .Bạn phải tuổi kết thúc lớn hơn tuổi bắt đầu";
+                    lblErrTuoiFilter.Visible = true;
+                    return;
+                }
+                else
+                {
+                    lblErrTuoiFilter.Visible = false;
+                    btnTimKiem_Click(sender, e);
+                }
+
             }
             else
             {
-                // Chuỗi không hợp lệ, bạn có thể xử lý lỗi hoặc thông báo cho người dùng
                 return;
             }
 
@@ -531,23 +673,25 @@ namespace GUI
         private void chkDiemTL_CheckedChanged(object sender, EventArgs e)
         {
             isDiemTL = toggleDieuKien(isDiemTL);
-            Console.WriteLine(isDiemTL);
-            txtDiemTLEnd.Enabled = isDiemTL;
             txtDiemTLStart.Enabled = isDiemTL;
+            txtDiemTLEnd.Enabled = isDiemTL;
+
             if (!isDiemTL)
             {
-                diemTLEnd = 0;
-                diemTLStart = 0;
+                txtDiemTLStart.PlaceholderText = "Từ";
+                txtDiemTLEnd.PlaceholderText = "Đến";
+                label11.Visible = false;
             }
-            if (isDiemTL)
+            if (isTuoi)
             {
-                if (int.TryParse(txtDiemTLStart.Texts, out int result))
+                if (int.TryParse(txtDiemTLStart.Texts, out int diemTLStartResult))
                 {
-                    diemTLStart = result;
+                    diemTLStart = diemTLStartResult;
                 }
-                if (int.TryParse(txtDiemTLEnd.Texts, out int result1))
+                if (int.TryParse(txtDiemTLEnd.Texts, out int diemTLEndResult))
                 {
-                    diemTLEnd = result1;
+                    diemTLEnd = diemTLEndResult;
+
                 }
             }
             btnTimKiem_Click(sender, e);
@@ -558,11 +702,22 @@ namespace GUI
             {
                 diemTLStart = 0;
             }
-            if (int.TryParse(txtDiemTLStart.Texts, out int result))
+            if (int.TryParse(txtDiemTLStart.Texts, out int diemTLStartResult))
             {
-                diemTLStart = result;
-                btnTimKiem_Click(sender, e);
-
+                diemTLStart = diemTLStartResult;
+                if (diemTLStart < 0)
+                {
+                    label11.Text = "* Không được nhập điểm là số âm";
+                    label11.Visible = true;
+                    return;
+                }
+                else
+                {
+                    label11.Visible = false;
+                    diemTLStart = diemTLStartResult;
+                    btnTimKiem_Click(sender, e);
+                }
+                label11.Visible = false;
             }
             else
             {
@@ -578,10 +733,28 @@ namespace GUI
             {
                 diemTLEnd = 0;
             }
-            if (int.TryParse(txtDiemTLEnd.Texts, out int result))
+            if (int.TryParse(txtDiemTLEnd.Texts, out int diemTLEndResult))
             {
-                diemTLEnd = result;
-                btnTimKiem_Click(sender, e);
+                diemTLEnd = diemTLEndResult;
+                if (diemTLEnd < 0)
+                {
+
+                    label11.Text = "* Không được nhập tuổi là số âm";
+                    label11.Visible = true;
+                    return;
+                }
+                if (int.Parse(txtDiemTLStart.Texts) >= diemTLEnd)
+                {
+
+                    label11.Text = "* .Bạn phải tuổi kết thúc lớn hơn tuổi bắt đầu";
+                    label11.Visible = true;
+                    return;
+                }
+                else
+                {
+                    label11.Visible = false;
+                    btnTimKiem_Click(sender, e);
+                }
 
             }
             else
@@ -623,15 +796,24 @@ namespace GUI
         private void btnThem_Click(object sender, EventArgs e)
         {
             string maKH = CheckAndSetColor(txtMaKH, lblErrMaKH);
-            string ho = CheckAndSetColor(txtHo, lblErrHo);
-            string ten = CheckAndSetColor(txtTen, lblErrTen);
-            string soDT = CheckAndSetColor(txtSoDT, lblErrSoDT);
+            string ho = CheckAndSetColorHo(txtHo, lblErrHo);
+            string ten = CheckAndSetColorTen(txtTen, lblErrTen);
+            string soDT = CheckAndSetColorSDT(txtSoDT, lblErrSoDT);
             DateTime ngaySinh = dtpNgaySinh.Value;
             string diaChi = CheckAndSetColor(txtDiaChi, lblErrDiaChi);
             string trangThai = CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
             int trangThaiValue = (trangThai == "Hoạt động" ? 1 : 0);
             int diemTichLuy = int.Parse(lblDiemTL.Text);
-            byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
+            string img = fileName;
+            if (img == null)
+            {
+                lblErrIMG.ForeColor = Color.FromArgb(230, 76, 89);
+                return;
+            }
+            else
+            {
+                lblErrIMG.ForeColor = Color.Transparent;
+            }
             string gioiTinh = "";
             if (!(rdbNam.Checked || rdbNu.Checked))
             {
@@ -662,6 +844,7 @@ namespace GUI
                   "Thông báo",
                   MessageBoxButtons.OK,
                   MessageBoxIcon.Information);
+                reset();
             }
             else
             {
@@ -670,11 +853,15 @@ namespace GUI
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
+            
         }
 
 
         private void dgvKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            btnThem.Enabled = false;
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
             int i = dgvKhachHang.CurrentRow.Index;
             txtMaKH.Texts = dgvKhachHang.Rows[i].Cells[0].Value.ToString();
             txtHo.Texts = dgvKhachHang.Rows[i].Cells[1].Value.ToString();
@@ -686,8 +873,31 @@ namespace GUI
             txtSoDT.Texts = dgvKhachHang.Rows[i].Cells[5].Value.ToString();
             txtDiaChi.Texts = dgvKhachHang.Rows[i].Cells[6].Value.ToString();
             int trangThai = int.Parse(dgvKhachHang.Rows[i].Cells[7].Value.ToString());
-            byte[] imageBytes = (byte[])dgvKhachHang.Rows[i].Cells[9].Value;
-            pbImage.Image = convertBinaryStringToImage(imageBytes);
+            string img = dgvKhachHang.Rows[i].Cells[9].Value.ToString();
+            string appDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            string folderPath = Path.Combine(appDirectory, "resources", "image", "KhachHang", img);
+            if (File.Exists(folderPath))
+            {
+                pbImage.Image = System.Drawing.Image.FromFile(folderPath);
+                pbImage.Tag = dgvKhachHang.Rows[i].Cells[9].Value.ToString();
+                fileName = Path.GetFileName(folderPath);
+            }
+            else
+            {
+                pbImage.Image = pbImage.InitialImage;
+
+            }
+            //if (dgvKhachHang.Rows[i].Cells[9].Value != DBNull.Value)
+            //{
+            //    byte[] imageBytes = (byte[])dgvKhachHang.Rows[i].Cells[9].Value;
+            //    pbImage.Image = convertBinaryStringToImage(imageBytes);
+            //}
+            //else
+            //{
+            //    pbImage.Image = pbImage.InitialImage;
+            //}
+            //byte[] imageBytes = (byte[])dgvKhachHang.Rows[i].Cells[9].Value;
+            //pbImage.Image = convertBinaryStringToImage(imageBytes);
             pbImage.Tag = dgvKhachHang.Rows[i].Cells[0].Value.ToString();
             cbxTrangThai.SelectedItem = (trangThai == 1) ? "Hoạt động" : "Không hoạt động";
 
@@ -696,17 +906,17 @@ namespace GUI
         #region validate Dữ liệu
         private void txtHo__TextChanged(object sender, EventArgs e)
         {
-            CheckAndSetColor(txtHo, lblErrHo);
+            CheckAndSetColorHo(txtHo, lblErrHo);
         }
 
         private void txtTen__TextChanged(object sender, EventArgs e)
         {
-            CheckAndSetColor(txtTen, lblErrTen);
+            CheckAndSetColorTen(txtTen, lblErrTen);
         }
 
         private void txtSoDT__TextChanged(object sender, EventArgs e)
         {
-            CheckAndSetColor(txtSoDT, lblErrSoDT);
+            CheckAndSetColorSDT(txtSoDT, lblErrSoDT);
         }
 
         private void txtDiaChi__TextChanged(object sender, EventArgs e)
@@ -761,8 +971,7 @@ namespace GUI
                 this.Text = open.FileName;
 
                 pbImage.Tag = txtMaKH.Texts;
-                Console.WriteLine(pbImage.Tag);
-
+                fileName = open.FileName;
             }
         }
 
@@ -783,8 +992,15 @@ namespace GUI
             string diaChi = txtDiaChi.Texts;
             int trangThaiValue = (cbxTrangThai.SelectedItem == "Hoạt động") ? 1 : 0;
             int diemTL = int.Parse(lblDiemTL.Text);
-            byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
-
+            string img = fileName;
+            if(img == null)
+            {
+                lblErrIMG.ForeColor = Color.FromArgb(230, 76, 89);
+                return;
+            } else
+            {
+                lblErrIMG.ForeColor = Color.Transparent;
+            }
             KhachHangDTO kh = new KhachHangDTO(maKH, ho, ten, ngaySinh, gioiTinh, soDT, diaChi, trangThaiValue, img, diemTL);
             int result = khBLL.updateKhachHang(kh) ? 1 : 0;
             if (result == 1)
@@ -793,7 +1009,7 @@ namespace GUI
                     "Thông báo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
-
+                reset();
             }
             else
             {
@@ -807,9 +1023,28 @@ namespace GUI
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-
+            reset(); 
         }
+        private void reset()
+        {
+            btnThem.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
 
+            loadMaKH();
+            txtHo.Texts = "";
+            txtTen.Texts = "";
+            txtSoDT.Texts = "";
+            txtDiaChi.Texts = "";
+            rdbNam.Checked = false;
+            rdbNu.Checked = false;
+            cbxTrangThai.SelectedIndex = -1;
+            cbxTrangThai.Texts = "--Chọn trạng thái--";
+            txtTimKiem.Texts = "";
+            btnDeleteIMG.PerformClick();
+            loadForm();
+            unhideError();
+        }
         private void dgvKhachHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -817,7 +1052,28 @@ namespace GUI
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            string maKH = txtMaKH.Texts;
+            var choice = MessageBox.Show("Xóa khách hàng này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (choice == DialogResult.Yes)
+            {
+                bool isLoiKhoaNgoai;
+                if (khBLL.deleteKhachHang(maKH, out isLoiKhoaNgoai))
+                {
+                    MessageBox.Show("Xóa thành công",
+                      "Thông báo",
+                      MessageBoxButtons.OK,
+                      MessageBoxIcon.Information);
+                    reset();
 
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại",
+                      "Thông báo",
+                      MessageBoxButtons.OK,
+                      MessageBoxIcon.Information);
+                }
+            }
         }
 
         private void txtTimKiem__TextChanged(object sender, EventArgs e)

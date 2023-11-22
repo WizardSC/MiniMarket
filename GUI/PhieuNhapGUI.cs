@@ -14,10 +14,10 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class XemPhieuNhapGUI : Form
+    public partial class PhieuNhapGUI : Form
     {
         private PhieuNhapT_BLL PnBLL;
-        private XemChiTietPhieuNhapGUI ChiTietPN;
+        private ChiTietPhieuNhapGUI ChiTietPN;
         private string currentSearch;
         private string textSearchCondition = ""; // Biến để lưu trữ điều kiện từ textbox tìm kiếm
         private string cbxItemsMacDinh;
@@ -27,7 +27,7 @@ namespace GUI
 
 
         private bool isFormFilter = false;
-        public XemPhieuNhapGUI()
+        public PhieuNhapGUI()
         {
             InitializeComponent();
             PnBLL = new PhieuNhapT_BLL();
@@ -221,7 +221,7 @@ namespace GUI
             MaPhieuNhap = dgvThongTinPhieuNhap.Rows[i].Cells[0].Value.ToString();
             NgayTaoPN = DateTime.Parse(dgvThongTinPhieuNhap.Rows[i].Cells[1].Value.ToString());
             TenNhaCungCap = dgvThongTinPhieuNhap.Rows[i].Cells[4].Value.ToString();
-            XemChiTietPhieuNhapGUI ChiTietPN = new XemChiTietPhieuNhapGUI(MaPhieuNhap, NgayTaoPN, TenNhaCungCap);
+            ChiTietPhieuNhapGUI ChiTietPN = new ChiTietPhieuNhapGUI(MaPhieuNhap, NgayTaoPN, TenNhaCungCap);
             ChiTietPN.ShowDialog();
         }
 
@@ -334,16 +334,40 @@ namespace GUI
                         }
                     }
                 }
+               
                 // Lưu tệp Excel
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Filter = "Excel Files|*.xlsx";
-                saveFileDialog.Title = "Lưu tệp Excel";
+                    string appDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+                 string folderPath = Path.Combine(appDirectory, "resources", "excel");
+
+                SaveFileDialog saveFileDialog = new SaveFileDialog
+                {
+                    InitialDirectory = folderPath,
+                    Filter = "Excel Files|*.xlsx",
+                    RestoreDirectory = true
+                };
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     FileInfo file = new FileInfo(saveFileDialog.FileName);
                     excelPackage.SaveAs(file);
                     MessageBox.Show("Xuất Excel thành công!");
                 }
+            }
+        }
+
+        private void dtpNgayStart_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime startDate = dtpNgayStart.Value;
+            DateTime endDate = dtpNgayEnd.Value;
+            if (startDate > endDate)
+            {
+                lblErrTuoiFilter.Visible = true;
+                btnTimKiem_Click(sender, e);
+            }
+            else
+            {
+                lblErrTuoiFilter.Visible = false;
+                lblErrTuoiFilter.Visible = false;
+                btnTimKiem_Click(sender, e);
             }
         }
     }

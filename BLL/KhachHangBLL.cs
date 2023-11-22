@@ -42,5 +42,14 @@ namespace BLL
         {
             return khDAL.updateDiemTichLuy(maKH, diemTL);
         }
+        public bool deleteKhachHang(string maKH, out bool isLoiKhoaNgoai)
+        {
+            return khDAL.deleteKhachHang(maKH, out isLoiKhoaNgoai);
+        }
+
+        public string getMaxMaKhachHang()
+        {
+            return khDAL.getMaxMaKhachHang();
+        }
     }
 }

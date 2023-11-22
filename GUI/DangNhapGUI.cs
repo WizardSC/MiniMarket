@@ -23,6 +23,7 @@ namespace GUI
             InitializeComponent();
             tkBLL = new TaiKhoanBLL();
             dtTaiKhoan = tkBLL.getListTaiKhoan();
+            Console.WriteLine(1);
         }
 
         private (string MaNV, string TenDangNhap, string MatKhau, string Quyen, byte TrangThai) getTaiKhoan(string tenDangNhap, string matKhau)
@@ -56,7 +57,16 @@ namespace GUI
         {
             string tenDangNhap = txtUsername.Texts;
             string matKhau = txtPassword.Texts;
-
+            if (string.IsNullOrWhiteSpace(tenDangNhap))
+            {
+                MessageBox.Show("Vui lòng nhập tên đăng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(matKhau))
+            {
+                MessageBox.Show("Vui lòng nhập mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             (string MaNV, string TenDangNhap, string MatKhau, string Quyen, byte TrangThai) = getTaiKhoan(tenDangNhap, matKhau);
             if (TenDangNhap == string.Empty || MatKhau == string.Empty)
             {
