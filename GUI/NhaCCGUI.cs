@@ -222,10 +222,16 @@ namespace GUI
                     label.Text = "    *Số DT không thể chứa chữ";
                     return null;
                 }
-                else if (text.ToString().Length > 10 )
+                else if (text.ToString().Length > 12 )
                 {
                     label.ForeColor = Color.FromArgb(230, 76, 89);
-                    label.Text = "    *Số DT không quá 10 số";
+                    label.Text = "    *Số DT không quá 12 số";
+                    return null;
+                }
+                else if (text.ToString().Length < 10)
+                {
+                    label.ForeColor = Color.FromArgb(230, 76, 89);
+                    label.Text = "    *Số DT tối thiểu 10 số";
                     return null;
                 }
                 else

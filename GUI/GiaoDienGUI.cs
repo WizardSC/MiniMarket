@@ -61,7 +61,7 @@ namespace GUI
     {
         pnBanHang, pnHoaDon, pnNhapHang, pnPhieuNhap, pnKhachHang,
         pnNhanVien, pnSanPham, pnDanhMuc, pnNhaSanXuat,
-        pnKhuyenMai, pnNhaCungCap, pnThongKe, pnTaiKhoan
+        pnKhuyenMai, pnNhaCungCap, pnThongKe, pnTaiKhoan, pnChucVu
     };
 
             foreach (Panel panel in pnToCheck)
@@ -119,6 +119,10 @@ namespace GUI
                 {
                     panel.Visible = false;
                 }
+                else if (panel == pnChucVu && pq.IsChucVu == 0)
+                {
+                    panel.Visible = false;
+                }
             }
         }
 
@@ -149,6 +153,7 @@ namespace GUI
             allPanels.Add(pnTaiKhoanContainer);
             allPanels.Add(pnPhieuNhapContainer);
             allPanels.Add(pnHoaDonContainer);
+            allPanels.Add(pnChucVuContainer);
 
         }
         private void addAllPnLeftBorders()
@@ -168,6 +173,7 @@ namespace GUI
             allPnLeftBorders.Add(pnLeftBorderTaiKhoan);
             allPnLeftBorders.Add(pnLeftBorderPhieuNhap);
             allPnLeftBorders.Add(pnLeftBorderHoaDon);
+            allPnLeftBorders.Add(pnLeftBorderChucVu);
 
         }
 
@@ -184,6 +190,7 @@ namespace GUI
             allBtns.Add(pnQuanLyContainer);
             allBtns.Add(pnThongKeContainer);
             allBtns.Add(pnTaiKhoanContainer);
+            allBtns.Add(pnChucVuContainer);
         }
         private void GiaoDienGUI_Load(object sender, EventArgs e)
         {
@@ -581,7 +588,7 @@ namespace GUI
                 clickedButton.BackColor = Color.White;
                 pnLeftBorderNhaCC.BackColor = Color.FromArgb(58, 191, 186);
                 // Mở form con tương ứng (KhachHangGUI)
-               // openChildForm(new NhaCCGUI(pq.IsNhaCungCap));
+                openChildForm(new NhaCCGUI(pq.IsNhaCungCap));
             }
         }
 
@@ -757,7 +764,38 @@ namespace GUI
                 openChildForm(new HoaDonGUI(pq.IsHoaDon));
             }
         }
+        private void pnChucVuContainer_Click(object sender, EventArgs e)
+        {
+            if (sender is RJButton)
+            {
+                RJButton clickedButton = (RJButton)sender;
 
+                // Đặt màu của tất cả các RJButton khác thành màu transparent
+                foreach (RJButton button in allPanels)
+                {
+                    if (button != clickedButton)
+                    {
+                        button.BackColor = Color.Transparent; // hoặc màu nền mặc định của bạn
+                    }
+                }
+                foreach (Panel pn in allPnLeftBorders)
+                {
+                    if (pn != pnLeftBorderChucVu)
+                    {
+                        pn.BackColor = Color.Transparent;
+                    }
+                }
+                foreach (RJButton button in allBtns)
+                {
+                    button.BackColor = Color.Transparent; // hoặc màu nền mặc định của bạn
+                }
+                // Đặt màu của RJButton được nhấn
+                clickedButton.BackColor = Color.White;
+                pnLeftBorderChucVu.BackColor = Color.FromArgb(58, 191, 186);
+                // Mở form con tương ứng (KhachHangGUI)
+                openChildForm(new ChucVuGUI());
+            }
+        }
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show("Bạn có muốn đăng xuất không?", "THÔNG BÁO", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -781,5 +819,7 @@ namespace GUI
                 this.Dispose();
             }
         }
+
+
     }
 }
