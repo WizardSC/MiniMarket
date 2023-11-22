@@ -34,6 +34,7 @@ namespace DAL
             }
             return dt;
         }
+        //Chỉ lấy các khách hàng có trạng thái = 1 để load lên miniform
         public DataTable getMiniListKhachHang()
         {
             DataTable dt = new DataTable();
@@ -42,7 +43,7 @@ namespace DAL
                 Connect();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select makh, ho, ten, diemtichluy from khachhang";
+                cmd.CommandText = "select makh, ho, ten, diemtichluy from khachhang where TrangThai = 1";
                 cmd.Connection = conn;
                 SqlDataAdapter adt = new SqlDataAdapter(cmd);
                 adt.Fill(dt);

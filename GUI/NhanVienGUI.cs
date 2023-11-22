@@ -44,6 +44,7 @@ namespace GUI
         private bool isTrangThai = false;
 
         private string maNV;
+        private string fileName;
         public NhanVienGUI()
         {
             InitializeComponent();
@@ -442,8 +443,16 @@ namespace GUI
             {
                 chucVu = "CV004";
             }
-            byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
-            
+            string img = fileName;
+            if (img == null)
+            {
+                lblErrIMG.ForeColor = Color.FromArgb(230, 76, 89);
+            }
+            else
+            {
+                lblErrIMG.ForeColor = Color.Transparent;
+
+            }
             string gioiTinh = "";
             if (!(rdbNam.Checked || rdbNu.Checked))
             {
@@ -520,9 +529,16 @@ namespace GUI
             {
                 chucVu = "CV004";
             }
-            byte[] img = convertImageToBinaryString(pbImage.Image, pbImage.Tag.ToString());
-            //string maTK = null;
-            //byte[] img = null;
+            string img = fileName;
+            if (img == null)
+            {
+                lblErrIMG.ForeColor = Color.FromArgb(230, 76, 89);
+            }
+            else
+            {
+                lblErrIMG.ForeColor = Color.Transparent;
+
+            }
             string gioiTinh = "";
             if (!(rdbNam.Checked || rdbNu.Checked))
             {
@@ -633,7 +649,7 @@ namespace GUI
                 this.Text = open.FileName;
 
                 pbImage.Tag = txtMaNV.Texts;
-                Console.WriteLine(pbImage.Tag);
+                fileName = Path.GetFileName(open.FileName);
 
             }
         }
@@ -667,14 +683,19 @@ namespace GUI
             txtDiaChi.Texts = dgvNhanVien.Rows[i].Cells[6].Value.ToString();
             int trangThai = int.Parse(dgvNhanVien.Rows[i].Cells[7].Value.ToString());
             string chucVu = dgvNhanVien.Rows[i].Cells[9].Value.ToString();
-            if (dgvNhanVien.Rows[i].Cells[10].Value != DBNull.Value)
+            string img = dgvNhanVien.Rows[i].Cells[10].Value.ToString();
+            string appDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            string folderPath = Path.Combine(appDirectory, "resources", "image", "NhanVien", img);
+            if (File.Exists(folderPath))
             {
-                byte[] imageBytes = (byte[])dgvNhanVien.Rows[i].Cells[10].Value;
-                pbImage.Image = convertBinaryStringToImage(imageBytes);
+                pbImage.Image = Image.FromFile(folderPath);
+                pbImage.Tag = dgvNhanVien.Rows[i].Cells[10].Value.ToString();
+                fileName = Path.GetFileName(folderPath);
             }
             else
             {
                 pbImage.Image = pbImage.InitialImage;
+
             }
             pbImage.Tag = dgvNhanVien.Rows[i].Cells[0].Value.ToString();
             cbxTrangThai.SelectedItem = (trangThai == 1) ? "Hoạt động" : "Không hoạt động";
