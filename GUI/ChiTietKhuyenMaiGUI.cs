@@ -38,6 +38,7 @@ namespace GUI
             data = CTKhuyenMaiBLL.getListDsCTKm();
             loadsItemTenKM();
             loadsItemTenSp();
+            hideError();
 
 
         }
@@ -137,6 +138,9 @@ namespace GUI
             cbxTrangThai.SelectedIndex = 0;
             btnThemCTKM.Enabled = true;
             btnUpdateKM.Enabled = false;
+            comboBoxTenKM.Enabled = true;
+            comboBoxTenSP.Enabled = true;
+            hideError();
         }
 
         private void ChiTietKhuyenMaiGUI_Load(object sender, EventArgs e)
@@ -147,7 +151,10 @@ namespace GUI
            
         }
 
-       
+        private void hideError()
+        {
+            label10.ForeColor = Color.Transparent;
+        }
 
         private void cbxTimKiem_OnSelectedIndexChanged(object sender, EventArgs e)
         {
@@ -350,6 +357,8 @@ namespace GUI
 
         private void dgvChiTietKM_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            comboBoxTenKM.Enabled = false;
+            comboBoxTenSP.Enabled = false;
             int i = dgvChiTietKM.CurrentRow.Index;
             txtPhanTramKM.Texts = dgvChiTietKM.Rows[i].Cells[4].Value.ToString();
             int TrangThai = int.Parse(dgvChiTietKM.Rows[i].Cells[5].Value.ToString());
@@ -364,7 +373,6 @@ namespace GUI
 
             // Lấy giá trị "Ma KM " từ dòng được chọn
             string Tenkm = dgvChiTietKM.Rows[i].Cells[2].Value.ToString();
-            
             // Kiểm tra xem giá trị khuyenmai có tồn tại trong ComboBox không
             int indexKM = comboBoxTenKM.FindStringExact(Tenkm);
             if (indexKM != -1)
