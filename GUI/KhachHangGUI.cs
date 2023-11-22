@@ -1041,6 +1041,7 @@ namespace GUI
             cbxTrangThai.SelectedIndex = -1;
             cbxTrangThai.Texts = "--Chọn trạng thái--";
             txtTimKiem.Texts = "";
+            dtpNgaySinh.MaxDate = DateTime.Now.Date.AddYears(-18);
             btnDeleteIMG.PerformClick();
             loadForm();
             unhideError();
