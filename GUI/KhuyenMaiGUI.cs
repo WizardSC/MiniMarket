@@ -28,7 +28,7 @@ namespace GUI
         private bool isHoatDong = false;
         private bool isKoHD = false;
         private string statusCondition = "";
-
+        private int quyenKhuyenMai;
         public KhuyenMaiGUI(int isKhuyenMai)
         {
             
@@ -40,6 +40,7 @@ namespace GUI
             loadMaKM();
             loadDataToCBX(cbxTimKiem);
             checkQuyen(isKhuyenMai);
+            quyenKhuyenMai = isKhuyenMai;
             hideError();
         }
         private void checkQuyen(int quyen)
@@ -50,6 +51,7 @@ namespace GUI
                 btnThem.Enabled = false;
                 btnSua.Enabled = false;
                 btnXoa.Enabled = false;
+                btnXemChiTietKM.Enabled = false;
                 cbxTrangThai.Enabled = false;
                 dtpNgayBD.Enabled = false;
                 dtpNgayKT.Enabled   = false;
@@ -191,6 +193,7 @@ namespace GUI
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
             btnThem.Enabled = true;
+            checkQuyen(quyenKhuyenMai);
             dtpNgayBD.MinDate = DateTime.Now;
             dtpNgayKT.MinDate = DateTime.Now.AddDays(1);
         }
@@ -495,6 +498,10 @@ namespace GUI
 
         private void dgvKhuyenMai_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
+            btnThem.Enabled = false;
+            checkQuyen(quyenKhuyenMai);
             dtpNgayBD.MinDate = DateTime.Parse("1 / 1 / 2023");
             dtpNgayKT.MinDate = DateTime.Parse("1 / 1 / 2023");
             
@@ -525,9 +532,8 @@ namespace GUI
             {
                 btnThongTinKM.Visible = false;
             }
-            btnSua.Enabled = true;
-            btnXoa.Enabled = true;
-            btnThem.Enabled =false;
+            
+
         }
 
         private void cbxTimKiem_OnSelectedIndexChanged(object sender, EventArgs e)

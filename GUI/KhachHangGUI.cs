@@ -44,6 +44,7 @@ namespace GUI
 
         private bool isHoatDong = false;
         private bool isKoHD = false;
+        private int isKhachHang;
         private DataTable dt;
         private string maKH;
 
@@ -64,7 +65,7 @@ namespace GUI
             //Check phân quyền
             quyenKhachHang = isKhachHang;
             checkQuyen(isKhachHang);
-            loadBtn();
+            //loadBtn();
         }
         private void checkQuyen(int quyenKhachHang)
         {
@@ -859,9 +860,11 @@ namespace GUI
 
         private void dgvKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
             btnThem.Enabled = false;
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
+            checkQuyen(quyenKhachHang);
             int i = dgvKhachHang.CurrentRow.Index;
             txtMaKH.Texts = dgvKhachHang.Rows[i].Cells[0].Value.ToString();
             txtHo.Texts = dgvKhachHang.Rows[i].Cells[1].Value.ToString();
@@ -1030,6 +1033,7 @@ namespace GUI
             btnThem.Enabled = true;
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
+            checkQuyen(quyenKhachHang);
 
             loadMaKH();
             txtHo.Texts = "";
