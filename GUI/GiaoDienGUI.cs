@@ -190,7 +190,6 @@ namespace GUI
             allBtns.Add(pnQuanLyContainer);
             allBtns.Add(pnThongKeContainer);
             allBtns.Add(pnTaiKhoanContainer);
-            allBtns.Add(pnChucVuContainer);
         }
         private void GiaoDienGUI_Load(object sender, EventArgs e)
         {
@@ -793,7 +792,7 @@ namespace GUI
                 clickedButton.BackColor = Color.White;
                 pnLeftBorderChucVu.BackColor = Color.FromArgb(58, 191, 186);
                 // Mở form con tương ứng (KhachHangGUI)
-                openChildForm(new ChucVuGUI());
+                openChildForm(new ChucVuGUI(pq.IsChucVu));
             }
         }
         private void btnDangXuat_Click(object sender, EventArgs e)

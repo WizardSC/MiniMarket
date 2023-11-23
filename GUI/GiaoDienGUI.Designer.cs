@@ -32,54 +32,38 @@
             this.pnSidebar = new System.Windows.Forms.Panel();
             this.pnMainMenu = new System.Windows.Forms.Panel();
             this.pnChucVu = new System.Windows.Forms.Panel();
-            this.pnChucVuContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderChucVu = new System.Windows.Forms.Panel();
             this.pnTaiKhoan = new System.Windows.Forms.Panel();
-            this.pnTaiKhoanContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderTaiKhoan = new System.Windows.Forms.Panel();
             this.pnThongKe = new System.Windows.Forms.Panel();
-            this.pnThongKeContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderThongKe = new System.Windows.Forms.Panel();
             this.pnSubQuanLy = new System.Windows.Forms.Panel();
             this.pnNhaCungCap = new System.Windows.Forms.Panel();
-            this.pnNhaCCContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderNhaCC = new System.Windows.Forms.Panel();
             this.pnKhuyenMai = new System.Windows.Forms.Panel();
-            this.pnKhuyenMaiContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderKhuyenMai = new System.Windows.Forms.Panel();
             this.pnNhaSanXuat = new System.Windows.Forms.Panel();
-            this.pnNhaSanXuatContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderNSX = new System.Windows.Forms.Panel();
             this.pnDanhMuc = new System.Windows.Forms.Panel();
-            this.pnDanhMucContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderDanhMuc = new System.Windows.Forms.Panel();
             this.pnSanPham = new System.Windows.Forms.Panel();
-            this.pnSanPhamContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderSanPham = new System.Windows.Forms.Panel();
             this.pnKhachHang = new System.Windows.Forms.Panel();
-            this.pnKhachHangContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderKhachHang = new System.Windows.Forms.Panel();
             this.pnNhanVien = new System.Windows.Forms.Panel();
-            this.pnNhanVienContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderNhanVien = new System.Windows.Forms.Panel();
             this.pnQuanLy = new System.Windows.Forms.Panel();
-            this.pnQuanLyContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderQuanLy = new System.Windows.Forms.Panel();
             this.pnSubHangHoa = new System.Windows.Forms.Panel();
             this.pnPhieuNhap = new System.Windows.Forms.Panel();
-            this.pnPhieuNhapContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderPhieuNhap = new System.Windows.Forms.Panel();
             this.pnNhapHang = new System.Windows.Forms.Panel();
-            this.pnNhapHangContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderNhapHang = new System.Windows.Forms.Panel();
             this.pnHoaDon = new System.Windows.Forms.Panel();
-            this.pnHoaDonContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderHoaDon = new System.Windows.Forms.Panel();
             this.pnBanHang = new System.Windows.Forms.Panel();
-            this.pnBanHangContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderBanHang = new System.Windows.Forms.Panel();
             this.pnHangHoa = new System.Windows.Forms.Panel();
-            this.pnHangHoaContainer = new GUI.MyCustom.RJButton();
             this.pnLeftBorderHangHoa = new System.Windows.Forms.Panel();
             this.pnMenu = new System.Windows.Forms.Panel();
             this.pnThongTinTK = new System.Windows.Forms.Panel();
@@ -87,15 +71,31 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblChucVu = new System.Windows.Forms.Label();
             this.lblHoTenNV = new System.Windows.Forms.Label();
-            this.btnDangXuat = new GUI.MyCustom.RJButton();
             this.pnImage = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnHeader = new System.Windows.Forms.Panel();
-            this.btnMinimize = new GUI.MyCustom.RJButton();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnClose = new GUI.MyCustom.RJButton();
             this.pnForm = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pnTaiKhoanContainer = new GUI.MyCustom.RJButton();
+            this.pnThongKeContainer = new GUI.MyCustom.RJButton();
+            this.pnChucVuContainer = new GUI.MyCustom.RJButton();
+            this.pnNhaCCContainer = new GUI.MyCustom.RJButton();
+            this.pnKhuyenMaiContainer = new GUI.MyCustom.RJButton();
+            this.pnNhaSanXuatContainer = new GUI.MyCustom.RJButton();
+            this.pnDanhMucContainer = new GUI.MyCustom.RJButton();
+            this.pnSanPhamContainer = new GUI.MyCustom.RJButton();
+            this.pnKhachHangContainer = new GUI.MyCustom.RJButton();
+            this.pnNhanVienContainer = new GUI.MyCustom.RJButton();
+            this.pnQuanLyContainer = new GUI.MyCustom.RJButton();
+            this.pnPhieuNhapContainer = new GUI.MyCustom.RJButton();
+            this.pnNhapHangContainer = new GUI.MyCustom.RJButton();
+            this.pnHoaDonContainer = new GUI.MyCustom.RJButton();
+            this.pnBanHangContainer = new GUI.MyCustom.RJButton();
+            this.pnHangHoaContainer = new GUI.MyCustom.RJButton();
+            this.btnDangXuat = new GUI.MyCustom.RJButton();
+            this.btnMinimize = new GUI.MyCustom.RJButton();
+            this.btnClose = new GUI.MyCustom.RJButton();
             this.pnSidebar.SuspendLayout();
             this.pnMainMenu.SuspendLayout();
             this.pnChucVu.SuspendLayout();
@@ -141,7 +141,6 @@
             // 
             this.pnMainMenu.AutoScroll = true;
             this.pnMainMenu.AutoSize = true;
-            this.pnMainMenu.Controls.Add(this.pnChucVu);
             this.pnMainMenu.Controls.Add(this.pnTaiKhoan);
             this.pnMainMenu.Controls.Add(this.pnThongKe);
             this.pnMainMenu.Controls.Add(this.pnSubQuanLy);
@@ -159,37 +158,11 @@
             this.pnChucVu.Controls.Add(this.pnChucVuContainer);
             this.pnChucVu.Controls.Add(this.pnLeftBorderChucVu);
             this.pnChucVu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnChucVu.Location = new System.Drawing.Point(0, 750);
+            this.pnChucVu.Location = new System.Drawing.Point(0, 350);
             this.pnChucVu.Name = "pnChucVu";
             this.pnChucVu.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.pnChucVu.Size = new System.Drawing.Size(165, 50);
             this.pnChucVu.TabIndex = 7;
-            // 
-            // pnChucVuContainer
-            // 
-            this.pnChucVuContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnChucVuContainer.BackgroundColor = System.Drawing.Color.Transparent;
-            this.pnChucVuContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.pnChucVuContainer.BorderRadius = 0;
-            this.pnChucVuContainer.BorderSize = 0;
-            this.pnChucVuContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnChucVuContainer.FlatAppearance.BorderSize = 0;
-            this.pnChucVuContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.pnChucVuContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pnChucVuContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnChucVuContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnChucVuContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnChucVuContainer.Image")));
-            this.pnChucVuContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnChucVuContainer.Location = new System.Drawing.Point(8, 0);
-            this.pnChucVuContainer.Name = "pnChucVuContainer";
-            this.pnChucVuContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnChucVuContainer.Size = new System.Drawing.Size(157, 40);
-            this.pnChucVuContainer.TabIndex = 2;
-            this.pnChucVuContainer.Text = "         Chức Vụ";
-            this.pnChucVuContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnChucVuContainer.TextColor = System.Drawing.Color.Black;
-            this.pnChucVuContainer.UseVisualStyleBackColor = false;
-            this.pnChucVuContainer.Click += new System.EventHandler(this.pnChucVuContainer_Click);
             // 
             // pnLeftBorderChucVu
             // 
@@ -205,37 +178,11 @@
             this.pnTaiKhoan.Controls.Add(this.pnTaiKhoanContainer);
             this.pnTaiKhoan.Controls.Add(this.pnLeftBorderTaiKhoan);
             this.pnTaiKhoan.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnTaiKhoan.Location = new System.Drawing.Point(0, 700);
+            this.pnTaiKhoan.Location = new System.Drawing.Point(0, 750);
             this.pnTaiKhoan.Name = "pnTaiKhoan";
             this.pnTaiKhoan.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.pnTaiKhoan.Size = new System.Drawing.Size(165, 50);
             this.pnTaiKhoan.TabIndex = 6;
-            // 
-            // pnTaiKhoanContainer
-            // 
-            this.pnTaiKhoanContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnTaiKhoanContainer.BackgroundColor = System.Drawing.Color.Transparent;
-            this.pnTaiKhoanContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.pnTaiKhoanContainer.BorderRadius = 0;
-            this.pnTaiKhoanContainer.BorderSize = 0;
-            this.pnTaiKhoanContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnTaiKhoanContainer.FlatAppearance.BorderSize = 0;
-            this.pnTaiKhoanContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.pnTaiKhoanContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pnTaiKhoanContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnTaiKhoanContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnTaiKhoanContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnTaiKhoanContainer.Image")));
-            this.pnTaiKhoanContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnTaiKhoanContainer.Location = new System.Drawing.Point(8, 0);
-            this.pnTaiKhoanContainer.Name = "pnTaiKhoanContainer";
-            this.pnTaiKhoanContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnTaiKhoanContainer.Size = new System.Drawing.Size(157, 40);
-            this.pnTaiKhoanContainer.TabIndex = 2;
-            this.pnTaiKhoanContainer.Text = "         Tài khoản";
-            this.pnTaiKhoanContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnTaiKhoanContainer.TextColor = System.Drawing.Color.Black;
-            this.pnTaiKhoanContainer.UseVisualStyleBackColor = false;
-            this.pnTaiKhoanContainer.Click += new System.EventHandler(this.pnTaiKhoanContainer_Click);
             // 
             // pnLeftBorderTaiKhoan
             // 
@@ -251,37 +198,11 @@
             this.pnThongKe.Controls.Add(this.pnThongKeContainer);
             this.pnThongKe.Controls.Add(this.pnLeftBorderThongKe);
             this.pnThongKe.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnThongKe.Location = new System.Drawing.Point(0, 650);
+            this.pnThongKe.Location = new System.Drawing.Point(0, 700);
             this.pnThongKe.Name = "pnThongKe";
             this.pnThongKe.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.pnThongKe.Size = new System.Drawing.Size(165, 50);
             this.pnThongKe.TabIndex = 5;
-            // 
-            // pnThongKeContainer
-            // 
-            this.pnThongKeContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnThongKeContainer.BackgroundColor = System.Drawing.Color.Transparent;
-            this.pnThongKeContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.pnThongKeContainer.BorderRadius = 0;
-            this.pnThongKeContainer.BorderSize = 0;
-            this.pnThongKeContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnThongKeContainer.FlatAppearance.BorderSize = 0;
-            this.pnThongKeContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.pnThongKeContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pnThongKeContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnThongKeContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnThongKeContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnThongKeContainer.Image")));
-            this.pnThongKeContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnThongKeContainer.Location = new System.Drawing.Point(8, 0);
-            this.pnThongKeContainer.Name = "pnThongKeContainer";
-            this.pnThongKeContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnThongKeContainer.Size = new System.Drawing.Size(157, 40);
-            this.pnThongKeContainer.TabIndex = 2;
-            this.pnThongKeContainer.Text = "         Thống kê";
-            this.pnThongKeContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnThongKeContainer.TextColor = System.Drawing.Color.Black;
-            this.pnThongKeContainer.UseVisualStyleBackColor = false;
-            this.pnThongKeContainer.Click += new System.EventHandler(this.pnThongKeContainer_Click);
             // 
             // pnLeftBorderThongKe
             // 
@@ -295,6 +216,7 @@
             // pnSubQuanLy
             // 
             this.pnSubQuanLy.AutoSize = true;
+            this.pnSubQuanLy.Controls.Add(this.pnChucVu);
             this.pnSubQuanLy.Controls.Add(this.pnNhaCungCap);
             this.pnSubQuanLy.Controls.Add(this.pnKhuyenMai);
             this.pnSubQuanLy.Controls.Add(this.pnNhaSanXuat);
@@ -305,7 +227,7 @@
             this.pnSubQuanLy.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnSubQuanLy.Location = new System.Drawing.Point(0, 300);
             this.pnSubQuanLy.Name = "pnSubQuanLy";
-            this.pnSubQuanLy.Size = new System.Drawing.Size(165, 350);
+            this.pnSubQuanLy.Size = new System.Drawing.Size(165, 400);
             this.pnSubQuanLy.TabIndex = 3;
             this.pnSubQuanLy.Visible = false;
             // 
@@ -319,32 +241,6 @@
             this.pnNhaCungCap.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.pnNhaCungCap.Size = new System.Drawing.Size(165, 50);
             this.pnNhaCungCap.TabIndex = 9;
-            // 
-            // pnNhaCCContainer
-            // 
-            this.pnNhaCCContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnNhaCCContainer.BackgroundColor = System.Drawing.Color.Transparent;
-            this.pnNhaCCContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.pnNhaCCContainer.BorderRadius = 0;
-            this.pnNhaCCContainer.BorderSize = 0;
-            this.pnNhaCCContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnNhaCCContainer.FlatAppearance.BorderSize = 0;
-            this.pnNhaCCContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.pnNhaCCContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pnNhaCCContainer.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnNhaCCContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnNhaCCContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnNhaCCContainer.Image")));
-            this.pnNhaCCContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnNhaCCContainer.Location = new System.Drawing.Point(8, 0);
-            this.pnNhaCCContainer.Name = "pnNhaCCContainer";
-            this.pnNhaCCContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnNhaCCContainer.Size = new System.Drawing.Size(157, 40);
-            this.pnNhaCCContainer.TabIndex = 3;
-            this.pnNhaCCContainer.Text = "         Nhà cung cấp";
-            this.pnNhaCCContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnNhaCCContainer.TextColor = System.Drawing.Color.Black;
-            this.pnNhaCCContainer.UseVisualStyleBackColor = false;
-            this.pnNhaCCContainer.Click += new System.EventHandler(this.pnNhaCCContainer_Click);
             // 
             // pnLeftBorderNhaCC
             // 
@@ -366,32 +262,6 @@
             this.pnKhuyenMai.Size = new System.Drawing.Size(165, 50);
             this.pnKhuyenMai.TabIndex = 8;
             // 
-            // pnKhuyenMaiContainer
-            // 
-            this.pnKhuyenMaiContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnKhuyenMaiContainer.BackgroundColor = System.Drawing.Color.Transparent;
-            this.pnKhuyenMaiContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.pnKhuyenMaiContainer.BorderRadius = 0;
-            this.pnKhuyenMaiContainer.BorderSize = 0;
-            this.pnKhuyenMaiContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnKhuyenMaiContainer.FlatAppearance.BorderSize = 0;
-            this.pnKhuyenMaiContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.pnKhuyenMaiContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pnKhuyenMaiContainer.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnKhuyenMaiContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnKhuyenMaiContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnKhuyenMaiContainer.Image")));
-            this.pnKhuyenMaiContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnKhuyenMaiContainer.Location = new System.Drawing.Point(8, 0);
-            this.pnKhuyenMaiContainer.Name = "pnKhuyenMaiContainer";
-            this.pnKhuyenMaiContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnKhuyenMaiContainer.Size = new System.Drawing.Size(157, 40);
-            this.pnKhuyenMaiContainer.TabIndex = 3;
-            this.pnKhuyenMaiContainer.Text = "         Khuyến mãi";
-            this.pnKhuyenMaiContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnKhuyenMaiContainer.TextColor = System.Drawing.Color.Black;
-            this.pnKhuyenMaiContainer.UseVisualStyleBackColor = false;
-            this.pnKhuyenMaiContainer.Click += new System.EventHandler(this.pnKhuyenMaiContainer_Click);
-            // 
             // pnLeftBorderKhuyenMai
             // 
             this.pnLeftBorderKhuyenMai.BackColor = System.Drawing.Color.Transparent;
@@ -411,32 +281,6 @@
             this.pnNhaSanXuat.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.pnNhaSanXuat.Size = new System.Drawing.Size(165, 50);
             this.pnNhaSanXuat.TabIndex = 7;
-            // 
-            // pnNhaSanXuatContainer
-            // 
-            this.pnNhaSanXuatContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnNhaSanXuatContainer.BackgroundColor = System.Drawing.Color.Transparent;
-            this.pnNhaSanXuatContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.pnNhaSanXuatContainer.BorderRadius = 0;
-            this.pnNhaSanXuatContainer.BorderSize = 0;
-            this.pnNhaSanXuatContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnNhaSanXuatContainer.FlatAppearance.BorderSize = 0;
-            this.pnNhaSanXuatContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.pnNhaSanXuatContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pnNhaSanXuatContainer.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnNhaSanXuatContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnNhaSanXuatContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnNhaSanXuatContainer.Image")));
-            this.pnNhaSanXuatContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnNhaSanXuatContainer.Location = new System.Drawing.Point(8, 0);
-            this.pnNhaSanXuatContainer.Name = "pnNhaSanXuatContainer";
-            this.pnNhaSanXuatContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnNhaSanXuatContainer.Size = new System.Drawing.Size(157, 40);
-            this.pnNhaSanXuatContainer.TabIndex = 3;
-            this.pnNhaSanXuatContainer.Text = "         Nhà sản xuất";
-            this.pnNhaSanXuatContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnNhaSanXuatContainer.TextColor = System.Drawing.Color.Black;
-            this.pnNhaSanXuatContainer.UseVisualStyleBackColor = false;
-            this.pnNhaSanXuatContainer.Click += new System.EventHandler(this.pnNhaSanXuat_Click);
             // 
             // pnLeftBorderNSX
             // 
@@ -458,32 +302,6 @@
             this.pnDanhMuc.Size = new System.Drawing.Size(165, 50);
             this.pnDanhMuc.TabIndex = 6;
             // 
-            // pnDanhMucContainer
-            // 
-            this.pnDanhMucContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnDanhMucContainer.BackgroundColor = System.Drawing.Color.Transparent;
-            this.pnDanhMucContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.pnDanhMucContainer.BorderRadius = 0;
-            this.pnDanhMucContainer.BorderSize = 0;
-            this.pnDanhMucContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnDanhMucContainer.FlatAppearance.BorderSize = 0;
-            this.pnDanhMucContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.pnDanhMucContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pnDanhMucContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnDanhMucContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnDanhMucContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnDanhMucContainer.Image")));
-            this.pnDanhMucContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnDanhMucContainer.Location = new System.Drawing.Point(8, 0);
-            this.pnDanhMucContainer.Name = "pnDanhMucContainer";
-            this.pnDanhMucContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnDanhMucContainer.Size = new System.Drawing.Size(157, 40);
-            this.pnDanhMucContainer.TabIndex = 3;
-            this.pnDanhMucContainer.Text = "         Danh mục";
-            this.pnDanhMucContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnDanhMucContainer.TextColor = System.Drawing.Color.Black;
-            this.pnDanhMucContainer.UseVisualStyleBackColor = false;
-            this.pnDanhMucContainer.Click += new System.EventHandler(this.pnDanhMuc_Click);
-            // 
             // pnLeftBorderDanhMuc
             // 
             this.pnLeftBorderDanhMuc.BackColor = System.Drawing.Color.Transparent;
@@ -503,32 +321,6 @@
             this.pnSanPham.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.pnSanPham.Size = new System.Drawing.Size(165, 50);
             this.pnSanPham.TabIndex = 5;
-            // 
-            // pnSanPhamContainer
-            // 
-            this.pnSanPhamContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnSanPhamContainer.BackgroundColor = System.Drawing.Color.Transparent;
-            this.pnSanPhamContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.pnSanPhamContainer.BorderRadius = 0;
-            this.pnSanPhamContainer.BorderSize = 0;
-            this.pnSanPhamContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnSanPhamContainer.FlatAppearance.BorderSize = 0;
-            this.pnSanPhamContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.pnSanPhamContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pnSanPhamContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnSanPhamContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnSanPhamContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnSanPhamContainer.Image")));
-            this.pnSanPhamContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnSanPhamContainer.Location = new System.Drawing.Point(8, 0);
-            this.pnSanPhamContainer.Name = "pnSanPhamContainer";
-            this.pnSanPhamContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnSanPhamContainer.Size = new System.Drawing.Size(157, 40);
-            this.pnSanPhamContainer.TabIndex = 3;
-            this.pnSanPhamContainer.Text = "         Sản phẩm";
-            this.pnSanPhamContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnSanPhamContainer.TextColor = System.Drawing.Color.Black;
-            this.pnSanPhamContainer.UseVisualStyleBackColor = false;
-            this.pnSanPhamContainer.Click += new System.EventHandler(this.pnSanPhamContainer_Click);
             // 
             // pnLeftBorderSanPham
             // 
@@ -550,32 +342,6 @@
             this.pnKhachHang.Size = new System.Drawing.Size(165, 50);
             this.pnKhachHang.TabIndex = 4;
             // 
-            // pnKhachHangContainer
-            // 
-            this.pnKhachHangContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnKhachHangContainer.BackgroundColor = System.Drawing.Color.Transparent;
-            this.pnKhachHangContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.pnKhachHangContainer.BorderRadius = 0;
-            this.pnKhachHangContainer.BorderSize = 0;
-            this.pnKhachHangContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnKhachHangContainer.FlatAppearance.BorderSize = 0;
-            this.pnKhachHangContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.pnKhachHangContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pnKhachHangContainer.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnKhachHangContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnKhachHangContainer.Image = global::GUI.Properties.Resources.icons8_customer_32;
-            this.pnKhachHangContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnKhachHangContainer.Location = new System.Drawing.Point(8, 0);
-            this.pnKhachHangContainer.Name = "pnKhachHangContainer";
-            this.pnKhachHangContainer.Padding = new System.Windows.Forms.Padding(3, 0, 10, 0);
-            this.pnKhachHangContainer.Size = new System.Drawing.Size(157, 40);
-            this.pnKhachHangContainer.TabIndex = 2;
-            this.pnKhachHangContainer.Text = "         Khách hàng";
-            this.pnKhachHangContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnKhachHangContainer.TextColor = System.Drawing.Color.Black;
-            this.pnKhachHangContainer.UseVisualStyleBackColor = false;
-            this.pnKhachHangContainer.Click += new System.EventHandler(this.pnKhachHangContainer_Click);
-            // 
             // pnLeftBorderKhachHang
             // 
             this.pnLeftBorderKhachHang.BackColor = System.Drawing.Color.Transparent;
@@ -595,32 +361,6 @@
             this.pnNhanVien.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.pnNhanVien.Size = new System.Drawing.Size(165, 50);
             this.pnNhanVien.TabIndex = 3;
-            // 
-            // pnNhanVienContainer
-            // 
-            this.pnNhanVienContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnNhanVienContainer.BackgroundColor = System.Drawing.Color.Transparent;
-            this.pnNhanVienContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.pnNhanVienContainer.BorderRadius = 0;
-            this.pnNhanVienContainer.BorderSize = 0;
-            this.pnNhanVienContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnNhanVienContainer.FlatAppearance.BorderSize = 0;
-            this.pnNhanVienContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.pnNhanVienContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pnNhanVienContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnNhanVienContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnNhanVienContainer.Image = global::GUI.Properties.Resources.icons8_employee_32;
-            this.pnNhanVienContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnNhanVienContainer.Location = new System.Drawing.Point(8, 0);
-            this.pnNhanVienContainer.Name = "pnNhanVienContainer";
-            this.pnNhanVienContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnNhanVienContainer.Size = new System.Drawing.Size(157, 40);
-            this.pnNhanVienContainer.TabIndex = 2;
-            this.pnNhanVienContainer.Text = "         Nhân viên";
-            this.pnNhanVienContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnNhanVienContainer.TextColor = System.Drawing.Color.Black;
-            this.pnNhanVienContainer.UseVisualStyleBackColor = false;
-            this.pnNhanVienContainer.Click += new System.EventHandler(this.pnNhanVienContainer_Click);
             // 
             // pnLeftBorderNhanVien
             // 
@@ -642,32 +382,6 @@
             this.pnQuanLy.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.pnQuanLy.Size = new System.Drawing.Size(165, 50);
             this.pnQuanLy.TabIndex = 2;
-            // 
-            // pnQuanLyContainer
-            // 
-            this.pnQuanLyContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnQuanLyContainer.BackgroundColor = System.Drawing.Color.Transparent;
-            this.pnQuanLyContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.pnQuanLyContainer.BorderRadius = 0;
-            this.pnQuanLyContainer.BorderSize = 0;
-            this.pnQuanLyContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnQuanLyContainer.FlatAppearance.BorderSize = 0;
-            this.pnQuanLyContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.pnQuanLyContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pnQuanLyContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnQuanLyContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnQuanLyContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnQuanLyContainer.Image")));
-            this.pnQuanLyContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnQuanLyContainer.Location = new System.Drawing.Point(8, 0);
-            this.pnQuanLyContainer.Name = "pnQuanLyContainer";
-            this.pnQuanLyContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnQuanLyContainer.Size = new System.Drawing.Size(157, 40);
-            this.pnQuanLyContainer.TabIndex = 1;
-            this.pnQuanLyContainer.Text = "         Quản lý";
-            this.pnQuanLyContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnQuanLyContainer.TextColor = System.Drawing.Color.Black;
-            this.pnQuanLyContainer.UseVisualStyleBackColor = false;
-            this.pnQuanLyContainer.Click += new System.EventHandler(this.pnQuanLyContainer_Click);
             // 
             // pnLeftBorderQuanLy
             // 
@@ -703,32 +417,6 @@
             this.pnPhieuNhap.Size = new System.Drawing.Size(165, 50);
             this.pnPhieuNhap.TabIndex = 9;
             // 
-            // pnPhieuNhapContainer
-            // 
-            this.pnPhieuNhapContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnPhieuNhapContainer.BackgroundColor = System.Drawing.Color.Transparent;
-            this.pnPhieuNhapContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.pnPhieuNhapContainer.BorderRadius = 0;
-            this.pnPhieuNhapContainer.BorderSize = 0;
-            this.pnPhieuNhapContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnPhieuNhapContainer.FlatAppearance.BorderSize = 0;
-            this.pnPhieuNhapContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.pnPhieuNhapContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pnPhieuNhapContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnPhieuNhapContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnPhieuNhapContainer.Image = global::GUI.Properties.Resources.icons8_purchase_order_32;
-            this.pnPhieuNhapContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnPhieuNhapContainer.Location = new System.Drawing.Point(8, 0);
-            this.pnPhieuNhapContainer.Name = "pnPhieuNhapContainer";
-            this.pnPhieuNhapContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnPhieuNhapContainer.Size = new System.Drawing.Size(157, 40);
-            this.pnPhieuNhapContainer.TabIndex = 3;
-            this.pnPhieuNhapContainer.Text = "         Phiếu nhập";
-            this.pnPhieuNhapContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnPhieuNhapContainer.TextColor = System.Drawing.Color.Black;
-            this.pnPhieuNhapContainer.UseVisualStyleBackColor = false;
-            this.pnPhieuNhapContainer.Click += new System.EventHandler(this.pnPhieuNhapContainer_Click);
-            // 
             // pnLeftBorderPhieuNhap
             // 
             this.pnLeftBorderPhieuNhap.BackColor = System.Drawing.Color.Transparent;
@@ -748,31 +436,6 @@
             this.pnNhapHang.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.pnNhapHang.Size = new System.Drawing.Size(165, 50);
             this.pnNhapHang.TabIndex = 8;
-            // 
-            // pnNhapHangContainer
-            // 
-            this.pnNhapHangContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnNhapHangContainer.BackgroundColor = System.Drawing.Color.Transparent;
-            this.pnNhapHangContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.pnNhapHangContainer.BorderRadius = 0;
-            this.pnNhapHangContainer.BorderSize = 0;
-            this.pnNhapHangContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnNhapHangContainer.FlatAppearance.BorderSize = 0;
-            this.pnNhapHangContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.pnNhapHangContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pnNhapHangContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnNhapHangContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnNhapHangContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnNhapHangContainer.Image")));
-            this.pnNhapHangContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnNhapHangContainer.Location = new System.Drawing.Point(8, 0);
-            this.pnNhapHangContainer.Name = "pnNhapHangContainer";
-            this.pnNhapHangContainer.Size = new System.Drawing.Size(157, 40);
-            this.pnNhapHangContainer.TabIndex = 3;
-            this.pnNhapHangContainer.Text = "         Nhập hàng";
-            this.pnNhapHangContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnNhapHangContainer.TextColor = System.Drawing.Color.Black;
-            this.pnNhapHangContainer.UseVisualStyleBackColor = false;
-            this.pnNhapHangContainer.Click += new System.EventHandler(this.pnNhapHangContainer_Click);
             // 
             // pnLeftBorderNhapHang
             // 
@@ -794,32 +457,6 @@
             this.pnHoaDon.Size = new System.Drawing.Size(165, 50);
             this.pnHoaDon.TabIndex = 7;
             // 
-            // pnHoaDonContainer
-            // 
-            this.pnHoaDonContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnHoaDonContainer.BackgroundColor = System.Drawing.Color.Transparent;
-            this.pnHoaDonContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.pnHoaDonContainer.BorderRadius = 0;
-            this.pnHoaDonContainer.BorderSize = 0;
-            this.pnHoaDonContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnHoaDonContainer.FlatAppearance.BorderSize = 0;
-            this.pnHoaDonContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.pnHoaDonContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pnHoaDonContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnHoaDonContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnHoaDonContainer.Image = global::GUI.Properties.Resources.icons8_invoice_32;
-            this.pnHoaDonContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnHoaDonContainer.Location = new System.Drawing.Point(8, 0);
-            this.pnHoaDonContainer.Name = "pnHoaDonContainer";
-            this.pnHoaDonContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnHoaDonContainer.Size = new System.Drawing.Size(157, 40);
-            this.pnHoaDonContainer.TabIndex = 3;
-            this.pnHoaDonContainer.Text = "         Hóa đơn";
-            this.pnHoaDonContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnHoaDonContainer.TextColor = System.Drawing.Color.Black;
-            this.pnHoaDonContainer.UseVisualStyleBackColor = false;
-            this.pnHoaDonContainer.Click += new System.EventHandler(this.pnHoaDonContainer_Click);
-            // 
             // pnLeftBorderHoaDon
             // 
             this.pnLeftBorderHoaDon.BackColor = System.Drawing.Color.Transparent;
@@ -840,32 +477,6 @@
             this.pnBanHang.Size = new System.Drawing.Size(165, 50);
             this.pnBanHang.TabIndex = 6;
             // 
-            // pnBanHangContainer
-            // 
-            this.pnBanHangContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnBanHangContainer.BackgroundColor = System.Drawing.Color.Transparent;
-            this.pnBanHangContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.pnBanHangContainer.BorderRadius = 0;
-            this.pnBanHangContainer.BorderSize = 0;
-            this.pnBanHangContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnBanHangContainer.FlatAppearance.BorderSize = 0;
-            this.pnBanHangContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.pnBanHangContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pnBanHangContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnBanHangContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnBanHangContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnBanHangContainer.Image")));
-            this.pnBanHangContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnBanHangContainer.Location = new System.Drawing.Point(8, 0);
-            this.pnBanHangContainer.Name = "pnBanHangContainer";
-            this.pnBanHangContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnBanHangContainer.Size = new System.Drawing.Size(157, 40);
-            this.pnBanHangContainer.TabIndex = 3;
-            this.pnBanHangContainer.Text = "         Bán hàng";
-            this.pnBanHangContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnBanHangContainer.TextColor = System.Drawing.Color.Black;
-            this.pnBanHangContainer.UseVisualStyleBackColor = false;
-            this.pnBanHangContainer.Click += new System.EventHandler(this.pnBanHangContainer_Click);
-            // 
             // pnLeftBorderBanHang
             // 
             this.pnLeftBorderBanHang.BackColor = System.Drawing.Color.Transparent;
@@ -885,32 +496,6 @@
             this.pnHangHoa.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.pnHangHoa.Size = new System.Drawing.Size(165, 50);
             this.pnHangHoa.TabIndex = 1;
-            // 
-            // pnHangHoaContainer
-            // 
-            this.pnHangHoaContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnHangHoaContainer.BackgroundColor = System.Drawing.Color.Transparent;
-            this.pnHangHoaContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.pnHangHoaContainer.BorderRadius = 0;
-            this.pnHangHoaContainer.BorderSize = 0;
-            this.pnHangHoaContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnHangHoaContainer.FlatAppearance.BorderSize = 0;
-            this.pnHangHoaContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.pnHangHoaContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pnHangHoaContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnHangHoaContainer.ForeColor = System.Drawing.Color.Black;
-            this.pnHangHoaContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnHangHoaContainer.Image")));
-            this.pnHangHoaContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnHangHoaContainer.Location = new System.Drawing.Point(8, 0);
-            this.pnHangHoaContainer.Name = "pnHangHoaContainer";
-            this.pnHangHoaContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.pnHangHoaContainer.Size = new System.Drawing.Size(157, 40);
-            this.pnHangHoaContainer.TabIndex = 2;
-            this.pnHangHoaContainer.Text = "         Hàng hóa";
-            this.pnHangHoaContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pnHangHoaContainer.TextColor = System.Drawing.Color.Black;
-            this.pnHangHoaContainer.UseVisualStyleBackColor = false;
-            this.pnHangHoaContainer.Click += new System.EventHandler(this.pnHangHoaContainer_Click);
             // 
             // pnLeftBorderHangHoa
             // 
@@ -984,31 +569,6 @@
             this.lblHoTenNV.Text = "Huỳnh Phúc Toàn";
             this.lblHoTenNV.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnDangXuat
-            // 
-            this.btnDangXuat.BackColor = System.Drawing.Color.Transparent;
-            this.btnDangXuat.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnDangXuat.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnDangXuat.BorderRadius = 0;
-            this.btnDangXuat.BorderSize = 0;
-            this.btnDangXuat.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnDangXuat.FlatAppearance.BorderSize = 0;
-            this.btnDangXuat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDangXuat.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDangXuat.ForeColor = System.Drawing.Color.Black;
-            this.btnDangXuat.Image = global::GUI.Properties.Resources.icons8_logout_32;
-            this.btnDangXuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDangXuat.Location = new System.Drawing.Point(0, 51);
-            this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.btnDangXuat.Size = new System.Drawing.Size(182, 40);
-            this.btnDangXuat.TabIndex = 4;
-            this.btnDangXuat.Text = "Đăng xuất";
-            this.btnDangXuat.TextColor = System.Drawing.Color.Black;
-            this.btnDangXuat.UseVisualStyleBackColor = false;
-            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
-            // 
             // pnImage
             // 
             this.pnImage.Controls.Add(this.pictureBox1);
@@ -1041,28 +601,6 @@
             this.pnHeader.Size = new System.Drawing.Size(1364, 35);
             this.pnHeader.TabIndex = 3;
             // 
-            // btnMinimize
-            // 
-            this.btnMinimize.BackColor = System.Drawing.Color.Transparent;
-            this.btnMinimize.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnMinimize.BorderColor = System.Drawing.Color.Transparent;
-            this.btnMinimize.BorderRadius = 0;
-            this.btnMinimize.BorderSize = 0;
-            this.btnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnMinimize.FlatAppearance.BorderSize = 0;
-            this.btnMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimize.ForeColor = System.Drawing.Color.White;
-            this.btnMinimize.Image = global::GUI.Properties.Resources.icons8_minimize_32__1_;
-            this.btnMinimize.Location = new System.Drawing.Point(1272, 0);
-            this.btnMinimize.Margin = new System.Windows.Forms.Padding(2);
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(43, 35);
-            this.btnMinimize.TabIndex = 2;
-            this.btnMinimize.TextColor = System.Drawing.Color.White;
-            this.btnMinimize.UseVisualStyleBackColor = false;
-            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
-            // 
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
@@ -1070,28 +608,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(6, 35);
             this.panel2.TabIndex = 4;
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.Transparent;
-            this.btnClose.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnClose.BorderColor = System.Drawing.Color.Transparent;
-            this.btnClose.BorderRadius = 0;
-            this.btnClose.BorderSize = 0;
-            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Image = global::GUI.Properties.Resources.icons8_close_32;
-            this.btnClose.Location = new System.Drawing.Point(1321, 0);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(43, 35);
-            this.btnClose.TabIndex = 1;
-            this.btnClose.TextColor = System.Drawing.Color.White;
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // pnForm
             // 
@@ -1116,6 +632,490 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1366, 775);
             this.panel3.TabIndex = 0;
+            // 
+            // pnTaiKhoanContainer
+            // 
+            this.pnTaiKhoanContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnTaiKhoanContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnTaiKhoanContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnTaiKhoanContainer.BorderRadius = 0;
+            this.pnTaiKhoanContainer.BorderSize = 0;
+            this.pnTaiKhoanContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnTaiKhoanContainer.FlatAppearance.BorderSize = 0;
+            this.pnTaiKhoanContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnTaiKhoanContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnTaiKhoanContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnTaiKhoanContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnTaiKhoanContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnTaiKhoanContainer.Image")));
+            this.pnTaiKhoanContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnTaiKhoanContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnTaiKhoanContainer.Name = "pnTaiKhoanContainer";
+            this.pnTaiKhoanContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnTaiKhoanContainer.Size = new System.Drawing.Size(157, 40);
+            this.pnTaiKhoanContainer.TabIndex = 2;
+            this.pnTaiKhoanContainer.Text = "         Tài khoản";
+            this.pnTaiKhoanContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnTaiKhoanContainer.TextColor = System.Drawing.Color.Black;
+            this.pnTaiKhoanContainer.UseVisualStyleBackColor = false;
+            this.pnTaiKhoanContainer.Click += new System.EventHandler(this.pnTaiKhoanContainer_Click);
+            // 
+            // pnThongKeContainer
+            // 
+            this.pnThongKeContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnThongKeContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnThongKeContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnThongKeContainer.BorderRadius = 0;
+            this.pnThongKeContainer.BorderSize = 0;
+            this.pnThongKeContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnThongKeContainer.FlatAppearance.BorderSize = 0;
+            this.pnThongKeContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnThongKeContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnThongKeContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnThongKeContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnThongKeContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnThongKeContainer.Image")));
+            this.pnThongKeContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnThongKeContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnThongKeContainer.Name = "pnThongKeContainer";
+            this.pnThongKeContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnThongKeContainer.Size = new System.Drawing.Size(157, 40);
+            this.pnThongKeContainer.TabIndex = 2;
+            this.pnThongKeContainer.Text = "         Thống kê";
+            this.pnThongKeContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnThongKeContainer.TextColor = System.Drawing.Color.Black;
+            this.pnThongKeContainer.UseVisualStyleBackColor = false;
+            this.pnThongKeContainer.Click += new System.EventHandler(this.pnThongKeContainer_Click);
+            // 
+            // pnChucVuContainer
+            // 
+            this.pnChucVuContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnChucVuContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnChucVuContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnChucVuContainer.BorderRadius = 0;
+            this.pnChucVuContainer.BorderSize = 0;
+            this.pnChucVuContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnChucVuContainer.FlatAppearance.BorderSize = 0;
+            this.pnChucVuContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnChucVuContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnChucVuContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnChucVuContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnChucVuContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnChucVuContainer.Image")));
+            this.pnChucVuContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnChucVuContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnChucVuContainer.Name = "pnChucVuContainer";
+            this.pnChucVuContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnChucVuContainer.Size = new System.Drawing.Size(157, 40);
+            this.pnChucVuContainer.TabIndex = 2;
+            this.pnChucVuContainer.Text = "         Chức vụ";
+            this.pnChucVuContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnChucVuContainer.TextColor = System.Drawing.Color.Black;
+            this.pnChucVuContainer.UseVisualStyleBackColor = false;
+            this.pnChucVuContainer.Click += new System.EventHandler(this.pnChucVuContainer_Click);
+            // 
+            // pnNhaCCContainer
+            // 
+            this.pnNhaCCContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnNhaCCContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnNhaCCContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnNhaCCContainer.BorderRadius = 0;
+            this.pnNhaCCContainer.BorderSize = 0;
+            this.pnNhaCCContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnNhaCCContainer.FlatAppearance.BorderSize = 0;
+            this.pnNhaCCContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnNhaCCContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnNhaCCContainer.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnNhaCCContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnNhaCCContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnNhaCCContainer.Image")));
+            this.pnNhaCCContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnNhaCCContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnNhaCCContainer.Name = "pnNhaCCContainer";
+            this.pnNhaCCContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnNhaCCContainer.Size = new System.Drawing.Size(157, 40);
+            this.pnNhaCCContainer.TabIndex = 3;
+            this.pnNhaCCContainer.Text = "         Nhà cung cấp";
+            this.pnNhaCCContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnNhaCCContainer.TextColor = System.Drawing.Color.Black;
+            this.pnNhaCCContainer.UseVisualStyleBackColor = false;
+            this.pnNhaCCContainer.Click += new System.EventHandler(this.pnNhaCCContainer_Click);
+            // 
+            // pnKhuyenMaiContainer
+            // 
+            this.pnKhuyenMaiContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnKhuyenMaiContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnKhuyenMaiContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnKhuyenMaiContainer.BorderRadius = 0;
+            this.pnKhuyenMaiContainer.BorderSize = 0;
+            this.pnKhuyenMaiContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnKhuyenMaiContainer.FlatAppearance.BorderSize = 0;
+            this.pnKhuyenMaiContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnKhuyenMaiContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnKhuyenMaiContainer.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnKhuyenMaiContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnKhuyenMaiContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnKhuyenMaiContainer.Image")));
+            this.pnKhuyenMaiContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnKhuyenMaiContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnKhuyenMaiContainer.Name = "pnKhuyenMaiContainer";
+            this.pnKhuyenMaiContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnKhuyenMaiContainer.Size = new System.Drawing.Size(157, 40);
+            this.pnKhuyenMaiContainer.TabIndex = 3;
+            this.pnKhuyenMaiContainer.Text = "         Khuyến mãi";
+            this.pnKhuyenMaiContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnKhuyenMaiContainer.TextColor = System.Drawing.Color.Black;
+            this.pnKhuyenMaiContainer.UseVisualStyleBackColor = false;
+            this.pnKhuyenMaiContainer.Click += new System.EventHandler(this.pnKhuyenMaiContainer_Click);
+            // 
+            // pnNhaSanXuatContainer
+            // 
+            this.pnNhaSanXuatContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnNhaSanXuatContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnNhaSanXuatContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnNhaSanXuatContainer.BorderRadius = 0;
+            this.pnNhaSanXuatContainer.BorderSize = 0;
+            this.pnNhaSanXuatContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnNhaSanXuatContainer.FlatAppearance.BorderSize = 0;
+            this.pnNhaSanXuatContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnNhaSanXuatContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnNhaSanXuatContainer.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnNhaSanXuatContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnNhaSanXuatContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnNhaSanXuatContainer.Image")));
+            this.pnNhaSanXuatContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnNhaSanXuatContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnNhaSanXuatContainer.Name = "pnNhaSanXuatContainer";
+            this.pnNhaSanXuatContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnNhaSanXuatContainer.Size = new System.Drawing.Size(157, 40);
+            this.pnNhaSanXuatContainer.TabIndex = 3;
+            this.pnNhaSanXuatContainer.Text = "         Nhà sản xuất";
+            this.pnNhaSanXuatContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnNhaSanXuatContainer.TextColor = System.Drawing.Color.Black;
+            this.pnNhaSanXuatContainer.UseVisualStyleBackColor = false;
+            this.pnNhaSanXuatContainer.Click += new System.EventHandler(this.pnNhaSanXuat_Click);
+            // 
+            // pnDanhMucContainer
+            // 
+            this.pnDanhMucContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnDanhMucContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnDanhMucContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnDanhMucContainer.BorderRadius = 0;
+            this.pnDanhMucContainer.BorderSize = 0;
+            this.pnDanhMucContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnDanhMucContainer.FlatAppearance.BorderSize = 0;
+            this.pnDanhMucContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnDanhMucContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnDanhMucContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnDanhMucContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnDanhMucContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnDanhMucContainer.Image")));
+            this.pnDanhMucContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnDanhMucContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnDanhMucContainer.Name = "pnDanhMucContainer";
+            this.pnDanhMucContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnDanhMucContainer.Size = new System.Drawing.Size(157, 40);
+            this.pnDanhMucContainer.TabIndex = 3;
+            this.pnDanhMucContainer.Text = "         Danh mục";
+            this.pnDanhMucContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnDanhMucContainer.TextColor = System.Drawing.Color.Black;
+            this.pnDanhMucContainer.UseVisualStyleBackColor = false;
+            this.pnDanhMucContainer.Click += new System.EventHandler(this.pnDanhMuc_Click);
+            // 
+            // pnSanPhamContainer
+            // 
+            this.pnSanPhamContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnSanPhamContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnSanPhamContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnSanPhamContainer.BorderRadius = 0;
+            this.pnSanPhamContainer.BorderSize = 0;
+            this.pnSanPhamContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnSanPhamContainer.FlatAppearance.BorderSize = 0;
+            this.pnSanPhamContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnSanPhamContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnSanPhamContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnSanPhamContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnSanPhamContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnSanPhamContainer.Image")));
+            this.pnSanPhamContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnSanPhamContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnSanPhamContainer.Name = "pnSanPhamContainer";
+            this.pnSanPhamContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnSanPhamContainer.Size = new System.Drawing.Size(157, 40);
+            this.pnSanPhamContainer.TabIndex = 3;
+            this.pnSanPhamContainer.Text = "         Sản phẩm";
+            this.pnSanPhamContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnSanPhamContainer.TextColor = System.Drawing.Color.Black;
+            this.pnSanPhamContainer.UseVisualStyleBackColor = false;
+            this.pnSanPhamContainer.Click += new System.EventHandler(this.pnSanPhamContainer_Click);
+            // 
+            // pnKhachHangContainer
+            // 
+            this.pnKhachHangContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnKhachHangContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnKhachHangContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnKhachHangContainer.BorderRadius = 0;
+            this.pnKhachHangContainer.BorderSize = 0;
+            this.pnKhachHangContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnKhachHangContainer.FlatAppearance.BorderSize = 0;
+            this.pnKhachHangContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnKhachHangContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnKhachHangContainer.Font = new System.Drawing.Font("Cambria", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnKhachHangContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnKhachHangContainer.Image = global::GUI.Properties.Resources.icons8_customer_32;
+            this.pnKhachHangContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnKhachHangContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnKhachHangContainer.Name = "pnKhachHangContainer";
+            this.pnKhachHangContainer.Padding = new System.Windows.Forms.Padding(3, 0, 10, 0);
+            this.pnKhachHangContainer.Size = new System.Drawing.Size(157, 40);
+            this.pnKhachHangContainer.TabIndex = 2;
+            this.pnKhachHangContainer.Text = "         Khách hàng";
+            this.pnKhachHangContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnKhachHangContainer.TextColor = System.Drawing.Color.Black;
+            this.pnKhachHangContainer.UseVisualStyleBackColor = false;
+            this.pnKhachHangContainer.Click += new System.EventHandler(this.pnKhachHangContainer_Click);
+            // 
+            // pnNhanVienContainer
+            // 
+            this.pnNhanVienContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnNhanVienContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnNhanVienContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnNhanVienContainer.BorderRadius = 0;
+            this.pnNhanVienContainer.BorderSize = 0;
+            this.pnNhanVienContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnNhanVienContainer.FlatAppearance.BorderSize = 0;
+            this.pnNhanVienContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnNhanVienContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnNhanVienContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnNhanVienContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnNhanVienContainer.Image = global::GUI.Properties.Resources.icons8_employee_32;
+            this.pnNhanVienContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnNhanVienContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnNhanVienContainer.Name = "pnNhanVienContainer";
+            this.pnNhanVienContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnNhanVienContainer.Size = new System.Drawing.Size(157, 40);
+            this.pnNhanVienContainer.TabIndex = 2;
+            this.pnNhanVienContainer.Text = "         Nhân viên";
+            this.pnNhanVienContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnNhanVienContainer.TextColor = System.Drawing.Color.Black;
+            this.pnNhanVienContainer.UseVisualStyleBackColor = false;
+            this.pnNhanVienContainer.Click += new System.EventHandler(this.pnNhanVienContainer_Click);
+            // 
+            // pnQuanLyContainer
+            // 
+            this.pnQuanLyContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnQuanLyContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnQuanLyContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnQuanLyContainer.BorderRadius = 0;
+            this.pnQuanLyContainer.BorderSize = 0;
+            this.pnQuanLyContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnQuanLyContainer.FlatAppearance.BorderSize = 0;
+            this.pnQuanLyContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnQuanLyContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnQuanLyContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnQuanLyContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnQuanLyContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnQuanLyContainer.Image")));
+            this.pnQuanLyContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnQuanLyContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnQuanLyContainer.Name = "pnQuanLyContainer";
+            this.pnQuanLyContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnQuanLyContainer.Size = new System.Drawing.Size(157, 40);
+            this.pnQuanLyContainer.TabIndex = 1;
+            this.pnQuanLyContainer.Text = "         Quản lý";
+            this.pnQuanLyContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnQuanLyContainer.TextColor = System.Drawing.Color.Black;
+            this.pnQuanLyContainer.UseVisualStyleBackColor = false;
+            this.pnQuanLyContainer.Click += new System.EventHandler(this.pnQuanLyContainer_Click);
+            // 
+            // pnPhieuNhapContainer
+            // 
+            this.pnPhieuNhapContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnPhieuNhapContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnPhieuNhapContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnPhieuNhapContainer.BorderRadius = 0;
+            this.pnPhieuNhapContainer.BorderSize = 0;
+            this.pnPhieuNhapContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnPhieuNhapContainer.FlatAppearance.BorderSize = 0;
+            this.pnPhieuNhapContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnPhieuNhapContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnPhieuNhapContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnPhieuNhapContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnPhieuNhapContainer.Image = global::GUI.Properties.Resources.icons8_purchase_order_32;
+            this.pnPhieuNhapContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnPhieuNhapContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnPhieuNhapContainer.Name = "pnPhieuNhapContainer";
+            this.pnPhieuNhapContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnPhieuNhapContainer.Size = new System.Drawing.Size(157, 40);
+            this.pnPhieuNhapContainer.TabIndex = 3;
+            this.pnPhieuNhapContainer.Text = "         Phiếu nhập";
+            this.pnPhieuNhapContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnPhieuNhapContainer.TextColor = System.Drawing.Color.Black;
+            this.pnPhieuNhapContainer.UseVisualStyleBackColor = false;
+            this.pnPhieuNhapContainer.Click += new System.EventHandler(this.pnPhieuNhapContainer_Click);
+            // 
+            // pnNhapHangContainer
+            // 
+            this.pnNhapHangContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnNhapHangContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnNhapHangContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnNhapHangContainer.BorderRadius = 0;
+            this.pnNhapHangContainer.BorderSize = 0;
+            this.pnNhapHangContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnNhapHangContainer.FlatAppearance.BorderSize = 0;
+            this.pnNhapHangContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnNhapHangContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnNhapHangContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnNhapHangContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnNhapHangContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnNhapHangContainer.Image")));
+            this.pnNhapHangContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnNhapHangContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnNhapHangContainer.Name = "pnNhapHangContainer";
+            this.pnNhapHangContainer.Size = new System.Drawing.Size(157, 40);
+            this.pnNhapHangContainer.TabIndex = 3;
+            this.pnNhapHangContainer.Text = "         Nhập hàng";
+            this.pnNhapHangContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnNhapHangContainer.TextColor = System.Drawing.Color.Black;
+            this.pnNhapHangContainer.UseVisualStyleBackColor = false;
+            this.pnNhapHangContainer.Click += new System.EventHandler(this.pnNhapHangContainer_Click);
+            // 
+            // pnHoaDonContainer
+            // 
+            this.pnHoaDonContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnHoaDonContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnHoaDonContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnHoaDonContainer.BorderRadius = 0;
+            this.pnHoaDonContainer.BorderSize = 0;
+            this.pnHoaDonContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnHoaDonContainer.FlatAppearance.BorderSize = 0;
+            this.pnHoaDonContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnHoaDonContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnHoaDonContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnHoaDonContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnHoaDonContainer.Image = global::GUI.Properties.Resources.icons8_invoice_32;
+            this.pnHoaDonContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnHoaDonContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnHoaDonContainer.Name = "pnHoaDonContainer";
+            this.pnHoaDonContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnHoaDonContainer.Size = new System.Drawing.Size(157, 40);
+            this.pnHoaDonContainer.TabIndex = 3;
+            this.pnHoaDonContainer.Text = "         Hóa đơn";
+            this.pnHoaDonContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnHoaDonContainer.TextColor = System.Drawing.Color.Black;
+            this.pnHoaDonContainer.UseVisualStyleBackColor = false;
+            this.pnHoaDonContainer.Click += new System.EventHandler(this.pnHoaDonContainer_Click);
+            // 
+            // pnBanHangContainer
+            // 
+            this.pnBanHangContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnBanHangContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnBanHangContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnBanHangContainer.BorderRadius = 0;
+            this.pnBanHangContainer.BorderSize = 0;
+            this.pnBanHangContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnBanHangContainer.FlatAppearance.BorderSize = 0;
+            this.pnBanHangContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnBanHangContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnBanHangContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnBanHangContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnBanHangContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnBanHangContainer.Image")));
+            this.pnBanHangContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnBanHangContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnBanHangContainer.Name = "pnBanHangContainer";
+            this.pnBanHangContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnBanHangContainer.Size = new System.Drawing.Size(157, 40);
+            this.pnBanHangContainer.TabIndex = 3;
+            this.pnBanHangContainer.Text = "         Bán hàng";
+            this.pnBanHangContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnBanHangContainer.TextColor = System.Drawing.Color.Black;
+            this.pnBanHangContainer.UseVisualStyleBackColor = false;
+            this.pnBanHangContainer.Click += new System.EventHandler(this.pnBanHangContainer_Click);
+            // 
+            // pnHangHoaContainer
+            // 
+            this.pnHangHoaContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnHangHoaContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnHangHoaContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnHangHoaContainer.BorderRadius = 0;
+            this.pnHangHoaContainer.BorderSize = 0;
+            this.pnHangHoaContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnHangHoaContainer.FlatAppearance.BorderSize = 0;
+            this.pnHangHoaContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnHangHoaContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnHangHoaContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnHangHoaContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnHangHoaContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnHangHoaContainer.Image")));
+            this.pnHangHoaContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnHangHoaContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnHangHoaContainer.Name = "pnHangHoaContainer";
+            this.pnHangHoaContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnHangHoaContainer.Size = new System.Drawing.Size(157, 40);
+            this.pnHangHoaContainer.TabIndex = 2;
+            this.pnHangHoaContainer.Text = "         Hàng hóa";
+            this.pnHangHoaContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnHangHoaContainer.TextColor = System.Drawing.Color.Black;
+            this.pnHangHoaContainer.UseVisualStyleBackColor = false;
+            this.pnHangHoaContainer.Click += new System.EventHandler(this.pnHangHoaContainer_Click);
+            // 
+            // btnDangXuat
+            // 
+            this.btnDangXuat.BackColor = System.Drawing.Color.Transparent;
+            this.btnDangXuat.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnDangXuat.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnDangXuat.BorderRadius = 0;
+            this.btnDangXuat.BorderSize = 0;
+            this.btnDangXuat.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnDangXuat.FlatAppearance.BorderSize = 0;
+            this.btnDangXuat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDangXuat.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangXuat.ForeColor = System.Drawing.Color.Black;
+            this.btnDangXuat.Image = global::GUI.Properties.Resources.icons8_logout_32;
+            this.btnDangXuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDangXuat.Location = new System.Drawing.Point(0, 51);
+            this.btnDangXuat.Name = "btnDangXuat";
+            this.btnDangXuat.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.btnDangXuat.Size = new System.Drawing.Size(182, 40);
+            this.btnDangXuat.TabIndex = 4;
+            this.btnDangXuat.Text = "Đăng xuất";
+            this.btnDangXuat.TextColor = System.Drawing.Color.Black;
+            this.btnDangXuat.UseVisualStyleBackColor = false;
+            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.BackColor = System.Drawing.Color.Transparent;
+            this.btnMinimize.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnMinimize.BorderColor = System.Drawing.Color.Transparent;
+            this.btnMinimize.BorderRadius = 0;
+            this.btnMinimize.BorderSize = 0;
+            this.btnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnMinimize.FlatAppearance.BorderSize = 0;
+            this.btnMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimize.ForeColor = System.Drawing.Color.White;
+            this.btnMinimize.Image = global::GUI.Properties.Resources.icons8_minimize_32__1_;
+            this.btnMinimize.Location = new System.Drawing.Point(1272, 0);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(43, 35);
+            this.btnMinimize.TabIndex = 2;
+            this.btnMinimize.TextColor = System.Drawing.Color.White;
+            this.btnMinimize.UseVisualStyleBackColor = false;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnClose.BorderColor = System.Drawing.Color.Transparent;
+            this.btnClose.BorderRadius = 0;
+            this.btnClose.BorderSize = 0;
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Image = global::GUI.Properties.Resources.icons8_close_32;
+            this.btnClose.Location = new System.Drawing.Point(1321, 0);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(43, 35);
+            this.btnClose.TabIndex = 1;
+            this.btnClose.TextColor = System.Drawing.Color.White;
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // GiaoDienGUI
             // 

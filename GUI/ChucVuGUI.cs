@@ -51,7 +51,8 @@ namespace GUI
         private bool isTrangThai = false;
 
         private string maCV;
-        public ChucVuGUI()
+        private int quyenChucVu;
+        public ChucVuGUI(int isChucVu)
         {
             cvBLL = new ChucVuBLL();
             dt = cvBLL.getListChucVu();
@@ -59,6 +60,8 @@ namespace GUI
             unhideError();
             loadMaCV();
             loadBtn();
+            this.quyenChucVu = isChucVu;
+            checkQuyen(isChucVu);
             loadCbxTimKiem();
 
 
@@ -70,6 +73,18 @@ namespace GUI
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
 
+        }
+        private void checkQuyen(int quyen)
+        {
+            if (quyen == 1)
+            {
+                
+                btnThem.Enabled = false;
+                btnSua.Enabled = false;
+                btnXoa.Enabled = false;
+                cbxTrangThai.Enabled = false;
+                
+            }
         }
         private void unhideError()
         {
@@ -335,6 +350,7 @@ namespace GUI
             btnThem.Enabled = false;
             btnXoa.Enabled = true;
             btnSua.Enabled = true;
+            checkQuyen(quyenChucVu);
 
             int i = dgvChucVu.CurrentRow.Index;
             txtMaCV11.Texts = dgvChucVu.Rows[i].Cells[0].Value.ToString();
