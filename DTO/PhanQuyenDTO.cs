@@ -23,10 +23,11 @@ namespace DTO
         private int isNhaCungCap;
         private int isThongKe;
         private int isTaiKhoan;
+        private int isPhanQuyen;
         public PhanQuyenDTO() { 
         
         }   
-        public PhanQuyenDTO(string tenPQ, int isBanHang, int isHoaDon, int isNhapHang, int isPhieuNhap, int isKhachHang, int isNhanVien, int isSanPham, int isLoai, int isNhaSanXuat, int isChucVu, int isKhuyenMai, int isNhaCungCap, int isThongKe, int isTaiKhoan)
+        public PhanQuyenDTO(string tenPQ, int isBanHang, int isHoaDon, int isNhapHang, int isPhieuNhap, int isKhachHang, int isNhanVien, int isSanPham, int isLoai, int isNhaSanXuat, int isChucVu, int isKhuyenMai, int isNhaCungCap, int isThongKe, int isTaiKhoan, int isPhanQuyen)
         {
             this.tenPQ = tenPQ;
             this.isBanHang = isBanHang;
@@ -43,6 +44,7 @@ namespace DTO
             this.isNhaCungCap = isNhaCungCap;
             this.isThongKe = isThongKe;
             this.isTaiKhoan = isTaiKhoan;
+            this.IsPhanQuyen = isPhanQuyen;
         }
 
         public string TenPQ { get => tenPQ; set => tenPQ = value; }
@@ -60,6 +62,7 @@ namespace DTO
         public int IsNhaCungCap { get => isNhaCungCap; set => isNhaCungCap = value; }
         public int IsThongKe { get => isThongKe; set => isThongKe = value; }
         public int IsTaiKhoan { get => isTaiKhoan; set => isTaiKhoan = value; }
+        public int IsPhanQuyen { get => isPhanQuyen; set => isPhanQuyen = value; }
     }
 
 }

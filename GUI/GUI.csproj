@@ -368,6 +368,12 @@
     <Compile Include="NhaSanXuatGUI.Designer.cs">
       <DependentUpon>NhaSanXuatGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="PhanQuyenGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PhanQuyenGUI.Designer.cs">
+      <DependentUpon>PhanQuyenGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports\HoaDonCreator.cs" />
@@ -502,6 +508,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NhaSanXuatGUI.resx">
       <DependentUpon>NhaSanXuatGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PhanQuyenGUI.resx">
+      <DependentUpon>PhanQuyenGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
