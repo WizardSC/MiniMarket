@@ -54,6 +54,7 @@ namespace GUI
         private DataTable dtSanPham;
 
         private string fileName;
+        private int quyenSanPham;
         public SanPhamGUI(int isSanPham)
         {
             spBLL = new SanPhamBLL();
@@ -61,9 +62,10 @@ namespace GUI
             InitializeComponent();
             loadMaSP();
             unhideError();
-            checkQuyen(isSanPham);
+            quyenSanPham = isSanPham;
 
             loadBtn();
+            checkQuyen(isSanPham);
         }
 
         private void loadBtn()
@@ -103,7 +105,7 @@ namespace GUI
             btnThem.Enabled = true;
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
-
+            checkQuyen(quyenSanPham);
             txtTonKho.Enabled = false;
             txtMaSP.Enabled = false;
             txtMaSP.Texts = "";
@@ -483,6 +485,7 @@ namespace GUI
             btnThem.Enabled = false;
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
+            checkQuyen(quyenSanPham);
 
             int i = dgvSanPham.CurrentRow.Index;
             txtMaSP.Enabled = false;

@@ -83,12 +83,12 @@ namespace GUI
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.nudSoLuongMua = new GUI.MyCustom.CustomNumericUpDown();
+            this.btnResetThongTinSP = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pbImage = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnThemVaoGio = new GUI.MyCustom.RJButton();
-            this.btnResetThongTinSP = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.gradientPanel1.SuspendLayout();
@@ -114,7 +114,7 @@ namespace GUI
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1180, 738);
+            this.panel1.Size = new System.Drawing.Size(1167, 718);
             this.panel1.TabIndex = 0;
             // 
             // flowLayoutPanel3
@@ -503,7 +503,7 @@ namespace GUI
             this.cbxTimKiem.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
             this.cbxTimKiem.MinimumSize = new System.Drawing.Size(100, 30);
             this.cbxTimKiem.Name = "cbxTimKiem";
-            this.cbxTimKiem.Padding = new System.Windows.Forms.Padding(2);
+            this.cbxTimKiem.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbxTimKiem.Size = new System.Drawing.Size(108, 30);
             this.cbxTimKiem.TabIndex = 4;
             this.cbxTimKiem.Texts = "Mã SP";
@@ -524,7 +524,7 @@ namespace GUI
             this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
             this.txtTimKiem.Multiline = false;
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Padding = new System.Windows.Forms.Padding(7);
+            this.txtTimKiem.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.txtTimKiem.PasswordChar = false;
             this.txtTimKiem.PlaceholderColor = System.Drawing.Color.DimGray;
             this.txtTimKiem.PlaceholderText = "Nhập thông tin tìm kiếm";
@@ -880,6 +880,18 @@ namespace GUI
             this.nudSoLuongMua.Size = new System.Drawing.Size(318, 27);
             this.nudSoLuongMua.TabIndex = 14;
             // 
+            // btnResetThongTinSP
+            // 
+            this.btnResetThongTinSP.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnResetThongTinSP.Image = ((System.Drawing.Image)(resources.GetObject("btnResetThongTinSP.Image")));
+            this.btnResetThongTinSP.Location = new System.Drawing.Point(481, 199);
+            this.btnResetThongTinSP.Margin = new System.Windows.Forms.Padding(0);
+            this.btnResetThongTinSP.Name = "btnResetThongTinSP";
+            this.btnResetThongTinSP.Size = new System.Drawing.Size(37, 33);
+            this.btnResetThongTinSP.TabIndex = 15;
+            this.btnResetThongTinSP.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnResetThongTinSP.Click += new System.EventHandler(this.btnResetThongTinSP_Click);
+            // 
             // label7
             // 
             this.label7.BackColor = System.Drawing.Color.Black;
@@ -947,23 +959,11 @@ namespace GUI
             this.btnThemVaoGio.UseVisualStyleBackColor = false;
             this.btnThemVaoGio.Click += new System.EventHandler(this.btnThemVaoGio_Click);
             // 
-            // btnResetThongTinSP
-            // 
-            this.btnResetThongTinSP.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnResetThongTinSP.Image = ((System.Drawing.Image)(resources.GetObject("btnResetThongTinSP.Image")));
-            this.btnResetThongTinSP.Location = new System.Drawing.Point(481, 199);
-            this.btnResetThongTinSP.Margin = new System.Windows.Forms.Padding(0);
-            this.btnResetThongTinSP.Name = "btnResetThongTinSP";
-            this.btnResetThongTinSP.Size = new System.Drawing.Size(37, 33);
-            this.btnResetThongTinSP.TabIndex = 15;
-            this.btnResetThongTinSP.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnResetThongTinSP.Click += new System.EventHandler(this.btnResetThongTinSP_Click);
-            // 
             // BanHangGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1180, 738);
+            this.ClientSize = new System.Drawing.Size(1167, 718);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BanHangGUI";
