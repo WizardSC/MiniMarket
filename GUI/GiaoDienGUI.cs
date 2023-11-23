@@ -61,7 +61,7 @@ namespace GUI
     {
         pnBanHang, pnHoaDon, pnNhapHang, pnPhieuNhap, pnKhachHang,
         pnNhanVien, pnSanPham, pnDanhMuc, pnNhaSanXuat,
-        pnKhuyenMai, pnNhaCungCap, pnThongKe, pnTaiKhoan, pnChucVu
+        pnKhuyenMai, pnNhaCungCap, pnThongKe, pnTaiKhoan, pnChucVu, pnPhanQuyen
     };
 
             foreach (Panel panel in pnToCheck)
@@ -123,6 +123,10 @@ namespace GUI
                 {
                     panel.Visible = false;
                 }
+                else if (panel == pnPhanQuyen && pq.IsPhanQuyen == 0)
+                {
+                    panel.Visible = false;
+                }
             }
         }
 
@@ -154,6 +158,7 @@ namespace GUI
             allPanels.Add(pnPhieuNhapContainer);
             allPanels.Add(pnHoaDonContainer);
             allPanels.Add(pnChucVuContainer);
+            allPanels.Add(pnPhanQuyenContainer);
 
         }
         private void addAllPnLeftBorders()
@@ -174,7 +179,7 @@ namespace GUI
             allPnLeftBorders.Add(pnLeftBorderPhieuNhap);
             allPnLeftBorders.Add(pnLeftBorderHoaDon);
             allPnLeftBorders.Add(pnLeftBorderChucVu);
-
+            allPnLeftBorders.Add(pnLeftBorderPhanQuyen);
         }
 
         private void addAllPnSubPanels()
@@ -190,6 +195,7 @@ namespace GUI
             allBtns.Add(pnQuanLyContainer);
             allBtns.Add(pnThongKeContainer);
             allBtns.Add(pnTaiKhoanContainer);
+            allBtns.Add(pnPhanQuyenContainer);
         }
         private void GiaoDienGUI_Load(object sender, EventArgs e)
         {
@@ -819,6 +825,37 @@ namespace GUI
             }
         }
 
+        private void pnPhanQuyenContainer_Click(object sender, EventArgs e)
+        {
+            if (sender is RJButton)
+            {
+                RJButton clickedButton = (RJButton)sender;
 
+                // Đặt màu của tất cả các RJButton khác thành màu transparent
+                foreach (RJButton button in allPanels)
+                {
+                    if (button != clickedButton)
+                    {
+                        button.BackColor = Color.Transparent; // hoặc màu nền mặc định của bạn
+                    }
+                }
+                foreach (Panel pn in allPnLeftBorders)
+                {
+                    if (pn != pnLeftBorderPhanQuyen)
+                    {
+                        pn.BackColor = Color.Transparent;
+                    }
+                }
+                foreach (RJButton button in allBtns)
+                {
+                    button.BackColor = Color.Transparent; // hoặc màu nền mặc định của bạn
+                }
+                // Đặt màu của RJButton được nhấn
+                clickedButton.BackColor = Color.White;
+                pnLeftBorderPhanQuyen.BackColor = Color.FromArgb(58, 191, 186);
+                // Mở form con tương ứng (KhachHangGUI)
+                openChildForm(new PhanQuyenGUI(pq.IsPhanQuyen));
+            }
+        }
     }
 }

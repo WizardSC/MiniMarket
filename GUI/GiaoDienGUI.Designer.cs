@@ -31,13 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GiaoDienGUI));
             this.pnSidebar = new System.Windows.Forms.Panel();
             this.pnMainMenu = new System.Windows.Forms.Panel();
-            this.pnChucVu = new System.Windows.Forms.Panel();
-            this.pnLeftBorderChucVu = new System.Windows.Forms.Panel();
             this.pnTaiKhoan = new System.Windows.Forms.Panel();
             this.pnLeftBorderTaiKhoan = new System.Windows.Forms.Panel();
             this.pnThongKe = new System.Windows.Forms.Panel();
             this.pnLeftBorderThongKe = new System.Windows.Forms.Panel();
             this.pnSubQuanLy = new System.Windows.Forms.Panel();
+            this.pnChucVu = new System.Windows.Forms.Panel();
+            this.pnLeftBorderChucVu = new System.Windows.Forms.Panel();
             this.pnNhaCungCap = new System.Windows.Forms.Panel();
             this.pnLeftBorderNhaCC = new System.Windows.Forms.Panel();
             this.pnKhuyenMai = new System.Windows.Forms.Panel();
@@ -72,11 +72,14 @@
             this.lblChucVu = new System.Windows.Forms.Label();
             this.lblHoTenNV = new System.Windows.Forms.Label();
             this.pnImage = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnHeader = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnForm = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pnPhanQuyen = new System.Windows.Forms.Panel();
+            this.pnLeftBorderPhanQuyen = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pnPhanQuyenContainer = new GUI.MyCustom.RJButton();
             this.pnTaiKhoanContainer = new GUI.MyCustom.RJButton();
             this.pnThongKeContainer = new GUI.MyCustom.RJButton();
             this.pnChucVuContainer = new GUI.MyCustom.RJButton();
@@ -98,10 +101,10 @@
             this.btnClose = new GUI.MyCustom.RJButton();
             this.pnSidebar.SuspendLayout();
             this.pnMainMenu.SuspendLayout();
-            this.pnChucVu.SuspendLayout();
             this.pnTaiKhoan.SuspendLayout();
             this.pnThongKe.SuspendLayout();
             this.pnSubQuanLy.SuspendLayout();
+            this.pnChucVu.SuspendLayout();
             this.pnNhaCungCap.SuspendLayout();
             this.pnKhuyenMai.SuspendLayout();
             this.pnNhaSanXuat.SuspendLayout();
@@ -119,9 +122,10 @@
             this.pnMenu.SuspendLayout();
             this.pnThongTinTK.SuspendLayout();
             this.pnImage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnHeader.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.pnPhanQuyen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnSidebar
@@ -141,6 +145,7 @@
             // 
             this.pnMainMenu.AutoScroll = true;
             this.pnMainMenu.AutoSize = true;
+            this.pnMainMenu.Controls.Add(this.pnPhanQuyen);
             this.pnMainMenu.Controls.Add(this.pnTaiKhoan);
             this.pnMainMenu.Controls.Add(this.pnThongKe);
             this.pnMainMenu.Controls.Add(this.pnSubQuanLy);
@@ -152,26 +157,6 @@
             this.pnMainMenu.Name = "pnMainMenu";
             this.pnMainMenu.Size = new System.Drawing.Size(182, 481);
             this.pnMainMenu.TabIndex = 5;
-            // 
-            // pnChucVu
-            // 
-            this.pnChucVu.Controls.Add(this.pnChucVuContainer);
-            this.pnChucVu.Controls.Add(this.pnLeftBorderChucVu);
-            this.pnChucVu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnChucVu.Location = new System.Drawing.Point(0, 350);
-            this.pnChucVu.Name = "pnChucVu";
-            this.pnChucVu.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.pnChucVu.Size = new System.Drawing.Size(165, 50);
-            this.pnChucVu.TabIndex = 7;
-            // 
-            // pnLeftBorderChucVu
-            // 
-            this.pnLeftBorderChucVu.BackColor = System.Drawing.Color.Transparent;
-            this.pnLeftBorderChucVu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnLeftBorderChucVu.Location = new System.Drawing.Point(0, 0);
-            this.pnLeftBorderChucVu.Name = "pnLeftBorderChucVu";
-            this.pnLeftBorderChucVu.Size = new System.Drawing.Size(8, 40);
-            this.pnLeftBorderChucVu.TabIndex = 0;
             // 
             // pnTaiKhoan
             // 
@@ -230,6 +215,26 @@
             this.pnSubQuanLy.Size = new System.Drawing.Size(165, 400);
             this.pnSubQuanLy.TabIndex = 3;
             this.pnSubQuanLy.Visible = false;
+            // 
+            // pnChucVu
+            // 
+            this.pnChucVu.Controls.Add(this.pnChucVuContainer);
+            this.pnChucVu.Controls.Add(this.pnLeftBorderChucVu);
+            this.pnChucVu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnChucVu.Location = new System.Drawing.Point(0, 350);
+            this.pnChucVu.Name = "pnChucVu";
+            this.pnChucVu.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.pnChucVu.Size = new System.Drawing.Size(165, 50);
+            this.pnChucVu.TabIndex = 7;
+            // 
+            // pnLeftBorderChucVu
+            // 
+            this.pnLeftBorderChucVu.BackColor = System.Drawing.Color.Transparent;
+            this.pnLeftBorderChucVu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnLeftBorderChucVu.Location = new System.Drawing.Point(0, 0);
+            this.pnLeftBorderChucVu.Name = "pnLeftBorderChucVu";
+            this.pnLeftBorderChucVu.Size = new System.Drawing.Size(8, 40);
+            this.pnLeftBorderChucVu.TabIndex = 0;
             // 
             // pnNhaCungCap
             // 
@@ -578,17 +583,6 @@
             this.pnImage.Size = new System.Drawing.Size(182, 164);
             this.pnImage.TabIndex = 0;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(182, 164);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // pnHeader
             // 
             this.pnHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
@@ -632,6 +626,63 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1366, 775);
             this.panel3.TabIndex = 0;
+            // 
+            // pnPhanQuyen
+            // 
+            this.pnPhanQuyen.Controls.Add(this.pnPhanQuyenContainer);
+            this.pnPhanQuyen.Controls.Add(this.pnLeftBorderPhanQuyen);
+            this.pnPhanQuyen.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnPhanQuyen.Location = new System.Drawing.Point(0, 800);
+            this.pnPhanQuyen.Name = "pnPhanQuyen";
+            this.pnPhanQuyen.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.pnPhanQuyen.Size = new System.Drawing.Size(165, 50);
+            this.pnPhanQuyen.TabIndex = 7;
+            // 
+            // pnLeftBorderPhanQuyen
+            // 
+            this.pnLeftBorderPhanQuyen.BackColor = System.Drawing.Color.Transparent;
+            this.pnLeftBorderPhanQuyen.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnLeftBorderPhanQuyen.Location = new System.Drawing.Point(0, 0);
+            this.pnLeftBorderPhanQuyen.Name = "pnLeftBorderPhanQuyen";
+            this.pnLeftBorderPhanQuyen.Size = new System.Drawing.Size(8, 40);
+            this.pnLeftBorderPhanQuyen.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(182, 164);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pnPhanQuyenContainer
+            // 
+            this.pnPhanQuyenContainer.BackColor = System.Drawing.Color.Transparent;
+            this.pnPhanQuyenContainer.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pnPhanQuyenContainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnPhanQuyenContainer.BorderRadius = 0;
+            this.pnPhanQuyenContainer.BorderSize = 0;
+            this.pnPhanQuyenContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnPhanQuyenContainer.FlatAppearance.BorderSize = 0;
+            this.pnPhanQuyenContainer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pnPhanQuyenContainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnPhanQuyenContainer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnPhanQuyenContainer.ForeColor = System.Drawing.Color.Black;
+            this.pnPhanQuyenContainer.Image = ((System.Drawing.Image)(resources.GetObject("pnPhanQuyenContainer.Image")));
+            this.pnPhanQuyenContainer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnPhanQuyenContainer.Location = new System.Drawing.Point(8, 0);
+            this.pnPhanQuyenContainer.Name = "pnPhanQuyenContainer";
+            this.pnPhanQuyenContainer.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.pnPhanQuyenContainer.Size = new System.Drawing.Size(157, 40);
+            this.pnPhanQuyenContainer.TabIndex = 2;
+            this.pnPhanQuyenContainer.Text = "         Phân quyền";
+            this.pnPhanQuyenContainer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnPhanQuyenContainer.TextColor = System.Drawing.Color.Black;
+            this.pnPhanQuyenContainer.UseVisualStyleBackColor = false;
+            this.pnPhanQuyenContainer.Click += new System.EventHandler(this.pnPhanQuyenContainer_Click);
             // 
             // pnTaiKhoanContainer
             // 
@@ -1134,10 +1185,10 @@
             this.pnSidebar.PerformLayout();
             this.pnMainMenu.ResumeLayout(false);
             this.pnMainMenu.PerformLayout();
-            this.pnChucVu.ResumeLayout(false);
             this.pnTaiKhoan.ResumeLayout(false);
             this.pnThongKe.ResumeLayout(false);
             this.pnSubQuanLy.ResumeLayout(false);
+            this.pnChucVu.ResumeLayout(false);
             this.pnNhaCungCap.ResumeLayout(false);
             this.pnKhuyenMai.ResumeLayout(false);
             this.pnNhaSanXuat.ResumeLayout(false);
@@ -1155,9 +1206,10 @@
             this.pnMenu.ResumeLayout(false);
             this.pnThongTinTK.ResumeLayout(false);
             this.pnImage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnHeader.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.pnPhanQuyen.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1230,5 +1282,8 @@
         private System.Windows.Forms.Panel pnChucVu;
         private MyCustom.RJButton pnChucVuContainer;
         private System.Windows.Forms.Panel pnLeftBorderChucVu;
+        private System.Windows.Forms.Panel pnPhanQuyen;
+        private MyCustom.RJButton pnPhanQuyenContainer;
+        private System.Windows.Forms.Panel pnLeftBorderPhanQuyen;
     }
 }
