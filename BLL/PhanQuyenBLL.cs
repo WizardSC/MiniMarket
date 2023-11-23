@@ -19,5 +19,10 @@ namespace BLL
         {
             return pqDAL.getPhanQuyen(tenPQ);
         }
+
+        public bool updatePhanQuyen(PhanQuyenDTO pq)
+        {
+            return pqDAL.updatePhanQuyen(pq);
+        }
     }
 }
