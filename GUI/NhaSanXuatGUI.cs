@@ -57,33 +57,48 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-
-            //  string MaNSX = txtMaNSX.Texts;
             string MaNSX = CheckAndSetColor(txtMaNSX, label13);
             string TenNSX = CheckAndSetColor(txtTenNSX, label14);
             string DiaChi = CheckAndSetColor(txtDiaChi, label15);
             string SoDT = CheckAndSetColor(txtSoDT, label18);
             string trangThai = CheckAndSetColor(cbxTrangThai, label6);
-           // string trangThai = cbxTrangThai.SelectedItem.ToString();
             int trangThaiValue = (trangThai == "Hoạt động") ? 1 : 0;
 
             if (!(MaNSX != "" && TenNSX != "" && DiaChi != "" && SoDT != "" && trangThai != ""))
             {
                 return;
             }
+
+            if (!ContainsOnlyLetters(TenNSX))
+            {
+                MessageBox.Show("Tên nhà sản xuất không được chứa số.",
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!IsValidPhoneNumber_1(SoDT))
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ. Số điện thoại phải có 10-12 chữ số và bắt đầu bằng số 0.",
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
             NhaSanXuatDTO nsx = new NhaSanXuatDTO(MaNSX, TenNSX, DiaChi, SoDT, trangThaiValue);
             int flag = nsxBLL.insertNhaSanXuat(nsx) ? 1 : 0;
+
             if (flag == 1)
             {
-                
-                MessageBox.Show("Thêm nhà sản xuất thành công thành công.",
+                MessageBox.Show("Thêm nhà sản xuất thành công.",
                     "Thông báo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
                 loadMaNSX();
                 init();
                 clearForm();
-
             }
             else
             {
@@ -94,6 +109,38 @@ namespace GUI
             }
 
         }
+
+        private bool ContainsOnlyLetters(string input)
+        {
+            foreach (char c in input)
+            {
+                if (!char.IsLetter(c))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+
+        private bool IsValidPhoneNumber_1(string phoneNumber)
+        {
+            if (phoneNumber.Length < 10 || phoneNumber.Length > 12 || !phoneNumber.StartsWith("0"))
+            {
+                return false;
+            }
+
+            foreach (char c in phoneNumber)
+            {
+                if (!char.IsDigit(c))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
         // ẩn lỗi
         private void unhideError()
         {
