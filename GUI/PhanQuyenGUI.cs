@@ -51,6 +51,9 @@ namespace GUI
         }
         private void reset()
         {
+            cbxDanhSach.SelectedItem = -1;
+            cbxDanhSach.Texts = "--Chọn quyền--";
+
             foreach (var controlPair in permissionControlPairs)
             {
                 var cbx = controlPair.Item1;
