@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NhanVienGUI));
             this.label2 = new System.Windows.Forms.Label();
             this.lblErrMaNV = new System.Windows.Forms.Label();
@@ -62,62 +62,62 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flpFilter = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblErrTuoiFilter = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.pbImage = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblErrIMG = new System.Windows.Forms.Label();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblErrNgaySinh = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblErrGioiTinh = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblErrSoDT = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblErrDiaChi = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lblErrTrangThai = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lblErrChucVu = new System.Windows.Forms.Label();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.cbxTimKiem = new GUI.MyCustom.RJComboBox();
             this.txtTimKiem = new GUI.MyCustom.RJTextBox();
             this.btnTimKiem = new GUI.MyCustom.RJButton();
             this.btnFilter = new GUI.MyCustom.RJButton();
+            this.flpFilter = new System.Windows.Forms.FlowLayoutPanel();
             this.chkGioiTinh = new GUI.MyCustom.BiggerCheckBox();
             this.chkNam = new GUI.MyCustom.BiggerCheckBox();
             this.chkNu = new GUI.MyCustom.BiggerCheckBox();
             this.chkTuoi = new GUI.MyCustom.BiggerCheckBox();
             this.txtTuoiStart = new GUI.MyCustom.RJTextBox();
             this.txtTuoiEnd = new GUI.MyCustom.RJTextBox();
+            this.lblErrTuoiFilter = new System.Windows.Forms.Label();
             this.chkChucVu = new GUI.MyCustom.BiggerCheckBox();
             this.chkBanHang = new GUI.MyCustom.BiggerCheckBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.chkQuanLy = new GUI.MyCustom.BiggerCheckBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.chkKho = new GUI.MyCustom.BiggerCheckBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.chkAdmin = new GUI.MyCustom.BiggerCheckBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.chkHoatDong = new GUI.MyCustom.BiggerCheckBox();
             this.chkTrangThai = new GUI.MyCustom.BiggerCheckBox();
             this.chkKoHD = new GUI.MyCustom.BiggerCheckBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.pbImage = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.btnDeleteIMG = new GUI.MyCustom.RJButton();
+            this.lblErrIMG = new System.Windows.Forms.Label();
             this.btnUploadIMG = new GUI.MyCustom.RJButton();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.txtMaNV = new GUI.MyCustom.RJTextBox();
             this.txtHo = new GUI.MyCustom.RJTextBox();
             this.txtTen = new GUI.MyCustom.RJTextBox();
             this.dtpNgaySinh = new GUI.MyCustom.RJDatePicker();
+            this.lblErrNgaySinh = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.rdbNam = new GUI.MyCustom.RJRadioButton();
             this.rdbNu = new GUI.MyCustom.RJRadioButton();
+            this.lblErrGioiTinh = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtSoDT = new GUI.MyCustom.RJTextBox();
+            this.lblErrSoDT = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.txtDiaChi = new GUI.MyCustom.RJTextBox();
+            this.lblErrDiaChi = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.cbxTrangThai = new GUI.MyCustom.RJComboBox();
+            this.lblErrTrangThai = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.cbxChucVu = new GUI.MyCustom.RJComboBox();
+            this.lblErrChucVu = new System.Windows.Forms.Label();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnThem = new GUI.MyCustom.RJButton();
             this.btnSua = new GUI.MyCustom.RJButton();
             this.btnXoa = new GUI.MyCustom.RJButton();
@@ -336,14 +336,14 @@
             this.dgvNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvNhanVien.BackgroundColor = System.Drawing.Color.White;
             this.dgvNhanVien.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvNhanVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(254)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(191)))), ((int)(((byte)(186)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvNhanVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvNhanVien.ColumnHeadersHeight = 28;
             this.dgvNhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaNV1,
@@ -357,14 +357,14 @@
             this.IMG,
             this.MaCV,
             this.MaTK});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvNhanVien.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvNhanVien.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvNhanVien.EnableHeadersVisualStyles = false;
             this.dgvNhanVien.GridColor = System.Drawing.Color.Black;
             this.dgvNhanVien.Location = new System.Drawing.Point(5, 62);
@@ -469,7 +469,7 @@
             this.IMG.ReadOnly = true;
             this.IMG.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.IMG.Visible = false;
-            this.IMG.Width = 88;
+            this.IMG.Width = 89;
             // 
             // MaCV
             // 
@@ -488,7 +488,7 @@
             this.MaTK.Name = "MaTK";
             this.MaTK.ReadOnly = true;
             this.MaTK.Visible = false;
-            this.MaTK.Width = 72;
+            this.MaTK.Width = 73;
             // 
             // panel1
             // 
@@ -525,371 +525,6 @@
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(846, 50);
             this.flowLayoutPanel4.TabIndex = 2;
-            // 
-            // flpFilter
-            // 
-            this.flpFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
-            this.flpFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flpFilter.Controls.Add(this.chkGioiTinh);
-            this.flpFilter.Controls.Add(this.label12);
-            this.flpFilter.Controls.Add(this.chkNam);
-            this.flpFilter.Controls.Add(this.label21);
-            this.flpFilter.Controls.Add(this.chkNu);
-            this.flpFilter.Controls.Add(this.label22);
-            this.flpFilter.Controls.Add(this.chkTuoi);
-            this.flpFilter.Controls.Add(this.label23);
-            this.flpFilter.Controls.Add(this.txtTuoiStart);
-            this.flpFilter.Controls.Add(this.label24);
-            this.flpFilter.Controls.Add(this.txtTuoiEnd);
-            this.flpFilter.Controls.Add(this.lblErrTuoiFilter);
-            this.flpFilter.Controls.Add(this.chkChucVu);
-            this.flpFilter.Controls.Add(this.label25);
-            this.flpFilter.Controls.Add(this.chkBanHang);
-            this.flpFilter.Controls.Add(this.label13);
-            this.flpFilter.Controls.Add(this.chkQuanLy);
-            this.flpFilter.Controls.Add(this.label11);
-            this.flpFilter.Controls.Add(this.chkKho);
-            this.flpFilter.Controls.Add(this.label14);
-            this.flpFilter.Controls.Add(this.chkAdmin);
-            this.flpFilter.Controls.Add(this.label15);
-            this.flpFilter.Controls.Add(this.chkHoatDong);
-            this.flpFilter.Controls.Add(this.label27);
-            this.flpFilter.Controls.Add(this.chkTrangThai);
-            this.flpFilter.Controls.Add(this.label28);
-            this.flpFilter.Controls.Add(this.chkKoHD);
-            this.flpFilter.Controls.Add(this.label29);
-            this.flpFilter.Location = new System.Drawing.Point(542, 55);
-            this.flpFilter.Margin = new System.Windows.Forms.Padding(4);
-            this.flpFilter.Name = "flpFilter";
-            this.flpFilter.Size = new System.Drawing.Size(298, 238);
-            this.flpFilter.TabIndex = 3;
-            this.flpFilter.Visible = false;
-            // 
-            // lblErrTuoiFilter
-            // 
-            this.lblErrTuoiFilter.Font = new System.Drawing.Font("Cambria", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrTuoiFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
-            this.lblErrTuoiFilter.Location = new System.Drawing.Point(3, 72);
-            this.lblErrTuoiFilter.Name = "lblErrTuoiFilter";
-            this.lblErrTuoiFilter.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.lblErrTuoiFilter.Size = new System.Drawing.Size(262, 17);
-            this.lblErrTuoiFilter.TabIndex = 28;
-            this.lblErrTuoiFilter.Text = "* Bạn phải tuổi kết thúc lớn hơn tuổi bắt đầu ";
-            this.lblErrTuoiFilter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblErrTuoiFilter.Visible = false;
-            // 
-            // label13
-            // 
-            this.label13.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label13.Location = new System.Drawing.Point(128, 93);
-            this.label13.Margin = new System.Windows.Forms.Padding(4);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(68, 28);
-            this.label13.TabIndex = 26;
-            this.label13.Text = "Bán hàng";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label11
-            // 
-            this.label11.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label11.Location = new System.Drawing.Point(231, 93);
-            this.label11.Margin = new System.Windows.Forms.Padding(4);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(59, 28);
-            this.label11.TabIndex = 25;
-            this.label11.Text = "Quản lý";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label14
-            // 
-            this.label14.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label14.Location = new System.Drawing.Point(129, 130);
-            this.label14.Margin = new System.Windows.Forms.Padding(5);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(41, 34);
-            this.label14.TabIndex = 31;
-            this.label14.Text = "Kho";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label15
-            // 
-            this.label15.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label15.Location = new System.Drawing.Point(229, 130);
-            this.label15.Margin = new System.Windows.Forms.Padding(5);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(51, 34);
-            this.label15.TabIndex = 30;
-            this.label15.Text = "Admin";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.AutoSize = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Controls.Add(this.label1);
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel5);
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel3);
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(309, 729);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
-            this.label1.Location = new System.Drawing.Point(5, 5);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(296, 24);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "THÔNG TIN NHÂN VIÊN";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // flowLayoutPanel5
-            // 
-            this.flowLayoutPanel5.Controls.Add(this.panel4);
-            this.flowLayoutPanel5.Controls.Add(this.pbImage);
-            this.flowLayoutPanel5.Controls.Add(this.panel2);
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(8, 32);
-            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(290, 149);
-            this.flowLayoutPanel5.TabIndex = 3;
-            // 
-            // panel4
-            // 
-            this.panel4.Location = new System.Drawing.Point(3, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(10, 143);
-            this.panel4.TabIndex = 2;
-            // 
-            // pbImage
-            // 
-            this.pbImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbImage.Image = global::GUI.Properties.Resources.placeholder_image;
-            this.pbImage.InitialImage = global::GUI.Properties.Resources.placeholder_image;
-            this.pbImage.Location = new System.Drawing.Point(16, 0);
-            this.pbImage.Margin = new System.Windows.Forms.Padding(0);
-            this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(199, 149);
-            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbImage.TabIndex = 0;
-            this.pbImage.TabStop = false;
-            this.pbImage.Tag = "Placeholder";
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btnDeleteIMG);
-            this.panel2.Controls.Add(this.lblErrIMG);
-            this.panel2.Controls.Add(this.btnUploadIMG);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(215, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(73, 149);
-            this.panel2.TabIndex = 1;
-            // 
-            // lblErrIMG
-            // 
-            this.lblErrIMG.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrIMG.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
-            this.lblErrIMG.Location = new System.Drawing.Point(1, 93);
-            this.lblErrIMG.Name = "lblErrIMG";
-            this.lblErrIMG.Size = new System.Drawing.Size(69, 53);
-            this.lblErrIMG.TabIndex = 23;
-            this.lblErrIMG.Text = "* Bạn phải chọn ảnh đại diện";
-            this.lblErrIMG.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Controls.Add(this.label2);
-            this.flowLayoutPanel2.Controls.Add(this.txtMaNV);
-            this.flowLayoutPanel2.Controls.Add(this.lblErrMaNV);
-            this.flowLayoutPanel2.Controls.Add(this.label3);
-            this.flowLayoutPanel2.Controls.Add(this.txtHo);
-            this.flowLayoutPanel2.Controls.Add(this.lblErrHo);
-            this.flowLayoutPanel2.Controls.Add(this.label4);
-            this.flowLayoutPanel2.Controls.Add(this.txtTen);
-            this.flowLayoutPanel2.Controls.Add(this.lblErrTen);
-            this.flowLayoutPanel2.Controls.Add(this.label5);
-            this.flowLayoutPanel2.Controls.Add(this.dtpNgaySinh);
-            this.flowLayoutPanel2.Controls.Add(this.lblErrNgaySinh);
-            this.flowLayoutPanel2.Controls.Add(this.label6);
-            this.flowLayoutPanel2.Controls.Add(this.rdbNam);
-            this.flowLayoutPanel2.Controls.Add(this.rdbNu);
-            this.flowLayoutPanel2.Controls.Add(this.lblErrGioiTinh);
-            this.flowLayoutPanel2.Controls.Add(this.label7);
-            this.flowLayoutPanel2.Controls.Add(this.txtSoDT);
-            this.flowLayoutPanel2.Controls.Add(this.lblErrSoDT);
-            this.flowLayoutPanel2.Controls.Add(this.label8);
-            this.flowLayoutPanel2.Controls.Add(this.txtDiaChi);
-            this.flowLayoutPanel2.Controls.Add(this.lblErrDiaChi);
-            this.flowLayoutPanel2.Controls.Add(this.label9);
-            this.flowLayoutPanel2.Controls.Add(this.cbxTrangThai);
-            this.flowLayoutPanel2.Controls.Add(this.lblErrTrangThai);
-            this.flowLayoutPanel2.Controls.Add(this.label10);
-            this.flowLayoutPanel2.Controls.Add(this.cbxChucVu);
-            this.flowLayoutPanel2.Controls.Add(this.lblErrChucVu);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(8, 187);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(290, 480);
-            this.flowLayoutPanel2.TabIndex = 2;
-            // 
-            // lblErrNgaySinh
-            // 
-            this.lblErrNgaySinh.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrNgaySinh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
-            this.lblErrNgaySinh.Location = new System.Drawing.Point(3, 195);
-            this.lblErrNgaySinh.Name = "lblErrNgaySinh";
-            this.lblErrNgaySinh.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.lblErrNgaySinh.Size = new System.Drawing.Size(271, 17);
-            this.lblErrNgaySinh.TabIndex = 31;
-            this.lblErrNgaySinh.Text = "* Ngày sinh quá ngày hiện tại";
-            this.lblErrNgaySinh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label6.Location = new System.Drawing.Point(4, 216);
-            this.label6.Margin = new System.Windows.Forms.Padding(4);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(94, 28);
-            this.label6.TabIndex = 32;
-            this.label6.Text = "Giới tính";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblErrGioiTinh
-            // 
-            this.lblErrGioiTinh.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrGioiTinh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
-            this.lblErrGioiTinh.Location = new System.Drawing.Point(3, 248);
-            this.lblErrGioiTinh.Name = "lblErrGioiTinh";
-            this.lblErrGioiTinh.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.lblErrGioiTinh.Size = new System.Drawing.Size(273, 17);
-            this.lblErrGioiTinh.TabIndex = 41;
-            this.lblErrGioiTinh.Text = "* Bạn phải chọn Giới tính";
-            this.lblErrGioiTinh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label7.Location = new System.Drawing.Point(4, 269);
-            this.label7.Margin = new System.Windows.Forms.Padding(4);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 28);
-            this.label7.TabIndex = 33;
-            this.label7.Text = "Số ĐT";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblErrSoDT
-            // 
-            this.lblErrSoDT.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrSoDT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
-            this.lblErrSoDT.Location = new System.Drawing.Point(3, 301);
-            this.lblErrSoDT.Name = "lblErrSoDT";
-            this.lblErrSoDT.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.lblErrSoDT.Size = new System.Drawing.Size(263, 17);
-            this.lblErrSoDT.TabIndex = 42;
-            this.lblErrSoDT.Text = "* Bạn phải nhập Số ĐT";
-            this.lblErrSoDT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label8
-            // 
-            this.label8.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label8.Location = new System.Drawing.Point(4, 322);
-            this.label8.Margin = new System.Windows.Forms.Padding(4);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(94, 28);
-            this.label8.TabIndex = 35;
-            this.label8.Text = "Địa chỉ";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblErrDiaChi
-            // 
-            this.lblErrDiaChi.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrDiaChi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
-            this.lblErrDiaChi.Location = new System.Drawing.Point(3, 354);
-            this.lblErrDiaChi.Name = "lblErrDiaChi";
-            this.lblErrDiaChi.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.lblErrDiaChi.Size = new System.Drawing.Size(263, 17);
-            this.lblErrDiaChi.TabIndex = 43;
-            this.lblErrDiaChi.Text = "* Bạn phải nhập Địa chỉ";
-            this.lblErrDiaChi.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label9
-            // 
-            this.label9.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label9.Location = new System.Drawing.Point(4, 375);
-            this.label9.Margin = new System.Windows.Forms.Padding(4);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(94, 28);
-            this.label9.TabIndex = 37;
-            this.label9.Text = "Trạng thái";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblErrTrangThai
-            // 
-            this.lblErrTrangThai.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrTrangThai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
-            this.lblErrTrangThai.Location = new System.Drawing.Point(3, 407);
-            this.lblErrTrangThai.Name = "lblErrTrangThai";
-            this.lblErrTrangThai.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.lblErrTrangThai.Size = new System.Drawing.Size(271, 17);
-            this.lblErrTrangThai.TabIndex = 44;
-            this.lblErrTrangThai.Text = "* Bạn phải chọn Trạng thái";
-            this.lblErrTrangThai.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label10
-            // 
-            this.label10.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label10.Location = new System.Drawing.Point(4, 428);
-            this.label10.Margin = new System.Windows.Forms.Padding(4);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(87, 28);
-            this.label10.TabIndex = 40;
-            this.label10.Text = "Chức vụ";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblErrChucVu
-            // 
-            this.lblErrChucVu.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrChucVu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
-            this.lblErrChucVu.Location = new System.Drawing.Point(3, 460);
-            this.lblErrChucVu.Name = "lblErrChucVu";
-            this.lblErrChucVu.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.lblErrChucVu.Size = new System.Drawing.Size(271, 17);
-            this.lblErrChucVu.TabIndex = 47;
-            this.lblErrChucVu.Text = "* Bạn phải chọn chức vụ";
-            this.lblErrChucVu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Controls.Add(this.btnThem);
-            this.flowLayoutPanel3.Controls.Add(this.btnSua);
-            this.flowLayoutPanel3.Controls.Add(this.btnXoa);
-            this.flowLayoutPanel3.Controls.Add(this.btnReset);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(8, 675);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(290, 45);
-            this.flowLayoutPanel3.TabIndex = 4;
             // 
             // cbxTimKiem
             // 
@@ -979,6 +614,45 @@
             this.btnFilter.TextColor = System.Drawing.Color.White;
             this.btnFilter.UseVisualStyleBackColor = false;
             this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
+            // 
+            // flpFilter
+            // 
+            this.flpFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
+            this.flpFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flpFilter.Controls.Add(this.chkGioiTinh);
+            this.flpFilter.Controls.Add(this.label12);
+            this.flpFilter.Controls.Add(this.chkNam);
+            this.flpFilter.Controls.Add(this.label21);
+            this.flpFilter.Controls.Add(this.chkNu);
+            this.flpFilter.Controls.Add(this.label22);
+            this.flpFilter.Controls.Add(this.chkTuoi);
+            this.flpFilter.Controls.Add(this.label23);
+            this.flpFilter.Controls.Add(this.txtTuoiStart);
+            this.flpFilter.Controls.Add(this.label24);
+            this.flpFilter.Controls.Add(this.txtTuoiEnd);
+            this.flpFilter.Controls.Add(this.lblErrTuoiFilter);
+            this.flpFilter.Controls.Add(this.chkChucVu);
+            this.flpFilter.Controls.Add(this.label25);
+            this.flpFilter.Controls.Add(this.chkBanHang);
+            this.flpFilter.Controls.Add(this.label13);
+            this.flpFilter.Controls.Add(this.chkQuanLy);
+            this.flpFilter.Controls.Add(this.label11);
+            this.flpFilter.Controls.Add(this.chkKho);
+            this.flpFilter.Controls.Add(this.label14);
+            this.flpFilter.Controls.Add(this.chkAdmin);
+            this.flpFilter.Controls.Add(this.label15);
+            this.flpFilter.Controls.Add(this.chkHoatDong);
+            this.flpFilter.Controls.Add(this.label27);
+            this.flpFilter.Controls.Add(this.chkTrangThai);
+            this.flpFilter.Controls.Add(this.label28);
+            this.flpFilter.Controls.Add(this.chkKoHD);
+            this.flpFilter.Controls.Add(this.label29);
+            this.flpFilter.Location = new System.Drawing.Point(542, 55);
+            this.flpFilter.Margin = new System.Windows.Forms.Padding(4);
+            this.flpFilter.Name = "flpFilter";
+            this.flpFilter.Size = new System.Drawing.Size(298, 238);
+            this.flpFilter.TabIndex = 3;
+            this.flpFilter.Visible = false;
             // 
             // chkGioiTinh
             // 
@@ -1138,6 +812,19 @@
             this.txtTuoiEnd.UnderlinedStyle = false;
             this.txtTuoiEnd._TextChanged += new System.EventHandler(this.txtTuoiEnd__TextChanged);
             // 
+            // lblErrTuoiFilter
+            // 
+            this.lblErrTuoiFilter.Font = new System.Drawing.Font("Cambria", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrTuoiFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
+            this.lblErrTuoiFilter.Location = new System.Drawing.Point(3, 72);
+            this.lblErrTuoiFilter.Name = "lblErrTuoiFilter";
+            this.lblErrTuoiFilter.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblErrTuoiFilter.Size = new System.Drawing.Size(262, 17);
+            this.lblErrTuoiFilter.TabIndex = 28;
+            this.lblErrTuoiFilter.Text = "* Bạn phải tuổi kết thúc lớn hơn tuổi bắt đầu ";
+            this.lblErrTuoiFilter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblErrTuoiFilter.Visible = false;
+            // 
             // chkChucVu
             // 
             this.chkChucVu.Appearance = System.Windows.Forms.Appearance.Button;
@@ -1191,6 +878,18 @@
             this.chkBanHang.UseVisualStyleBackColor = true;
             this.chkBanHang.CheckedChanged += new System.EventHandler(this.chkBanHang_CheckedChanged);
             // 
+            // label13
+            // 
+            this.label13.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label13.Location = new System.Drawing.Point(128, 93);
+            this.label13.Margin = new System.Windows.Forms.Padding(4);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(68, 28);
+            this.label13.TabIndex = 26;
+            this.label13.Text = "Bán hàng";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // chkQuanLy
             // 
             this.chkQuanLy.Appearance = System.Windows.Forms.Appearance.Button;
@@ -1217,6 +916,18 @@
             this.chkQuanLy.TickTopPosition = 8F;
             this.chkQuanLy.UseVisualStyleBackColor = true;
             this.chkQuanLy.CheckedChanged += new System.EventHandler(this.chkQuanLy_CheckedChanged);
+            // 
+            // label11
+            // 
+            this.label11.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label11.Location = new System.Drawing.Point(231, 93);
+            this.label11.Margin = new System.Windows.Forms.Padding(4);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(59, 28);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "Quản lý";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // chkKho
             // 
@@ -1245,6 +956,18 @@
             this.chkKho.UseVisualStyleBackColor = true;
             this.chkKho.CheckedChanged += new System.EventHandler(this.chkKho_CheckedChanged);
             // 
+            // label14
+            // 
+            this.label14.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label14.Location = new System.Drawing.Point(129, 130);
+            this.label14.Margin = new System.Windows.Forms.Padding(5);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(41, 34);
+            this.label14.TabIndex = 31;
+            this.label14.Text = "Kho";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // chkAdmin
             // 
             this.chkAdmin.Appearance = System.Windows.Forms.Appearance.Button;
@@ -1271,6 +994,18 @@
             this.chkAdmin.TickTopPosition = 8F;
             this.chkAdmin.UseVisualStyleBackColor = true;
             this.chkAdmin.CheckedChanged += new System.EventHandler(this.chkAdmin_CheckedChanged_1);
+            // 
+            // label15
+            // 
+            this.label15.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label15.Location = new System.Drawing.Point(229, 130);
+            this.label15.Margin = new System.Windows.Forms.Padding(5);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(51, 34);
+            this.label15.TabIndex = 30;
+            this.label15.Text = "Admin";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // chkHoatDong
             // 
@@ -1353,6 +1088,81 @@
             this.chkKoHD.UseVisualStyleBackColor = true;
             this.chkKoHD.CheckedChanged += new System.EventHandler(this.chkKoHD_CheckedChanged);
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel1.Controls.Add(this.label1);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel5);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel3);
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 0);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(309, 729);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
+            this.label1.Location = new System.Drawing.Point(5, 5);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(296, 24);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "THÔNG TIN NHÂN VIÊN";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flowLayoutPanel5
+            // 
+            this.flowLayoutPanel5.Controls.Add(this.panel4);
+            this.flowLayoutPanel5.Controls.Add(this.pbImage);
+            this.flowLayoutPanel5.Controls.Add(this.panel2);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(8, 32);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(290, 149);
+            this.flowLayoutPanel5.TabIndex = 3;
+            // 
+            // panel4
+            // 
+            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(10, 143);
+            this.panel4.TabIndex = 2;
+            // 
+            // pbImage
+            // 
+            this.pbImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbImage.Image = global::GUI.Properties.Resources.placeholder_image;
+            this.pbImage.InitialImage = global::GUI.Properties.Resources.placeholder_image;
+            this.pbImage.Location = new System.Drawing.Point(16, 0);
+            this.pbImage.Margin = new System.Windows.Forms.Padding(0);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(199, 149);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbImage.TabIndex = 0;
+            this.pbImage.TabStop = false;
+            this.pbImage.Tag = "Placeholder";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnDeleteIMG);
+            this.panel2.Controls.Add(this.lblErrIMG);
+            this.panel2.Controls.Add(this.btnUploadIMG);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(215, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(73, 149);
+            this.panel2.TabIndex = 1;
+            // 
             // btnDeleteIMG
             // 
             this.btnDeleteIMG.BackColor = System.Drawing.Color.Transparent;
@@ -1371,6 +1181,17 @@
             this.btnDeleteIMG.TextColor = System.Drawing.Color.White;
             this.btnDeleteIMG.UseVisualStyleBackColor = false;
             this.btnDeleteIMG.Click += new System.EventHandler(this.btnDeleteIMG_Click);
+            // 
+            // lblErrIMG
+            // 
+            this.lblErrIMG.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrIMG.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
+            this.lblErrIMG.Location = new System.Drawing.Point(1, 93);
+            this.lblErrIMG.Name = "lblErrIMG";
+            this.lblErrIMG.Size = new System.Drawing.Size(69, 53);
+            this.lblErrIMG.TabIndex = 23;
+            this.lblErrIMG.Text = "* Bạn phải chọn ảnh đại diện";
+            this.lblErrIMG.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnUploadIMG
             // 
@@ -1391,6 +1212,41 @@
             this.btnUploadIMG.TextColor = System.Drawing.Color.White;
             this.btnUploadIMG.UseVisualStyleBackColor = false;
             this.btnUploadIMG.Click += new System.EventHandler(this.btnUploadIMG_Click);
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.label2);
+            this.flowLayoutPanel2.Controls.Add(this.txtMaNV);
+            this.flowLayoutPanel2.Controls.Add(this.lblErrMaNV);
+            this.flowLayoutPanel2.Controls.Add(this.label3);
+            this.flowLayoutPanel2.Controls.Add(this.txtHo);
+            this.flowLayoutPanel2.Controls.Add(this.lblErrHo);
+            this.flowLayoutPanel2.Controls.Add(this.label4);
+            this.flowLayoutPanel2.Controls.Add(this.txtTen);
+            this.flowLayoutPanel2.Controls.Add(this.lblErrTen);
+            this.flowLayoutPanel2.Controls.Add(this.label5);
+            this.flowLayoutPanel2.Controls.Add(this.dtpNgaySinh);
+            this.flowLayoutPanel2.Controls.Add(this.lblErrNgaySinh);
+            this.flowLayoutPanel2.Controls.Add(this.label6);
+            this.flowLayoutPanel2.Controls.Add(this.rdbNam);
+            this.flowLayoutPanel2.Controls.Add(this.rdbNu);
+            this.flowLayoutPanel2.Controls.Add(this.lblErrGioiTinh);
+            this.flowLayoutPanel2.Controls.Add(this.label7);
+            this.flowLayoutPanel2.Controls.Add(this.txtSoDT);
+            this.flowLayoutPanel2.Controls.Add(this.lblErrSoDT);
+            this.flowLayoutPanel2.Controls.Add(this.label8);
+            this.flowLayoutPanel2.Controls.Add(this.txtDiaChi);
+            this.flowLayoutPanel2.Controls.Add(this.lblErrDiaChi);
+            this.flowLayoutPanel2.Controls.Add(this.label9);
+            this.flowLayoutPanel2.Controls.Add(this.cbxTrangThai);
+            this.flowLayoutPanel2.Controls.Add(this.lblErrTrangThai);
+            this.flowLayoutPanel2.Controls.Add(this.label10);
+            this.flowLayoutPanel2.Controls.Add(this.cbxChucVu);
+            this.flowLayoutPanel2.Controls.Add(this.lblErrChucVu);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(8, 187);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(290, 480);
+            this.flowLayoutPanel2.TabIndex = 2;
             // 
             // txtMaNV
             // 
@@ -1491,6 +1347,30 @@
             this.dtpNgaySinh.Value = new System.DateTime(2023, 10, 24, 0, 0, 0, 0);
             this.dtpNgaySinh.ValueChanged += new System.EventHandler(this.dtpNgaySinh_ValueChanged);
             // 
+            // lblErrNgaySinh
+            // 
+            this.lblErrNgaySinh.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrNgaySinh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
+            this.lblErrNgaySinh.Location = new System.Drawing.Point(3, 195);
+            this.lblErrNgaySinh.Name = "lblErrNgaySinh";
+            this.lblErrNgaySinh.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblErrNgaySinh.Size = new System.Drawing.Size(271, 17);
+            this.lblErrNgaySinh.TabIndex = 31;
+            this.lblErrNgaySinh.Text = "* Ngày sinh quá ngày hiện tại";
+            this.lblErrNgaySinh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label6.Location = new System.Drawing.Point(4, 216);
+            this.label6.Margin = new System.Windows.Forms.Padding(4);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(94, 28);
+            this.label6.TabIndex = 32;
+            this.label6.Text = "Giới tính";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // rdbNam
             // 
             this.rdbNam.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(140)))), ((int)(((byte)(137)))));
@@ -1529,6 +1409,30 @@
             this.rdbNu.UseVisualStyleBackColor = true;
             this.rdbNu.CheckedChanged += new System.EventHandler(this.rdbNu_CheckedChanged_1);
             // 
+            // lblErrGioiTinh
+            // 
+            this.lblErrGioiTinh.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrGioiTinh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
+            this.lblErrGioiTinh.Location = new System.Drawing.Point(3, 248);
+            this.lblErrGioiTinh.Name = "lblErrGioiTinh";
+            this.lblErrGioiTinh.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblErrGioiTinh.Size = new System.Drawing.Size(273, 17);
+            this.lblErrGioiTinh.TabIndex = 41;
+            this.lblErrGioiTinh.Text = "* Bạn phải chọn Giới tính";
+            this.lblErrGioiTinh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label7.Location = new System.Drawing.Point(4, 269);
+            this.label7.Margin = new System.Windows.Forms.Padding(4);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(94, 28);
+            this.label7.TabIndex = 33;
+            this.label7.Text = "Số ĐT";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // txtSoDT
             // 
             this.txtSoDT.BackColor = System.Drawing.SystemColors.Window;
@@ -1554,6 +1458,30 @@
             this.txtSoDT.Texts = "";
             this.txtSoDT.UnderlinedStyle = false;
             this.txtSoDT._TextChanged += new System.EventHandler(this.txtSoDT__TextChanged);
+            // 
+            // lblErrSoDT
+            // 
+            this.lblErrSoDT.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrSoDT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
+            this.lblErrSoDT.Location = new System.Drawing.Point(3, 301);
+            this.lblErrSoDT.Name = "lblErrSoDT";
+            this.lblErrSoDT.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblErrSoDT.Size = new System.Drawing.Size(263, 17);
+            this.lblErrSoDT.TabIndex = 42;
+            this.lblErrSoDT.Text = "* Bạn phải nhập Số ĐT";
+            this.lblErrSoDT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label8.Location = new System.Drawing.Point(4, 322);
+            this.label8.Margin = new System.Windows.Forms.Padding(4);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(94, 28);
+            this.label8.TabIndex = 35;
+            this.label8.Text = "Địa chỉ";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtDiaChi
             // 
@@ -1581,6 +1509,30 @@
             this.txtDiaChi.UnderlinedStyle = false;
             this.txtDiaChi._TextChanged += new System.EventHandler(this.txtDiaChi__TextChanged);
             // 
+            // lblErrDiaChi
+            // 
+            this.lblErrDiaChi.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrDiaChi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
+            this.lblErrDiaChi.Location = new System.Drawing.Point(3, 354);
+            this.lblErrDiaChi.Name = "lblErrDiaChi";
+            this.lblErrDiaChi.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblErrDiaChi.Size = new System.Drawing.Size(263, 17);
+            this.lblErrDiaChi.TabIndex = 43;
+            this.lblErrDiaChi.Text = "* Bạn phải nhập Địa chỉ";
+            this.lblErrDiaChi.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label9.Location = new System.Drawing.Point(4, 375);
+            this.label9.Margin = new System.Windows.Forms.Padding(4);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(94, 28);
+            this.label9.TabIndex = 37;
+            this.label9.Text = "Trạng thái";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // cbxTrangThai
             // 
             this.cbxTrangThai.BackColor = System.Drawing.Color.White;
@@ -1604,6 +1556,30 @@
             this.cbxTrangThai.Texts = "--Chọn trạng thái--";
             this.cbxTrangThai.OnSelectedIndexChanged += new System.EventHandler(this.cbxTrangThai_OnSelectedIndexChanged);
             // 
+            // lblErrTrangThai
+            // 
+            this.lblErrTrangThai.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrTrangThai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
+            this.lblErrTrangThai.Location = new System.Drawing.Point(3, 407);
+            this.lblErrTrangThai.Name = "lblErrTrangThai";
+            this.lblErrTrangThai.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblErrTrangThai.Size = new System.Drawing.Size(271, 17);
+            this.lblErrTrangThai.TabIndex = 44;
+            this.lblErrTrangThai.Text = "* Bạn phải chọn Trạng thái";
+            this.lblErrTrangThai.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label10
+            // 
+            this.label10.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label10.Location = new System.Drawing.Point(4, 428);
+            this.label10.Margin = new System.Windows.Forms.Padding(4);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(87, 28);
+            this.label10.TabIndex = 40;
+            this.label10.Text = "Chức vụ";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // cbxChucVu
             // 
             this.cbxChucVu.BackColor = System.Drawing.Color.White;
@@ -1613,10 +1589,6 @@
             this.cbxChucVu.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxChucVu.ForeColor = System.Drawing.Color.Black;
             this.cbxChucVu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(190)))), ((int)(((byte)(186)))));
-            this.cbxChucVu.Items.AddRange(new object[] {
-            "Nhân viên bán hàng",
-            "Nhân viên quản lý",
-            "Nhân viên kho"});
             this.cbxChucVu.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(252)))), ((int)(((byte)(237)))));
             this.cbxChucVu.ListTextColor = System.Drawing.Color.DimGray;
             this.cbxChucVu.Location = new System.Drawing.Point(98, 427);
@@ -1627,6 +1599,30 @@
             this.cbxChucVu.TabIndex = 46;
             this.cbxChucVu.Texts = "--Chọn chức vụ--";
             this.cbxChucVu.OnSelectedIndexChanged += new System.EventHandler(this.cbxChucVu_OnSelectedIndexChanged);
+            // 
+            // lblErrChucVu
+            // 
+            this.lblErrChucVu.Font = new System.Drawing.Font("Cambria", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrChucVu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(76)))), ((int)(((byte)(89)))));
+            this.lblErrChucVu.Location = new System.Drawing.Point(3, 460);
+            this.lblErrChucVu.Name = "lblErrChucVu";
+            this.lblErrChucVu.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblErrChucVu.Size = new System.Drawing.Size(271, 17);
+            this.lblErrChucVu.TabIndex = 47;
+            this.lblErrChucVu.Text = "* Bạn phải chọn chức vụ";
+            this.lblErrChucVu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.btnThem);
+            this.flowLayoutPanel3.Controls.Add(this.btnSua);
+            this.flowLayoutPanel3.Controls.Add(this.btnXoa);
+            this.flowLayoutPanel3.Controls.Add(this.btnReset);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(8, 675);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(290, 45);
+            this.flowLayoutPanel3.TabIndex = 4;
             // 
             // btnThem
             // 

@@ -45,23 +45,61 @@ namespace GUI
 
         private string maNV;
         private string fileName;
+
+        private ChucVuBLL cvBLL;
+        private DataTable dtChucVu;
         public NhanVienGUI()
         {
             InitializeComponent();
             nvBLL = new NhanVienBLL();
+            cvBLL = new ChucVuBLL();
             dt = nvBLL.getListNhanVien();
+            dtChucVu = cvBLL.getListChucVu();
             unhideError();
             load_Form();
             loadCbxTimKiem();
+            loadtoCBX();
             lblErrNgaySinh.Visible = false;
- 
+            //loadtoCBX();
             loadMaNV();
             loadBtn();
             dtpNgaySinh.Format = DateTimePickerFormat.Custom;
             dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
             dtpNgaySinh.MaxDate = DateTime.Now.Date.AddYears(-18);
         }
+        private void loadtoCBX()
+        {
+            foreach (DataRow row in dtChucVu.Rows)
+            {
+                // Lấy giá trị của cột "TenCV" từ mỗi dòng
+                string tenChucVu = row["TenCV"].ToString();
 
+                cbxChucVu.Items.Add(tenChucVu);
+            }
+        }
+
+        private string searchMaCVbyTenCV(string tenCV)
+        {
+            string maChucVu = null;
+            // Duyệt qua từng dòng trong DataTable
+            foreach (DataRow row in dtChucVu.Rows)
+            {
+                // Lấy giá trị của cột "TenCV" từ mỗi dòng
+                string tenChucVu = row["TenCV"].ToString();
+
+                // Kiểm tra xem tên chức vụ có trùng khớp không
+                if (tenChucVu == tenCV)
+                {
+                    // Nếu trùng khớp, lấy giá trị của cột "MaCV"
+                    maChucVu = row["MaCV"].ToString();
+
+                    // Sử dụng giá trị của cột "MaCV" ở đây, ví dụ: in ra console
+                    Console.WriteLine($"Ma Chuc Vu: {maChucVu}");
+                    break; // Nếu đã tìm thấy, thoát khỏi vòng lặp
+                }
+            }
+            return maChucVu;
+        }
         private void loadMaNV()
         {
             nvBLL = new NhanVienBLL();
@@ -438,18 +476,8 @@ namespace GUI
             string trangThai = CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
             int trangThaiValue = (trangThai == "Hoạt động" ? 1 : 0);
             string chucVu = CheckAndSetColor(cbxChucVu, lblErrChucVu);
-            if (chucVu == "Nhân viên quản lý")
-            {
-                chucVu = "CV002";
-            }
-            if (chucVu == "Nhân viên kho")
-            {
-                chucVu = "CV003";
-            }
-            if (chucVu == "Nhân viên bán hàng")
-            {
-                chucVu = "CV004";
-            }
+            string maCV = searchMaCVbyTenCV(chucVu);
+            
             string img = fileName;
             if (img == null)
             {
@@ -481,7 +509,7 @@ namespace GUI
             {
                 return;
             }
-            NhanVienDTO nv = new NhanVienDTO(maNV, ho, ten, ngaySinh, gioiTinh, soDT, diaChi, trangThaiValue, chucVu,img);
+            NhanVienDTO nv = new NhanVienDTO(maNV, ho, ten, ngaySinh, gioiTinh, soDT, diaChi, trangThaiValue, maCV,img);
             if (nvBLL.insertNhanVien(nv))
             {
                 MessageBox.Show("Thêm thành công",
@@ -523,19 +551,8 @@ namespace GUI
             string trangThai = CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
             int trangThaiValue = (trangThai == "Hoạt động" ? 1 : 0);
             string chucVu = CheckAndSetColor(cbxChucVu, lblErrChucVu);
-            
-            if (chucVu == "Nhân viên quản lý")
-            {
-                chucVu = "CV002";
-            }
-            if (chucVu == "Nhân viên kho")
-            {
-                chucVu = "CV003";
-            }
-            if( chucVu == "Nhân viên bán hàng")
-            {
-                chucVu = "CV004";
-            }
+
+            string maCV = searchMaCVbyTenCV(chucVu);
             string img = fileName;
             if (img == null)
             {
@@ -568,7 +585,7 @@ namespace GUI
                 return;
             }
 
-            NhanVienDTO nv = new NhanVienDTO(maNV, ho, ten, ngaySinh, gioiTinh, soDT, diaChi, trangThaiValue, chucVu,img);
+            NhanVienDTO nv = new NhanVienDTO(maNV, ho, ten, ngaySinh, gioiTinh, soDT, diaChi, trangThaiValue, maCV,img);
             if (nvBLL.updateNhanVien(nv))
             {
                 MessageBox.Show("Sửa thành công",

@@ -61,7 +61,7 @@ namespace GUI
 
                 btnThayDoiTTCN_Click(this, EventArgs.Empty);
                 dgvNhanVien.DataSource = nvBLL.getCurrentNVHasTK(maNV);
-
+                txtTenDangNhap.Enabled = false;
             }
         }
         private void loadMaTK()

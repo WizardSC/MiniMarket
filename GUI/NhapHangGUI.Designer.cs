@@ -331,7 +331,7 @@
             this.btnThanhToan.Name = "btnThanhToan";
             this.btnThanhToan.Size = new System.Drawing.Size(150, 41);
             this.btnThanhToan.TabIndex = 1;
-            this.btnThanhToan.Text = "         THANH TOÁN";
+            this.btnThanhToan.Text = "         NHẬP HÀNG";
             this.btnThanhToan.TextColor = System.Drawing.Color.Black;
             this.btnThanhToan.UseVisualStyleBackColor = false;
             this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
