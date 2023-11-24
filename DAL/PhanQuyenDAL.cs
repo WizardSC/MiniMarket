@@ -15,7 +15,31 @@ namespace DAL
         {
 
         }
+        public bool insertPhanQuyen(string tenPQ)
+        {
+            try
+            {
+                Connect();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "ThemPhanQuyen";
+                cmd.Parameters.Add("@TenPQ", SqlDbType.NVarChar, 30).Value = tenPQ;
 
+                cmd.Connection = conn;
+                cmd.ExecuteNonQuery();
+                return true; // Thêm thành công
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi nếu cần
+                Console.WriteLine("Lỗi: " + ex.Message);
+                return false; // Thêm thất bại
+            }
+            finally
+            {
+                Disconnect();
+            }
+        }
         public PhanQuyenDTO getPhanQuyen(string tenPQ)
         {
             //List<PhanQuyenDTO> listPQ = new List<PhanQuyenDTO>();
