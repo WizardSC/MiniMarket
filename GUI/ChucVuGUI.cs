@@ -29,6 +29,7 @@ namespace GUI
         private string textSearchCondition = "";
         private string currentSearch;
         private ChucVuBLL cvBLL;
+        private PhanQuyenBLL pqBLL;
         private DataTable dt;
         private bool isFormFilter = false;
         private bool isGioiTinh = false;
@@ -55,6 +56,7 @@ namespace GUI
         public ChucVuGUI(int isChucVu)
         {
             cvBLL = new ChucVuBLL();
+            pqBLL = new PhanQuyenBLL();
             dt = cvBLL.getListChucVu();
             InitializeComponent();
             unhideError();
@@ -78,12 +80,12 @@ namespace GUI
         {
             if (quyen == 1)
             {
-                
+
                 btnThem.Enabled = false;
                 btnSua.Enabled = false;
                 btnXoa.Enabled = false;
                 cbxTrangThai.Enabled = false;
-                
+
             }
         }
         private void unhideError()
@@ -99,11 +101,11 @@ namespace GUI
         }
         private void ChucVuGUI_Load(object sender, EventArgs e)
         {
-            dgvChucVu.DataSource = cvBLL.getListChucVu(); 
+            dgvChucVu.DataSource = cvBLL.getListChucVu();
         }
         private void loadMaCV()
         {
-            cvBLL  = new ChucVuBLL();
+            cvBLL = new ChucVuBLL();
             maCV = cvBLL.getMaxMaCV();
             string lastMaCV = maCV;
             if (lastMaCV == "")
@@ -137,7 +139,7 @@ namespace GUI
                 case 0:
                     return returnDieuKien($"MaCV like '%{searchText}%'");
                 case 1:
-                    return returnDieuKien($"TenCV like '%{searchText}%'");         
+                    return returnDieuKien($"TenCV like '%{searchText}%'");
                 default:
                     return returnDieuKien($"MaCV like '%{searchText}%'"); ;
             }
@@ -171,7 +173,7 @@ namespace GUI
                 return selectedValue;
             }
 
-            return null; 
+            return null;
         }
         private string CheckAndSetColorTen(object control, Label label)
         {
@@ -201,11 +203,11 @@ namespace GUI
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
-            string maCV = CheckAndSetColor(txtMaCV11, lblErrMaCV);     
-            string ten = CheckAndSetColorTen(txtTen, lblErrTen);      
+            string maCV = CheckAndSetColor(txtMaCV11, lblErrMaCV);
+            string ten = CheckAndSetColorTen(txtTen, lblErrTen);
             string trangThai = CheckAndSetColor(cbxTrangThai, lblErrTrangThai);
             int trangThaiValue = (trangThai == "Hoạt động" ? 1 : 0);
-            if ((string.IsNullOrWhiteSpace(ten) ||  string.IsNullOrWhiteSpace(trangThai)))
+            if ((string.IsNullOrWhiteSpace(ten) || string.IsNullOrWhiteSpace(trangThai)))
             {
                 return;
             }
@@ -226,7 +228,24 @@ namespace GUI
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
+            int result = pqBLL.insertPhanQuyen(ten) ? 1 : 0;
+            if (result == 1)
+            {
+
+                MessageBox.Show("Thêm thành công",
+                  "Thông báo",
+                  MessageBoxButtons.OK,
+                  MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Thêm thất bại",
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
+
 
         private void btnSua_Click(object sender, EventArgs e)
         {

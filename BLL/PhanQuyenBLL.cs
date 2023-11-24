@@ -24,5 +24,10 @@ namespace BLL
         {
             return pqDAL.updatePhanQuyen(pq);
         }
+
+        public bool insertPhanQuyen(string tenPQ)
+        {
+            return pqDAL.insertPhanQuyen(tenPQ);
+        }
     }
 }
