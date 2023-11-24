@@ -17,7 +17,7 @@ namespace DAL
 
         //Toàn đẹp try wizard
 
-        string strconn = @"Data Source=LAPTOP-AEI9M0MI\WIZARDSC;Initial Catalog = MiniMarket; Integrated Security = True";
+     //   string strconn = @"Data Source=LAPTOP-AEI9M0MI\WIZARDSC;Initial Catalog = MiniMarket; Integrated Security = True";
 
 
         //string strconn = @"Data Source=DESKTOP-G0C5JTO\SQLEXPRESS;Initial Catalog = MiniMarket; Integrated Security = True";
@@ -34,7 +34,7 @@ namespace DAL
 
 
         //TheVinh
-        //string strconn = @"Data Source=MSI;Initial Catalog = MiniMarket1511; Integrated Security = True";
+        string strconn = @"Data Source=MSI;Initial Catalog = MiniMarket1511; Integrated Security = True";
 
         public void Connect()
         {

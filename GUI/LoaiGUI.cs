@@ -135,15 +135,26 @@ namespace GUI
             string TenLoai = CheckAndSetColor(txtTenLoai, label15);
             string trangThai = CheckAndSetColor(cbxTrangThai, label3);
             int trangThaiValue = (trangThai == "Hoạt động") ? 1 : 0;
+
             if (!(MaLoai != "" && TenLoai != "" && trangThai != ""))
             {
                 return;
             }
+
+            if (!ContainsOnlyLetters(TenLoai))
+            {
+                MessageBox.Show("Tên loại không được chứa số.",
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
             LoaiDTO LSP = new LoaiDTO(MaLoai, TenLoai, trangThaiValue);
             int flag = loaibill.insert_LoaiSP(LSP) ? 1 : 0;
+
             if (flag == 1)
             {
-
                 MessageBox.Show("Thêm loại thành công.",
                     "Thông báo",
                     MessageBoxButtons.OK,
@@ -151,7 +162,6 @@ namespace GUI
                 loadMaLoai();
                 init();
                 clearForm();
-
             }
             else
             {
@@ -162,6 +172,18 @@ namespace GUI
                 init();
             }
 
+        }
+
+        private bool ContainsOnlyLetters(string input)
+        {
+            foreach (char c in input)
+            {
+                if (!char.IsLetter(c))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         private void dgvLoai_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -216,7 +238,7 @@ namespace GUI
             int trangThaiValue = (trangThai == "Hoạt động" ? 1 : 0);
             if (ContainsNumber(TenLoai))
             {
-                MessageBox.Show("Tên NSX không được chứa số!",
+                MessageBox.Show("Tên Loại không được chứa số!",
                                 "Lỗi",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
