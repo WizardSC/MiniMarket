@@ -41,6 +41,8 @@ namespace GUI
         private string fileName;
         private string ma;
 
+        private int quyenNhaCungCap;
+
         public NhaCCGUI(int isNCC)
         {
             InitializeComponent();
@@ -50,6 +52,7 @@ namespace GUI
             loadCbxTimKiem();
             unhideError();
             checkQuyen(isNCC);
+            this.quyenNhaCungCap = isNCC;
             loadMaNCC();
 
         }
@@ -420,6 +423,8 @@ namespace GUI
             btnThem.Enabled = false;
             btnXoa.Enabled = true;
             btnSua.Enabled = true;
+
+            checkQuyen(quyenNhaCungCap);
             int i = dgvNhaCC.CurrentRow.Index;
             txtMaNCC.Texts = dgvNhaCC.Rows[i].Cells[0].Value.ToString();
             txtTen.Texts = dgvNhaCC.Rows[i].Cells[1].Value.ToString();
@@ -643,6 +648,8 @@ namespace GUI
             btnThem.Enabled = true;
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
+            checkQuyen(quyenNhaCungCap);
+
             loadMaNCC();
             txtTimKiem.Texts = "";
             txtTen.Texts = "";

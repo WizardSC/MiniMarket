@@ -18,16 +18,21 @@ namespace GUI
         private PhanQuyenBLL pqBLL;
         private int quyenPhanQuyen;
         private List<(RJComboBox, BiggerCheckBox)> permissionControlPairs;
+
+        private ChucVuBLL cvBLL;
+        private DataTable dtChucVu;
+
         public PhanQuyenGUI(int isPhanQuyen)
         {
 
             InitializeComponent();
             pqBLL = new PhanQuyenBLL();
-
-
+            cvBLL = new ChucVuBLL();
+            dtChucVu = cvBLL.getListChucVu();
             this.quyenPhanQuyen = isPhanQuyen;
             InitializePermissionControls();
             loadToCBXChonPQ();
+            loadToCBX();
             checkQuyen(quyenPhanQuyen);
             //cbxDanhSach.SelectedIndex = 0;
             cbxDanhSach.Texts = "--Chọn quyền--";
@@ -47,6 +52,17 @@ namespace GUI
                     cbx.Enabled = false;
                     chk.Enabled = false;
                 }
+            }
+        }
+        private void loadToCBX()
+        {
+            cbxDanhSach.Items.Clear();
+            foreach (DataRow row in dtChucVu.Rows)
+            {
+                // Lấy giá trị của cột "TenCV" từ mỗi dòng
+                string tenChucVu = row["TenCV"].ToString();
+
+                cbxDanhSach.Items.Add(tenChucVu);
             }
         }
         private void reset()
