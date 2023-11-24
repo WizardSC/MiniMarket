@@ -117,6 +117,7 @@ namespace GUI
             txtTenSP.Enabled = false;
             txtTonKho.Enabled = false;
             txtDonGia.Enabled = false;
+            btnThanhToan.Enabled = false;
 
         }
         private List<Tuple<string, string, string>> ConvertDataTableToList(DataTable dt)
@@ -186,6 +187,8 @@ namespace GUI
             txtDonGia.Texts = "";
             pbImage.Image = pbImage.InitialImage;
             nudSoLuongMua.Value = 0;
+            
+
         }
         private void CalculateTotalPages(List<SanPhamDTO> productList)
         {
@@ -852,6 +855,7 @@ namespace GUI
             }
             btnInHoaDon.Enabled = true;
             btnThanhToan.Enabled = false;
+            btnThemVaoGio.Enabled = false;
 
         }
         private void btnInHoaDon_Click(object sender, EventArgs e)
@@ -883,6 +887,7 @@ namespace GUI
             clearThongTinSauKhiTaoHD();
             btnInHoaDon.Enabled = false;
             btnThanhToan.Enabled = true;
+            btnThemVaoGio.Enabled = true;
 
 
         }
@@ -975,7 +980,7 @@ namespace GUI
             lblDiemTL.Text = "0";
             giaTienLanDauLucCoKM = 0;
             isClickedMiniDTL = false;
-
+            btnThanhToan.Enabled = true;
 
         }
 

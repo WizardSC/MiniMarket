@@ -75,6 +75,7 @@ namespace GUI
             if (MaKM == "")
             {
                 txtMaKM.Texts = "KM001";
+                return;
             }
             int tempNum = int.Parse(MaKM.Substring(2));
             if ((tempNum + 1) >= 10)

@@ -422,6 +422,7 @@ namespace GUI
                 return;
             }
             btnInPhieuNhap.Enabled = true;
+            btnChonSanPham.Enabled = false;
 
         }
         private void btnInPhieuNhap_Click(object sender, EventArgs e)
@@ -457,6 +458,7 @@ namespace GUI
                 refreshThongTin();
             }
             btnInPhieuNhap.Enabled = false;
+            btnChonSanPham.Enabled = true;
 
         }
 

@@ -72,9 +72,10 @@ namespace GUI
 
                 // Lấy giá trị cột "NgayKetThuc"
                 DateTime ngayKetThuc = Convert.ToDateTime(dgvKhuyenMai.Rows[e.RowIndex].Cells["NgayKetThuc"].Value);
-               
+                DateTime ngayBatDau = Convert.ToDateTime(dgvKhuyenMai.Rows[e.RowIndex].Cells["NgayBatDau"].Value);
+
                 // Định dạng giá trị dựa trên giá trị của cột "TrangThai" và ngày kết thúc
-                if (trangThai == 1 && ngayKetThuc >= DateTime.Now)
+                if (trangThai == 1 && ngayKetThuc >= DateTime.Now && ngayBatDau <= DateTime.Now)
                 {
                     e.Value = "Hoạt động";
                 }
